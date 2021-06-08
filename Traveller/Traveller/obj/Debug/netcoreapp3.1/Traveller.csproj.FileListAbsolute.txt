@@ -1,0 +1,18 @@
+C:\Users\David\Route\Traveller\Traveller\bin\Debug\netcoreapp3.1\Traveller.deps.json
+C:\Users\David\Route\Traveller\Traveller\bin\Debug\netcoreapp3.1\Traveller.dll
+C:\Users\David\Route\Traveller\Traveller\bin\Debug\netcoreapp3.1\Traveller.pdb
+C:\Users\David\Route\Traveller\Traveller\obj\Debug\netcoreapp3.1\Traveller.csprojAssemblyReference.cache
+C:\Users\David\Route\Traveller\Traveller\obj\Debug\netcoreapp3.1\Traveller.AssemblyInfoInputs.cache
+C:\Users\David\Route\Traveller\Traveller\obj\Debug\netcoreapp3.1\Traveller.AssemblyInfo.cs
+C:\Users\David\Route\Traveller\Traveller\obj\Debug\netcoreapp3.1\Traveller.csproj.CoreCompileInputs.cache
+C:\Users\David\Route\Traveller\Traveller\obj\Debug\netcoreapp3.1\Traveller.dll
+C:\Users\David\Route\Traveller\Traveller\obj\Debug\netcoreapp3.1\Traveller.pdb
+C:\Users\David\Desktop\Code Project\Route\Traveller\Traveller\bin\Debug\netcoreapp3.1\Traveller.deps.json
+C:\Users\David\Desktop\Code Project\Route\Traveller\Traveller\bin\Debug\netcoreapp3.1\Traveller.dll
+C:\Users\David\Desktop\Code Project\Route\Traveller\Traveller\bin\Debug\netcoreapp3.1\Traveller.pdb
+C:\Users\David\Desktop\Code Project\Route\Traveller\Traveller\obj\Debug\netcoreapp3.1\Traveller.csprojAssemblyReference.cache
+C:\Users\David\Desktop\Code Project\Route\Traveller\Traveller\obj\Debug\netcoreapp3.1\Traveller.AssemblyInfoInputs.cache
+C:\Users\David\Desktop\Code Project\Route\Traveller\Traveller\obj\Debug\netcoreapp3.1\Traveller.AssemblyInfo.cs
+C:\Users\David\Desktop\Code Project\Route\Traveller\Traveller\obj\Debug\netcoreapp3.1\Traveller.csproj.CoreCompileInputs.cache
+C:\Users\David\Desktop\Code Project\Route\Traveller\Traveller\obj\Debug\netcoreapp3.1\Traveller.dll
+C:\Users\David\Desktop\Code Project\Route\Traveller\Traveller\obj\Debug\netcoreapp3.1\Traveller.pdb

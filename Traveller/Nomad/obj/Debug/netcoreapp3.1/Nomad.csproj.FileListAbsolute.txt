@@ -1,0 +1,32 @@
+C:\Users\David\Route\Traveller\Nomad\bin\Debug\netcoreapp3.1\Nomad.exe
+C:\Users\David\Route\Traveller\Nomad\bin\Debug\netcoreapp3.1\Nomad.deps.json
+C:\Users\David\Route\Traveller\Nomad\bin\Debug\netcoreapp3.1\Nomad.runtimeconfig.json
+C:\Users\David\Route\Traveller\Nomad\bin\Debug\netcoreapp3.1\Nomad.runtimeconfig.dev.json
+C:\Users\David\Route\Traveller\Nomad\bin\Debug\netcoreapp3.1\Nomad.dll
+C:\Users\David\Route\Traveller\Nomad\bin\Debug\netcoreapp3.1\Nomad.pdb
+C:\Users\David\Route\Traveller\Nomad\bin\Debug\netcoreapp3.1\Traveller.dll
+C:\Users\David\Route\Traveller\Nomad\bin\Debug\netcoreapp3.1\Traveller.pdb
+C:\Users\David\Route\Traveller\Nomad\obj\Debug\netcoreapp3.1\Nomad.csprojAssemblyReference.cache
+C:\Users\David\Route\Traveller\Nomad\obj\Debug\netcoreapp3.1\Nomad.AssemblyInfoInputs.cache
+C:\Users\David\Route\Traveller\Nomad\obj\Debug\netcoreapp3.1\Nomad.AssemblyInfo.cs
+C:\Users\David\Route\Traveller\Nomad\obj\Debug\netcoreapp3.1\Nomad.csproj.CoreCompileInputs.cache
+C:\Users\David\Route\Traveller\Nomad\obj\Debug\netcoreapp3.1\Nomad.csproj.CopyComplete
+C:\Users\David\Route\Traveller\Nomad\obj\Debug\netcoreapp3.1\Nomad.dll
+C:\Users\David\Route\Traveller\Nomad\obj\Debug\netcoreapp3.1\Nomad.pdb
+C:\Users\David\Route\Traveller\Nomad\obj\Debug\netcoreapp3.1\Nomad.genruntimeconfig.cache
+C:\Users\David\Desktop\Code Project\Route\Traveller\Nomad\bin\Debug\netcoreapp3.1\Nomad.exe
+C:\Users\David\Desktop\Code Project\Route\Traveller\Nomad\bin\Debug\netcoreapp3.1\Nomad.deps.json
+C:\Users\David\Desktop\Code Project\Route\Traveller\Nomad\bin\Debug\netcoreapp3.1\Nomad.runtimeconfig.json
+C:\Users\David\Desktop\Code Project\Route\Traveller\Nomad\bin\Debug\netcoreapp3.1\Nomad.runtimeconfig.dev.json
+C:\Users\David\Desktop\Code Project\Route\Traveller\Nomad\bin\Debug\netcoreapp3.1\Nomad.dll
+C:\Users\David\Desktop\Code Project\Route\Traveller\Nomad\bin\Debug\netcoreapp3.1\Nomad.pdb
+C:\Users\David\Desktop\Code Project\Route\Traveller\Nomad\bin\Debug\netcoreapp3.1\Traveller.dll
+C:\Users\David\Desktop\Code Project\Route\Traveller\Nomad\bin\Debug\netcoreapp3.1\Traveller.pdb
+C:\Users\David\Desktop\Code Project\Route\Traveller\Nomad\obj\Debug\netcoreapp3.1\Nomad.csprojAssemblyReference.cache
+C:\Users\David\Desktop\Code Project\Route\Traveller\Nomad\obj\Debug\netcoreapp3.1\Nomad.AssemblyInfoInputs.cache
+C:\Users\David\Desktop\Code Project\Route\Traveller\Nomad\obj\Debug\netcoreapp3.1\Nomad.AssemblyInfo.cs
+C:\Users\David\Desktop\Code Project\Route\Traveller\Nomad\obj\Debug\netcoreapp3.1\Nomad.csproj.CoreCompileInputs.cache
+C:\Users\David\Desktop\Code Project\Route\Traveller\Nomad\obj\Debug\netcoreapp3.1\Nomad.csproj.CopyComplete
+C:\Users\David\Desktop\Code Project\Route\Traveller\Nomad\obj\Debug\netcoreapp3.1\Nomad.dll
+C:\Users\David\Desktop\Code Project\Route\Traveller\Nomad\obj\Debug\netcoreapp3.1\Nomad.pdb
+C:\Users\David\Desktop\Code Project\Route\Traveller\Nomad\obj\Debug\netcoreapp3.1\Nomad.genruntimeconfig.cache

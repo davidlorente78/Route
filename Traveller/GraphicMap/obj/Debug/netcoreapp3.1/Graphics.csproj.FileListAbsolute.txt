@@ -1,0 +1,16 @@
+C:\Users\David\Route\Traveller\Graphics\bin\Debug\netcoreapp3.1\Graphics.exe
+C:\Users\David\Route\Traveller\Graphics\bin\Debug\netcoreapp3.1\Graphics.deps.json
+C:\Users\David\Route\Traveller\Graphics\bin\Debug\netcoreapp3.1\Graphics.runtimeconfig.json
+C:\Users\David\Route\Traveller\Graphics\bin\Debug\netcoreapp3.1\Graphics.runtimeconfig.dev.json
+C:\Users\David\Route\Traveller\Graphics\bin\Debug\netcoreapp3.1\Graphics.dll
+C:\Users\David\Route\Traveller\Graphics\bin\Debug\netcoreapp3.1\Graphics.pdb
+C:\Users\David\Route\Traveller\Graphics\obj\Debug\netcoreapp3.1\Graphics.csprojAssemblyReference.cache
+C:\Users\David\Route\Traveller\Graphics\obj\Debug\netcoreapp3.1\Graphics.Form1.resources
+C:\Users\David\Route\Traveller\Graphics\obj\Debug\netcoreapp3.1\Graphics.Properties.Resources.resources
+C:\Users\David\Route\Traveller\Graphics\obj\Debug\netcoreapp3.1\Graphics.csproj.GenerateResource.cache
+C:\Users\David\Route\Traveller\Graphics\obj\Debug\netcoreapp3.1\Graphics.AssemblyInfoInputs.cache
+C:\Users\David\Route\Traveller\Graphics\obj\Debug\netcoreapp3.1\Graphics.AssemblyInfo.cs
+C:\Users\David\Route\Traveller\Graphics\obj\Debug\netcoreapp3.1\Graphics.csproj.CoreCompileInputs.cache
+C:\Users\David\Route\Traveller\Graphics\obj\Debug\netcoreapp3.1\Graphics.dll
+C:\Users\David\Route\Traveller\Graphics\obj\Debug\netcoreapp3.1\Graphics.pdb
+C:\Users\David\Route\Traveller\Graphics\obj\Debug\netcoreapp3.1\Graphics.genruntimeconfig.cache
