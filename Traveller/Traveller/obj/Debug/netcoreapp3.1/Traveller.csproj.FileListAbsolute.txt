@@ -16,3 +16,13 @@ C:\Users\David\Desktop\Code Project\Route\Traveller\Traveller\obj\Debug\netcorea
 C:\Users\David\Desktop\Code Project\Route\Traveller\Traveller\obj\Debug\netcoreapp3.1\Traveller.csproj.CoreCompileInputs.cache
 C:\Users\David\Desktop\Code Project\Route\Traveller\Traveller\obj\Debug\netcoreapp3.1\Traveller.dll
 C:\Users\David\Desktop\Code Project\Route\Traveller\Traveller\obj\Debug\netcoreapp3.1\Traveller.pdb
+D:\Code Project\Route\Traveller\Traveller\bin\Debug\netcoreapp3.1\Traveller.deps.json
+D:\Code Project\Route\Traveller\Traveller\bin\Debug\netcoreapp3.1\Traveller.dll
+D:\Code Project\Route\Traveller\Traveller\bin\Debug\netcoreapp3.1\Traveller.pdb
+D:\Code Project\Route\Traveller\Traveller\obj\Debug\netcoreapp3.1\Traveller.csproj.AssemblyReference.cache
+D:\Code Project\Route\Traveller\Traveller\obj\Debug\netcoreapp3.1\Traveller.GeneratedMSBuildEditorConfig.editorconfig
+D:\Code Project\Route\Traveller\Traveller\obj\Debug\netcoreapp3.1\Traveller.AssemblyInfoInputs.cache
+D:\Code Project\Route\Traveller\Traveller\obj\Debug\netcoreapp3.1\Traveller.AssemblyInfo.cs
+D:\Code Project\Route\Traveller\Traveller\obj\Debug\netcoreapp3.1\Traveller.csproj.CoreCompileInputs.cache
+D:\Code Project\Route\Traveller\Traveller\obj\Debug\netcoreapp3.1\Traveller.dll
+D:\Code Project\Route\Traveller\Traveller\obj\Debug\netcoreapp3.1\Traveller.pdb

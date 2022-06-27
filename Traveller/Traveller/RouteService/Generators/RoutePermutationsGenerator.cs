@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using Traveller.Domain;
 using Traveller.RouteService;
 using Traveller.RuleService;
-using System.Linq;
-using Traveller.RouteService.Evaluator;
 using Traveller.RouteService.Helpers;
 
 namespace Traveller

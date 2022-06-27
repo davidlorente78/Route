@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Drawing;
 
 namespace GraphicMap.Coordinates
@@ -13,7 +12,7 @@ namespace GraphicMap.Coordinates
         {
 
             //Primer caracter pais //Segundo Tipo C = Countru R = En Ruta T = Tourist Destination
-                Tuple.Create('T', 'C', new Point( 199,485)),
+                Tuple.Create('T', 'C', new Point(199,485)),
                 Tuple.Create('M', 'C', new Point(268, 649)),
                 Tuple.Create('L', 'C', new Point(298, 231)),
                 Tuple.Create('V', 'C', new Point(433, 358)),

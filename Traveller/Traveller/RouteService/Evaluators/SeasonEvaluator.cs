@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using Traveller.RouteService.DataContainer;
 
 namespace Traveller.RouteService.Evaluator

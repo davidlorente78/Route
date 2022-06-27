@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Traveller.Data
 {
@@ -16,7 +14,7 @@ namespace Traveller.Data
             Validity = 0,
             OnLine = false,
             Duration = 90,
-            Category = "Visado gratuito para estancias interiores a 90 dias.",
+            Category = "Visado gratuito para estancias inferiores a 90 dias.",
             Extensible = true,
 
             ValidEntryPoints = new List<Destination> { MalasiaDestinations.PadangPesar, MalasiaDestinations.RantanPanjang }

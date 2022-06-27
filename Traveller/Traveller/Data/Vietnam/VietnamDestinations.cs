@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Traveller.Data
+﻿namespace Traveller.Data
 {
     public static class VietnamDestinations
     {

@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "53f0b9e1-3e0d-420f-9672-1d4946c7e589": {
+      "ProjectGuid": "53f0b9e1-3e0d-420f-9672-1d4946c7e589",
+      "DisplayName": "Traveller",
+      "ColorIndex": 0
+    },
+    "fbc26745-b369-4fd6-a04d-bb96e5c6ee89": {
+      "ProjectGuid": "fbc26745-b369-4fd6-a04d-bb96e5c6ee89",
+      "DisplayName": "GraphicMap",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
