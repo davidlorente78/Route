@@ -2,6 +2,7 @@ D:\Code Project\Route\Traveller\Domain\bin\Debug\net6.0\Domain.deps.json
 D:\Code Project\Route\Traveller\Domain\bin\Debug\net6.0\Domain.dll
 D:\Code Project\Route\Traveller\Domain\bin\Debug\net6.0\ref\Domain.dll
 D:\Code Project\Route\Traveller\Domain\bin\Debug\net6.0\Domain.pdb
+D:\Code Project\Route\Traveller\Domain\obj\Debug\net6.0\Domain.csproj.AssemblyReference.cache
 D:\Code Project\Route\Traveller\Domain\obj\Debug\net6.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
 D:\Code Project\Route\Traveller\Domain\obj\Debug\net6.0\Domain.AssemblyInfoInputs.cache
 D:\Code Project\Route\Traveller\Domain\obj\Debug\net6.0\Domain.AssemblyInfo.cs

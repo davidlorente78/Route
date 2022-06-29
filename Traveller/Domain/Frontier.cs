@@ -2,19 +2,19 @@
 {
     public class Frontier
     {
-        public int FrontierId;
-        public Destination Origin;
-        public Destination Destination;
+        public int FrontierID;
+        public Destination Origin { get; set; }
+        public Destination Destination { get; set; }
 
-        public string Name;
-        public string Description;
-        public ICollection<Visa> Visas;
-        public string Type; //T A
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public ICollection<Visa> Visas { get; set; }
+        public string Type { get; set; } //T A
 
-        public bool Transit;
-        public string Transport;
-        public Destination TransitOrigin;
-        public Destination TransitDestination;
+        public bool Transit { get; set; }
+        public string Transport { get; set; }
+        public Destination TransitOrigin { get; set; }
+        public Destination TransitDestination { get; set; }
 
         public override string ToString()
         {

@@ -21,7 +21,7 @@ namespace RouteDataManager.Repositories
         //    optionsBuilder.UseSqlServer(connectionString);
         //}
 
-       
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Country>().ToTable("Country");

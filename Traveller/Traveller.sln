@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StaticData", "StaticData\StaticData.csproj", "{E5B59322-4EDF-4C84-93FE-427F277996A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RouteDataManager", "RouteDataManager\RouteDataManager.csproj", "{C41F33FE-4F34-4B15-88B9-C0D09ACD7ED5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RouteDataManager", "RouteDataManager\RouteDataManager.csproj", "{C41F33FE-4F34-4B15-88B9-C0D09ACD7ED5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

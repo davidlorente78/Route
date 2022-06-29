@@ -108,8 +108,9 @@ namespace Tests
 
             FrontierService frontierService = new FrontierService();
 
-            var frontier = frontierService.FrontierToAccesDestinationFromOrigin('L', 'T');
             //Access Laos from Thailand
+            var frontier = frontierService.FrontierToAccesDestinationFromOrigin('L', 'T');
+            
 
             //NongKhai e Internacional
             //var frontier_airport = frontierService.FrontierstoAccesDestinationFromOriginIncludingAirports('L', 'T');

@@ -11,7 +11,7 @@
         public string Name { get; set; }
 
         public ICollection<Destination> Destinations { get; set; }
-        //public ICollection<Frontier> Frontiers;
+        public ICollection<Frontier> Frontiers;
         //public ICollection<Visa> Visas;
 
         public Country() { }

@@ -3,18 +3,20 @@
     public class VisaStamp
     {
         public Visa Visa;
-        public Country Country;
+        public Country Country { get; set; }
+        public Frontier EntryPoint { get; set; }
+        public Frontier ExitPoint { get; set; }
 
 
-        public DateTime IssueDate;
-        public DateTime ExpiryDate;
+        public DateTime IssueDate { get; set; }
+        public DateTime ExpiryDate { get; set; }
 
 
-        public DateTime EntryDate;
-        public DateTime ExitDate;
-        public Frontier EntryPoint;
-        public Frontier ExitPoint;
+        public DateTime EntryDate { get; set; }
+        public DateTime ExitDate { get; set; }
+       
 
-
+        public DateTime ValidUntill { get; set; }
+        public DateTime ValidFrom { get; set; }
     }
 }

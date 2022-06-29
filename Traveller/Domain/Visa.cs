@@ -3,32 +3,30 @@
     public class Visa
     {
 
-        public int VisaId { get; set; }
-        public string Name;
-        public char Country;
-        public string Description;
-        public string URL;
+        public int VisaID { get; set; }
+        public string Name { get; set; }
+        public char Country { get; set; }
+        public string Description { get; set; }
+        public string URL { get; set; }
 
 
-        public int Duration;
-        public char Entries;
-        public string Category;
-        public int Validity;
-        public DateTime RequestedDate;
+        public int Duration { get; set; }
+        public char Entries { get; set; }
+        public string Category { get; set; }
+        public int Validity { get; set; }
+        public DateTime RequestedDate { get; set; }
 
-        public bool Extensible;
-        public int ExtensionDays;
-        public int ExtensionFee;
-        public bool OnLine;
+        public bool Extensible { get; set; }
+        public int ExtensionDays { get; set; }
+        public int ExtensionFee { get; set; }
+        public bool OnLine { get; set; }
 
-        public char Currency;
-        public int Fee;
+        public char Currency { get; set; }
+        public int Fee { get; set; }
 
-        public List<Destination> ValidEntryPoints;
+        public ICollection<Destination> ValidEntryPoints { get; set; }
 
-        public DateTime ValidUntill;
-        public DateTime ValidFrom;
-
+      
 
 
 
