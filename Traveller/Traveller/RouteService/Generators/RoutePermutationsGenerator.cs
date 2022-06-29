@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using Traveller.Domain;
 using Traveller.RouteService;
-using Traveller.RuleService;
 using Traveller.RouteService.Helpers;
+using Traveller.RuleService;
 
 namespace Traveller
 {
@@ -11,36 +11,36 @@ namespace Traveller
     {
         private List<char> vector;
         private IRuleContainer ruleContainer;
-       
-        public RoutePermutationsGenerator( IRuleContainer ruleContainer) 
+
+        public RoutePermutationsGenerator(IRuleContainer ruleContainer)
         {
             this.vector = ruleContainer.GetVector();
             this.ruleContainer = ruleContainer;
-           
+
         }
-        public List<IRule>  Rules
+        public List<IRule> Rules
         {
             get { return ruleContainer.GetRules(); }
 
         }
-        public List<List<char>>  Generate()
+        public List<List<char>> Generate()
         {
-            
+
             List<char[]> permutes = PermuteGenerator.Generate(vector);
             int count = permutes.Count;
 
             Console.WriteLine("Permutaciones calculadas");
-           
+
             List<List<char>> result = new List<List<char>>();
 
             //Inicializar Reglas de Viaje           
             List<IRule> rules = ruleContainer.GetRules();
             RouteValidator routeValidator = new RouteValidator(rules);
-           
+
 
             for (int month = 0; month < 12; month++)
             {
-               
+
                 foreach (char[] chararray in permutes)
                 {
 
@@ -49,7 +49,7 @@ namespace Traveller
                     {
                         routeChar.Add(ch);
                     }
-                   
+
                     routeChar.Insert(month, 'X');
 
                     List<List<char>> suggested_X = new List<List<char>>();
@@ -74,16 +74,16 @@ namespace Traveller
                         {
                             if (routeValidator.Validate(route))
                             {
-                                
-                                    result.Add(route);
-                                    foreach (char countryCode in route)
-                                    {
-                                        Console.Write(CodeDictionary.GetCountryByCode(countryCode) + "-");
-                                    }
 
-                                    Console.WriteLine();
+                                result.Add(route);
+                                foreach (char countryCode in route)
+                                {
+                                    Console.Write(CodeDictionary.GetCountryByCode(countryCode) + "-");
+                                }
 
-                              
+                                Console.WriteLine();
+
+
 
                             }
                         }

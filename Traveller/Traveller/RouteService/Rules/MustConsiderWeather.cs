@@ -4,9 +4,9 @@ using Traveller.Domain;
 namespace Traveller.RouteService.Rules
 {
     public class MustConsiderWeather : IRule
-        { 
+    {
 
-        List<IntegerRange> ranges = new List<IntegerRange>(); 
+        List<IntegerRange> ranges = new List<IntegerRange>();
         public MustConsiderWeather(List<IntegerRange> ranges)
         {
 
@@ -33,19 +33,19 @@ namespace Traveller.RouteService.Rules
                 }
 
 
-              
 
-            } 
-            
+
+            }
+
             return true;
         }
 
-        public List<char>  MonthReport(int month)
+        public List<char> MonthReport(int month)
         {
             List<char> Countries = new List<char>();
             foreach (IntegerRange weatherRange in ranges)
-            {                      
-               char ch = weatherRange.Id;
+            {
+                char ch = weatherRange.Id;
 
 
                 if (weatherRange.Values[(int)month] == 1) Countries.Add(ch);

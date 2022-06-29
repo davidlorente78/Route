@@ -7,10 +7,11 @@ namespace Traveller.RouteService.Rules
     public class TotalStayinYearMustBeLessThanXMonth : IRule
     {
         Char countryCode;
-        int maxMonths ;
+        int maxMonths;
 
 
-        public TotalStayinYearMustBeLessThanXMonth(char countryCode,int maxMonths) {
+        public TotalStayinYearMustBeLessThanXMonth(char countryCode, int maxMonths)
+        {
 
             this.countryCode = countryCode; this.maxMonths = maxMonths;
 
@@ -18,7 +19,7 @@ namespace Traveller.RouteService.Rules
 
         public bool Validate(List<char> route)
         {
-            var ocurrences = route.FindAll(x => x==countryCode);
+            var ocurrences = route.FindAll(x => x == countryCode);
             if (ocurrences.Count > maxMonths) return false;
             else return true;
         }
@@ -27,7 +28,7 @@ namespace Traveller.RouteService.Rules
         {
             string summmary = "";
 
-            summmary = "La estancia anual " + CodeDictionary.GetCountryByCode(countryCode) + " no puede superar los  " + maxMonths.ToString () + " mes/es. ";                
+            summmary = "La estancia anual " + CodeDictionary.GetCountryByCode(countryCode) + " no puede superar los  " + maxMonths.ToString() + " mes/es. ";
 
             return summmary;
         }

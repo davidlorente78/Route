@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Traveller.Domain;
 using Traveller.RouteService;
-using Traveller.RuleService;
-using System.Linq;
 using Traveller.RouteService.Helpers;
+using Traveller.RuleService;
 
 namespace Traveller
 {
@@ -12,20 +12,20 @@ namespace Traveller
     {
         private List<char> vector;
         private IRuleContainer ruleContainer;
-       
-        public RouteCombinationsGenerator( IRuleContainer ruleContainer,List<char> vector) 
+
+        public RouteCombinationsGenerator(IRuleContainer ruleContainer, List<char> vector)
         {
             //El vector de Rule Container es ignorado
             this.vector = vector;
             this.ruleContainer = ruleContainer;
-           
+
         }
-        public List<IRule>  Rules
+        public List<IRule> Rules
         {
             get { return ruleContainer.GetRules(); }
 
         }
-        public List<List<char>>  Generate()
+        public List<List<char>> Generate()
         {
             CombinationGenerator combinationGenerator = new CombinationGenerator();
 
@@ -34,7 +34,8 @@ namespace Traveller
             //int count = result.Count();          
 
             List<List<char>> routes = new List<List<char>>();
-            foreach (IEnumerable<char> r in result) {
+            foreach (IEnumerable<char> r in result)
+            {
 
                 List<char> rList = r.ToList();
                 routes.Add(rList);
@@ -43,7 +44,7 @@ namespace Traveller
 
 
 
-           
+
             List<List<char>> filterresult = new List<List<char>>();
 
             //Inicializar Reglas de Viaje           
@@ -68,7 +69,7 @@ namespace Traveller
             }
 
 
-            
+
             return Helper.DeleteDuplicates(filterresult);
 
         }

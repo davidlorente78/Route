@@ -92,7 +92,7 @@ namespace Coordinates_One
 
             //Huso y meridiano central
             Huso = Math.Truncate(MyLongitudeDegrees / 6 + 31);  //Convertir y truncar //Este 31 no es del Huso es de donde empieza el Este
-                       
+
             CenterMeridian = Huso * 6 - 183;  //Signo - ¿?
 
             //CenterMeridian = -CenterMeridian; //
@@ -296,7 +296,7 @@ namespace Coordinates_One
             //Huso y meridiano central
             Huso = Math.Truncate(MyLongitudeDegrees / 6 + Huso);  //Convertir y truncar
 
-           
+
             CenterMeridian = Huso * 6 - 183;  //Signo - ¿?
 
             //CenterMeridian = -CenterMeridian; //

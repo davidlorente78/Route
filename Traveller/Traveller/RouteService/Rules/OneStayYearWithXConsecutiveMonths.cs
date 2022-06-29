@@ -8,10 +8,11 @@ namespace Traveller.RouteService.Rules
     public class OneStayYearWithXConsecutiveMonths : IRule
     {
         Char countryCode;
-        int months ;
+        int months;
 
 
-        public OneStayYearWithXConsecutiveMonths(char countryCode,int months) {
+        public OneStayYearWithXConsecutiveMonths(char countryCode, int months)
+        {
 
             this.countryCode = countryCode; this.months = months;
 
@@ -25,10 +26,10 @@ namespace Traveller.RouteService.Rules
 
             var countryItems = groupby.FindAll(x => x.Item1 == countryCode);
 
-            if ((countryItems.Count==1)&&(countryItems.FindAll(x => x.Item2 == months).Count==1))
-            { 
-                return true;           
-            
+            if ((countryItems.Count == 1) && (countryItems.FindAll(x => x.Item2 == months).Count == 1))
+            {
+                return true;
+
             }
 
 
@@ -39,7 +40,7 @@ namespace Traveller.RouteService.Rules
         {
             string summmary = "";
 
-            summmary = "La estancia en " + CodeDictionary.GetCountryByCode(countryCode) + " debe ser unica durante el año y tener exactamente  " + months.ToString () + " mes/es de duración ";                
+            summmary = "La estancia en " + CodeDictionary.GetCountryByCode(countryCode) + " debe ser unica durante el año y tener exactamente  " + months.ToString() + " mes/es de duración ";
 
             return summmary;
         }

@@ -1,12 +1,12 @@
 using NUnit.Framework;
-using Traveller.RouteService.Rules;
-using Traveller.RouteService;
-using System.Collections.Generic;
-using Traveller.RouteService.Helpers;
-using Traveller.RouteService.Evaluator;
-using Traveller.RouteService.DataContainer;
-using Traveller.RuleService;
 using System;
+using System.Collections.Generic;
+using Traveller.RouteService;
+using Traveller.RouteService.DataContainer;
+using Traveller.RouteService.Evaluator;
+using Traveller.RouteService.Helpers;
+using Traveller.RouteService.Rules;
+using Traveller.RuleService;
 
 namespace Tests
 {
@@ -22,7 +22,7 @@ namespace Tests
         {
             BlockConnection blockConnection = new BlockConnection('V', 'C', false);
 
-            bool result = blockConnection.Validate(new List<char> { 'V','C','X','X','X','X'});
+            bool result = blockConnection.Validate(new List<char> { 'V', 'C', 'X', 'X', 'X', 'X' });
 
             Assert.AreEqual(false, result);
         }
@@ -31,7 +31,7 @@ namespace Tests
         {
             BlockConnection blockConnection = new BlockConnection('V', 'C', false);
 
-            bool result = blockConnection.Validate(new List<char> { 'V', 'X','C', 'X', 'X', 'X', 'X' });
+            bool result = blockConnection.Validate(new List<char> { 'V', 'X', 'C', 'X', 'X', 'X', 'X' });
 
             Assert.AreEqual(true, result);
         }
@@ -59,7 +59,7 @@ namespace Tests
         {
             CountryBMustFollowCountryA mustBeConsecutive = new CountryBMustFollowCountryA('V', 'C', false);
 
-            bool result = mustBeConsecutive.Validate(new List<char> {  'C', 'X', 'X', 'X', 'X', 'V' });
+            bool result = mustBeConsecutive.Validate(new List<char> { 'C', 'X', 'X', 'X', 'X', 'V' });
 
             Assert.AreEqual(true, result);
         }
@@ -73,7 +73,7 @@ namespace Tests
 
             Assert.AreEqual(false, result);
         }
-                
+
 
         [Test]
         public void Test8()
@@ -83,8 +83,8 @@ namespace Tests
             SeasonEvaluator seasonEvaluator = new SeasonEvaluator(new SeasonDataContainer());
             double eval = seasonEvaluator.Evaluate(route);
 
-            
-            Assert.AreEqual(37,eval); 
+
+            Assert.AreEqual(37, eval);
         }
 
 
@@ -99,20 +99,20 @@ namespace Tests
             List<Tuple<char, string>> report = seasonEvaluator.Report(route);
 
 
-           Assert.AreEqual(report.Count, 12);
+            Assert.AreEqual(report.Count, 12);
         }
 
         [Test]
         public void TestFrontierService()
         {
-           
+
             FrontierService frontierService = new FrontierService();
 
             var frontier = frontierService.FrontierToAccesDestinationFromOrigin('L', 'T');
             //Access Laos from Thailand
 
             //NongKhai e Internacional
-            var frontier_airport = frontierService.FrontierstoAccesDestinationFromOriginIncludingAirports('L', 'T');
+            //var frontier_airport = frontierService.FrontierstoAccesDestinationFromOriginIncludingAirports('L', 'T');
             Assert.AreEqual(true, true);
 
         }
@@ -125,7 +125,7 @@ namespace Tests
 
             var decomposed = Helper.DetectRepeatedChars(new List<char> { 'T', 'T', 'M', 'M', 'M', 'M', 'T' });
 
-            
+
             Assert.AreEqual(true, decomposed[0].Item1 == 'T');
             Assert.AreEqual(true, decomposed[1].Item1 == 'M');
 
@@ -143,10 +143,10 @@ namespace Tests
             var decomposed = Helper.DetectRepeatedChars(new List<char> { 'T', 'T', 'T', 'T', 'T', 'T', 'T' });
 
 
-            Assert.AreEqual(true, decomposed[0].Item1 == 'T');          
+            Assert.AreEqual(true, decomposed[0].Item1 == 'T');
 
             Assert.AreEqual(true, decomposed[0].Item2 == 7);
-         
+
 
 
         }
@@ -155,7 +155,7 @@ namespace Tests
         public void DetectRepeatedCharsII()
         {
 
-            var decomposed = Helper.DetectRepeatedChars(new List<char> { 'T', 'T', 'M', 'M', 'M', 'M', 'T' , 'M' });
+            var decomposed = Helper.DetectRepeatedChars(new List<char> { 'T', 'T', 'M', 'M', 'M', 'M', 'T', 'M' });
 
 
             Assert.AreEqual(true, decomposed[0].Item1 == 'T');
@@ -197,14 +197,14 @@ namespace Tests
         public void NumberEntries()
         {
 
-            var tuples = Helper.CountNumberofEntries(new List<char> { 'T', 'T', 'M', 'M', 'M', 'M', 'T' });
+            List<Tuple<char, int>> NumberofEntries = Helper.CountNumberofEntries(new List<char> { 'T', 'T', 'M', 'M', 'M', 'M', 'T' });
 
 
-            Assert.AreEqual(true, tuples[0].Item1 == 'T');
-            Assert.AreEqual(true, tuples[1].Item1 == 'M');
+            Assert.AreEqual(true, NumberofEntries[0].Item1 == 'T');
+            Assert.AreEqual(true, NumberofEntries[1].Item1 == 'M');
 
-            Assert.AreEqual(true, tuples[0].Item2 == 1);
-            Assert.AreEqual(true, tuples[1].Item2 == 1);
+            Assert.AreEqual(true, NumberofEntries[0].Item2 == 1);
+            Assert.AreEqual(true, NumberofEntries[1].Item2 == 1);
 
 
         }
@@ -213,16 +213,16 @@ namespace Tests
         public void NumberEntriesII()
         {
 
-            var tuples = Helper.CountNumberofEntries(new List<char> { 'T', 'T', 'M', 'M', 'M', 'M', 'T', 'M' });
+            var NumberofEntries = Helper.CountNumberofEntries(new List<char> { 'T', 'T', 'M', 'M', 'M', 'M', 'T', 'M' });
 
 
-            Assert.AreEqual(true, tuples[0].Item1 == 'T');
-            Assert.AreEqual(true, tuples[1].Item1 == 'M');
-           
+            Assert.AreEqual(true, NumberofEntries[0].Item1 == 'T');
+            Assert.AreEqual(true, NumberofEntries[1].Item1 == 'M');
 
-            Assert.AreEqual(true, tuples[0].Item2 == 2);
-            Assert.AreEqual(true, tuples[1].Item2 == 2);
-         
+
+            Assert.AreEqual(true, NumberofEntries[0].Item2 == 2);
+            Assert.AreEqual(true, NumberofEntries[1].Item2 == 2);
+
 
 
         }
@@ -235,7 +235,7 @@ namespace Tests
 
             List<char> route = new List<char> { 'T', 'M', 'M', 'M', 'T', 'M', 'M', 'M', 'T', 'T', 'T', 'T' };
 
-            MalasyaTailandiaLongStayRuleContainer malasyaTailandiaLongStayContainer = new MalasyaTailandiaLongStayRuleContainer(); 
+            MalasyaTailandiaLongStayRuleContainer malasyaTailandiaLongStayContainer = new MalasyaTailandiaLongStayRuleContainer();
             RouteValidator routeValidator = new RouteValidator(malasyaTailandiaLongStayContainer.GetRules());
 
 
@@ -243,10 +243,11 @@ namespace Tests
 
             var repeated = Helper.DetectRepeatedChars(route);
 
-            foreach (var rule in malasyaTailandiaLongStayContainer.GetRules()) {
+            foreach (var rule in malasyaTailandiaLongStayContainer.GetRules())
+            {
 
                 rule.Validate(route);
-            
+
             }
 
             var BrokenRules = routeValidator.Incumple(new List<char> { 'T', 'M', 'M', 'M', 'T', 'M', 'M', 'M', 'T', 'T', 'T', 'T' });
@@ -270,8 +271,8 @@ namespace Tests
             OneStayYearWithXConsecutiveMonths oneStayYearWithXConsecutiveMonths = new OneStayYearWithXConsecutiveMonths('X', 3);
             var result = oneStayYearWithXConsecutiveMonths.Validate(route);
 
-            Assert.AreEqual(true,result);
-  
+            Assert.AreEqual(true, result);
+
 
         }
 

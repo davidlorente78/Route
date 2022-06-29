@@ -6,9 +6,9 @@ namespace GraphicMap.Coordinates
 {
     public class CountriesScreenCoordinates
     {
-        public CountriesScreenCoordinates () {}
+        public CountriesScreenCoordinates() { }
 
-        public  List<Tuple<char, char, Point>> Coordinates = new List<Tuple<char, char , Point>>
+        public List<Tuple<char, char, Point>> Coordinates = new List<Tuple<char, char, Point>>
         {
 
             //Primer caracter pais //Segundo Tipo C = Countru R = En Ruta T = Tourist Destination

@@ -4,7 +4,7 @@ using Traveller.RouteService.DataContainer;
 
 namespace Traveller.RouteService.Evaluator
 {
-    public class SeasonEvaluator: IEvaluator
+    public class SeasonEvaluator : IEvaluator
     {
         List<CharRange> ranges = new List<CharRange>();
         public SeasonEvaluator(SeasonDataContainer dataContainer)
@@ -36,7 +36,8 @@ namespace Traveller.RouteService.Evaluator
 
             var eval = this.ranges.Find(x => x.Id == coutryCode).Values[index];
 
-            switch (eval) {
+            switch (eval)
+            {
 
                 case 'A':
                     return 100;
@@ -88,5 +89,5 @@ namespace Traveller.RouteService.Evaluator
 
     }
 
-    }
+}
 

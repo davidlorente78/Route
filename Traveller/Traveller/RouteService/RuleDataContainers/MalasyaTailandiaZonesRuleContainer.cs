@@ -45,14 +45,14 @@ namespace Traveller.RuleService
 
 
             rules.Add(new CountryBMustFollowCountryA('L', 'V', false));
-            rules.Add(new CountryBMustFollowCountryA('V', 'C', false));                         
-            
+            rules.Add(new CountryBMustFollowCountryA('V', 'C', false));
+
 
             //Duracion de las estancias           
-            rules.Add(new TotalStayinYearMustBeLessThanXMonth('C',1));
-            rules.Add(new TotalStayinYearMustBeLessThanXMonth('L',1));
-            rules.Add(new TotalStayinYearMustBeLessThanXMonth('O',1));
-            rules.Add(new TotalStayinYearMustBeLessThanXMonth('W',1));
+            rules.Add(new TotalStayinYearMustBeLessThanXMonth('C', 1));
+            rules.Add(new TotalStayinYearMustBeLessThanXMonth('L', 1));
+            rules.Add(new TotalStayinYearMustBeLessThanXMonth('O', 1));
+            rules.Add(new TotalStayinYearMustBeLessThanXMonth('W', 1));
             rules.Add(new TotalStayinYearMustBeLessThanXMonth('N', 1));
             rules.Add(new TotalStayinYearMustBeLessThanXMonth('V', 1));
             rules.Add(new TotalStayinYearMustBeLessThanXMonth('I', 1));
@@ -110,7 +110,7 @@ namespace Traveller.RuleService
 
         }
 
-      
+
         public List<char> GetDestinationByMonth(int month)
         {
 

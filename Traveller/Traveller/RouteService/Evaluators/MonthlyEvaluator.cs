@@ -37,19 +37,19 @@ namespace Traveller.RouteService.Evaluator
 
             return eval * 100;
 
-         }
+        }
 
 
         public List<Tuple<char, string>> Report(List<char> route)
         {
 
 
-            return new List<Tuple<char, string>> { Tuple.Create ('X' ,"Esta ruta tiene " + Evaluate(route).ToString() + " puntos sobre 100." )};
+            return new List<Tuple<char, string>> { Tuple.Create('X', "Esta ruta tiene " + Evaluate(route).ToString() + " puntos sobre 100.") };
 
-           
+
         }
 
     }
 
-    }
+}
 

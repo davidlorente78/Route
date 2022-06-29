@@ -90,12 +90,12 @@ namespace Traveller.RuleService
 
             rules.Add(new CountryBMustFollowCountryA('L', 'V', false));
             rules.Add(new CountryBMustFollowCountryA('V', 'C', false));
-            rules.Add(new CountryBMustFollowCountryA('M', 'G', false));                       
+            rules.Add(new CountryBMustFollowCountryA('M', 'G', false));
 
             //Duracion de las estancias
-            rules.Add(new TotalStayinYearMustBeLessThanXMonth('G',1));
-            rules.Add(new TotalStayinYearMustBeLessThanXMonth('C',1));
-            rules.Add(new TotalStayinYearMustBeLessThanXMonth('L',1));           
+            rules.Add(new TotalStayinYearMustBeLessThanXMonth('G', 1));
+            rules.Add(new TotalStayinYearMustBeLessThanXMonth('C', 1));
+            rules.Add(new TotalStayinYearMustBeLessThanXMonth('L', 1));
             rules.Add(new TotalStayinYearMustBeLessThanXMonth('V', 2));
             rules.Add(new TotalStayinYearMustBeLessThanXMonth('I', 2));
 
@@ -116,7 +116,7 @@ namespace Traveller.RuleService
             rules.Add(new BlockConnection('I', 'L', false));
             rules.Add(new BlockConnection('I', 'C', false));
             rules.Add(new BlockConnection('I', 'K', false));
-         
+
             rules.Add(new BlockConnection('L', 'M', false));
             rules.Add(new BlockConnection('L', 'W', false));
 
@@ -132,11 +132,11 @@ namespace Traveller.RuleService
                 new IntegerRange { Id = 'M',  Values = new List<int> { -1, -1, 1,1,1,1,1,1,1, -1,- 1,- 1 } } ,
                 new IntegerRange { Id = 'T',  Values = new List<int> { 1, 1, 1,1,-1,-1,-1,-1,-1, -1, 1, 1 } } ,
                 new IntegerRange { Id = 'C',  Values = new List<int> { 1, 1, 1,1,-1,-1,-1,-1,1, 1, 1, 1 } } ,
-                new IntegerRange { Id = 'I',  Values = new List<int> { -1, -1, -1,-1,1,1,1,1,1, -1, -1, -1 } } ,               
+                new IntegerRange { Id = 'I',  Values = new List<int> { -1, -1, -1,-1,1,1,1,1,1, -1, -1, -1 } } ,
                 new IntegerRange { Id = 'H',  Values = new List<int> { 1, 1, 1,1,1,-1,-1,-1,-1, 1, 1, 1 } } ,
                 new IntegerRange { Id = 'S',  Values = new List<int> { 1, 1, 1,1,-1,-1,-1,-1,1, -1, -1, 1 } } ,
                 new IntegerRange { Id = 'G', Values = new List<int> { -1, -1, 1,1,1,1,1,1,1, -1, -1, -1 } } ,
-                new IntegerRange { Id = 'K', Values = new List<int> { 1, 1, 1,1,-1,-1,-1,-1,-1, 1, 1, 1 } } ,              
+                new IntegerRange { Id = 'K', Values = new List<int> { 1, 1, 1,1,-1,-1,-1,-1,-1, 1, 1, 1 } } ,
 
             }));
 

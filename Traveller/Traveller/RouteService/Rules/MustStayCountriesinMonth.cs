@@ -8,7 +8,7 @@ namespace Traveller.RouteService.Rules
         Month StayTravelMonth;
         public MustStayCountriesinMonth(List<char> countries, Month StayTravelMonth)
         {
-           
+
             this.countries = countries;
             this.StayTravelMonth = StayTravelMonth;
         }

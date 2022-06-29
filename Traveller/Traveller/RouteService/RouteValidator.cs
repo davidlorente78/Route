@@ -25,8 +25,8 @@ namespace Traveller.RouteService
         }
 
         public override string ToString()
-        { 
-        
+        {
+
             string summary = "";
 
             foreach (IRule rule in this.rules)

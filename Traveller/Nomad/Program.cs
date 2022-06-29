@@ -18,7 +18,7 @@ namespace Nomad
 
 
 
-            RouteCombinationsGenerator routeGenerator = new RouteCombinationsGenerator(new MalasyaTailandiaBasedRuleWithBaliContainer(),new List<char> { 'M', 'T' ,'X','I'});
+            RouteCombinationsGenerator routeGenerator = new RouteCombinationsGenerator(new MalasyaTailandiaBasedRuleWithBaliContainer(), new List<char> { 'M', 'T', 'X', 'I' });
 
             var routes = routeGenerator.Generate();
 
@@ -65,29 +65,29 @@ namespace Nomad
 
 
 
-          
+
 
 
 
         }
-         static void GenerarRutas()
-            {                
+        static void GenerarRutas()
+        {
 
-                RoutePermutationsGenerator routeGenerator = new RoutePermutationsGenerator(new MalasyaTailandiaBasedRuleContainer());
+            RoutePermutationsGenerator routeGenerator = new RoutePermutationsGenerator(new MalasyaTailandiaBasedRuleContainer());
 
-                //Informar por pantalla de las reglas que se estan aplicando
-                foreach (var rule in routeGenerator.Rules)
-                {
-                    Console.WriteLine(rule.ToString());
-                    Console.WriteLine();
-                }
-
-                //Generar las rutas validas 
-                List<List<char>> routes = routeGenerator.Generate();
-
-                int count = routes.Count;
-                       
+            //Informar por pantalla de las reglas que se estan aplicando
+            foreach (var rule in routeGenerator.Rules)
+            {
+                Console.WriteLine(rule.ToString());
+                Console.WriteLine();
             }
+
+            //Generar las rutas validas 
+            List<List<char>> routes = routeGenerator.Generate();
+
+            int count = routes.Count;
+
+        }
 
 
 
@@ -115,7 +115,7 @@ namespace Nomad
                     double evaluation = evaluator.Evaluate(route.Value);
 
                     Console.WriteLine(evaluation.ToString());
-                    List < Tuple<char, string>> report = evaluator.Report(route.Value);
+                    List<Tuple<char, string>> report = evaluator.Report(route.Value);
 
                     int n = 1;
                     foreach (var m in report)

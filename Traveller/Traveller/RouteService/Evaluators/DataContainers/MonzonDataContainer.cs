@@ -2,7 +2,7 @@
 
 namespace Traveller.RouteService.DataContainer
 {
-    public class MonzonDataContainer 
+    public class MonzonDataContainer
     {
         public List<CharRange> monsoonDaysData = new List<CharRange>();
 
@@ -20,8 +20,8 @@ namespace Traveller.RouteService.DataContainer
 
                     Values = new List<char> { 'B', 'B', 'A', 'A', 'A', 'M', 'M', 'M', 'A', 'A', 'M', 'A', } } ,
                     };
-                
-               
+
+
 
 
 

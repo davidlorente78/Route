@@ -8,14 +8,14 @@ namespace GraphicMap.TravellPlan
     {
 
         public WayPoint A;
-        public WayPoint B;       
-        public string Type;  
-        public string Identifier;  
-        public string RefToNext; 
-        public string RefToPrevious; 
+        public WayPoint B;
+        public string Type;
+        public string Identifier;
+        public string RefToNext;
+        public string RefToPrevious;
 
         public Leg()
-        {         
+        {
 
         }
 
@@ -25,25 +25,25 @@ namespace GraphicMap.TravellPlan
             this.B = B;
             this.Identifier = A.Identifier + B.Identifier;
         }
-       
+
         public virtual void ShowLeg(Point A, Point B, Color LegColor)
         {
-            
-           
-               
-               
-                //Graphics Display = Graphics.FromImage(this.pi);
-                //Pen Peny = new Pen(Color.WhiteSmoke, 5);
-                //Peny.EndCap = LineCap.ArrowAnchor;
-                //Peny.StartCap = LineCap.RoundAnchor;
-                //Display.DrawLine(Peny, A, B);
 
-                //Rectangle LegRectangle = new Rectangle(A.X, A.Y, B.X - A.X, B.Y - A.Y);              
-                //Point MediaTrix = new Point((A.X + B.X) / 2, (A.Y + B.Y) / 2);
-                //Font Fonty = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Italic);
-               
-           
-                   
+
+
+
+            //Graphics Display = Graphics.FromImage(this.pi);
+            //Pen Peny = new Pen(Color.WhiteSmoke, 5);
+            //Peny.EndCap = LineCap.ArrowAnchor;
+            //Peny.StartCap = LineCap.RoundAnchor;
+            //Display.DrawLine(Peny, A, B);
+
+            //Rectangle LegRectangle = new Rectangle(A.X, A.Y, B.X - A.X, B.Y - A.Y);              
+            //Point MediaTrix = new Point((A.X + B.X) / 2, (A.Y + B.Y) / 2);
+            //Font Fonty = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Italic);
+
+
+
         }
 
         public object Clone()

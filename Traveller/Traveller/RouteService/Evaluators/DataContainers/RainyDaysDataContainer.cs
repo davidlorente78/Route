@@ -7,7 +7,8 @@ namespace Traveller.RouteService.DataContainer
         public List<CharRange> rainyDaysData = new List<CharRange>();
         //Range Genericos
         //Id
-        public RainyDaysDataContainer() {
+        public RainyDaysDataContainer()
+        {
 
 
             rainyDaysData = new List<CharRange> {

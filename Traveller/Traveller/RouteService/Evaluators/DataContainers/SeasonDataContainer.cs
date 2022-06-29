@@ -2,10 +2,11 @@
 
 using System.Collections.Generic;
 
-namespace Traveller.RouteService.DataContainer{
+namespace Traveller.RouteService.DataContainer
+{
 
     public enum Temporada { Alta = 'A', Baja = 'B', Media = 'M' };
-    public class SeasonDataContainer 
+    public class SeasonDataContainer
     {
         public List<CharRange> rangesList = new List<CharRange>();
 
@@ -104,8 +105,8 @@ namespace Traveller.RouteService.DataContainer{
 
                     Values = new List<char> { 'M', 'M', 'M', 'M', 'M', 'M', 'M', 'M', 'M', 'M', 'M', 'M', } } ,
 
-            };               
-                
+            };
+
         }
 
 

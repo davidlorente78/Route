@@ -8,7 +8,8 @@ namespace Traveller.RouteService.Helpers
     public static class Helper
     {
 
-        public static string ConvertCodesToCountries(List<char> route) {
+        public static string ConvertCodesToCountries(List<char> route)
+        {
 
             string readable = "";
             foreach (char countryCode in route)
@@ -19,14 +20,14 @@ namespace Traveller.RouteService.Helpers
             return readable;
 
         }
-    
-    // C# program to find Minimum Distance 
-    // Between Words of a String
+
+        // C# program to find Minimum Distance 
+        // Between Words of a String
 
 
-    // Function to calculate the minimum 
-    // distance between w1 and w2 in s 
-    public static int distance(string s, char w1, char w2)
+        // Function to calculate the minimum 
+        // distance between w1 and w2 in s 
+        public static int distance(string s, char w1, char w2)
         {
 
             if (w1.Equals(w2))
@@ -163,7 +164,8 @@ namespace Traveller.RouteService.Helpers
                 {
                     if (route[x] == route[0])
                     {
-                        if (count == route.Count) {
+                        if (count == route.Count)
+                        {
                             //Todos son igual XXXXXXXXXX
                             //No se habra incluido ningun par en la lista de valores
                             decomposed.Insert(0, new Tuple<char, int>(old, count));
@@ -220,7 +222,7 @@ namespace Traveller.RouteService.Helpers
                 var entriescount = find.Count();
                 entries.Add(new Tuple<char, int>(ch, entriescount));
             }
-            
+
             return entries;
         }
     }

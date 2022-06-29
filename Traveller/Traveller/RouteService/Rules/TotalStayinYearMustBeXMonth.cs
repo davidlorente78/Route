@@ -7,10 +7,11 @@ namespace Traveller.RouteService.Rules
     public class TotalStayinYearMustBeXMonth : IRule
     {
         Char countryCode;
-        int months ;
+        int months;
 
 
-        public TotalStayinYearMustBeXMonth(char countryCode,int months) {
+        public TotalStayinYearMustBeXMonth(char countryCode, int months)
+        {
 
             this.countryCode = countryCode; this.months = months;
 
@@ -18,7 +19,7 @@ namespace Traveller.RouteService.Rules
 
         public bool Validate(List<char> route)
         {
-            var ocurrences = route.FindAll(x => x==countryCode);
+            var ocurrences = route.FindAll(x => x == countryCode);
             if (ocurrences.Count != months) return false;
             else return true;
         }
@@ -27,7 +28,7 @@ namespace Traveller.RouteService.Rules
         {
             string summmary = "";
 
-            summmary = "La estancia anual " + CodeDictionary.GetCountryByCode(countryCode) + " debe ser de  " + months.ToString () + " mes/es. ";                
+            summmary = "La estancia anual " + CodeDictionary.GetCountryByCode(countryCode) + " debe ser de  " + months.ToString() + " mes/es. ";
 
             return summmary;
         }

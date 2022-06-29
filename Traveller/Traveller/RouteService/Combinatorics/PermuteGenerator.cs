@@ -19,7 +19,7 @@ namespace Traveller.RouteService
             {
                 if (start == set.Count)
                 {
-                    
+
                     result.Add(set.ToArray());
                 }
                 else

@@ -22,7 +22,7 @@ namespace Traveller.RouteService.Rules
         public bool Validate(List<char> route)
         {
             string s = string.Join("", route);
-            int min = Helper.distance(s,country_origin,country_destination);
+            int min = Helper.distance(s, country_origin, country_destination);
 
 
             if (oneDirection)
@@ -41,15 +41,15 @@ namespace Traveller.RouteService.Rules
 
 
 
-    public override string ToString()
+        public override string ToString()
         {
             string summmary = "";
 
             summmary = "No deben considerarse las conexiones directas entre " + CodeDictionary.GetCountryByCode(country_origin) + " y  " + CodeDictionary.GetCountryByCode(country_destination);
 
-            if (oneDirection) { summmary = summmary + " en el orden indicado."  ; }
+            if (oneDirection) { summmary = summmary + " en el orden indicado."; }
 
-            else { summmary = summmary + " en ambos sentidos."  ; }
+            else { summmary = summmary + " en ambos sentidos."; }
 
             return summmary;
 

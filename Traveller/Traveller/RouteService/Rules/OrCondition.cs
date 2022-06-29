@@ -32,7 +32,7 @@ namespace Traveller.RouteService.Rules
             {
                 summary = summary + rule.ToString() + Environment.NewLine; ;
             }
-            
+
             return summary;
         }
     }

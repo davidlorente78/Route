@@ -10,7 +10,8 @@ namespace Traveller.RouteService.Rules
         Char country_origin;
         Char country_destination;
         bool oneDirection;
-        public CountryBMustFollowCountryA(Char country_origin, Char country_destination,bool oneDirection) {
+        public CountryBMustFollowCountryA(Char country_origin, Char country_destination, bool oneDirection)
+        {
 
             this.country_destination = country_destination;
             this.country_origin = country_origin;
@@ -18,7 +19,7 @@ namespace Traveller.RouteService.Rules
         }
 
         public bool Validate(List<char> route)
-        {            
+        {
             string s = string.Join("", route);
 
             //s = "VNTKKOMMILWC";
@@ -29,7 +30,7 @@ namespace Traveller.RouteService.Rules
             //TODO Rewrite with decompose
             int min = Helper.distance(s, country_origin, country_destination);
 
-          
+
 
             //Vietnam-Chiang Mai-Thailand-Vietnam-Kochi-Bali-Malaysia-Malaysia-Indonesia-Laos-Penang-Cambodia-
             if (oneDirection)
@@ -40,7 +41,7 @@ namespace Traveller.RouteService.Rules
             else
             {
                 //Ofrece soluciones en ambos sentidos
-                if ((min == 0) || (min == route.Count - 2) ) return true;
+                if ((min == 0) || (min == route.Count - 2)) return true;
                 else return false;
             }
 
@@ -52,9 +53,9 @@ namespace Traveller.RouteService.Rules
 
             summmary = CodeDictionary.GetCountryByCode(country_origin) + " y  " + CodeDictionary.GetCountryByCode(country_destination) + " deben visitarse de manera consecutiva";
 
-            if (oneDirection) { summmary = summmary + " en el orden indicado." ; }
+            if (oneDirection) { summmary = summmary + " en el orden indicado."; }
 
-            else { summmary = summmary + " en cualquier orden."  ; }
+            else { summmary = summmary + " en cualquier orden."; }
 
             return summmary;
         }

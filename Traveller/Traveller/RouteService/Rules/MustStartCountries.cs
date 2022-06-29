@@ -2,11 +2,13 @@
 
 namespace Traveller.RouteService.Rules
 {
-    public class MustStartCountries : IRule    {
-               
+    public class MustStartCountries : IRule
+    {
+
         List<char> countries = new List<char>();
         Month StartTravelMonth;
-        public MustStartCountries(List<char> countries, Month StartTravelMonth) {
+        public MustStartCountries(List<char> countries, Month StartTravelMonth)
+        {
 
             this.countries = countries;
             this.StartTravelMonth = StartTravelMonth;
@@ -16,21 +18,21 @@ namespace Traveller.RouteService.Rules
             if (countries.Contains(route[(int)StartTravelMonth])) return true;
             else return false;
         }
-        
-        
+
+
         public override string ToString()
-    {
-        string summmary = "";
+        {
+            string summmary = "";
 
             summmary = summmary + "La ruta debe empezar en cualquiera de estos paises ... en " + StartTravelMonth.ToString();  //TODO
 
-        return summmary;
+            return summmary;
 
 
+        }
     }
-    }
 
-    
+
 
     public enum Month { jan, feb, march, april, may, june, july, aug, sept, oct, nov, dec };
 }

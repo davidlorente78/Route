@@ -9,9 +9,10 @@ namespace Traveller.RouteService.Rules
     {
         Char country_origin;
         int numberEntries;
-        public AnualEntriesMustBeLessThanX(Char country_origin, int numberEntries) {
+        public AnualEntriesMustBeLessThanX(Char country_origin, int numberEntries)
+        {
 
-            
+
             this.country_origin = country_origin;
             this.numberEntries = numberEntries;
         }
@@ -32,14 +33,14 @@ namespace Traveller.RouteService.Rules
 
             return true;
         }
-        
+
         public override string ToString()
         {
             string summmary = "";
 
             summmary = "El numero de entradas anuales a " + CodeDictionary.GetCountryByCode(country_origin) + " queda limitado  a  " + numberEntries.ToString();
 
-            
+
             return summmary;
         }
     }

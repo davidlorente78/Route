@@ -8,10 +8,11 @@ namespace Traveller.RouteService.Rules
     public class EachStayMustBeLessThanXMonth : IRule
     {
         Char countryCode;
-        int maxMonths ;
+        int maxMonths;
 
 
-        public EachStayMustBeLessThanXMonth(char countryCode,int maxMonths) {
+        public EachStayMustBeLessThanXMonth(char countryCode, int maxMonths)
+        {
 
             this.countryCode = countryCode; this.maxMonths = maxMonths;
 
@@ -24,11 +25,12 @@ namespace Traveller.RouteService.Rules
 
             var groupby = Helper.DetectRepeatedChars(route);
 
-            foreach (var t in groupby.FindAll(x=>x.Item1==countryCode)) {
+            foreach (var t in groupby.FindAll(x => x.Item1 == countryCode))
+            {
 
                 if (t.Item2 > maxMonths) return false;
-            
-            
+
+
             }
 
 
@@ -39,7 +41,7 @@ namespace Traveller.RouteService.Rules
         {
             string summmary = "";
 
-            summmary = "La misma estancia en " + CodeDictionary.GetCountryByCode(countryCode) + " no puede prolongarse mas de " + maxMonths.ToString () + " mes/es. ";                
+            summmary = "La misma estancia en " + CodeDictionary.GetCountryByCode(countryCode) + " no puede prolongarse mas de " + maxMonths.ToString() + " mes/es. ";
 
             return summmary;
         }

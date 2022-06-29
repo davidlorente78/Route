@@ -14,7 +14,8 @@ namespace Traveller.RouteService
 
         }
 
-        public Tuple<List<char>, List<List<Tuple<char, string>>>, List<double>> EvaluateAndReport(List<char> route) {
+        public Tuple<List<char>, List<List<Tuple<char, string>>>, List<double>> EvaluateAndReport(List<char> route)
+        {
 
             List<List<Tuple<char, string>>> reportsResults = this.Report(route);
             List<double> evaluationResults = this.Evaluate(route);
@@ -36,7 +37,8 @@ namespace Traveller.RouteService
 
 
 
-        private List<List<Tuple<char, string>>> Report(List<char> route) {
+        private List<List<Tuple<char, string>>> Report(List<char> route)
+        {
 
             List<List<Tuple<char, string>>> reports = new List<List<Tuple<char, string>>>();
             foreach (IEvaluator evaluator in evaluators)
@@ -51,7 +53,7 @@ namespace Traveller.RouteService
 
 
 
-       
+
 
 
 

@@ -7,7 +7,7 @@ namespace Traveller.RuleService
     public class MalasyaTailandiaBasedRuleWithBaliContainer : IRuleContainer
     {
         private List<IRule> rules = new List<IRule>();
-       
+
 
         public List<char> vector = new List<char> { 'T', 'M', 'X', 'I' };
         public MalasyaTailandiaBasedRuleWithBaliContainer()
@@ -17,7 +17,7 @@ namespace Traveller.RuleService
             rules.Add(new TotalStayinYearMustBeLessThanXMonth('M', 3));
             rules.Add(new TotalStayinYearMustBeLessThanXMonth('T', 6));
 
-          
+
 
             var T2M3 = new AndCondition(new List<IRule> { new EachStayMustBeLessThanXMonth('T', 2), new EachStayMustBeLessThanXMonth('M', 3) }); //Visa Turista
             var T3M3 = new AndCondition(new List<IRule> { new EachStayMustBeLessThanXMonth('T', 3), new EachStayMustBeLessThanXMonth('M', 3) }); //Visa Turista + Extension
@@ -48,7 +48,7 @@ namespace Traveller.RuleService
               new IntegerRange { Id = 'I', Values = new List<int> { -1, -1, -1,-1,1,1,1,1,1,-1 , -1, -1 } } ,
 
             }));
-                      
+
 
             rules.Add(new OneStayYearWithXConsecutiveMonths('X', 3));
             rules.Add(new OneStayYearWithXConsecutiveMonths('I', 1));

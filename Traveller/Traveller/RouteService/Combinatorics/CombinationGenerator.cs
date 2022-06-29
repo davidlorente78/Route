@@ -6,7 +6,7 @@ namespace Traveller.RouteService
     public class CombinationGenerator : IGenerator
     {
 
-        public  IEnumerable<IEnumerable<T>>
+        public IEnumerable<IEnumerable<T>>
         Generate<T>(IEnumerable<T> list, int length)
         {
             if (length == 1) return list.Select(t => new T[] { t });

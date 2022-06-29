@@ -7,20 +7,21 @@ namespace Traveller.RouteService.Rules
     public class IfDuplicateMustNotBeConsecutive : IRule
     {
         Char country_origin;
-       
-        public IfDuplicateMustNotBeConsecutive(Char country_origin) {
 
-           
+        public IfDuplicateMustNotBeConsecutive(Char country_origin)
+        {
+
+
             this.country_origin = country_origin;
-            
+
         }
 
         public bool Validate(List<char> route)
-        {            
+        {
             string s = string.Join("", route);
 
             char ch_origin = country_origin;
-            int idx_origin = s.IndexOf(ch_origin);        
+            int idx_origin = s.IndexOf(ch_origin);
 
             int idx_destination = s.LastIndexOf(ch_origin);
 
@@ -32,7 +33,8 @@ namespace Traveller.RouteService.Rules
                 if ((distance == 1) || (distance == -1) || (distance == route.Count - 1) || (distance == -(route.Count - 1))) return false;
                 else return true;
             }
-            else {
+            else
+            {
 
                 return true;
             }
@@ -44,7 +46,7 @@ namespace Traveller.RouteService.Rules
             string summmary = "";
 
             summmary = CodeDictionary.GetCountryByCode(country_origin) + " los dos meses no deben ser consecutivos";
-            
+
             return summmary;
         }
     }

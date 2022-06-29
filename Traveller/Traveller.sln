@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30413.136
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Traveller", "Traveller\Traveller.csproj", "{53F0B9E1-3E0D-420F-9672-1D4946C7E589}"
 EndProject
@@ -12,6 +12,12 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{A068A0A6-4E53-4CC0-A6B8-8E4D520EFB47}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphicMap", "GraphicMap\GraphicMap.csproj", "{FBC26745-B369-4FD6-A04D-BB96E5C6EE89}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{B948446A-A654-4345-A4FE-61DDDEDAA765}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StaticData", "StaticData\StaticData.csproj", "{E5B59322-4EDF-4C84-93FE-427F277996A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RouteDataManager", "RouteDataManager\RouteDataManager.csproj", "{C41F33FE-4F34-4B15-88B9-C0D09ACD7ED5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +45,18 @@ Global
 		{FBC26745-B369-4FD6-A04D-BB96E5C6EE89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBC26745-B369-4FD6-A04D-BB96E5C6EE89}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBC26745-B369-4FD6-A04D-BB96E5C6EE89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B948446A-A654-4345-A4FE-61DDDEDAA765}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B948446A-A654-4345-A4FE-61DDDEDAA765}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B948446A-A654-4345-A4FE-61DDDEDAA765}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B948446A-A654-4345-A4FE-61DDDEDAA765}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5B59322-4EDF-4C84-93FE-427F277996A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5B59322-4EDF-4C84-93FE-427F277996A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5B59322-4EDF-4C84-93FE-427F277996A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5B59322-4EDF-4C84-93FE-427F277996A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C41F33FE-4F34-4B15-88B9-C0D09ACD7ED5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C41F33FE-4F34-4B15-88B9-C0D09ACD7ED5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C41F33FE-4F34-4B15-88B9-C0D09ACD7ED5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C41F33FE-4F34-4B15-88B9-C0D09ACD7ED5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

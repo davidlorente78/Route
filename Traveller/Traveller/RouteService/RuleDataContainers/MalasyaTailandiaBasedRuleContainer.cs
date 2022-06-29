@@ -87,7 +87,7 @@ namespace Traveller.RuleService
                 new IntegerRange { Id = 'N', Values = new List<int> { 1, 1, 1,-1,-1,-1,-1,-1, -1, -1, 1, 1 } } ,
                 new IntegerRange { Id = 'I', Values = new List<int> { -1, -1, -1,-1,1,1,1,-1,1, -1, -1, -1 } } ,
                 new IntegerRange { Id = 'O', Values = new List<int> { -1, -1, -1, -1, 1, 1, 1, 1, 1, 1, -1, -1 } } ,
-                new IntegerRange { Id = 'W', Values = new List<int> { -1, -1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 } } ,               
+                new IntegerRange { Id = 'W', Values = new List<int> { -1, -1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 } } ,
 
             }));
 
@@ -95,7 +95,7 @@ namespace Traveller.RuleService
 
         }
 
-      
+
         public List<char> GetDestinationByMonth(int month)
         {
 

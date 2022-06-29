@@ -15,8 +15,8 @@ namespace Coordinates_One
         private double latitudeDegrees;
         private double longitudeDegrees;
         private int IniCellSize = 865; // 665000/762;
-        //Primer parametro Utm_x es Easting segundo Northing
-        
+                                       //Primer parametro Utm_x es Easting segundo Northing
+
 
         public UTM() { }
 
@@ -160,7 +160,7 @@ namespace Coordinates_One
         /// </summary>
         /// <returns></returns>
         public UTM ConvertUTMToVertexCoordinates()
-        {           
+        {
             UTM Vx = new UTM((this.Easting - 167500) / IniCellSize, (880000 - this.Northing) / IniCellSize);
             return Vx;
         }
@@ -170,12 +170,12 @@ namespace Coordinates_One
         //test
         public Point ConvertUTMCoordinatesToGraphicPoint(Point Vertex, int CellSize)
         {
-           
+
 
             Point GraphicPoint = new Point(0, 0);
             GraphicPoint.X = Convert.ToInt16((this.Easting - 167500 - Vertex.X * IniCellSize) / CellSize);
-            GraphicPoint.Y = Convert.ToInt16(-(this.Northing - 880000 + Vertex.Y * IniCellSize) / CellSize);   
-          
+            GraphicPoint.Y = Convert.ToInt16(-(this.Northing - 880000 + Vertex.Y * IniCellSize) / CellSize);
+
             return GraphicPoint;
 
 

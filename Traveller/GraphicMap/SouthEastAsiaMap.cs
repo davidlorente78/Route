@@ -32,7 +32,7 @@ namespace GraphicMap
             Point MousePointDown = new Point(x, y);
 
             this.textBox1.Text = x.ToString() + "," + y.ToString();
-            
+
         }
 
         private void SouthEastAsiaMap_Load(object sender, EventArgs e)
@@ -71,9 +71,9 @@ namespace GraphicMap
             }
 
 
-           
 
-            ToDatagrid(new List<string> { "Routes" , "Season Evaluation" }, routes, finalReports);
+
+            ToDatagrid(new List<string> { "Routes", "Season Evaluation" }, routes, finalReports);
 
             //Para cada propiedad de la clase 
             foreach (var coordinate in countriesScreenCoordinates.Coordinates)
@@ -97,49 +97,51 @@ namespace GraphicMap
 
         }
 
-        public enum Meses { Enero , Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre }
+        public enum Meses { Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre }
 
 
-        public void ToSerialButtons(List<Tuple<List<char>, List<List<Tuple<char, string>>>, List<double>>> finalReports, int index) {
-            
+        public void ToSerialButtons(List<Tuple<List<char>, List<List<Tuple<char, string>>>, List<double>>> finalReports, int index)
+        {
+
             panel1.Controls.Clear();
-            int x=0;
+            int x = 0;
 
             Array valores = Enum.GetValues(typeof(Meses));
 
             var report = finalReports[index].Item2[0]; //Reporte [Index]
 
-            foreach (var monthDescription in report ) {
+            foreach (var monthDescription in report)
+            {
 
 
                 Button button = new Button();
-             
+
                 button.Width = panel1.Width;
                 int Height = panel1.Height / 12;
                 button.Height = Height;
 
                 //button.Location = new Point(panel1.Location.X, panel1.Location.Y + x* Height);
-                button.Location = new Point( 0,x*Height);
+                button.Location = new Point(0, x * Height);
                 button.Text = valores.GetValue(x).ToString() + " : " + monthDescription.Item1.ToString();
                 //button.Image
                 x++;
-                
+
 
                 // Set up the ToolTip text for the Button and Checkbox.
                 toolTip1.SetToolTip(button, monthDescription.Item2);
-              
+
 
                 panel1.Controls.Add(button);
-            
+
             }
 
 
             panel1.Refresh();
-        
-        
+
+
         }
 
-        public void ToDatagrid(List <string> headers, List <List <char>> routes, List<Tuple<List<char>,List< List<Tuple<char, string>>>, List<double>>> finalReports)
+        public void ToDatagrid(List<string> headers, List<List<char>> routes, List<Tuple<List<char>, List<List<Tuple<char, string>>>, List<double>>> finalReports)
         {
             var dt = new DataTable();
 
@@ -155,8 +157,8 @@ namespace GraphicMap
 
                 string readableRoute = Helper.ConvertCodesToCountries(routes[i]);
                 double evaluation = finalReports[i].Item3[0];
-                
-                dt.Rows.Add(readableRoute,evaluation);
+
+                dt.Rows.Add(readableRoute, evaluation);
 
             }
             // display in a DataGrid
@@ -166,11 +168,11 @@ namespace GraphicMap
         }
 
 
-        public void ShowPoint(Point point,string name, char type)
+        public void ShowPoint(Point point, string name, char type)
         {
 
             Graphics Display = Graphics.FromImage(pictureBox1.Image);
-             
+
 
 
             int crossWidth = 5;
@@ -188,7 +190,7 @@ namespace GraphicMap
             if (type == 'R')
             {
 
-                 font = new Font(FontFamily.GenericMonospace, 20, FontStyle.Italic);
+                font = new Font(FontFamily.GenericMonospace, 20, FontStyle.Italic);
             }
 
             else if (type == 'C')
@@ -204,13 +206,13 @@ namespace GraphicMap
             Brush Brushy = new SolidBrush(Color.Black);
             Display.DrawString(name, font, Brushy, Point4.X, Point4.Y - crossWidth * 3);
 
-         
+
 
         }
 
 
-        private void ShowLeg(Point A, Point B, Color color, string label,  Graphics graphics)
-        {          
+        private void ShowLeg(Point A, Point B, Color color, string label, Graphics graphics)
+        {
             Pen pen = new Pen(color, 5);
             pen.EndCap = LineCap.ArrowAnchor;
             pen.StartCap = LineCap.RoundAnchor;
@@ -221,9 +223,9 @@ namespace GraphicMap
             Font font = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Bold);
 
             Brush brush = new SolidBrush(Color.Black);
-            graphics.DrawString(label, font, brush, medium.X, medium.Y );
-          
-           
+            graphics.DrawString(label, font, brush, medium.X, medium.Y);
+
+
 
 
         }
