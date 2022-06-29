@@ -49,7 +49,7 @@ namespace Traveller.StaticData
                     new Frontier
                     {
                         Name = LaosDestinations.VTE.Name,
-                          Origin = new Destination {  CountryCode = 'A'}, //International Airport
+                         Origin = LaosDestinations.VTE,
                         Final = LaosDestinations.VTE,
                         Type = "A",
                       }
@@ -58,7 +58,7 @@ namespace Traveller.StaticData
                     new Frontier
                     {
                         Name = LaosDestinations.LPQ.Name,
-                        Origin = new Destination {  CountryCode = 'A'}, //International Airport
+                        Origin = LaosDestinations.LPQ,
                         Final = LaosDestinations.LPQ,
                         Type = "A",
                        }

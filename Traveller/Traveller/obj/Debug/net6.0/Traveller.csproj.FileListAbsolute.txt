@@ -1,0 +1,17 @@
+D:\Code Project\Route\Traveller\Traveller\bin\Debug\net6.0\Traveller.deps.json
+D:\Code Project\Route\Traveller\Traveller\bin\Debug\net6.0\Traveller.dll
+D:\Code Project\Route\Traveller\Traveller\bin\Debug\net6.0\ref\Traveller.dll
+D:\Code Project\Route\Traveller\Traveller\bin\Debug\net6.0\Traveller.pdb
+D:\Code Project\Route\Traveller\Traveller\bin\Debug\net6.0\Domain.dll
+D:\Code Project\Route\Traveller\Traveller\bin\Debug\net6.0\StaticData.dll
+D:\Code Project\Route\Traveller\Traveller\bin\Debug\net6.0\Domain.pdb
+D:\Code Project\Route\Traveller\Traveller\bin\Debug\net6.0\StaticData.pdb
+D:\Code Project\Route\Traveller\Traveller\obj\Debug\net6.0\Traveller.csproj.AssemblyReference.cache
+D:\Code Project\Route\Traveller\Traveller\obj\Debug\net6.0\Traveller.GeneratedMSBuildEditorConfig.editorconfig
+D:\Code Project\Route\Traveller\Traveller\obj\Debug\net6.0\Traveller.AssemblyInfoInputs.cache
+D:\Code Project\Route\Traveller\Traveller\obj\Debug\net6.0\Traveller.AssemblyInfo.cs
+D:\Code Project\Route\Traveller\Traveller\obj\Debug\net6.0\Traveller.csproj.CoreCompileInputs.cache
+D:\Code Project\Route\Traveller\Traveller\obj\Debug\net6.0\Traveller.csproj.CopyComplete
+D:\Code Project\Route\Traveller\Traveller\obj\Debug\net6.0\Traveller.dll
+D:\Code Project\Route\Traveller\Traveller\obj\Debug\net6.0\ref\Traveller.dll
+D:\Code Project\Route\Traveller\Traveller\obj\Debug\net6.0\Traveller.pdb

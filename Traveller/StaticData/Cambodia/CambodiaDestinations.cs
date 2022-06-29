@@ -13,5 +13,24 @@ namespace Traveller.StaticData
 
         //Tourist Spots
         public static Destination Angkor = new Destination { Name = "Angkor", Type = 'T', CountryCode = 'C' };
+
+        public static Destination REP = new Destination { Name = "Siem Reap International Airport", Type = 'A', CountryCode = 'C' };
+
+        public static List<Destination> GetAll()
+        {
+
+            List<Destination> destinations = new List<Destination>();
+            destinations.Add(Bavet);
+            destinations.Add(PrekChak);
+            destinations.Add(KaanSamnor);
+            destinations.Add(Angkor);
+            destinations.Add(REP);
+
+
+            return destinations;
+
+
+
+        }
     }
 }

@@ -15,12 +15,6 @@ namespace RouteDataManager.Repositories
 
 
 
-        private static Destination Singapore = new Destination { Name = "Singapore", CountryCode = 'G' };
-        private static Destination KUL = new Destination { Name = "Kuala Lumpur Airport", CountryCode = 'M' };
-        private static Destination SIN = new Destination { Name = "Singapore Changi Airport", CountryCode = 'G' };
-        private static Destination HAK = new Destination { Name = "Haikou Airport", CountryCode = 'Z' };
-        private static Destination SungaiKolok = new Destination { Name = "Sungai Kolok", CountryCode = 'M' };
-        private static Destination PadangBesar = new Destination { Name = "Padang Besar", CountryCode = 'M' };
 
         public DbInitializer() { }
 
@@ -41,7 +35,7 @@ namespace RouteDataManager.Repositories
                 Code = 'L',
                 Name = "Laos",
                 Frontiers = LaosFrontiers.Frontiers,
-                Destinations = new List<Destination> { LaosDestinations.LPQ, LaosDestinations.VTE, LaosDestinations.Savannakhet , LaosDestinations.Namkan, LaosDestinations.LuangPrabang, LaosDestinations.Taichang, LaosDestinations.Taichang},
+                Destinations = LaosDestinations.GetAll(), // new List<Destination> { LaosDestinations.LPQ, LaosDestinations.VTE, LaosDestinations.Savannakhet , LaosDestinations.Namkan, LaosDestinations.LuangPrabang, LaosDestinations.Taichang, LaosDestinations.Taichang},
                 //Visas = new List<Visa> { LaosVisas.eLaoVisa, LaosVisas.LaoVisa }
             };
 
@@ -53,9 +47,7 @@ namespace RouteDataManager.Repositories
             {
                 Code = 'V',
                 Name = "Vietnam",
-
-                
-                Destinations = new List<Destination> { VietnamDestinations.VingXuong, VietnamDestinations.Hanoi, VietnamDestinations.MocBai , VietnamDestinations.HaTien , VietnamDestinations.TayTrang, VietnamDestinations.NhapCanh },
+                Destinations = new List<Destination> { VietnamDestinations.VingXuong, VietnamDestinations.Hanoi, VietnamDestinations.MocBai, VietnamDestinations.HaTien, VietnamDestinations.TayTrang, VietnamDestinations.NhapCanh },
                 Frontiers = VietnamFrontiers.Frontiers
 
             };
@@ -69,7 +61,7 @@ namespace RouteDataManager.Repositories
                 Code = 'T',
                 Name = "Thailand",
 
-                Destinations = new List<Destination> { ThailandDestinations.BKK, ThailandDestinations.Mukdahan, ThailandDestinations.NongKhai },
+                Destinations = new List<Destination> { ThailandDestinations.BKK, ThailandDestinations.Mukdahan, ThailandDestinations.NongKhai, ThailandDestinations.PadangPesar, ThailandDestinations.SungaiKolok },
                 Frontiers = new List<Frontier> {
 
                     new Frontier {
@@ -96,23 +88,10 @@ namespace RouteDataManager.Repositories
 
                          ,
 
-                     //Los aeropuertos son del Tipo A y no tienen Origen
-                        new Frontier {
-                        Origin = new Destination {  CountryCode = 'A'}, //International Airport
-                        Name = ThailandDestinations.BKK.Name,
-                        Final = ThailandDestinations.BKK,
-                        Type ="A",
-                       //,
-                        //Visas = new List<Visa> { new Visa { Duration = 30 } } ,
-
-                        }
-
-                         ,
-
-                        new Frontier {
+                      new Frontier {
                         Name = "Padang Pesar - Padang Pesar (Pekan Siam)",
                         Origin = MalasiaDestinations.PadangPesar,
-                        Final = new Destination {   Name = "Padang Pesar", CountryCode= 'T'},
+                        Final = ThailandDestinations.PadangPesar,
                         Type = "T",
                        //,
                         //Visas = new List<Visa> { new Visa { Duration = 30 } } ,
@@ -124,7 +103,7 @@ namespace RouteDataManager.Repositories
                         new Frontier {
                         Name = "Sungai Kolok - Rantan Panjang",
                         Origin = MalasiaDestinations.RantanPanjang,
-                        Final = new Destination {  Name = "Sungai Kolok", CountryCode= 'T'},
+                        Final = ThailandDestinations.SungaiKolok,
                         Type = "T",
                        //,
                         //Visas = new List<Visa> { new Visa { Duration = 30 } } ,
@@ -144,13 +123,14 @@ namespace RouteDataManager.Repositories
             {
                 Code = 'M',
                 Name = "Malaysia",
+                Destinations = new List<Destination> { MalasiaDestinations.KualaLumpur, MalasiaDestinations.RantanPanjang, MalasiaDestinations.PadangPesar, MalasiaDestinations.KualaLumpur, MalasiaDestinations.Penang, MalasiaDestinations.Butterworth, MalasiaDestinations.KotaBahru, MalasiaDestinations.KUL },
                 Frontiers = new List<Frontier> {
 
 
                             new Frontier {
-                            Name = KUL.Name,
-                            Origin = new Destination { CountryCode = 'A'}, //International Airport
-                            Final = KUL,
+                            Name = MalasiaDestinations.KUL.Name,
+                            Origin = MalasiaDestinations.KUL,
+                            Final = MalasiaDestinations.KUL,
                            //,
                         //Visas = new List<Visa> { MalasiaVisas.freeVisa ,
 
@@ -159,16 +139,16 @@ namespace RouteDataManager.Repositories
                          ,
                             new Frontier {
                             Name = "Padang Pesar",
-                            Origin = new Destination {  Name = "Padang Pesar", CountryCode= 'T'},
-                            Final = new Destination {  Name = "Padang Pesar", CountryCode= 'M'},
+                            Origin = MalasiaDestinations.PadangPesar,
+                            Final = ThailandDestinations.PadangPesar,
                              }
 
                          ,
 
                             new Frontier {
                             Name = "Sungai Kolok - Rantan Panjang",
-                            Origin = new Destination {  Name = "Sungai Kolok", CountryCode= 'T'},
-                            Final = new Destination {  Name = "Sungai Kolok", CountryCode= 'M'},
+                            Origin = MalasiaDestinations.RantanPanjang,
+                            Final = ThailandDestinations.SungaiKolok,
                             }
 
                          ,
@@ -183,10 +163,20 @@ namespace RouteDataManager.Repositories
             context.SaveChanges();
 
 
-            //TODO Cambodia
+            Country Cambodia = new Country
+            {
+                Code = 'C',
+                Name = "Cambodia",
+                Destinations = CambodiaDestinations.GetAll(),
+                Frontiers = CambodiaFrontiers.Frontiers
 
 
 
+            };
+
+            context.Countries.Add(Cambodia);
+
+            context.SaveChanges();
         }
     }
 }

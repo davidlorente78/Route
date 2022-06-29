@@ -76,7 +76,7 @@ namespace Traveller.StaticData
 
                      //Los aeropuertos son del Tipo A y no tienen Origen
                         new Frontier {
-                        Origin = new Destination { CountryCode = 'A'}, //International Airport
+                        Origin =  ThailandDestinations.BKK,
                         Name = ThailandDestinations.BKK.Name,
                         Final = ThailandDestinations.BKK,
                         Type ="A",
@@ -120,22 +120,22 @@ namespace Traveller.StaticData
 
                             new Frontier {
                             Name = KUL.Name,
-                            Origin = new Destination { CountryCode = 'A'}, //International Airport
+                            Origin = KUL,
                             Final = KUL,
                            //Visas = new List<Visa> { { malasiaia.bbsa.eLaoVisa}   }
                     }   ,
 
                             new Frontier {
                             Name = "Padang Pesar",
-                            Origin = new Destination {  Name = "Padang Pesar", CountryCode= 'T'},
-                            Final = new Destination {  Name = "Padang Pesar", CountryCode= 'M'},
+                            Origin = MalasiaDestinations.PadangPesar,
+                            Final = ThailandDestinations.PadangPesar,
                              //Visas = new List<Visa> { { malasiaia.bbsa.eLaoVisa}   }
                     }   ,
 
                             new Frontier {
                             Name = "Sungai Kolok - Rantan Panjang",
-                            Origin = new Destination {  Name = "Sungai Kolok", CountryCode= 'T'},
-                            Final = new Destination {  Name = "Sungai Kolok", CountryCode= 'M'},
+                            Origin = MalasiaDestinations.RantanPanjang,
+                            Final = ThailandDestinations.SungaiKolok,
                               //Visas = new List<Visa> { { malasiaia.bbsa.eLaoVisa}   }
                     }   ,
 
