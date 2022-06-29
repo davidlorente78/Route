@@ -10,7 +10,7 @@ namespace Traveller.StaticData
                         Name = "Thailand Laos Frienship Bridge I ",
 
                         Origin = ThailandDestinations.NongKhai,
-                        //TransitDestination = LaosDestinations.Vientiane,
+                        Final = LaosDestinations.Vientiane,
                         Type = "T",
                         //Visas = new List<Visa> { { LaosVisas.eLaoVisa}   }
                     }   ,
