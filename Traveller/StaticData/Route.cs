@@ -59,48 +59,48 @@ namespace Traveller.StaticData
                     new Frontier {
                         Name = "Thailand Laos Frienship Bridge I ",
                         Origin = LaosDestinations.Vientiane,
-                        Destination = ThailandDestinations.NongKhai,
+                        Final = ThailandDestinations.NongKhai,
                         Type = "T",
-                        Visas = new List<Visa> { new Visa { Duration = 15 } } }
+                        }
 
-                    ,
+                                             ,
 
                      new Frontier {
                         Name = "Thailand Laos Frienship Bridge II ",
                         Origin = ThailandDestinations.Mukdahan,
-                        Destination = LaosDestinations.Savannakhet,
+                        Final = LaosDestinations.Savannakhet,
                         Type = "T",
-                        Visas = new List<Visa> { new Visa { Duration = 15 } } } //Aqui se indica el visado que piden en Thailandia
+                        }
 
-                    ,
+                         ,
 
                      //Los aeropuertos son del Tipo A y no tienen Origen
                         new Frontier {
                         Origin = new Destination { CountryCode = 'A'}, //International Airport
                         Name = ThailandDestinations.BKK.Name,
-                        Destination = ThailandDestinations.BKK,
+                        Final = ThailandDestinations.BKK,
                         Type ="A",
-                        Visas = new List<Visa> { new Visa { Duration = 30 } ,
+                       }
 
-                        } },
+                         ,
 
                         new Frontier {
                         Name = "Padang Pesar - Padang Pesar (Pekan Siam)",
                         Origin = MalasiaDestinations.PadangPesar,
-                        Destination = new Destination {  Name = "Padang Pesar", CountryCode= 'T'},
+                        Final = new Destination {  Name = "Padang Pesar", CountryCode= 'T'},
                         Type = "T",
-                        Visas = new List<Visa> { new Visa { Duration = 30 } ,
+                        }
 
-                        } } ,
+                         ,
 
                         new Frontier {
                         Name = "Sungai Kolok - Rantan Panjang",
                         Origin = MalasiaDestinations.RantanPanjang,
-                        Destination = new Destination {  Name = "Sungai Kolok", CountryCode= 'T'},
+                        Final = new Destination {  Name = "Sungai Kolok", CountryCode= 'T'},
                         Type = "T",
-                        Visas = new List<Visa> { new Visa { Duration = 30 } ,
+                      }
 
-                        } }
+                         ,
 
                 }
             };
@@ -109,31 +109,6 @@ namespace Traveller.StaticData
             Countries.Add(Thailand);
 
 
-            Country SingaporeC = new Country
-            {
-                Name = "Singapur", ////International Airport
-                Code = 'I',
-                Frontiers = new List<Frontier> {
-
-
-                        new Frontier {
-                        Name = SIN.Name,
-                         Origin = new Destination { CountryCode = 'A'}, //International Airport
-                        Destination = SIN,
-                        Visas = new List<Visa> { new Visa { Duration = 90 } ,
-
-                        } } ,
-
-                        new Frontier {
-                        Name = "Bus from Malaysia",
-                        TransitDestination = Singapore,
-                        Visas = new List<Visa> { new Visa { Duration = 90 } ,
-
-                        } }
-
-
-                }
-            };
 
 
             Country Malaysia = new Country
@@ -146,26 +121,23 @@ namespace Traveller.StaticData
                             new Frontier {
                             Name = KUL.Name,
                             Origin = new Destination { CountryCode = 'A'}, //International Airport
-                            Destination = KUL,
-                            Visas = new List<Visa>{ MalasiaVisas.freeVisa ,
-
-                            } } ,
+                            Final = KUL,
+                           //Visas = new List<Visa> { { malasiaia.bbsa.eLaoVisa}   }
+                    }   ,
 
                             new Frontier {
                             Name = "Padang Pesar",
                             Origin = new Destination {  Name = "Padang Pesar", CountryCode= 'T'},
-                            Destination = new Destination {  Name = "Padang Pesar", CountryCode= 'M'},
-                            Visas = new List<Visa>{ MalasiaVisas.freeVisa ,
-
-                            } } ,
+                            Final = new Destination {  Name = "Padang Pesar", CountryCode= 'M'},
+                             //Visas = new List<Visa> { { malasiaia.bbsa.eLaoVisa}   }
+                    }   ,
 
                             new Frontier {
                             Name = "Sungai Kolok - Rantan Panjang",
                             Origin = new Destination {  Name = "Sungai Kolok", CountryCode= 'T'},
-                            Destination = new Destination {  Name = "Sungai Kolok", CountryCode= 'M'},
-                             Visas = new List<Visa>{ MalasiaVisas.freeVisa ,
-
-                            } } ,
+                            Final = new Destination {  Name = "Sungai Kolok", CountryCode= 'M'},
+                              //Visas = new List<Visa> { { malasiaia.bbsa.eLaoVisa}   }
+                    }   ,
 
 
                     }

@@ -10,11 +10,9 @@ namespace Traveller.StaticData
                         Name = "Thailand Laos Frienship Bridge I ",
 
                         Origin = ThailandDestinations.NongKhai,
-                        TransitDestination = LaosDestinations.Vientiane,
+                        //TransitDestination = LaosDestinations.Vientiane,
                         Type = "T",
-                        Visas = new List<Visa> { { LaosVisas.eLaoVisa
-                            }
-                        }
+                        //Visas = new List<Visa> { { LaosVisas.eLaoVisa}   }
                     }   ,
 
 
@@ -23,14 +21,14 @@ namespace Traveller.StaticData
                         Name = "Tay Trang Border Crossing Station",
                         Description = LaosDestinations.Taichang.Description,
                         Origin = VietnamDestinations.TayTrang,
-                        Destination = LaosDestinations.Taichang,
+                        Final = LaosDestinations.Taichang,
 
-                        TransitOrigin = VietnamDestinations.Hanoi,
-                        TransitDestination = LaosDestinations.Vientiane,
+                        //TransitOrigin = VietnamDestinations.Hanoi,
+                        //TransitDestination = LaosDestinations.Vientiane,
                         Type = "T",
                         Transit = true,
                         Transport = "B",
-                        Visas = new List<Visa> { { LaosVisas.LaoVisa } }
+                       // Visas = new List<Visa> { { LaosVisas.LaoVisa } }
                     },
 
                       new Frontier
@@ -41,38 +39,42 @@ namespace Traveller.StaticData
                           Transit = true,
                           Transport = "B",
                           Origin = VietnamDestinations.NhapCanh,
-                          Destination = LaosDestinations.Namkan,
-                          TransitOrigin = VietnamDestinations.Hanoi,
-                          TransitDestination = LaosDestinations.LuangPrabang,
+                          Final = LaosDestinations.Namkan,
+                          //TransitOrigin = VietnamDestinations.Hanoi,
+                          //TransitDestination = LaosDestinations.LuangPrabang,
                           Type = "T",
-                          Visas = new List<Visa> { { LaosVisas.LaoVisa } }
-                      },
+                         }
+
+                         ,
                     new Frontier
                     {
                         Name = LaosDestinations.VTE.Name,
                           Origin = new Destination {  CountryCode = 'A'}, //International Airport
-                        Destination = LaosDestinations.VTE,
+                        Final = LaosDestinations.VTE,
                         Type = "A",
-                        Visas = new List<Visa> { { LaosVisas.eLaoVisa } }
-                    },
+                      }
+
+                         ,
                     new Frontier
                     {
                         Name = LaosDestinations.LPQ.Name,
                         Origin = new Destination {  CountryCode = 'A'}, //International Airport
-                        Destination = LaosDestinations.LPQ,
+                        Final = LaosDestinations.LPQ,
                         Type = "A",
-                        Visas = new List<Visa> { { LaosVisas.eLaoVisa } }
-                    } ,
+                       }
+
+                         ,
 
                     new Frontier
                     {
                         Name = "Thailand Laos Frienship Bridge II ",
                         Description = "Bridge over the Mekong that connects Mukdahan Province in Thailand with Savannakhet in Laos",
                         Origin = ThailandDestinations.Mukdahan,
-                        Destination = LaosDestinations.Savannakhet,
+                        Final = LaosDestinations.Savannakhet,
                         Type = "T",
-                        Visas = new List<Visa> { { LaosVisas.eLaoVisa } }
-                    }
+                        }
+
+                         ,
 
                     //Lao Bao Pass: Es el borde fronterizo más popular, si bien estaba demasiado al Sur como para resultarnos de interés. Queda muy cerca de Hué.
     };

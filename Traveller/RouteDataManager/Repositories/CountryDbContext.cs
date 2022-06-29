@@ -27,6 +27,15 @@ namespace RouteDataManager.Repositories
             modelBuilder.Entity<Country>().ToTable("Country");
             modelBuilder.Entity<Destination>().ToTable("Destination");
 
+            //EF Not Core versions
+            //builder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+
+            // Global turn off delete behaviour on foreign keys
+            foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
+            {
+                relationship.DeleteBehavior = DeleteBehavior.Restrict;
+            }
+
         }
 
     }
