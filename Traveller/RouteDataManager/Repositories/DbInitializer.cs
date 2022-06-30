@@ -18,7 +18,7 @@ namespace RouteDataManager.Repositories
 
         public DbInitializer() { }
 
-        public static void Initialize(CountryDbContext context)
+        public static void Initialize(ApplicationContext context)
         {
             context.Database.EnsureDeleted(); //
             context.Database.EnsureCreated();

@@ -9,7 +9,7 @@ namespace Traveller.RuleService
         private List<IRule> rules = new List<IRule>();
 
 
-        public List<char> vector = new List<char> { 'T', 'M', 'X', 'I' };
+        public List<char> vector = new List<char> { 'T', 'M', 'X', 'I' , 'L' ,'V' , 'C'};
         public MalasyaTailandiaBasedRuleWithBaliContainer()
         {
 

@@ -16,11 +16,7 @@
         public string? Description { get; set; }
 
         public string? Type { get; set; } //T A
-        public bool Transit { get; set; }
-        public string? Transport { get; set; }
-
-        //public Destination TransitOrigin { get; set; }
-        //public Destination TransitDestination { get; set; }
+     
 
         //public ICollection<Visa> Visas { get; set; }
 

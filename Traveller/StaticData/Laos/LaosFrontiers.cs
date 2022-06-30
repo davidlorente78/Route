@@ -23,11 +23,8 @@ namespace Traveller.StaticData
                         Origin = VietnamDestinations.TayTrang,
                         Final = LaosDestinations.Taichang,
 
-                        //TransitOrigin = VietnamDestinations.Hanoi,
-                        //TransitDestination = LaosDestinations.Vientiane,
-                        Type = "T",
-                        Transit = true,
-                        Transport = "B",
+                    
+                        Type = "T"                       
                        // Visas = new List<Visa> { { LaosVisas.LaoVisa } }
                     },
 
@@ -35,13 +32,10 @@ namespace Traveller.StaticData
                       {   //http://lamochilainquieta.com/hanoi-laos-autobus/
                           //F39P+MQ Kỳ Sơn District, Nghe An, Vietnam
                           Name = LaosDestinations.Namkan.Name,
-                          Description = LaosDestinations.Namkan.Description,
-                          Transit = true,
-                          Transport = "B",
+                          Description = LaosDestinations.Namkan.Description,                        
                           Origin = VietnamDestinations.NhapCanh,
                           Final = LaosDestinations.Namkan,
-                          //TransitOrigin = VietnamDestinations.Hanoi,
-                          //TransitDestination = LaosDestinations.LuangPrabang,
+                        
                           Type = "T",
                          }
 
@@ -49,7 +43,7 @@ namespace Traveller.StaticData
                     new Frontier
                     {
                         Name = LaosDestinations.VTE.Name,
-                         Origin = LaosDestinations.VTE,
+                        Origin = LaosDestinations.VTE,
                         Final = LaosDestinations.VTE,
                         Type = "A",
                       }
@@ -58,6 +52,7 @@ namespace Traveller.StaticData
                     new Frontier
                     {
                         Name = LaosDestinations.LPQ.Name,
+                        Description = LaosDestinations.LPQ.Description,
                         Origin = LaosDestinations.LPQ,
                         Final = LaosDestinations.LPQ,
                         Type = "A",

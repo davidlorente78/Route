@@ -13,10 +13,9 @@ namespace Traveller
         private List<char> vector;
         private IRuleContainer ruleContainer;
 
-        public RouteCombinationsGenerator(IRuleContainer ruleContainer, List<char> vector)
+        public RouteCombinationsGenerator(IRuleContainer ruleContainer)
         {
-            //El vector de Rule Container es ignorado
-            this.vector = vector;
+            this.vector = ruleContainer.GetVector();
             this.ruleContainer = ruleContainer;
 
         }

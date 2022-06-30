@@ -1,4 +1,8 @@
-﻿namespace Traveller.Domain
+﻿/// <summary>
+/// Domain – Holds the Entities and Interfaces. It does not depend on any other project in the solution.
+
+/// </summary>
+namespace Traveller.Domain
 {
     public class Country
     {
@@ -9,7 +13,6 @@
         public int CountryID { get; set; }
         public char Code { get; set; }
         public string Name { get; set; }
-
         public ICollection<Destination> Destinations { get; set; }
         public ICollection<Frontier> Frontiers { get; set; }        
 

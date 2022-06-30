@@ -1,3 +1,4 @@
+using Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using RouteDataManager.Repositories;
 
@@ -11,8 +12,18 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<CountryDbContext>(options =>
+builder.Services.AddDbContext<ApplicationContext>(options =>
   options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+//Finally, let’s register these Interfaces to the respective implementaions in the Startup.cs of the WebApi Project. Navigate to Startup.cs/ConfigureServices Method and add these lines.
+
+#region Repositories
+builder.Services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddTransient<IFrontierRepository, FrontierRepository>();
+builder.Services.AddTransient<ICountryRepository, CountryRepository>();
+builder.Services.AddTransient<IDestinationRepository, DestinationRepository>();
+builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
+#endregion
 
 
 var app = builder.Build();
@@ -23,7 +34,7 @@ using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
 
-    var context = services.GetRequiredService<CountryDbContext>();
+    var context = services.GetRequiredService<ApplicationContext>();
 
     context.Database.EnsureCreated();
 

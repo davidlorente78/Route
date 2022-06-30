@@ -13,12 +13,9 @@ namespace Nomad
     {
         static void Main(string[] args)
         {
+             //  
 
-            //  
-
-
-
-            RouteCombinationsGenerator routeGenerator = new RouteCombinationsGenerator(new MalasyaTailandiaBasedRuleWithBaliContainer(), new List<char> { 'M', 'T', 'X', 'I' });
+             RouteCombinationsGenerator routeGenerator = new RouteCombinationsGenerator(new MalasyaTailandiaBasedRuleWithBaliContainer() { vector = new List<char> { 'M', 'T', 'X', 'I' } });
 
             var routes = routeGenerator.Generate();
 
@@ -72,8 +69,8 @@ namespace Nomad
         }
         static void GenerarRutas()
         {
-
-            RoutePermutationsGenerator routeGenerator = new RoutePermutationsGenerator(new MalasyaTailandiaBasedRuleContainer());
+            ///TODO Check Generatotion
+            RoutePermutationsGenerator routeGenerator = new RoutePermutationsGenerator(new MalasyaTailandiaBasedRuleContainer(new List<char> { 'L', 'V', 'C', 'T', 'M', 'B', 'M', 'I', 'M', 'W', 'K', 'N' }));
 
             //Informar por pantalla de las reglas que se estan aplicando
             foreach (var rule in routeGenerator.Rules)

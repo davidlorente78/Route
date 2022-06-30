@@ -60,7 +60,12 @@
       "ProjectGuid": "c41f33fe-4f34-4b15-88b9-c0d09acd7ed5",
       "DisplayName": "RouteDataManager",
       "ColorIndex": 10
+    },
+    "a49b6b01-29f6-41c9-b055-9a9a0227a36d": {
+      "ProjectGuid": "a49b6b01-29f6-41c9-b055-9a9a0227a36d",
+      "DisplayName": "Audit",
+      "ColorIndex": 11
     }
   },
-  "NextColorIndex": 11
+  "NextColorIndex": 12
 }

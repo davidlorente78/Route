@@ -8,28 +8,13 @@ namespace Traveller.RuleService
     {
         private List<IRule> rules = new List<IRule>();
 
-        public List<char> vector = new List<char> { 'N', 'T', 'L', 'C', 'V', 'O', 'M', 'M', 'W', 'I', 'V' };
+        private List<char> vector;
 
-        public MalasyaTailandiaBasedRuleContainer()
+        public MalasyaTailandiaBasedRuleContainer(List<char> vector)
         {
+            this.vector = vector;
 
-            //Conexiones con Indonesia
-            rules.Add(new OrCondition(new List<IRule> {
-
-                new CountryBMustFollowCountryA('I', 'M', true),
-                new CountryBMustFollowCountryA('I', 'T', true),//Por conexiones
-                new CountryBMustFollowCountryA('I', 'W', true),
-                new CountryBMustFollowCountryA('I', 'N', true),//Por conexiones
-            }));
-
-            rules.Add(new OrCondition(new List<IRule> {
-
-                new CountryBMustFollowCountryA( 'M', 'I',true),
-                new CountryBMustFollowCountryA( 'T', 'I',true),
-                new CountryBMustFollowCountryA( 'W', 'I',true),
-                new CountryBMustFollowCountryA( 'N', 'I',true),
-            }));
-
+      
 
             rules.Add(new CountryBMustFollowCountryA('L', 'V', false));
             rules.Add(new CountryBMustFollowCountryA('V', 'C', false));
@@ -47,16 +32,12 @@ namespace Traveller.RuleService
 
             rules.Add(new EachStayMustBeLessThanXMonth('T', 1));
             rules.Add(new EachStayMustBeLessThanXMonth('N', 1));
-            rules.Add(new EachStayMustBeLessThanXMonth('O', 1));
-            rules.Add(new EachStayMustBeLessThanXMonth('I', 1));
+            rules.Add(new EachStayMustBeLessThanXMonth('O', 1));          
             rules.Add(new EachStayMustBeLessThanXMonth('M', 3));
             rules.Add(new EachStayMustBeLessThanXMonth('V', 2)); //VISA EXT
 
 
-            //Bloqueo acceso Indonesia
-            rules.Add(new BlockConnection('I', 'V', false));
-            rules.Add(new BlockConnection('I', 'L', false));
-            rules.Add(new BlockConnection('I', 'C', false));
+           
 
 
 
@@ -75,17 +56,13 @@ namespace Traveller.RuleService
             rules.Add(new BlockConnection('T', 'N', false));
             rules.Add(new BlockConnection('I', 'O', false));
 
-
-
-
             rules.Add(new MustConsiderWeather(new List<IntegerRange> {
                 new IntegerRange { Id = 'V', Values = new List<int> { 1,1,1,1,1,-1,-1,-1,-1,-1,-1,1 } } ,
                 new IntegerRange { Id = 'L', Values = new List<int> { 1, 1, -1,-1,1,1,1,-1,-1, 1, 1, 1 } } ,
                 new IntegerRange { Id = 'M', Values = new List<int> { -1, -1, 1,1,1,1,1,1,1, -1,- 1,- 1 } } ,
                 new IntegerRange { Id = 'T', Values = new List<int> { 1, 1, 1,1,-1,-1,-1,-1,-1, -1, 1, 1 } } ,
                 new IntegerRange { Id = 'C', Values = new List<int> { 1, 1, 1,1,-1,-1,-1,-1,1, 1, 1, 1 } } ,
-                new IntegerRange { Id = 'N', Values = new List<int> { 1, 1, 1,-1,-1,-1,-1,-1, -1, -1, 1, 1 } } ,
-                new IntegerRange { Id = 'I', Values = new List<int> { -1, -1, -1,-1,1,1,1,-1,1, -1, -1, -1 } } ,
+                new IntegerRange { Id = 'N', Values = new List<int> { 1, 1, 1,-1,-1,-1,-1,-1, -1, -1, 1, 1 } } ,                
                 new IntegerRange { Id = 'O', Values = new List<int> { -1, -1, -1, -1, 1, 1, 1, 1, 1, 1, -1, -1 } } ,
                 new IntegerRange { Id = 'W', Values = new List<int> { -1, -1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 } } ,
 
