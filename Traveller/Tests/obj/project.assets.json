@@ -1236,6 +1236,21 @@
           "bin/placeholder/Domain.dll": {}
         }
       },
+      "DomainServices/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Domain": "1.0.0",
+          "StaticData": "1.0.0",
+          "System.Collections": "4.3.0"
+        },
+        "compile": {
+          "bin/placeholder/DomainServices.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DomainServices.dll": {}
+        }
+      },
       "StaticData/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -1247,21 +1262,6 @@
         },
         "runtime": {
           "bin/placeholder/StaticData.dll": {}
-        }
-      },
-      "Traveller/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Domain": "1.0.0",
-          "StaticData": "1.0.0",
-          "System.Collections": "4.3.0"
-        },
-        "compile": {
-          "bin/placeholder/Traveller.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Traveller.dll": {}
         }
       }
     }
@@ -4662,22 +4662,22 @@
       "path": "../Domain/Domain.csproj",
       "msbuildProject": "../Domain/Domain.csproj"
     },
+    "DomainServices/1.0.0": {
+      "type": "project",
+      "path": "../Traveller/DomainServices.csproj",
+      "msbuildProject": "../Traveller/DomainServices.csproj"
+    },
     "StaticData/1.0.0": {
       "type": "project",
       "path": "../StaticData/StaticData.csproj",
       "msbuildProject": "../StaticData/StaticData.csproj"
-    },
-    "Traveller/1.0.0": {
-      "type": "project",
-      "path": "../Traveller/Traveller.csproj",
-      "msbuildProject": "../Traveller/Traveller.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "DomainServices >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 16.4.0",
       "NUnit3TestAdapter >= 3.15.1",
-      "Traveller >= 1.0.0",
       "nunit >= 3.12.0"
     ]
   },
@@ -4708,8 +4708,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\Code Project\\Route\\Traveller\\Traveller\\Traveller.csproj": {
-              "projectPath": "D:\\Code Project\\Route\\Traveller\\Traveller\\Traveller.csproj"
+            "D:\\Code Project\\Route\\Traveller\\Traveller\\DomainServices.csproj": {
+              "projectPath": "D:\\Code Project\\Route\\Traveller\\Traveller\\DomainServices.csproj"
             }
           }
         }

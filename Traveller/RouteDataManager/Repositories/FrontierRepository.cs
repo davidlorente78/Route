@@ -1,4 +1,4 @@
-﻿using Domain.Interfaces;
+﻿using Domain.Repositories;
 using Traveller.Domain;
 
 namespace RouteDataManager.Repositories

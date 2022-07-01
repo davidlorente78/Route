@@ -1,4 +1,4 @@
-﻿namespace Traveller.VisaService
+﻿namespace Traveller.DomainServices
 {
     public class VisaService
     {

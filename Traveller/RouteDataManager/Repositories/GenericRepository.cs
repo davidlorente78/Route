@@ -1,4 +1,4 @@
-﻿using Domain.Interfaces;
+﻿using Domain.Repositories;
 using System.Linq.Expressions;
 
 namespace RouteDataManager.Repositories

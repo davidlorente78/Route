@@ -1,4 +1,4 @@
-﻿using Domain.Interfaces;
+﻿using Domain.Repositories;
 
 namespace RouteDataManager.Repositories
 {
@@ -13,7 +13,6 @@ namespace RouteDataManager.Repositories
             Frontiers = new FrontierRepository(_context);
         }
         public ICountryRepository Countries { get; private set; }
-
         public IDestinationRepository Destinations { get; private set; }
         public IFrontierRepository Frontiers { get; private set; }
         public int Complete()

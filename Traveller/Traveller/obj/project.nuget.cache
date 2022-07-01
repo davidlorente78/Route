@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0yxtK28fCP8KEyCFl5qRFDwjzrcyPcJg25TfOfWx54TchEE99UGrr/ujbE+OC9c4/dZGfU04gN3q6bjzaFHJdA==",
+  "dgSpecHash": "BhSPO5QdSfYXLTrM9boBuwr3n/lanSTh+kRWsu/AVBMjAFRMwj1Dd/cboz1mAEdEch7PzMFIhO4p3EfiDrCGnw==",
   "success": true,
-  "projectFilePath": "D:\\Code Project\\Route\\Traveller\\Traveller\\Traveller.csproj",
+  "projectFilePath": "D:\\Code Project\\Route\\Traveller\\Traveller\\DomainServices.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\David\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\David\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",

@@ -30,7 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Traveller\Traveller.csproj" />
+    <ProjectReference Include="..\Traveller\DomainServices.csproj" />
   </ItemGroup>
 
 </Project>

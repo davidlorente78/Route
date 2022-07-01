@@ -15,6 +15,58 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Code Project\Route\Traveller\RouteDataManager
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Destinations/Component.razor]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXENvbXBvbmVudC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Code Project/Route/Traveller/RouteDataManager/Pages/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Countries/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnRyaWVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Destinations/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Destinations/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Destinations/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Destinations/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Destinations/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Frontiers/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJvbnRpZXJzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Frontiers/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJvbnRpZXJzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Frontiers/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJvbnRpZXJzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Frontiers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJvbnRpZXJzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Frontiers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJvbnRpZXJzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Code Project/Route/Traveller/RouteDataManager/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

@@ -39,5 +39,23 @@ namespace RouteDataManager.Repositories
 
         }
 
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    var connectionString = @"Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;";
+        //    optionsBuilder.UseSqlServer(connectionString);
+        //}
+
+
+        public DbSet<Traveller.Domain.Destination>? Destination { get; set; }
+
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    var connectionString = @"Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;";
+        //    optionsBuilder.UseSqlServer(connectionString);
+        //}
+
+
+        public DbSet<Traveller.Domain.Frontier>? Frontier { get; set; }
+
     }
 }

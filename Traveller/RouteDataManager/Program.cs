@@ -1,6 +1,7 @@
-using Domain.Interfaces;
+using Domain.Repositories;
 using Microsoft.EntityFrameworkCore;
 using RouteDataManager.Repositories;
+using Traveller.DomainServices;
 
 
 // Add services to the container.
@@ -22,7 +23,16 @@ builder.Services.AddTransient(typeof(IGenericRepository<>), typeof(GenericReposi
 builder.Services.AddTransient<IFrontierRepository, FrontierRepository>();
 builder.Services.AddTransient<ICountryRepository, CountryRepository>();
 builder.Services.AddTransient<IDestinationRepository, DestinationRepository>();
+
+//Note that, Here we are injecting a private AppplicationContext. Let’s wire up or controllers with these Repositories. Ideally you would want to have a service layer between the Repository and Controllers. But, to keep things fairly simple, we will avoid the service layer now.
+//Before that, let’s not forget to register the IUnitofWork Interface in our Application. Navigate to Startup.cs/ConfigureServices Method and add this line.
+
+
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
+
+
+builder.Services.AddTransient<ICountryService, CountryService>();
+
 #endregion
 
 
