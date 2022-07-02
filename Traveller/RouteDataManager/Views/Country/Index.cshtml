@@ -1,0 +1,116 @@
+﻿@*@model IEnumerable<Traveller.Domain.Country>
+*@
+@model RouteDataManager.ViewModels.CountryIndexData
+
+@{
+    ViewData["Title"] = "Index"; //Lo solicita en el prompt de creación
+}
+
+<h1>View</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Code
+            </th>
+            <th>
+               Name
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+       @foreach (var item in Model.Countries)
+    {
+        string selectedRow = "";
+        if (item.CountryID == ViewBag.CountryId)
+        {
+            selectedRow = "success";
+        }
+
+        <tr class="@selectedRow">
+            <td>
+                @Html.DisplayFor(modelItem => item.Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+          
+
+            <td>
+                 @Html.ActionLink("Select", "Index", new { id = item.CountryID }) |
+                <a asp-action="Edit" asp-route-id="@item.CountryID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CountryID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CountryID">Delete</a>
+            </td>
+        </tr>
+        }
+
+            </tbody>
+</table>
+
+        @if (Model.Destinations != null)
+        {
+            <h3>
+                Destinations in Selected Country
+            </h3>
+            <table class="table">
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Type</th>
+
+                </tr>
+
+                @foreach (var d in Model.Destinations)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => d.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => d.Description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => d.Type)
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        }
+                
+        @if (Model.Frontiers != null)
+        {
+            <h3>
+                Frontiers in Selected Country
+            </h3>
+            <table class="table">
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Type</th>
+
+                </tr>
+
+                @foreach (var f in Model.Frontiers)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => f.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => f.Description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => f.Type)
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        }

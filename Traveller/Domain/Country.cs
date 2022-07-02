@@ -13,8 +13,12 @@ namespace Traveller.Domain
         public int CountryID { get; set; }
         public char Code { get; set; }
         public string Name { get; set; }
-        public ICollection<Destination> Destinations { get; set; }
-        public ICollection<Frontier> Frontiers { get; set; }        
+
+        /// <summary>
+        /// Virtual ensures that 
+        /// </summary>
+        public virtual ICollection<Destination> Destinations { get; set; }
+        public virtual ICollection<Frontier> Frontiers { get; set; }        
 
         //public ICollection<Visa> Visas { get; set; }
 

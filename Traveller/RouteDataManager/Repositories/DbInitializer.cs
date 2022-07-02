@@ -162,15 +162,12 @@ namespace RouteDataManager.Repositories
 
             context.SaveChanges();
 
-
             Country Cambodia = new Country
             {
                 Code = 'C',
                 Name = "Cambodia",
                 Destinations = CambodiaDestinations.GetAll(),
                 Frontiers = CambodiaFrontiers.Frontiers
-
-
 
             };
 

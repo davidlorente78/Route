@@ -18,7 +18,7 @@
         public string? Type { get; set; } //T A
      
 
-        //public ICollection<Visa> Visas { get; set; }
+        //public virtual ICollection<Visa> Visas { get; set; }
 
 
         public override string ToString()

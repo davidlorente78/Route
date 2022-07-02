@@ -14,7 +14,25 @@ namespace Traveller.DomainServices
          this.unitOfWork = unitOfWork;
     
     }
-    
+
+        public ICollection<Frontier> GetFrontiersByOriginCountryID(int CountryID)
+        {
+            ///Metodo especifico para Repositorio en Countries. No es del repositorio generico.
+            var frontiers = unitOfWork.Frontiers.GetFrontiersByOriginCountryCode(CountryID);
+
+            return frontiers.ToList();
+
+        }
+
+        public ICollection<Frontier> GetFrontiersByFinalCountryID(int CountryID)
+        {
+            ///Metodo especifico para Repositorio en Countries. No es del repositorio generico.
+            var frontiers = unitOfWork.Frontiers.GetFrontiersByFinalCountryCode(CountryID);
+
+            return frontiers.ToList();
+
+        }
+
         public List<Frontier> FrontierToAccesDestinationFromOrigin(char countryDestination, char countryOrigin)
         {
 

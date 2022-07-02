@@ -1,4 +1,6 @@
-﻿namespace Traveller.Domain
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Traveller.Domain
 {
     public class Destination
     {
@@ -8,5 +10,9 @@
         public string? Description { get; set; }
 
         public char Type { get; set; }
+
+        //Añadida a posteriori para acceder desde CountryViewIndex
+        [NotMapped]
+        public int CountryID { get; set; }
     }
 }

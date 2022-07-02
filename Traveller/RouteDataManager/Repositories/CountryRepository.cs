@@ -1,4 +1,5 @@
 ﻿using Domain.Repositories;
+using Microsoft.EntityFrameworkCore;
 using Traveller.Domain;
 
 namespace RouteDataManager.Repositories
@@ -10,7 +11,8 @@ namespace RouteDataManager.Repositories
         }
         public IEnumerable<Country> GetCountriesOrderedByName()
         {
-            return _context.Countries.OrderBy(c => c.Name).ToList();
+            ///
+            return _context.Countries.Include(c=> c.Destinations).Include(c=> c.Frontiers).OrderBy(c => c.Name).ToList();
         }
-    }
+    }   
 }

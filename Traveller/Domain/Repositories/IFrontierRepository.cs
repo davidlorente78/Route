@@ -12,5 +12,8 @@ namespace Domain.Repositories
     /// </summary>
     public interface IFrontierRepository : IGenericRepository<Frontier>
     {
+        IEnumerable<Frontier> GetFrontiersByOriginCountryCode(int CountryID);
+
+        IEnumerable<Frontier> GetFrontiersByFinalCountryCode(int CountryID);
     }
 }

@@ -19,7 +19,8 @@ namespace Traveller.DomainServices
         //TODO Check if List is appropiate
         public ICollection<Country> GetAllCountries()
         {
-            var countries = unitOfWork.Countries.GetAll();
+            ///Metodo especifico para Repositorio en Countries. No es del repositorio generico.
+            var countries = unitOfWork.Countries.GetCountriesOrderedByName();
 
             //using LINQ
             return countries.ToList();
