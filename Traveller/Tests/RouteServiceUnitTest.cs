@@ -1,6 +1,10 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
+using RouteDataManager.Repositories;
 using System;
 using System.Collections.Generic;
+using Traveller.DomainServices;
 using Traveller.RouteService;
 using Traveller.RouteService.DataContainer;
 using Traveller.RouteService.Evaluator;
@@ -8,13 +12,20 @@ using Traveller.RouteService.Helpers;
 using Traveller.RouteService.Rules;
 using Traveller.RuleService;
 
-namespace Tests
+namespace Test.RouteServiceUnitTest  
 {
-    public class Tests
+    public class RouteServiceTest
     {
+        private FrontierService frontierService;
+
+        public RouteServiceTest() {   }
+
+    
         [SetUp]
         public void Setup()
         {
+         
+
         }
 
         [Test]
@@ -106,15 +117,13 @@ namespace Tests
         public void TestFrontierService()
         {
 
-            FrontierService frontierService = new FrontierService();
-
             //Access Laos from Thailand
-            var frontier = frontierService.FrontierToAccesDestinationFromOrigin('L', 'T');
+            var frontiers = frontierService.GetFrontiersByOriginAndFinalCountryCode('L', 'T');
             
 
             //NongKhai e Internacional
             //var frontier_airport = frontierService.FrontierstoAccesDestinationFromOriginIncludingAirports('L', 'T');
-            Assert.AreEqual(true, true);
+            Assert.AreEqual(true, frontiers.Count==2);
 
         }
 

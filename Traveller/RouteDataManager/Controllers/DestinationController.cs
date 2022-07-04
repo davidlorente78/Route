@@ -8,9 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using RouteDataManager.Repositories;
 using Traveller.Domain;
 
-namespace RouteDataManager.Views.Destinations
+namespace RouteDataManager.Views.Destination
 {
-    
     public class DestinationController : Controller
     {
         private readonly ApplicationContext _context;
@@ -23,9 +22,8 @@ namespace RouteDataManager.Views.Destinations
         // GET: Destinations
         public async Task<IActionResult> Index()
         {
-              return _context.Destinations != null ? 
-                          View(await _context.Destinations.ToListAsync()) :
-                          Problem("Entity set 'ApplicationContext.Destination'  is null.");
+            var applicationContext = _context.Destinations.Include(d => d.Country);
+            return View(await applicationContext.ToListAsync());
         }
 
         // GET: Destinations/Details/5
@@ -37,6 +35,7 @@ namespace RouteDataManager.Views.Destinations
             }
 
             var destination = await _context.Destinations
+                .Include(d => d.Country)
                 .FirstOrDefaultAsync(m => m.DestinationID == id);
             if (destination == null)
             {
@@ -49,6 +48,7 @@ namespace RouteDataManager.Views.Destinations
         // GET: Destinations/Create
         public IActionResult Create()
         {
+            ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace RouteDataManager.Views.Destinations
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DestinationID,CountryCode,Name,Description,Type")] Traveller.Domain.Destination destination)
+        public async Task<IActionResult> Create([Bind("DestinationID,CountryCode,Name,Description,Type,CountryID")] Traveller.Domain.Destination destination)
         {
             if (ModelState.IsValid)
             {
@@ -65,6 +65,7 @@ namespace RouteDataManager.Views.Destinations
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name", destination.CountryID);
             return View(destination);
         }
 
@@ -76,11 +77,12 @@ namespace RouteDataManager.Views.Destinations
                 return NotFound();
             }
 
-            var destination = await _context.Destinations.FindAsync(id);
+            var destination = await _context.Destinations.Include(d=>d.Country).FirstAsync(d=>d.DestinationID==id);
             if (destination == null)
             {
                 return NotFound();
             }
+            ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name", destination.CountryID);
             return View(destination);
         }
 
@@ -89,15 +91,16 @@ namespace RouteDataManager.Views.Destinations
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("DestinationID,CountryCode,Name,Description,Type")] Traveller.Domain.Destination destination)
+        public async Task<IActionResult> Edit(int id, [Bind("DestinationID,CountryCode,Name,Description,Type,CountryID")] Traveller.Domain.Destination destination)
         {
             if (id != destination.DestinationID)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
+           
+            //if (ModelState.IsValid)
+            //{
                 try
                 {
                     _context.Update(destination);
@@ -115,7 +118,8 @@ namespace RouteDataManager.Views.Destinations
                     }
                 }
                 return RedirectToAction(nameof(Index));
-            }
+            //}
+            ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name", destination.CountryID);
             return View(destination);
         }
 
@@ -128,6 +132,7 @@ namespace RouteDataManager.Views.Destinations
             }
 
             var destination = await _context.Destinations
+                .Include(d => d.Country)
                 .FirstOrDefaultAsync(m => m.DestinationID == id);
             if (destination == null)
             {
@@ -144,7 +149,7 @@ namespace RouteDataManager.Views.Destinations
         {
             if (_context.Destinations == null)
             {
-                return Problem("Entity set 'ApplicationContext.Destination'  is null.");
+                return Problem("Entity set 'ApplicationContext.Destinations'  is null.");
             }
             var destination = await _context.Destinations.FindAsync(id);
             if (destination != null)

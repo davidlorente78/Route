@@ -15,6 +15,11 @@ namespace Traveller.DomainServices
 
         }
 
+        public bool CountryExists(int id)
+        {
+            return (unitOfWork.Countries?.Find(e => e.CountryID == id)).Count() != 0;
+        }
+
 
         //TODO Check if List is appropiate
         public ICollection<Country> GetAllCountries()
@@ -26,6 +31,44 @@ namespace Traveller.DomainServices
             return countries.ToList();
 
         }
+
+        public Country GetCountryByID(int ID)
+        {
+            //Metodo del repositorio generico 
+            //Aqui no hay include de las entidades asociadas
+            //var country= unitOfWork.Countries.GetById(ID);
+
+            //Metodo del repositorio concreto HERE
+            var country = unitOfWork.Countries.GetCountryByID(ID);
+
+            //Warning ICollection o solo una entidad
+
+            return country.First();
+
+        }
+
+        public int AddCountry(Country country)
+        {            
+           unitOfWork.Countries.Add(country);
+           return unitOfWork.Complete();
+
+        }
+
+        public int RemoveCountry(Country country)
+        {
+            unitOfWork.Countries.Remove(country);
+            return unitOfWork.Complete();
+
+        }
+
+        public int UpdateCountry(Country country)
+        {
+            unitOfWork.Countries.Update(country);
+            //Needed to save changes ¿?
+            return unitOfWork.Complete();
+
+        }
+
 
     }
 }

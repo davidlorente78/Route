@@ -47,5 +47,11 @@ namespace RouteDataManager.Repositories
         {
             _context.Set<T>().RemoveRange(entities);
         }
+
+        public void Update(T entity)
+        {
+            //NEW TEST
+            _context.Set<T>().Update(entity);
+        }
     }
 }

@@ -11,8 +11,15 @@ namespace RouteDataManager.Repositories
         }
         public IEnumerable<Country> GetCountriesOrderedByName()
         {
-            ///
-            return _context.Countries.Include(c=> c.Destinations).Include(c=> c.Frontiers).OrderBy(c => c.Name).ToList();
+            ///TODO Include Frontiers
+            return _context.Countries.Include(c=> c.Destinations).OrderBy(c => c.Name).ToList();
         }
+
+        public IEnumerable<Country> GetCountryByID(int id)
+        {
+            ///
+            return _context.Countries.Where(c=> c.CountryID == id).Include(c => c.Destinations).OrderBy(c => c.Name).ToList();
+        }
+        
     }   
 }

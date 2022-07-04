@@ -1,10 +1,17 @@
 ﻿@model Traveller.Domain.Frontier
 
 @{
-    ViewData["Title"] = "Create";
+    Layout = null;
 }
 
-<h1>Create</h1>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
 
 <h4>Frontier</h4>
 <hr />
@@ -14,11 +21,13 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="OriginID" class="control-label"></label>
-                <select asp-for="OriginID" class ="form-control" asp-items="ViewBag.OriginID"></select>
+                <input asp-for="OriginID" class="form-control" />
+                <span asp-validation-for="OriginID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="FinalID" class="control-label"></label>
-                <select asp-for="FinalID" class ="form-control" asp-items="ViewBag.FinalID"></select>
+                <input asp-for="FinalID" class="form-control" />
+                <span asp-validation-for="FinalID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
@@ -46,6 +55,5 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+</body>
+</html>

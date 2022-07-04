@@ -14,5 +14,7 @@ namespace Domain.Repositories
     public interface ICountryRepository: IGenericRepository<Country>
     {
         IEnumerable<Country> GetCountriesOrderedByName();
+
+        IEnumerable<Country> GetCountryByID(int id);
     }
 }

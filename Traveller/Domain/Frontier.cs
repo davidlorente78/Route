@@ -3,13 +3,18 @@
     public class Frontier
     {
         /// <summary>
-        /// 'Si especifica la restricción FOREIGN KEY 'FK_Frontier_Destination_OriginDestinationID' en la tabla 'Frontier', podrían producirse ciclos o múltiples rutas en cascada. Especifique ON DELETE NO ACTION o UPDATE NO ACTION, o bien modifique otras restricciones FOREIGN KEY.
+        /// 'Si especifica la restricción FOREIGN KEY 'FK_Frontier_Destination_OriginDestinationID' en la tabla 'Frontier', 
+        /// podrían producirse ciclos o múltiples rutas en cascada. Especifique ON DELETE NO ACTION o UPDATE NO ACTION, 
+        /// o bien modifique otras restricciones FOREIGN KEY.
         /// </summary>
         public int FrontierID { get; set; }
+
         public int OriginID { get; set; }
-        public int FinalID { get; set; }
 
         public virtual Destination Origin { get; set; }
+
+        public int FinalID { get; set; }
+
         public virtual Destination Final { get; set; }
 
         public string Name { get; set; }

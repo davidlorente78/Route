@@ -11,8 +11,7 @@ namespace Traveller.Domain
 
         public char Type { get; set; }
 
-        //Añadida a posteriori para acceder desde CountryViewIndex
-        [NotMapped]
         public int CountryID { get; set; }
+        public virtual Country Country { get; set; }
     }
 }

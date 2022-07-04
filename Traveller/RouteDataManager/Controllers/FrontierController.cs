@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using RouteDataManager.Repositories;
 using Traveller.Domain;
 
-namespace RouteDataManager.Views.Frontiers
+namespace RouteDataManager.Controllers
 {
     public class FrontierController : Controller
     {
@@ -68,8 +68,8 @@ namespace RouteDataManager.Views.Frontiers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["FinalID"] = new SelectList(_context.Destinations, "DestinationID", "DestinationID", frontier.FinalID);
-            ViewData["OriginID"] = new SelectList(_context.Destinations, "DestinationID", "DestinationID", frontier.OriginID);
+            ViewData["FinalID"] = new SelectList(_context.Destinations, "DestinationID", "DestinationID", frontier.Final.DestinationID);
+            ViewData["OriginID"] = new SelectList(_context.Destinations, "DestinationID", "DestinationID", frontier.Origin.DestinationID);
             return View(frontier);
         }
 
@@ -86,8 +86,8 @@ namespace RouteDataManager.Views.Frontiers
             {
                 return NotFound();
             }
-            ViewData["FinalID"] = new SelectList(_context.Destinations, "DestinationID", "DestinationID", frontier.FinalID);
-            ViewData["OriginID"] = new SelectList(_context.Destinations, "DestinationID", "DestinationID", frontier.OriginID);
+            ViewData["FinalID"] = new SelectList(_context.Destinations, "DestinationID", "DestinationID", frontier.Final.DestinationID);
+            ViewData["OriginID"] = new SelectList(_context.Destinations, "DestinationID", "DestinationID", frontier.Origin.DestinationID);
             return View(frontier);
         }
 
@@ -123,8 +123,8 @@ namespace RouteDataManager.Views.Frontiers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["FinalID"] = new SelectList(_context.Destinations, "DestinationID", "DestinationID", frontier.FinalID);
-            ViewData["OriginID"] = new SelectList(_context.Destinations, "DestinationID", "DestinationID", frontier.OriginID);
+            ViewData["FinalID"] = new SelectList(_context.Destinations, "DestinationID", "DestinationID", frontier.Final.DestinationID);
+            ViewData["OriginID"] = new SelectList(_context.Destinations, "DestinationID", "DestinationID", frontier.Origin.DestinationID);
             return View(frontier);
         }
 

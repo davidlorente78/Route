@@ -1,11 +1,17 @@
 ﻿@model IEnumerable<Traveller.Domain.Frontier>
 
 @{
-    ViewData["Title"] = "Index";
+    Layout = null;
 }
 
-<h1>Index</h1>
+<!DOCTYPE html>
 
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
 <p>
     <a asp-action="Create">Create New</a>
 </p>
@@ -13,10 +19,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Origin)
+                @Html.DisplayNameFor(model => model.OriginID)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Final)
+                @Html.DisplayNameFor(model => model.FinalID)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Name)
@@ -34,10 +40,10 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Origin.DestinationID)
+                @Html.DisplayFor(modelItem => item.OriginID)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Final.DestinationID)
+                @Html.DisplayFor(modelItem => item.FinalID)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
@@ -57,3 +63,5 @@
 }
     </tbody>
 </table>
+</body>
+</html>

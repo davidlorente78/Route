@@ -9,5 +9,13 @@ namespace RouteDataManager.Repositories
         {
         }
 
+
+        //public async Task<IActionResult> Index()
+        //{
+        //    return _context.Destinations != null ?
+        //                View(await _context.Destinations.Include(d => d.Country).ToListAsync()) :
+        //                Problem("Entity set 'ApplicationContext.Destination'  is null.");
+        //}
+        //Include(c=> c.Destinations)
     }
 }

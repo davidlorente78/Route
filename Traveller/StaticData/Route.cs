@@ -42,7 +42,7 @@ namespace Traveller.StaticData
             {
                 Code = 'V',
                 Name = "Vietnam",
-                Frontiers = VietnamFrontiers.Frontiers
+                //Frontiers = VietnamFrontiers.Frontiers
 
             };
 
@@ -54,55 +54,55 @@ namespace Traveller.StaticData
                 Name = "Thailand",
 
                 Destinations = new List<Destination> { ThailandDestinations.BKK, ThailandDestinations.Mukdahan, ThailandDestinations.NongKhai },
-                Frontiers = new List<Frontier> {
+                //Frontiers = new List<Frontier> {
 
-                    new Frontier {
-                        Name = "Thailand Laos Frienship Bridge I ",
-                        Origin = LaosDestinations.Vientiane,
-                        Final = ThailandDestinations.NongKhai,
-                        Type = "T",
-                        }
+                //    new Frontier {
+                //        Name = "Thailand Laos Frienship Bridge I ",
+                //        Origin = LaosDestinations.Vientiane,
+                //        Final = ThailandDestinations.NongKhai,
+                //        Type = "T",
+                //        }
 
-                                             ,
+                //                             ,
 
-                     new Frontier {
-                        Name = "Thailand Laos Frienship Bridge II ",
-                        Origin = ThailandDestinations.Mukdahan,
-                        Final = LaosDestinations.Savannakhet,
-                        Type = "T",
-                        }
+                //     new Frontier {
+                //        Name = "Thailand Laos Frienship Bridge II ",
+                //        Origin = ThailandDestinations.Mukdahan,
+                //        Final = LaosDestinations.Savannakhet,
+                //        Type = "T",
+                //        }
 
-                         ,
+                //         ,
 
-                     //Los aeropuertos son del Tipo A y no tienen Origen
-                        new Frontier {
-                        Origin =  ThailandDestinations.BKK,
-                        Name = ThailandDestinations.BKK.Name,
-                        Final = ThailandDestinations.BKK,
-                        Type ="A",
-                       }
+                //     //Los aeropuertos son del Tipo A y no tienen Origen
+                //        new Frontier {
+                //        Origin =  ThailandDestinations.BKK,
+                //        Name = ThailandDestinations.BKK.Name,
+                //        Final = ThailandDestinations.BKK,
+                //        Type ="A",
+                //       }
 
-                         ,
+                //         ,
 
-                        new Frontier {
-                        Name = "Padang Pesar - Padang Pesar (Pekan Siam)",
-                        Origin = MalasiaDestinations.PadangPesar,
-                        Final = new Destination {  Name = "Padang Pesar", CountryCode= 'T'},
-                        Type = "T",
-                        }
+                //        new Frontier {
+                //        Name = "Padang Pesar - Padang Pesar (Pekan Siam)",
+                //        Origin = MalasiaDestinations.PadangPesar,
+                //        Final = new Destination {  Name = "Padang Pesar", CountryCode= 'T'},
+                //        Type = "T",
+                //        }
 
-                         ,
+                //         ,
 
-                        new Frontier {
-                        Name = "Sungai Kolok - Rantan Panjang",
-                        Origin = MalasiaDestinations.RantanPanjang,
-                        Final = new Destination {  Name = "Sungai Kolok", CountryCode= 'T'},
-                        Type = "T",
-                      }
+                //        new Frontier {
+                //        Name = "Sungai Kolok - Rantan Panjang",
+                //        Origin = MalasiaDestinations.RantanPanjang,
+                //        Final = new Destination {  Name = "Sungai Kolok", CountryCode= 'T'},
+                //        Type = "T",
+                //      }
 
-                         ,
+                         //,
 
-                }
+                //}
             };
 
 
@@ -115,32 +115,32 @@ namespace Traveller.StaticData
             {
                 Code = 'M',
                 Name = "Malaysia",
-                Frontiers = new List<Frontier> {
+            //    Frontiers = new List<Frontier> {
 
 
-                            new Frontier {
-                            Name = KUL.Name,
-                            Origin = KUL,
-                            Final = KUL,
-                           //Visas = new List<Visa> { { malasiaia.bbsa.eLaoVisa}   }
-                    }   ,
+            //                new Frontier {
+            //                Name = KUL.Name,
+            //                Origin = KUL,
+            //                Final = KUL,
+            //               //Visas = new List<Visa> { { malasiaia.bbsa.eLaoVisa}   }
+            //        }   ,
 
-                            new Frontier {
-                            Name = "Padang Pesar",
-                            Origin = MalasiaDestinations.PadangPesar,
-                            Final = ThailandDestinations.PadangPesar,
-                             //Visas = new List<Visa> { { malasiaia.bbsa.eLaoVisa}   }
-                    }   ,
+            //                new Frontier {
+            //                Name = "Padang Pesar",
+            //                Origin = MalasiaDestinations.PadangPesar,
+            //                Final = ThailandDestinations.PadangPesar,
+            //                 //Visas = new List<Visa> { { malasiaia.bbsa.eLaoVisa}   }
+            //        }   ,
 
-                            new Frontier {
-                            Name = "Sungai Kolok - Rantan Panjang",
-                            Origin = MalasiaDestinations.RantanPanjang,
-                            Final = ThailandDestinations.SungaiKolok,
-                              //Visas = new List<Visa> { { malasiaia.bbsa.eLaoVisa}   }
-                    }   ,
+            //                new Frontier {
+            //                Name = "Sungai Kolok - Rantan Panjang",
+            //                Origin = MalasiaDestinations.RantanPanjang,
+            //                Final = ThailandDestinations.SungaiKolok,
+            //                  //Visas = new List<Visa> { { malasiaia.bbsa.eLaoVisa}   }
+            //        }   ,
 
 
-                    }
+            //        }
 
 
             };

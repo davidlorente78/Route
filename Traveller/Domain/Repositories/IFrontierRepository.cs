@@ -15,5 +15,11 @@ namespace Domain.Repositories
         IEnumerable<Frontier> GetFrontiersByOriginCountryCode(int CountryID);
 
         IEnumerable<Frontier> GetFrontiersByFinalCountryCode(int CountryID);
+
+        IEnumerable<Frontier> GetFrontiersByOriginAndFinalCountryCode(int originCountryID, int finalCountryID);
+
+
+
+
     }
 }

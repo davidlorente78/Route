@@ -33,16 +33,18 @@ namespace RouteDataManager.Repositories
             Country Laos = new Country
             {
                 Code = 'L',
-                Name = "Laos",
-                Frontiers = LaosFrontiers.Frontiers,
-                Destinations = LaosDestinations.GetAll(), // new List<Destination> { LaosDestinations.LPQ, LaosDestinations.VTE, LaosDestinations.Savannakhet , LaosDestinations.Namkan, LaosDestinations.LuangPrabang, LaosDestinations.Taichang, LaosDestinations.Taichang},
+                Name = "Laos",                
+                Destinations = LaosDestinations.GetAll(), 
+                Frontiers = LaosFrontiers.Frontiers,// new List<Destination> { LaosDestinations.LPQ, LaosDestinations.VTE, LaosDestinations.Savannakhet , LaosDestinations.Namkan, LaosDestinations.LuangPrabang, LaosDestinations.Taichang, LaosDestinations.Taichang},
                 //Visas = new List<Visa> { LaosVisas.eLaoVisa, LaosVisas.LaoVisa }
             };
 
             context.Countries.Add(Laos);
 
-            context.SaveChanges();
+            //context.SaveChanges();
 
+
+            #region Other Countries
             Country Vietnam = new Country
             {
                 Code = 'V',
@@ -52,9 +54,10 @@ namespace RouteDataManager.Repositories
 
             };
 
+
             context.Countries.Add(Vietnam);
 
-            context.SaveChanges();
+            //context.SaveChanges();
 
             Country Thailand = new Country
             {
@@ -117,7 +120,7 @@ namespace RouteDataManager.Repositories
 
             context.Countries.Add(Thailand);
 
-            context.SaveChanges();
+            //context.SaveChanges();
 
             Country Malaysia = new Country
             {
@@ -160,7 +163,8 @@ namespace RouteDataManager.Repositories
 
             context.Countries.Add(Malaysia);
 
-            context.SaveChanges();
+            //context.SaveChanges();
+
 
             Country Cambodia = new Country
             {
@@ -169,11 +173,14 @@ namespace RouteDataManager.Repositories
                 Destinations = CambodiaDestinations.GetAll(),
                 Frontiers = CambodiaFrontiers.Frontiers
 
+
+
             };
 
             context.Countries.Add(Cambodia);
 
             context.SaveChanges();
+            #endregion
         }
     }
 }

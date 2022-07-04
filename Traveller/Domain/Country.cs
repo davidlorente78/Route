@@ -8,17 +8,19 @@ namespace Traveller.Domain
     {
 
         //Se debe añadir get set para que ser interpretado correctamente como columna en la tabla
-        //De forma predeterminada, EF interpreta como la clave principal una propiedad que se denomine ID o classnameID.Por ejemplo, la clave principal podría tener el nombre StudentID en lugar de ID.
+        //De forma predeterminada, EF interpreta como la clave principal una propiedad que se denomine ID o classnameID.
+        //Por ejemplo, la clave principal podría tener el nombre CountryID en lugar de ID.
 
         public int CountryID { get; set; }
         public char Code { get; set; }
         public string Name { get; set; }
 
         /// <summary>
-        /// Virtual ensures that 
+        /// Virtual ensures that ...
         /// </summary>
-        public virtual ICollection<Destination> Destinations { get; set; }
-        public virtual ICollection<Frontier> Frontiers { get; set; }        
+        public virtual ICollection<Destination>? Destinations { get; set; }
+
+        public virtual ICollection<Frontier>? Frontiers { get; set; }        
 
         //public ICollection<Visa> Visas { get; set; }
 

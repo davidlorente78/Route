@@ -5,9 +5,9 @@ D:\Code Project\Route\Traveller\GraphicMap\bin\Debug\net6.0-windows\GraphicMap.d
 D:\Code Project\Route\Traveller\GraphicMap\bin\Debug\net6.0-windows\ref\GraphicMap.dll
 D:\Code Project\Route\Traveller\GraphicMap\bin\Debug\net6.0-windows\GraphicMap.pdb
 D:\Code Project\Route\Traveller\GraphicMap\bin\Debug\net6.0-windows\Domain.dll
+D:\Code Project\Route\Traveller\GraphicMap\bin\Debug\net6.0-windows\DomainServices.dll
 D:\Code Project\Route\Traveller\GraphicMap\bin\Debug\net6.0-windows\StaticData.dll
-D:\Code Project\Route\Traveller\GraphicMap\bin\Debug\net6.0-windows\Traveller.dll
-D:\Code Project\Route\Traveller\GraphicMap\bin\Debug\net6.0-windows\Traveller.pdb
+D:\Code Project\Route\Traveller\GraphicMap\bin\Debug\net6.0-windows\DomainServices.pdb
 D:\Code Project\Route\Traveller\GraphicMap\bin\Debug\net6.0-windows\Domain.pdb
 D:\Code Project\Route\Traveller\GraphicMap\bin\Debug\net6.0-windows\StaticData.pdb
 D:\Code Project\Route\Traveller\GraphicMap\obj\Debug\net6.0-windows\GraphicMap.csproj.AssemblyReference.cache

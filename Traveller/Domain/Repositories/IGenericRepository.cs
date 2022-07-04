@@ -23,5 +23,10 @@ namespace Domain.Repositories
         void AddRange(IEnumerable<T> entities);
         void Remove(T entity);
         void RemoveRange(IEnumerable<T> entities);
+
+        //Some says Update method can NOT be in a repository
+        void Update(T entity);
+
+
     }
 }

@@ -46,7 +46,7 @@ namespace RouteDataManager.Repositories
         //}
 
 
-        public DbSet<Traveller.Domain.Destination>? Destinations { get; set; }
+        public DbSet<Destination>? Destinations { get; set; }
 
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{

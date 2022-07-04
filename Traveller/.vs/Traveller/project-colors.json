@@ -3,7 +3,7 @@
   "ProjectMap": {
     "53f0b9e1-3e0d-420f-9672-1d4946c7e589": {
       "ProjectGuid": "53f0b9e1-3e0d-420f-9672-1d4946c7e589",
-      "DisplayName": "Traveller",
+      "DisplayName": "DomainServices",
       "ColorIndex": 0
     },
     "fbc26745-b369-4fd6-a04d-bb96e5c6ee89": {
@@ -65,7 +65,12 @@
       "ProjectGuid": "a49b6b01-29f6-41c9-b055-9a9a0227a36d",
       "DisplayName": "Audit",
       "ColorIndex": 11
+    },
+    "bf561fb5-cae8-4300-ae1c-275d8e7109ce": {
+      "ProjectGuid": "bf561fb5-cae8-4300-ae1c-275d8e7109ce",
+      "DisplayName": "Domain",
+      "ColorIndex": 12
     }
   },
-  "NextColorIndex": 12
+  "NextColorIndex": 13
 }
