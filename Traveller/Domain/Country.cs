@@ -22,7 +22,7 @@ namespace Traveller.Domain
 
         public virtual ICollection<Frontier>? Frontiers { get; set; }        
 
-        //public ICollection<Visa> Visas { get; set; }
+        public ICollection<Visa>? Visas { get; set; }
 
         public Country() { }
 

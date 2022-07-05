@@ -59,6 +59,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Frontiers/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJvbnRpZXJzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Frontiers/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJvbnRpZXJzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Frontiers/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJvbnRpZXJzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Frontiers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJvbnRpZXJzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Frontiers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJvbnRpZXJzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Code Project/Route/Traveller/RouteDataManager/Views/Frontier/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJvbnRpZXJcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

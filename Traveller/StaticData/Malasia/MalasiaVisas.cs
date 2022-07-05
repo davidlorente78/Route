@@ -6,7 +6,7 @@ namespace Traveller.StaticData
     {
         public static Visa freeVisa = new Visa
         {
-            Country = 'M',
+            CountryCode = 'M',
             Currency = '$',
             Fee = 0,
             Entries = 'S',
@@ -17,7 +17,7 @@ namespace Traveller.StaticData
             Category = "Visado gratuito para estancias inferiores a 90 dias.",
             Extensible = true,
 
-            ValidEntryPoints = new List<Destination> { MalasiaDestinations.PadangPesar, MalasiaDestinations.RantanPanjang }
+            //ValidEntryPoints = new List<Destination> { MalasiaDestinations.PadangPesar, MalasiaDestinations.RantanPanjang }
         };
 
 

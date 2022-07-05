@@ -4,9 +4,23 @@ namespace Traveller.StaticData
 {
     public static class LaosVisas
     {
+        /// <summary>
+        /// eVisa can be used to enter through these following designated ports:
+
+        //1.             Wattay International Airport(Vientiane Capital)
+
+        //2.             Lao – Thai Friendship Bridge I(Vientiane Capital)
+
+        //3.             Luang Prabang International Airport(Luang Prabang)
+
+        //4.             Lao – Thai Friendship Bridge II(Savannakhet Province)
+
+        //5.             Pakse International Airport(Champasack Province)
+
+        /// </summary>
         public static Visa eLaoVisa = new Visa
         {
-            Country = 'L',
+            CountryCode = 'L',
             Currency = '$',
             Fee = 50,
             Entries = 'S',
@@ -18,15 +32,14 @@ namespace Traveller.StaticData
             Category = "Tourism",
             Description = "Print one copy. No es valido para las entradas por las fronteras terrestres de Camboya, Vietnam y China.",
             Extensible = true,
-
-
-            ValidEntryPoints = new List<Destination> { LaosDestinations.LPQ, LaosDestinations.VTE, LaosDestinations.Vientiane, LaosDestinations.PAK, LaosDestinations.Savannakhet }
+             
+            //ValidEntryPoints = new List<Frontier> { LaosFrontiers.LPQ, LaosFrontiers.VTE, LaosFrontiers.Frienship_Bridge_I, LaosFrontiers.Frienship_Bridge_I }
         };
 
-
+       
         public static Visa LaoVisa = new Visa
         {
-            Country = 'L',
+            CountryCode = 'L',
             Description = "Lao Visa on arrival",
             Currency = '$',
             Fee = 50,
@@ -39,7 +52,7 @@ namespace Traveller.StaticData
             ExtensionFee = 35,
             URL = "", //TODO Enlace para verificar que pasos estan abiertos en todo momento
             Category = "Tourism",
-            ValidEntryPoints = new List<Destination> { LaosDestinations.Namkan, LaosDestinations.Taichang }
+            //ValidEntryPoints = new List<Frontier> { LaosFrontiers.LPQ, LaosFrontiers.VTE }
         };
     }
 }

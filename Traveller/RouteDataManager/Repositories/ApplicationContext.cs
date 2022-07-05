@@ -48,13 +48,6 @@ namespace RouteDataManager.Repositories
 
         public DbSet<Destination>? Destinations { get; set; }
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    var connectionString = @"Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;";
-        //    optionsBuilder.UseSqlServer(connectionString);
-        //}
-
-
         public DbSet<Traveller.Domain.Frontier>? Frontiers { get; set; }
 
     }

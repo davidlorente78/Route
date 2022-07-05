@@ -35,8 +35,8 @@ namespace RouteDataManager.Repositories
                 Code = 'L',
                 Name = "Laos",                
                 Destinations = LaosDestinations.GetAll(), 
-                Frontiers = LaosFrontiers.Frontiers,// new List<Destination> { LaosDestinations.LPQ, LaosDestinations.VTE, LaosDestinations.Savannakhet , LaosDestinations.Namkan, LaosDestinations.LuangPrabang, LaosDestinations.Taichang, LaosDestinations.Taichang},
-                //Visas = new List<Visa> { LaosVisas.eLaoVisa, LaosVisas.LaoVisa }
+                Frontiers = new List<Frontier> { LaosFrontiers.Frienship_Bridge_I , LaosFrontiers.LPQ} ,                
+                Visas = new List<Visa> { LaosVisas.eLaoVisa, LaosVisas.LaoVisa }
             };
 
             context.Countries.Add(Laos);
