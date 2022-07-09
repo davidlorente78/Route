@@ -17,6 +17,8 @@ namespace Traveller.StaticData
 
         //5.             Pakse International Airport(Champasack Province)
 
+        //Nationalities https://laoevisa.gov.la/article/who_can_apply
+
         /// </summary>
         public static Visa eLaoVisa = new Visa
         {
@@ -32,8 +34,7 @@ namespace Traveller.StaticData
             Category = "Tourism",
             Description = "Print one copy. No es valido para las entradas por las fronteras terrestres de Camboya, Vietnam y China.",
             Extensible = true,
-             
-            //ValidEntryPoints = new List<Frontier> { LaosFrontiers.LPQ, LaosFrontiers.VTE, LaosFrontiers.Frienship_Bridge_I, LaosFrontiers.Frienship_Bridge_I }
+            
         };
 
        
@@ -52,7 +53,7 @@ namespace Traveller.StaticData
             ExtensionFee = 35,
             URL = "", //TODO Enlace para verificar que pasos estan abiertos en todo momento
             Category = "Tourism",
-            //ValidEntryPoints = new List<Frontier> { LaosFrontiers.LPQ, LaosFrontiers.VTE }
+           
         };
     }
 }

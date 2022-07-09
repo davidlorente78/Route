@@ -1,4 +1,6 @@
-﻿using Traveller.Domain;
+﻿using StaticData.Malasia;
+using StaticData.Thailand;
+using Traveller.Domain;
 using Traveller.StaticData;
 
 namespace RouteDataManager.Repositories
@@ -29,19 +31,19 @@ namespace RouteDataManager.Repositories
                 return;   // DB has been seeded
             }
 
+                     
 
             Country Laos = new Country
             {
                 Code = 'L',
                 Name = "Laos",                
                 Destinations = LaosDestinations.GetAll(), 
-                Frontiers = new List<Frontier> { LaosFrontiers.Frienship_Bridge_I , LaosFrontiers.LPQ} ,                
-                Visas = new List<Visa> { LaosVisas.eLaoVisa, LaosVisas.LaoVisa }
+                Frontiers = LaosFrontiers.GetAll(),
+            
             };
 
             context.Countries.Add(Laos);
 
-            //context.SaveChanges();
 
 
             #region Other Countries
@@ -49,7 +51,7 @@ namespace RouteDataManager.Repositories
             {
                 Code = 'V',
                 Name = "Vietnam",
-                Destinations = new List<Destination> { VietnamDestinations.VingXuong, VietnamDestinations.Hanoi, VietnamDestinations.MocBai, VietnamDestinations.HaTien, VietnamDestinations.TayTrang, VietnamDestinations.NhapCanh },
+                Destinations = VietnamDestinations.GetAll() ,
                 Frontiers = VietnamFrontiers.Frontiers
 
             };
@@ -57,113 +59,33 @@ namespace RouteDataManager.Repositories
 
             context.Countries.Add(Vietnam);
 
-            //context.SaveChanges();
 
             Country Thailand = new Country
             {
                 Code = 'T',
                 Name = "Thailand",
+                Visas = new List<Visa> { ThailandVisas.VisaExemption },
+                Destinations = ThailandDestinations.GetAll(),
+                Frontiers = ThailandFrontiers.GetAll(),
+                           
 
-                Destinations = new List<Destination> { ThailandDestinations.BKK, ThailandDestinations.Mukdahan, ThailandDestinations.NongKhai, ThailandDestinations.PadangPesar, ThailandDestinations.SungaiKolok },
-                Frontiers = new List<Frontier> {
-
-                    new Frontier {
-                        Name = "Thailand Laos Frienship Bridge I ",
-                        Origin = LaosDestinations.Vientiane,
-                        Final = ThailandDestinations.NongKhai,
-                        Type = "T",
-                      //,
-                        //Visas = new List<Visa> { new Visa { Duration = 15 } } ,
-
-                        }
-
-                         ,
-
-                     new Frontier {
-                        Name = "Thailand Laos Frienship Bridge II ",
-                        Origin = ThailandDestinations.Mukdahan,
-                        Final = LaosDestinations.Savannakhet,
-                        Type = "T",
-                        //,
-                        //Visas = new List<Visa> { new Visa { Duration = 15 } } ,
-
-                        }
-
-                         ,
-
-                      new Frontier {
-                        Name = "Padang Pesar - Padang Pesar (Pekan Siam)",
-                        Origin = MalasiaDestinations.PadangPesar,
-                        Final = ThailandDestinations.PadangPesar,
-                        Type = "T",
-                       //,
-                        //Visas = new List<Visa> { new Visa { Duration = 30 } } ,
-
-                        }
-
-                         ,
-
-                        new Frontier {
-                        Name = "Sungai Kolok - Rantan Panjang",
-                        Origin = MalasiaDestinations.RantanPanjang,
-                        Final = ThailandDestinations.SungaiKolok,
-                        Type = "T",
-                       //,
-                        //Visas = new List<Visa> { new Visa { Duration = 30 } } ,
-
-                        }
-
-                         ,
-
-                }
+                 
             };
 
             context.Countries.Add(Thailand);
-
-            //context.SaveChanges();
 
             Country Malaysia = new Country
             {
                 Code = 'M',
                 Name = "Malaysia",
-                Destinations = new List<Destination> { MalasiaDestinations.KualaLumpur, MalasiaDestinations.RantanPanjang, MalasiaDestinations.PadangPesar, MalasiaDestinations.KualaLumpur, MalasiaDestinations.Penang, MalasiaDestinations.Butterworth, MalasiaDestinations.KotaBahru, MalasiaDestinations.KUL },
-                Frontiers = new List<Frontier> {
-
-
-                            new Frontier {
-                            Name = MalasiaDestinations.KUL.Name,
-                            Origin = MalasiaDestinations.KUL,
-                            Final = MalasiaDestinations.KUL,
-                           //,
-                        //Visas = new List<Visa> { MalasiaVisas.freeVisa ,
-
-                        }
-
-                         ,
-                            new Frontier {
-                            Name = "Padang Pesar",
-                            Origin = MalasiaDestinations.PadangPesar,
-                            Final = ThailandDestinations.PadangPesar,
-                             }
-
-                         ,
-
-                            new Frontier {
-                            Name = "Sungai Kolok - Rantan Panjang",
-                            Origin = MalasiaDestinations.RantanPanjang,
-                            Final = ThailandDestinations.SungaiKolok,
-                            }
-
-                         ,
-
-                    }
+                Destinations = MalasiaDestinations.GetAll(),
+                Frontiers = MalasiaFrontiers.GetAll(),
+                            
 
 
             };
 
             context.Countries.Add(Malaysia);
-
-            //context.SaveChanges();
 
 
             Country Cambodia = new Country
@@ -178,6 +100,107 @@ namespace RouteDataManager.Repositories
             };
 
             context.Countries.Add(Cambodia);
+
+
+            //Indonesia Nepal Sri Lanka Philippines China Singapore
+
+            Country Indonesia = new Country
+            {
+                Code = 'I',
+                Name = "Indonesia",
+              
+
+            };
+            context.Countries.Add(Indonesia);
+
+            Country Nepal = new Country
+            {
+                Code = 'N',
+                Name = "Nepal",
+                Destinations = new List<Destination> { NepalDestinations.KTM },
+                //La lista de fronteras que se especifican son los puntos de entrada a Singapore
+                //El origen de la frontera es el del pais de entrada 
+                //El destino es la frontera del pais al que se entra. En este caso WoodLands
+                Frontiers = new List<Frontier> {
+
+                            new Frontier {
+                            Name = NepalDestinations.KTM.Name,
+                            Origin = NepalDestinations.KTM,
+                            Final = NepalDestinations.KTM,
+                         
+                            Visas = new List<Visa> { NepalVisas.OnArrivalVisa15, NepalVisas.OnArrivalVisa30, NepalVisas.OnArrivalVisa90, NepalVisas.FreeVisa } },
+
+                           
+                        },
+                Visas = new List<Visa> { NepalVisas.OnArrivalVisa15, NepalVisas.OnArrivalVisa30, NepalVisas.OnArrivalVisa90, NepalVisas.FreeVisa }
+            ,
+
+
+
+
+            };
+            context.Countries.Add(Nepal);
+
+            Country Philippines = new Country
+            {
+                Code = 'P',
+                Name = "Philippines",
+
+
+            };
+            context.Countries.Add(Philippines);
+
+
+            Country Singapore = new Country
+            {
+                Code = 'S',
+                Name = "Singapore",
+                Destinations = new List<Destination> { SingaporeDestinations.SIN , SingaporeDestinations.WoodlandsCheckpoint },
+                //La lista de fronteras que se especifican son los puntos de entrada a Singapore
+                //El origen de la frontera es el del pais de entrada 
+                //El destino es la frontera del pais al que se entra. En este caso WoodLands
+                Frontiers = new List<Frontier> {
+
+                            new Frontier {
+                            Name = SingaporeDestinations.SIN.Name,
+                            Origin = SingaporeDestinations.SIN,
+                            Final = SingaporeDestinations.SIN,
+                           //https://www.ica.gov.sg/
+                            Visas = new List<Visa> { SingaporeVisa.SGArrivalCard } },
+
+                            new Frontier {
+                            Name = SingaporeDestinations.WoodlandsCheckpoint.Name,
+                            Origin = MalasiaDestinations.JohorBahru,
+                            Final = SingaporeDestinations.WoodlandsCheckpoint,
+                            Visas = new List<Visa> { SingaporeVisa.SGArrivalCard } },
+
+                            //Frontier https://en.wikipedia.org/wiki/Malaysia%E2%80%93Singapore_Second_Link
+                        },
+                Visas = new List<Visa> { SingaporeVisa.SGArrivalCard } //Estas son las que salen en la pagina IndexView
+
+
+
+            };
+
+            context.Countries.Add(Singapore);
+
+            Country SriLanka = new Country
+            {
+                Code = 'R',
+                Name = "Sri Lanka",
+
+            };
+            context.Countries.Add(SriLanka);
+
+
+            Country China = new Country
+            {
+                Code = 'H',
+                Name = "China",
+
+            };
+            context.Countries.Add(China);
+
 
             context.SaveChanges();
             #endregion

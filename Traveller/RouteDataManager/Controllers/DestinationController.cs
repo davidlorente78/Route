@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using RouteDataManager.Repositories;
 using Traveller.Domain;
 
-namespace RouteDataManager.Views.Destination
+namespace RouteDataManager.Controllers
 {
     public class DestinationController : Controller
     {
@@ -22,7 +22,7 @@ namespace RouteDataManager.Views.Destination
         // GET: Destinations
         public async Task<IActionResult> Index()
         {
-            var applicationContext = _context.Destinations.Include(d => d.Country);
+            var applicationContext = _context.Destinations.Include(d => d.Country).Include(d => d.DestinationType).OrderBy(c => c.Country.Name);
             return View(await applicationContext.ToListAsync());
         }
 
@@ -35,12 +35,15 @@ namespace RouteDataManager.Views.Destination
             }
 
             var destination = await _context.Destinations
-                .Include(d => d.Country)
+                .Include(d => d.Country).Include(d => d.DestinationType)
                 .FirstOrDefaultAsync(m => m.DestinationID == id);
             if (destination == null)
             {
                 return NotFound();
             }
+
+            ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name", destination.CountryID);
+            ViewData["Type"] = new SelectList(_context.DestinationTypes, "DestinationTypeID", "Description", destination.DestinationType.DestinationTypeID); //NEW
 
             return View(destination);
         }
@@ -57,7 +60,7 @@ namespace RouteDataManager.Views.Destination
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DestinationID,CountryCode,Name,Description,Type,CountryID")] Traveller.Domain.Destination destination)
+        public async Task<IActionResult> Create([Bind("DestinationID,CountryCode,Name,Description,Type,CountryID")] Destination destination)
         {
             if (ModelState.IsValid)
             {
@@ -66,6 +69,8 @@ namespace RouteDataManager.Views.Destination
                 return RedirectToAction(nameof(Index));
             }
             ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name", destination.CountryID);
+            ViewData["Type"] = new SelectList(_context.DestinationTypes, "DestinationTypeID", "Description", destination.DestinationType.DestinationTypeID); //NEW
+
             return View(destination);
         }
 
@@ -77,12 +82,15 @@ namespace RouteDataManager.Views.Destination
                 return NotFound();
             }
 
-            var destination = await _context.Destinations.Include(d=>d.Country).FirstAsync(d=>d.DestinationID==id);
+            var destination = await _context.Destinations.Include(d=>d.Country).Include(d => d.DestinationType).FirstAsync(d=>d.DestinationID==id);
             if (destination == null)
             {
                 return NotFound();
             }
+            //HERE
+
             ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name", destination.CountryID);
+            ViewData["DestinationTypes"] = new SelectList(_context.DestinationTypes, "DestinationTypeID", "Description", destination.DestinationType.DestinationTypeID); //NEW
             return View(destination);
         }
 
@@ -91,18 +99,24 @@ namespace RouteDataManager.Views.Destination
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("DestinationID,CountryCode,Name,Description,Type,CountryID")] Traveller.Domain.Destination destination)
+        public async Task<IActionResult> Edit(int id,  Destination destination)
         {
             if (id != destination.DestinationID)
             {
                 return NotFound();
             }
 
-           
+
             //if (ModelState.IsValid)
             //{
+
+
+            var DestinationTypeRecovered = _context.DestinationTypes.Single(t => t.DestinationTypeID == destination.DestinationType.DestinationTypeID);
+
+                destination.DestinationType = DestinationTypeRecovered;
                 try
                 {
+                    
                     _context.Update(destination);
                     await _context.SaveChangesAsync();
                 }
@@ -120,6 +134,7 @@ namespace RouteDataManager.Views.Destination
                 return RedirectToAction(nameof(Index));
             //}
             ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name", destination.CountryID);
+            ViewData["DestinationTypes"] = new SelectList(_context.DestinationTypes, "DestinationTypeID", "Description", destination.DestinationType.DestinationTypeID); 
             return View(destination);
         }
 

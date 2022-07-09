@@ -19,10 +19,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.OriginID)
+                @Html.DisplayNameFor(model => model.Origin)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FinalID)
+                @Html.DisplayNameFor(model => model.Final)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Name)
@@ -40,10 +40,10 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.OriginID)
+                @Html.DisplayFor(modelItem => item.Origin.DestinationID)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FinalID)
+                @Html.DisplayFor(modelItem => item.Final.DestinationID)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)

@@ -22,7 +22,6 @@ namespace RouteDataManager.Controllers
         // GET: Frontiers
         public async Task<IActionResult> Index()
         {
-            //Este codigo debe retroceder varias capas. Servicio y Repositorio Generico
             var applicationContext = _context.Frontiers.Include(f => f.Final).Include(f => f.Origin);
             return View(await applicationContext.ToListAsync());
         }
@@ -50,8 +49,8 @@ namespace RouteDataManager.Controllers
         // GET: Frontiers/Create
         public IActionResult Create()
         {
-            ViewData["FinalID"] = new SelectList(_context.Destinations, "DestinationID", "DestinationID");
-            ViewData["OriginID"] = new SelectList(_context.Destinations, "DestinationID", "DestinationID");
+            ViewData["FinalID"] = new SelectList(_context.Destinations, "DestinationID", "Name");
+            ViewData["OriginID"] = new SelectList(_context.Destinations, "DestinationID", "Name");
             return View();
         }
 
@@ -68,8 +67,8 @@ namespace RouteDataManager.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["FinalID"] = new SelectList(_context.Destinations, "DestinationID", "DestinationID", frontier.Final.DestinationID);
-            ViewData["OriginID"] = new SelectList(_context.Destinations, "DestinationID", "DestinationID", frontier.Origin.DestinationID);
+            ViewData["FinalID"] = new SelectList(_context.Destinations, "DestinationID", "Name", frontier.FinalID);
+            ViewData["OriginID"] = new SelectList(_context.Destinations, "DestinationID", "Name", frontier.OriginID);
             return View(frontier);
         }
 
@@ -86,8 +85,10 @@ namespace RouteDataManager.Controllers
             {
                 return NotFound();
             }
-            ViewData["FinalID"] = new SelectList(_context.Destinations, "DestinationID", "DestinationID", frontier.Final.DestinationID);
-            ViewData["OriginID"] = new SelectList(_context.Destinations, "DestinationID", "DestinationID", frontier.Origin.DestinationID);
+
+            //HERE items, data Value, data Text
+            ViewData["FinalID"] = new SelectList(_context.Destinations, "DestinationID", "Name", frontier.FinalID);
+            ViewData["OriginID"] = new SelectList(_context.Destinations, "DestinationID", "Name", frontier.OriginID);
             return View(frontier);
         }
 
@@ -123,8 +124,8 @@ namespace RouteDataManager.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["FinalID"] = new SelectList(_context.Destinations, "DestinationID", "DestinationID", frontier.Final.DestinationID);
-            ViewData["OriginID"] = new SelectList(_context.Destinations, "DestinationID", "DestinationID", frontier.Origin.DestinationID);
+            ViewData["FinalID"] = new SelectList(_context.Destinations, "DestinationID", "Name", frontier.FinalID);
+            ViewData["OriginID"] = new SelectList(_context.Destinations, "DestinationID", "Name", frontier.OriginID);
             return View(frontier);
         }
 
@@ -155,7 +156,7 @@ namespace RouteDataManager.Controllers
         {
             if (_context.Frontiers == null)
             {
-                return Problem("Entity set 'ApplicationContext.Frontier'  is null.");
+                return Problem("Entity set 'ApplicationContext.Frontiers'  is null.");
             }
             var frontier = await _context.Frontiers.FindAsync(id);
             if (frontier != null)

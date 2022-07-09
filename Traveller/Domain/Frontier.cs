@@ -7,6 +7,14 @@
         /// podrían producirse ciclos o múltiples rutas en cascada. Especifique ON DELETE NO ACTION o UPDATE NO ACTION, 
         /// o bien modifique otras restricciones FOREIGN KEY.
         /// </summary>
+        /// 
+
+        public Frontier()
+        {
+
+            this.Visas = new HashSet<Visa>();
+
+        }
         public int FrontierID { get; set; }
 
         public int OriginID { get; set; }
@@ -20,10 +28,9 @@
         public string Name { get; set; }
         public string? Description { get; set; }
 
-        public string? Type { get; set; } //T A
-     
+        public string? Type { get; set; } //T A     
 
-        public virtual ICollection<Visa> Visas { get; set; }
+        public virtual ICollection<Visa>? Visas { get; set; }
 
 
         public override string ToString()

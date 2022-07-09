@@ -47,15 +47,16 @@ namespace RouteDataManager.Controllers
             {
                 ViewBag.CountryId = id.Value;
 
-                var selectedCountryDestinations = countries.Single(c => c.CountryID == id.Value).Destinations;
-                //var selectedCountryFrontiers = countries.Single(c => c.CountryID == id.Value).Frontiers;
+                var selectedCountryDestinations = countries.Single(c => c.CountryID == id.Value).Destinations.OrderBy(c=>c.Country.Name);
+                var selectedCountryFrontiers = countries.Single(c => c.CountryID == id.Value).Frontiers;
+                var selectedCountryVisas = countries.Single(c => c.CountryID == id.Value).Visas;
+
+               
                 viewModel.Destinations = selectedCountryDestinations;
-                //viewModel.Frontiers = selectedCountryFrontiers;
+                viewModel.Frontiers = selectedCountryFrontiers;
+                viewModel.Visas = selectedCountryVisas;
             }
             return View(viewModel);
-            //return View(countries);
-         
-
         }
 
 

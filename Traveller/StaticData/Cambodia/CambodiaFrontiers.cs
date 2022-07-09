@@ -13,8 +13,18 @@ namespace Traveller.StaticData
                         Origin = CambodiaDestinations.REP,
                         Final = CambodiaDestinations.REP,
                         Type = "A",
-                      }
+                      },
 
+                      new Frontier {
+                        Name = "Poipet",
+                        Origin = ThailandDestinations.Aranyaprathet,
+                        Final = CambodiaDestinations.Poipet,
+                        Type = "T",
+                       
+                        }
+
+                         ,
+                      //TODO
                    
 
                     //Lao Bao Pass: Es el borde fronterizo más popular, si bien estaba demasiado al Sur como para resultarnos de interés. Queda muy cerca de Hué.

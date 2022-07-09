@@ -10,5 +10,7 @@ namespace RouteDataManager.ViewModels
         public IEnumerable<Country> Countries { get; set; }
         public IEnumerable<Destination> Destinations { get; set; }
         public IEnumerable<Frontier> Frontiers { get; set; }
+
+        public IEnumerable<Visa> Visas { get; set; }
     }
 }

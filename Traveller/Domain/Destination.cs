@@ -9,9 +9,18 @@ namespace Traveller.Domain
         public string? Name { get; set; }
         public string? Description { get; set; }
 
-        public char Type { get; set; }
+        public DestinationType? DestinationType { get; set; }
 
         public int CountryID { get; set; }
         public virtual Country Country { get; set; }
+    }
+
+    public class DestinationType
+    {
+        public int DestinationTypeID { get; set; }
+        public char? Code { get; set; }      
+        public string? Description { get; set; }
+
+       
     }
 }

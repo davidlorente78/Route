@@ -2,6 +2,9 @@
 
 namespace Traveller.StaticData
 {
+    /// <summary>
+    /// https://camboya.wordpress.com/vietnam/
+    /// </summary>
     public static class VietnamFrontiers
     {
         public static List<Frontier> Frontiers = new List<Frontier> {
@@ -19,11 +22,61 @@ namespace Traveller.StaticData
 
                          ,
 
+                       new Frontier {
+                        Name = "Laos Vietnam Sop Hun Tay Trang ",
+                        Description  ="Usado por autobuses que van desde Vientiane hacia Hanoi y viceversa. Tambien es posible utilizarlo si se va o viene de Sapa (Vietnam)",
+                        Origin = LaosDestinations.SopHun,
+                        Final = VietnamDestinations.TayTrang,
+                        Type = "T",                        
+                        //,
+                        //Este paso no acepta visa Online
+
+                        }
+
+                         ,
+
+                        new Frontier {
+                        Name = "Laos Vietnam Namkan NhapCanh",
+                        Description  ="Usado por NhapCanh que van desde Vientiane o Luang Prabang hacia Hanoi y viceversa. Tambien es posible utilizarlo si se va o viene de Sapa (Vietnam)",
+                        Origin = LaosDestinations.Namkan,
+                        Final = VietnamDestinations.NhapCanh,
+                        Type = "T",
+                       //,
+
+                        }
+
+                         ,
+
                     new Frontier {
                         Name = "Cambodia Vietnam Prek Chak Ha Tien ",
                         Description = "Si tu idea es cruzar a Vietnam por el sur de Camboya(o viceversa) la mejor manera es hacerlo por Prek Chak / Ha Tien.Por este paso fronterizo es fácil conectar la zona sur de Camboya(Sihanoukville, Kampot, Kep) con destinos como Chau Doc o Ho Chi Minh.",
                         Origin = CambodiaDestinations.PrekChak,
                         Final = VietnamDestinations.HaTien,
+                        Type = "T",
+
+                        }
+
+
+
+                    ,
+                      new Frontier {
+                        Name = "Laos Vietnam Lao Bao Dansavanh ",
+                        Description = "Paso fronterizo a la altura de Hue. En la misma frontera hay autobuses que salen hacia Pakse (Laos) y  otra terminal de autobuses con destino a Savannakhet (5h)",
+                        Origin = LaosDestinations.Dansavanh,
+                        Final = VietnamDestinations.LaoBao,
+                        Type = "T",
+
+
+                        }
+
+
+                      ,
+
+                       new Frontier {
+                        Name = "Laos Vietnam Nam Phao CauTreo",
+                        Description = "Paso fronterizo a la altura de Vinh",
+                        Origin = LaosDestinations.NamPhao,
+                        Final = VietnamDestinations.CauTreo,
                         Type = "T",
                         //,
                         //Visas = new List<Visa> { new Visa { Duration = 30 } } ,
@@ -41,27 +94,49 @@ namespace Traveller.StaticData
                         //Visas = new List<Visa> { new Visa { Duration = 30 } } 
                     }
 
-                     //,
+                     ,
 
-                     //new Frontier {
-                     //   Name = VietnamDestinations.HAN.Name,
-                     //   Final = VietnamDestinations.HAN
-                     //   //,
-                     //   //Visas = new List<Visa> { new Visa { Duration = 30 } } ,
+                     new Frontier {
+                        Name = VietnamDestinations.HAN.Name,
+                        Origin =  VietnamDestinations.HAN,
+                        Final = VietnamDestinations.HAN, Type = "A"
 
-                     //   }
 
-                     //    ,
+                        }
 
-                     //new Frontier {
-                     //   Name = VietnamDestinations.SGN.Name,
-                     //   Final = VietnamDestinations.SGN,
-                     //   //,
-                     //   //Visas = new List<Visa> { new Visa { Duration = 30 } } ,
+                         ,
 
-                     //   }
+                     new Frontier {
+                        Name = VietnamDestinations.SGN.Name,
+                        Origin =  VietnamDestinations.SGN,
+                        Final = VietnamDestinations.SGN, Type = "A"
 
-                     //    ,
+
+                        }
+
+                     ,
+
+                      new Frontier {
+                        Name = VietnamDestinations.HUI.Name,
+                        Origin =  VietnamDestinations.HUI,
+                        Final = VietnamDestinations.HUI, Type = "A"
+
+
+                        }
+
+                     ,
+
+                       new Frontier {
+                        Name = VietnamDestinations.DAD.Name,
+                        Origin =  VietnamDestinations.DAD,
+                        Final = VietnamDestinations.DAD,Type = "A"
+
+
+                        }
+
+                     ,
+
+
 
                      ////No Vietnam visa on arrival for those going from Laos into Vietnam - must be pre-arranged.
                      // new Frontier {
@@ -73,7 +148,7 @@ namespace Traveller.StaticData
                      //     //}
                      // }
 
-                        ,
+                        
 
                 };
     }

@@ -9,16 +9,21 @@ namespace RouteDataManager.Repositories
         public CountryRepository(ApplicationContext context) : base(context)
         {
         }
+
+
         public IEnumerable<Country> GetCountriesOrderedByName()
         {
-            ///TODO Include Frontiers
-            return _context.Countries.Include(c=> c.Destinations).OrderBy(c => c.Name).ToList();
+            var countryList = new List<Country>();
+
+            countryList = _context.Countries.Include(c => c.Destinations).ThenInclude(d => d.DestinationType).Include(c => c.Frontiers).Include(c => c.Visas).OrderBy(c => c.Name).ToList();
+
+            return countryList;
         }
 
         public IEnumerable<Country> GetCountryByID(int id)
         {
             ///
-            return _context.Countries.Where(c=> c.CountryID == id).Include(c => c.Destinations).OrderBy(c => c.Name).ToList();
+            return _context.Countries.Where(c=> c.CountryID == id).Include(c => c.Destinations).Include(c => c.Frontiers).Include(c => c.Visas).OrderBy(c => c.Name).ToList();
         }
         
     }   

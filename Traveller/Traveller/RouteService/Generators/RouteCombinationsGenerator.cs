@@ -28,11 +28,28 @@ namespace Traveller
         {
             CombinationGenerator combinationGenerator = new CombinationGenerator();
 
-            IEnumerable<IEnumerable<char>> result = combinationGenerator.Generate(this.vector, 12);
+            //Reducimos a 11 por Out of Memory
 
-            //int count = result.Count();          
+            IEnumerable<IEnumerable<char>> result = combinationGenerator.Generate(this.vector, 11);
+
+           
+
+            int count = result.Count();
 
             List<List<char>> routes = new List<List<char>>();
+            foreach (IEnumerable<char> r in result)
+            {
+                foreach (char c in vector) {
+                    var append = r.Append(c);
+                    List<char> rList = r.ToList();
+                    routes.Add(rList);
+
+                }
+
+            }
+
+
+         
             foreach (IEnumerable<char> r in result)
             {
 
@@ -55,6 +72,20 @@ namespace Traveller
             {
                 if (routeValidator.Validate(route))
                 {
+
+                    foreach (char c in vector)
+                    {
+                        IEnumerable<char> append = route.Append(c);
+                        List<char> appendList = append.ToList();
+
+                        if (routeValidator.Validate(appendList))
+                        {
+                            filterresult.Add(appendList);
+                        }
+
+                    }
+
+
 
                     filterresult.Add(route);
                     foreach (char countryCode in route)

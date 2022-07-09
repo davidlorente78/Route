@@ -48,7 +48,9 @@ namespace RouteDataManager.Repositories
 
         public DbSet<Destination>? Destinations { get; set; }
 
-        public DbSet<Traveller.Domain.Frontier>? Frontiers { get; set; }
+        public DbSet<Frontier>? Frontiers { get; set; }
+
+        public DbSet<DestinationType>? DestinationTypes { get; set; }
 
     }
 }

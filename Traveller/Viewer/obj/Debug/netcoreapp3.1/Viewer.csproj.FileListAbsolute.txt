@@ -36,3 +36,4 @@ D:\Code Project\Route\Traveller\Viewer\obj\Debug\netcoreapp3.1\Viewer.csproj.Cor
 D:\Code Project\Route\Traveller\Viewer\obj\Debug\netcoreapp3.1\Viewer.dll
 D:\Code Project\Route\Traveller\Viewer\obj\Debug\netcoreapp3.1\Viewer.pdb
 D:\Code Project\Route\Traveller\Viewer\obj\Debug\netcoreapp3.1\Viewer.genruntimeconfig.cache
+D:\Code Project\Route\Traveller\Viewer\obj\Debug\netcoreapp3.1\Viewer.csproj.AssemblyReference.cache
