@@ -6,15 +6,19 @@ namespace Traveller.StaticData
     public static class MalasiaDestinations
     {
 
-        public static Destination Butterworth = new Destination { Name = "Butterworth", DestinationType = DestinationTypes.Tourism, CountryCode = 'M', };
+
         public static Destination PadangPesar = new Destination { Name = "Padang Pesar", DestinationType = DestinationTypes.Frontier, CountryCode = 'M', };
         public static Destination RantanPanjang = new Destination { Name = "Rantan Panjang", DestinationType = DestinationTypes.Frontier, CountryCode = 'M', };
         public static Destination KotaBahru = new Destination { Name = "Kota Bahru", DestinationType = DestinationTypes.Frontier, CountryCode = 'M', };
-        public static Destination Penang = new Destination { Name = "Penang", DestinationType = DestinationTypes.Frontier, CountryCode = 'M', };
-        public static Destination KualaLumpur = new Destination { Name = "Kuala Lumpur", DestinationType = DestinationTypes.Tourism, CountryCode = 'M', };
+        public static Destination Penang = new Destination { Name = "Penang", DestinationType = DestinationTypes.Frontier, CountryCode = 'M', };    
         public static Destination KUL = new Destination { Name = "Kuala Lumpur Airport", DestinationType = DestinationTypes.Airport, CountryCode = 'M' };
         public static Destination JohorBahru = new Destination { Name = "Johor Bahru", DestinationType = DestinationTypes.Frontier, CountryCode = 'M' };
 
+        public static Destination Butterworth = new Destination { Name = "Butterworth", DestinationType = DestinationTypes.Tourism, CountryCode = 'M', };
+        public static Destination KualaLumpur = new Destination { Name = "Kuala Lumpur", DestinationType = DestinationTypes.Tourism, CountryCode = 'M', };
+
+        public static Destination KualaKangsar = new Destination { Name = "Kuala Kangsar", DestinationType = DestinationTypes.Tourism, CountryCode = 'M', };
+        public static Destination Ipoh = new Destination { Name = "Ipoh", DestinationType = DestinationTypes.Tourism, CountryCode = 'M', };
         public static ICollection<Destination> GetAll()
         {
             return new List<Destination> {
@@ -26,7 +30,13 @@ namespace Traveller.StaticData
                 MalasiaDestinations.Butterworth,
                 MalasiaDestinations.KotaBahru,
                 MalasiaDestinations.KUL,
-                MalasiaDestinations.JohorBahru };
+                MalasiaDestinations.JohorBahru,
+
+                //Train
+                MalasiaDestinations.KualaKangsar,
+                MalasiaDestinations.Ipoh
+            
+            };
         
         }
     }

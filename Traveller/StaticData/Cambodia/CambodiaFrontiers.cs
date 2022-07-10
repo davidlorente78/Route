@@ -1,4 +1,5 @@
-﻿using Traveller.Domain;
+﻿using StaticData;
+using Traveller.Domain;
 
 namespace Traveller.StaticData
 {
@@ -12,14 +13,14 @@ namespace Traveller.StaticData
                         Name = CambodiaDestinations.REP.Name, 
                         Origin = CambodiaDestinations.REP,
                         Final = CambodiaDestinations.REP,
-                        Type = "A",
+                        FrontierType = FrontierTypes.Airport,
                       },
 
                       new Frontier {
                         Name = "Poipet",
                         Origin = ThailandDestinations.Aranyaprathet,
                         Final = CambodiaDestinations.Poipet,
-                        Type = "T",
+                        FrontierType = FrontierTypes.Terrestrial,
                        
                         }
 

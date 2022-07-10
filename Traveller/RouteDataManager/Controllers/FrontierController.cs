@@ -22,7 +22,7 @@ namespace RouteDataManager.Controllers
         // GET: Frontiers
         public async Task<IActionResult> Index()
         {
-            var applicationContext = _context.Frontiers.Include(f => f.Final).Include(f => f.Origin);
+            var applicationContext = _context.Frontiers.Include(f => f.Final).Include(f => f.Origin).Include(f=> f.FrontierType);
             return View(await applicationContext.ToListAsync());
         }
 
@@ -37,7 +37,9 @@ namespace RouteDataManager.Controllers
             var frontier = await _context.Frontiers
                 .Include(f => f.Final)
                 .Include(f => f.Origin)
+                .Include(f => f.FrontierType)
                 .FirstOrDefaultAsync(m => m.FrontierID == id);
+            
             if (frontier == null)
             {
                 return NotFound();
@@ -51,6 +53,8 @@ namespace RouteDataManager.Controllers
         {
             ViewData["FinalID"] = new SelectList(_context.Destinations, "DestinationID", "Name");
             ViewData["OriginID"] = new SelectList(_context.Destinations, "DestinationID", "Name");
+            ViewData["FrontierTypes"] = new SelectList(_context.FrontierTypes, "FrontierTypeID", "Description"); //Selected?
+
             return View();
         }
 
@@ -59,7 +63,7 @@ namespace RouteDataManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FrontierID,OriginID,FinalID,Name,Description,Type")] Frontier frontier)
+        public async Task<IActionResult> Create([Bind("FrontierID,OriginID,FinalID,Name,Description,FrontierTypeID")] Frontier frontier)
         {
             if (ModelState.IsValid)
             {
@@ -69,6 +73,8 @@ namespace RouteDataManager.Controllers
             }
             ViewData["FinalID"] = new SelectList(_context.Destinations, "DestinationID", "Name", frontier.FinalID);
             ViewData["OriginID"] = new SelectList(_context.Destinations, "DestinationID", "Name", frontier.OriginID);
+            ViewData["FrontierTypes"] = new SelectList(_context.FrontierTypes, "FrontierTypeID", "Description", frontier.FrontierType.FrontierTypeID);
+
             return View(frontier);
         }
 
@@ -80,7 +86,11 @@ namespace RouteDataManager.Controllers
                 return NotFound();
             }
 
-            var frontier = await _context.Frontiers.FindAsync(id);
+            var frontier =  _context.Frontiers
+                .Include(f => f.Final)
+                .Include(f => f.Origin)
+                .Include(f=> f.FrontierType)
+                .Single( f=> f.FrontierID == id);
             if (frontier == null)
             {
                 return NotFound();
@@ -89,6 +99,8 @@ namespace RouteDataManager.Controllers
             //HERE items, data Value, data Text
             ViewData["FinalID"] = new SelectList(_context.Destinations, "DestinationID", "Name", frontier.FinalID);
             ViewData["OriginID"] = new SelectList(_context.Destinations, "DestinationID", "Name", frontier.OriginID);
+            ViewData["FrontierTypes"] = new SelectList(_context.FrontierTypes, "FrontierTypeID", "Description", frontier.FrontierType.FrontierTypeID); 
+
             return View(frontier);
         }
 
@@ -97,35 +109,54 @@ namespace RouteDataManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("FrontierID,OriginID,FinalID,Name,Description,Type")] Frontier frontier)
+        public async Task<IActionResult> Edit(int id, Frontier frontier)
         {
             if (id != frontier.FrontierID)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            //TODO ASK
+            var FrontierTypeRecovered = _context.FrontierTypes.Single(t => t.FrontierTypeID == frontier.FrontierType.FrontierTypeID);
+            frontier.FrontierType = FrontierTypeRecovered;
+
+            //Recover Final and Origin
+
+            var DestinationOriginRecovered = _context.Destinations.Include(f=> f.DestinationType).Single(d => d.DestinationID == frontier.OriginID);
+
+            frontier.Origin = DestinationOriginRecovered;
+
+            var DestinationFinalRecovered = _context.Destinations.Include(f => f.DestinationType).Single(d => d.DestinationID == frontier.FinalID);
+
+            frontier.Final = DestinationFinalRecovered;
+
+            //TODO Model State check 
+            //if (ModelState.IsValid)
+            //{
+            try
             {
-                try
-                {
-                    _context.Update(frontier);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!FrontierExists(frontier.FrontierID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                _context.Update(frontier);
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!FrontierExists(frontier.FrontierID))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+              
+            //}
+
             ViewData["FinalID"] = new SelectList(_context.Destinations, "DestinationID", "Name", frontier.FinalID);
             ViewData["OriginID"] = new SelectList(_context.Destinations, "DestinationID", "Name", frontier.OriginID);
+            ViewData["FrontierTypes"] = new SelectList(_context.FrontierTypes, "FrontierTypeID", "Description", frontier.FrontierType.FrontierTypeID);
+
             return View(frontier);
         }
 
@@ -140,6 +171,7 @@ namespace RouteDataManager.Controllers
             var frontier = await _context.Frontiers
                 .Include(f => f.Final)
                 .Include(f => f.Origin)
+                .Include(f => f.FrontierType)
                 .FirstOrDefaultAsync(m => m.FrontierID == id);
             if (frontier == null)
             {

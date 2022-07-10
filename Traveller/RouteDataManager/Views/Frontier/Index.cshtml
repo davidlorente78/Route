@@ -1,20 +1,10 @@
 ﻿@model IEnumerable<Traveller.Domain.Frontier>
 
-@{
-    Layout = null;
-}
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
 <table class="table">
     <thead>
         <tr>
@@ -31,7 +21,7 @@
                 @Html.DisplayNameFor(model => model.Description)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Type)
+                @Html.DisplayNameFor(model => model.FrontierType)
             </th>
             <th></th>
         </tr>
@@ -40,10 +30,10 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Origin.DestinationID)
+                @Html.DisplayFor(modelItem => item.Origin.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Final.DestinationID)
+                @Html.DisplayFor(modelItem => item.Final.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
@@ -52,7 +42,7 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Type)
+                @Html.DisplayFor(modelItem => item.FrontierType.Description)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.FrontierID">Edit</a> |
@@ -61,7 +51,4 @@
             </td>
         </tr>
 }
-    </tbody>
-</table>
-</body>
-</html>
+

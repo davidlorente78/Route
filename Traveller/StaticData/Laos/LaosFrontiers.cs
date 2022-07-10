@@ -1,4 +1,5 @@
-﻿using Traveller.Domain;
+﻿using StaticData;
+using Traveller.Domain;
 
 namespace Traveller.StaticData
 {
@@ -11,7 +12,7 @@ namespace Traveller.StaticData
             Description = LaosDestinations.VTE.Description,
             Origin = LaosDestinations.VTE,
             Final = LaosDestinations.VTE,
-            Type = "A", //Airport
+            FrontierType = FrontierTypes.Airport,
             Visas = new List<Visa> { { LaosVisas.eLaoVisa } }
         };
 
@@ -21,7 +22,7 @@ namespace Traveller.StaticData
             Description = LaosDestinations.LPQ.Description,
             Origin = LaosDestinations.LPQ,
             Final = LaosDestinations.LPQ,
-            Type = "A",
+            FrontierType = FrontierTypes.Airport,
             Visas = new List<Visa> { { LaosVisas.eLaoVisa } }
         };
 
@@ -31,7 +32,7 @@ namespace Traveller.StaticData
 
             Origin = ThailandDestinations.NongKhai,
             Final = LaosDestinations.Vientiane,
-            Type = "T", //Terrestrial
+            FrontierType = FrontierTypes.Terrestrial,
             Visas = new List<Visa> { { LaosVisas.eLaoVisa } }
         };
 
@@ -40,7 +41,7 @@ namespace Traveller.StaticData
             Name = "Pakse International Airport (Champasack Province)",
             Origin = LaosDestinations.PAK,
             Final = LaosDestinations.PAK,
-            Type = "T",
+            FrontierType = FrontierTypes.Terrestrial,
             Visas = new List<Visa> { { LaosVisas.eLaoVisa } }
         };
 
@@ -52,7 +53,7 @@ namespace Traveller.StaticData
             Description = "Bridge over the Mekong that connects Mukdahan Province in Thailand with Savannakhet in Laos",
             Origin = ThailandDestinations.Mukdahan,
             Final = LaosDestinations.Savannakhet,
-            Type = "T",
+            FrontierType = FrontierTypes.Terrestrial,
             Visas = new List<Visa> { { LaosVisas.eLaoVisa } }
         };
 
@@ -63,7 +64,7 @@ namespace Traveller.StaticData
             Origin = ThailandDestinations.ChiangKhong,
             Final = LaosDestinations.HuayXai,
             Description = "No acepta visado electronico pero permite hacer la travesia del Mekong hacia Luang Prabang en sentido único y descendente",
-            Type = "T",
+            FrontierType = FrontierTypes.Terrestrial,
             Visas = new List<Visa> { { LaosVisas.LaoVisa } }
 
         };
@@ -74,7 +75,7 @@ namespace Traveller.StaticData
             Name = "Chong Mek - Vang Tao",
             Origin = ThailandDestinations.VangTao,
             Final = LaosDestinations.ChongMek,
-            Type = "T"
+            FrontierType = FrontierTypes.Terrestrial,
         };
 
 
@@ -84,7 +85,7 @@ namespace Traveller.StaticData
             Origin = VietnamDestinations.TayTrang,
             Final = LaosDestinations.SopHun,
 
-            Type = "T",
+            FrontierType = FrontierTypes.Terrestrial,
 
 
         };
@@ -95,8 +96,8 @@ namespace Traveller.StaticData
                             Description = "Usado por autobuses que van desde Vientiane o Luang Prabang hacia Hanoi y viceversa. Tambien es posible utilizarlo si se va o viene de Sapa (Vietnam)",
                             Origin = VietnamDestinations.NhapCanh,
                             Final = LaosDestinations.Namkan,
-                            Type = "T",
-                        };
+            FrontierType = FrontierTypes.Terrestrial,
+        };
 
 
 
@@ -105,7 +106,7 @@ namespace Traveller.StaticData
             Description = "Paso fronterizo a la altura de Hue. En la misma frontera hay autobuses que salen hacia Pakse (Laos) y  otra terminal de autobuses con destino a Savannakhet (5h)",
             Origin = VietnamDestinations.LaoBao,
             Final = LaosDestinations.Dansavanh,
-            Type = "T",
+            FrontierType = FrontierTypes.Terrestrial,
             //,
             //Visas = new List<Visa> { new Visa { Duration = 30 } } ,
 
@@ -117,7 +118,7 @@ namespace Traveller.StaticData
             Description = "Paso fronterizo a la altura de Vinh",
             Origin = VietnamDestinations.CauTreo,
             Final = LaosDestinations.NamPhao,
-            Type = "T",
+            FrontierType = FrontierTypes.Terrestrial,
             //,
             //Visas = new List<Visa> { new Visa { Duration = 30 } } ,
 

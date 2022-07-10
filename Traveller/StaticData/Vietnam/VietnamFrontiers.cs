@@ -1,4 +1,5 @@
-﻿using Traveller.Domain;
+﻿using StaticData;
+using Traveller.Domain;
 
 namespace Traveller.StaticData
 {
@@ -14,7 +15,7 @@ namespace Traveller.StaticData
                         Description  ="La frontera de Bavet / Moc Bai es la mas usada por los turistas pues te permite conectar en autobús Phnom Penh con Ho Chi Minh de la manera mas rápida y directa.",
                         Origin = CambodiaDestinations.Bavet,
                         Final = VietnamDestinations.MocBai,
-                        Type = "T",
+                          FrontierType = FrontierTypes.Terrestrial,
                        //,
                         //Visas = new List<Visa> { new Visa { Duration = 30 } } ,
 
@@ -27,7 +28,7 @@ namespace Traveller.StaticData
                         Description  ="Usado por autobuses que van desde Vientiane hacia Hanoi y viceversa. Tambien es posible utilizarlo si se va o viene de Sapa (Vietnam)",
                         Origin = LaosDestinations.SopHun,
                         Final = VietnamDestinations.TayTrang,
-                        Type = "T",                        
+                          FrontierType = FrontierTypes.Terrestrial,                   
                         //,
                         //Este paso no acepta visa Online
 
@@ -40,7 +41,7 @@ namespace Traveller.StaticData
                         Description  ="Usado por NhapCanh que van desde Vientiane o Luang Prabang hacia Hanoi y viceversa. Tambien es posible utilizarlo si se va o viene de Sapa (Vietnam)",
                         Origin = LaosDestinations.Namkan,
                         Final = VietnamDestinations.NhapCanh,
-                        Type = "T",
+                          FrontierType = FrontierTypes.Terrestrial,
                        //,
 
                         }
@@ -52,7 +53,7 @@ namespace Traveller.StaticData
                         Description = "Si tu idea es cruzar a Vietnam por el sur de Camboya(o viceversa) la mejor manera es hacerlo por Prek Chak / Ha Tien.Por este paso fronterizo es fácil conectar la zona sur de Camboya(Sihanoukville, Kampot, Kep) con destinos como Chau Doc o Ho Chi Minh.",
                         Origin = CambodiaDestinations.PrekChak,
                         Final = VietnamDestinations.HaTien,
-                        Type = "T",
+                          FrontierType = FrontierTypes.Terrestrial,
 
                         }
 
@@ -64,7 +65,7 @@ namespace Traveller.StaticData
                         Description = "Paso fronterizo a la altura de Hue. En la misma frontera hay autobuses que salen hacia Pakse (Laos) y  otra terminal de autobuses con destino a Savannakhet (5h)",
                         Origin = LaosDestinations.Dansavanh,
                         Final = VietnamDestinations.LaoBao,
-                        Type = "T",
+                          FrontierType = FrontierTypes.Terrestrial,
 
 
                         }
@@ -77,7 +78,7 @@ namespace Traveller.StaticData
                         Description = "Paso fronterizo a la altura de Vinh",
                         Origin = LaosDestinations.NamPhao,
                         Final = VietnamDestinations.CauTreo,
-                        Type = "T",
+                          FrontierType = FrontierTypes.Terrestrial,
                         //,
                         //Visas = new List<Visa> { new Visa { Duration = 30 } } ,
 
@@ -90,7 +91,7 @@ namespace Traveller.StaticData
                         Description =" Kaan Samnor / Ving Xuong es el paso fronterizo que hay entre la frontera natural que es el río Mekong. Este paso fronterizo es el usado por aquellos viajeros que estando en Phnom Penh prefieren ir en barco hasta Vietnam y así empezar la ruta por el pais recorriendo los Delta del Mekong.La ruta en barco llega hasta la población de Chau Doc para continuar hasta Ho Chi Minh en autobús.",
                         Origin = CambodiaDestinations.KaanSamnor,
                         Final = VietnamDestinations.VingXuong,
-                        Type = "T",
+                          FrontierType = FrontierTypes.Terrestrial,
                         //Visas = new List<Visa> { new Visa { Duration = 30 } } 
                     }
 
@@ -99,7 +100,8 @@ namespace Traveller.StaticData
                      new Frontier {
                         Name = VietnamDestinations.HAN.Name,
                         Origin =  VietnamDestinations.HAN,
-                        Final = VietnamDestinations.HAN, Type = "A"
+                        Final = VietnamDestinations.HAN,
+                          FrontierType = FrontierTypes.Airport,
 
 
                         }
@@ -109,7 +111,8 @@ namespace Traveller.StaticData
                      new Frontier {
                         Name = VietnamDestinations.SGN.Name,
                         Origin =  VietnamDestinations.SGN,
-                        Final = VietnamDestinations.SGN, Type = "A"
+                        Final = VietnamDestinations.SGN,
+                             FrontierType = FrontierTypes.Airport,
 
 
                         }
@@ -119,8 +122,8 @@ namespace Traveller.StaticData
                       new Frontier {
                         Name = VietnamDestinations.HUI.Name,
                         Origin =  VietnamDestinations.HUI,
-                        Final = VietnamDestinations.HUI, Type = "A"
-
+                        Final = VietnamDestinations.HUI,
+                           FrontierType = FrontierTypes.Airport,
 
                         }
 
@@ -129,8 +132,8 @@ namespace Traveller.StaticData
                        new Frontier {
                         Name = VietnamDestinations.DAD.Name,
                         Origin =  VietnamDestinations.DAD,
-                        Final = VietnamDestinations.DAD,Type = "A"
-
+                        Final = VietnamDestinations.DAD,
+                        FrontierType = FrontierTypes.Airport,
 
                         }
 

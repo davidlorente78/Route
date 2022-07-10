@@ -5,41 +5,4 @@
 <div class="jumbotron">
     <h1>Route Data Manager</h1>
 </div>
-<div class="row">
-    <div class="col-md-4">
-        <h2>Welcome to Route Data Manager</h2>
-        <p>
-            Route Data Manager is a sample application that
-            demonstrates how to use Entity Framework Core in an
-            ASP.NET Core MVC web application.
-        </p>
 
-         <p>
-            Route Data Manager allows you to mantain data for Route Application
-            Domain entities are Countries, Destinations ,Frontiers and VISA. Check Domain Project
-            Initializacion data for Code First model is reused from a static data model Check Route Class file and Static Data project
-        </p>
-       
-    </div>
-    <div class="col-md-4">
-        <h2>Unit Of Work Pattern</h2>
-         <p>            
-            Unit of Work Pattern is a design pattern with which you can expose various repositories in our application. It has very similar properties of dbContext, just that Unit of Work is not coupled to any framework like dbContext to Entity Framework Core.
-            Till now, we have built a couple of repositories. We can easily inject these repositories to the constructor of the Services classes and access data. This is quite easy when you have just 2 or 3 repository objects involved. What happens when there are quite more than 3 repositories. It would not be practical to keep adding new injections every now and then. Inorder to wrap all the Repositories to a Single Object, we use Unit Of Work.
-            Unit of Work is responsible for exposing the available Repositories and to Commit Changes to the DataSource ensuring a full transaction, without loss of data.
-            The other major advantage is that, multiple repository objects will have different instances of dbcontext within them. This can lead to data leaks in complex cases.
-            Let’s say that you have a requirement to insert a new Developer and a new Project within the same transaction. What happens when the new Developer get’s inserted but the Project Repository fails for some reason. In real-world scenarios, this is quite fatal. We will need to ensure that both the repositories work well, before commiting any change to the database. This is exactly why we decided to not include SaveChanges in any of the repostories. Clear?
-            Rather, the SaveChanges will be available in the UnitOfWork Class. You will get a better idea once you see the impelemntation.
-            Let’s get started with the IUnitOfWork. 
-        </p>
-        <p><a class="btn btn-default" href="https://codewithmukesh.com/blog/repository-pattern-in-aspnet-core/">See the tutorial &raquo;</a></p>
-    </div>
-
-    <div class="col-md-4">
-        <h2>Download it</h2>
-         <p>You can build the application by following the steps in a series of tutorials.</p>
-        <p><a class="btn btn-default" href="https://docs.asp.net/en/latest/data/ef-mvc/intro.html">See the tutorial &raquo;</a></p>
-        <p>You can download the completed project from GitHub.</p>
-        <p><a class="btn btn-default" href="https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/data/ef-mvc/intro/samples/5cu-final">See project source code &raquo;</a></p>
-    </div>
-</div>

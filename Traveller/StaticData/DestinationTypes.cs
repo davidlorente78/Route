@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Traveller.Domain;
+﻿using Traveller.Domain;
+using static Traveller.Domain.Frontier;
 
 namespace StaticData
 {
@@ -16,4 +12,14 @@ namespace StaticData
         public static DestinationType Bus = new DestinationType { Code = 'B', Description = "Bus Station" };
         public static DestinationType Train = new DestinationType { Code = 'R', Description = "Train Station" };
     }
+
+    public static class FrontierTypes
+    {
+
+        public static FrontierType Terrestrial = new FrontierType { Code = 'F', Description = "Terrestrial" };
+        public static FrontierType Airport = new FrontierType { Code = 'A', Description = "Airport" };
+        public static FrontierType Seaports = new FrontierType { Code = 'S', Description = "Sea Port" };
+    }
+
+
 }

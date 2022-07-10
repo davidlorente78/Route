@@ -23,7 +23,7 @@ namespace StaticData.Thailand
                     Origin = LaosDestinations.Vientiane,
                     Final = ThailandDestinations.NongKhai,
                     Description = "No es posible cruzarlo andando. Servicio regular de autobuses cada 20 minutos desde las 8AM (Puente abre a las 6AM)",
-                    Type = "T",
+                      FrontierType = FrontierTypes.Terrestrial,
                     Visas = new List<Visa>
                     { ThailandVisas.VisaExemption
                     },
@@ -38,7 +38,7 @@ namespace StaticData.Thailand
                     Origin = LaosDestinations.Savannakhet,
                     Final = ThailandDestinations.Mukdahan,
                     Description = "Se encuentra a unas dos horas de Nakhon Phanom y salen dos autobuses a la hora desde Mukdahan. No hay linea de tren hasta Mukdahan",
-                    Type = "T",
+                       FrontierType = FrontierTypes.Terrestrial,
                     Visas = new List<Visa> { ThailandVisas.VisaExemption },
 
                 }
@@ -51,7 +51,7 @@ namespace StaticData.Thailand
                     Origin = LaosDestinations.HuayXai,
                     Final = ThailandDestinations.ChiangKhong,
                     Description = "",
-                    Type = "T",
+                     FrontierType = FrontierTypes.Terrestrial,
                     Visas = new List<Visa> { ThailandVisas.VisaExemption },
 
                 }
@@ -63,7 +63,7 @@ namespace StaticData.Thailand
                     Name = "Padang Pesar - Padang Pesar (Pekan Siam)",
                     Origin = MalasiaDestinations.PadangPesar,
                     Final = ThailandDestinations.PadangPesar,
-                    Type = "T",
+                   FrontierType = FrontierTypes.Terrestrial,
                     Visas = new List<Visa> { ThailandVisas.VisaExemption },
 
                 }
@@ -75,7 +75,7 @@ namespace StaticData.Thailand
                     Name = "Sungai Kolok - Rantan Panjang",
                     Origin = MalasiaDestinations.RantanPanjang,
                     Final = ThailandDestinations.SungaiKolok,
-                    Type = "T",
+                     FrontierType = FrontierTypes.Terrestrial,
                     Visas = new List<Visa> { ThailandVisas.VisaExemption },
                 }
 
@@ -86,7 +86,7 @@ namespace StaticData.Thailand
                     Name = "Chong Mek - Vang Tao",
                     Origin = LaosDestinations.ChongMek,
                     Final = ThailandDestinations.VangTao,
-                    Type = "T",
+                      FrontierType = FrontierTypes.Terrestrial,
                     Visas = new List<Visa> { ThailandVisas.VisaExemption },
                 }
 
@@ -99,7 +99,7 @@ namespace StaticData.Thailand
                     Name = "Aranyaprathet",
                     Origin = CambodiaDestinations.Poipet,
                     Final = ThailandDestinations.Aranyaprathet,
-                    Type = "T",
+                      FrontierType = FrontierTypes.Terrestrial,
                     Visas = new List<Visa> { ThailandVisas.VisaExemption },
                 }
 

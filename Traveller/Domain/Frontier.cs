@@ -28,11 +28,11 @@
         public string Name { get; set; }
         public string? Description { get; set; }
 
-        public string? Type { get; set; } //T A     
+        public FrontierType? FrontierType { get; set; }     
 
         public virtual ICollection<Visa>? Visas { get; set; }
 
-
+     
         public override string ToString()
         {
             string summmary = "";
@@ -49,4 +49,14 @@
             return summmary;
         }
     }
+
+    public class FrontierType
+    {
+        public int FrontierTypeID { get; set; }
+        public char? Code { get; set; }
+        public string? Description { get; set; }
+
+
+    }
+
 }

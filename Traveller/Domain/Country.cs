@@ -1,6 +1,7 @@
-﻿/// <summary>
+﻿
+using Domain;
+/// <summary>
 /// Domain – Holds the Entities and Interfaces. It does not depend on any other project in the solution.
-
 /// </summary>
 namespace Traveller.Domain
 {
@@ -23,6 +24,8 @@ namespace Traveller.Domain
         public virtual ICollection<Frontier>? Frontiers { get; set; }        
 
         public ICollection<Visa>? Visas { get; set; }
+        public ICollection<Line>? TrainLines { get; set; }
+         
 
         public Country() { }
 

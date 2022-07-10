@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Traveller.Domain;
+using Domain;
 
 namespace RouteDataManager.Repositories
 {
@@ -51,6 +52,12 @@ namespace RouteDataManager.Repositories
         public DbSet<Frontier>? Frontiers { get; set; }
 
         public DbSet<DestinationType>? DestinationTypes { get; set; }
+
+        public DbSet<FrontierType>? FrontierTypes { get; set; }
+
+        public DbSet<Domain.Line>? Line { get; set; }
+
+        public DbSet<Domain.Station>? Station { get; set; }
 
     }
 }

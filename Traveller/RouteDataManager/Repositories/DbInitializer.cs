@@ -80,6 +80,7 @@ namespace RouteDataManager.Repositories
                 Name = "Malaysia",
                 Destinations = MalasiaDestinations.GetAll(),
                 Frontiers = MalasiaFrontiers.GetAll(),
+                TrainLines = MalasiaTrainLines.GetAll(),
                             
 
 
@@ -108,7 +109,7 @@ namespace RouteDataManager.Repositories
             {
                 Code = 'I',
                 Name = "Indonesia",
-              
+                //Bali Lombok TODO
 
             };
             context.Countries.Add(Indonesia);
