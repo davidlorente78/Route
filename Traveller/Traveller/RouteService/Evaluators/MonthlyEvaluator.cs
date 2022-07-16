@@ -1,12 +1,13 @@
-﻿using System;
+﻿using Domain.Ranges.WithDictionary;
+using System;
 using System.Collections.Generic;
 
 namespace Traveller.RouteService.Evaluator
 {
     public class MonthlyEvaluator : IEvaluator
     {
-        List<IntegerRange> ranges = new List<IntegerRange>();
-        public MonthlyEvaluator(List<IntegerRange> ranges)
+        List<RangeIntWithDictionary> ranges = new List<RangeIntWithDictionary>();
+        public MonthlyEvaluator(List<RangeIntWithDictionary> ranges)
         {
 
             this.ranges = ranges;

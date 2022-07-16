@@ -1,19 +1,21 @@
-﻿using System.Collections.Generic;
+﻿using Domain.Ranges.WithDictionary;
+using System.Collections.Generic;
 
 namespace Traveller.RouteService.DataContainer
 {
     public class RainyDaysDataContainer
     {
-        public List<CharRange> rainyDaysData = new List<CharRange>();
+        public List<RangeCharWithDictionary> rainyDaysData = new List<RangeCharWithDictionary>();
         //Range Genericos
         //Id
         public RainyDaysDataContainer()
         {
 
 
-            rainyDaysData = new List<CharRange> {
+            rainyDaysData = new List<RangeCharWithDictionary> {
                 //Kuala Lumpur
-                new CharRange { Id = 'K', Description = new Dictionary<char, string>()
+                new RangeCharWithDictionary
+                { Id = 'K', Description = new Dictionary<char, string>()
                     {
                     { 'T', "25.1 25.7 26 26.1 26.3	26.2 26.1 25.8 25.7 25.2 25.1"}, //Average Temperature
                     { 'R', "209 174 268 300 246 174 183 219 243 308 373 284" }, //Rainfall mm
@@ -24,7 +26,7 @@ namespace Traveller.RouteService.DataContainer
 
                    } } ,
                 //Bangkok
-                 new CharRange {  Id = 'B', Description = new Dictionary<char, string>()
+                 new RangeCharWithDictionary {  Id = 'B', Description = new Dictionary<char, string>()
                     {
                     { 'T', "26 	27.4 28.8 29.9 29.1 28.5 28 27.8 27.3 27 26.7 25.9 "},
                     { 'R', "18	15	45	72	137	133	141	150	244	196	46	10" },

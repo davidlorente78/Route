@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Traveller.Domain;
-using Domain;
 
 namespace RouteDataManager.Repositories
 {

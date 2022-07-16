@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.Ranges.WithDictionary;
+using System;
 using System.Collections.Generic;
 using Traveller.RouteService.Evaluator;
 
@@ -7,12 +8,12 @@ namespace Traveller.RouteService.Evaluators
     class RainyDaysEvaluator : IEvaluator
     {
 
-        List<CharRange> ranges = new List<CharRange>();
+        List<RangeCharWithDictionary> ranges = new List<RangeCharWithDictionary>();
 
         //average number of days with some rainfall
         //average amount of rainfall
 
-        public RainyDaysEvaluator(List<CharRange> ranges)
+        public RainyDaysEvaluator(List<RangeCharWithDictionary> ranges)
         {
 
             this.ranges = ranges;

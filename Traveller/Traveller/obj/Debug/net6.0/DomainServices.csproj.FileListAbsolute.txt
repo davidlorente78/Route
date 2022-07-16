@@ -1,6 +1,5 @@
 D:\Code Project\Route\Traveller\Traveller\bin\Debug\net6.0\DomainServices.deps.json
 D:\Code Project\Route\Traveller\Traveller\bin\Debug\net6.0\DomainServices.dll
-D:\Code Project\Route\Traveller\Traveller\bin\Debug\net6.0\ref\DomainServices.dll
 D:\Code Project\Route\Traveller\Traveller\bin\Debug\net6.0\DomainServices.pdb
 D:\Code Project\Route\Traveller\Traveller\bin\Debug\net6.0\Domain.dll
 D:\Code Project\Route\Traveller\Traveller\bin\Debug\net6.0\StaticData.dll
@@ -15,3 +14,4 @@ D:\Code Project\Route\Traveller\Traveller\obj\Debug\net6.0\DomainServices.csproj
 D:\Code Project\Route\Traveller\Traveller\obj\Debug\net6.0\DomainServices.dll
 D:\Code Project\Route\Traveller\Traveller\obj\Debug\net6.0\ref\DomainServices.dll
 D:\Code Project\Route\Traveller\Traveller\obj\Debug\net6.0\DomainServices.pdb
+D:\Code Project\Route\Traveller\Traveller\obj\Debug\net6.0\refint\DomainServices.dll

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Domain.Ranges.WithDictionary;
+using System.Collections.Generic;
 using Traveller.RouteService;
 using Traveller.RouteService.Rules;
 
@@ -126,17 +127,17 @@ namespace Traveller.RuleService
 
 
 
-            rules.Add(new MustConsiderWeather(new List<IntegerRange> {
-                new IntegerRange { Id = 'V',  Values = new List<int> { 1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1 } } ,
-                new IntegerRange { Id = 'L', Values = new List<int> { 1, 1, -1,-1,1,1,1,-1,-1, 1, 1, 1 } } ,
-                new IntegerRange { Id = 'M',  Values = new List<int> { -1, -1, 1,1,1,1,1,1,1, -1,- 1,- 1 } } ,
-                new IntegerRange { Id = 'T',  Values = new List<int> { 1, 1, 1,1,-1,-1,-1,-1,-1, -1, 1, 1 } } ,
-                new IntegerRange { Id = 'C',  Values = new List<int> { 1, 1, 1,1,-1,-1,-1,-1,1, 1, 1, 1 } } ,
-                new IntegerRange { Id = 'I',  Values = new List<int> { -1, -1, -1,-1,1,1,1,1,1, -1, -1, -1 } } ,
-                new IntegerRange { Id = 'H',  Values = new List<int> { 1, 1, 1,1,1,-1,-1,-1,-1, 1, 1, 1 } } ,
-                new IntegerRange { Id = 'S',  Values = new List<int> { 1, 1, 1,1,-1,-1,-1,-1,1, -1, -1, 1 } } ,
-                new IntegerRange { Id = 'G', Values = new List<int> { -1, -1, 1,1,1,1,1,1,1, -1, -1, -1 } } ,
-                new IntegerRange { Id = 'K', Values = new List<int> { 1, 1, 1,1,-1,-1,-1,-1,-1, 1, 1, 1 } } ,
+            rules.Add(new MustConsiderWeather(new List<RangeIntWithDictionary> {
+                new RangeIntWithDictionary { Id = 'V',  Values = new List<int> { 1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1 } } ,
+                new RangeIntWithDictionary { Id = 'L', Values = new List<int> { 1, 1, -1,-1,1,1,1,-1,-1, 1, 1, 1 } } ,
+                new RangeIntWithDictionary{ Id = 'M',  Values = new List<int> { -1, -1, 1,1,1,1,1,1,1, -1,- 1,- 1 } } ,
+                new RangeIntWithDictionary { Id = 'T',  Values = new List<int> { 1, 1, 1,1,-1,-1,-1,-1,-1, -1, 1, 1 } } ,
+                new RangeIntWithDictionary { Id = 'C',  Values = new List<int> { 1, 1, 1,1,-1,-1,-1,-1,1, 1, 1, 1 } } ,
+                new RangeIntWithDictionary{ Id = 'I',  Values = new List<int> { -1, -1, -1,-1,1,1,1,1,1, -1, -1, -1 } } ,
+                new RangeIntWithDictionary { Id = 'H',  Values = new List<int> { 1, 1, 1,1,1,-1,-1,-1,-1, 1, 1, 1 } } ,
+                new RangeIntWithDictionary { Id = 'S',  Values = new List<int> { 1, 1, 1,1,-1,-1,-1,-1,1, -1, -1, 1 } } ,
+                new RangeIntWithDictionary { Id = 'G', Values = new List<int> { -1, -1, 1,1,1,1,1,1,1, -1, -1, -1 } } ,
+                new RangeIntWithDictionary { Id = 'K', Values = new List<int> { 1, 1, 1,1,-1,-1,-1,-1,-1, 1, 1, 1 } } ,
 
             }));
 

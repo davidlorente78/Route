@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Traveller.Domain;
-
-namespace Domain
+﻿namespace Domain
 {
     public class Line
     {

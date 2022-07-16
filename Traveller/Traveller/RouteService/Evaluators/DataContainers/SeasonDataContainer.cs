@@ -1,5 +1,6 @@
 ﻿
 
+using Domain.Ranges.WithDictionary;
 using System.Collections.Generic;
 
 namespace Traveller.RouteService.DataContainer
@@ -8,14 +9,16 @@ namespace Traveller.RouteService.DataContainer
     public enum Temporada { Alta = 'A', Baja = 'B', Media = 'M' };
     public class SeasonDataContainer
     {
-        public List<CharRange> rangesList = new List<CharRange>();
+        public List<RangeCharWithDictionary> rangesList = new List<RangeCharWithDictionary>();
 
         public SeasonDataContainer()
         {
+            //TODO Leer todos desde el repositorio
 
-            rangesList = new List<CharRange> {
+            rangesList = new List<RangeCharWithDictionary> {
 
-                new CharRange { Id = 'T', Description = new Dictionary<char, string>()
+                //Migrated
+                new RangeCharWithDictionary { Id = 'T', Description = new Dictionary<char, string>()
                     {
                     { (char) Temporada.Alta, "Navidad y Año Nuevo son las épocas más turísticas y caras."},
                     { 'M', "El norte y la costa del golfo son ideales en septiembre y octubre."},
@@ -23,7 +26,7 @@ namespace Traveller.RouteService.DataContainer
                     },
                     Values = new List<char> { 'A', 'A', 'A', 'M', 'M', 'M', 'B', 'B', 'M', 'M', 'A', 'A', } } ,
 
-                new CharRange { Id = 'N', Description = new Dictionary<char, string>()
+                new RangeCharWithDictionary { Id = 'N', Description = new Dictionary<char, string>()
                     {
                     { 'A', "Navidad y Año Nuevo son las épocas más turísticas y caras."},
                     { 'M', "El norte y la costa del golfo son ideales en septiembre y octubre."},
@@ -31,7 +34,8 @@ namespace Traveller.RouteService.DataContainer
                     },
                     Values = new List<char> { 'A', 'A', 'A', 'M', 'M', 'M', 'B', 'B', 'M', 'M', 'A', 'A', } } ,
 
-                new CharRange { Id = 'L',   Description = new Dictionary<char, string>()
+                //Migrated
+                new RangeCharWithDictionary { Id = 'L',   Description = new Dictionary<char, string>()
                     {
                     { 'A', "La mejor época. Se recomienda reservar alojamiento con antelación para el período navideño y Año Nuevo."},
                     { 'M', "Los paisajes verdes son preciosos. Temporada preferida por los viajeros españoles, además de mochileros de todo el mundo."},
@@ -39,7 +43,8 @@ namespace Traveller.RouteService.DataContainer
                     },
                     Values = new List<char> { 'A', 'A', 'A', 'B', 'B', 'B', 'M', 'M', 'B', 'B', 'A', 'A', } } ,
 
-                new CharRange
+                //Migrated
+                new RangeCharWithDictionary
                 {
                 Id = 'M',
                 Description = new Dictionary<char, string>()
@@ -51,7 +56,7 @@ namespace Traveller.RouteService.DataContainer
                 Values = new List<char> { 'A', 'A', 'B', 'B', 'B', 'B', 'M', 'M', 'M', 'M', 'M', 'B', } ,
                  } ,
 
-                new CharRange
+                new RangeCharWithDictionary
                 {
                 Id = 'W',
                 Description = new Dictionary<char, string>()
@@ -62,8 +67,8 @@ namespace Traveller.RouteService.DataContainer
                     },
                 Values = new List<char> { 'A', 'A', 'B', 'B', 'B', 'B', 'M', 'M', 'M', 'M', 'M', 'B', } ,
                  } ,
-
-                new CharRange { Id = 'V',
+                //Migrated
+                new RangeCharWithDictionary { Id = 'V',
                     Description = new Dictionary<char, string> ()
                     {
                     { 'A', "Los precios suben hasta un 50 % en la costa; se recomienda reservar hotel con antelación."},
@@ -71,8 +76,8 @@ namespace Traveller.RouteService.DataContainer
                     { 'B', "Probablemente la mejor época para recorrer el país." }
                     },
                     Values = new List<char>  {'M', 'M', 'M', 'B', 'B', 'B', 'A', 'A', 'B', 'B', 'B', 'M', } } ,
-
-                new CharRange { Id = 'C',   Description = new Dictionary<char, string>()
+                //Migrated
+                new RangeCharWithDictionary { Id = 'C',   Description = new Dictionary<char, string>()
                     {
                     { 'A', "Más fresco y ventoso, con temperaturas casi mediterráneas. Es mejor reservar alojamiento por anticipado en Navidad y Año Nuevo.."},
                     { 'M', "En abril y mayo, el termómetro alcanza los 40°C. Octubre y noviembre son magníficos para viajar: llueve menos pero aún no ha empezado la temporada seca.."},
@@ -80,7 +85,7 @@ namespace Traveller.RouteService.DataContainer
                     },
                     Values = new List<char> { 'A', 'A', 'M', 'M', 'B', 'B', 'B', 'B', 'B', 'M', 'A', 'A', } } ,
 
-                new CharRange { Id = 'I', Description = new Dictionary<char, string>()
+                new RangeCharWithDictionary { Id = 'I', Description = new Dictionary<char, string>()
                     {
                     { 'A', "Oleadas de turistas atraviesan todo el país. Las tarifas pueden aumentar en un 50%. Estación seca salvo en Molucas y Papúa, que son lluviosas."},
                     { 'M', "Se puede viajar de forma más improvisada. Mejor tiempo en Java, Bali y Lombok (seco, menos húmedo)."},
@@ -88,7 +93,7 @@ namespace Traveller.RouteService.DataContainer
                     },
                     Values = new List<char> { 'B', 'B', 'B', 'B', 'M', 'M', 'A', 'A', 'M', 'M', 'B', 'B', } } ,
 
-                new CharRange { Id = 'O', Description = new Dictionary<char, string>()
+                new RangeCharWithDictionary { Id = 'O', Description = new Dictionary<char, string>()
                     {
                     { 'A', "Oleadas de turistas atraviesan todo el país. Las tarifas pueden aumentar en un 50%. Estación seca salvo en Molucas y Papúa, que son lluviosas."},
                     { 'M', "Se puede viajar de forma más improvisada. Mejor tiempo en Java, Bali y Lombok (seco, menos húmedo)."},
@@ -96,7 +101,7 @@ namespace Traveller.RouteService.DataContainer
                     },
                     Values = new List<char> { 'B', 'B', 'B', 'B', 'M', 'M', 'A', 'A', 'M', 'M', 'B', 'B', } } ,
 
-                new CharRange { Id = 'Z', Description = new Dictionary<char, string>()
+                new RangeCharWithDictionary { Id = 'Z', Description = new Dictionary<char, string>()
                     {
                     { 'A', "Tiempo para salir del circulo."},
                     { 'M',  "Tiempo para salir del circulo."},

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "7ZIpKG42PNXpvuJ2I636/VQcdSx8GNWuOsXwcDkxk5GicdxBKbga0USS94u8MYO8NA6Br2wRyxE6u2nkAOjrmQ==",
+  "dgSpecHash": "z2RXE0wwXpV5yFqPPVGxIMb9J9G5dtInVpfv9C0kujRrEU338tlmPkJ1ZVmscZOcZZt4l3I9Wl09tNneDPjKSw==",
   "success": true,
   "projectFilePath": "D:\\Code Project\\Route\\Traveller\\Nomad\\Nomad.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\David\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.6\\microsoft.entityframeworkcore.abstractions.6.0.6.nupkg.sha512",
     "C:\\Users\\David\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\David\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\David\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",

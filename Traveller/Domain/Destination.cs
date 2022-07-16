@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Traveller.Domain
+﻿namespace Traveller.Domain
 {
     public class Destination
     {

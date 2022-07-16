@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.Ranges.WithDictionary;
+using System;
 using System.Collections.Generic;
 using Traveller.RouteService.DataContainer;
 
@@ -6,7 +7,7 @@ namespace Traveller.RouteService.Evaluator
 {
     public class SeasonEvaluator : IEvaluator
     {
-        List<CharRange> ranges = new List<CharRange>();
+        List<RangeCharWithDictionary> ranges = new List<RangeCharWithDictionary>();
         public SeasonEvaluator(SeasonDataContainer dataContainer)
         {
 

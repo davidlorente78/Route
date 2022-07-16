@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Domain.Ranges.WithDictionary;
+using System.Collections.Generic;
 using Traveller.Domain;
 
 namespace Traveller.RouteService.Rules
@@ -6,8 +7,8 @@ namespace Traveller.RouteService.Rules
     public class MustConsiderWeather : IRule
     {
 
-        List<IntegerRange> ranges = new List<IntegerRange>();
-        public MustConsiderWeather(List<IntegerRange> ranges)
+        List<RangeIntWithDictionary> ranges = new List<RangeIntWithDictionary>();
+        public MustConsiderWeather(List<RangeIntWithDictionary> ranges)
         {
 
             this.ranges = ranges;
@@ -16,7 +17,7 @@ namespace Traveller.RouteService.Rules
         public bool Validate(List<char> route)
         {
             //TODO Debe buscar todas las ocurrencias no solo la primera!!!
-            foreach (IntegerRange range in ranges)
+            foreach (RangeIntWithDictionary range in ranges)
             {
 
                 //Buscar posiciones de weatherRange.Country en route
@@ -43,7 +44,7 @@ namespace Traveller.RouteService.Rules
         public List<char> MonthReport(int month)
         {
             List<char> Countries = new List<char>();
-            foreach (IntegerRange weatherRange in ranges)
+            foreach (RangeIntWithDictionary weatherRange in ranges)
             {
                 char ch = weatherRange.Id;
 
@@ -61,7 +62,7 @@ namespace Traveller.RouteService.Rules
             string summmary = "";
 
             summmary = summmary + "Se considera el clima de : ";
-            foreach (IntegerRange weatherRange in ranges)
+            foreach (RangeIntWithDictionary weatherRange in ranges)
             {
                 summmary = summmary + CodeDictionary.GetCountryByCode(weatherRange.Id) + " ";
             }

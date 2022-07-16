@@ -1,4 +1,5 @@
-﻿using StaticData.Malasia;
+﻿using Domain.Ranges;
+using StaticData.Malasia;
 using StaticData.Thailand;
 using Traveller.Domain;
 using Traveller.StaticData;
@@ -30,21 +31,18 @@ namespace RouteDataManager.Repositories
             {
                 return;   // DB has been seeded
             }
-
-                     
-
+                  
             Country Laos = new Country
             {
                 Code = 'L',
                 Name = "Laos",                
                 Destinations = LaosDestinations.GetAll(), 
                 Frontiers = LaosFrontiers.GetAll(),
-            
+                Ranges = new List<RangeChar> { LaosRanges.SeasonRange }
+
             };
 
             context.Countries.Add(Laos);
-
-
 
             #region Other Countries
             Country Vietnam = new Country
@@ -52,13 +50,12 @@ namespace RouteDataManager.Repositories
                 Code = 'V',
                 Name = "Vietnam",
                 Destinations = VietnamDestinations.GetAll() ,
-                Frontiers = VietnamFrontiers.Frontiers
+                Frontiers = VietnamFrontiers.Frontiers,
+                Ranges = new List<RangeChar> { VietnamRanges.SeasonRange }
 
             };
 
-
             context.Countries.Add(Vietnam);
-
 
             Country Thailand = new Country
             {
@@ -67,9 +64,8 @@ namespace RouteDataManager.Repositories
                 Visas = new List<Visa> { ThailandVisas.VisaExemption },
                 Destinations = ThailandDestinations.GetAll(),
                 Frontiers = ThailandFrontiers.GetAll(),
-                           
+                Ranges = new List<RangeChar> { ThailandRanges.SeasonRange }
 
-                 
             };
 
             context.Countries.Add(Thailand);
@@ -81,27 +77,24 @@ namespace RouteDataManager.Repositories
                 Destinations = MalasiaDestinations.GetAll(),
                 Frontiers = MalasiaFrontiers.GetAll(),
                 TrainLines = MalasiaTrainLines.GetAll(),
-                            
-
+                //Regions
+                Ranges = new List<RangeChar> {  MalasiaRanges.SeasonRange }
 
             };
 
             context.Countries.Add(Malaysia);
-
 
             Country Cambodia = new Country
             {
                 Code = 'C',
                 Name = "Cambodia",
                 Destinations = CambodiaDestinations.GetAll(),
-                Frontiers = CambodiaFrontiers.Frontiers
-
-
+                Frontiers = CambodiaFrontiers.Frontiers,
+                Ranges = new List<RangeChar> { CambodiaRanges.SeasonRange }
 
             };
 
             context.Countries.Add(Cambodia);
-
 
             //Indonesia Nepal Sri Lanka Philippines China Singapore
 
@@ -112,6 +105,7 @@ namespace RouteDataManager.Repositories
                 //Bali Lombok TODO
 
             };
+
             context.Countries.Add(Indonesia);
 
             Country Nepal = new Country
@@ -128,29 +122,22 @@ namespace RouteDataManager.Repositories
                             Name = NepalDestinations.KTM.Name,
                             Origin = NepalDestinations.KTM,
                             Final = NepalDestinations.KTM,
-                         
                             Visas = new List<Visa> { NepalVisas.OnArrivalVisa15, NepalVisas.OnArrivalVisa30, NepalVisas.OnArrivalVisa90, NepalVisas.FreeVisa } },
-
-                           
                         },
                 Visas = new List<Visa> { NepalVisas.OnArrivalVisa15, NepalVisas.OnArrivalVisa30, NepalVisas.OnArrivalVisa90, NepalVisas.FreeVisa }
             ,
 
-
-
-
             };
+
             context.Countries.Add(Nepal);
 
             Country Philippines = new Country
             {
                 Code = 'P',
                 Name = "Philippines",
-
-
             };
-            context.Countries.Add(Philippines);
 
+            context.Countries.Add(Philippines);
 
             Country Singapore = new Country
             {
@@ -179,8 +166,6 @@ namespace RouteDataManager.Repositories
                         },
                 Visas = new List<Visa> { SingaporeVisa.SGArrivalCard } //Estas son las que salen en la pagina IndexView
 
-
-
             };
 
             context.Countries.Add(Singapore);
@@ -191,8 +176,8 @@ namespace RouteDataManager.Repositories
                 Name = "Sri Lanka",
 
             };
-            context.Countries.Add(SriLanka);
 
+            context.Countries.Add(SriLanka);
 
             Country China = new Country
             {

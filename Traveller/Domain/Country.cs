@@ -1,5 +1,6 @@
 ﻿
 using Domain;
+using Domain.Ranges;
 /// <summary>
 /// Domain – Holds the Entities and Interfaces. It does not depend on any other project in the solution.
 /// </summary>
@@ -25,7 +26,8 @@ namespace Traveller.Domain
 
         public ICollection<Visa>? Visas { get; set; }
         public ICollection<Line>? TrainLines { get; set; }
-         
+
+        public ICollection<RangeChar>? Ranges { get; set; }
 
         public Country() { }
 

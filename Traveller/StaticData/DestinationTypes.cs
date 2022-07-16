@@ -1,5 +1,4 @@
 ﻿using Traveller.Domain;
-using static Traveller.Domain.Frontier;
 
 namespace StaticData
 {

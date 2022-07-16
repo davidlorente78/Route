@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Domain.Ranges.WithDictionary;
+using System.Collections.Generic;
 using Traveller.RouteService;
 using Traveller.RouteService.Rules;
 
@@ -46,12 +47,12 @@ namespace Traveller.RuleService
 
 
 
-            rules.Add(new MustConsiderWeather(new List<IntegerRange> {
+            rules.Add(new MustConsiderWeather(new List<RangeIntWithDictionary> {
                
                 //Se aplican aqui los meses menos restrictivos
-                new IntegerRange { Id = 'M', Values = new List<int> {1, 1, 1,1,1,1,1,1,1, 1,- 1,- 1 } } ,
-               new IntegerRange { Id = 'T', Values = new List<int> { 1, 1, 1,1,1,-1,-1,-1,1,  1, 1, 1 } } ,
-                new IntegerRange { Id = 'X', Values = new List<int> { 1, 1, 1,1,1,-1,-1,-1,-1, 1, 1, 1 } } ,
+                new RangeIntWithDictionary { Id = 'M', Values = new List<int> {1, 1, 1,1,1,1,1,1,1, 1,- 1,- 1 } } ,
+               new RangeIntWithDictionary { Id = 'T', Values = new List<int> { 1, 1, 1,1,1,-1,-1,-1,1,  1, 1, 1 } } ,
+                new RangeIntWithDictionary { Id = 'X', Values = new List<int> { 1, 1, 1,1,1,-1,-1,-1,-1, 1, 1, 1 } } ,
 
             }));
 

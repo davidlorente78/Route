@@ -1,7 +1,4 @@
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
-using RouteDataManager.Repositories;
 using System;
 using System.Collections.Generic;
 using Traveller.DomainServices;
@@ -12,7 +9,7 @@ using Traveller.RouteService.Helpers;
 using Traveller.RouteService.Rules;
 using Traveller.RuleService;
 
-namespace Test.RouteServiceUnitTest  
+namespace Test.RouteServiceUnitTest
 {
     public class RouteServiceTest
     {
