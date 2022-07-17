@@ -2,7 +2,7 @@
 
 namespace Traveller.StaticData
 {
-    public static class MalasiaVisas
+    public static class MalaysiaVisas
     {
         public static Visa freeVisa = new Visa
         {

@@ -1,7 +1,7 @@
 ﻿using Domain.EntityFrameworkDictionary;
 using Domain.Ranges;
 
-namespace StaticData.Malasia
+namespace StaticData.Cambodia
 {
     public class CambodiaRanges
     {

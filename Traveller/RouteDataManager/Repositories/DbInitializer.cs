@@ -1,6 +1,9 @@
 ﻿using Domain.Ranges;
-using StaticData.Malasia;
+using StaticData.Cambodia;
+using StaticData.Laos;
+using StaticData.Malaysia;
 using StaticData.Thailand;
+using StaticData.Vietnam;
 using Traveller.Domain;
 using Traveller.StaticData;
 
@@ -31,71 +34,19 @@ namespace RouteDataManager.Repositories
             {
                 return;   // DB has been seeded
             }
-                  
-            Country Laos = new Country
-            {
-                Code = 'L',
-                Name = "Laos",                
-                Destinations = LaosDestinations.GetAll(), 
-                Frontiers = LaosFrontiers.GetAll(),
-                Ranges = new List<RangeChar> { LaosRanges.SeasonRange }
 
-            };
+        
+            context.Countries.Add(DataLaos.Laos);
+            
+            context.Countries.Add(DataVietnam.Vietnam);  
 
-            context.Countries.Add(Laos);
+            context.Countries.Add(DataThailand.Thailand);
+            
+            context.Countries.Add(DataMalaysia.Malaysia);
+
+            context.Countries.Add(DataCambodia.Cambodia);
 
             #region Other Countries
-            Country Vietnam = new Country
-            {
-                Code = 'V',
-                Name = "Vietnam",
-                Destinations = VietnamDestinations.GetAll() ,
-                Frontiers = VietnamFrontiers.Frontiers,
-                Ranges = new List<RangeChar> { VietnamRanges.SeasonRange }
-
-            };
-
-            context.Countries.Add(Vietnam);
-
-            Country Thailand = new Country
-            {
-                Code = 'T',
-                Name = "Thailand",
-                Visas = new List<Visa> { ThailandVisas.VisaExemption },
-                Destinations = ThailandDestinations.GetAll(),
-                Frontiers = ThailandFrontiers.GetAll(),
-                Ranges = new List<RangeChar> { ThailandRanges.SeasonRange }
-
-            };
-
-            context.Countries.Add(Thailand);
-
-            Country Malaysia = new Country
-            {
-                Code = 'M',
-                Name = "Malaysia",
-                Destinations = MalasiaDestinations.GetAll(),
-                Frontiers = MalasiaFrontiers.GetAll(),
-                TrainLines = MalasiaTrainLines.GetAll(),
-                //Regions
-                Ranges = new List<RangeChar> {  MalasiaRanges.SeasonRange }
-
-            };
-
-            context.Countries.Add(Malaysia);
-
-            Country Cambodia = new Country
-            {
-                Code = 'C',
-                Name = "Cambodia",
-                Destinations = CambodiaDestinations.GetAll(),
-                Frontiers = CambodiaFrontiers.Frontiers,
-                Ranges = new List<RangeChar> { CambodiaRanges.SeasonRange }
-
-            };
-
-            context.Countries.Add(Cambodia);
-
             //Indonesia Nepal Sri Lanka Philippines China Singapore
 
             Country Indonesia = new Country
@@ -158,7 +109,7 @@ namespace RouteDataManager.Repositories
 
                             new Frontier {
                             Name = SingaporeDestinations.WoodlandsCheckpoint.Name,
-                            Origin = MalasiaDestinations.JohorBahru,
+                            Origin = MalaysiaDestinations.JohorBahru,
                             Final = SingaporeDestinations.WoodlandsCheckpoint,
                             Visas = new List<Visa> { SingaporeVisa.SGArrivalCard } },
 

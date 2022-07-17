@@ -17,18 +17,14 @@ namespace Traveller.StaticData
         public static Destination THS = new Destination { Name = "Sukhothai Airport", CountryCode = 'T', DestinationType = DestinationTypes.Airport };
         public static Destination TST = new Destination { Name = "Trang Airport", CountryCode = 'T', DestinationType = DestinationTypes.Airport };
 
-
-
-
-
-
-
         public static Destination SungaiKolok = new Destination { Name = "Sungai Kolok", CountryCode = 'T', DestinationType = DestinationTypes.Frontier };
         public static Destination PadangPesar = new Destination { Name = "Padang Pesar", CountryCode = 'T' , DestinationType = DestinationTypes.Frontier };
         public static Destination ChiangKhong = new Destination { Name = "Chiang Khong ", CountryCode = 'T', DestinationType = DestinationTypes.Frontier };
         public static Destination Aranyaprathet = new Destination { Name = "Aranya Prathet", CountryCode = 'T', DestinationType = DestinationTypes.Frontier };
         public static Destination VangTao = new Destination { Name = "Vang Tao", CountryCode = 'T',  Description = "En la provincia de Ubon Ratchathani. Cercano al aeropuerto de Pakse" ,DestinationType = DestinationTypes.Frontier };
         public static Destination UbonRatchathani = new Destination { Name = "Ubon Ratchathani", CountryCode = 'T', Description = "Estacion de tren más cercana al paso de Vang Tao", DestinationType = DestinationTypes.Train };
+        public static Destination Songkhla = new Destination { Name = "Songkhla", CountryCode = 'T', Description = "", DestinationType = DestinationTypes.Train };
+        public static Destination Trang = new Destination { Name = "Trang", CountryCode = 'T', Description = "", DestinationType = DestinationTypes.Tourism };
 
         public static ICollection<Destination> GetAll()
         {
@@ -41,9 +37,9 @@ namespace Traveller.StaticData
                 ThailandDestinations.Aranyaprathet ,
                 ThailandDestinations.VangTao,
                 ThailandDestinations.UbonRatchathani,
-                ThailandDestinations.BKK, CNX,CEI,HDY,KBV,HKT,THS,TST
-
-
+                ThailandDestinations.BKK, CNX,CEI,HDY,KBV,HKT,THS,TST,
+                ThailandDestinations.Songkhla,
+                ThailandDestinations.Trang
             };
              
         }

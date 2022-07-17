@@ -56,7 +56,7 @@ namespace StaticData.Thailand
                 new Frontier
                 {
                     Name = "Padang Pesar - Padang Pesar (Pekan Siam)",
-                    Origin = MalasiaDestinations.PadangPesar,
+                    Origin = MalaysiaDestinations.PadangPesar,
                     Final = ThailandDestinations.PadangPesar,
                    FrontierType = FrontierTypes.Terrestrial,
                     Visas = new List<Visa> { ThailandVisas.VisaExemption },
@@ -68,7 +68,7 @@ namespace StaticData.Thailand
                 new Frontier
                 {
                     Name = "Sungai Kolok - Rantan Panjang",
-                    Origin = MalasiaDestinations.RantanPanjang,
+                    Origin = MalaysiaDestinations.RantanPanjang,
                     Final = ThailandDestinations.SungaiKolok,
                      FrontierType = FrontierTypes.Terrestrial,
                     Visas = new List<Visa> { ThailandVisas.VisaExemption },

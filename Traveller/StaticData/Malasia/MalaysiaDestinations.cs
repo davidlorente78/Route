@@ -3,7 +3,7 @@ using Traveller.Domain;
 
 namespace Traveller.StaticData
 {
-    public static class MalasiaDestinations
+    public static class MalaysiaDestinations
     {
 
 
@@ -22,19 +22,19 @@ namespace Traveller.StaticData
         public static ICollection<Destination> GetAll()
         {
             return new List<Destination> {
-                MalasiaDestinations.KualaLumpur,
-                MalasiaDestinations.RantanPanjang,
-                MalasiaDestinations.PadangPesar,
-                MalasiaDestinations.KualaLumpur,
-                MalasiaDestinations.Penang,
-                MalasiaDestinations.Butterworth,
-                MalasiaDestinations.KotaBahru,
-                MalasiaDestinations.KUL,
-                MalasiaDestinations.JohorBahru,
+                MalaysiaDestinations.KualaLumpur,
+                MalaysiaDestinations.RantanPanjang,
+                MalaysiaDestinations.PadangPesar,
+                MalaysiaDestinations.KualaLumpur,
+                MalaysiaDestinations.Penang,
+                MalaysiaDestinations.Butterworth,
+                MalaysiaDestinations.KotaBahru,
+                MalaysiaDestinations.KUL,
+                MalaysiaDestinations.JohorBahru,
 
                 //Train
-                MalasiaDestinations.KualaKangsar,
-                MalasiaDestinations.Ipoh
+                MalaysiaDestinations.KualaKangsar,
+                MalaysiaDestinations.Ipoh
             
             };
         

@@ -2,9 +2,9 @@
 using Traveller.Domain;
 using Traveller.StaticData;
 
-namespace StaticData.Malasia
+namespace StaticData.Malaysia
 {
-    public class MalasiaTrainStations
+    public class MalaysiaTrainStations
     {
 
         //KTMWestCoast
@@ -13,7 +13,7 @@ namespace StaticData.Malasia
         {
             Type = 'T',
             //Lines = new List<Line> { MalasiaTrainLines.KTMWestCoast },
-            ServingDestinations = new List<Destination> { MalasiaDestinations.PadangPesar, ThailandDestinations.PadangPesar },
+            ServingDestinations = new List<Destination> { MalaysiaDestinations.PadangPesar, ThailandDestinations.PadangPesar },
             Name = "Padang Besar",
             Remarks = "The station is where the Malaysia and Thai railway services meet, allowing for passengers to transfer between the two railway systems. The customs, immigration and quarantine facilities of both countries are co-located in the station, despite it being completely located within the Malaysian territory, about 200 metres south of the border. There is also a smaller railway station on the Thai side of the border called Padang Besar (Thai) railway station."
         };
@@ -28,7 +28,6 @@ namespace StaticData.Malasia
         public static Station Arau = new Station
         {
             Type = 'T',
-            //Lines = new List<Line> { MalasiaTrainLines.KTMWestCoast },
             Name = "Arau", 
         };
 
@@ -50,9 +49,8 @@ namespace StaticData.Malasia
         public static Station KualaKangsar = new Station
         {
             Type = 'T',
-            //Lines = new List<Line> { MalasiaTrainLines.KTMWestCoast },
-            Name = " Kuala Kangsar",
-            ServingDestinations = new List<Destination> { MalasiaDestinations.KualaKangsar}
+            Name = "Kuala Kangsar",
+            ServingDestinations = new List<Destination> { MalaysiaDestinations.KualaKangsar}
 
         };
 
@@ -63,9 +61,8 @@ namespace StaticData.Malasia
         public static Station Ipoh = new Station
         {
             Type = 'T',
-            //Lines = new List<Line> { MalasiaTrainLines.KTMWestCoast },
             Name = "Ipoh",
-            ServingDestinations = new List<Destination> { MalasiaDestinations.Ipoh }
+            ServingDestinations = new List<Destination> { MalaysiaDestinations.Ipoh }
         };
 
         //Batu Gajah
@@ -91,17 +88,15 @@ namespace StaticData.Malasia
         public static Station KualaLumpur = new Station
         {
             Type = 'T',
-            //Lines = new List<Line> { MalasiaTrainLines.KTMWestCoast },
             Name = "Kuala Lumpur",
-            ServingDestinations = new List<Destination> { MalasiaDestinations.KualaLumpur }
+            ServingDestinations = new List<Destination> { MalaysiaDestinations.KualaLumpur }
         };
 
         public static Station KualaLumpurSentral = new Station
         {
             Type = 'T',
-            //Lines = new List<Line> { MalasiaTrainLines.KTMWestCoast },
             Name = "Kuala Lumpur Sentral",
-            ServingDestinations = new List<Destination> { MalasiaDestinations.KualaLumpur },
+            ServingDestinations = new List<Destination> { MalaysiaDestinations.KualaLumpur },
             Remarks = "Central interchange with all intercity and commuter trains, rapid transit, monorail and airport rail link"
         };
 
@@ -128,7 +123,6 @@ namespace StaticData.Malasia
         public static Station Gemas = new Station
         {
             Type = 'T',
-            //Lines = new List<Line> { MalasiaTrainLines.KTMWestCoast , MalasiaTrainLines.KTMEastCoast},
             Name = "Gemas",
             Remarks = "the station is the meeting point of and the railway junction connecting the West Coast Line (Padang Besar–Singapore) with the East Coast Line (Tumpat–Gemas)"
         };
@@ -169,7 +163,6 @@ namespace StaticData.Malasia
         public static Station Tumpat = new Station
         {
             Type = 'T',
-            //Lines = new List<Line> { MalasiaTrainLines.KTMEastCoast },
             Name = "Tumpat",         
             Remarks = ""
         };
@@ -177,7 +170,6 @@ namespace StaticData.Malasia
         public static Station KualaKrai = new Station
         {
             Type = 'T',
-            //Lines = new List<Line> { MalasiaTrainLines.KTMEastCoast },
             Name = "Kuala Krai",
             Remarks = ""
         };
@@ -186,7 +178,6 @@ namespace StaticData.Malasia
         public static Station Dabong = new Station
         {
             Type = 'T',
-            //Lines = new List<Line> { MalasiaTrainLines.KTMEastCoast },
             Name = "Dabong",
             Remarks = ""
         };
@@ -194,7 +185,6 @@ namespace StaticData.Malasia
         public static Station GuaMusang = new Station
         {
             Type = 'T',
-            //Lines = new List<Line> { MalasiaTrainLines.KTMEastCoast },
             Name = "Gua Musang",
             Remarks = ""
         };
@@ -202,7 +192,6 @@ namespace StaticData.Malasia
         public static Station KualaLipis = new Station
         {
             Type = 'T',
-            //Lines = new List<Line> { MalasiaTrainLines.KTMEastCoast },
             Name = "Kuala Lipis",
             Remarks = ""
         };
