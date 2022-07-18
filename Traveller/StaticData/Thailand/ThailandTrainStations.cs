@@ -7,13 +7,13 @@ namespace StaticData.Thailand
     public class ThailandTrainStations
     {
 
-        //Southern Line
+        #region Southern Line
 
         public static Station BangkokHuaLamphong = new Station
         {
             Type = 'T',
             ServingDestinations = new List<Destination> { },
-            Name = "Bangkok  Hua Lamphong",
+            Name = "Bangkok Hua Lamphong",
             Remarks = ""
         };
         //Bang Sue Grand Station - Main station and freight terminal with main diesel locomotive depot and refueling facilityBang Bamru Station- Suburban Station, all trains must stop here.First station after crossing the Rama 6 Bridge from Bang Sue.
@@ -86,7 +86,7 @@ namespace StaticData.Thailand
         public static Station Trang = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { ThailandDestinations.Trang},
+            ServingDestinations = new List<Destination> { ThailandDestinations.Trang , ThailandDestinations.TST},
             Name = "Trang",
             Remarks = "Main Trang station."
         };
@@ -164,5 +164,238 @@ namespace StaticData.Thailand
             Name = "Sungai Kolok",
             Remarks = "Terminus of Southern Line. Used to be an international station until the termination of cross border services."
         };
+
+        #endregion
+
+        #region NorthernLine_Sawankhalok
+
+        public static Station BanDaraJunction = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> {  },
+            Name = "Ban Dara Junction",
+            LocalName = "ชุมทางบ้านดารา",
+            Remarks = "The terminal of Sawankhalok Line"
+        };
+
+
+        public static Station KhlongMaphlap  = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Khlong Maphlap",
+            LocalName = "คลองมะพลับ",
+            Remarks = ""
+        };
+
+        public static Station SawanKhalok = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Sawan Khalok",
+            LocalName = "สวรรคโลก",
+            Remarks = ""
+        };
+
+        #endregion
+
+
+        #region Northern Line Main Stations
+        public static Station Ayutthaya = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Ayutthaya",
+            LocalName = "อยุธยา",
+            Remarks = "https://en.wikipedia.org/wiki/Ayutthaya_railway_station"
+        };
+
+        public static Station BanPhachiJunction = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Ban Pachi Junction",
+           Remarks ="Start for NorthEast Line"
+        };
+
+        public static Station LopBuri = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Lop Buri",
+            LocalName = "ลพบุรี",
+            Remarks = ""
+        };
+
+        public static Station Phitsanulok = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { ThailandDestinations.Sukhothai , ThailandDestinations.THS },
+            Name = "Phitsanulok",
+            LocalName = "พิษณุโลก",
+            Remarks = ""
+        };
+
+        public static Station Lamphun = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Lamphun",
+            LocalName = "",
+            Remarks = ""
+        };
+
+        public static Station ChiangMai = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Chiang Mai",
+            LocalName = "",
+            Remarks = ""
+        };
+
+        #endregion
+
+
+        #region NorthEast Line Main Stations UbonRatchathani Branch
+
+        //BanPachi
+        public static Station BanPachi = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Ban Pachi",
+            LocalName = "",
+            Remarks = ""
+        };
+
+        //Thanon Chira Junction
+        public static Station ThanonChiraJunction = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Thanon Chira Junction",
+            LocalName = "",
+            Remarks = ""
+        };
+
+        //Surin
+        public static Station Surin = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Surin",
+            LocalName = "",
+            Remarks = ""
+        };
+
+        //Sisaket
+        public static Station Sisaket = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Sisaket",
+            LocalName = "",
+            Remarks = ""
+        };
+
+
+        //UbonRatchathani
+        public static Station UbonRatchathani = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Ubon Ratchathani",
+            LocalName = "",
+            Remarks = ""
+        };
+        #endregion
+
+        #region NorthEast Line Main Stations UbonRatchathani Nong Khai
+
+        //Kaeng Khoi Juction
+        public static Station KaengKhoiJuction = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Kaeng Khoi Juction",
+            LocalName = "",
+            Remarks = ""
+        };
+
+        //Bua Yai Junction
+
+        public static Station BuaYaiJunction = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Bua Yai Junction",
+            LocalName = "",
+            Remarks = ""
+        };
+
+        //Khon Kaen
+
+        public static Station KhonKaen = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Khon Kaen",
+            LocalName = "",
+            Remarks = ""
+        };
+        //Udon Thani
+
+        public static Station UdonThani = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> {  },
+            Name = "Udon Thani",
+            LocalName = "",
+            Remarks = ""
+        };
+
+
+        //Nong Khai
+        public static Station NongKhai = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> {ThailandDestinations.NongKhai, LaosDestinations.NongKhiang },
+            Name = "Nong Khai",
+            LocalName = "",
+            Remarks = ""
+        };
+        #endregion
+
+        #region NorthEast Line Main Stations Branch
+
+        //Thanon Chira Junction
+        //Bua Yai Junction
+
+        #endregion
+
+        public static Station Pattaya = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Pattaya",
+            LocalName = "",
+            Remarks = ""
+        };
+
+        public static Station Aranyaprathet = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { ThailandDestinations.Aranyaprathet },
+            Name = "Aranyaprathet",
+            LocalName = "",
+            Remarks = ""
+        };
+
+
+
+        #region Eastern Line
+
+        #endregion
     }
 }

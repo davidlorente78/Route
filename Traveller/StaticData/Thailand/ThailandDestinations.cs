@@ -25,6 +25,7 @@ namespace Traveller.StaticData
         public static Destination UbonRatchathani = new Destination { Name = "Ubon Ratchathani", CountryCode = 'T', Description = "Estacion de tren más cercana al paso de Vang Tao", DestinationType = DestinationTypes.Train };
         public static Destination Songkhla = new Destination { Name = "Songkhla", CountryCode = 'T', Description = "", DestinationType = DestinationTypes.Train };
         public static Destination Trang = new Destination { Name = "Trang", CountryCode = 'T', Description = "", DestinationType = DestinationTypes.Tourism };
+        public static Destination Sukhothai = new Destination { Name = "Sukhothai", CountryCode = 'T', Description = "Sukhothai", DestinationType = DestinationTypes.Tourism };
 
         public static ICollection<Destination> GetAll()
         {
@@ -39,7 +40,8 @@ namespace Traveller.StaticData
                 ThailandDestinations.UbonRatchathani,
                 ThailandDestinations.BKK, CNX,CEI,HDY,KBV,HKT,THS,TST,
                 ThailandDestinations.Songkhla,
-                ThailandDestinations.Trang
+                ThailandDestinations.Trang,
+                ThailandDestinations.Sukhothai,
             };
              
         }
