@@ -19,7 +19,7 @@ namespace RouteDataManager.Controllers
         public async Task<IActionResult> Index()
         {
             var applicationContext = _context.Destinations.Include(d => d.Country).Include(d => d.DestinationType).OrderBy(c => c.Country.Name);
-            return View(await applicationContext.ToListAsync());
+            return PartialView(await applicationContext.ToListAsync());
         }
 
         // GET: Destinations/Details/5
@@ -41,14 +41,14 @@ namespace RouteDataManager.Controllers
             ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name", destination.CountryID);
             ViewData["Type"] = new SelectList(_context.DestinationTypes, "DestinationTypeID", "Description", destination.DestinationType.DestinationTypeID); //NEW
 
-            return View(destination);
+            return PartialView(destination);
         }
 
         // GET: Destinations/Create
         public IActionResult Create()
         {
             ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name");
-            return View();
+            return PartialView();
         }
 
         // POST: Destinations/Create
@@ -67,7 +67,7 @@ namespace RouteDataManager.Controllers
             ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name", destination.CountryID);
             ViewData["Type"] = new SelectList(_context.DestinationTypes, "DestinationTypeID", "Description", destination.DestinationType.DestinationTypeID); //NEW
 
-            return View(destination);
+            return PartialView(destination);
         }
 
         // GET: Destinations/Edit/5
@@ -87,7 +87,7 @@ namespace RouteDataManager.Controllers
 
             ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name", destination.CountryID);
             ViewData["DestinationTypes"] = new SelectList(_context.DestinationTypes, "DestinationTypeID", "Description", destination.DestinationType.DestinationTypeID); //NEW
-            return View(destination);
+            return PartialView(destination);
         }
 
         // POST: Destinations/Edit/5
@@ -95,7 +95,7 @@ namespace RouteDataManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id,  Destination destination)
+        public async Task<IActionResult> Edit(int id, Destination destination)
         {
             if (id != destination.DestinationID)
             {
@@ -103,35 +103,43 @@ namespace RouteDataManager.Controllers
             }
 
 
-            //if (ModelState.IsValid)
-            //{
-
-
             var DestinationTypeRecovered = _context.DestinationTypes.Single(t => t.DestinationTypeID == destination.DestinationType.DestinationTypeID);
 
-                destination.DestinationType = DestinationTypeRecovered;
-                try
+            destination.DestinationType = DestinationTypeRecovered;
+            try
+            {
+
+                _context.Update(destination);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!DestinationExists(destination.DestinationID))
                 {
-                    
-                    _context.Update(destination);
-                    await _context.SaveChangesAsync();
+                    return NotFound();
                 }
-                catch (DbUpdateConcurrencyException)
+                else
                 {
-                    if (!DestinationExists(destination.DestinationID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    throw;
                 }
-                return RedirectToAction(nameof(Index));
+            }
+            return RedirectToAction(nameof(Index));
             //}
             ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name", destination.CountryID);
-            ViewData["DestinationTypes"] = new SelectList(_context.DestinationTypes, "DestinationTypeID", "Description", destination.DestinationType.DestinationTypeID); 
-            return View(destination);
+            ViewData["DestinationTypes"] = new SelectList(_context.DestinationTypes, "DestinationTypeID", "Description", destination.DestinationType.DestinationTypeID);
+
+            //The “RenderBody” method has not been called for layout page
+
+
+            //This typically occurs when you: – have a partial view – use a _ViewStart.cshtml page – you call the partival view from your controller using: return View();
+
+            //And there you go wrong.It is a partial view, so you should return like this:
+
+            //return PartialView();
+
+            //Source: http://www.cloud-developer.eu/blog/2014/01/20/renderbody-method-called-layout-page/
+
+            return PartialView(destination);
         }
 
         // GET: Destinations/Delete/5
@@ -150,7 +158,7 @@ namespace RouteDataManager.Controllers
                 return NotFound();
             }
 
-            return View(destination);
+            return PartialView(destination);
         }
 
         // POST: Destinations/Delete/5

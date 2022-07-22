@@ -19,17 +19,16 @@ namespace Traveller.StaticData
 
 
 
-            Destination Singapore = new Destination { Name = "Singapore", CountryCode = 'G' };
-            Destination KUL = new Destination { Name = "Kuala Lumpur Airport", CountryCode = 'M' };
-            Destination SIN = new Destination { Name = "Singapore Changi Airport", CountryCode = 'G' };
-            Destination HAK = new Destination { Name = "Haikou Airport", CountryCode = 'Z' };
-            Destination SungaiKolok = new Destination { Name = "Sungai Kolok", CountryCode = 'M' };
-            Destination PadangBesar = new Destination { Name = "Padang Besar", CountryCode = 'M' };
+            Destination Singapore = new Destination { Name = "Singapore" };
+            Destination KUL = new Destination { Name = "Kuala Lumpur Airport" };
+            Destination SIN = new Destination { Name = "Singapore Changi Airport" };
+            Destination HAK = new Destination { Name = "Haikou Airport" };
+            Destination SungaiKolok = new Destination { Name = "Sungai Kolok" };
+            Destination PadangBesar = new Destination { Name = "Padang Besar" };
 
 
             Country Laos = new Country
             {
-                Code = 'L',
                 Name = "Laos",
                 //Frontiers = LaosFrontiers.Frontiers,
                 Destinations = new List<Destination> { LaosDestinations.LPQ, LaosDestinations.VTE, LaosDestinations.VTE },
@@ -40,7 +39,6 @@ namespace Traveller.StaticData
 
             Country Vietnam = new Country
             {
-                Code = 'V',
                 Name = "Vietnam",
                 //Frontiers = VietnamFrontiers.Frontiers
 
@@ -50,7 +48,6 @@ namespace Traveller.StaticData
 
             Country Thailand = new Country
             {
-                Code = 'T',
                 Name = "Thailand",
 
                 Destinations = new List<Destination> { ThailandDestinations.BKK, ThailandDestinations.Mukdahan, ThailandDestinations.NongKhai },
@@ -113,8 +110,7 @@ namespace Traveller.StaticData
 
             Country Malaysia = new Country
             {
-                Code = 'M',
-                Name = "Malaysia",
+                  Name = "Malaysia",
             //    Frontiers = new List<Frontier> {
 
 

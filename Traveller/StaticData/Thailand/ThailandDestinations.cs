@@ -5,27 +5,27 @@ namespace Traveller.StaticData
 {
     public static class ThailandDestinations
     {
-        public static Destination Mukdahan = new Destination { Name = "Mukdahan", CountryCode = 'T' };
-        public static Destination NongKhai = new Destination { Name = "Nong Khai", CountryCode = 'T' };
+        public static Destination Mukdahan = new Destination { Name = "Mukdahan" };
+        public static Destination NongKhai = new Destination { Name = "Nong Khai" };
 
-        public static Destination BKK = new Destination { Name = "Bangkok Airport", CountryCode = 'T', DestinationType = DestinationTypes.Airport };
-        public static Destination CNX = new Destination { Name = "Chiang Mai Airport", CountryCode = 'T', DestinationType = DestinationTypes.Airport };
-        public static Destination CEI = new Destination { Name = "Chiang Rai Airport", CountryCode = 'T', DestinationType = DestinationTypes.Airport };
-        public static Destination HDY = new Destination { Name = "Hat Yai Airport", CountryCode = 'T', DestinationType = DestinationTypes.Airport };
-        public static Destination KBV = new Destination { Name = "Krabi Airport", CountryCode = 'T', DestinationType = DestinationTypes.Airport };
-        public static Destination HKT = new Destination { Name = "Phuket Airport", CountryCode = 'T', DestinationType = DestinationTypes.Airport };
-        public static Destination THS = new Destination { Name = "Sukhothai Airport", CountryCode = 'T', DestinationType = DestinationTypes.Airport };
-        public static Destination TST = new Destination { Name = "Trang Airport", CountryCode = 'T', DestinationType = DestinationTypes.Airport };
+        public static Destination BKK = new Destination { Name = "Bangkok Airport",  DestinationType = DestinationTypes.Airport };
+        public static Destination CNX = new Destination { Name = "Chiang Mai Airport",  DestinationType = DestinationTypes.Airport };
+        public static Destination CEI = new Destination { Name = "Chiang Rai Airport",  DestinationType = DestinationTypes.Airport };
+        public static Destination HDY = new Destination { Name = "Hat Yai Airport",  DestinationType = DestinationTypes.Airport };
+        public static Destination KBV = new Destination { Name = "Krabi Airport",  DestinationType = DestinationTypes.Airport };
+        public static Destination HKT = new Destination { Name = "Phuket Airport",  DestinationType = DestinationTypes.Airport };
+        public static Destination THS = new Destination { Name = "Sukhothai Airport", DestinationType = DestinationTypes.Airport };
+        public static Destination TST = new Destination { Name = "Trang Airport",  DestinationType = DestinationTypes.Airport };
 
-        public static Destination SungaiKolok = new Destination { Name = "Sungai Kolok", CountryCode = 'T', DestinationType = DestinationTypes.Frontier };
-        public static Destination PadangPesar = new Destination { Name = "Padang Pesar", CountryCode = 'T' , DestinationType = DestinationTypes.Frontier };
-        public static Destination ChiangKhong = new Destination { Name = "Chiang Khong ", CountryCode = 'T', DestinationType = DestinationTypes.Frontier };
-        public static Destination Aranyaprathet = new Destination { Name = "Aranya Prathet", CountryCode = 'T', DestinationType = DestinationTypes.Frontier };
-        public static Destination VangTao = new Destination { Name = "Vang Tao", CountryCode = 'T',  Description = "En la provincia de Ubon Ratchathani. Cercano al aeropuerto de Pakse" ,DestinationType = DestinationTypes.Frontier };
-        public static Destination UbonRatchathani = new Destination { Name = "Ubon Ratchathani", CountryCode = 'T', Description = "Estacion de tren más cercana al paso de Vang Tao", DestinationType = DestinationTypes.Train };
-        public static Destination Songkhla = new Destination { Name = "Songkhla", CountryCode = 'T', Description = "", DestinationType = DestinationTypes.Train };
-        public static Destination Trang = new Destination { Name = "Trang", CountryCode = 'T', Description = "", DestinationType = DestinationTypes.Tourism };
-        public static Destination Sukhothai = new Destination { Name = "Sukhothai", CountryCode = 'T', Description = "Sukhothai", DestinationType = DestinationTypes.Tourism };
+        public static Destination SungaiKolok = new Destination { Name = "Sungai Kolok",  DestinationType = DestinationTypes.Frontier };
+        public static Destination PadangPesar = new Destination { Name = "Padang Pesar",  DestinationType = DestinationTypes.Frontier };
+        public static Destination ChiangKhong = new Destination { Name = "Chiang Khong ",  DestinationType = DestinationTypes.Frontier };
+        public static Destination Aranyaprathet = new Destination { Name = "Aranya Prathet",  DestinationType = DestinationTypes.Frontier };
+        public static Destination VangTao = new Destination { Name = "Vang Tao",  Description = "En la provincia de Ubon Ratchathani. Cercano al aeropuerto de Pakse" ,DestinationType = DestinationTypes.Frontier };
+        public static Destination UbonRatchathani = new Destination { Name = "Ubon Ratchathani",  Description = "Estacion de tren más cercana al paso de Vang Tao", DestinationType = DestinationTypes.Train };
+        public static Destination Songkhla = new Destination { Name = "Songkhla",  Description = "", DestinationType = DestinationTypes.Train };
+        public static Destination Trang = new Destination { Name = "Trang",  Description = "", DestinationType = DestinationTypes.Tourism };
+        public static Destination Sukhothai = new Destination { Name = "Sukhothai",  Description = "Sukhothai", DestinationType = DestinationTypes.Tourism };
 
         public static ICollection<Destination> GetAll()
         {

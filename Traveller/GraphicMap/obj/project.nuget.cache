@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "Uy4iDE4sgwJ0Tapdy4HBRFD1fKa6bxvPT3nRjX01I5OtoEt9BJq1EoyWz7FWUXAAroCHOeyjQK8SiwROEnsXRA==",
+  "success": true,
+  "projectFilePath": "D:\\Code Project\\Route\\Traveller\\GraphicMap\\GraphicMap.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\David\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.6\\microsoft.entityframeworkcore.abstractions.6.0.6.nupkg.sha512",
+    "C:\\Users\\David\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\David\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\David\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
+    "C:\\Users\\David\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512"
+  ],
+  "logs": []
+}

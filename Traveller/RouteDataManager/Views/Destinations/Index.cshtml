@@ -1,22 +1,17 @@
 ﻿@model IEnumerable<Traveller.Domain.Destination>
 
 @{
-    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
-
-<h1>Index</h1>
-
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-primary btn-block" asp-action="Create">Create New Destination</a>
 </p>
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.CountryCode)
-            </th>
+         
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
@@ -33,9 +28,6 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.CountryCode)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
@@ -45,9 +37,9 @@
                 @Html.DisplayFor(modelItem => item.DestinationType.Description)
             </td>
              
-            <td>    <a asp-action="Edit"  class="class="btn btn-primary btn-block"" asp-route-id="@item.DestinationID">Edit</a></td>
-             <td>   <a asp-action="Details" class="class="btn btn-primary btn-block"" asp-route-id="@item.DestinationID">Details</a> </td>
-             <td>   <a asp-action="Delete" class="class="btn btn-primary btn-block"" asp-route-id="@item.DestinationID">Delete</a> </td>
+            <td>    <a asp-action="Edit"  class="btn btn-primary btn-block" asp-route-id="@item.DestinationID">Edit</a></td>
+             <td>   <a asp-action="Details" class="btn btn-primary btn-block" asp-route-id="@item.DestinationID">Details</a> </td>
+             <td>   <a asp-action="Delete" class="btn btn-primary btn-block" asp-route-id="@item.DestinationID">Delete</a> </td>
         </tr>
 }
     </tbody>
