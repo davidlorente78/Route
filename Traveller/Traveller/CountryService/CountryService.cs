@@ -38,7 +38,7 @@ namespace Traveller.DomainServices
             //Aqui no hay include de las entidades asociadas
             //var country= unitOfWork.Countries.GetById(ID);
 
-            //Metodo del repositorio concreto HERE
+            //Metodo del repositorio concreto HERE Este tarda muchisimo
             var country = unitOfWork.Countries.GetCountryByID(ID);
 
             //Warning ICollection o solo una entidad

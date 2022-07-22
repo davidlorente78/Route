@@ -110,7 +110,7 @@ namespace RouteDataManager.Controllers
                
                 return RedirectToAction(nameof(Index));
             }
-            return View(country);
+            return PartialView(country);
         }
 
         // GET: Countries/Edit/5
@@ -127,7 +127,7 @@ namespace RouteDataManager.Controllers
             {
                 return NotFound();
             }
-            return View(country);
+            return PartialView(country);
         }
 
         // POST: Countries/Edit/5
