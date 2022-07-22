@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Traveller.Domain;
+using Domain;
 
 namespace RouteDataManager.Repositories
 {
@@ -25,8 +26,13 @@ namespace RouteDataManager.Repositories
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Country>().ToTable("Country");
-            modelBuilder.Entity<Destination>().ToTable("Destination");
+            modelBuilder.Entity<Country>().ToTable("Countries");
+
+            //En este caso no es necesario porque ya se encarga EF de formar el plural directamente
+            modelBuilder.Entity<Destination>().ToTable("Destinations");
+
+            modelBuilder.Entity<Branch>().ToTable("Branches");
+
 
             //EF Not Core versions
             //builder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
@@ -54,9 +60,11 @@ namespace RouteDataManager.Repositories
 
         public DbSet<FrontierType>? FrontierTypes { get; set; }
 
-        public DbSet<Domain.Line>? Line { get; set; }
+        public DbSet<Line>? Lines { get; set; }
 
-        public DbSet<Domain.Station>? Station { get; set; }
+        public DbSet<Station>? Stations { get; set; }
+
+        public DbSet<Branch>? Branches { get; set; }
 
     }
 }

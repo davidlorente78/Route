@@ -19,7 +19,7 @@ namespace Domain.Repositories
         void Remove(T entity);
         void RemoveRange(IEnumerable<T> entities);
 
-        //Some says Update method can NOT be in a repository
+        //Some people says Update method can NOT be in a repository
         void Update(T entity);
 
 

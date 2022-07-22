@@ -1,4 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Domain;
 using RouteDataManager.Repositories;
@@ -17,20 +22,20 @@ namespace RouteDataManager.Controllers
         // GET: Lines
         public async Task<IActionResult> Index()
         {
-              return _context.Line != null ? 
-                          View(await _context.Line.ToListAsync()) :
-                          Problem("Entity set 'ApplicationContext.Line'  is null.");
+            var applicationContext = _context.Lines.Include(l => l.Country);
+            return View(await applicationContext.ToListAsync());
         }
 
         // GET: Lines/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Line == null)
+            if (id == null || _context.Lines == null)
             {
                 return NotFound();
             }
 
-            var line = await _context.Line
+            var line = await _context.Lines
+                .Include(l => l.Country)
                 .FirstOrDefaultAsync(m => m.LineID == id);
             if (line == null)
             {
@@ -43,6 +48,7 @@ namespace RouteDataManager.Controllers
         // GET: Lines/Create
         public IActionResult Create()
         {
+            ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name");
             return View();
         }
 
@@ -51,7 +57,7 @@ namespace RouteDataManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("LineID,LineType,Name,Description")] Line line)
+        public async Task<IActionResult> Create([Bind("LineID,Name,Description,LineType,CountryID")] Line line)
         {
             if (ModelState.IsValid)
             {
@@ -59,22 +65,24 @@ namespace RouteDataManager.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name", line.CountryID);
             return View(line);
         }
 
         // GET: Lines/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Line == null)
+            if (id == null || _context.Lines == null)
             {
                 return NotFound();
             }
 
-            var line = await _context.Line.FindAsync(id);
+            var line = await _context.Lines.FindAsync(id);
             if (line == null)
             {
                 return NotFound();
             }
+            ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name", line.CountryID);
             return View(line);
         }
 
@@ -83,7 +91,7 @@ namespace RouteDataManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("LineID,LineType,Name,Description")] Line line)
+        public async Task<IActionResult> Edit(int id, [Bind("LineID,Name,Description,LineType,CountryID")] Line line)
         {
             if (id != line.LineID)
             {
@@ -110,18 +118,20 @@ namespace RouteDataManager.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name", line.CountryID);
             return View(line);
         }
 
         // GET: Lines/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Line == null)
+            if (id == null || _context.Lines == null)
             {
                 return NotFound();
             }
 
-            var line = await _context.Line
+            var line = await _context.Lines
+                .Include(l => l.Country)
                 .FirstOrDefaultAsync(m => m.LineID == id);
             if (line == null)
             {
@@ -136,14 +146,14 @@ namespace RouteDataManager.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Line == null)
+            if (_context.Lines == null)
             {
                 return Problem("Entity set 'ApplicationContext.Line'  is null.");
             }
-            var line = await _context.Line.FindAsync(id);
+            var line = await _context.Lines.FindAsync(id);
             if (line != null)
             {
-                _context.Line.Remove(line);
+                _context.Lines.Remove(line);
             }
             
             await _context.SaveChangesAsync();
@@ -152,7 +162,7 @@ namespace RouteDataManager.Controllers
 
         private bool LineExists(int id)
         {
-          return (_context.Line?.Any(e => e.LineID == id)).GetValueOrDefault();
+          return (_context.Lines?.Any(e => e.LineID == id)).GetValueOrDefault();
         }
     }
 }

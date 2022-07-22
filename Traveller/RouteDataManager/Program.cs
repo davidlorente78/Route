@@ -29,8 +29,6 @@ builder.Services.AddTransient<IDestinationRepository, DestinationRepository>();
 
 
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
-
-
 builder.Services.AddTransient<ICountryService, CountryService>();
 
 #endregion

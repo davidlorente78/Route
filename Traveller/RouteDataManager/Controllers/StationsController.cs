@@ -1,4 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Domain;
 using RouteDataManager.Repositories;
@@ -17,20 +22,20 @@ namespace RouteDataManager.Controllers
         // GET: Stations
         public async Task<IActionResult> Index()
         {
-              return _context.Station != null ? 
-                          View(await _context.Station.ToListAsync()) :
+              return _context.Stations != null ? 
+                          View(await _context.Stations.ToListAsync()) :
                           Problem("Entity set 'ApplicationContext.Station'  is null.");
         }
 
         // GET: Stations/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Station == null)
+            if (id == null || _context.Stations == null)
             {
                 return NotFound();
             }
 
-            var station = await _context.Station
+            var station = await _context.Stations
                 .FirstOrDefaultAsync(m => m.StationID == id);
             if (station == null)
             {
@@ -51,7 +56,7 @@ namespace RouteDataManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("StationID,Name,Type,Remarks")] Station station)
+        public async Task<IActionResult> Create([Bind("StationID,Name,LocalName,Type,Remarks")] Station station)
         {
             if (ModelState.IsValid)
             {
@@ -65,12 +70,12 @@ namespace RouteDataManager.Controllers
         // GET: Stations/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Station == null)
+            if (id == null || _context.Stations == null)
             {
                 return NotFound();
             }
 
-            var station = await _context.Station.FindAsync(id);
+            var station = await _context.Stations.FindAsync(id);
             if (station == null)
             {
                 return NotFound();
@@ -83,7 +88,7 @@ namespace RouteDataManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("StationID,Name,Type,Remarks")] Station station)
+        public async Task<IActionResult> Edit(int id, [Bind("StationID,Name,LocalName,Type,Remarks")] Station station)
         {
             if (id != station.StationID)
             {
@@ -116,12 +121,12 @@ namespace RouteDataManager.Controllers
         // GET: Stations/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Station == null)
+            if (id == null || _context.Stations == null)
             {
                 return NotFound();
             }
 
-            var station = await _context.Station
+            var station = await _context.Stations
                 .FirstOrDefaultAsync(m => m.StationID == id);
             if (station == null)
             {
@@ -136,14 +141,14 @@ namespace RouteDataManager.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Station == null)
+            if (_context.Stations == null)
             {
                 return Problem("Entity set 'ApplicationContext.Station'  is null.");
             }
-            var station = await _context.Station.FindAsync(id);
+            var station = await _context.Stations.FindAsync(id);
             if (station != null)
             {
-                _context.Station.Remove(station);
+                _context.Stations.Remove(station);
             }
             
             await _context.SaveChangesAsync();
@@ -152,7 +157,7 @@ namespace RouteDataManager.Controllers
 
         private bool StationExists(int id)
         {
-          return (_context.Station?.Any(e => e.StationID == id)).GetValueOrDefault();
+          return (_context.Stations?.Any(e => e.StationID == id)).GetValueOrDefault();
         }
     }
 }
