@@ -7,10 +7,10 @@
     ViewData["Title"] = "Index"; //Lo solicita en el prompt de creación
 }
 
-<h1>View</h1>
+<h1>Showing all countries</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-primary btn-block" asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -42,12 +42,11 @@
             </td>
           
 
-            <td>
-                 @Html.ActionLink("Select", "Index", new { id = item.CountryID }) |
-                <a asp-action="Edit" asp-route-id="@item.CountryID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.CountryID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CountryID">Delete</a>
-            </td>
+               <td>   @Html.ActionLink("Select", "Index", new { id = item.CountryID },  new { @class = "btn btn-primary btn-block"}) </td>
+               <td>  <a class="btn btn-primary btn-block" asp-action="Edit" asp-route-id="@item.CountryID">Edit</a> </td>
+               <td> <a class="btn btn-primary btn-block" asp-action="Details" asp-route-id="@item.CountryID">Details</a> </td>
+               <td> <a class="btn btn-primary btn-block" asp-action="Delete" asp-route-id="@item.CountryID">Delete</a></td>
+            
         </tr>
         }
 
