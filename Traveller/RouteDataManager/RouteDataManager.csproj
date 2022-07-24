@@ -14,6 +14,36 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\img\about-1.jpg" />
+    <None Include="wwwroot\img\about-2.jpg" />
+    <None Include="wwwroot\img\about.jpg" />
+    <None Include="wwwroot\img\blog-1.jpg" />
+    <None Include="wwwroot\img\blog-100x100.jpg" />
+    <None Include="wwwroot\img\blog-2.jpg" />
+    <None Include="wwwroot\img\blog-3.jpg" />
+    <None Include="wwwroot\img\carousel-1.jpg" />
+    <None Include="wwwroot\img\carousel-2.jpg" />
+    <None Include="wwwroot\img\destination-1.jpg" />
+    <None Include="wwwroot\img\destination-2.jpg" />
+    <None Include="wwwroot\img\destination-3.jpg" />
+    <None Include="wwwroot\img\destination-4.jpg" />
+    <None Include="wwwroot\img\destination-5.jpg" />
+    <None Include="wwwroot\img\destination-6.jpg" />
+    <None Include="wwwroot\img\package-1.jpg" />
+    <None Include="wwwroot\img\package-2.jpg" />
+    <None Include="wwwroot\img\package-3.jpg" />
+    <None Include="wwwroot\img\package-4.jpg" />
+    <None Include="wwwroot\img\package-5.jpg" />
+    <None Include="wwwroot\img\package-6.jpg" />
+    <None Include="wwwroot\img\team-1.jpg" />
+    <None Include="wwwroot\img\team-2.jpg" />
+    <None Include="wwwroot\img\team-3.jpg" />
+    <None Include="wwwroot\img\team-4.jpg" />
+    <None Include="wwwroot\img\testimonial-1.jpg" />
+    <None Include="wwwroot\img\testimonial-2.jpg" />
+    <None Include="wwwroot\img\testimonial-3.jpg" />
+    <None Include="wwwroot\img\testimonial-4.jpg" />
+    <None Include="wwwroot\img\user.jpg" />
     <None Include="wwwroot\js\easing\easing.js" />
     <None Include="wwwroot\js\easing\easing.min.js" />
     <None Include="wwwroot\js\owlcarousel\LICENSE" />

@@ -6,7 +6,7 @@
 
 <h1>Create</h1>
 
-<h4>Visa</h4>
+<h4>Creating new Visa</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -102,14 +102,21 @@
                 <input asp-for="QualifyNationalities" class="form-control" />
                 <span asp-validation-for="QualifyNationalities" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+              <div class="form-group">
+                   <table>
+                    <tr>
+                        <td>
+                            <input type="submit" value="Create" class="btn btn-primary btn-block" />
+                        </td>
+                        <td>
+                            <a class="btn btn-primary btn-block" asp-action="Index">Back to List </a>
+
+                        </td>
+                    </tr>
+                </table>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
