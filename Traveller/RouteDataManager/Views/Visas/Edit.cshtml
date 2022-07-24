@@ -1,0 +1,116 @@
+﻿@model Traveller.Domain.Visa
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Visa</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="VisaID" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CountryCode" class="control-label"></label>
+                <input asp-for="CountryCode" class="form-control" />
+                <span asp-validation-for="CountryCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OnLine" class="control-label"></label>
+                <input asp-for="OnLine" class="form-control" />
+                <span asp-validation-for="OnLine" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OnArrival" class="control-label"></label>
+                <input asp-for="OnArrival" class="form-control" />
+                <span asp-validation-for="OnArrival" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="URL" class="control-label"></label>
+                <input asp-for="URL" class="form-control" />
+                <span asp-validation-for="URL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Duration" class="control-label"></label>
+                <input asp-for="Duration" class="form-control" />
+                <span asp-validation-for="Duration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Entries" class="control-label"></label>
+                <input asp-for="Entries" class="form-control" />
+                <span asp-validation-for="Entries" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Category" class="control-label"></label>
+                <input asp-for="Category" class="form-control" />
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Validity" class="control-label"></label>
+                <input asp-for="Validity" class="form-control" />
+                <span asp-validation-for="Validity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Extensible" class="control-label"></label>
+                <input asp-for="Extensible" class="form-control" />
+                <span asp-validation-for="Extensible" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ExtensionDays" class="control-label"></label>
+                <input asp-for="ExtensionDays" class="form-control" />
+                <span asp-validation-for="ExtensionDays" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CurrencyFee" class="control-label"></label>
+                <input asp-for="CurrencyFee" class="form-control" />
+                <span asp-validation-for="CurrencyFee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ExtensionFee" class="control-label"></label>
+                <input asp-for="ExtensionFee" class="form-control" />
+                <span asp-validation-for="ExtensionFee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdditionalDaysFee" class="control-label"></label>
+                <input asp-for="AdditionalDaysFee" class="form-control" />
+                <span asp-validation-for="AdditionalDaysFee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Currency" class="control-label"></label>
+                <input asp-for="Currency" class="form-control" />
+                <span asp-validation-for="Currency" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fee" class="control-label"></label>
+                <input asp-for="Fee" class="form-control" />
+                <span asp-validation-for="Fee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QualifyNationalities" class="control-label"></label>
+                <input asp-for="QualifyNationalities" class="form-control" />
+                <span asp-validation-for="QualifyNationalities" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
