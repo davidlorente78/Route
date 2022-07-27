@@ -66,7 +66,9 @@ namespace RouteDataManager.Repositories
 
         public DbSet<Branch>? Branches { get; set; }
 
-        public DbSet<Traveller.Domain.Visa>? Visa { get; set; }
+        public DbSet<Visa>? Visa { get; set; }
+
+        public DbSet<Files> Files { get; set; }
 
     }
 }

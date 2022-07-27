@@ -255,7 +255,6 @@ D:\Code Project\Route\Traveller\RouteDataManager\obj\Debug\net6.0\RouteDataManag
 D:\Code Project\Route\Traveller\RouteDataManager\obj\Debug\net6.0\RouteDataManager.AssemblyInfoInputs.cache
 D:\Code Project\Route\Traveller\RouteDataManager\obj\Debug\net6.0\RouteDataManager.AssemblyInfo.cs
 D:\Code Project\Route\Traveller\RouteDataManager\obj\Debug\net6.0\RouteDataManager.csproj.CoreCompileInputs.cache
-D:\Code Project\Route\Traveller\RouteDataManager\obj\Debug\net6.0\RouteDataManager.MvcApplicationPartsAssemblyInfo.cs
 D:\Code Project\Route\Traveller\RouteDataManager\obj\Debug\net6.0\RouteDataManager.MvcApplicationPartsAssemblyInfo.cache
 D:\Code Project\Route\Traveller\RouteDataManager\obj\Debug\net6.0\RouteDataManager.RazorAssemblyInfo.cache
 D:\Code Project\Route\Traveller\RouteDataManager\obj\Debug\net6.0\RouteDataManager.RazorAssemblyInfo.cs

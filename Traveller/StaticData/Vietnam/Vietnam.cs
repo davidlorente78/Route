@@ -12,13 +12,15 @@ namespace StaticData.Vietnam
  
         public static class DataVietnam
         {
-            public static Country Vietnam = new Country
-            {
-                Code = 'V',
-                Name = "Vietnam",
-                Destinations = VietnamDestinations.GetAll(),
-                Frontiers = VietnamFrontiers.Frontiers,
-                Ranges = new List<RangeChar> { VietnamRanges.SeasonRange }
+        public static Country Vietnam = new Country
+        {
+            Code = 'V',
+            Name = "Vietnam",
+            Destinations = VietnamDestinations.GetAll(),
+            Frontiers = VietnamFrontiers.Frontiers,
+            Ranges = new List<RangeChar> { VietnamRanges.SeasonRange },
+            ShowInDynamicHome = true,
+            ShowInDynamicHomeOrder = 0
 
             };
         }

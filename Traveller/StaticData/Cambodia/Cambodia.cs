@@ -11,7 +11,9 @@ namespace StaticData.Cambodia
             Name = "Cambodia",
             Destinations = CambodiaDestinations.GetAll(),
             Frontiers = CambodiaFrontiers.Frontiers,
-            Ranges = new List<RangeChar> { CambodiaRanges.SeasonRange }
+            Ranges = new List<RangeChar> { CambodiaRanges.SeasonRange },
+            ShowInDynamicHome = true,
+            ShowInDynamicHomeOrder = 2
 
         };
 

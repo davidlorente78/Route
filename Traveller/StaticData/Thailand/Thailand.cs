@@ -22,7 +22,9 @@ namespace StaticData.Vietnam
             Frontiers = ThailandFrontiers.GetAll(),
             TrainLines = ThailandTrainLines.GetAll(),
             //Regions
-            Ranges = new List<RangeChar> { ThailandRanges.SeasonRange }
+            Ranges = new List<RangeChar> { ThailandRanges.SeasonRange },
+            ShowInDynamicHome = true,
+            ShowInDynamicHomeOrder = 5
 
         };
     }

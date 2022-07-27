@@ -22,7 +22,9 @@ namespace StaticData.Vietnam
             Destinations = MalaysiaDestinations.GetAll(),
             Frontiers = MalaysiaFrontiers.GetAll(),
             TrainLines = MalaysiaTrainLines.GetAll(),
-            Ranges = new List<RangeChar> { MalaysiaRanges.SeasonRange }
+            Ranges = new List<RangeChar> { MalaysiaRanges.SeasonRange },
+            ShowInDynamicHome = true,
+            ShowInDynamicHomeOrder = 3
 
         };
     }

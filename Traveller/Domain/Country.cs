@@ -17,6 +17,10 @@ namespace Traveller.Domain
         public char Code { get; set; }
         public string Name { get; set; }
 
+        public bool ShowInDynamicHome { get; set; }
+
+        public int ShowInDynamicHomeOrder { get; set; }
+
         /// <summary>
         /// Virtual ensures that ...
         /// </summary>

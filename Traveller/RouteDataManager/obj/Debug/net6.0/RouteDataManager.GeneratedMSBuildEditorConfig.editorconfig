@@ -79,6 +79,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/DynamicHome/About.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHluYW1pY0hvbWVcQWJvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/DynamicHome/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHluYW1pY0hvbWVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/DynamicHome/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHluYW1pY0hvbWVcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Code Project/Route/Traveller/RouteDataManager/Views/Frontiers/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJvbnRpZXJzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

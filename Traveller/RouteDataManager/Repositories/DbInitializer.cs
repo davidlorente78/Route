@@ -63,6 +63,8 @@ namespace RouteDataManager.Repositories
             {
                 Code = 'N',
                 Name = "Nepal",
+                ShowInDynamicHome = true,
+                ShowInDynamicHomeOrder = 4,
                 Destinations = new List<Destination> { NepalDestinations.KTM },
                 //La lista de fronteras que se especifican son los puntos de entrada a Singapore
                 //El origen de la frontera es el del pais de entrada 
