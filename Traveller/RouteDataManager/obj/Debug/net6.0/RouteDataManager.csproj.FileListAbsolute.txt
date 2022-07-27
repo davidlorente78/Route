@@ -269,3 +269,4 @@ D:\Code Project\Route\Traveller\RouteDataManager\obj\Debug\net6.0\refint\RouteDa
 D:\Code Project\Route\Traveller\RouteDataManager\obj\Debug\net6.0\RouteDataManager.pdb
 D:\Code Project\Route\Traveller\RouteDataManager\obj\Debug\net6.0\RouteDataManager.genruntimeconfig.cache
 D:\Code Project\Route\Traveller\RouteDataManager\obj\Debug\net6.0\ref\RouteDataManager.dll
+D:\Code Project\Route\Traveller\RouteDataManager\obj\Debug\net6.0\RouteDataManager.MvcApplicationPartsAssemblyInfo.cs
