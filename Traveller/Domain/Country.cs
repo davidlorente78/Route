@@ -21,12 +21,9 @@ namespace Traveller.Domain
         /// Virtual ensures that ...
         /// </summary>
         public virtual ICollection<Destination>? Destinations { get; set; }
-
-        public virtual ICollection<Frontier>? Frontiers { get; set; }        
-
+        public virtual ICollection<Frontier>? Frontiers { get; set; }      
         public ICollection<Visa>? Visas { get; set; }
         public ICollection<Line>? TrainLines { get; set; }
-
         public ICollection<RangeChar>? Ranges { get; set; }
 
         public Country() { }

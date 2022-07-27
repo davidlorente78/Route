@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,8 @@ namespace Domain
 
         public string Name { get; set; }
         public string? Description { get; set; }
+
+        [DisplayName("Line Type")]
         public char LineType { get; set; }
         public ICollection<Branch>? Branches { get; set; }
         

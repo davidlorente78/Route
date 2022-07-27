@@ -1,13 +1,10 @@
 ﻿@model IEnumerable<Traveller.Domain.Visa>
 
-@{
-    ViewData["Title"] = "Index";
-}
 
-<h1>Index</h1>
-
+<h4>Showing all visas</h4>
+<hr />
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-primary btn-block" asp-action="Create">Create New Visa</a>
 </p>
 <table class="table">
     <thead>
@@ -126,7 +123,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.QualifyNationalities)
             </td>
-            <td>
+             <td>
                 <a asp-action="Edit" asp-route-id="@item.VisaID">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.VisaID">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.VisaID">Delete</a>

@@ -1,8 +1,10 @@
 ﻿@model IEnumerable<Traveller.Domain.Frontier>
 
 
+<h4>Showing all frontiers</h4>
+<hr />
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-primary btn-block" asp-action="Create">Create New Frontier</a>
 </p>
 
 <table class="table">
@@ -21,7 +23,7 @@
                 @Html.DisplayNameFor(model => model.Description)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FrontierType)
+                Frontier Type
             </th>
             <th></th>
         </tr>
@@ -44,11 +46,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.FrontierType.Description)
             </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.FrontierID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.FrontierID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.FrontierID">Delete</a>
-            </td>
+
+             <td>    <a asp-action="Edit"  class="btn btn-primary btn-block" asp-route-id="@item.FrontierID">Edit</a></td>
+             <td>   <a asp-action="Details" class="btn btn-primary btn-block" asp-route-id="@item.FrontierID">Details</a> </td>
+             <td>   <a asp-action="Delete" class="btn btn-primary btn-block" asp-route-id="@item.FrontierID">Delete</a> </td>
+      
+          
         </tr>
 }
 

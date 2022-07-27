@@ -2,16 +2,10 @@
 
 
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
+<h4>Showing all stations</h4>
+<hr />
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-primary btn-block" asp-action="Create">Create New Station</a>
 </p>
 <table class="table">
     <thead>
@@ -46,7 +40,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Remarks)
             </td>
-            <td>
+                <td>
                 <a asp-action="Edit" asp-route-id="@item.StationID">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.StationID">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.StationID">Delete</a>
