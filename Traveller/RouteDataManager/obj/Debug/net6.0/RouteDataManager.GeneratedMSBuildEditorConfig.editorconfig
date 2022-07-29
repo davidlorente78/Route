@@ -91,26 +91,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHluYW1pY0hvbWVcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Code Project/Route/Traveller/RouteDataManager/Views/Files/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmlsZXNcQ3JlYXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Code Project/Route/Traveller/RouteDataManager/Views/Files/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmlsZXNcRGVsZXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Code Project/Route/Traveller/RouteDataManager/Views/Files/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmlsZXNcRGV0YWlscy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Code Project/Route/Traveller/RouteDataManager/Views/Files/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmlsZXNcRWRpdC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Code Project/Route/Traveller/RouteDataManager/Views/Files/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmlsZXNcSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/Code Project/Route/Traveller/RouteDataManager/Views/Frontiers/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJvbnRpZXJzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -143,6 +123,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Home/SpeakerIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTcGVha2VySW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Code Project/Route/Traveller/RouteDataManager/Views/Lines/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGluZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -169,6 +153,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Code Project/Route/Traveller/RouteDataManager/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Speakers/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3BlYWtlcnNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Speakers/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3BlYWtlcnNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Speakers/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3BlYWtlcnNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Speakers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3BlYWtlcnNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Speakers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3BlYWtlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Code Project/Route/Traveller/RouteDataManager/Views/Stations/Create.cshtml]

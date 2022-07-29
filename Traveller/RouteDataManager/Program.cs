@@ -44,8 +44,6 @@ using (var scope = app.Services.CreateScope())
 
     var context = services.GetRequiredService<ApplicationContext>();
 
-    context.Database.EnsureCreated();
-
     DbInitializer.Initialize(context);
 }
 

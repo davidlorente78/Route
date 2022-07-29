@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Traveller.Domain;
 using Domain;
+using Microsoft.EntityFrameworkCore.Metadata;
+using CURDOperationWithImageUploadCore5_Demo.Models;
 
 namespace RouteDataManager.Repositories
 {
@@ -33,7 +35,48 @@ namespace RouteDataManager.Repositories
 
             modelBuilder.Entity<Branch>().ToTable("Branches");
 
+            #region Speakers
+            modelBuilder.Entity("CURDOperationWithImageUploadCore5_Demo.Models.Speaker", b =>
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int")
+                    .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                b.Property<int>("Experience")
+                    .HasMaxLength(100)
+                    .HasColumnType("int");
+
+                b.Property<string>("ProfilePicture")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
+
+                b.Property<string>("Qualification")
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .HasColumnType("nvarchar(100)");
+
+                b.Property<string>("SpeakerName")
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .HasColumnType("nvarchar(100)");
+
+                b.Property<DateTime>("SpeakingDate")
+                    .HasColumnType("datetime2");
+
+                b.Property<DateTime>("SpeakingTime")
+                    .HasColumnType("datetime2");
+
+                b.Property<string>("Venue")
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnType("nvarchar(255)");
+
+                b.HasKey("Id");
+
+                b.ToTable("Speakers");
+            });
+#endregion
             //EF Not Core versions
             //builder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
@@ -68,7 +111,7 @@ namespace RouteDataManager.Repositories
 
         public DbSet<Visa>? Visa { get; set; }
 
-        public DbSet<Files> Files { get; set; }
+        public DbSet<Speaker>? Speakers { get; set; }
 
     }
 }

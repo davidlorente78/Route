@@ -1,4 +1,5 @@
-﻿using Domain.Ranges;
+﻿using CURDOperationWithImageUploadCore5_Demo.Models;
+using Domain.Ranges;
 using StaticData.Cambodia;
 using StaticData.Laos;
 using StaticData.Malaysia;
@@ -28,6 +29,7 @@ namespace RouteDataManager.Repositories
         {
             context.Database.EnsureDeleted(); //
             context.Database.EnsureCreated();
+
 
             // Look for any countries
             if (context.Countries.Any())
@@ -143,6 +145,47 @@ namespace RouteDataManager.Repositories
 
             context.SaveChanges();
             #endregion
+
+
+
+            if (!context.Speakers.Any())
+            {
+                context.Speakers.AddRange(new List<Speaker>()
+                    {
+                        new Speaker()
+                        {
+                          SpeakerName="Jack Christiansen",
+                          Experience=5,
+                          Qualification="MSc Computer Science",
+                          SpeakingDate=DateTime.Now.AddDays(2) ,
+                          SpeakingTime=DateTime.Now.AddDays(2).AddHours(18).AddMinutes(00),
+                          ProfilePicture="/avatar.png",
+                          Venue="Bangalore"
+                        },
+                        new Speaker()
+                        {
+                          SpeakerName="Brenden Legros",
+                          Experience=7,
+                          Qualification="MBA",
+                          SpeakingDate=DateTime.Now.AddDays(2) ,
+                          SpeakingTime=DateTime.Now.AddDays(2).AddHours(20).AddMinutes(00),
+                          ProfilePicture="/avatar.png",
+                          Venue="Hyderabad"
+                        },
+                        new Speaker()
+                        {
+                          SpeakerName="Julia Adward",
+                          Experience=5,
+                          Qualification="Digital Marketing",
+                          SpeakingDate=DateTime.Now.AddDays(2) ,
+                          SpeakingTime=DateTime.Now.AddDays(2).AddHours(20).AddMinutes(00),
+                          ProfilePicture="/avatar.png",
+                          Venue="Chennai"
+                        }
+                    });
+                context.SaveChanges();
+
+            }
         }
     }
 }
