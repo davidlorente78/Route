@@ -7,7 +7,7 @@
 
 <div class="card">
     <div class="card-header">
-        <h4 class="text-uppercase">Railway System Details</h4>
+        <h4>Railway System Details</h4>
     </div>
     <div class="card-body">
         <dl class="row">
@@ -28,7 +28,7 @@
                 @Html.DisplayNameFor(model => model.MapPicture)
             </dt>
             <dd class="col-sm-10">
-                <img src="@RailwaySystemFileLocation.RetriveFileFromFolder@Model.MapPicture" class="img-thumbnail" height="100" width="100" asp-append-version="true" />
+                <img src="@RailwaySystemFileLocation.RetriveFileFromFolder@Model.MapPicture" class="img-thumbnail" asp-append-version="true" />
             </dd>
         </dl>
         <div>

@@ -171,13 +171,13 @@ namespace CURDOperationWithImageUploadCore5_Demo.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var railwaySystem = await _context.RailwaySystems.FindAsync(id);
-            //string deleteFileFromFolder = "wwwroot\\Uploads\\";
-            string deleteFileFromFolder=Path.Combine(_environment.WebRootPath, RailwaySystemFileLocation.FileUploadFolder, @"\");
-            var CurrentImage = Path.Combine(Directory.GetCurrentDirectory(), deleteFileFromFolder, railwaySystem.MapPicture);
             _context.RailwaySystems.Remove(railwaySystem);
-            if (System.IO.File.Exists(CurrentImage))
+
+            string deleteCurrentImageFilePath = _environment.WebRootPath + @"\" + RailwaySystemFileLocation.FileUploadFolder + railwaySystem.MapPicture;
+
+            if (System.IO.File.Exists(deleteCurrentImageFilePath))
             {
-                System.IO.File.Delete(CurrentImage);
+                System.IO.File.Delete(deleteCurrentImageFilePath);
             }
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
