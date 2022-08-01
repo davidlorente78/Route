@@ -1,5 +1,5 @@
 ﻿using CURDOperationWithImageUploadCore5_Demo.Models;
-using CURDOperationWithImageUploadCore5_Demo.ViewModels;
+using RouteDataManager.ViewModels.Speaker;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RouteDataManager.Repositories;

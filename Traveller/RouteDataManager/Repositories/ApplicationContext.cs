@@ -113,5 +113,7 @@ namespace RouteDataManager.Repositories
 
         public DbSet<Speaker>? Speakers { get; set; }
 
+        public DbSet<RailwaySystem>? RailwaySystems { get; set; }
+
     }
 }

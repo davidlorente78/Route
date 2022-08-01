@@ -186,6 +186,33 @@ namespace RouteDataManager.Repositories
                 context.SaveChanges();
 
             }
+
+            if (!context.RailwaySystems.Any())
+            {
+                context.RailwaySystems.AddRange(new List<RailwaySystem>()
+                    {
+                        new RailwaySystem()
+                        {
+                          Name="Railway System Malaysia",                       
+                          MapPicture="/Railway System Malaysia.png",
+                          Description=""
+                        },
+                        new RailwaySystem()
+                        {
+                          Name="Railway System Thailand",
+                          MapPicture="/Railway System Thailand.jpg",
+                          Description=""
+                        },
+                        new RailwaySystem()
+                        {
+                          Name="Railway System Vietnam",
+                          MapPicture="/Railway System Vietnam.jpg",
+                          Description=""
+                        },
+                    });
+                context.SaveChanges();
+
+            }
         }
     }
 }
