@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RouteDataManager.Repositories;
+using RouteDataManager.ViewModels;
 using Traveller.Domain;
 
 namespace RouteDataManager.Controllers
@@ -16,10 +17,24 @@ namespace RouteDataManager.Controllers
         }
 
         // GET: Destinations
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(DestinationIndexViewModel destinationIndexViewModel)
         {
-            var applicationContext = _context.Destinations.Include(d => d.Country).Include(d => d.DestinationType).OrderBy(c => c.Country.Name);
-            return PartialView(await applicationContext.ToListAsync());
+            IOrderedQueryable<Destination>? applicationContext;
+
+            if (destinationIndexViewModel.FilterCountry.CountryID != 0)
+            {
+                applicationContext = _context.Destinations.Where(d => d.CountryID == destinationIndexViewModel.FilterCountry.CountryID).Include(d => d.Country).Include(d => d.DestinationType).OrderBy(c => c.Country.Name);
+            }
+            else
+            {
+                applicationContext = _context.Destinations.Include(d => d.Country).Include(d => d.DestinationType).OrderBy(c => c.Country.Name);
+            }
+
+            ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name", destinationIndexViewModel.FilterCountry.CountryID);
+
+            destinationIndexViewModel.Destinations = await applicationContext.ToListAsync();
+
+            return PartialView(destinationIndexViewModel);
         }
 
         // GET: Destinations/Details/5

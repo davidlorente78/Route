@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Traveller.Domain.Destination>
+﻿@model RouteDataManager.ViewModels.DestinationIndexViewModel
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,27 +6,57 @@
 
 <h4>Showing all destinations</h4>
 <hr />
+
+<form asp-action="Index">
 <p>
-    <a class="btn btn-primary btn-block" asp-action="Create">Create New Destination</a>
+     <a asp-action="Index" class="btn btn-primary rounded-0"><i class="fa fa-plus-circle"></i>Add New</a>
 </p>
+            <div class="form-group">
+                <table class="table">
+                 <thead>
+
+                <tr>
+                    <th>
+                        
+                    </th>
+                    <th>
+                        Select a country
+                    </th>
+
+                    <th>
+                        <label class="control-label">Country</label>
+                        <select asp-for="@Model.FilterCountry.CountryID" class ="form-control" asp-items="ViewBag.CountryID"></select>
+                    </th>
+                    
+                    <th>
+                            <input type="submit" value="Search" class="btn btn-primary btn-block" />
+                    </th>
+                </tr>
+
+                </thead>
+                </table>
+
+            </div>
+</form>
+
 <table class="table">
     <thead>
-        <tr>
-         
+        <tr>         
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+               Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
+               Description
             </th>
             <th>
-                Destination Type
+               Destination Type
             </th>
             <th></th>
         </tr>
     </thead>
+
     <tbody>
-@foreach (var item in Model) {
+        @foreach (var item in Model.Destinations) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)

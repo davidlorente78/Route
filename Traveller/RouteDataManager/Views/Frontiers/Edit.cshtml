@@ -35,15 +35,24 @@
                 <select asp-for="FrontierType.FrontierTypeID" class="form-control" asp-items="ViewBag.FrontierTypes" ></select>
                 <span asp-validation-for="FrontierType.FrontierTypeID" class="text-danger"></span>
             </div>
+         
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <table>
+                    <tr>
+                        <td>
+                              <input class="btn btn-primary btn-block" type="submit" value="Save" />
+
+                        </td>
+                        <td>
+                                <a class="btn btn-primary btn-block" asp-action="Index">Back to List</a>
+
+                        </td>
+                    </tr>
+                </table>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 
