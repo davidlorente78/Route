@@ -20,9 +20,6 @@ namespace RouteDataManager.Repositories
     {
         //https://www.tiansungi.com/border-crossing-laos-cambodia/
 
-
-
-
         public DbInitializer() { }
 
         public static void Initialize(ApplicationContext context)

@@ -23,15 +23,18 @@ namespace RouteDataManager.Controllers
 
             if (destinationIndexViewModel.FilterCountry.CountryID != 0)
             {
-                applicationContext = _context.Destinations.Where(d => d.CountryID == destinationIndexViewModel.FilterCountry.CountryID).Include(d => d.Country).Include(d => d.DestinationType).OrderBy(c => c.Country.Name);
+                applicationContext = _context.Destinations.Where(d => d.CountryID == destinationIndexViewModel.FilterCountry.CountryID && d.DestinationType.DestinationTypeID == destinationIndexViewModel.FilterDestinationType.DestinationTypeID).Include(d => d.Country).Include(d => d.DestinationType).OrderBy(c => c.Country.Name);
             }
             else
             {
                 applicationContext = _context.Destinations.Include(d => d.Country).Include(d => d.DestinationType).OrderBy(c => c.Country.Name);
             }
 
-            ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name", destinationIndexViewModel.FilterCountry.CountryID);
+            SelectList selectListCountries = new SelectList(_context.Countries, "CountryID", "Name", destinationIndexViewModel.FilterCountry.CountryID);
+            SelectList selectListDestinationTypes = new SelectList(_context.DestinationTypes, "DestinationTypeID", "Description", destinationIndexViewModel.FilterDestinationType.DestinationTypeID);
 
+            destinationIndexViewModel.SelectListCountries = selectListCountries;
+            destinationIndexViewModel.SelectListDestinationTypes = selectListDestinationTypes;
             destinationIndexViewModel.Destinations = await applicationContext.ToListAsync();
 
             return PartialView(destinationIndexViewModel);

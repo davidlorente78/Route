@@ -20,12 +20,14 @@
                         
                     </th>
                     <th>
-                        Select a country
+                        <label class="control-label">Destination Type</label>
+                        <select asp-for="@Model.FilterDestinationType.DestinationTypeID" class ="form-control" asp-items="@Model.SelectListDestinationTypes"></select>
                     </th>
+                    
 
                     <th>
                         <label class="control-label">Country</label>
-                        <select asp-for="@Model.FilterCountry.CountryID" class ="form-control" asp-items="ViewBag.CountryID"></select>
+                        <select asp-for="@Model.FilterCountry.CountryID" class ="form-control" asp-items="@Model.SelectListCountries"></select>
                     </th>
                     
                     <th>
