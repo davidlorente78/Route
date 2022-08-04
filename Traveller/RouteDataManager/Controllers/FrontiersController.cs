@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RouteDataManager.Repositories;
+using RouteDataManager.ViewModels;
 using Traveller.Domain;
 
 namespace RouteDataManager.Controllers
@@ -15,11 +16,39 @@ namespace RouteDataManager.Controllers
             _context = context;
         }
 
-        // GET: Frontiers
-        public async Task<IActionResult> Index()
+        //// GET: Frontiers
+        //public async Task<IActionResult> Index()
+        //{
+        //    var applicationContext = _context.Frontiers.Include(f => f.Final).Include(f => f.Origin).Include(f => f.FrontierType);
+        //    return View(await applicationContext.ToListAsync());
+        //}
+
+        public async Task<IActionResult> Index(FrontiersIndexViewModel frontiersIndexViewModel)
         {
-            var applicationContext = _context.Frontiers.Include(f => f.Final).Include(f => f.Origin).Include(f=> f.FrontierType);
-            return View(await applicationContext.ToListAsync());
+            IOrderedQueryable<Frontier>? applicationContext;
+
+            if ((frontiersIndexViewModel.FilterCountryOrigin.CountryID != 0) && (frontiersIndexViewModel.FilterCountryFinal.CountryID != 0))
+            {
+                applicationContext = _context.Frontiers.Where(
+                    f => f.Origin.CountryID == frontiersIndexViewModel.FilterCountryOrigin.CountryID
+                && f.Final.CountryID == frontiersIndexViewModel.FilterCountryFinal.CountryID
+                && f.FrontierType.FrontierTypeID == frontiersIndexViewModel.FilterFrontierType.FrontierTypeID).Include(f => f.Origin).Include(f => f.Final).OrderBy(f => f.Name);
+            }
+            else
+            {
+                applicationContext = (IOrderedQueryable<Frontier>?)_context.Frontiers.Include(f => f.Final).Include(f => f.Origin);
+            }
+
+            SelectList selectListCountriesOrigin = new SelectList(_context.Countries, "CountryID", "Name", frontiersIndexViewModel.FilterCountryOrigin.CountryID);
+            SelectList selectListCountriesFinal = new SelectList(_context.Countries, "CountryID", "Name", frontiersIndexViewModel.FilterCountryFinal.CountryID);
+            SelectList selectListFrontierTypes = new SelectList(_context.FrontierTypes, "FrontierTypeID", "Description", frontiersIndexViewModel.FilterFrontierType.FrontierTypeID);
+
+            frontiersIndexViewModel.SelectListCountriesOrigin = selectListCountriesOrigin;
+            frontiersIndexViewModel.SelectListCountriesFinal = selectListCountriesFinal;
+            frontiersIndexViewModel.SelectListFrontierTypes = selectListFrontierTypes;
+            frontiersIndexViewModel.Frontiers = await applicationContext.ToListAsync();
+
+            return PartialView(frontiersIndexViewModel);
         }
 
         // GET: Frontiers/Details/5
@@ -35,7 +64,7 @@ namespace RouteDataManager.Controllers
                 .Include(f => f.Origin)
                 .Include(f => f.FrontierType)
                 .FirstOrDefaultAsync(m => m.FrontierID == id);
-            
+
             if (frontier == null)
             {
                 return NotFound();
@@ -82,11 +111,11 @@ namespace RouteDataManager.Controllers
                 return NotFound();
             }
 
-            var frontier =  _context.Frontiers
+            var frontier = _context.Frontiers
                 .Include(f => f.Final)
                 .Include(f => f.Origin)
-                .Include(f=> f.FrontierType)
-                .Single( f=> f.FrontierID == id);
+                .Include(f => f.FrontierType)
+                .Single(f => f.FrontierID == id);
             if (frontier == null)
             {
                 return NotFound();
@@ -95,7 +124,7 @@ namespace RouteDataManager.Controllers
             //HERE items, data Value, data Text
             ViewData["FinalID"] = new SelectList(_context.Destinations, "DestinationID", "Name", frontier.FinalID);
             ViewData["OriginID"] = new SelectList(_context.Destinations, "DestinationID", "Name", frontier.OriginID);
-            ViewData["FrontierTypes"] = new SelectList(_context.FrontierTypes, "FrontierTypeID", "Description", frontier.FrontierType.FrontierTypeID); 
+            ViewData["FrontierTypes"] = new SelectList(_context.FrontierTypes, "FrontierTypeID", "Description", frontier.FrontierType.FrontierTypeID);
 
             return View(frontier);
         }
@@ -118,7 +147,7 @@ namespace RouteDataManager.Controllers
 
             //Recover Final and Origin
 
-            var DestinationOriginRecovered = _context.Destinations.Include(f=> f.DestinationType).Single(d => d.DestinationID == frontier.OriginID);
+            var DestinationOriginRecovered = _context.Destinations.Include(f => f.DestinationType).Single(d => d.DestinationID == frontier.OriginID);
 
             frontier.Origin = DestinationOriginRecovered;
 
@@ -146,7 +175,7 @@ namespace RouteDataManager.Controllers
                     throw;
                 }
             }
-              
+
             //}
 
             ViewData["FinalID"] = new SelectList(_context.Destinations, "DestinationID", "Name", frontier.FinalID);
@@ -191,14 +220,14 @@ namespace RouteDataManager.Controllers
             {
                 _context.Frontiers.Remove(frontier);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool FrontierExists(int id)
         {
-          return (_context.Frontiers?.Any(e => e.FrontierID == id)).GetValueOrDefault();
+            return (_context.Frontiers?.Any(e => e.FrontierID == id)).GetValueOrDefault();
         }
     }
 }

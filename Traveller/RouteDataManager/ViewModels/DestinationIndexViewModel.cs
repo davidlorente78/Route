@@ -5,13 +5,11 @@ namespace RouteDataManager.ViewModels
 {
     public class DestinationIndexViewModel
     {
-        public IEnumerable<Traveller.Domain.Destination> Destinations { get; set; }
+        public IEnumerable<Destination> Destinations { get; set; }
         public SelectList SelectListCountries { get; set; }
-        public Country FilterCountry { get; set; } = new Country() { CountryID = 1 };
-
         public SelectList SelectListDestinationTypes{ get; set; }
-
-        public DestinationType FilterDestinationType { get; set; } = new DestinationType() {  Code = 'F' };
+        public DestinationType FilterDestinationType { get; set; } = new DestinationType() {   DestinationTypeID = 1 };
+        public Country FilterCountry { get; set; } = new Country() { CountryID = 1 };
 
     }
 }

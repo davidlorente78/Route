@@ -17,7 +17,13 @@ namespace Traveller.StaticData
         public static Destination THS = new Destination { Name = "Sukhothai Airport", DestinationType = DestinationTypes.Airport };
         public static Destination TST = new Destination { Name = "Trang Airport",  DestinationType = DestinationTypes.Airport };
 
-        public static Destination SungaiKolok = new Destination { Name = "Sungai Kolok",  DestinationType = DestinationTypes.Frontier };
+        public static Destination SungaiKolok = new Destination
+        {             
+            Name = "Su-ngai Kolok",   
+            LocalName = "สุไหงโกลก", 
+            DestinationType = DestinationTypes.Frontier,
+            Description = "Sungai Kolok (สุไหงโกลก) is a border town in Narathiwat, Thailand, just north of the Malaysian border. The town on the Malaysian side of the border is Rantau Panjang which is in the state of Kelantan."
+        };
         public static Destination PadangPesar = new Destination { Name = "Padang Pesar",  DestinationType = DestinationTypes.Frontier };
         public static Destination ChiangKhong = new Destination { Name = "Chiang Khong ",  DestinationType = DestinationTypes.Frontier };
         public static Destination Aranyaprathet = new Destination { Name = "Aranya Prathet",  DestinationType = DestinationTypes.Frontier };

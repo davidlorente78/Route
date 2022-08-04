@@ -15,8 +15,9 @@ namespace StaticData.Malaysia
                     Name = MalaysiaDestinations.KUL.Name,
                     Origin = MalaysiaDestinations.KUL,
                     Final = MalaysiaDestinations.KUL,
+                    FrontierType = FrontierTypes.Airport,
                     Visas = new List<Visa> { MalaysiaVisas.freeVisa, MalaysiaVisas.eVisa }
-
+                    
 
                 }
 
@@ -25,6 +26,7 @@ namespace StaticData.Malaysia
                     Name = "Padang Pesar",
                     Origin = ThailandDestinations.PadangPesar,
                     Final = MalaysiaDestinations.PadangPesar,
+                    FrontierType = FrontierTypes.Terrestrial,
                     Visas = new List<Visa> { MalaysiaVisas.freeVisa, MalaysiaVisas.eVisa }
                 }
 
@@ -34,6 +36,7 @@ namespace StaticData.Malaysia
                     Name = "Sungai Kolok - Rantan Panjang",
                     Origin = ThailandDestinations.SungaiKolok,
                     Final = MalaysiaDestinations.RantanPanjang,
+                    FrontierType = FrontierTypes.Terrestrial,
                     Visas = new List<Visa> { MalaysiaVisas.freeVisa, MalaysiaVisas.eVisa }
                 }
 
@@ -42,7 +45,9 @@ namespace StaticData.Malaysia
                 new Frontier {
                     Name = MalaysiaDestinations.JohorBahru.Name,
                     Origin = SingaporeDestinations.WoodlandsCheckpoint,
+                    //https://onemotoring.lta.gov.sg/content/onemotoring/home/driving/traffic_information/traffic-cameras/woodlands.html#trafficCameras
                     Final = MalaysiaDestinations.JohorBahru,
+                    FrontierType = FrontierTypes.Terrestrial,
                     Visas = new List<Visa> { MalaysiaVisas.freeVisa, MalaysiaVisas.eVisa }
 
                 }

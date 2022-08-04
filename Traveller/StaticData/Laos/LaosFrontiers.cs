@@ -84,18 +84,17 @@ namespace Traveller.StaticData
             Description = "Usado por autobuses que van desde Vientiane hacia Hanoi y viceversa. Tambien es posible utilizarlo si se va o viene de Sapa (Vietnam)",
             Origin = VietnamDestinations.TayTrang,
             Final = LaosDestinations.SopHun,
-
             FrontierType = FrontierTypes.Terrestrial,
 
 
         };
 
         public static Frontier NamkanNhapCanh =  new Frontier
-                        {
-                            Name = "Laos Vietnam Namkan NhapCanh ",
-                            Description = "Usado por autobuses que van desde Vientiane o Luang Prabang hacia Hanoi y viceversa. Tambien es posible utilizarlo si se va o viene de Sapa (Vietnam)",
-                            Origin = VietnamDestinations.NhapCanh,
-                            Final = LaosDestinations.Namkan,
+        {
+            Name = "Laos Vietnam Namkan NhapCanh ",
+            Description = "Usado por autobuses que van desde Vientiane o Luang Prabang hacia Hanoi y viceversa. Tambien es posible utilizarlo si se va o viene de Sapa (Vietnam)",
+            Origin = VietnamDestinations.NhapCanh,
+            Final = LaosDestinations.Namkan,
             FrontierType = FrontierTypes.Terrestrial,
         };
 

@@ -1,5 +1,6 @@
 ﻿using CURDOperationWithImageUploadCore5_Demo.Models;
 using Domain.Ranges;
+using StaticData;
 using StaticData.Cambodia;
 using StaticData.Laos;
 using StaticData.Malaysia;
@@ -74,6 +75,7 @@ namespace RouteDataManager.Repositories
                             Name = NepalDestinations.KTM.Name,
                             Origin = NepalDestinations.KTM,
                             Final = NepalDestinations.KTM,
+                            FrontierType = FrontierTypes.Terrestrial,
                             Visas = new List<Visa> { NepalVisas.OnArrivalVisa15, NepalVisas.OnArrivalVisa30, NepalVisas.OnArrivalVisa90, NepalVisas.FreeVisa } },
                         },
                 Visas = new List<Visa> { NepalVisas.OnArrivalVisa15, NepalVisas.OnArrivalVisa30, NepalVisas.OnArrivalVisa90, NepalVisas.FreeVisa }
@@ -105,6 +107,7 @@ namespace RouteDataManager.Repositories
                             Name = SingaporeDestinations.SIN.Name,
                             Origin = SingaporeDestinations.SIN,
                             Final = SingaporeDestinations.SIN,
+                            FrontierType = FrontierTypes.Terrestrial,
                            //https://www.ica.gov.sg/
                             Visas = new List<Visa> { SingaporeVisa.SGArrivalCard } },
 
@@ -112,6 +115,7 @@ namespace RouteDataManager.Repositories
                             Name = SingaporeDestinations.WoodlandsCheckpoint.Name,
                             Origin = MalaysiaDestinations.JohorBahru,
                             Final = SingaporeDestinations.WoodlandsCheckpoint,
+                            FrontierType = FrontierTypes.Terrestrial,
                             Visas = new List<Visa> { SingaporeVisa.SGArrivalCard } },
 
                             //Frontier https://en.wikipedia.org/wiki/Malaysia%E2%80%93Singapore_Second_Link
@@ -144,45 +148,46 @@ namespace RouteDataManager.Repositories
             #endregion
 
 
+            #region DemoSepakers
+            //if (!context.Speakers.Any())
+            //{
+            //    context.Speakers.AddRange(new List<Speaker>()
+            //        {
+            //            new Speaker()
+            //            {
+            //              SpeakerName="Jack Christiansen",
+            //              Experience=5,
+            //              Qualification="MSc Computer Science",
+            //              SpeakingDate=DateTime.Now.AddDays(2) ,
+            //              SpeakingTime=DateTime.Now.AddDays(2).AddHours(18).AddMinutes(00),
+            //              ProfilePicture="/avatar.png",
+            //              Venue="Bangalore"
+            //            },
+            //            new Speaker()
+            //            {
+            //              SpeakerName="Brenden Legros",
+            //              Experience=7,
+            //              Qualification="MBA",
+            //              SpeakingDate=DateTime.Now.AddDays(2) ,
+            //              SpeakingTime=DateTime.Now.AddDays(2).AddHours(20).AddMinutes(00),
+            //              ProfilePicture="/avatar.png",
+            //              Venue="Hyderabad"
+            //            },
+            //            new Speaker()
+            //            {
+            //              SpeakerName="Julia Adward",
+            //              Experience=5,
+            //              Qualification="Digital Marketing",
+            //              SpeakingDate=DateTime.Now.AddDays(2) ,
+            //              SpeakingTime=DateTime.Now.AddDays(2).AddHours(20).AddMinutes(00),
+            //              ProfilePicture="/avatar.png",
+            //              Venue="Chennai"
+            //            }
+            //        });
+            //    context.SaveChanges();
 
-            if (!context.Speakers.Any())
-            {
-                context.Speakers.AddRange(new List<Speaker>()
-                    {
-                        new Speaker()
-                        {
-                          SpeakerName="Jack Christiansen",
-                          Experience=5,
-                          Qualification="MSc Computer Science",
-                          SpeakingDate=DateTime.Now.AddDays(2) ,
-                          SpeakingTime=DateTime.Now.AddDays(2).AddHours(18).AddMinutes(00),
-                          ProfilePicture="/avatar.png",
-                          Venue="Bangalore"
-                        },
-                        new Speaker()
-                        {
-                          SpeakerName="Brenden Legros",
-                          Experience=7,
-                          Qualification="MBA",
-                          SpeakingDate=DateTime.Now.AddDays(2) ,
-                          SpeakingTime=DateTime.Now.AddDays(2).AddHours(20).AddMinutes(00),
-                          ProfilePicture="/avatar.png",
-                          Venue="Hyderabad"
-                        },
-                        new Speaker()
-                        {
-                          SpeakerName="Julia Adward",
-                          Experience=5,
-                          Qualification="Digital Marketing",
-                          SpeakingDate=DateTime.Now.AddDays(2) ,
-                          SpeakingTime=DateTime.Now.AddDays(2).AddHours(20).AddMinutes(00),
-                          ProfilePicture="/avatar.png",
-                          Venue="Chennai"
-                        }
-                    });
-                context.SaveChanges();
-
-            }
+            //}
+            #endregion
 
             if (!context.RailwaySystems.Any())
             {

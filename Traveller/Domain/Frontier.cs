@@ -28,7 +28,7 @@
         public string Name { get; set; }
         public string? Description { get; set; }
 
-        public FrontierType? FrontierType { get; set; }     
+        public FrontierType FrontierType { get; set; }     
 
         public virtual ICollection<Visa>? Visas { get; set; }
 

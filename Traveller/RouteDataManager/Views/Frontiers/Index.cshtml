@@ -1,8 +1,48 @@
-﻿@model IEnumerable<Traveller.Domain.Frontier>
+﻿@model RouteDataManager.ViewModels.FrontiersIndexViewModel
 
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
-<h4>Showing all frontiers</h4>
-<hr />
+@*<h4>Showing all frontiers</h4>
+<hr />*@
+
+<form asp-action="Index">
+
+            <div class="form-group">
+                <table class="table">
+                 <thead>
+
+                <tr>
+                    <th>
+                         <label class="control-label">Country</label>
+                        <select asp-for="@Model.FilterCountryOrigin.CountryID" class ="form-control" asp-items="@Model.SelectListCountriesOrigin"></select>
+                    </th>
+
+                     <th>
+                       <label class="control-label">Country</label>
+                        <select asp-for="@Model.FilterCountryFinal.CountryID" class ="form-control" asp-items="@Model.SelectListCountriesFinal"></select>
+                    </th>
+                    <th>
+                        <label class="control-label">Frontier Type</label>
+                        <select asp-for="@Model.FilterFrontierType.FrontierTypeID" class ="form-control" asp-items="@Model.SelectListFrontierTypes"></select>
+                    </th>
+                    
+                     <th>
+                      
+                    </th>
+                    
+                    <th>
+                        <input type="submit" value="Search" class="btn btn-primary btn-block" />
+                    </th>
+                </tr>
+
+                </thead>
+                </table>
+
+            </div>
+</form>
+
 <p>
     <a asp-action="Create" class="btn btn-primary rounded-0"><i class="fa fa-plus-circle"></i> Add New</a>
 </p>
@@ -11,16 +51,16 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Origin)
+                From
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Final)
+                To
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+               Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
+                Description
             </th>
             <th>
                 Frontier Type
@@ -29,7 +69,7 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.Frontiers) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Origin.Name)

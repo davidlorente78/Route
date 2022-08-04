@@ -4,20 +4,19 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h4>Showing all destinations</h4>
-<hr />
+@*<h4>Showing all destinations</h4>
+<hr />*@
 
 <form asp-action="Index">
-<p>
-     <a asp-action="Index" class="btn btn-primary rounded-0"><i class="fa fa-plus-circle"></i>Add New</a>
-</p>
+
             <div class="form-group">
                 <table class="table">
                  <thead>
 
                 <tr>
                     <th>
-                        
+                         <label class="control-label">Country</label>
+                        <select asp-for="@Model.FilterCountry.CountryID" class ="form-control" asp-items="@Model.SelectListCountries"></select>
                     </th>
                     <th>
                         <label class="control-label">Destination Type</label>
@@ -26,8 +25,11 @@
                     
 
                     <th>
-                        <label class="control-label">Country</label>
-                        <select asp-for="@Model.FilterCountry.CountryID" class ="form-control" asp-items="@Model.SelectListCountries"></select>
+                      
+                    </th>
+
+                     <th>
+                      
                     </th>
                     
                     <th>
@@ -40,6 +42,10 @@
 
             </div>
 </form>
+
+<p>
+     <a asp-action="Create" class="btn btn-primary rounded-0"><i class="fa fa-plus-circle"></i>Add New</a>
+</p>
 
 <table class="table">
     <thead>
