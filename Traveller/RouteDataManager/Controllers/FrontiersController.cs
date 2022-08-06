@@ -147,11 +147,11 @@ namespace RouteDataManager.Controllers
 
             //Recover Final and Origin
 
-            var DestinationOriginRecovered = _context.Destinations.Include(f => f.DestinationType).Single(d => d.DestinationID == frontier.OriginID);
+            var DestinationOriginRecovered = _context.Destinations.Include(f => f.DestinationTypes).Single(d => d.DestinationID == frontier.OriginID);
 
             frontier.Origin = DestinationOriginRecovered;
 
-            var DestinationFinalRecovered = _context.Destinations.Include(f => f.DestinationType).Single(d => d.DestinationID == frontier.FinalID);
+            var DestinationFinalRecovered = _context.Destinations.Include(f => f.DestinationTypes).Single(d => d.DestinationID == frontier.FinalID);
 
             frontier.Final = DestinationFinalRecovered;
 

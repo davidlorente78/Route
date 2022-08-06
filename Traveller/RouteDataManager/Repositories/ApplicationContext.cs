@@ -3,6 +3,7 @@ using Traveller.Domain;
 using Domain;
 using Microsoft.EntityFrameworkCore.Metadata;
 using CURDOperationWithImageUploadCore5_Demo.Models;
+using System.Collections;
 
 namespace RouteDataManager.Repositories
 {
@@ -115,5 +116,8 @@ namespace RouteDataManager.Repositories
 
         public DbSet<RailwaySystem>? RailwaySystems { get; set; }
 
+        public DbSet<Airport>? Airports { get; set; }
+
+        public DbSet<AirportType>? AirportTypes { get; set; }
     }
 }

@@ -32,7 +32,7 @@
             Destination Type
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DestinationType.Description)
+            @Html.DisplayFor(model => model.DestinationTypes.Select(x=>x.Description))
         </dd>
     </dl>
 </div>

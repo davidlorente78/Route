@@ -18,10 +18,11 @@
                          <label class="control-label">Country</label>
                         <select asp-for="@Model.FilterCountry.CountryID" class ="form-control" asp-items="@Model.SelectListCountries"></select>
                     </th>
-                    <th>
+
+                   @* <th>
                         <label class="control-label">Destination Type</label>
                         <select asp-for="@Model.FilterDestinationType.DestinationTypeID" class ="form-control" asp-items="@Model.SelectListDestinationTypes"></select>
-                    </th>
+                    </th>*@
                     
 
                     <th>
@@ -56,9 +57,9 @@
             <th>
                Description
             </th>
-            <th>
+            @*<th>
                Destination Type
-            </th>
+            </th>*@
             <th></th>
         </tr>
     </thead>
@@ -72,9 +73,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DestinationType.Description)
-            </td>
+           @* <td>
+                  @Html.DisplayFor(model => model.DestinationTypes.Select(x=>x.Description))
+            </td>*@
              
             <td>    <a asp-action="Edit"  class="btn btn-primary btn-block" asp-route-id="@item.DestinationID">Edit</a></td>
              <td>   <a asp-action="Details" class="btn btn-primary btn-block" asp-route-id="@item.DestinationID">Details</a> </td>

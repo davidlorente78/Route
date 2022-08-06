@@ -9,7 +9,6 @@ namespace StaticData.Thailand
         {
 
             Name = "Southern Line",
-            Description = "Thailand’s Southern train line runs a distance of 1,144 kilometres between Hua Lamphong train station in Bangkok and Sungai Kolok train station in the far south of Thailand. Thailand’s Southern train line connects Bangkok with the beach resorts of Cha Am, Hua Hin, Pran Buri, Trang, the island of Koh Tao via Chumphon and the islands of Koh Samui and Koh Phangan via Surat Thani train station.",
             MainBranch = true,
             Stations = new List<Station>
             {   ThailandTrainStations.BangkokHuaLamphong,
@@ -26,8 +25,6 @@ namespace StaticData.Thailand
                       
             
         };
-
-
        
         public static Branch SouthernLine_KantangBranch = new Branch
         {
@@ -59,6 +56,7 @@ namespace StaticData.Thailand
             ,
 
         };
+
 
         public static Branch NorthernLine= new Branch
         {
@@ -225,6 +223,7 @@ namespace StaticData.Thailand
 
         };
 
+
         public static Branch NorthEasternLine_UbonRatchathani = new Branch
         {
             Name = "North East Line Ubon Ratchathani Branch",
@@ -242,7 +241,6 @@ namespace StaticData.Thailand
            ,
 
         };
-
 
         public static Branch NorthEasternLineLine_NongKhai = new Branch
         {
@@ -276,7 +274,6 @@ namespace StaticData.Thailand
    ,
 
         };
-
 
 
         public static Branch EasternLine_Pattaya = new Branch

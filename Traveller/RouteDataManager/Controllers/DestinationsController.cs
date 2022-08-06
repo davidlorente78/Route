@@ -23,18 +23,20 @@ namespace RouteDataManager.Controllers
 
             if (destinationIndexViewModel.FilterCountry.CountryID != 0)
             {
-                applicationContext = _context.Destinations.Where(d => d.CountryID == destinationIndexViewModel.FilterCountry.CountryID && d.DestinationType.DestinationTypeID == destinationIndexViewModel.FilterDestinationType.DestinationTypeID).Include(d => d.Country).Include(d => d.DestinationType).OrderBy(c => c.Country.Name);
+                applicationContext = _context.Destinations.Where(d => d.CountryID == destinationIndexViewModel.FilterCountry.CountryID).Include(d => d.Country).Include(d => d.DestinationTypes).OrderBy(c => c.Country.Name);
+
+                //applicationContext = _context.Destinations.Where(d => d.CountryID == destinationIndexViewModel.FilterCountry.CountryID && d.DestinationTypes.DestinationTypeID == destinationIndexViewModel.FilterDestinationType.DestinationTypeID).Include(d => d.Country).Include(d => d.DestinationType).OrderBy(c => c.Country.Name);
             }
             else
             {
-                applicationContext = _context.Destinations.Include(d => d.Country).Include(d => d.DestinationType).OrderBy(c => c.Country.Name);
+                applicationContext = _context.Destinations.Include(d => d.Country).Include(d => d.DestinationTypes).OrderBy(c => c.Country.Name);
             }
 
             SelectList selectListCountries = new SelectList(_context.Countries, "CountryID", "Name", destinationIndexViewModel.FilterCountry.CountryID);
-            SelectList selectListDestinationTypes = new SelectList(_context.DestinationTypes, "DestinationTypeID", "Description", destinationIndexViewModel.FilterDestinationType.DestinationTypeID);
+            //SelectList selectListDestinationTypes = new SelectList(_context.DestinationTypes, "DestinationTypeID", "Description", destinationIndexViewModel.FilterDestinationType.DestinationTypeID);
 
             destinationIndexViewModel.SelectListCountries = selectListCountries;
-            destinationIndexViewModel.SelectListDestinationTypes = selectListDestinationTypes;
+            //destinationIndexViewModel.SelectListDestinationTypes = selectListDestinationTypes;
             destinationIndexViewModel.Destinations = await applicationContext.ToListAsync();
 
             return PartialView(destinationIndexViewModel);
@@ -49,7 +51,7 @@ namespace RouteDataManager.Controllers
             }
 
             var destination = await _context.Destinations
-                .Include(d => d.Country).Include(d => d.DestinationType)
+                .Include(d => d.Country).Include(d => d.DestinationTypes)
                 .FirstOrDefaultAsync(m => m.DestinationID == id);
             if (destination == null)
             {
@@ -57,7 +59,7 @@ namespace RouteDataManager.Controllers
             }
 
             ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name", destination.CountryID);
-            ViewData["Type"] = new SelectList(_context.DestinationTypes, "DestinationTypeID", "Description", destination.DestinationType.DestinationTypeID); //NEW
+            //ViewData["Type"] = new SelectList(_context.DestinationTypes, "DestinationTypeID", "Description", destination.DestinationType.DestinationTypeID); //NEW
 
             return PartialView(destination);
         }
@@ -83,7 +85,7 @@ namespace RouteDataManager.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name", destination.CountryID);
-            ViewData["Type"] = new SelectList(_context.DestinationTypes, "DestinationTypeID", "Description", destination.DestinationType.DestinationTypeID); //NEW
+           // ViewData["Type"] = new SelectList(_context.DestinationTypes, "DestinationTypeID", "Description", destination.DestinationType.DestinationTypeID); //NEW
 
             return PartialView(destination);
         }
@@ -96,7 +98,7 @@ namespace RouteDataManager.Controllers
                 return NotFound();
             }
 
-            var destination = await _context.Destinations.Include(d=>d.Country).Include(d => d.DestinationType).FirstAsync(d=>d.DestinationID==id);
+            var destination = await _context.Destinations.Include(d=>d.Country).Include(d => d.DestinationTypes).FirstAsync(d=>d.DestinationID==id);
             if (destination == null)
             {
                 return NotFound();
@@ -104,7 +106,7 @@ namespace RouteDataManager.Controllers
             //HERE
 
             ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name", destination.CountryID);
-            ViewData["DestinationTypes"] = new SelectList(_context.DestinationTypes, "DestinationTypeID", "Description", destination.DestinationType.DestinationTypeID); //NEW
+            //ViewData["DestinationTypes"] = new SelectList(_context.DestinationTypes, "DestinationTypeID", "Description", destination.DestinationType.DestinationTypeID); //NEW
             return PartialView(destination);
         }
 
@@ -120,10 +122,11 @@ namespace RouteDataManager.Controllers
                 return NotFound();
             }
 
+            //TODO
+            //var DestinationTypeRecovered = _context.DestinationTypes.Single(t => t.DestinationTypeID == destination.DestinationType.DestinationTypeID);
 
-            var DestinationTypeRecovered = _context.DestinationTypes.Single(t => t.DestinationTypeID == destination.DestinationType.DestinationTypeID);
+            //destination.DestinationType = DestinationTypeRecovered;
 
-            destination.DestinationType = DestinationTypeRecovered;
             try
             {
 
@@ -144,7 +147,7 @@ namespace RouteDataManager.Controllers
             return RedirectToAction(nameof(Index));
             //}
             ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name", destination.CountryID);
-            ViewData["DestinationTypes"] = new SelectList(_context.DestinationTypes, "DestinationTypeID", "Description", destination.DestinationType.DestinationTypeID);
+            //ViewData["DestinationTypes"] = new SelectList(_context.DestinationTypes, "DestinationTypeID", "Description", destination.DestinationType.DestinationTypeID);
 
             //The “RenderBody” method has not been called for layout page
 

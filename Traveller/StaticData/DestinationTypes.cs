@@ -14,10 +14,17 @@ namespace StaticData
 
     public static class FrontierTypes
     {
-
         public static FrontierType Terrestrial = new FrontierType { Code = 'F', Description = "Terrestrial" };
         public static FrontierType Airport = new FrontierType { Code = 'A', Description = "Airport" };
         public static FrontierType Seaports = new FrontierType { Code = 'S', Description = "Sea Port" };
+    }
+
+    public static class AirportTypes
+    {
+        public static AirportType International = new AirportType { Code = 'I', Description = "International" };
+        public static AirportType Domestic = new AirportType { Code = 'D', Description = "Domestic" };
+        public static AirportType Militar = new AirportType { Code = 'M', Description = "Militar" };
+        public static AirportType Other = new AirportType { Code = 'O', Description = "Other" };
     }
 
 

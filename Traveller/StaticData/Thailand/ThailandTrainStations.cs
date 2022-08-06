@@ -86,7 +86,7 @@ namespace StaticData.Thailand
         public static Station Trang = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { ThailandDestinations.Trang , ThailandDestinations.TST},
+            ServingDestinations = new List<Destination> { ThailandDestinations.Trang },
             Name = "Trang",
             Remarks = "Main Trang station."
         };
@@ -230,7 +230,7 @@ namespace StaticData.Thailand
         public static Station Phitsanulok = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { ThailandDestinations.Sukhothai , ThailandDestinations.THS },
+            ServingDestinations = new List<Destination> { ThailandDestinations.Sukhothai , ThailandDestinations.Phitsanulok },
             Name = "Phitsanulok",
             LocalName = "พิษณุโลก",
             Remarks = ""

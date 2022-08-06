@@ -53,19 +53,23 @@
                         <a class="nav-item nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         <a class="nav-link nav-link" asp-area="" asp-controller="Country" asp-action="Index">Countries</a>
                         <a class="nav-link nav-link" asp-area="" asp-controller="Destinations" asp-action="Index">Destinations</a>
+                        <a class="nav-link nav-link" asp-area="" asp-controller="Airports" asp-action="Index">Airports</a>
+
                         <a class="nav-link nav-link" asp-area="" asp-controller="Frontiers" asp-action="Index">Frontiers</a>
                         <a class="nav-link nav-link" asp-area="" asp-controller="Visas" asp-action="Index">Visas</a>
-                        <a class="nav-link nav-link" asp-area="" asp-controller="RailwaySystems" asp-action="Index">Railway Systems</a>
-
 
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Railway Systems</a>
                             <div class="dropdown-menu border-0 rounded-0 m-0">
-                                <a href="blog.html" class="dropdown-item">Blog Grid</a>
-                                <a href="single.html" class="dropdown-item">Blog Detail</a>
+                                <a class="nav-link nav-link" asp-area="" asp-controller="RailwaySystems" asp-action="Index">Railway Maps</a>
+                                <a class="nav-link nav-link" asp-area="" asp-controller="Lines" asp-action="Index">Railway Lines</a>
+                                <a class="nav-link nav-link" asp-area="" asp-controller="Branches" asp-action="Index">Railway Branches</a>
+                                <a class="nav-link nav-link" asp-area="" asp-controller="Stations" asp-action="Index">Railway Stations</a>
+
+                            @*   <a href="single.html" class="dropdown-item">Blog Detail</a>
                                 <a href="destination.html" class="dropdown-item">Destination</a>
                                 <a href="guide.html" class="dropdown-item">Travel Guides</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>*@
                             </div>
                         </div>
                        @* <a href="contact.html" class="nav-item nav-link">Contact</a>*@

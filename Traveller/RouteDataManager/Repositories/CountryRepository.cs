@@ -15,7 +15,7 @@ namespace RouteDataManager.Repositories
         {
             var countryList = new List<Country>();
 
-            countryList = _context.Countries.Include(c => c.Destinations).ThenInclude(d => d.DestinationType).Include(c => c.Frontiers).Include(c => c.Visas).OrderBy(c => c.Name).ToList();
+            countryList = _context.Countries.Include(c => c.Destinations).ThenInclude(d => d.DestinationTypes).Include(c => c.Frontiers).Include(c => c.Visas).OrderBy(c => c.Name).ToList();
 
             return countryList;
         }

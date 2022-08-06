@@ -35,13 +35,13 @@ namespace RouteDataManager.Repositories
                 return;   // DB has been seeded
             }
 
-        
+
             context.Countries.Add(DataLaos.Laos);
-            
-            context.Countries.Add(DataVietnam.Vietnam);  
+
+            context.Countries.Add(DataVietnam.Vietnam);
 
             context.Countries.Add(DataThailand.Thailand);
-            
+
             context.Countries.Add(DataMalaysia.Malaysia);
 
             context.Countries.Add(DataCambodia.Cambodia);
@@ -97,17 +97,17 @@ namespace RouteDataManager.Repositories
             {
                 Code = 'S',
                 Name = "Singapore",
-                Destinations = new List<Destination> { SingaporeDestinations.SIN , SingaporeDestinations.WoodlandsCheckpoint },
+                Destinations = new List<Destination> { SingaporeDestinations.Singapore, SingaporeDestinations.WoodlandsCheckpoint },
                 //La lista de fronteras que se especifican son los puntos de entrada a Singapore
                 //El origen de la frontera es el del pais de entrada 
                 //El destino es la frontera del pais al que se entra. En este caso WoodLands
                 Frontiers = new List<Frontier> {
 
                             new Frontier {
-                            Name = SingaporeDestinations.SIN.Name,
-                            Origin = SingaporeDestinations.SIN,
-                            Final = SingaporeDestinations.SIN,
-                            FrontierType = FrontierTypes.Terrestrial,
+                            Name = "Singapore Changi Airport",
+                            Origin = SingaporeDestinations.Singapore,
+                            Final = SingaporeDestinations.Singapore,
+                            FrontierType = FrontierTypes.Airport,
                            //https://www.ica.gov.sg/
                             Visas = new List<Visa> { SingaporeVisa.SGArrivalCard } },
 
@@ -120,8 +120,14 @@ namespace RouteDataManager.Repositories
 
                             //Frontier https://en.wikipedia.org/wiki/Malaysia%E2%80%93Singapore_Second_Link
                         },
-                Visas = new List<Visa> { SingaporeVisa.SGArrivalCard } //Estas son las que salen en la pagina IndexView
-
+                Visas = new List<Visa> { SingaporeVisa.SGArrivalCard },//Estas son las que salen en la pagina IndexView
+                Airports = new List<Airport>
+                { new Airport
+                    { Name = "Singapore Changi Airport",
+                     IATACode ="SIN",
+                     ICAOCode ="WSSS",
+                     AirportType = AirportTypes.International}
+                    }
             };
 
             context.Countries.Add(Singapore);
@@ -195,7 +201,7 @@ namespace RouteDataManager.Repositories
                     {
                         new RailwaySystem()
                         {
-                          Name="Railway System Malaysia",                       
+                          Name="Railway System Malaysia",
                           MapPicture="/Railway System Malaysia.png",
                           Description=""
                         },

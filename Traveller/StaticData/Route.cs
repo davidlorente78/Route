@@ -50,7 +50,7 @@ namespace Traveller.StaticData
             {
                 Name = "Thailand",
 
-                Destinations = new List<Destination> { ThailandDestinations.BKK, ThailandDestinations.Mukdahan, ThailandDestinations.NongKhai },
+                Destinations = new List<Destination> { ThailandDestinations.Bangkok, ThailandDestinations.Mukdahan, ThailandDestinations.NongKhai },
                 //Frontiers = new List<Frontier> {
 
                 //    new Frontier {

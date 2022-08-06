@@ -85,8 +85,7 @@ namespace StaticData.Thailand
                     Visas = new List<Visa> { ThailandVisas.VisaExemption },
                 }
 
-                         ,
-
+                ,
 
 
                 new Frontier
@@ -98,8 +97,29 @@ namespace StaticData.Thailand
                     Visas = new List<Visa> { ThailandVisas.VisaExemption },
                 }
 
+                 ,
+
+                //Aeropuertos Internacionales
+                new Frontier
+                {
+                    Name = ThailandAirports.BKK.Name,                    
+                    Origin = ThailandDestinations.Bangkok,
+                    Final = ThailandDestinations.Bangkok,
+                    FrontierType = FrontierTypes.Airport,
+                    Visas = new List<Visa> { ThailandVisas.VisaExemption },
+                }
+
+                 ,
 
 
+                new Frontier
+                {
+                    Name = ThailandAirports.DMK.Name,
+                    Origin = ThailandDestinations.Bangkok,
+                    Final = ThailandDestinations.Bangkok,
+                    FrontierType = FrontierTypes.Airport,
+                    Visas = new List<Visa> { ThailandVisas.VisaExemption },
+                }
             };
         }
 

@@ -21,6 +21,7 @@ namespace StaticData.Vietnam
             Destinations = ThailandDestinations.GetAll(),
             Frontiers = ThailandFrontiers.GetAll(),
             TrainLines = ThailandTrainLines.GetAll(),
+            Airports = ThailandAirports.GetAll(),
             //Regions
             Ranges = new List<RangeChar> { ThailandRanges.SeasonRange },
             ShowInDynamicHome = true,
