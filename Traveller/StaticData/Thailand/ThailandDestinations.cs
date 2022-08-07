@@ -1,6 +1,5 @@
 ﻿using Domain;
 using StaticData;
-using StaticData.Interfaces;
 using StaticData.Thailand;
 using Traveller.Domain;
 
@@ -17,13 +16,6 @@ namespace Traveller.StaticData
             Name = "PhangNga",
             DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism }
         };
-
-        //public static Destination BKK = new Destination
-        //{
-        //    CountryID = 3,
-        //    Name = "Bangkok",
-        //    DestinationTypes = new List<DestinationType> { DestinationTypes.Airport }
-        //};
 
         public static Destination Bangkok = new Destination
         {
@@ -73,8 +65,6 @@ namespace Traveller.StaticData
             Name = "Sukhothai",
             DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }
         };
-        
-
   
         public static Destination Trang = new Destination
         {
@@ -136,8 +126,6 @@ namespace Traveller.StaticData
             Description = "",
             DestinationTypes = new List<DestinationType> { DestinationTypes.Train }
         };
-
-
 
         public static Destination Chumphon = new Destination
         {
@@ -243,6 +231,7 @@ namespace Traveller.StaticData
             Name = "Phitsanulok",
             DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Train }
         };
+
         public static Destination Phrae = new Destination
         {
             CountryID = 3,
@@ -390,9 +379,7 @@ namespace Traveller.StaticData
 
                             destinations.Add(destination);
                         }
-
                         else
-
                         {
                             var exist = staticdestinations.Where(x => x.Name == station.Name).FirstOrDefault();
 

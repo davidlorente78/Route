@@ -1,7 +1,6 @@
 ﻿using Domain;
 using Domain.Ranges;
 using StaticData.Malaysia;
-using StaticData.Thailand;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +9,7 @@ using System.Threading.Tasks;
 using Traveller.Domain;
 using Traveller.StaticData;
 
-namespace StaticData.Vietnam
+namespace StaticData.Malaysia
 {
  
         public static class DataMalaysia
@@ -20,6 +19,7 @@ namespace StaticData.Vietnam
             Code = 'M',
             Name = "Malaysia",
             Destinations = MalaysiaDestinations.GetAll(),
+            Airports = MalaysiaAirports.GetAll(),
             Frontiers = MalaysiaFrontiers.GetAll(),
             TrainLines = MalaysiaTrainLines.GetAll(),
             Ranges = new List<RangeChar> { MalaysiaRanges.SeasonRange },

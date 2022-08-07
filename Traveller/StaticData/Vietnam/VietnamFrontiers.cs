@@ -127,13 +127,13 @@ namespace Traveller.StaticData
             {
 
                 Frontier frontierFromAirport = new Frontier()
-                {
+                { 
                     Name = airport.Name,
                     Description = airport.Name,
                     Origin = airport.ServingDestinations.FirstOrDefault(),
                     Final = airport.ServingDestinations.FirstOrDefault(),
                     FrontierType = FrontierTypes.Airport,
-                    Visas = new List<Visa> {   },
+                   
                 };
 
                 frontiers.Add(frontierFromAirport);
@@ -148,13 +148,16 @@ namespace Traveller.StaticData
         public static List<Frontier> GetAll()
 
         {
-            List<Frontier> terrestrial = GetAllTerrestrialFrontiers();
 
+            List<Frontier> all = new List<Frontier>();
+
+            List<Frontier> terrestrial = GetAllTerrestrialFrontiers();
             List<Frontier> frontiersFromAirports = CreateFrontiersFromInternationalAirports();
 
-            terrestrial.AddRange(frontiersFromAirports);
+            all.AddRange(terrestrial);
+            all.AddRange(frontiersFromAirports);
 
-            return terrestrial;
+            return all;
 
         }
     }

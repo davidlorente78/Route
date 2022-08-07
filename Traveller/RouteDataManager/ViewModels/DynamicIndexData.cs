@@ -6,5 +6,6 @@ namespace RouteDataManager.ViewModels
     {
         public ICollection<string> CountryNames = new List<string>();
         public ICollection<int> DestinationCountryCount =  new List<int>();
+        public ICollection<int> DestinationAirportsCount = new List<int>();
     }
 }

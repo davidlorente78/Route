@@ -28,14 +28,21 @@ namespace RouteDataManager.Controllers
         {
             DynamicIndexData dynamicIndexData = new DynamicIndexData();
 
-            var countriesOrderedByShowInDynamicHomeOrder = _context.Countries.Where(c => c.ShowInDynamicHome == true).Include(c => c.Destinations).OrderBy(c=>c.ShowInDynamicHomeOrder);
+            var countriesOrderedByShowInDynamicHomeOrder = _context.Countries.Where(c => c.ShowInDynamicHome == true).Include(c => c.Destinations).Include(c => c.Airports).OrderBy(c=>c.ShowInDynamicHomeOrder);
 
             foreach (Country country in countriesOrderedByShowInDynamicHomeOrder) { 
             
                 dynamicIndexData.CountryNames.Add(country.Name);
                 dynamicIndexData.DestinationCountryCount.Add(country.Destinations.Count);
-            
-            
+
+                //TODO Operator control null
+                if (country.Airports != null)
+                {
+                    dynamicIndexData.DestinationAirportsCount.Add(country.Airports.Count);
+                }
+                else
+                    dynamicIndexData.DestinationAirportsCount.Add(0);
+
             }
             return View(dynamicIndexData);
         }

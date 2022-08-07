@@ -94,7 +94,7 @@ namespace StaticData.Vietnam
             Name = "Buon Ma Thuot Airport",
             ServingDestinations = new List<Destination> { VietnamDestinations.BuonMaThuot },
             IATACode = "BMV",
-            AirportType = AirportTypes.International
+            AirportType = AirportTypes.Domestic
 
         };
         //CXR Cam Ranh Airport    Nha Trang	3	4
@@ -116,20 +116,20 @@ namespace StaticData.Vietnam
 
 
             return new List<Airport> {
-                   SGN,HUI,HAN, VCA,PQC,VCL,HPH,DAD 
-                   //BMV Buon Ma Thuot Airport Buon Ma Thuot	3	4
-        //CXR Cam Ranh Airport    Nha Trang	3	4
-        //VII Vinh Airport Vinh	3	5
-        //DLI Lien Khuong Airport Da Lat	2	3
-        //HUI Phu Bai Airport Hue	2	2
-        //UIH Phu Cat Airport Quy Nohn	2	2
-        //CAH Cà Mau Airport  Ca Mau City	1	1
-        //VCS Co Ong Airport  Con Dao	1	2
-        //DIN Dien Bien Phu Airport Dien Bien Phu	1	1
-        //PXU Pleiku Airport Pleiku	1	3
-        //VKG Rach Gia Airport    Rach Gia	1	1
-        //TBB Dong Tac Airport    Tuy Hoa	1	2
-        //VDH Dong Hoi Airport    Dong Hoi	1	2
+                   SGN,HUI,HAN, VCA,PQC,VCL,HPH,DAD,BMV
+                    //BMV Buon Ma Thuot Airport Buon Ma Thuot	3	4
+                    //CXR Cam Ranh Airport    Nha Trang	3	4
+                    //VII Vinh Airport Vinh	3	5
+                    //DLI Lien Khuong Airport Da Lat	2	3
+                    //HUI Phu Bai Airport Hue	2	2
+                    //UIH Phu Cat Airport Quy Nohn	2	2
+                    //CAH Cà Mau Airport  Ca Mau City	1	1
+                    //VCS Co Ong Airport  Con Dao	1	2
+                    //DIN Dien Bien Phu Airport Dien Bien Phu	1	1
+                    //PXU Pleiku Airport Pleiku	1	3
+                    //VKG Rach Gia Airport    Rach Gia	1	1
+                    //TBB Dong Tac Airport    Tuy Hoa	1	2
+                    //VDH Dong Hoi Airport    Dong Hoi	1	2
 
               };
         }

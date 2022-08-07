@@ -4,6 +4,9 @@ using Traveller.StaticData;
 
 namespace StaticData.Vietnam
 {
+    /// <summary>
+    /// Al añadir Destination en Serving Destinations de debe dar de alta en Destinations e incluir el codigo de pais CountryID = 2
+    /// </summary>
     public class VietnamTrainStations
     {
 

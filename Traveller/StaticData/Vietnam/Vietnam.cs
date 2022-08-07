@@ -18,6 +18,8 @@ namespace StaticData.Vietnam
             Name = "Vietnam",
             Destinations = VietnamDestinations.GetAll(),
             Frontiers = VietnamFrontiers.GetAll(),
+            Airports = VietnamAirports.GetAll(),
+            TrainLines = VietnamTrainLines.GetAll(),
             Ranges = new List<RangeChar> { VietnamRanges.SeasonRange },
             ShowInDynamicHome = true,
             ShowInDynamicHomeOrder = 0
