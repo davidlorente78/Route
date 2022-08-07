@@ -12,21 +12,91 @@ namespace StaticData.Vietnam
         public static Station Hanoi = new Station
         {
             Type = 'T',      
-            ServingDestinations = new List<Destination> { VietnamDestinations.Hanoi, VietnamDestinations.HAN },
+            ServingDestinations = new List<Destination> { VietnamDestinations.Hanoi },
             Name = "Hanoi",
             LocalName = "Ga Hà Nội",
             Remarks = ""
         };
 
 
-        //Phủ Lý station
-        //Nam Định station(Nam Định, Nam Định Province)
-        //Thanh Hóa station(Thanh Hóa, Thanh Hóa Province)
-        //Vinh station(Vinh, Nghệ An Province)
-        //Tân Ấp station(Tân Ấp, Quảng Bình Province)
-        //Đồng Hới station(Đồng Hới, Quảng Bình Province)
-        //Đông Hà station(Đông Hà, Quảng Trị Province)
-        //Huế station(Huế, Thừa Thiên–Huế Province)
+        
+        public static Station PhủLý = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Phủ Lý",
+            LocalName = "Phủ Lý",
+            Remarks = ""
+        };
+
+        public static Station NamĐịnh = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Nam Định",
+            LocalName = "Nam Định",
+            Remarks = ""
+        };
+
+      
+       public static Station NinhBinh = new Station
+       {
+           Type = 'T',
+           ServingDestinations = new List<Destination> { },
+           Name = "Ninh Binh",
+           LocalName = "  Ninh Binh",
+           Remarks = ""
+       };
+
+        public static Station ThanhHóa = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Thanh Hóa",
+            LocalName = "Thanh Hóa",
+            Remarks = ""
+        };
+
+
+       
+        public static Station Vinh = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Vinh",
+            LocalName = "Vinh",
+            Remarks = ""
+        };
+
+  
+        public static Station TânẤp = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Tân Ấp",
+            LocalName = "Tân Ấp",
+            Remarks = ""
+        };
+
+        public static Station ĐồngHới = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Đồng Hới",
+            LocalName = "Đồng Hới",
+            Remarks = ""
+        };
+
+
+
+            public static Station ĐồngHà = new Station
+            {
+                Type = 'T',
+                ServingDestinations = new List<Destination> { },
+                Name = "Đồng Hà",
+                LocalName = "Đồng Hà",
+                Remarks = ""
+            };
 
         public static Station Huế = new Station
         {
@@ -37,30 +107,77 @@ namespace StaticData.Vietnam
             Remarks = ""
         };
 
-        //Da Nang station(Da Nang)
         public static Station DaNang = new Station
         {
             Type = 'T',
 
-            ServingDestinations = new List<Destination> { },
+            ServingDestinations = new List<Destination> { VietnamDestinations.HoiAn},
             Name = "Da Nang",
             LocalName = "Da Nang",
             Remarks = ""
         };
 
-        //Tam Kỳ station(Tam Kỳ, Quảng Nam Province)
-        //Quảng Ngãi station(Quảng Ngãi, Quảng Ngãi Province)
-        //Diêu Trì station(Qui Nhơn, Bình Định Province)
-        //Tuy Hòa station(Tuy Hòa, Phú Yên Province)
-        //Nha Trang station(Nha Trang, Khánh Hòa Province)
-        //Bình Thuận station(Phan Thiết, Bình Thuận Province)
 
-        //Saigon station(Ho Chi Minh City)
-        public static Station Saigon = new Station
+        public static Station TamKỳ = new Station
         {
             Type = 'T',
 
-            ServingDestinations = new List<Destination> { VietnamDestinations.HoChiMinh, VietnamDestinations.SGN },
+            ServingDestinations = new List<Destination> { },
+            Name = "Tam Kỳ",
+            LocalName = "Tam Kỳ",
+            Remarks = ""
+        };
+     
+        public static Station QuảngNgãi = new Station
+        {
+            Type = 'T',
+
+            ServingDestinations = new List<Destination> { },
+            Name = "Quảng Ngãi",
+            LocalName = "Quảng Ngãi",
+            Remarks = ""
+        };
+        public static Station DiêuTrì = new Station
+        {
+            Type = 'T',
+
+            ServingDestinations = new List<Destination> { VietnamDestinations.QuiNhon },
+            Name = "Diêu Trì",
+            LocalName = "Diêu Trì",
+            Remarks = ""
+        };
+        public static Station TuyHòa = new Station
+        {
+            Type = 'T',
+
+            ServingDestinations = new List<Destination> { },
+            Name = "Tuy Hòa",
+            LocalName = "Tuy Hòa",
+            Remarks = ""
+        };
+        public static Station NhaTrang = new Station
+        {
+            Type = 'T',
+
+            ServingDestinations = new List<Destination> { },
+            Name = "",
+            LocalName = "Nha Trang",
+            Remarks = "Nha Trang"
+        };
+        public static Station BìnhThuận = new Station
+        {
+            Type = 'T',
+
+            ServingDestinations = new List<Destination> { VietnamDestinations.PhanThiet },
+            Name = "BìnhThuận",
+            LocalName = "BìnhThuận",
+            Remarks = ""
+        };
+
+        public static Station Saigon = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { VietnamDestinations.HoChiMinh },
             Name = "Saigon",
             Remarks = ""
         };
@@ -77,6 +194,7 @@ namespace StaticData.Vietnam
         //Việt Trì station(Việt Trì, Phú Thọ Province)
         //Phú Thọ station(Phú Thọ, Phú Thọ Province)
         //Yên Bái station(Yên Bái, Yên Bái Province)
+
         //Lào Cai station(Lào Cai, Lào Cai Province)
         public static Station LàoCai = new Station
         {
@@ -97,6 +215,7 @@ namespace StaticData.Vietnam
         //Yên Viên station(Hanoi)
         //Bắc Ninh station(Bắc Ninh, Bắc Ninh Province)
         //Bắc Giang station(Bắc Giang, Bắc Giang Province)
+
         //Kép station(Kép, Bắc Giang Province)
         public static Station Kép = new Station
         {
@@ -158,14 +277,15 @@ namespace StaticData.Vietnam
 
         #endregion
         #region    Hanoi–Thái Nguyên railway
+
         //Hanoi station
         //Long Biên station
         //Gia Lâm station
         //Yên Viên station
         //Đông Anh station
         //Lưu Xá station
-        //Thái Nguyên station
 
+        //Thái Nguyên station
         public static Station TháiNguyên = new Station
         {
             Type = 'T',
@@ -173,8 +293,8 @@ namespace StaticData.Vietnam
             Name = "Thái Nguyên",
             Remarks = ""
         };
-        //Quán Triều station
 
+        //Quán Triều station
         public static Station QuánTriều = new Station
                 {
                     Type = 'T',

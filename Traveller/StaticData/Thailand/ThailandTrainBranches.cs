@@ -4,7 +4,7 @@ namespace StaticData.Thailand
 {
     public static class ThailandTrainBranches
     {
-
+        //TODO Khiri Ratthanikhom
         public static Branch SouthernLine = new Branch
         {
 
@@ -13,12 +13,18 @@ namespace StaticData.Thailand
             Stations = new List<Station>
             {   ThailandTrainStations.BangkokHuaLamphong,
                 ThailandTrainStations.Ratchaburi,
+                ThailandTrainStations.Phetchaburi,
+                ThailandTrainStations.HuaHin,
+                ThailandTrainStations.PrachuapKhiriKhan,   
                 ThailandTrainStations.Chumphon,
+                ThailandTrainStations.LangSuan,
                 ThailandTrainStations.SuratThani,
                 ThailandTrainStations.ThungSongJunction,
                 ThailandTrainStations.Phatthalung,
                 ThailandTrainStations.HatYaiJunction,
                 ThailandTrainStations.Pattani,
+                ThailandTrainStations.Yala,
+                ThailandTrainStations.TanyongMat,
                 ThailandTrainStations.SungaiKolok
 
             },
@@ -78,7 +84,7 @@ namespace StaticData.Thailand
                 //Lak Si
                 //Kan Keha KM. 19
                 //Don Mueang
-                //Rangsit
+                ThailandTrainStations.Rangsit,
                 //Khlong Nueng
                 //Chiang Rak
                 //Thammasat University
@@ -116,14 +122,14 @@ namespace StaticData.Thailand
                 //Chong Khae
                 //Thale Wa
                 //Phon Thong
-                //Ban Takhli
+                ThailandTrainStations.BanTakhli,
                 //Dong Maku
                 //Hua Wai
                 //Nong Pho
                 //Hua Ngiu
                 //Noen Makok
                 //Khao Thong
-                //Nakhon Sawan
+               ThailandTrainStations.NakhonSawan,
                 //Pak Nam Pho
                 //Bueng Boraphet
                 //Thap Krit
@@ -133,11 +139,11 @@ namespace StaticData.Thailand
                 //Bang Mun Nak
                 //Ho Krai
                 //Dong Takhop
-                //Taphan Hin
+                ThailandTrainStations.TaphanHin,
                 //Huai Ket
                 //Hua Dong
                 //Wang Krot
-                //Phichit
+                ThailandTrainStations.Phichit,
                 //Tha Lo
                 //Bang Krathum
                 //Mae Thiap
@@ -153,13 +159,12 @@ namespace StaticData.Thailand
                 //Ban Khon
                 //Phichai
                 //Rai Oi
-
                 ThailandTrainStations.BanDaraJunction,
                 //Tha Sak
                 //Tron
                 //Wang Kaphi
-                //Uttaradit
-                //Sila At
+                ThailandTrainStations.Uttaradit,
+                ThailandTrainStations.SilaAt,
                 //Tha Sao
                 //Ban Dan
                 //Pang Ton Phueng
@@ -169,11 +174,11 @@ namespace StaticData.Thailand
                 //Huai Rai
                 //Rai Kled Dao
                 //Mae Phuak
-                //Den Chai
+               ThailandTrainStations.DenChai,
                 //Pak Pan
                 //Kaeng Luang
                 //Huai Mae Ta
-                //Ban Pin
+                ThailandTrainStations.BanPin,
                 //Huai Mae Lan Tunnel length 130.20 m (574.04-574.17)
                 //Pha Khan
                 //Pha Kho
@@ -184,8 +189,8 @@ namespace StaticData.Thailand
                 //Sala Pha Lat
                 //Mae Tha
                 //Nong Wua Thao
-                //Nakhon Lampang
-                //Hang Chat
+                ThailandTrainStations.NakhonLampang,
+                ThailandTrainStations.HangChat,
                 //Pang Muang
                 //Huai Rian
                 //Mae Tan Noi
@@ -198,9 +203,6 @@ namespace StaticData.Thailand
                 //Pa Sao
                 //Saraphi
                 ThailandTrainStations.ChiangMai
-
-
-
 
             }
          ,
@@ -244,8 +246,8 @@ namespace StaticData.Thailand
 
         public static Branch NorthEasternLineLine_NongKhai = new Branch
         {
-            Name = "North East Line Ubon Ratchathani Branch",
-            Description = "North East Line Ubon Ratchathani Branch",
+            Name = "North East Line Ubon NongKhai Branch",
+            Description = "North East Line Ubon NongKhai Branch",
             MainBranch = true,
             Stations = new List<Station>
              {
@@ -262,8 +264,8 @@ namespace StaticData.Thailand
 
         public static Branch NorthEasternLine_BuaYai_ThanonChira = new Branch
         {
-            Name = "North East Line Ubon Ratchathani Branch",
-            Description = "North East Line Ubon Ratchathani Branch",
+            Name = "North East Line Bua Yai Junction - Thanon Chira Junction Branch",
+            Description = "North East Line Bua Yai Junction - Thanon Chira Junction Branch",
             MainBranch = false,
             Stations = new List<Station>
              {
@@ -271,7 +273,7 @@ namespace StaticData.Thailand
                 ThailandTrainStations.ThanonChiraJunction,
               
              }
-   ,
+   
 
         };
 
@@ -284,10 +286,32 @@ namespace StaticData.Thailand
             Stations = new List<Station>
              {
                 ThailandTrainStations.BangkokHuaLamphong,
+                ThailandTrainStations.ChachengsaoJunction,
+                ThailandTrainStations.Chonburi,
+                ThailandTrainStations.SriRachaJunction,
                 ThailandTrainStations.Pattaya,
+                ThailandTrainStations.BanPluTaLuang,
+
 
              }
   ,
+
+        };
+
+        public static Branch EasternLine_Pattaya_MarpTaPutBranch = new Branch
+        {
+            Name = "Eastern Line Pattaya - MarpTaPut Branch ",
+            Description = "",
+            MainBranch = true,
+            Stations = new List<Station>
+             {
+        
+                ThailandTrainStations.Pattaya,
+                ThailandTrainStations.MarpTaPut,
+
+
+             }
+,
 
         };
 

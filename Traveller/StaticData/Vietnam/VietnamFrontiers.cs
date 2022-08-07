@@ -1,4 +1,5 @@
 ﻿using StaticData;
+using StaticData.Vietnam;
 using Traveller.Domain;
 
 namespace Traveller.StaticData
@@ -8,7 +9,9 @@ namespace Traveller.StaticData
     /// </summary>
     public static class VietnamFrontiers
     {
-        public static List<Frontier> Frontiers = new List<Frontier> {
+        public static List<Frontier> GetAllTerrestrialFrontiers()
+        {
+            return new List<Frontier> {
 
                     new Frontier {
                         Name = "Cambodia Vietnam Bavet MocBai ",
@@ -95,51 +98,8 @@ namespace Traveller.StaticData
                         //Visas = new List<Visa> { new Visa { Duration = 30 } } 
                     }
 
-                     ,
-
-                     new Frontier {
-                        Name = VietnamDestinations.HAN.Name,
-                        Origin =  VietnamDestinations.HAN,
-                        Final = VietnamDestinations.HAN,
-                        FrontierType = FrontierTypes.Airport,
-
-
-                        }
-
-                         ,
-
-                     new Frontier {
-                        Name = VietnamDestinations.SGN.Name,
-                        Origin =  VietnamDestinations.SGN,
-                        Final = VietnamDestinations.SGN,
-                             FrontierType = FrontierTypes.Airport,
-
-
-                        }
-
-                     ,
-
-                      new Frontier {
-                        Name = VietnamDestinations.HUI.Name,
-                        Origin =  VietnamDestinations.HUI,
-                        Final = VietnamDestinations.HUI,
-                           FrontierType = FrontierTypes.Airport,
-
-                        }
-
-                     ,
-
-                       new Frontier {
-                        Name = VietnamDestinations.DAD.Name,
-                        Origin =  VietnamDestinations.DAD,
-                        Final = VietnamDestinations.DAD,
-                        FrontierType = FrontierTypes.Airport,
-
-                        }
-
-                     ,
-
-
+                    
+                     //   }
 
                      ////No Vietnam visa on arrival for those going from Laos into Vietnam - must be pre-arranged.
                      // new Frontier {
@@ -154,6 +114,49 @@ namespace Traveller.StaticData
                         
 
                 };
+        }
+
+        public static List<Frontier> CreateFrontiersFromInternationalAirports()
+        {
+            List<Frontier> frontiers = new List<Frontier>();
+
+
+            var airports = VietnamAirports.GetAll();
+
+            foreach (var airport in airports.Where(a => a.AirportType == AirportTypes.International))
+            {
+
+                Frontier frontierFromAirport = new Frontier()
+                {
+                    Name = airport.Name,
+                    Description = airport.Name,
+                    Origin = airport.ServingDestinations.FirstOrDefault(),
+                    Final = airport.ServingDestinations.FirstOrDefault(),
+                    FrontierType = FrontierTypes.Airport,
+                    Visas = new List<Visa> {   },
+                };
+
+                frontiers.Add(frontierFromAirport);
+
+
+            }
+
+            return frontiers;
+
+        }
+
+        public static List<Frontier> GetAll()
+
+        {
+            List<Frontier> terrestrial = GetAllTerrestrialFrontiers();
+
+            List<Frontier> frontiersFromAirports = CreateFrontiersFromInternationalAirports();
+
+            terrestrial.AddRange(frontiersFromAirports);
+
+            return terrestrial;
+
+        }
     }
 }
 

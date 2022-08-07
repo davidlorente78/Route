@@ -3,31 +3,135 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Traveller.Domain;
+using Traveller.StaticData;
 
 namespace StaticData.Vietnam
 {
      public  class VietnamAirports
     {
-//        IATA Nombre  Paraje Aerolíneas  Destinos
-//SGN Tan Son Nhat International Airport Ciudad de Ho Chi Minh	41	54
-//HAN Noi Bai International Airport Hanoi	32	46
-//DAD Da Nang International Airport Da Nang	13	20
-//BMV Buon Ma Thuot Airport Buon Ma Thuot	3	4
-//HPH Cat Bi International Airport Haiphong	3	2
-//CXR Cam Ranh Airport    Nha Trang	3	4
-//PQC Phu Quoc International Airport Phu Quoc Island	3	3
-//VII Vinh Airport Vinh	3	5
-//DLI Lien Khuong Airport Da Lat	2	3
-//HUI Phu Bai Airport Hue	2	2
-//UIH Phu Cat Airport Quy Nohn	2	2
-//VCL Chu Lai International Airport Dung Quat Bay	1	2
-//CAH Cà Mau Airport  Ca Mau City	1	1
-//VCS Co Ong Airport  Con Dao	1	2
-//VCA Can Tho International Airport Can Tho	1	3
-//DIN Dien Bien Phu Airport Dien Bien Phu	1	1
-//PXU Pleiku Airport Pleiku	1	3
-//VKG Rach Gia Airport    Rach Gia	1	1
-//TBB Dong Tac Airport    Tuy Hoa	1	2
-//VDH Dong Hoi Airport    Dong Hoi	1	2
+        #region International Airports
+        public static Airport SGN = new Airport
+        {
+            Name = "Tan Son Nhat International Airport",
+            ServingDestinations = new List<Destination> { VietnamDestinations.HoChiMinh },          
+            IATACode = "SGN",
+            AirportType = AirportTypes.International
+
+        };
+     
+        public static Airport HAN = new Airport
+        {
+            Name = "Noi Bai International Airport",
+            ServingDestinations = new List<Destination> { VietnamDestinations.Hanoi },
+            IATACode = "HAN",
+            AirportType = AirportTypes.International
+
+        };
+             
+        public static Airport DAD = new Airport
+        {
+            Name = "Da Nang International Airport",
+            ServingDestinations = new List<Destination> { VietnamDestinations.Danang },
+            IATACode = "DAD",
+            AirportType = AirportTypes.International
+
+        };
+       
+        public static Airport HPH = new Airport
+        {
+            Name = "Cat Bi International Airport",
+            ServingDestinations = new List<Destination> { VietnamDestinations.Haiphong },
+            IATACode = "HPH",
+            AirportType = AirportTypes.International
+
+        };
+
+     
+        public static Airport VCL = new Airport
+        {
+            Name = "Chu Lai International Airport",
+            ServingDestinations = new List<Destination> { VietnamDestinations.DungQuatBay },
+            IATACode = "VCL",
+            AirportType = AirportTypes.International
+
+        };
+        
+
+        public static Airport PQC = new Airport
+        {
+            Name = "Phu Quoc International Airport",
+            ServingDestinations = new List<Destination> { VietnamDestinations.PhuQuoc },
+            IATACode = "PQC",
+            AirportType = AirportTypes.International
+
+        };
+       
+        public static Airport VCA = new Airport
+        {
+            Name = "Can Tho International Airport",
+            ServingDestinations = new List<Destination> { VietnamDestinations.CanTho },
+            IATACode = "VCA",
+            AirportType = AirportTypes.International
+
+        };
+
+        public static Airport HUI = new Airport
+        {
+            Name = "Hue International Airport",
+            ServingDestinations = new List<Destination> { VietnamDestinations.Hue },
+            IATACode = "HUI",
+            AirportType = AirportTypes.International
+
+        };
+
+        #endregion
+
+        #region Domestic Airports
+        //BMV Buon Ma Thuot Airport Buon Ma Thuot	3	4
+        public static Airport BMV = new Airport
+        {
+            Name = "Buon Ma Thuot Airport",
+            ServingDestinations = new List<Destination> { VietnamDestinations.BuonMaThuot },
+            IATACode = "BMV",
+            AirportType = AirportTypes.International
+
+        };
+        //CXR Cam Ranh Airport    Nha Trang	3	4
+        //VII Vinh Airport Vinh	3	5
+        //DLI Lien Khuong Airport Da Lat	2	3
+        //HUI Phu Bai Airport Hue	2	2
+        //UIH Phu Cat Airport Quy Nohn	2	2
+        //CAH Cà Mau Airport  Ca Mau City	1	1
+        //VCS Co Ong Airport  Con Dao	1	2
+        //DIN Dien Bien Phu Airport Dien Bien Phu	1	1
+        //PXU Pleiku Airport Pleiku	1	3
+        //VKG Rach Gia Airport    Rach Gia	1	1
+        //TBB Dong Tac Airport    Tuy Hoa	1	2
+        //VDH Dong Hoi Airport    Dong Hoi	1	2
+        #endregion
+
+        public static ICollection<Airport> GetAll()
+        {
+
+
+            return new List<Airport> {
+                   SGN,HUI,HAN, VCA,PQC,VCL,HPH,DAD 
+                   //BMV Buon Ma Thuot Airport Buon Ma Thuot	3	4
+        //CXR Cam Ranh Airport    Nha Trang	3	4
+        //VII Vinh Airport Vinh	3	5
+        //DLI Lien Khuong Airport Da Lat	2	3
+        //HUI Phu Bai Airport Hue	2	2
+        //UIH Phu Cat Airport Quy Nohn	2	2
+        //CAH Cà Mau Airport  Ca Mau City	1	1
+        //VCS Co Ong Airport  Con Dao	1	2
+        //DIN Dien Bien Phu Airport Dien Bien Phu	1	1
+        //PXU Pleiku Airport Pleiku	1	3
+        //VKG Rach Gia Airport    Rach Gia	1	1
+        //TBB Dong Tac Airport    Tuy Hoa	1	2
+        //VDH Dong Hoi Airport    Dong Hoi	1	2
+
+              };
+        }
     }
 }

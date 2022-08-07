@@ -1,12 +1,22 @@
-﻿using StaticData;
+﻿using Domain;
+using StaticData;
+using StaticData.Interfaces;
+using StaticData.Thailand;
 using Traveller.Domain;
 
 namespace Traveller.StaticData
 {
-    public static class ThailandDestinations
+    public static class ThailandDestinations 
     {
         public static Destination Mukdahan = new Destination { Name = "Mukdahan" };
         public static Destination NongKhai = new Destination { Name = "Nong Khai" };
+
+        public static Destination PhangNga = new Destination
+        {
+            CountryID = 3,
+            Name = "PhangNga",
+            DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism }
+        };
 
         //public static Destination BKK = new Destination
         //{
@@ -15,58 +25,69 @@ namespace Traveller.StaticData
         //    DestinationTypes = new List<DestinationType> { DestinationTypes.Airport }
         //};
 
-        public static Destination Bangkok = new Destination { 
+        public static Destination Bangkok = new Destination
+        {
             CountryID = 3,
-            Name = "Bangkok", 
-            DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } 
+            Name = "Bangkok",
+            DestinationTypes = new List<DestinationType> { DestinationTypes.Airport }
         };
 
-        public static Destination ChiangMai = new Destination {
+        public static Destination ChiangMai = new Destination
+        {
             CountryID = 3,
-            Name = "Chiang Mai", 
-            DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } 
+            Name = "Chiang Mai",
+            DestinationTypes = new List<DestinationType> { DestinationTypes.Airport }
         };
 
-        public static Destination ChiangRai = new Destination {
+        public static Destination ChiangRai = new Destination
+        {
             CountryID = 3,
-            Name = "Chiang Rai", 
-            DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } 
+            Name = "Chiang Rai",
+            DestinationTypes = new List<DestinationType> { DestinationTypes.Airport }
         };
 
-        public static Destination HatYai = new Destination {
+        public static Destination HatYai = new Destination
+        {
             CountryID = 3,
-            Name = "Hat Yai", 
-            DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } 
+            Name = "Hat Yai",
+            DestinationTypes = new List<DestinationType> { DestinationTypes.Airport }
         };
 
-        public static Destination Krabi = new Destination {
+        public static Destination Krabi = new Destination
+        {
             CountryID = 3,
-            Name = "Krabi", 
-            DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } 
+            Name = "Krabi",
+            DestinationTypes = new List<DestinationType> { DestinationTypes.Airport }
         };
 
-        public static Destination Phuket = new Destination { 
+        public static Destination Phuket = new Destination
+        {
             Name = "Phuket",
             CountryID = 3,
             DestinationTypes = new List<DestinationType> { DestinationTypes.Airport }
         };
 
-        public static Destination Sukhothai = new Destination {
+        public static Destination Sukhothai = new Destination
+        {
             CountryID = 3,
-            Name = "Sukhothai", 
-            DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism } 
+            Name = "Sukhothai",
+            DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }
         };
+        
 
-        public static Destination Trang = new Destination {
+  
+        public static Destination Trang = new Destination
+        {
             CountryID = 3,
-            Name = "Trang", 
+            Name = "Trang",
             DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }
         };
 
-        public static Destination Burinam = new Destination {
+        public static Destination Burinam = new Destination
+        {
             CountryID = 3,
-            Name = "Burinam", 
-            DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } 
+            Name = "Burinam",
+            DestinationTypes = new List<DestinationType> { DestinationTypes.Airport }
         };
 
         public static Destination SungaiKolok = new Destination
@@ -74,52 +95,53 @@ namespace Traveller.StaticData
             Name = "Su-ngai Kolok",
             LocalName = "สุไหงโกลก",
             DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier },
-            Description = "Sungai Kolok (สุไหงโกลก) is a border town in Narathiwat, Thailand, just north of the Malaysian border. The town on the Malaysian side of the border is Rantau Panjang which is in the state of Kelantan."
+            Description = "Su-ngai (สุไหงโกลก) is a border town in Narathiwat, Thailand, just north of the Malaysian border. The town on the Malaysian side of the border is Rantau Panjang which is in the state of Kelantan."
         };
 
-        public static Destination PadangPesar = new Destination 
-        { 
-            Name = "Padang Pesar", 
-            DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier } 
+        public static Destination PadangPesar = new Destination
+        {
+            Name = "Padang Pesar",
+            DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }
         };
 
-        public static Destination ChiangKhong = new Destination 
-        { 
-            Name = "Chiang Khong ", 
-            DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier } 
+        public static Destination ChiangKhong = new Destination
+        {
+            Name = "Chiang Khong ",
+            DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }
         };
 
-        public static Destination Aranyaprathet = new Destination 
-        { 
-            Name = "Aranya Prathet", 
+        public static Destination Aranyaprathet = new Destination
+        {
+            Name = "Aranya Prathet",
             DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }
         };
 
         public static Destination VangTao = new Destination
-        { 
-            Name = "Vang Tao", 
-            Description = "En la provincia de Ubon Ratchathani. Cercano al aeropuerto de Pakse", 
+        {
+            Name = "Vang Tao",
+            Description = "En la provincia de Ubon Ratchathani. Cercano al aeropuerto de Pakse",
             DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }
         };
 
-        public static Destination UbonRatchathani = new Destination 
-        { 
-            Name = "Ubon Ratchathani", 
-            Description = "Estacion de tren más cercana al paso de Vang Tao", 
-            DestinationTypes = new List<DestinationType> { DestinationTypes.Train } 
+        public static Destination UbonRatchathani = new Destination
+        {
+            Name = "Ubon Ratchathani",
+            Description = "Estacion de tren más cercana al paso de Vang Tao",
+            DestinationTypes = new List<DestinationType> { DestinationTypes.Train }
         };
 
         public static Destination Songkhla = new Destination
-        { 
-            Name = "Songkhla", 
-            Description = "", 
-            DestinationTypes = new List<DestinationType> { DestinationTypes.Train } 
+        {
+            Name = "Songkhla",
+            Description = "",
+            DestinationTypes = new List<DestinationType> { DestinationTypes.Train }
         };
 
 
 
         public static Destination Chumphon = new Destination
-        {   CountryID = 3,
+        {
+            CountryID = 3,
             Name = "Chumphon",
             DestinationTypes = new List<DestinationType> { DestinationTypes.Airport }
         };
@@ -219,7 +241,7 @@ namespace Traveller.StaticData
         {
             CountryID = 3,
             Name = "Phitsanulok",
-            DestinationTypes = new List<DestinationType> { DestinationTypes.Airport , DestinationTypes.Train }
+            DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Train }
         };
         public static Destination Phrae = new Destination
         {
@@ -265,7 +287,8 @@ namespace Traveller.StaticData
 
         public static Destination SamutPrakan = new Destination
 
-        {   CountryID = 3,
+        {
+            CountryID = 3,
             Name = "SamutPrakan",
             DestinationTypes = new List<DestinationType> { DestinationTypes.Airport }
         };
@@ -340,9 +363,54 @@ namespace Traveller.StaticData
             DestinationTypes = new List<DestinationType> { DestinationTypes.Airport }
         };
 
-        public static ICollection<Destination> GetAll()
+
+        public static List<Destination> CreateDestinationsFromStations()
         {
-            return new List<Destination> {
+
+            List<Destination> destinations = new List<Destination>();
+
+            List<Destination> staticdestinations = GetStaticAll();
+
+            var trainLines = ThailandTrainLines.GetAll();
+
+            foreach (var trainLine in trainLines)
+            {
+                foreach (var branch in trainLine.Branches)
+                {
+                    foreach (var station in branch.Stations)
+                    {
+                        if (!staticdestinations.Where(x => x.Name == station.Name).Any())
+                        {
+
+                            Destination destination = new Destination
+                            {
+                                Name = station.Name,                                 
+                                DestinationTypes = new List<DestinationType> { DestinationTypes.Train }
+                            };
+
+                            destinations.Add(destination);
+                        }
+
+                        else
+
+                        {
+                            var exist = staticdestinations.Where(x => x.Name == station.Name).FirstOrDefault();
+
+                            exist.DestinationTypes.Add(DestinationTypes.Train);
+
+                        }
+                    }
+                }
+
+            }
+
+            return destinations;
+
+        }
+
+        public static List<Destination> GetStaticAll()
+        {
+            List<Destination> destinations = new List<Destination> {
                 ThailandDestinations.Mukdahan,
                 ThailandDestinations.NongKhai,
                 ThailandDestinations.PadangPesar,
@@ -396,9 +464,23 @@ namespace Traveller.StaticData
                 ThailandDestinations.UdonThani,
                 ThailandDestinations.Lamphun
 
-
-                //Añadir aqui nuevas 
             };
+
+
+            return destinations;
+
+        }
+
+        public static List<Destination> GetAll()
+
+        {
+            List<Destination> destinationsFromStatic = GetStaticAll();
+
+            List<Destination> destinationsFromStations = CreateDestinationsFromStations();
+
+            destinationsFromStatic.AddRange(destinationsFromStations);
+
+            return destinationsFromStatic;
 
         }
     }

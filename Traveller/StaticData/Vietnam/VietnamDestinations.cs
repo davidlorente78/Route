@@ -1,14 +1,12 @@
 ﻿using StaticData;
+using StaticData.Vietnam;
 using Traveller.Domain;
 
 namespace Traveller.StaticData
 {
     public static class VietnamDestinations
     {
-        public static Destination HAN = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.Airport }, Name = "Nội Bài International Airport - Hanoi" };
-        public static Destination SGN = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.Airport }, Name = "Tan Son Nhat International Airport - Saigon", };
-        public static Destination HUI = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.Airport }, Name = "Hue Airport", };
-        public static Destination DAD = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.Airport }, Name = "Danang Airport",  };
+        public static Destination Hue = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }, Name = "Hue", };
 
         public static Destination MocBai = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }, Name = "Moc Bai",  Description ="Localidad fronteriza de Vietnam ccercana a Bavet (Camboya) " };
         public static Destination VingXuong = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }, Name = "Ving Xuong",  Description=" Localidad vietnamita fronteriza y cercana a Kaam Samnor" };
@@ -19,11 +17,24 @@ namespace Traveller.StaticData
         public static Destination LaoBao = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }, Description = "", Name = "Lao Bao" };
         public static Destination NaMeo = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }, Description = "Localidad fronteriza en Vietnam muy cercana a Tam Coc y Ninh Binh", Name = "Na Meo" };
         public static Destination NinhBinh = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism }, Description = "Ninh Binh", Name = "Ninh Binh" };
+        public static Destination HoiAn = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism }, Description = "Hoi An", Name = "Hoi An" };
+
         public static Destination LaoCai = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }, Description = "", Name = "Lao Cai" };
         public static Destination HaTien = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }, Description = "Localidad fronteriza en Vietnam cercana a Chau Doc . Utilizado para entrar o salir desde Kampot (Camboya) Delante de la isla de Phu Quoc ", Name = "Ha Tien / Xa Xia" };
         public static Destination CauTreo = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }, Description = "Saliendo desde Lak Sao y siguiendo la ruta 8 se llega a esta localidad fronteriza. Da acceso a Vietnam a la altura de Vinh", Name = "Cau Treo / Cao Tree" };
 
-        public static ICollection<Destination> GetAll()
+        public static Destination PhanThiet = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism }, Description = "Phan Thiet", Name = "Phan Thiet" };
+        public static Destination QuiNhon = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism }, Description = "Qui Nhon", Name = "Qui Nhon" };
+
+        public static Destination Danang = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.Airport , DestinationTypes.Tourism }, Name = "Danang", };
+        public static Destination Haiphong = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }, Name = "Hai Phong", };
+        public static Destination DungQuatBay = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }, Name = "Dung Quat Bay", };
+        public static Destination PhuQuoc = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }, Name = "Phu Quoc Island", };
+        public static Destination CanTho = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }, Name = "Can Tho", };
+
+        public static Destination BuonMaThuot = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.Airport }, Name = "Buon Ma Thuot", LocalName= "Buôn Ma Thuột" };
+
+        public static List<Destination> GetStaticAll()
         {
             return new List<Destination> {
                 VietnamDestinations.VingXuong, 
@@ -39,11 +50,74 @@ namespace Traveller.StaticData
                 VietnamDestinations.HaTien,
                 VietnamDestinations.HoChiMinh,
                 VietnamDestinations.CauTreo,
-                HAN,SGN,HUI,DAD
-            
+                VietnamDestinations.Hue,
+                VietnamDestinations.HoiAn,
+                VietnamDestinations.Danang,
+                VietnamDestinations.Haiphong,
+                VietnamDestinations.DungQuatBay,
+                VietnamDestinations.PhuQuoc,
+                VietnamDestinations.CanTho,
+                VietnamDestinations.BuonMaThuot,
+
             };
         }
 
-      
+        public static List<Destination> GetAll()
+
+        {
+            List<Destination> destinationsFromStatic = GetStaticAll();
+
+            List<Destination> destinationsFromStations = CreateDestinationsFromStations();
+
+            destinationsFromStatic.AddRange(destinationsFromStations);
+
+            return destinationsFromStatic;
+
+        }
+
+        public static List<Destination> CreateDestinationsFromStations()
+        {
+
+            List<Destination> destinations = new List<Destination>();
+
+            List<Destination> staticdestinations = GetStaticAll();
+
+            var trainLines = VietnamTrainLines.GetAll();
+
+            foreach (var trainLine in trainLines)
+            {
+                foreach (var branch in trainLine.Branches)
+                {
+                    foreach (var station in branch.Stations)
+                    {
+                        if (!staticdestinations.Where(x => x.Name == station.Name).Any())
+                        {
+
+                            Destination destination = new Destination
+                            {
+                                Name = station.Name,
+                                DestinationTypes = new List<DestinationType> { DestinationTypes.Train }
+                            };
+
+                            destinations.Add(destination);
+                        }
+
+                        else
+
+                        {
+                            var exist = staticdestinations.Where(x => x.Name == station.Name).FirstOrDefault();
+
+                            exist.DestinationTypes.Add(DestinationTypes.Train);
+
+                        }
+                    }
+                }
+
+            }
+
+            return destinations;
+
+        }
+
     }
 }

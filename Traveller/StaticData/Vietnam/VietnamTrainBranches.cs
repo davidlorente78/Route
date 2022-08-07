@@ -13,9 +13,25 @@ namespace StaticData.Vietnam
             Description = "",
             Stations = new List<Station>
             {
-                VietnamTrainStations.Hanoi,
+                VietnamTrainStations.Hanoi,      
+                //VietnamTrainStations.PhủLý,
+                //VietnamTrainStations.NamĐịnh,
+                VietnamTrainStations.NinhBinh,
+                VietnamTrainStations.ThanhHóa,
+                VietnamTrainStations.Vinh,
+                VietnamTrainStations.TânẤp,
+                VietnamTrainStations.ĐồngHới,
+                VietnamTrainStations.ĐồngHà,
                 VietnamTrainStations.Huế,
-                VietnamTrainStations.DaNang,           
+                VietnamTrainStations.DaNang,
+                VietnamTrainStations.TamKỳ,
+                VietnamTrainStations.QuảngNgãi,
+                VietnamTrainStations.DiêuTrì,
+                VietnamTrainStations.TuyHòa,
+                VietnamTrainStations.NhaTrang,
+                //VietnamTrainStations.ThapCham,
+                //VietnamTrainStations.PhanThiet,
+                VietnamTrainStations.BìnhThuận,                
                 VietnamTrainStations.Saigon
 
             }
@@ -26,7 +42,7 @@ namespace StaticData.Vietnam
         public static Branch HanoiLàoCai = new Branch
         {
 
-            Name = " Hanoi–Lào Cai Line",
+            Name = "Hanoi–Lào Cai Line",
             Description = "",
             MainBranch = true,
             Stations = new List<Station>
@@ -58,7 +74,6 @@ namespace StaticData.Vietnam
             MainBranch = true,
             Stations = new List<Station>
             {
-             
                VietnamTrainStations.Kép,
                VietnamTrainStations.HaLong,
             }
@@ -72,7 +87,6 @@ namespace StaticData.Vietnam
             MainBranch = true,
             Stations = new List<Station>
             {
-
                VietnamTrainStations.Hanoi,
                VietnamTrainStations.HaiPhong,
             }
@@ -86,7 +100,6 @@ namespace StaticData.Vietnam
             MainBranch = true,
             Stations = new List<Station>
             {
-
                VietnamTrainStations.Hanoi,
                VietnamTrainStations.TháiNguyên,
                VietnamTrainStations.QuánTriều,
@@ -95,19 +108,17 @@ namespace StaticData.Vietnam
 
         public static Branch TháiNguyênKép = new Branch
         {
-
             Name = "Thái Nguyên–Kép Line",
             Description = "",
             MainBranch = true,
             Stations = new List<Station>
             {
-
                VietnamTrainStations.TháiNguyên,
                VietnamTrainStations.Kép,
             }
         };
 
-        
+
 
     }
 }

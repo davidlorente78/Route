@@ -5,13 +5,10 @@ namespace StaticData.Thailand
 {
     public class ThailandFrontiers
     {
-        public static ICollection<Frontier> GetAll()
+        public static List<Frontier> GetAllTerrestrialFrontiers()
         {
             return new List<Frontier>
             {
-
-
-
                 new Frontier
                 {
                     Name = "Thailand Laos Frienship Bridge I ",
@@ -100,29 +97,69 @@ namespace StaticData.Thailand
                  ,
 
                 //Aeropuertos Internacionales
-                new Frontier
-                {
-                    Name = ThailandAirports.BKK.Name,                    
-                    Origin = ThailandDestinations.Bangkok,
-                    Final = ThailandDestinations.Bangkok,
-                    FrontierType = FrontierTypes.Airport,
-                    Visas = new List<Visa> { ThailandVisas.VisaExemption },
-                }
+                //new Frontier
+                //{
+                //    Name = ThailandAirports.BKK.Name,
+                //    Origin = ThailandDestinations.Bangkok,
+                //    Final = ThailandDestinations.Bangkok,
+                //    FrontierType = FrontierTypes.Airport,
+                //    Visas = new List<Visa> { ThailandVisas.VisaExemption },
+                //}
 
-                 ,
+                // ,
 
 
-                new Frontier
-                {
-                    Name = ThailandAirports.DMK.Name,
-                    Origin = ThailandDestinations.Bangkok,
-                    Final = ThailandDestinations.Bangkok,
-                    FrontierType = FrontierTypes.Airport,
-                    Visas = new List<Visa> { ThailandVisas.VisaExemption },
-                }
+                //new Frontier
+                //{
+                //    Name = ThailandAirports.DMK.Name,
+                //    Origin = ThailandDestinations.Bangkok,
+                //    Final = ThailandDestinations.Bangkok,
+                //    FrontierType = FrontierTypes.Airport,
+                //    Visas = new List<Visa> { ThailandVisas.VisaExemption },
+                //}
             };
         }
 
+        public static List<Frontier> CreateFrontiersFromInternationalAirports()
+        {
+            List<Frontier> frontiers = new List<Frontier>();
+
+
+            var airports = ThailandAirports.GetAll();
+
+            foreach (var airport in airports.Where(a=> a.AirportType == AirportTypes.International)) {
+
+                Frontier frontierFromAirport = new Frontier()
+                {
+                    Name = airport.Name,
+                    Description = airport.Name,
+                    Origin = airport.ServingDestinations.FirstOrDefault(),
+                    Final = airport.ServingDestinations.FirstOrDefault(),
+                    FrontierType = FrontierTypes.Airport,
+                    Visas = new List<Visa> { ThailandVisas.VisaExemption },
+                };
+
+                frontiers.Add(frontierFromAirport);
+
+
+            }
+
+            return frontiers;
+
+        }
+
+        public static List<Frontier> GetAll()
+
+        {
+            List<Frontier> terrestrial = GetAllTerrestrialFrontiers();
+
+            List<Frontier> frontiersFromAirports = CreateFrontiersFromInternationalAirports();
+
+            terrestrial.AddRange(frontiersFromAirports);
+
+            return terrestrial;
+
+        }
     }
 }
     

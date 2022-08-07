@@ -11,7 +11,7 @@ namespace Traveller.Domain
         public string? LocalName { get; set; }
         public string? Description { get; set; }
         [Display(Name = "Destination Type")]
-        public List<DestinationType>? DestinationTypes { get; set; }
+        public List<DestinationType>? DestinationTypes { get; set; } = new List<DestinationType>();
         public int CountryID { get; set; }
         public virtual Country Country { get; set; }
     }

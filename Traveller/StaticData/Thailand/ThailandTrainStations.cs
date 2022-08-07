@@ -12,7 +12,7 @@ namespace StaticData.Thailand
         public static Station BangkokHuaLamphong = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            ServingDestinations = new List<Destination> { ThailandDestinations.Bangkok},
             Name = "Bangkok Hua Lamphong",
             Remarks = ""
         };
@@ -43,10 +43,31 @@ namespace StaticData.Thailand
         };
 
         //Phetchaburi Station - Phetchaburi main station.
+        public static Station Phetchaburi = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Phetchaburi",
+            Remarks = ""
+        };
         //Hua Hin Station - Provincial Station for Hua Hin in Prachuap Khiri Khan with crew changing station.
+        public static Station HuaHin = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Hua Hin",
+            Remarks = "rovincial Station for Hua Hin in Prachuap Khiri Khan with crew changing station."
+        };
         //Wang Phong Station- One of the stations in Pran Buri. Also for the nearby Thanarat Military Camp.More trains stop here for Pran Buri than Pran Buri Station itself.
         //Pran Buri Station- Smaller station for Pran Buri, with a well-established Saturday Night Market opposite the station.
         //Prachuap Khiri Khan Station - Prachuap Khiri Khan main station.
+        public static Station PrachuapKhiriKhan = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Prachuap Khiri Khan",
+            Remarks = "Prachuap Khiri Khan main station."
+        };
         //Bang Saphan Yai Station - Regional town station.All trains going further south must stop here.
 
         //Chumphon Station - Main Chumphon station, locomotive depot with refuelling facility
@@ -58,9 +79,25 @@ namespace StaticData.Thailand
             Remarks = "Main Chumphon station, locomotive depot with refuelling facility."
         };
 
-        //Lang Suan Station- Provincial Station in Chumphon.Furthest extent of southern services from Thonburi.
+
+        public static Station LangSuan = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> {  },
+            Name = "Lang Suan ",
+            Remarks = "."
+        };
         //Ban Thung Pho Junction - Southern container yard, for Khiri Rat Nikhom Branch.
-        //Khiri Rat Nikhom Station - Terminus for the Khiri Rat Nikhom Branch and the railway to Phang Nga and Tanun (Phuket).
+
+
+
+        public static Station KhiriRatNikhom  = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { ThailandDestinations.Phuket, ThailandDestinations.PhangNga},
+            Name = "Khiri Rat Nikhom Station",
+            Remarks = "Terminus for the Khiri Rat Nikhom Branch and the railway to Phang Nga and Tanun (Phuket)."
+        };
 
         //Surat Thani Station - Crew changing station and Surat Thani main station.
         public static Station SuratThani = new Station
@@ -101,9 +138,25 @@ namespace StaticData.Thailand
             Remarks = "Terminus of Kantang Branch."
         };
 
-
+      
         //Khao Chum Thong Junction - Junction for Nakhon Si Thammarat Branch.
+
+        public static Station KhaoChumThongJunction = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Khao Chum Thong Junction",
+            Remarks = ""
+        };
         //Nakhon Si Thammarat Station - Terminus of Nakhon Si Thammarat Branch. Nakhon Si Thammarat main station.
+
+        public static Station NakhonSiThammarat = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Nakhon Si Thammarat",
+            Remarks = ""
+        };
         //Phatthalung Station - Phatthalung main station, crew changing station
 
         public static Station Phatthalung = new Station
@@ -119,8 +172,8 @@ namespace StaticData.Thailand
         {
             Type = 'T',
             ServingDestinations = new List<Destination> { ThailandDestinations.Songkhla },
-            Name = "Trang",
-            Remarks = " Main junction for Malaysia and Singapore and Main Line of Southern Line, Locomotive Depot and refueling facility.Main Songkhla Station."
+            Name = "Hat Yai Junction",
+            Remarks = "Main junction for Malaysia and Singapore and Main Line of Southern Line, Locomotive Depot and refueling facility. Main Songkhla Station."
         };
 
         //Padang Besar Station - International KTM station in Malaysia.Trains continue to Butterworth (Penang) and further.
@@ -129,7 +182,7 @@ namespace StaticData.Thailand
             Type = 'T',
             ServingDestinations = new List<Destination> { MalaysiaDestinations.PadangPesar, ThailandDestinations.PadangPesar },
             Name = "Padang Besar",
-            Remarks = "International KTM station in Malaysia.Trains continue to Butterworth (Penang) and further."
+            Remarks = "International KTM station in Malaysia. Trains continue to Butterworth (Penang) and further."
         };
 
         //Branch
@@ -152,16 +205,22 @@ namespace StaticData.Thailand
             Name = "Yala",
             Remarks = "Main Yala station, crew changing station."
         };
+
         //Tanyong Mat Station - for Ra Ngae district and Narathiwat.
 
-
-        //Su-ngai Kolok Station - Terminus of Southern Line. Used to be an international station until the termination of cross border services.
+        public static Station TanyongMat = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> {  },
+            Name = "Tanyong Mat",
+            Remarks = "for Ra Ngae district and Narathiwat."
+        };
 
         public static Station SungaiKolok = new Station
         {
             Type = 'T',
             ServingDestinations = new List<Destination> { ThailandDestinations.SungaiKolok, MalaysiaDestinations.RantanPanjang },
-            Name = "Sungai Kolok",
+            Name = "Su-ngai",
             Remarks = "Terminus of Southern Line. Used to be an international station until the termination of cross border services."
         };
 
@@ -201,6 +260,18 @@ namespace StaticData.Thailand
 
 
         #region Northern Line Main Stations
+
+
+        
+          public static Station Rangsit = new Station
+          {
+              Type = 'T',
+              ServingDestinations = new List<Destination> { },
+              Name = "Rangsit",
+              LocalName = "",
+              Remarks = ""
+          };
+
         public static Station Ayutthaya = new Station
         {
             Type = 'T',
@@ -227,12 +298,101 @@ namespace StaticData.Thailand
             Remarks = ""
         };
 
+        public static Station BanTakhli = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Ban Takhli",
+            LocalName = "",
+            Remarks = ""
+        };
+
+        public static Station NakhonSawan = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Nakhon Sawan",
+            LocalName = "",
+            Remarks = ""
+        };
+
+        public static Station TaphanHin = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Taphan Hin",
+            LocalName = "",
+            Remarks = ""
+        };
+        public static Station Phichit = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Phichit",
+            LocalName = "",
+            Remarks = ""
+        };
+
         public static Station Phitsanulok = new Station
         {
             Type = 'T',
             ServingDestinations = new List<Destination> { ThailandDestinations.Sukhothai , ThailandDestinations.Phitsanulok },
             Name = "Phitsanulok",
             LocalName = "พิษณุโลก",
+            Remarks = ""
+        };
+
+        public static Station Uttaradit = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Uttaradit",
+            LocalName = "",
+            Remarks = ""
+        };
+
+        public static Station SilaAt = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Sila At",
+            LocalName = "",
+            Remarks = ""
+        };
+
+        public static Station DenChai = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Den Chai",
+            LocalName = "",
+            Remarks = ""
+        };
+
+        public static Station BanPin = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Ban Pin",
+            LocalName = "",
+            Remarks = ""
+        };
+
+        public static Station NakhonLampang = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Nakhon Lampang",
+            LocalName = "",
+            Remarks = ""
+        };
+
+        public static Station HangChat = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Hang Chat",
+            LocalName = "",
             Remarks = ""
         };
 
@@ -248,7 +408,7 @@ namespace StaticData.Thailand
         public static Station ChiangMai = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            ServingDestinations = new List<Destination> { ThailandDestinations.ChiangMai },
             Name = "Chiang Mai",
             LocalName = "",
             Remarks = ""
@@ -395,6 +555,51 @@ namespace StaticData.Thailand
 
 
         #region Eastern Line
+
+        public static Station ChachengsaoJunction = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Chachengsao Junction",
+            LocalName = "",
+            Remarks = ""
+        };
+
+        public static Station Chonburi = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Chonburi",
+            LocalName = "",
+            Remarks = ""
+        };
+
+        public static Station SriRachaJunction = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Sri Racha Junction",
+            LocalName = "",
+            Remarks = ""
+        };
+
+        public static Station BanPluTaLuang = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Ban Plu Ta Luang",
+            LocalName = "",
+            Remarks = ""
+        };
+
+        public static Station MarpTaPut = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { ThailandDestinations.Rayong},
+            Name = "MarpTaPut",
+            LocalName = "",
+            Remarks = ""
+        };
 
         #endregion
     }

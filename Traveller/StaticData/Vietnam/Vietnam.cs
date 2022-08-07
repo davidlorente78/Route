@@ -17,7 +17,7 @@ namespace StaticData.Vietnam
             Code = 'V',
             Name = "Vietnam",
             Destinations = VietnamDestinations.GetAll(),
-            Frontiers = VietnamFrontiers.Frontiers,
+            Frontiers = VietnamFrontiers.GetAll(),
             Ranges = new List<RangeChar> { VietnamRanges.SeasonRange },
             ShowInDynamicHome = true,
             ShowInDynamicHomeOrder = 0

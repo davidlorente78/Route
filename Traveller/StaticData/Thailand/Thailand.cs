@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Traveller.Domain;
 using Traveller.StaticData;
 
-namespace StaticData.Vietnam
+namespace StaticData.Thailand
 {
  
         public static class DataThailand
