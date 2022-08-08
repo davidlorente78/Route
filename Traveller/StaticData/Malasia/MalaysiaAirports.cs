@@ -4,25 +4,99 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Traveller.Domain;
+using Traveller.StaticData;
 
 namespace StaticData.Malaysia
 {
     public static class MalaysiaAirports
     {
 
-        //IATA Nombre  Paraje Aerolíneas  Destinos
-        //KUL Kuala Lumpur International Airport  Kuala Lumpur    63	112
-        //BKI Kota Kinabalu International Airport Kota Kinabalu	18	30
-        //PEN Penang International Airport    Penang	17	20
-        //LGK Langkawi International Airport  Langkawi	8	5
-        //KCH Kuching International Airport   Kuching	7	14
-        //JHB Senai International Airport Johor Bahru 6	12
-        //MYY Miri Airport Miri    4	20
-        //AOR Sultan Abdul Halim Airport Alor Satar	4	2
-        //KBR Sultan Ismail Petra Airport Kota Baharu	4	7
-        //TGG Sultan Mahmud Airport   Kuala Terengganu    4	4
-        //SZB Sultan Abdul Aziz Shah International Airport Subang  4	12
-        //SBW Sibu Airport Sibu    3	6
+        public static Airport KUL = new Airport
+        {
+            Name = "Kuala Lumpur International Airport",            
+            ServingDestinations = new List<Destination> { MalaysiaDestinations.KualaLumpur },
+            IATACode = "KUL",          
+            AirportType = AirportTypes.International
+        };
+        public static Airport BKI = new Airport
+        {
+            Name = "Kota Kinabalu International Airport",
+            ServingDestinations = new List<Destination> { MalaysiaDestinations.KotaKinabalu },
+            IATACode = "BKI",
+            AirportType = AirportTypes.International
+        };
+        public static Airport PEN = new Airport
+        {
+            Name = "Penang International Airport",
+            ServingDestinations = new List<Destination> { MalaysiaDestinations.Penang },
+            IATACode = "PEN",
+            AirportType = AirportTypes.International
+        };
+
+        public static Airport LGK = new Airport
+        {
+            Name = "Langkawi International Airport",
+            ServingDestinations = new List<Destination> { MalaysiaDestinations.Langkawi },
+            IATACode = "LGK",
+            AirportType = AirportTypes.International
+        };
+
+        public static Airport KCH = new Airport
+        {
+            Name = "Kuching International Airport",
+            ServingDestinations = new List<Destination> { MalaysiaDestinations.Kuching },
+            IATACode = "KCH",
+            AirportType = AirportTypes.International
+        };
+
+        public static Airport JHB = new Airport
+        {
+            Name = "Senai International Airport",
+            ServingDestinations = new List<Destination> { MalaysiaDestinations.JohorBahru },
+            IATACode = "JHB",
+            AirportType = AirportTypes.International
+        };
+
+        public static Airport MYY = new Airport
+        {
+            Name = "Miri Airport",
+            ServingDestinations = new List<Destination> { },
+            IATACode = "MYY",
+            AirportType = AirportTypes.Domestic
+        };
+
+        public static Airport AOR = new Airport
+        {
+            Name = "Sultan Abdul Halim Airport",
+            ServingDestinations = new List<Destination> { MalaysiaDestinations.AlorSatar },
+            IATACode = "AOR",
+            AirportType = AirportTypes.Domestic
+        };
+
+        public static Airport KBR = new Airport
+        {
+            Name = "Sultan Ismail Petra",
+            ServingDestinations = new List<Destination> { MalaysiaDestinations.KotaBaharu },
+            IATACode = "KBR",
+            AirportType = AirportTypes.Domestic
+        };
+
+        public static Airport TGG = new Airport
+        {
+            Name = "Sultan Mahmud Airport",
+            ServingDestinations = new List<Destination> { MalaysiaDestinations.KualaTerengganu },
+            IATACode = "TGG",
+            AirportType = AirportTypes.Domestic
+        };
+
+        public static Airport SZB = new Airport
+        {
+            Name = "Sultan Abdul Aziz Shah",
+            ServingDestinations = new List<Destination> { MalaysiaDestinations.Subang },
+            IATACode = "SZB",
+            AirportType = AirportTypes.Domestic
+        };
+
 
         public static Airport SBW = new Airport
         {
@@ -40,7 +114,13 @@ namespace StaticData.Malaysia
         //TWU Tawau Airport Tawau   2	5
         //MZV Mulu Airport Mulu    2	4
         //KUA Kuantan Airport Kuantan 2	3
-        //IPH Sultan Azlan Shah Airport Ipoh    2	1
+        public static Airport IPH = new Airport
+        {
+            Name = "Sultan Azlan Shah Airport",
+            ServingDestinations = new List<Destination> { MalaysiaDestinations.Ipoh },
+            IATACode = "IPH",
+            AirportType = AirportTypes.Domestic
+        };
         //LGL Long Lellang Airport    Long Datih  1	2
         //ODN Long Seridan Airport    Long Seridan    1	2
         //LMN Limbang Airport Limbang 1	1
@@ -55,12 +135,12 @@ namespace StaticData.Malaysia
 
 
         public static ICollection<Airport> GetAll()
-        {
+            { 
 
 
             return new List<Airport>
             {
-                SBW
+                BKI,PEN,LGK,KCH,JHB,MYY,AOR,KBR,TGG,SZB,SBW,KUL,IPH
             };
 
         }

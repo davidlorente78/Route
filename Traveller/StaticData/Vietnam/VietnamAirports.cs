@@ -8,18 +8,18 @@ using Traveller.StaticData;
 
 namespace StaticData.Vietnam
 {
-     public  class VietnamAirports
+    public class VietnamAirports
     {
         #region International Airports
         public static Airport SGN = new Airport
         {
             Name = "Tan Son Nhat International Airport",
-            ServingDestinations = new List<Destination> { VietnamDestinations.HoChiMinh },          
+            ServingDestinations = new List<Destination> { VietnamDestinations.HoChiMinh },
             IATACode = "SGN",
             AirportType = AirportTypes.International
 
         };
-     
+
         public static Airport HAN = new Airport
         {
             Name = "Noi Bai International Airport",
@@ -28,7 +28,7 @@ namespace StaticData.Vietnam
             AirportType = AirportTypes.International
 
         };
-             
+
         public static Airport DAD = new Airport
         {
             Name = "Da Nang International Airport",
@@ -37,7 +37,7 @@ namespace StaticData.Vietnam
             AirportType = AirportTypes.International
 
         };
-       
+
         public static Airport HPH = new Airport
         {
             Name = "Cat Bi International Airport",
@@ -47,7 +47,7 @@ namespace StaticData.Vietnam
 
         };
 
-     
+
         public static Airport VCL = new Airport
         {
             Name = "Chu Lai International Airport",
@@ -56,7 +56,7 @@ namespace StaticData.Vietnam
             AirportType = AirportTypes.International
 
         };
-        
+
 
         public static Airport PQC = new Airport
         {
@@ -66,7 +66,7 @@ namespace StaticData.Vietnam
             AirportType = AirportTypes.International
 
         };
-       
+
         public static Airport VCA = new Airport
         {
             Name = "Can Tho International Airport",
@@ -97,18 +97,105 @@ namespace StaticData.Vietnam
             AirportType = AirportTypes.Domestic
 
         };
-        //CXR Cam Ranh Airport    Nha Trang	3	4
-        //VII Vinh Airport Vinh	3	5
-        //DLI Lien Khuong Airport Da Lat	2	3
-        //HUI Phu Bai Airport Hue	2	2
-        //UIH Phu Cat Airport Quy Nohn	2	2
-        //CAH Cà Mau Airport  Ca Mau City	1	1
-        //VCS Co Ong Airport  Con Dao	1	2
-        //DIN Dien Bien Phu Airport Dien Bien Phu	1	1
-        //PXU Pleiku Airport Pleiku	1	3
-        //VKG Rach Gia Airport    Rach Gia	1	1
-        //TBB Dong Tac Airport    Tuy Hoa	1	2
-        //VDH Dong Hoi Airport    Dong Hoi	1	2
+
+        public static Airport CXR = new Airport
+        {
+            Name = "Cam Ranh Airport",
+            ServingDestinations = new List<Destination> { VietnamDestinations.NhaTrang },
+            IATACode = "CXR",
+            AirportType = AirportTypes.Domestic
+
+        };
+
+        public static Airport VII = new Airport
+        {
+            Name = "Vinh Airport",
+            ServingDestinations = new List<Destination> { VietnamDestinations.Vinh },
+            IATACode = "VII",
+            AirportType = AirportTypes.Domestic
+
+        };
+
+        public static Airport DLI = new Airport
+        {
+            Name = "Lien Khuong Airport",
+            ServingDestinations = new List<Destination> { VietnamDestinations.DaLat },
+            IATACode = "DLI",
+            AirportType = AirportTypes.Domestic
+
+        };
+
+        public static Airport UIH = new Airport
+        {
+            Name = "Phu Cat Airport",
+            ServingDestinations = new List<Destination> { VietnamDestinations.QuyNohn },
+            IATACode = "UIH",
+            AirportType = AirportTypes.Domestic
+
+        };
+
+        public static Airport CAH = new Airport
+        {
+            Name = "Cà Mau Airport",
+            ServingDestinations = new List<Destination> { VietnamDestinations.CàMau },
+            IATACode = "CAH",
+            AirportType = AirportTypes.Domestic
+
+        };
+
+        public static Airport VCS = new Airport
+        {
+            Name = "Co Ong Airport",
+            ServingDestinations = new List<Destination> { VietnamDestinations.ConDao },
+            IATACode = "VCS",
+            AirportType = AirportTypes.Domestic
+
+        };
+
+        public static Airport DIN = new Airport
+        {
+            Name = "Dien Bien Phu Airport",
+            ServingDestinations = new List<Destination> { VietnamDestinations.DienBienPhu },
+            IATACode = "DIN",
+            AirportType = AirportTypes.Domestic
+
+        };
+        public static Airport PXU = new Airport
+        {
+            Name = "Pleiku Airport",
+            ServingDestinations = new List<Destination> { VietnamDestinations.Pleiku },
+            IATACode = "PXU",
+            AirportType = AirportTypes.Domestic
+
+        };
+
+        public static Airport VKG = new Airport
+        {
+            Name = "Rach Gia Airport",
+            ServingDestinations = new List<Destination> { VietnamDestinations.RachGia },
+            IATACode = "VKG",
+            AirportType = AirportTypes.Domestic
+
+        };
+
+        public static Airport TBB = new Airport
+        {
+            Name = "Dong Tac Airport",
+            ServingDestinations = new List<Destination> { VietnamDestinations.TuyHoa },
+            IATACode = "TBB",
+            AirportType = AirportTypes.Domestic
+
+        };
+
+        public static Airport VDH = new Airport
+        {
+            Name = "Dong Hoi Airport",
+            ServingDestinations = new List<Destination> { VietnamDestinations.DongHoi },
+            IATACode = "VDH",
+            AirportType = AirportTypes.Domestic
+
+        };
+
         #endregion
 
         public static ICollection<Airport> GetAll()
@@ -116,22 +203,28 @@ namespace StaticData.Vietnam
 
 
             return new List<Airport> {
-                   SGN,HUI,HAN, VCA,PQC,VCL,HPH,DAD,BMV
-                    //BMV Buon Ma Thuot Airport Buon Ma Thuot	3	4
-                    //CXR Cam Ranh Airport    Nha Trang	3	4
-                    //VII Vinh Airport Vinh	3	5
-                    //DLI Lien Khuong Airport Da Lat	2	3
-                    //HUI Phu Bai Airport Hue	2	2
-                    //UIH Phu Cat Airport Quy Nohn	2	2
-                    //CAH Cà Mau Airport  Ca Mau City	1	1
-                    //VCS Co Ong Airport  Con Dao	1	2
-                    //DIN Dien Bien Phu Airport Dien Bien Phu	1	1
-                    //PXU Pleiku Airport Pleiku	1	3
-                    //VKG Rach Gia Airport    Rach Gia	1	1
-                    //TBB Dong Tac Airport    Tuy Hoa	1	2
-                    //VDH Dong Hoi Airport    Dong Hoi	1	2
+                SGN,
+                HUI,
+                HAN,
+                VCA,
+                PQC,
+                VCL,
+                HPH,
+                DAD,
+                BMV,
+                CXR,
+                VII,
+                DLI ,
+                UIH ,
+                CAH ,
+                VCS ,
+                DIN ,
+                PXU ,
+                VKG ,
+                TBB ,
+                VDH
 
-              };
+            };
         }
     }
 }

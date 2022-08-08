@@ -6,6 +6,7 @@ using StaticData.Laos;
 using StaticData.Malaysia;
 using StaticData.Thailand;
 using StaticData.Vietnam;
+using StaticData.Nepal;
 using Traveller.Domain;
 using Traveller.StaticData;
 
@@ -65,16 +66,15 @@ namespace RouteDataManager.Repositories
                 Name = "Nepal",
                 ShowInDynamicHome = true,
                 ShowInDynamicHomeOrder = 4,
-                Destinations = new List<Destination> { NepalDestinations.KTM },
-                //La lista de fronteras que se especifican son los puntos de entrada a Singapore
-                //El origen de la frontera es el del pais de entrada 
-                //El destino es la frontera del pais al que se entra. En este caso WoodLands
+                Destinations = new List<Destination> { NepalDestinations.Kathmandu },
+                Airports = NepalAirports.GetAll(),
+
                 Frontiers = new List<Frontier> {
 
                             new Frontier {
-                            Name = NepalDestinations.KTM.Name,
-                            Origin = NepalDestinations.KTM,
-                            Final = NepalDestinations.KTM,
+                            Name = NepalAirports.KTM.Name,
+                            Origin = NepalDestinations.Kathmandu,
+                            Final = NepalDestinations.Kathmandu,
                             FrontierType = FrontierTypes.Terrestrial,
                             Visas = new List<Visa> { NepalVisas.OnArrivalVisa15, NepalVisas.OnArrivalVisa30, NepalVisas.OnArrivalVisa90, NepalVisas.FreeVisa } },
                         },

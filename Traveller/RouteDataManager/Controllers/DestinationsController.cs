@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RouteDataManager.Repositories;
 using RouteDataManager.ViewModels;
+using System.Linq;
 using Traveller.Domain;
 
 namespace RouteDataManager.Controllers
@@ -23,20 +24,26 @@ namespace RouteDataManager.Controllers
 
             if (destinationIndexViewModel.FilterCountry.CountryID != 0)
             {
-                applicationContext = _context.Destinations.Where(d => d.CountryID == destinationIndexViewModel.FilterCountry.CountryID).Include(d => d.Country).Include(d => d.DestinationTypes).OrderBy(c => c.Country.Name);
-
-                //applicationContext = _context.Destinations.Where(d => d.CountryID == destinationIndexViewModel.FilterCountry.CountryID && d.DestinationTypes.DestinationTypeID == destinationIndexViewModel.FilterDestinationType.DestinationTypeID).Include(d => d.Country).Include(d => d.DestinationType).OrderBy(c => c.Country.Name);
+                applicationContext = _context.Destinations
+                    .Where(
+                        d => d.CountryID == destinationIndexViewModel.FilterCountry.CountryID
+                        && 
+                        d.DestinationTypes.Select(d=>d.DestinationTypeID).Contains(destinationIndexViewModel.FilterDestinationType.DestinationTypeID)
+                     )
+                    .Include(d => d.Country)
+                    .Include(d => d.DestinationTypes)
+                    .OrderBy(d => d.Name);
             }
             else
             {
-                applicationContext = _context.Destinations.Include(d => d.Country).Include(d => d.DestinationTypes).OrderBy(c => c.Country.Name);
+                applicationContext = _context.Destinations.Include(d => d.Country).Include(d => d.DestinationTypes).OrderBy(d => d.Name);
             }
 
             SelectList selectListCountries = new SelectList(_context.Countries, "CountryID", "Name", destinationIndexViewModel.FilterCountry.CountryID);
-            //SelectList selectListDestinationTypes = new SelectList(_context.DestinationTypes, "DestinationTypeID", "Description", destinationIndexViewModel.FilterDestinationType.DestinationTypeID);
+            SelectList selectListDestinationTypes = new SelectList(_context.DestinationTypes, "DestinationTypeID", "Description", destinationIndexViewModel.FilterDestinationType.DestinationTypeID);
 
             destinationIndexViewModel.SelectListCountries = selectListCountries;
-            //destinationIndexViewModel.SelectListDestinationTypes = selectListDestinationTypes;
+            destinationIndexViewModel.SelectListDestinationTypes = selectListDestinationTypes;
             destinationIndexViewModel.Destinations = await applicationContext.ToListAsync();
 
             return PartialView(destinationIndexViewModel);

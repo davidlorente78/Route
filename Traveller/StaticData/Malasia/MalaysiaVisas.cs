@@ -10,12 +10,12 @@ namespace Traveller.StaticData
             Currency = '$',
             Fee = 0,
             Entries = 'S',
-            Name = "Visado gratuito para estancias inferiores a 90 dias",
+            Name = "Free visa for stays of less than 90 days",
             Validity = 0,
             OnLine = false,
             OnArrival = true,
             Duration = 90,
-            Category = "Visado gratuito para estancias inferiores a 90 dias.",
+            Category = "Free visa for stays of less than 90 days.",
             Extensible = true,
             QualifyNationalities = "E"
 

@@ -24,7 +24,7 @@ namespace Traveller.StaticData
         public static Destination QuiNhon = new Destination { CountryID = 2, DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism }, Description = "Qui Nhon", Name = "Qui Nhon" };
 
         /// Las localidades ligadas a un aeropuerto deben tener tambien informado el CountryID para evitar conflicto con FK
-        public static Destination Hanoi = new Destination { CountryID = 2, DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism }, Name = "Hanoi" };
+        public static Destination Hanoi = new Destination { CountryID = 2, DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism , DestinationTypes.Airport}, Name = "Hanoi" };
         public static Destination HoChiMinh = new Destination { CountryID = 2, DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism }, Name = "Ho Chi Minh" };
         public static Destination Hue = new Destination { CountryID = 2, DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }, Name = "Hue", };
         public static Destination Danang = new Destination { CountryID = 2,DestinationTypes = new List<DestinationType> { DestinationTypes.Airport , DestinationTypes.Tourism }, Name = "Danang", };
@@ -33,6 +33,18 @@ namespace Traveller.StaticData
         public static Destination PhuQuoc = new Destination { CountryID = 2,DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }, Name = "Phu Quoc Island", };
         public static Destination CanTho = new Destination { CountryID = 2, DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }, Name = "Can Tho", };
         public static Destination BuonMaThuot = new Destination { CountryID = 2, DestinationTypes = new List<DestinationType> { DestinationTypes.Airport }, Name = "Buon Ma Thuot", LocalName= "Buôn Ma Thuột" };
+
+        public static Destination DongHoi = new Destination { CountryID = 2, Name = "Dong Hoi", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
+        public static Destination TuyHoa = new Destination { CountryID = 2, Name = "Tuy Hoa", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
+        public static Destination RachGia = new Destination { CountryID = 2, Name = "Rach Gia", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
+        public static Destination Pleiku = new Destination { CountryID = 2, Name = "Pleiku", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
+        public static Destination DienBienPhu = new Destination { CountryID = 2, Name = "Dien Bien Phu", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
+        public static Destination ConDao = new Destination { CountryID = 2, Name = "Con Dao", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
+        public static Destination CàMau = new Destination { CountryID = 2, Name = "Cà Mau", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
+        public static Destination QuyNohn = new Destination { CountryID = 2, Name = "Quy Nohn", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
+        public static Destination DaLat = new Destination { CountryID = 2, Name = "Da Lat", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
+        public static Destination Vinh = new Destination { CountryID = 2, Name = "Vinh", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
+        public static Destination NhaTrang = new Destination { CountryID = 2, Name = "Nha Trang", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
 
         public static List<Destination> GetStaticAll()
         {
@@ -58,6 +70,17 @@ namespace Traveller.StaticData
                 VietnamDestinations.PhuQuoc,
                 VietnamDestinations.CanTho,
                 VietnamDestinations.BuonMaThuot,
+                VietnamDestinations.DongHoi,
+                VietnamDestinations.TuyHoa,
+                VietnamDestinations.RachGia,
+                VietnamDestinations.Pleiku,
+                VietnamDestinations.DienBienPhu,
+                VietnamDestinations.ConDao,
+                VietnamDestinations.CàMau,
+                VietnamDestinations.QuyNohn,
+                VietnamDestinations.DaLat,
+                VietnamDestinations.Vinh,
+                VietnamDestinations.NhaTrang,
 
             };
         }

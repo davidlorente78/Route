@@ -12,6 +12,7 @@ namespace StaticData.Laos
             Name = "Laos",
             Destinations = LaosDestinations.GetAll(),
             Frontiers = LaosFrontiers.GetAll(),
+            Airports = LaosAirports.GetAll(),
             Ranges = new List<RangeChar> { LaosRanges.SeasonRange },
             ShowInDynamicHome = true,
             ShowInDynamicHomeOrder = 1

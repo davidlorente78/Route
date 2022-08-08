@@ -1,5 +1,6 @@
 ﻿
 
+using StaticData.Laos;
 using Traveller.Domain;
 
 namespace Traveller.StaticData
@@ -30,8 +31,9 @@ namespace Traveller.StaticData
             Country Laos = new Country
             {
                 Name = "Laos",
-                //Frontiers = LaosFrontiers.Frontiers,
-                Destinations = new List<Destination> { LaosDestinations.LPQ, LaosDestinations.VTE, LaosDestinations.VTE },
+                Frontiers = LaosFrontiers.GetAll(),
+                Destinations = LaosDestinations.GetAll(),
+                Airports = LaosAirports.GetAll(),
                 //Visas = new List<Visa> { LaosVisas.eLaoVisa, LaosVisas.LaoVisa }
             };
 

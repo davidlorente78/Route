@@ -1,4 +1,5 @@
 ﻿using StaticData;
+using StaticData.Laos;
 using Traveller.Domain;
 
 namespace Traveller.StaticData
@@ -6,26 +7,7 @@ namespace Traveller.StaticData
     public static class LaosFrontiers
     {
 
-        public static Frontier VTE = new Frontier
-        {
-            Name = LaosDestinations.VTE.Name,
-            Description = LaosDestinations.VTE.Description,
-            Origin = LaosDestinations.VTE,
-            Final = LaosDestinations.VTE,
-            FrontierType = FrontierTypes.Airport,
-            Visas = new List<Visa> { { LaosVisas.eLaoVisa } }
-        };
-
-        public static Frontier LPQ = new Frontier
-        {
-            Name = LaosDestinations.LPQ.Name,
-            Description = LaosDestinations.LPQ.Description,
-            Origin = LaosDestinations.LPQ,
-            Final = LaosDestinations.LPQ,
-            FrontierType = FrontierTypes.Airport,
-            Visas = new List<Visa> { { LaosVisas.eLaoVisa } }
-        };
-
+  
         public static Frontier Frienship_Bridge_I = new Frontier
         {
             Name = "Thailand Laos Frienship Bridge I",
@@ -36,16 +18,7 @@ namespace Traveller.StaticData
             Visas = new List<Visa> { { LaosVisas.eLaoVisa } }
         };
 
-        public static Frontier PAK = new Frontier
-        {
-            Name = "Pakse International Airport (Champasack Province)",
-            Origin = LaosDestinations.PAK,
-            Final = LaosDestinations.PAK,
-            FrontierType = FrontierTypes.Terrestrial,
-            Visas = new List<Visa> { { LaosVisas.eLaoVisa } }
-        };
-
-       
+    
 
         public static Frontier Frienship_Bridge_II = new Frontier
         {
@@ -63,7 +36,7 @@ namespace Traveller.StaticData
             Name = "Thailand Laos Chiang Khong - Huay Xai",
             Origin = ThailandDestinations.ChiangKhong,
             Final = LaosDestinations.HuayXai,
-            Description = "No acepta visado electronico pero permite hacer la travesia del Mekong hacia Luang Prabang en sentido único y descendente",
+            Description = "It does not accept electronic visa but it allows to make the crossing of the Mekong to Luang Prabang in one way and downstream.",
             FrontierType = FrontierTypes.Terrestrial,
             Visas = new List<Visa> { { LaosVisas.LaoVisa } }
 
@@ -80,8 +53,8 @@ namespace Traveller.StaticData
 
 
         public static Frontier TayTrangTaichang = new Frontier {
-            Name = "Laos Vietnam  Sop Hun Tay Trang ",
-            Description = "Usado por autobuses que van desde Vientiane hacia Hanoi y viceversa. Tambien es posible utilizarlo si se va o viene de Sapa (Vietnam)",
+            Name = "Laos Vietnam  Sop Hun - Tay Trang ",
+            Description = "Used by buses going from Vientiane to Hanoi and vice versa. It is also possible to use it if you are going to or coming from Sapa (Vietnam).",
             Origin = VietnamDestinations.TayTrang,
             Final = LaosDestinations.SopHun,
             FrontierType = FrontierTypes.Terrestrial,
@@ -91,8 +64,8 @@ namespace Traveller.StaticData
 
         public static Frontier NamkanNhapCanh =  new Frontier
         {
-            Name = "Laos Vietnam Namkan NhapCanh ",
-            Description = "Usado por autobuses que van desde Vientiane o Luang Prabang hacia Hanoi y viceversa. Tambien es posible utilizarlo si se va o viene de Sapa (Vietnam)",
+            Name = "Laos Vietnam Namkan - Nhap Canh ",
+            Description = "It is used by buses going from Vientiane or Luang Prabang to Hanoi and vice versa. It is also possible to use it if you are coming or going from Sapa (Vietnam).",
             Origin = VietnamDestinations.NhapCanh,
             Final = LaosDestinations.Namkan,
             FrontierType = FrontierTypes.Terrestrial,
@@ -101,8 +74,8 @@ namespace Traveller.StaticData
 
 
         public static Frontier DansavanhLaoBao = new Frontier {
-            Name = "Laos Vietnam Lao Bao Dansavanh ",
-            Description = "Paso fronterizo a la altura de Hue. En la misma frontera hay autobuses que salen hacia Pakse (Laos) y  otra terminal de autobuses con destino a Savannakhet (5h)",
+            Name = "Laos Vietnam Lao Bao - Dansavanh ",
+            Description = "Border crossing near Hue. At the same border there are buses to Pakse (Laos) and another bus terminal to Savannakhet.",
             Origin = VietnamDestinations.LaoBao,
             Final = LaosDestinations.Dansavanh,
             FrontierType = FrontierTypes.Terrestrial,
@@ -113,8 +86,8 @@ namespace Traveller.StaticData
 
         public static Frontier NamPhaoCauTreo = new Frontier
         {
-            Name = "Laos Vietnam Nam Phao CauTreo",
-            Description = "Paso fronterizo a la altura de Vinh",
+            Name = "Laos Vietnam Nam Phao - Cau Treo",
+            Description = "Border crossing point near Vinh",
             Origin = VietnamDestinations.CauTreo,
             Final = LaosDestinations.NamPhao,
             FrontierType = FrontierTypes.Terrestrial,
@@ -123,17 +96,53 @@ namespace Traveller.StaticData
 
         };
 
-                         
-                         
+        public static List<Frontier> GetAll()
 
-        public static ICollection<Frontier> GetAll()
+        {
+            List<Frontier> terrestrial = GetAllTerrestrialFrontiers();
+
+            List<Frontier> frontiersFromAirports = CreateFrontiersFromInternationalAirports();
+
+            terrestrial.AddRange(frontiersFromAirports);
+
+            return terrestrial;
+
+        }
+
+        public static List<Frontier> CreateFrontiersFromInternationalAirports()
+        {
+            List<Frontier> frontiers = new List<Frontier>();
+
+
+            var airports = LaosAirports.GetAll();
+
+            foreach (var airport in airports.Where(a => a.AirportType == AirportTypes.International))
+            {
+
+                Frontier frontierFromAirport = new Frontier()
+                {
+                    Name = airport.Name,
+                    Description = airport.Name,
+                    Origin = airport.ServingDestinations.FirstOrDefault(),
+                    Final = airport.ServingDestinations.FirstOrDefault(),
+                    FrontierType = FrontierTypes.Airport,
+                    Visas = new List<Visa> { ThailandVisas.VisaExemption },
+                };
+
+                frontiers.Add(frontierFromAirport);
+
+
+            }
+
+            return frontiers;
+
+        }
+        public static List<Frontier> GetAllTerrestrialFrontiers()
         {
             return new List<Frontier> {
-                LaosFrontiers.LPQ,
-                LaosFrontiers.VTE,
+          
                 LaosFrontiers.Frienship_Bridge_I,
                 LaosFrontiers.Frienship_Bridge_II,
-                LaosFrontiers.PAK ,
                 LaosFrontiers.ChiangKhongHuayXai,
                 LaosFrontiers.ChongMekVangTao,
                 LaosFrontiers.NamkanNhapCanh ,

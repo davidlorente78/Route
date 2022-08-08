@@ -5,7 +5,8 @@ namespace Traveller.StaticData
 {
     public static class NepalDestinations
     {
-        public static Destination KTM = new Destination { Name = "Tribhuvan International Airport", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport }, Description = "Katmandu International Airport"  };
+        public static Destination Kathmandu  = new Destination {  CountryID = 7, Name = "Kathmandu", DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism } };
+
     }
 
 }

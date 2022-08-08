@@ -11,8 +11,8 @@ namespace Domain
         public char Type { get; set; }  // T B
         public string? Remarks { get; set; }
         public ICollection<Destination>? ServingDestinations { get; set; }
-        public ICollection<Destination>? MajorLandmarks { get; set; }
-        public ICollection<Destination>? InterchangeStations { get; set; }
+        //public ICollection<Destination>? MajorLandmarks { get; set; }
+        //public ICollection<Destination>? InterchangeStations { get; set; }
 
     }
     

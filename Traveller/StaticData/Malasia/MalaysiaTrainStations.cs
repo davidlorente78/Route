@@ -124,7 +124,7 @@ namespace StaticData.Malaysia
         {
             Type = 'T',
             Name = "Gemas",
-            Remarks = "the station is the meeting point of and the railway junction connecting the West Coast Line (Padang Besar–Singapore) with the East Coast Line (Tumpat–Gemas)"
+            Remarks = "The station is the meeting point of and the railway junction connecting the West Coast Line (Padang Besar–Singapore) with the East Coast Line (Tumpat–Gemas)"
         };
 
 

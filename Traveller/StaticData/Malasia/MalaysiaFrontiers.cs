@@ -5,24 +5,53 @@ namespace StaticData.Malaysia
 {
     public class MalaysiaFrontiers
     {
+        public static List<Frontier> GetAll()
 
-        public static ICollection<Frontier> GetAll()
+        {
+            List<Frontier> terrestrial = GetAllTerrestrialFrontiers();
+
+            List<Frontier> frontiersFromAirports = CreateFrontiersFromInternationalAirports();
+
+            terrestrial.AddRange(frontiersFromAirports);
+
+            return terrestrial;
+
+        }
+
+        public static List<Frontier> CreateFrontiersFromInternationalAirports()
+        {
+            List<Frontier> frontiers = new List<Frontier>();
+
+
+            var airports = MalaysiaAirports.GetAll();
+
+            foreach (var airport in airports.Where(a => a.AirportType == AirportTypes.International))
+            {
+
+                Frontier frontierFromAirport = new Frontier()
+                {
+                    Name = airport.Name,
+                    Description = airport.Name,
+                    Origin = airport.ServingDestinations.FirstOrDefault(),
+                    Final = airport.ServingDestinations.FirstOrDefault(),
+                    FrontierType = FrontierTypes.Airport,
+                    Visas = new List<Visa> { ThailandVisas.VisaExemption },
+                };
+
+                frontiers.Add(frontierFromAirport);
+
+
+            }
+
+            return frontiers;
+
+        }
+        public static List<Frontier> GetAllTerrestrialFrontiers()
         {
             return  new List<Frontier> {
 
 
-                new Frontier {
-                    Name = MalaysiaDestinations.KUL.Name,
-                    Origin = MalaysiaDestinations.KUL,
-                    Final = MalaysiaDestinations.KUL,
-                    FrontierType = FrontierTypes.Airport,
-                    Visas = new List<Visa> { MalaysiaVisas.freeVisa, MalaysiaVisas.eVisa }
-                    
-
-                }
-
-                         ,
-                new Frontier {
+               new Frontier {
                     Name = "Padang Pesar",
                     Origin = ThailandDestinations.PadangPesar,
                     Final = MalaysiaDestinations.PadangPesar,

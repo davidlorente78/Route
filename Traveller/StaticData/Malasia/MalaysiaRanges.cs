@@ -5,7 +5,9 @@ namespace StaticData.Malaysia
 {
     public class MalaysiaRanges
     {
-
+        /// <summary>
+        /// Use this string to define faster Dictionary Items above
+        /// </summary>
         private static string SeasonDefinition = "AABBBBMMMMMB";
 
 
