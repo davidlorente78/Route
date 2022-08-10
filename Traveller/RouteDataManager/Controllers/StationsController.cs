@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Domain;
 using RouteDataManager.Repositories;
+using RouteDataManager.ViewModels;
 
 namespace RouteDataManager.Controllers
 {
@@ -18,13 +19,48 @@ namespace RouteDataManager.Controllers
         {
             _context = context;
         }
-
-        // GET: Stations
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(StationIndexViewModel stationIndexViewModel)
         {
-              return _context.Stations != null ? 
-                          View(await _context.Stations.ToListAsync()) :
-                          Problem("Entity set 'ApplicationContext.Station'  is null.");
+            IOrderedQueryable<Station>? applicationContext;
+            IQueryable<Line>? itemsSelectLines = _context.Lines;
+
+            if (stationIndexViewModel.FilterCountry.CountryID != 0)
+            {
+                itemsSelectLines = _context.Lines.Where(l => l.CountryID == stationIndexViewModel.FilterCountry.CountryID);
+                stationIndexViewModel.FilterLine = itemsSelectLines.FirstOrDefault();
+                applicationContext = _context.Stations
+                    .Where(
+                        s => s.ServingDestinations.Select(d => d.CountryID).Contains(stationIndexViewModel.FilterCountry.CountryID)
+                     )
+                    .Include(s => s.ServingDestinations)
+                    .OrderBy(s => s.StationID);
+            }
+            else
+            {
+                applicationContext = _context.Stations.Include(s => s.ServingDestinations).OrderBy(s => s.Name);
+            }
+
+            SelectList selectListCountries = new SelectList(_context.Countries, "CountryID", "Name", stationIndexViewModel.FilterCountry.CountryID);
+            SelectList selectListLines = new SelectList(itemsSelectLines.ToList(), "LineID", "Name", stationIndexViewModel.FilterLine.LineID);
+
+            stationIndexViewModel.SelectListCountries = selectListCountries;
+            stationIndexViewModel.SelectListLines = selectListLines;
+            stationIndexViewModel.Stations = await applicationContext.ToListAsync();
+
+            return PartialView(stationIndexViewModel);
+        }
+
+
+
+        public JsonResult GetLinesListByCountryID(int CountryID)
+        {
+            //https://www.findandsolve.com/articles/cascading-dropdownlist-in-net-core-5
+            //https://www.rafaelacosta.net/Blog/2019/11/24/c%C3%B3mo-crear-un-cascading-dropdownlist-en-aspnet-mvc
+
+            List<Line>? data = _context.Lines.Where(l => l.CountryID == CountryID).ToList();
+
+            var selectList = new SelectList(data, "LineID", "Name");
+            return Json(selectList);
         }
 
         // GET: Stations/Details/5
@@ -150,14 +186,14 @@ namespace RouteDataManager.Controllers
             {
                 _context.Stations.Remove(station);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool StationExists(int id)
         {
-          return (_context.Stations?.Any(e => e.StationID == id)).GetValueOrDefault();
+            return (_context.Stations?.Any(e => e.StationID == id)).GetValueOrDefault();
         }
     }
 }

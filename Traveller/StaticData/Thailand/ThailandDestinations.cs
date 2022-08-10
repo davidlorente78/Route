@@ -278,7 +278,7 @@ namespace Traveller.StaticData
 
         {
             CountryID = 3,
-            Name = "SamutPrakan",
+            Name = "Samut Prakan",
             DestinationTypes = new List<DestinationType> { DestinationTypes.Airport }
         };
 
