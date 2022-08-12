@@ -1,12 +1,14 @@
-﻿using Traveller.Domain;
+﻿using Domain;
+using StaticData.Nationalities;
+using Traveller.Domain;
 
 namespace Traveller.StaticData
 {
-    public static class SingaporeVisa
+    public static class SingaporeVisas
     {
-        public static Visa SGArrivalCard = new Visa
+        public static Visa SGArrivalCard_Singapore = new Visa
         {
-            CountryCode = 'S',
+            
             Currency = '$',
             Fee = 0,
             Entries = 'S',
@@ -17,7 +19,7 @@ namespace Traveller.StaticData
             OnArrival = false,
             Duration = 30,
             Extensible = false,
-            QualifyNationalities = "E",
+            QualifyNationalities = new List<Nationality> { Nationalities.ES },
             URL = "https://www.ica.gov.sg/"
 
         };

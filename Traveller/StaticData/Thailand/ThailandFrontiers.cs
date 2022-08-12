@@ -17,7 +17,7 @@ namespace StaticData.Thailand
                     Description = "No es posible cruzarlo andando. Servicio regular de autobuses cada 20 minutos desde las 8AM (Puente abre a las 6AM)",
                     FrontierType = FrontierTypes.Terrestrial,
                     Visas = new List<Visa>
-                    { ThailandVisas.VisaExemption
+                    { ThailandVisas.VisaExemption_Thailand
                     },
 
                 }
@@ -31,7 +31,7 @@ namespace StaticData.Thailand
                     Final = ThailandDestinations.Mukdahan,
                     Description = "Se encuentra a unas dos horas de Nakhon Phanom y salen dos autobuses a la hora desde Mukdahan. No hay linea de tren hasta Mukdahan",
                     FrontierType = FrontierTypes.Terrestrial,
-                    Visas = new List<Visa> { ThailandVisas.VisaExemption },
+                    Visas = new List<Visa> { ThailandVisas.VisaExemption_Thailand },
 
                 }
 
@@ -44,7 +44,7 @@ namespace StaticData.Thailand
                     Final = ThailandDestinations.ChiangKhong,
                     Description = "",
                     FrontierType = FrontierTypes.Terrestrial,
-                    Visas = new List<Visa> { ThailandVisas.VisaExemption },
+                    Visas = new List<Visa> { ThailandVisas.VisaExemption_Thailand },
 
                 }
 
@@ -56,7 +56,7 @@ namespace StaticData.Thailand
                     Origin = MalaysiaDestinations.PadangPesar,
                     Final = ThailandDestinations.PadangPesar,
                    FrontierType = FrontierTypes.Terrestrial,
-                    Visas = new List<Visa> { ThailandVisas.VisaExemption },
+                    Visas = new List<Visa> { ThailandVisas.VisaExemption_Thailand },
 
                 }
 
@@ -68,7 +68,7 @@ namespace StaticData.Thailand
                     Origin = MalaysiaDestinations.RantanPanjang,
                     Final = ThailandDestinations.SungaiKolok,
                      FrontierType = FrontierTypes.Terrestrial,
-                    Visas = new List<Visa> { ThailandVisas.VisaExemption },
+                    Visas = new List<Visa> { ThailandVisas.VisaExemption_Thailand },
                 }
 
                          ,
@@ -79,7 +79,7 @@ namespace StaticData.Thailand
                     Origin = LaosDestinations.ChongMek,
                     Final = ThailandDestinations.VangTao,
                     FrontierType = FrontierTypes.Terrestrial,
-                    Visas = new List<Visa> { ThailandVisas.VisaExemption },
+                    Visas = new List<Visa> { ThailandVisas.VisaExemption_Thailand },
                 }
 
                 ,
@@ -91,32 +91,10 @@ namespace StaticData.Thailand
                     Origin = CambodiaDestinations.Poipet,
                     Final = ThailandDestinations.Aranyaprathet,
                     FrontierType = FrontierTypes.Terrestrial,
-                    Visas = new List<Visa> { ThailandVisas.VisaExemption },
+                    Visas = new List<Visa> { ThailandVisas.VisaExemption_Thailand },
                 }
 
-                 ,
-
-                //Aeropuertos Internacionales
-                //new Frontier
-                //{
-                //    Name = ThailandAirports.BKK.Name,
-                //    Origin = ThailandDestinations.Bangkok,
-                //    Final = ThailandDestinations.Bangkok,
-                //    FrontierType = FrontierTypes.Airport,
-                //    Visas = new List<Visa> { ThailandVisas.VisaExemption },
-                //}
-
-                // ,
-
-
-                //new Frontier
-                //{
-                //    Name = ThailandAirports.DMK.Name,
-                //    Origin = ThailandDestinations.Bangkok,
-                //    Final = ThailandDestinations.Bangkok,
-                //    FrontierType = FrontierTypes.Airport,
-                //    Visas = new List<Visa> { ThailandVisas.VisaExemption },
-                //}
+               
             };
         }
 
@@ -136,7 +114,7 @@ namespace StaticData.Thailand
                     Origin = airport.ServingDestinations.FirstOrDefault(),
                     Final = airport.ServingDestinations.FirstOrDefault(),
                     FrontierType = FrontierTypes.Airport,
-                    Visas = new List<Visa> { ThailandVisas.VisaExemption },
+                    Visas = new List<Visa> { ThailandVisas.VisaExemption_Thailand },
                 };
 
                 frontiers.Add(frontierFromAirport);

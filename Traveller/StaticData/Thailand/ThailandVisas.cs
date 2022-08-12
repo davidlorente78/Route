@@ -1,12 +1,13 @@
-﻿using Traveller.Domain;
+﻿using Domain;
+using StaticData.Nationalities;
+using Traveller.Domain;
 
 namespace Traveller.StaticData
 {
     public static class ThailandVisas
     {
-        public static Visa VisaExemption = new Visa
+        public static Visa VisaExemption_Thailand = new Visa
         {
-            CountryCode = 'S',
             Currency = '$',
             Fee = 0,
             Entries = 'S',
@@ -17,7 +18,7 @@ namespace Traveller.StaticData
             OnArrival = true,
             Duration = 30,
             Extensible = false,
-            QualifyNationalities = "E",
+            QualifyNationalities = new List<Nationality> { Nationalities.ES },
             URL = "https://madrid.thaiembassy.org/en/index"
 
         };

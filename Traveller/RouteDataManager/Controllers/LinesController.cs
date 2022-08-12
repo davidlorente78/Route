@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Domain;
 using RouteDataManager.Repositories;
+using RouteDataManager.ViewModels;
 
 namespace RouteDataManager.Controllers
 {
@@ -19,11 +20,38 @@ namespace RouteDataManager.Controllers
             _context = context;
         }
 
-        // GET: Lines
-        public async Task<IActionResult> Index()
+        //// GET: Lines
+        //public async Task<IActionResult> Index()
+        //{
+        //    var applicationContext = _context.Lines.Include(l => l.Country);
+        //    return View(await applicationContext.ToListAsync());
+        //}
+
+        public async Task<IActionResult> Index(LineIndexViewModel lineIndexViewModel)
         {
-            var applicationContext = _context.Lines.Include(l => l.Country);
-            return View(await applicationContext.ToListAsync());
+            IOrderedQueryable<Line>? applicationContext;
+
+            if (lineIndexViewModel.FilterCountry.CountryID != 0)
+            {
+                applicationContext = _context.Lines
+                    .Where(
+                        d => d.CountryID == lineIndexViewModel.FilterCountry.CountryID
+                     
+                     )
+                    .Include(d => d.Country)
+                    .OrderBy(d => d.Name);
+            }
+            else
+            {
+                applicationContext = _context.Lines.Include(b => b.Branches).OrderBy(b => b.LineID);
+            }
+
+            SelectList selectListCountries = new SelectList(_context.Countries, "CountryID", "Name", lineIndexViewModel.FilterCountry.CountryID);
+
+            lineIndexViewModel.SelectListCountries = selectListCountries;
+            lineIndexViewModel.Lines = await applicationContext.ToListAsync();
+
+            return PartialView(lineIndexViewModel);
         }
 
         // GET: Lines/Details/5

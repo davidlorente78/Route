@@ -1,80 +1,84 @@
-﻿@model IEnumerable<Traveller.Domain.Visa>
+﻿@using RouteDataManager.ViewModels
+@model VisaIndexViewModel
 
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
-<h4>Showing all visas</h4>
-<hr />
+<form asp-action="Index">
+
+    <div class="form-group">
+        <table class="table">
+            <thead>
+
+                <tr>
+                    <th>
+                        <label class="control-label">Country</label>
+                        <select  id ="ddlCountries" asp-for="@Model.FilterCountry.CountryID"  class="form-control" asp-items="@Model.SelectListCountries"></select>
+                    </th>
+
+                    <th>
+                        <label class="control-label">Qualify Nationality</label>
+                        <select id ="ddlNationalities" asp-for="@Model.FilterNationality.NationalityID" class="form-control" asp-items="@Model.SelectListNationalities"></select>
+                    </th>
+
+                    <th>
+
+                    </th>
+
+                    <th>
+
+                    </th>
+
+                    <th>
+                        <input type="submit" value="Search" class="btn btn-primary btn-block" />
+                    </th>
+                </tr>
+
+            </thead>
+        </table>
+
+    </div>
+</form>
+
 <p>
-     <a asp-action="Create" class="btn btn-primary rounded-0"><i class="fa fa-plus-circle"></i> Add New</a>
+    <a asp-action="Create" class="btn btn-primary rounded-0"><i class="fa fa-plus-circle"></i>Add New</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+               Name
+            </th>
+        
+            <th>
+               Description
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CountryCode)
+               On Line
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
+               On Arrival
+            </th>         
+            <th>
+              Duration
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.OnLine)
+              Entries
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.OnArrival)
+               Category
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.URL)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Duration)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Entries)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Category)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Validity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Extensible)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ExtensionDays)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CurrencyFee)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ExtensionFee)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AdditionalDaysFee)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Currency)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Fee)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.QualifyNationalities)
-            </th>
+          
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.Visas) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CountryCode)
-            </td>
+            </td>         
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
@@ -84,9 +88,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.OnArrival)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.URL)
-            </td>
+         
             <td>
                 @Html.DisplayFor(modelItem => item.Duration)
             </td>
@@ -96,39 +98,31 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Category)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Validity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Extensible)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ExtensionDays)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CurrencyFee)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ExtensionFee)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AdditionalDaysFee)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Currency)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fee)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QualifyNationalities)
-            </td>
-             <td>
-                <a asp-action="Edit" asp-route-id="@item.VisaID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.VisaID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.VisaID">Delete</a>
-            </td>
-        </tr>
+       
+
+               <td>   <a asp-action="Edit" class="btn btn-primary btn-block" asp-route-id="@item.VisaID">Edit</a></td>
+                <td>  <a asp-action="Details" class="btn btn-primary btn-block" asp-route-id="@item.VisaID">Details</a> </td>
+                <td>  <a asp-action="Delete" class="btn btn-primary btn-block" asp-route-id="@item.VisaID">Delete</a> </td>
+
+            </tr>
 }
     </tbody>
 </table>
+
+
+@*@section scripts {
+
+    <script>
+        $(document).ready(function () {
+            $("#ddlCountries").change(function () {
+                $.get("/Visas/GetNationalitiesListByCountryID", { CountryID: $("#ddlCountries").val() }, function (data) {
+                    $("#ddlNationalities").empty();                
+                    $.each(data, function (index, row) {
+                        $("#ddlNationalities").append("<option value='" + row.value + "'>" + row.text + "</option>")
+                    });
+                });
+            });
+        });
+    </script>
+
+}*@

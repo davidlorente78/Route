@@ -352,6 +352,19 @@ namespace Traveller.StaticData
             DestinationTypes = new List<DestinationType> { DestinationTypes.Airport }
         };
 
+        public static Destination KhlongYai = new Destination
+        {
+            CountryID = 3,
+            Name = "Khlong Yai",
+            DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }
+        };
+
+        public static Destination BanHatLek = new Destination
+        {
+            CountryID = 3,
+            Name = "Ban Hat Lek",
+            DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }
+        };
 
         public static List<Destination> CreateDestinationsFromStations()
         {
@@ -449,7 +462,9 @@ namespace Traveller.StaticData
                 ThailandDestinations.Rayong,
                 ThailandDestinations.Pattaya,
                 ThailandDestinations.UdonThani,
-                ThailandDestinations.Lamphun
+                ThailandDestinations.Lamphun,
+                ThailandDestinations.KhlongYai,
+                ThailandDestinations.BanHatLek
 
             };
 

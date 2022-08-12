@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Domain;
 using RouteDataManager.Repositories;
+using RouteDataManager.ViewModels;
 
 namespace RouteDataManager.Controllers
 {
@@ -19,12 +20,31 @@ namespace RouteDataManager.Controllers
             _context = context;
         }
 
-        // GET: Branches
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(BranchIndexViewModel branchIndexViewModel)
         {
-              return _context.Branches != null ? 
-                          View(await _context.Branches.ToListAsync()) :
-                          Problem("Entity set 'ApplicationContext.Branch'  is null.");
+            IOrderedQueryable<Branch>? applicationContext;
+
+            if (branchIndexViewModel.FilterCountry.CountryID != 0)
+            {
+                applicationContext = _context.Branches
+                      .Where(
+                        b => b.Line.CountryID == branchIndexViewModel.FilterCountry.CountryID)
+                        
+                     
+                    .Include(d => d.Stations)
+                    .OrderBy(d => d.Name);
+            }
+            else
+            {
+                applicationContext = _context.Branches.Include(b => b.Stations).OrderBy(b => b.Name);
+            }
+
+            SelectList selectListCountries = new SelectList(_context.Countries, "CountryID", "Name", branchIndexViewModel.FilterCountry.CountryID);
+
+            branchIndexViewModel.SelectListCountries = selectListCountries;
+            branchIndexViewModel.Branches = await applicationContext.ToListAsync();
+
+            return PartialView(branchIndexViewModel);
         }
 
         // GET: Branches/Details/5

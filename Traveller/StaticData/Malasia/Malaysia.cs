@@ -24,7 +24,8 @@ namespace StaticData.Malaysia
             TrainLines = MalaysiaTrainLines.GetAll(),
             Ranges = new List<RangeChar> { MalaysiaRanges.SeasonRange },
             ShowInDynamicHome = true,
-            ShowInDynamicHomeOrder = 3
+            ShowInDynamicHomeOrder = 3,
+            Visas = new List<Visa> { MalaysiaVisas.freeVisa_Malaysia, MalaysiaVisas.eVisa_Malaysia}
 
         };
     }

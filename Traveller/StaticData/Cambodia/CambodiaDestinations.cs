@@ -16,6 +16,13 @@ namespace Traveller.StaticData
         public static Destination PhnomPenh = new Destination { Name = "Phnom Penh", DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism , DestinationTypes.Airport } };
         public static Destination Sihanoukville = new Destination { Name = "Sihanoukville", DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism, DestinationTypes.Airport } };
 
+        public static Destination KamSamnar = new Destination { Name = "K'am Samnar", DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier } };
+
+        public static Destination Prom = new Destination { Name = "Prom", DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier } };
+
+        public static Destination ChamYeam = new Destination { Name = "Cham Yeam", DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier } };
+
+
         public static List<Destination> GetAll()
         {
 
@@ -29,6 +36,9 @@ namespace Traveller.StaticData
             destinations.Add(SiemReap);
             destinations.Add(PhnomPenh);
             destinations.Add(Sihanoukville);
+            destinations.Add(KamSamnar);
+            destinations.Add(Prom);
+            destinations.Add(ChamYeam);
 
 
             return destinations;

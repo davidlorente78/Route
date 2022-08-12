@@ -1,4 +1,6 @@
-﻿using Traveller.Domain;
+﻿using Domain;
+using StaticData.Nationalities;
+using Traveller.Domain;
 
 namespace Traveller.StaticData
 {
@@ -21,8 +23,7 @@ namespace Traveller.StaticData
 
         /// </summary>
         public static Visa eLaoVisa = new Visa
-        {
-            CountryCode = 'L',
+        {            
             Currency = '$',
             Fee = 50,
             Entries = 'S',
@@ -34,13 +35,14 @@ namespace Traveller.StaticData
             Category = "Tourism",
             Description = "Print one copy. No es valido para las entradas por las fronteras terrestres de Camboya, Vietnam y China.",
             Extensible = true,
-            
+            QualifyNationalities = new List<Nationality> { Nationalities.ES }
+
         };
 
        
         public static Visa LaoVisa = new Visa
         {
-            CountryCode = 'L',
+            
             Description = "Lao Visa on arrival",
             Currency = '$',
             Fee = 50,
@@ -53,7 +55,8 @@ namespace Traveller.StaticData
             ExtensionFee = 35,
             URL = "", //TODO Enlace para verificar que pasos estan abiertos en todo momento
             Category = "Tourism",
-           
+            QualifyNationalities = new List<Nationality> { Nationalities.ES }
+
         };
     }
 }

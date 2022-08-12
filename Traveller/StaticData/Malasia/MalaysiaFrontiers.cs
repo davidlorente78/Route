@@ -35,7 +35,7 @@ namespace StaticData.Malaysia
                     Origin = airport.ServingDestinations.FirstOrDefault(),
                     Final = airport.ServingDestinations.FirstOrDefault(),
                     FrontierType = FrontierTypes.Airport,
-                    Visas = new List<Visa> { ThailandVisas.VisaExemption },
+                    Visas = new List<Visa> { ThailandVisas.VisaExemption_Thailand },
                 };
 
                 frontiers.Add(frontierFromAirport);
@@ -56,7 +56,7 @@ namespace StaticData.Malaysia
                     Origin = ThailandDestinations.PadangPesar,
                     Final = MalaysiaDestinations.PadangPesar,
                     FrontierType = FrontierTypes.Terrestrial,
-                    Visas = new List<Visa> { MalaysiaVisas.freeVisa, MalaysiaVisas.eVisa }
+                    Visas = new List<Visa> { MalaysiaVisas.freeVisa_Malaysia, MalaysiaVisas.eVisa_Malaysia }
                 }
 
                          ,
@@ -66,7 +66,7 @@ namespace StaticData.Malaysia
                     Origin = ThailandDestinations.SungaiKolok,
                     Final = MalaysiaDestinations.RantanPanjang,
                     FrontierType = FrontierTypes.Terrestrial,
-                    Visas = new List<Visa> { MalaysiaVisas.freeVisa, MalaysiaVisas.eVisa }
+                    Visas = new List<Visa> { MalaysiaVisas.freeVisa_Malaysia, MalaysiaVisas.eVisa_Malaysia }
                 }
 
                          ,
@@ -77,7 +77,7 @@ namespace StaticData.Malaysia
                     //https://onemotoring.lta.gov.sg/content/onemotoring/home/driving/traffic_information/traffic-cameras/woodlands.html#trafficCameras
                     Final = MalaysiaDestinations.JohorBahru,
                     FrontierType = FrontierTypes.Terrestrial,
-                    Visas = new List<Visa> { MalaysiaVisas.freeVisa, MalaysiaVisas.eVisa }
+                    Visas = new List<Visa> { MalaysiaVisas.freeVisa_Malaysia, MalaysiaVisas.eVisa_Malaysia }
 
                 }
             };

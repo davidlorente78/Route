@@ -10,7 +10,7 @@ namespace StaticData.Nepal
 {
     public static class NepalAirports
     {
-        //        Los 9 aeropuertos más grandes en Nepal
+        //Los 9 aeropuertos más grandes en Nepal
         //IATA    Nombre Paraje  Aerolíneas Destinos
         //KTM Tribhuvan International Airport Kathmandu	27	32
         public static Airport KTM = new Airport
@@ -20,6 +20,7 @@ namespace StaticData.Nepal
             IATACode = "KTM",
             AirportType = AirportTypes.International
         };
+
         //BHR Bharatpur Airport Bharatpur	1	1
         //BWA Gautam Buddha Airport   Bhairawa	1	1
         //BDP Bhadrapur Airport Bhadrapur	1	1

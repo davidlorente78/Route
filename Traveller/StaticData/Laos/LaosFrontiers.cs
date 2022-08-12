@@ -126,7 +126,7 @@ namespace Traveller.StaticData
                     Origin = airport.ServingDestinations.FirstOrDefault(),
                     Final = airport.ServingDestinations.FirstOrDefault(),
                     FrontierType = FrontierTypes.Airport,
-                    Visas = new List<Visa> { ThailandVisas.VisaExemption },
+                    Visas = new List<Visa> { ThailandVisas.VisaExemption_Thailand },
                 };
 
                 frontiers.Add(frontierFromAirport);

@@ -17,7 +17,7 @@ namespace StaticData.Thailand
         {
             Code = 'T',
             Name = "Thailand",
-            Visas = new List<Visa> { ThailandVisas.VisaExemption },
+            Visas = new List<Visa> { ThailandVisas.VisaExemption_Thailand },
             Destinations = ThailandDestinations.GetAll(),
             Frontiers = ThailandFrontiers.GetAll(),
             TrainLines = ThailandTrainLines.GetAll(),

@@ -15,7 +15,8 @@ namespace StaticData.Laos
             Airports = LaosAirports.GetAll(),
             Ranges = new List<RangeChar> { LaosRanges.SeasonRange },
             ShowInDynamicHome = true,
-            ShowInDynamicHomeOrder = 1
+            ShowInDynamicHomeOrder = 1,
+            Visas = new List<Visa> { LaosVisas.LaoVisa, LaosVisas.eLaoVisa },
 
         };
 

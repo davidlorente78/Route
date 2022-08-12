@@ -47,8 +47,8 @@ namespace RouteDataManager.Repositories
 
             context.Countries.Add(DataCambodia.Cambodia);
 
-            #region Other Countries
-            //Indonesia Nepal Sri Lanka Philippines China Singapore
+            //#region Other Countries
+            ////Indonesia Nepal Sri Lanka Philippines China Singapore
 
             Country Indonesia = new Country
             {
@@ -75,10 +75,10 @@ namespace RouteDataManager.Repositories
                             Name = NepalAirports.KTM.Name,
                             Origin = NepalDestinations.Kathmandu,
                             Final = NepalDestinations.Kathmandu,
-                            FrontierType = FrontierTypes.Terrestrial,
-                            Visas = new List<Visa> { NepalVisas.OnArrivalVisa15, NepalVisas.OnArrivalVisa30, NepalVisas.OnArrivalVisa90, NepalVisas.FreeVisa } },
+                            FrontierType = FrontierTypes.Airport,
+                            Visas = new List<Visa> { NepalVisas.OnArrivalVisa15_Nepal, NepalVisas.OnArrivalVisa30_Nepal, NepalVisas.OnArrivalVisa90_Nepal, NepalVisas.FreeVisa_Nepal } },
                         },
-                Visas = new List<Visa> { NepalVisas.OnArrivalVisa15, NepalVisas.OnArrivalVisa30, NepalVisas.OnArrivalVisa90, NepalVisas.FreeVisa }
+                Visas = new List<Visa> { NepalVisas.OnArrivalVisa15_Nepal, NepalVisas.OnArrivalVisa30_Nepal, NepalVisas.OnArrivalVisa90_Nepal, NepalVisas.FreeVisa_Nepal }
             ,
 
             };
@@ -109,18 +109,18 @@ namespace RouteDataManager.Repositories
                             Final = SingaporeDestinations.Singapore,
                             FrontierType = FrontierTypes.Airport,
                            //https://www.ica.gov.sg/
-                            Visas = new List<Visa> { SingaporeVisa.SGArrivalCard } },
+                            Visas = new List<Visa> { SingaporeVisas.SGArrivalCard_Singapore } },
 
                             new Frontier {
                             Name = SingaporeDestinations.WoodlandsCheckpoint.Name,
                             Origin = MalaysiaDestinations.JohorBahru,
                             Final = SingaporeDestinations.WoodlandsCheckpoint,
                             FrontierType = FrontierTypes.Terrestrial,
-                            Visas = new List<Visa> { SingaporeVisa.SGArrivalCard } },
+                            Visas = new List<Visa> { SingaporeVisas.SGArrivalCard_Singapore } },
 
                             //Frontier https://en.wikipedia.org/wiki/Malaysia%E2%80%93Singapore_Second_Link
                         },
-                Visas = new List<Visa> { SingaporeVisa.SGArrivalCard },//Estas son las que salen en la pagina IndexView
+                Visas = new List<Visa> { SingaporeVisas.SGArrivalCard_Singapore },//Estas son las que salen en la pagina IndexView
                 Airports = new List<Airport>
                 { new Airport
                     { Name = "Singapore Changi Airport",
@@ -150,8 +150,8 @@ namespace RouteDataManager.Repositories
             context.Countries.Add(China);
 
 
-            context.SaveChanges();
-            #endregion
+            //context.SaveChanges();
+            //#endregion
 
 
             #region DemoSepakers

@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Domain;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RouteDataManager.Repositories;
+using RouteDataManager.ViewModels;
 using Traveller.Domain;
 
 namespace RouteDataManager.Controllers
@@ -19,23 +21,83 @@ namespace RouteDataManager.Controllers
             _context = context;
         }
 
-        // GET: Visas
-        public async Task<IActionResult> Index()
+        //// GET: Visas
+        //public async Task<IActionResult> Index()
+        //{
+        //      return _context.Visa != null ? 
+        //                  View(await _context.Visa.ToListAsync()) :
+        //                  Problem("Entity set 'ApplicationContext.Visa'  is null.");
+        //}
+        public async Task<IActionResult> Index(VisaIndexViewModel visaIndexViewModel)
         {
-              return _context.Visa != null ? 
-                          View(await _context.Visa.ToListAsync()) :
-                          Problem("Entity set 'ApplicationContext.Visa'  is null.");
+            IOrderedQueryable<Visa>? applicationContext;
+            IQueryable<Nationality>? itemsSelectNationalities = _context.Nationalities;
+
+            if (visaIndexViewModel.FilterCountry.CountryID != 0)
+            {
+
+
+                var checkNatinalities = _context.Visas
+                    .Where(
+                        v => v.QualifyNationalities.Select(d => d.NationalityID).Contains(visaIndexViewModel.FilterNationality.NationalityID)).ToList();
+
+                var checkCountry = _context.Visas
+                    .Where(
+                        v => v.CountryID == visaIndexViewModel.FilterCountry.CountryID).ToList();
+
+                var checkJoin = checkNatinalities.Intersect(checkCountry);
+
+                itemsSelectNationalities = _context.Nationalities;
+                visaIndexViewModel.FilterNationality = itemsSelectNationalities.FirstOrDefault();
+
+                visaIndexViewModel.Visas = checkJoin
+                  .OrderBy(v => v.Name).ToList();
+
+                //applicationContext = _context.Visas
+                //    .Where(
+                //        v => (v.QualifyNationalities.Select(d => d.NationalityID).Contains(visaIndexViewModel.FilterNationality.NationalityID)
+                //         &&
+                //        v.CountryID == visaIndexViewModel.FilterCountry.CountryID
+                //        ))                     
+                //    .Include(v => v.QualifyNationalities)
+                //    .OrderBy(v => v.Name);
+            }
+            else
+            {
+                applicationContext = _context.Visas.Include(v => v.QualifyNationalities).OrderBy(s => s.Name);
+            }
+
+            SelectList selectListCountries = new SelectList(_context.Countries, "CountryID", "Name", visaIndexViewModel.FilterCountry.CountryID);
+            SelectList selectListNationalities = new SelectList(itemsSelectNationalities.ToList(), "NationalityID", "Description", visaIndexViewModel.FilterNationality.NationalityID);
+
+            visaIndexViewModel.SelectListCountries = selectListCountries;
+            visaIndexViewModel.SelectListNationalities = selectListNationalities;
+          
+
+            return PartialView(visaIndexViewModel);
         }
 
+
+
+        //public JsonResult GetLinesListByCountryID(int CountryID)
+        //{
+        //    //https://www.findandsolve.com/articles/cascading-dropdownlist-in-net-core-5
+        //    //https://www.rafaelacosta.net/Blog/2019/11/24/c%C3%B3mo-crear-un-cascading-dropdownlist-en-aspnet-mvc
+
+        //    List<Line>? data = _context.Lines.Where(l => l.CountryID == CountryID).ToList();
+
+        //    var selectList = new SelectList(data, "NationalityID", "Description");
+        //    return Json(selectList);
+        //}
         // GET: Visas/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Visa == null)
+            if (id == null || _context.Visas == null)
             {
                 return NotFound();
             }
 
-            var visa = await _context.Visa
+            var visa = await _context.Visas
                 .FirstOrDefaultAsync(m => m.VisaID == id);
             if (visa == null)
             {
@@ -70,12 +132,12 @@ namespace RouteDataManager.Controllers
         // GET: Visas/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Visa == null)
+            if (id == null || _context.Visas == null)
             {
                 return NotFound();
             }
 
-            var visa = await _context.Visa.FindAsync(id);
+            var visa = await _context.Visas.FindAsync(id);
             if (visa == null)
             {
                 return NotFound();
@@ -121,12 +183,12 @@ namespace RouteDataManager.Controllers
         // GET: Visas/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Visa == null)
+            if (id == null || _context.Visas == null)
             {
                 return NotFound();
             }
 
-            var visa = await _context.Visa
+            var visa = await _context.Visas
                 .FirstOrDefaultAsync(m => m.VisaID == id);
             if (visa == null)
             {
@@ -141,14 +203,14 @@ namespace RouteDataManager.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Visa == null)
+            if (_context.Visas == null)
             {
                 return Problem("Entity set 'ApplicationContext.Visa'  is null.");
             }
-            var visa = await _context.Visa.FindAsync(id);
+            var visa = await _context.Visas.FindAsync(id);
             if (visa != null)
             {
-                _context.Visa.Remove(visa);
+                _context.Visas.Remove(visa);
             }
             
             await _context.SaveChangesAsync();
@@ -157,7 +219,7 @@ namespace RouteDataManager.Controllers
 
         private bool VisaExists(int id)
         {
-          return (_context.Visa?.Any(e => e.VisaID == id)).GetValueOrDefault();
+          return (_context.Visas?.Any(e => e.VisaID == id)).GetValueOrDefault();
         }
     }
 }

@@ -1,12 +1,14 @@
-﻿using Traveller.Domain;
+﻿using Domain;
+using StaticData.Nationalities;
+using Traveller.Domain;
 
 namespace Traveller.StaticData
 {
     public static class NepalVisas
     {
-        public static Visa OnArrivalVisa15 = new Visa
+        public static Visa OnArrivalVisa15_Nepal = new Visa
         {
-            CountryCode = 'N',
+           
             Currency = '$',
             Fee = 30,
             Entries = 'S',
@@ -18,15 +20,15 @@ namespace Traveller.StaticData
             Duration = 15,
             Extensible = true,
             AdditionalDaysFee = 3,
-            QualifyNationalities = "E",
+            QualifyNationalities = new List<Nationality> { Nationalities.ES},
             URL = "https://www.immigration.gov.np/page/visa-on-arrival"
 
         };
 
 
-        public static Visa OnArrivalVisa30 = new Visa
+        public static Visa OnArrivalVisa30_Nepal= new Visa
         {
-            CountryCode = 'N',
+          
             Currency = '$',
             Fee = 50,
             Entries = 'S',
@@ -38,15 +40,14 @@ namespace Traveller.StaticData
             Duration = 30,
             Extensible = true,
             AdditionalDaysFee = 3,
-            QualifyNationalities = "E",
+            QualifyNationalities = new List<Nationality> { Nationalities.ES },
             URL = "https://www.immigration.gov.np/page/visa-on-arrival"
 
         };
 
-        public static Visa OnArrivalVisa90 = new Visa
+        public static Visa OnArrivalVisa90_Nepal = new Visa
         {
-            CountryCode = 'N',
-             
+           
             Currency = '$',
             Fee = 125,
             Entries = 'S',
@@ -58,14 +59,14 @@ namespace Traveller.StaticData
             Duration = 90,
             Extensible = true,
             AdditionalDaysFee = 3,
-            QualifyNationalities = "E",
+            QualifyNationalities = new List<Nationality> { Nationalities.ES },
             URL = "https://www.immigration.gov.np/page/visa-on-arrival"
 
         };
 
-        public static Visa FreeVisa = new Visa
+        public static Visa FreeVisa_Nepal = new Visa
         {
-            CountryCode = 'N',
+           
             Currency = '$',
             Fee = 0,
             Entries = 'S',
@@ -76,7 +77,7 @@ namespace Traveller.StaticData
             OnArrival = true,
             Duration = 150,
             Extensible = false,            
-            QualifyNationalities = "C",
+            QualifyNationalities = new List<Nationality> { Nationalities.CN },
             URL = "https://www.immigration.gov.np/page/visa-on-arrival"
 
         };

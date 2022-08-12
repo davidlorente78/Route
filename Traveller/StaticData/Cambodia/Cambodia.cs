@@ -14,7 +14,8 @@ namespace StaticData.Cambodia
             Airports = CambodiaAirports.GetAll(),
             Ranges = new List<RangeChar> { CambodiaRanges.SeasonRange },
             ShowInDynamicHome = true,
-            ShowInDynamicHomeOrder = 2
+            ShowInDynamicHomeOrder = 2,
+            Visas = new List<Visa>() { CambodiaVisas.eVisa_Cambodia }
 
         };
 

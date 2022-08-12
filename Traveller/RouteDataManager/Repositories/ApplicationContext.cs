@@ -110,7 +110,7 @@ namespace RouteDataManager.Repositories
 
         public DbSet<Branch>? Branches { get; set; }
 
-        public DbSet<Visa>? Visa { get; set; }
+        public DbSet<Visa>? Visas { get; set; }
 
         public DbSet<Speaker>? Speakers { get; set; }
 
@@ -119,5 +119,7 @@ namespace RouteDataManager.Repositories
         public DbSet<Airport>? Airports { get; set; }
 
         public DbSet<AirportType>? AirportTypes { get; set; }
+        public DbSet<Nationality>? Nationalities { get; set; }
+
     }
 }

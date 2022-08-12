@@ -27,7 +27,6 @@ namespace Traveller.Domain
         public int DestinationTypeID { get; set; }
         public char? Code { get; set; }      
         public string? Description { get; set; }
-
         public ICollection<Destination> Destinations { get; set; }
 
     }

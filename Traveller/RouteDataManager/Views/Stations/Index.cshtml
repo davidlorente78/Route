@@ -5,8 +5,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<script type="text/javascript" src="/Scripts/LinesDropDownList.js"></script>
-
 <form asp-action="Index">
 
     <div class="form-group">
@@ -108,36 +106,3 @@
 
 }
 
-
-@*
-    @section scripts {
-<script>
-
-    
-    $(document).ready(function () {
-        getLineListByCountryId();
-    })
-    $("#ddlCountries").change(function () {
-        getLineListByCountryId();
-    });
-    var getLineListByCountryId = function () {
-        $.ajax({
-            url: '@Url.Action("GetLinesListByCountryID","Stations")',
-            type: 'GET',
-            data: {
-                CountryID: $('#ddlCountries').val()
-            },
-            success: function (data) {
-                $('#ddlLines').find('option').remove()
-                $.each(data, function (index, row) {
-                        $('#ddlLines').append('<option value="' + row.LineID + '">' + row.Name + '</option>')
-                    });
-            },
-            error: function () {
-            }
-        });
-    }
-
-</script>
-*@
-}

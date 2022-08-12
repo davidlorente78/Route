@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Domain;
+using System.ComponentModel;
 
 namespace Traveller.Domain
 {
@@ -8,15 +9,12 @@ namespace Traveller.Domain
       
         public int VisaID { get; set; }
         public string Name { get; set; }
-        [DisplayName("Country Code")]
-        public char CountryCode { get; set; }
         public string? Description { get; set; }
         [DisplayName("On Line")]
         public bool? OnLine { get; set; }
         [DisplayName("On Arrival")]
         public bool? OnArrival { get; set; }
         public string? URL { get; set; }
-
         public int? Duration { get; set; }
         public char? Entries { get; set; }
         public string? Category { get; set; }
@@ -29,17 +27,14 @@ namespace Traveller.Domain
         [DisplayName("Currency")]
         public int? ExtensionFee { get; set; }
         [DisplayName("Additional Days Fee")]
-        public int? AdditionalDaysFee { get; set; }
-         
-
-
+        public int? AdditionalDaysFee { get; set; }         
         public char? Currency { get; set; }
         public int? Fee { get; set; }
         [DisplayName("Qualify Nationalities")]
-        public string? QualifyNationalities { get; set; }
+        public List<Nationality> QualifyNationalities { get; set; }
+        public int CountryID { get; set; }
+        public virtual Country Country { get; set; }
 
 
-
-
-}
+    }
 }
