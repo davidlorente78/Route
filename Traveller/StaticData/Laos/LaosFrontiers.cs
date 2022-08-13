@@ -15,6 +15,8 @@ namespace Traveller.StaticData
             Origin = ThailandDestinations.NongKhai,
             Final = LaosDestinations.Vientiane,
             FrontierType = FrontierTypes.Terrestrial,
+            Description = "With a “Friendship Bridge” separating the two countries, this border can be crossed easily using international buses, private taxis, or a tuk-tuk. You should be wary of any taxi or tuk-tuk drivers trying to take you anywhere other than the crossing itself as they are likely trying to get you to use and pay for the service of a travel agent who won’t do much more than fill out the forms for you.",
+
             Visas = new List<Visa> { { LaosVisas.eLaoVisa } }
         };
 
@@ -23,7 +25,8 @@ namespace Traveller.StaticData
         public static Frontier Frienship_Bridge_II = new Frontier
         {
             Name = "Thailand Laos Frienship Bridge II",
-            Description = "Bridge over the Mekong that connects Mukdahan Province in Thailand with Savannakhet in Laos",
+            Description = "Bridge over the Mekong that connects Mukdahan Province in Thailand with Savannakhet in Laos. Located in the northeastern region known as Isaan, Mukdahan and Savannakhet are separated by a bridge spanning the mighty Mekong River (the second “Friendship Bridge”). This crossing is very popular with ex-pats and tourists due to the Thai embassy in Savannakhet, which has long been known as one of the friendlier embassies where you can obtain a new visa and then re-enter Thailand. Savannakhet, although a fairly small, dusty provincial Laos town, does have a few markets, bars, and various restaurants, as well as a casino and, will keep you busy for a day or two whilst you wait for your visa to be processed (which is an overnight process). It is about two hours from Nakhon Phanom and there are two buses an hour from Mukdahan. There is no train line to Mukdahan",
+
             Origin = ThailandDestinations.Mukdahan,
             Final = LaosDestinations.Savannakhet,
             FrontierType = FrontierTypes.Terrestrial,
@@ -94,6 +97,16 @@ namespace Traveller.StaticData
             //,
             //Visas = new List<Visa> { new Visa { Duration = 30 } } ,
 
+        };
+
+        //Tropaeng Kreal Border Post(Stung Treng)    Laos Sí  Sí
+        public static Frontier TropaengKreal = new Frontier
+        {
+            Name = "Tropaeng Kreal Border Post",
+            Origin = CambodiaDestinations.TropaengKreal,
+            Final = LaosDestinations.NongNokKhiene,
+            FrontierType = FrontierTypes.Terrestrial,
+            Description = "This land border crossing is called Nong Nok Khiene on the Laos side and Tropaeng Kreal on the Cambodia side. The Cambodian province of Stung Treng borders the 4,000 Islands area of southern Laos."
         };
 
         public static List<Frontier> GetAll()

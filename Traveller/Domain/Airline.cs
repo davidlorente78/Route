@@ -1,14 +1,25 @@
-﻿namespace Traveller.Domain
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Traveller.Domain
 {
     public class Airline
     {
-        public int AirlineID { get; set; }
-        public AirlineType AirportType { get; set; }
-        public string IATACode { get; set; }       
+        public int Id { get; set; }
+        public string? IATACode { get; set; }       
         public string Name { get; set; }
         public string? LocalName { get; set; }
-        public int MainAirportID { get; set; }
-        public virtual Airport MainAirport { get; set; }
+        public int? MainAirportID { get; set; }
+        public virtual Airport? MainAirport { get; set; }
+        public List<Airport>? Airports { get; set; }
+
+        [Required]
+        [StringLength(5000)]
+        public string Description { get; set; }
+
+        [Display(Name = "Route Map")]
+        public string MapPicture { get; set; }
+
+        [Display(Name = "Web Site")]
         public string? Url { get; set; }
        
         public Airline() {

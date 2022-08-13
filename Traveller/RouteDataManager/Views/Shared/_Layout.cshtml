@@ -53,7 +53,14 @@
                         <a class="nav-item nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         <a class="nav-link nav-link" asp-area="" asp-controller="Country" asp-action="Index">Countries</a>
                         <a class="nav-link nav-link" asp-area="" asp-controller="Destinations" asp-action="Index">Destinations</a>
-                        <a class="nav-link nav-link" asp-area="" asp-controller="Airports" asp-action="Index">Airports</a>
+
+                            <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Aviation</a>
+                            <div class="dropdown-menu border-0 rounded-0 m-0">
+                                <a class="nav-link nav-link" asp-area="" asp-controller="Airports" asp-action="Index">Airports</a>
+                                <a class="nav-link nav-link" asp-area="" asp-controller="Airlines" asp-action="Index">Airlines</a>                         
+                            </div>
+                        </div>
 
                         <a class="nav-link nav-link" asp-area="" asp-controller="Frontiers" asp-action="Index">Frontiers</a>
                         <a class="nav-link nav-link" asp-area="" asp-controller="Visas" asp-action="Index">Visas</a>

@@ -6,7 +6,7 @@ namespace Traveller.StaticData
     public static class LaosDestinations
     {
         public static Destination Namkan = new Destination { Name = "Namkan", DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier },  Description = "Land crossing used when arriving in Laos from Hanoi to Luang Prabang" };
-        public static Destination SopHun = new Destination { Name = "TayTrang - Sop hun ", DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }, Description = "Land crossing used when arriving in Laos from Hanoi to Vientiane" };
+        public static Destination SopHun = new Destination { Name = "Tay Trang - Sop hun ", DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }, Description = "Land crossing used when arriving in Laos from Hanoi to Vientiane" };
         public static Destination Vientiane = new Destination {  CountryID = 1, Name = "Vientiane", DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier, DestinationTypes.Airport }, Description = "Vientiane" };
         public static Destination Savannakhet = new Destination {  Name = "Savannakhet", DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }, Description = "Savannakhet" };
        
@@ -15,17 +15,19 @@ namespace Traveller.StaticData
 
         public static Destination Dansavanh = new Destination { Name = "Dansavanh", DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }, Description = "Border Village with Vietnam near Savannakhet." };
         public static Destination PhouKeua = new Destination { Name = "Phou Keua", DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }, Description = "Border Village with Vietnam near Savannakhet." };
-        public static Destination NongKhiang = new Destination { Name = "NongKhiang", DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }, Description = "Southernmost border town in Laos" };
+        public static Destination NongKhiang = new Destination { Name = "Nong Khiang", DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }, Description = "Southernmost border town in Laos" };
         public static Destination ChongMek = new Destination { Name = "Chong Mek", DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }, Description = "Border town near Ubon Ratchathani (Thailand) and the town of Pakse (Laos)." };
         public static Destination NamPhao = new Destination { Name = "NamPhao", DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }, Description = "" };
 
-        public static Destination Pakse = new Destination { Name = "NamPhao", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport }, Description = "" };
+        public static Destination Pakse = new Destination { Name = "Pakse", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport }, Description = "" };
 
         public static Destination LuangNamtha = new Destination { Name = "Luang Namtha", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport }, Description = "" };
 
         public static Destination XiengKhouang = new Destination { Name = "Xieng Khouang", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport }, Description = "" };
 
         public static Destination Oudomsay = new Destination { Name = "Oudomsay", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport }, Description = "" };
+
+        public static Destination NongNokKhiene = new Destination { Name = "Nong Nok Khiene", DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }, Description = "" };
 
 
         public static List<Destination> GetAll() {
@@ -46,6 +48,7 @@ namespace Traveller.StaticData
             destinations.Add(LuangNamtha);
             destinations.Add(XiengKhouang);
             destinations.Add(Oudomsay);
+            destinations.Add(NongNokKhiene);
 
 
 

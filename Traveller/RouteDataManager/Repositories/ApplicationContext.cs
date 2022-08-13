@@ -119,7 +119,12 @@ namespace RouteDataManager.Repositories
         public DbSet<Airport>? Airports { get; set; }
 
         public DbSet<AirportType>? AirportTypes { get; set; }
+
         public DbSet<Nationality>? Nationalities { get; set; }
+
+        public DbSet<Airline>? Airlines { get; set; }
+
+        public DbSet<AirlineType>? AirlineTypes { get; set; }
 
     }
 }

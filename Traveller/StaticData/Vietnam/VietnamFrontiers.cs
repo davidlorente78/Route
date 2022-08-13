@@ -96,7 +96,17 @@ namespace Traveller.StaticData
                         Final = VietnamDestinations.VingXuong,
                         FrontierType = FrontierTypes.Terrestrial,
                         //Visas = new List<Visa> { new Visa { Duration = 30 } } 
-                    }
+                    },
+
+                       //Kaoam Samnor(Kandal Mekong)    Vietnam No  Sí
+                    //K'am Samnar Border Crossing Station
+                     new Frontier {
+                        Name = "Thuong Phuoc Gate - Kaoam Samnor Border Checkpoint (K'am Samnar)",
+                        Origin = CambodiaDestinations.KamSamnar, 
+                        Final =  VietnamDestinations.ThuongPhuoc,
+                        FrontierType = FrontierTypes.Terrestrial,
+                         
+                        },
 
                     
                      //   }

@@ -79,11 +79,13 @@ namespace Traveller.StaticData
                   //Daung(Kamrieng Battambang) Tailandia No  Sí
 
                   //Prom(Pailin)   Tailandia No  Sí
+                  //Ban Pakard/Phsa Prum
                   new Frontier {
-                        Name = "Ban Pakkad Border Checkpoint (Thailand)",
+                        Name = "Ban Pakkad (Ban Pakard) Border Checkpoint (Thailand)",
                         Origin = ThailandDestinations.KhlongYai, //Ban Pakkad Border Checkpoint  WFGV+H9P, Khlong Yai, Pong Nam Ron District, Chanthaburi 22140, Tailandia
                         Final = CambodiaDestinations.Prom,
                         FrontierType = FrontierTypes.Terrestrial,
+                        Description = "This smaller, quieter crossing is not frequently used by tourists but you may find it handy if you find yourself in the area. On the Thai side, it is close to Chanthaburi, about an hour’s drive away, and Koh Chang, which is about two hours away. The unremarkable town of Pailin is about half an hour’s drive away on the Cambodian side. Realistically, it’s likely that other border crossings will be more convenient, however here they do issue visas on arrival."
                         },
 
                   //O Smach(Oddar Meanchey)    Tailandia No  Sí
@@ -110,6 +112,14 @@ namespace Traveller.StaticData
                     //Trapaing Sre(Kratie)   Vietnam No  Sí
                     //Dong Kralo(Stung Treng)    Laos No  Sí
                     //Tropaeng Kreal Border Post(Stung Treng)    Laos Sí  Sí
+                      new Frontier {
+                        Name = "Tropaeng Kreal Border Post",
+                        Origin = LaosDestinations.NongNokKhiene , 
+                        Final = CambodiaDestinations.TropaengKreal, 
+                        FrontierType = FrontierTypes.Terrestrial,
+                         Description = "This land border crossing is called Nong Nok Khiene on the Laos side and Tropaeng Kreal on the Cambodia side. The Cambodian province of Stung Treng borders the 4,000 Islands area of southern Laos."
+                        },
+                     
 
                  };
 

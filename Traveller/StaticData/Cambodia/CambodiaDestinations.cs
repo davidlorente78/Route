@@ -22,6 +22,8 @@ namespace Traveller.StaticData
 
         public static Destination ChamYeam = new Destination { Name = "Cham Yeam", DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier } };
 
+        public static Destination TropaengKreal = new Destination { Name = "Tropaeng Kreal", DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier } };
+
 
         public static List<Destination> GetAll()
         {
@@ -39,6 +41,7 @@ namespace Traveller.StaticData
             destinations.Add(KamSamnar);
             destinations.Add(Prom);
             destinations.Add(ChamYeam);
+            destinations.Add(TropaengKreal);
 
 
             return destinations;

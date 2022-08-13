@@ -1,14 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace CURDOperationWithImageUploadCore5_Demo.Models
+﻿namespace RouteDataManager.Models
 {
-    public static class FileLocation
+    public class FileLocation<T>
     {
-        public const string FileUploadFolder = "Uploads";
-        public const string RetriveFileFromFolder = "~/Uploads/";
-        public const string DeleteFileFromFolder = "wwwroot\\Uploads\\";
-    }
+        public string ClassName { get; protected set; }
+
+        public FileLocation() {
+
+            ClassName = nameof(T);
+        }
+
+        public string FileUploadFolder
+        {
+            get
+            {
+                return ClassName + "Uploads";
+            }
+        }
+
+
+        public string RetriveFileFromFolderget
+        {
+            get
+            {
+                return "~/" + ClassName + "Uploads/";
+            }
+        }
+
+
+    public string DeleteFileFromFolder
+        {
+            get
+            {
+                return "wwwroot\\" + ClassName + "Uploads\\";
+            }
+        }
+}
 }

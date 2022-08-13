@@ -121,13 +121,8 @@ namespace RouteDataManager.Repositories
                             //Frontier https://en.wikipedia.org/wiki/Malaysia%E2%80%93Singapore_Second_Link
                         },
                 Visas = new List<Visa> { SingaporeVisas.SGArrivalCard_Singapore },//Estas son las que salen en la pagina IndexView
-                Airports = new List<Airport>
-                { new Airport
-                    { Name = "Singapore Changi Airport",
-                     IATACode ="SIN",
-                     ICAOCode ="WSSS",
-                     AirportType = AirportTypes.International}
-                    }
+                Airports = new List<Airport> { SingaporeAirports.SIN},
+             
             };
 
             context.Countries.Add(Singapore);
@@ -221,6 +216,58 @@ namespace RouteDataManager.Repositories
                 context.SaveChanges();
 
             }
+
+
+            if (!context.Airlines.Any())
+            {
+                context.Airlines.AddRange(new List<Airline>()
+                    {
+                        new Airline()
+                        {
+                          IATACode ="AK",
+                          Url = "ww.airasia.com",
+                          MainAirport = MalaysiaAirports.KUL,
+                          Name="Air Asia",
+                          MapPicture="/air-asia-routes.jpg",
+                          Description="AirAsia (stylized as airasia) is a Malaysian multinational low-cost airline headquartered near Kuala Lumpur, Malaysia. It is the largest airline in Malaysia by fleet size and destinations. AirAsia operates scheduled domestic and international flights to more than 165 destinations spanning 25 countries.[4] Its main base is klia2, the low-cost carrier terminal at Kuala Lumpur International Airport (KLIA) in Sepang, Selangor, Malaysia."
+                        },
+
+                        new Airline()
+                        {
+                          IATACode ="TR",
+                          Url = "www.flyscoot.com",
+                          MainAirport = SingaporeAirports.SIN,
+                          Name="Scoot",
+                          MapPicture="/fly-scoot.jpg",
+                          Description="Scoot Pte Ltd, operating as Scoot, is a Singaporean low-cost airline and a wholly owned subsidiary of Singapore Airlines. It began its operations on 4 June 2012 on medium and long-haul routes from Singapore, predominantly to various airports throughout the Asia-Pacific."  }
+                    ,
+
+                
+                        new Airline()
+                        {
+                          IATACode ="DD",
+                           
+                          MainAirport = ThailandAirports.DMK,
+                          Url ="www.nokair.com",
+                          Name="Nok Air",
+                          MapPicture="/nok-air-rutas.png",
+                          Description="Nok Air is a low-cost airline in Thailand operating mostly domestic services out of Bangkok's Don Mueang International Airport. Nok Air also offers ferry services to domestic island destinations as well as domestic and cross border coach services to Vientiane and Pakse in Laos in conjunction with other tour operators."
+
+                        }
+
+
+
+
+
+
+                } );
+                context.SaveChanges();
+
+            }
+        
+
         }
     }
 }
+
+
