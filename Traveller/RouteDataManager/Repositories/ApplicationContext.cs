@@ -4,6 +4,7 @@ using Domain;
 using Microsoft.EntityFrameworkCore.Metadata;
 using CURDOperationWithImageUploadCore5_Demo.Models;
 using System.Collections;
+using Domain.Ranges;
 
 namespace RouteDataManager.Repositories
 {
@@ -89,13 +90,7 @@ namespace RouteDataManager.Repositories
 
         }
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    var connectionString = @"Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;";
-        //    optionsBuilder.UseSqlServer(connectionString);
-        //}
-
-
+       
         public DbSet<Destination>? Destinations { get; set; }
 
         public DbSet<Frontier>? Frontiers { get; set; }
@@ -125,6 +120,13 @@ namespace RouteDataManager.Repositories
         public DbSet<Airline>? Airlines { get; set; }
 
         public DbSet<AirlineType>? AirlineTypes { get; set; }
+
+        public DbSet<RangeChar>? Ranges { get; set; }
+
+
+        public DbSet<RangeType>? RangeTypes { get; set; }
+
+
 
     }
 }

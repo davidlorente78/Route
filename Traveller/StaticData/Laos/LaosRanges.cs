@@ -5,42 +5,28 @@ namespace StaticData.Laos
 {
     public class LaosRanges
     {
-        //public static RangeChar SeasonRange = new RangeChar
-        //{
-        //    Id = 'L',
-        //    Description = new Dictionary<char, string>()
-        //            {
-        //            { 'A', "La mejor época. Se recomienda reservar alojamiento con antelación para el período navideño y Año Nuevo."},
-        //            { 'M', "Los paisajes verdes son preciosos. Temporada preferida por los viajeros españoles, además de mochileros de todo el mundo."},
-        //            { 'B', "En abril y mayo hace calor, con temperaturas de hasta 40ºC. En septiembre y octubre puede llover bastante, aunque los diluvios van acompañados de increíbles formaciones de nubes. " }
-        //            },
-        //    Values = new List<char> { 'A', 'A', 'A', 'B', 'B', 'B', 'M', 'M', 'B', 'B', 'A', 'A', }
-
-        //};
-
 
         private static List<char> SeasonDefinition = new List<char> { 'A', 'A', 'A', 'B', 'B', 'B', 'M', 'M', 'B', 'B', 'A', 'A', };
 
-          public static RangeChar SeasonRange = new RangeChar
-          {
-         
-              entityFrameworkDictionarySeasonsDescriptions = new EntityFrameworkDictionary<char>()
-              {
-                  Dictionary = new List<DictionaryItem<char>>()
+        public static RangeChar SeasonRange = new RangeChar
+        {
+
+            entityFrameworkDictionarySeasonsDescriptions = new EntityFrameworkDictionary<char>()
+            {
+                Dictionary = new List<DictionaryItem<char>>()
                 {
                       new DictionaryItem<char> { DictionaryKey = 'A', DictionaryValue = "Los precios suben hasta un 50 % en la costa; se recomienda reservar hotel con antelación."},
                       new DictionaryItem<char> { DictionaryKey = 'M', DictionaryValue =  "Los paisajes verdes son preciosos. Temporada preferida por los viajeros españoles, además de mochileros de todo el mundo."},
                       new DictionaryItem<char> { DictionaryKey = 'B', DictionaryValue = "En abril y mayo hace calor, con temperaturas de hasta 40ºC. En septiembre y octubre puede llover bastante, aunque los diluvios van acompañados de increíbles formaciones de nubes. " }
 
-
                   }
-              }
-            ,
+            }
+          ,
 
-              entityFrameworkDictionaryMonthSeason = new EntityFrameworkDictionary<string>()
-              {
+            entityFrameworkDictionaryMonthSeason = new EntityFrameworkDictionary<string>()
+            {
 
-                  Dictionary = new List<DictionaryItem<string>>()
+                Dictionary = new List<DictionaryItem<string>>()
                 {
 
                     new DictionaryItem<string> { DictionaryKey = "January", DictionaryValue = SeasonDefinition.ElementAt(0).ToString() },
@@ -69,10 +55,10 @@ namespace StaticData.Laos
 
                 }
 
-              }                   
+            }
 
-    };
+        };
 
 
-}
+    }
 }

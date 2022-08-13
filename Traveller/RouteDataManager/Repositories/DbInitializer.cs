@@ -254,13 +254,45 @@ namespace RouteDataManager.Repositories
                           Description="Nok Air is a low-cost airline in Thailand operating mostly domestic services out of Bangkok's Don Mueang International Airport. Nok Air also offers ferry services to domestic island destinations as well as domestic and cross border coach services to Vientiane and Pakse in Laos in conjunction with other tour operators."
 
                         }
+                        ,
+                         new Airline()
+                        {
+                          IATACode ="DD",
+
+                          MainAirport = ThailandAirports.BKK,
+                          Url ="bangkokair.com",
+                          Name="Bangkok Airways",
+                          MapPicture="/bangkok-airways-routes-map.jpg",
+                          Description=" is a regional airline based in Bangkok, Thailand.[2] It operates scheduled services to destinations in Thailand, Cambodia, China, Hong Kong, India, Laos, Malaysia, Maldives, Myanmar, Singapore, and Vietnam. Its main base is Suvarnabhumi Airport."
+                        }
+
+                       ,                          
+                         new Airline()
+                        {
+                          IATACode ="JQ",
+                          //MainAirport = AustraliaAirports., //Merlbourbe
+                          Url ="www.jetstar.com",
+                          Name="Jet Star Airways",
+                          MapPicture="/jetstar-route.jpg",
+                          Description="Is an Australian low-cost airline headquartered in Melbourne.[4][5] It is a wholly owned subsidiary of Qantas, created in response to the threat posed by airline Virgin Blue. Jetstar is part of Qantas' two brand strategy[6] of having Qantas Airways for the premium full-service market and Jetstar for the low-cost market. "
+                         }
+
+                        // ,
 
 
-
-
+                        // new Airline()
+                        //{
+                        //  IATACode ="JQ",
+                        //  MainAirport =  SingaporeAirports.SIN,
+                        //  Url ="www.singaporeair.com",
+                        //  Name="Singapore Airlines",
+                        //  MapPicture="/tiger_airways-route.png",
+                        //  Description="" }
 
 
                 } );
+
+
                 context.SaveChanges();
 
             }
