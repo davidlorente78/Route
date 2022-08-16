@@ -50,8 +50,8 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                     <div class="navbar-nav ml-auto py-0">
-                        <a class="nav-item nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        <a class="nav-link nav-link" asp-area="" asp-controller="Country" asp-action="Index">Countries</a>
+@*                        <a class="nav-item nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+*@                        <a class="nav-link nav-link" asp-area="" asp-controller="Country" asp-action="Index">Countries</a>
                         <a class="nav-link nav-link" asp-area="" asp-controller="Destinations" asp-action="Index">Destinations</a>
 
                             <div class="nav-item dropdown">
@@ -59,6 +59,14 @@
                             <div class="dropdown-menu border-0 rounded-0 m-0">
                                 <a class="nav-link nav-link" asp-area="" asp-controller="Airports" asp-action="Index">Airports</a>
                                 <a class="nav-link nav-link" asp-area="" asp-controller="Airlines" asp-action="Index">Airlines</a>                         
+                            </div>
+                        </div>
+
+                             <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Seasons</a>
+                            <div class="dropdown-menu border-0 rounded-0 m-0">
+                                <a class="nav-link nav-link" asp-area="" asp-controller="TouristicSeasonByCountry" asp-action="Index">Tourism Seasons</a>
+                                <a class="nav-link nav-link" asp-area="" asp-controller="Monsoon" asp-action="Index">Monsoon Seasons</a>                         
                             </div>
                         </div>
 

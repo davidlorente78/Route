@@ -6,11 +6,11 @@ using RouteDataManager.ViewModels;
 
 namespace RouteDataManager.Controllers
 {
-    public class SeasonsByMonthController : Controller
+    public class TourismSeasonsByMonthController : Controller
     {
         private readonly ApplicationContext _context;
 
-        public SeasonsByMonthController(ApplicationContext context)
+        public TourismSeasonsByMonthController(ApplicationContext context)
         {
             _context = context;
         }
