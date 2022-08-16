@@ -1,5 +1,5 @@
 ﻿@using RouteDataManager.ViewModels
-@model SeasonIndexViewModel
+@model Month_EntityByCountryIndexViewModel
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -18,9 +18,9 @@
                         <select asp-for="@Model.FilterCountry.CountryID" class ="form-control" asp-items="@Model.SelectListCountries"></select>
                     </th>
 
-                    <th>
-                     
-                    </th>
+                     <th>
+                        </th>
+                    
                     
 
                     <th>
@@ -41,9 +41,7 @@
 
             </div>
 </form>
-<p>
-    <a asp-action="Create" class="btn btn-primary rounded-0"><i class="fa fa-plus-circle"></i>Add New</a>
-</p>
+
 
 <table class="table">
     <thead>
@@ -52,12 +50,12 @@
                 Month
             </th>
             <th>
-                Season Description
+                Description
             </th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Month_SeasonDescription)
+        @foreach (var item in Model.Month_EntityDescription)
         {
            
                 <tr>

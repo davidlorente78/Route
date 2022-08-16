@@ -277,23 +277,28 @@ namespace RouteDataManager.Repositories
                           Description="Is an Australian low-cost airline headquartered in Melbourne.[4][5] It is a wholly owned subsidiary of Qantas, created in response to the threat posed by airline Virgin Blue. Jetstar is part of Qantas' two brand strategy[6] of having Qantas Airways for the premium full-service market and Jetstar for the low-cost market. "
                          }
 
-                        // ,
-
-
-                        // new Airline()
-                        //{
-                        //  IATACode ="JQ",
-                        //  MainAirport =  SingaporeAirports.SIN,
-                        //  Url ="www.singaporeair.com",
-                        //  Name="Singapore Airlines",
-                        //  MapPicture="/tiger_airways-route.png",
-                        //  Description="" }
-
+                      
 
                 } );
 
 
-                context.SaveChanges();
+                if (!context.Months.Any())
+                {
+                    context.Months.Add(new Month { Name = "January" });
+                    context.Months.Add(new Month { Name = "February" }); 
+                    context.Months.Add(new Month { Name = "March" });
+                    context.Months.Add(new Month { Name = "April" });
+                    context.Months.Add(new Month { Name = "May" });
+                    context.Months.Add(new Month { Name = "June" });
+                    context.Months.Add(new Month { Name = "July" });
+                    context.Months.Add(new Month { Name = "August" });
+                    context.Months.Add(new Month { Name = "September" });
+                    context.Months.Add(new Month { Name = "October" });
+                    context.Months.Add(new Month { Name = "November" });
+                    context.Months.Add(new Month { Name = "December" });
+
+                }
+                    context.SaveChanges();
 
             }
         

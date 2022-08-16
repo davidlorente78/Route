@@ -126,6 +126,8 @@ namespace RouteDataManager.Repositories
 
         public DbSet<RangeType>? RangeTypes { get; set; }
 
+        public DbSet<Month>? Months { get; set; }
+
 
 
     }

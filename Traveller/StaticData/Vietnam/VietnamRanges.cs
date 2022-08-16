@@ -4,27 +4,14 @@ using Domain.Ranges;
 namespace StaticData.Vietnam
 {
     public class VietnamRanges
-
-
     {
-
         private static List<char> SeasonDefinition = new List<char> { 'M', 'M', 'M', 'B', 'B', 'B', 'A', 'A', 'B', 'B', 'B', 'M', };
 
         public static RangeChar SeasonRange = new RangeChar
         {
-            //Id = 'V',
-            //Description = new Dictionary<char, string>()
-            //        {
-            //        { 'A', "Los precios suben hasta un 50 % en la costa; se recomienda reservar hotel con antelación."},
-            //        { 'M', "Durante la celebración del Tet, todo el país se moviliza y los precios suben."},
-            //        { 'B', "Probablemente la mejor época para recorrer el país." }
-            //        },
-            //Values = new List<char> { 'M', 'M', 'M', 'B', 'B', 'B', 'A', 'A', 'B', 'B', 'B', 'M', }
+            RangeType = "SeasonRange",
 
-
-
-
-            entityFrameworkDictionarySeasonsDescriptions = new EntityFrameworkDictionary<char>()
+            entityFrameworkDictionaryEntityDescriptions = new EntityFrameworkDictionary<char>()
             {
                 Dictionary = new List<DictionaryItem<char>>()
                 {
@@ -36,7 +23,7 @@ namespace StaticData.Vietnam
             }
             ,
 
-            entityFrameworkDictionaryMonthSeason = new EntityFrameworkDictionary<string>()
+            entityFrameworkDictionaryMonthEntityDescriptionKey = new EntityFrameworkDictionary<string>()
             {
 
                 Dictionary = new List<DictionaryItem<string>>()

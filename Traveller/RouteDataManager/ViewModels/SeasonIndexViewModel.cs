@@ -3,9 +3,9 @@ using Traveller.Domain;
 
 namespace RouteDataManager.ViewModels
 {
-    public class SeasonIndexViewModel
+    public class Month_EntityByCountryIndexViewModel
     {
-        public Dictionary<string, string> Month_SeasonDescription { get; set; } = new Dictionary<string, string>();
+        public Dictionary<string, string> Month_EntityDescription { get; set; } = new Dictionary<string, string>();
         public SelectList SelectListCountries { get; set; }
         public Country FilterCountry { get; set; } = new Country() { CountryID = 1 };
 

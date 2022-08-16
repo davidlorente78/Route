@@ -13,8 +13,8 @@ namespace StaticData.Malaysia
 
         public static RangeChar SeasonRange = new RangeChar
         {
-
-            entityFrameworkDictionarySeasonsDescriptions = new EntityFrameworkDictionary<char>()
+            RangeType = "SeasonRange",
+            entityFrameworkDictionaryEntityDescriptions = new EntityFrameworkDictionary<char>()
             {
                 Dictionary = new List<DictionaryItem<char>>()
                 {
@@ -23,14 +23,14 @@ namespace StaticData.Malaysia
 
                     new DictionaryItem<char> { DictionaryKey = 'M', DictionaryValue = "De julio a agosto se competirá con los visitantes de los estados del Golfo que escapan del calor; es la llamada “temporada árabe”. Es temporada del monzón en la costa oeste de la Malasia peninsular hasta septiembre." },
 
-                    new DictionaryItem<char> { DictionaryKey = 'B', DictionaryValue = "Conviene evitar la peor época de lluvias y humedad.Es cuando más tranquilo se puede disfrutar de ciertos lugares muy turísticos." },
+                    new DictionaryItem<char> { DictionaryKey = 'B', DictionaryValue = "Conviene evitar la peor época de lluvias y humedad. Es cuando más tranquilo se puede disfrutar de ciertos lugares muy turísticos." },
 
                 }
 
             }
             ,
 
-            entityFrameworkDictionaryMonthSeason = new EntityFrameworkDictionary<string>()
+            entityFrameworkDictionaryMonthEntityDescriptionKey = new EntityFrameworkDictionary<string>()
             {
 
                 Dictionary = new List<DictionaryItem<string>>()
