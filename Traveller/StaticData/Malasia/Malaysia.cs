@@ -22,7 +22,7 @@ namespace StaticData.Malaysia
             Airports = MalaysiaAirports.GetAll(),
             Frontiers = MalaysiaFrontiers.GetAll(),
             TrainLines = MalaysiaTrainLines.GetAll(),
-            Ranges = new List<RangeChar> { MalaysiaRanges.SeasonRange },
+            Ranges = new List<RangeChar> { MalaysiaRanges.SeasonRange , MalaysiaRanges.MoonsoonRange},
             ShowInDynamicHome = true,
             ShowInDynamicHomeOrder = 3,
             Visas = new List<Visa> { MalaysiaVisas.freeVisa_Malaysia, MalaysiaVisas.eVisa_Malaysia}
