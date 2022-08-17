@@ -10,8 +10,8 @@ namespace StaticData.Laos
 
         public static RangeChar SeasonRange = new RangeChar
         {
-            RangeType = "SeasonRange",
-            entityFrameworkDictionaryEntityDescriptions = new EntityFrameworkDictionary<char>()
+            RangeType = RangeTypes.TourismSeasonRangeType,
+            EntityKey_Description = new EntityFrameworkDictionary<char>()
             {
                 Dictionary = new List<DictionaryItem<char>>()
                 {
@@ -23,7 +23,7 @@ namespace StaticData.Laos
             }
           ,
 
-            entityFrameworkDictionaryMonthEntityDescriptionKey = new EntityFrameworkDictionary<string>()
+            EntityKey_ByMonth = new EntityFrameworkDictionary<string>()
             {
 
                 Dictionary = new List<DictionaryItem<string>>()

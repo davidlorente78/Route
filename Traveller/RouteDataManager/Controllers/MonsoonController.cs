@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RouteDataManager.Repositories;
 using RouteDataManager.ViewModels;
+using StaticData;
 
 namespace RouteDataManager.Controllers
 {
@@ -18,14 +19,15 @@ namespace RouteDataManager.Controllers
 
         public async Task<IActionResult> Index(Month_EntityByCountryIndexViewModel month_EntityByCountryIndexViewModel)
         {
+            
             var seasonRange = _context.Ranges
-                 .Where(d => d.CountryID == month_EntityByCountryIndexViewModel.FilterCountry.CountryID && d.RangeType == "MonzonRange")
-                 .Include(f => f.entityFrameworkDictionaryMonthEntityDescriptionKey).ThenInclude(x => x.Dictionary).FirstOrDefault();
+                 .Where(d => d.CountryID == month_EntityByCountryIndexViewModel.FilterCountry.CountryID && d.RangeType.Code == RangeTypes.MonsoonSeasonRangeType.Code)
+                 .Include(f => f.EntityDescription_ByMonth).ThenInclude(x => x.Dictionary).FirstOrDefault();
 
             if (seasonRange != null)
             {
                 //Para cada mes
-                foreach (var item in seasonRange.entityFrameworkDictionaryMonthEntityDescriptionKey.Dictionary)
+                foreach (var item in seasonRange.EntityDescription_ByMonth.Dictionary)
                 {
                     var Month = item.DictionaryKey;
                     var Description = item.DictionaryValue;
@@ -45,13 +47,13 @@ namespace RouteDataManager.Controllers
         public async Task<IActionResult> Seasons(Month_EntityByCountryIndexViewModel month_EntityByCountryIndexViewModel)
         {
             var seasonRange = _context.Ranges
-                 .Where(d => d.CountryID == month_EntityByCountryIndexViewModel.FilterCountry.CountryID && d.RangeType == "MonzonRange")
-                 .Include(f => f.entityFrameworkDictionaryEntityDescriptions).ThenInclude(x => x.Dictionary).FirstOrDefault();
+                 .Where(d => d.CountryID == month_EntityByCountryIndexViewModel.FilterCountry.CountryID && d.RangeType.Code == RangeTypes.MonsoonSeasonRangeType.Code)
+                 .Include(f => f.EntityKey_Description).ThenInclude(x => x.Dictionary).FirstOrDefault();
 
             if (seasonRange != null)
             {
                 //Para cada Key
-                foreach (var item in seasonRange.entityFrameworkDictionaryEntityDescriptions.Dictionary)
+                foreach (var item in seasonRange.EntityKey_Description.Dictionary)
                 {
                     var Key = item.DictionaryKey;
                     var Description = item.DictionaryValue;

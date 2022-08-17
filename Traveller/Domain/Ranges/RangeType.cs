@@ -6,12 +6,6 @@
         public char? Code { get; set; }
         public string? Description { get; set; }
 
-
-        //Average Temperature
-        //Rainfall mm
-        //Humidity
-        //Rainy Days
-        //Daily Sun Hours
-        //Season
+      
     }
 }

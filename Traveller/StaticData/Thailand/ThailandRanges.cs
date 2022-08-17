@@ -7,8 +7,8 @@ namespace StaticData.Thailand
     {
         public static RangeChar SeasonRange = new RangeChar
         {
-            RangeType = "SeasonRange",
-            entityFrameworkDictionaryEntityDescriptions = new EntityFrameworkDictionary<char>()
+            RangeType = RangeTypes.TourismSeasonRangeType,
+            EntityKey_Description = new EntityFrameworkDictionary<char>()
             {
                 Dictionary = new List<DictionaryItem<char>>()
                 {
@@ -21,7 +21,7 @@ namespace StaticData.Thailand
             }
             ,
 
-            entityFrameworkDictionaryMonthEntityDescriptionKey = new EntityFrameworkDictionary<string>()
+            EntityKey_ByMonth = new EntityFrameworkDictionary<string>()
             {
 
                 Dictionary = new List<DictionaryItem<string>>()
@@ -60,8 +60,8 @@ namespace StaticData.Thailand
         public static RangeChar MonzonRange = new RangeChar
         {
             //Este tipo de diccionario es distinto al de Season y los valores del segundo diccionario no estan relacionados con las key del primero. 
-            RangeType = "MonzonRange",
-            entityFrameworkDictionaryEntityDescriptions = new EntityFrameworkDictionary<char>()
+            RangeType = RangeTypes.MonsoonSeasonRangeType,
+            EntityKey_Description = new EntityFrameworkDictionary<char>()
             {
                 Dictionary = new List<DictionaryItem<char>>()
                 {
@@ -75,7 +75,7 @@ namespace StaticData.Thailand
             }
             ,
 
-            entityFrameworkDictionaryMonthEntityDescriptionKey = new EntityFrameworkDictionary<string>()
+            EntityDescription_ByMonth = new EntityFrameworkDictionary<string>()
             {
 
                 Dictionary = new List<DictionaryItem<string>>()

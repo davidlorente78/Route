@@ -29,6 +29,29 @@ namespace RouteDataManager.Repositories
             context.Database.EnsureDeleted(); //
             context.Database.EnsureCreated();
 
+            if (!context.RangeTypes.Any())
+            {
+                context.RangeTypes.Add(RangeTypes.TourismSeasonRangeType);
+                context.RangeTypes.Add(RangeTypes.MonsoonSeasonRangeType);
+
+            }
+
+            if (!context.Months.Any())
+            {
+                context.Months.Add(new Month { Name = "January" });
+                context.Months.Add(new Month { Name = "February" });
+                context.Months.Add(new Month { Name = "March" });
+                context.Months.Add(new Month { Name = "April" });
+                context.Months.Add(new Month { Name = "May" });
+                context.Months.Add(new Month { Name = "June" });
+                context.Months.Add(new Month { Name = "July" });
+                context.Months.Add(new Month { Name = "August" });
+                context.Months.Add(new Month { Name = "September" });
+                context.Months.Add(new Month { Name = "October" });
+                context.Months.Add(new Month { Name = "November" });
+                context.Months.Add(new Month { Name = "December" });
+
+            }
 
             // Look for any countries
             if (context.Countries.Any())
@@ -145,7 +168,6 @@ namespace RouteDataManager.Repositories
             context.Countries.Add(China);
 
 
-            //context.SaveChanges();
             //#endregion
 
 
@@ -281,23 +303,7 @@ namespace RouteDataManager.Repositories
 
                 } );
 
-
-                if (!context.Months.Any())
-                {
-                    context.Months.Add(new Month { Name = "January" });
-                    context.Months.Add(new Month { Name = "February" }); 
-                    context.Months.Add(new Month { Name = "March" });
-                    context.Months.Add(new Month { Name = "April" });
-                    context.Months.Add(new Month { Name = "May" });
-                    context.Months.Add(new Month { Name = "June" });
-                    context.Months.Add(new Month { Name = "July" });
-                    context.Months.Add(new Month { Name = "August" });
-                    context.Months.Add(new Month { Name = "September" });
-                    context.Months.Add(new Month { Name = "October" });
-                    context.Months.Add(new Month { Name = "November" });
-                    context.Months.Add(new Month { Name = "December" });
-
-                }
+             
                     context.SaveChanges();
 
             }
