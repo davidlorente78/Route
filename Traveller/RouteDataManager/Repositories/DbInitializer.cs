@@ -234,6 +234,13 @@ namespace RouteDataManager.Repositories
                           MapPicture="/Railway System Vietnam.jpg",
                           Description=""
                         },
+
+                          new RailwaySystem()
+                        {
+                          Name="Railway System Sri Lanka",
+                          MapPicture="/Railway System Sri Lanka.jpg",
+                          Description=""
+                        },
                     });
                 context.SaveChanges();
 

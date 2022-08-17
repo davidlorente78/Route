@@ -13,7 +13,7 @@ namespace StaticData.Laos
             Destinations = LaosDestinations.GetAll(),
             Frontiers = LaosFrontiers.GetAll(),
             Airports = LaosAirports.GetAll(),
-            Ranges = new List<RangeChar> { LaosRanges.SeasonRange },
+            Ranges = new List<RangeChar> { LaosRanges.SeasonRange , LaosRanges.MoonsoonRange },
             ShowInDynamicHome = true,
             ShowInDynamicHomeOrder = 1,
             Visas = new List<Visa> { LaosVisas.LaoVisa, LaosVisas.eLaoVisa },

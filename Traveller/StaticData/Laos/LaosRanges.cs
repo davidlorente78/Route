@@ -59,6 +59,54 @@ namespace StaticData.Laos
 
         };
 
+        public static RangeChar MoonsoonRange = new RangeChar
+        {
+            //Este tipo de diccionario es distinto al de Season y los valores del segundo diccionario no estan relacionados con las key del primero. 
+            RangeType = RangeTypes.MonsoonSeasonRangeType,
+            EntityKey_Description = new EntityFrameworkDictionary<char>()
+            {
+                Dictionary = new List<DictionaryItem<char>>()
+                {
 
+                    new DictionaryItem<char> { DictionaryKey = 'W', DictionaryValue = "The wet season in Laos runs from around May to October, and as with many Southeast Asian countries, the monsoon is characterised by a downpour for a few hours each day, rather than all-day torrential downpours. While the rainy season tends to strike Laos pretty much uniformally, there are a couple of regional oddities. Laos' wet season tends to hit Phongsali a little early due to it catching a bit of rain from southern China, while Hua Phan and Xieng Khuang tend to get a little early rain from Vietnam. Generally speaking, the higher you are, the more rain you get, and the towns along the Mekong River south of Vientiane get the least rain. As with Cambodia, the most obvious effect of the wet season is damaged infrastructure. Landslides are common, as are severely rutted roads. While the road network is generally far better (that is, sealed) than Cambodia's, the topography of Laos (pretty mountainous) lends itself to landslides, some minor, some not-so-minor. Also, with all this rainfall, the rivers can become beastly and delays due to bridges being down are not uncommon. Don't be surprised if your trip takes longer than expected. All in all, land transport during Laos' wet season can be slow and soggy. On the upside, boat transport comes into its own during the great wet. Rivers are high so the slowboats can make better pace. Along the Mekong River many of the rapids are submerged, helping the slowboats with their deeper drafts, but if you're considering a speedboat trip, be warned that the heavy rainfall brings a lot of refuse into the river, and hitting a submerged log at 50km/h can be very messy. This is yet another reason not to get on a speedboat. Other advantages of this season are lower temperatures, cleaner air and smaller crowds." },
+                    new DictionaryItem<char> { DictionaryKey = 'I', DictionaryValue = "Laos' dry season has two distinct sub-sections -- first comes the cool dry season and then comes the hot dry season -- the former is one of the most popular times to visit Laos, the later less so. The cool dry season runs from November to February and the hot dry season from March to April. What the hot season lacks in length it makes up for in ferocity – it's hot, damn hot. What makes the hot season even more unbearable is the smoke factor -- from March to May farmers set fire to rice stubble and degraded (and not-so-degraded) forest to improve soil fertility in preparation for a new rice crop. The resulting fires cover most of Laos (including Luang Prabang) in a layer of smoke which, aside from ruining views and photos, can become really irritating to the eyes. March to May in Laos -- yuck! The cool, dry season on the other hand is an excellent time to go. Temperatures are relatively low, the air is cleaner and, particularly in November and December, the rivers are high enough to make river travel a breeze. Not surprisingly, this period in Laos is the peak season for travellers. "}
+                }
+            }
+           ,
+
+            EntityDescription_ByMonth = new EntityFrameworkDictionary<string>()
+            {
+
+                Dictionary = new List<DictionaryItem<string>>()
+                {
+
+                    new DictionaryItem<string> { DictionaryKey = "January",DictionaryValue ="Cool dry season" },
+
+                    new DictionaryItem<string> { DictionaryKey = "February", DictionaryValue ="Cool dry season" },
+
+                    new DictionaryItem<string> { DictionaryKey = "March", DictionaryValue ="Hot dry season" },
+
+                    new DictionaryItem<string> { DictionaryKey = "April", DictionaryValue ="Hot dry season" },  
+                    
+                    new DictionaryItem<string> { DictionaryKey = "May", DictionaryValue ="Rainy season" },   
+                    
+                    new DictionaryItem<string> { DictionaryKey = "June",DictionaryValue ="Rainy season" },   
+                    
+                    new DictionaryItem<string> { DictionaryKey = "July", DictionaryValue ="Rainy season" },   
+                    
+                    new DictionaryItem<string> { DictionaryKey = "August", DictionaryValue ="Rainy season" },   
+                    
+                    new DictionaryItem<string> { DictionaryKey = "September", DictionaryValue = "Rainy season" },   
+                    
+                    new DictionaryItem<string> { DictionaryKey = "October",DictionaryValue = "Rainy season" },   
+                    
+                    new DictionaryItem<string> { DictionaryKey = "November", DictionaryValue ="Cool dry season" },
+
+                    new DictionaryItem<string> { DictionaryKey = "December", DictionaryValue ="Cool dry season" }
+                }
+
+            }
+
+        };
     }
 }
