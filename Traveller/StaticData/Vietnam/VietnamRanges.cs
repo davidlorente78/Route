@@ -5,7 +5,7 @@ namespace StaticData.Vietnam
 {
     public class VietnamRanges
     {
-        private static List<char> SeasonDefinition = new List<char> { 'M', 'M', 'M', 'B', 'B', 'B', 'A', 'A', 'B', 'B', 'B', 'M', };
+        private static List<char> SeasonDefinition = new List<char> { 'M', 'B', 'A', 'A', 'A', 'B', 'A', 'A', 'B', 'A', 'A', 'A', };
 
         public static RangeChar SeasonRange = new RangeChar
         {
@@ -13,12 +13,13 @@ namespace StaticData.Vietnam
 
             EntityKey_Description = new EntityFrameworkDictionary<char>()
             {
-                Dictionary = new List<DictionaryItem<char>>()
+                 Dictionary = new List<DictionaryItem<char>>()
                 {
-                    new DictionaryItem<char> { DictionaryKey = 'A', DictionaryValue = "Los precios suben hasta un 50 % en la costa; se recomienda reservar hotel con antelación." },
-                    new DictionaryItem<char> { DictionaryKey = 'M', DictionaryValue = "Durante la celebración del Tet, todo el país se moviliza y los precios suben."},
-                    new DictionaryItem<char> { DictionaryKey = 'B', DictionaryValue = "Probablemente la mejor época para recorrer el país." }
-                }
+                    new DictionaryItem<char> { DictionaryKey = 'A', DictionaryValue = "For most international visitors, high tourism season in Vietnam stretches over two periods of time. The first one goes from the beginning of March to the beginning of May. The second one occurs from October to the end of December. July through August, also attracts a larger number of tourists, as the entire country is generally hot and humid, with the possibility of heavy rains. " },
+                    new DictionaryItem<char> { DictionaryKey = 'M', DictionaryValue = "Another time to avoid is the Tet Festival or Nguyen Dan, Vietnam's Lunar New Year, during which the Vietnamese often take 5-7 days off, resulting in crowded streets and peak rates at fully booked hotels."},
+                    new DictionaryItem<char> { DictionaryKey = 'B', DictionaryValue = "The best times to visit Vietnam are Spring (February to April) or Fall (August to October). Temperatures during these two windows are generally moderate throughout the country and rainfall is light, though travel any time of the year provides an excellent experience. Around the 30th of April [Vietnam reunification day] and 1st of May [international work day], people often get a short vacation and it becomes almost impossible to book any accommodation or transportation around those dates if it is not done early enough. " },
+                    new DictionaryItem<char> { DictionaryKey = 'V', DictionaryValue = "One of the best times to visit Vietnam except the central coast which is gradually emerging from its rainy season." }
+}
 
             }
             ,
@@ -58,7 +59,7 @@ namespace StaticData.Vietnam
 
         };
 
-        public static RangeChar MonzonRange = new RangeChar
+        public static RangeChar MonsoonRange = new RangeChar
         {
             //Este tipo de diccionario es distinto al de Season y los valores del segundo diccionario no estan relacionados con las key del primero. 
             RangeType = RangeTypes.MonsoonSeasonRangeType,
@@ -66,10 +67,9 @@ namespace StaticData.Vietnam
             {
                 Dictionary = new List<DictionaryItem<char>>()
                 {
-
-                    new DictionaryItem<char> { DictionaryKey = 'S', DictionaryValue = ""},
-                    new DictionaryItem<char> { DictionaryKey = 'I', DictionaryValue =  ""}, 
-                    new DictionaryItem<char> { DictionaryKey = 'V', DictionaryValue =  ""},
+                    //https://www.adventure-life.com/vietnam/articles/when-is-the-best-time-to-visit-vietnam
+                    new DictionaryItem<char> { DictionaryKey = 'W', DictionaryValue = "The winter monsoon, from October to March, provides rain and cold to the north while offering warmth and dryness to the south. "},
+                    new DictionaryItem<char> { DictionaryKey = 'S', DictionaryValue = "From April through October, the summer monsoon brings hot, humid weather and heavy rain to most of the country, except for mountainous places. Between July and November, typhoons hit northern and central Vietnam."}, 
                }
 
             }

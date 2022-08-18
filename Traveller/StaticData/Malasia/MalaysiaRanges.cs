@@ -19,11 +19,11 @@ namespace StaticData.Malaysia
                 Dictionary = new List<DictionaryItem<char>>()
                 {
 
-                    new DictionaryItem<char> { DictionaryKey = 'A', DictionaryValue = "Las vacaciones escolares de fin de año, seguidas del Año Nuevo chino, elevan los precios y conviene reservar el transporte y el alojamiento. Es temporada del monzón en la costa este de la Malasia peninsular y el oeste de Sarawak." },
+                    new DictionaryItem<char> { DictionaryKey = 'A', DictionaryValue = "The end-of-year school vacations, followed by Chinese New Year, drive up prices and it pays to book transport and accommodation. It's monsoon season on the east coast of Peninsular Malaysia and western Sarawak." },
 
-                    new DictionaryItem<char> { DictionaryKey = 'M', DictionaryValue = "De julio a agosto se competirá con los visitantes de los estados del Golfo que escapan del calor; es la llamada “temporada árabe”. Es temporada del monzón en la costa oeste de la Malasia peninsular hasta septiembre." },
+                    new DictionaryItem<char> { DictionaryKey = 'M', DictionaryValue = "From July to August you will be competing with visitors from the Gulf states escaping the heat; it's the so-called Arabian season. It is monsoon season on the west coast of peninsular Malaysia until September." },
 
-                    new DictionaryItem<char> { DictionaryKey = 'B', DictionaryValue = "Conviene evitar la peor época de lluvias y humedad. Es cuando más tranquilo se puede disfrutar de ciertos lugares muy turísticos." },
+                    new DictionaryItem<char> { DictionaryKey = 'B', DictionaryValue = "It is advisable to avoid the worst rainy and humid season. That's when it's the quietest time to enjoy certain very touristy places." },
 
                 }
 
@@ -80,7 +80,7 @@ namespace StaticData.Malaysia
                 {
 
                     new DictionaryItem<char> { DictionaryKey = 'E', DictionaryValue = "The east-coast dry season runs from March until September." },
-                    new DictionaryItem<char> { DictionaryKey = 'W', DictionaryValue = " The west-coast dry season runs from October to April"},
+                    new DictionaryItem<char> { DictionaryKey = 'W', DictionaryValue = "The west-coast dry season runs from October to April"},
                     new DictionaryItem<char> { DictionaryKey = 'I', DictionaryValue = "The east of Malaysia, including islands like Tioman, Redang and the Perhentian Islands, see heavy rains between November and February. These showers can be longer and heavier than those in the west, so we generally advise travellers to avoid the east of Malaysia at this time. ." },
                     new DictionaryItem<char> { DictionaryKey = 'M', DictionaryValue = "The west of Malaysia, where you’ll find popular beach spots like Langkawi and Pangkor, has heavier rain in September and October. However, it is still possible to experience a lovely beach stay with little more than a short sharp downpour at this time."},
 

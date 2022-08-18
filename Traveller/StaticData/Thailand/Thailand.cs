@@ -22,7 +22,7 @@ namespace StaticData.Thailand
             Frontiers = ThailandFrontiers.GetAll(),
             TrainLines = ThailandTrainLines.GetAll(),
             Airports = ThailandAirports.GetAll(),
-            Ranges = new List<RangeChar> { ThailandRanges.SeasonRange , ThailandRanges.MonzonRange},
+            Ranges = new List<RangeChar> { ThailandRanges.SeasonRange , ThailandRanges.MonsoonRange },
             ShowInDynamicHome = true,
             ShowInDynamicHomeOrder = 5
 

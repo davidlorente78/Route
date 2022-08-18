@@ -20,7 +20,7 @@ namespace StaticData.Vietnam
             Frontiers = VietnamFrontiers.GetAll(),
             Airports = VietnamAirports.GetAll(),
             TrainLines = VietnamTrainLines.GetAll(),
-            Ranges = new List<RangeChar> { VietnamRanges.SeasonRange , VietnamRanges.MonzonRange},
+            Ranges = new List<RangeChar> { VietnamRanges.SeasonRange , VietnamRanges.MonsoonRange },
             ShowInDynamicHome = true,
             ShowInDynamicHomeOrder = 0
 

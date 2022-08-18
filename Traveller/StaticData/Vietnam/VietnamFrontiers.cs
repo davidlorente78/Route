@@ -15,7 +15,7 @@ namespace Traveller.StaticData
 
                     new Frontier {
                         Name = "Cambodia Vietnam Bavet MocBai ",
-                        Description  ="La frontera de Bavet / Moc Bai es la mas usada por los turistas pues te permite conectar en autobús Phnom Penh con Ho Chi Minh de la manera mas rápida y directa.",
+                        Description  ="The Bavet / Moc Bai border is the most used by tourists because it allows you to connect by bus Phnom Penh with Ho Chi Minh City in the fastest and most direct way.",
                         Origin = CambodiaDestinations.Bavet,
                         Final = VietnamDestinations.MocBai,
                         FrontierType = FrontierTypes.Terrestrial,
@@ -28,7 +28,7 @@ namespace Traveller.StaticData
 
                        new Frontier {
                         Name = "Laos Vietnam Sop Hun Tay Trang ",
-                        Description  ="Usado por autobuses que van desde Vientiane hacia Hanoi y viceversa. Tambien es posible utilizarlo si se va o viene de Sapa (Vietnam)",
+                        Description  ="Used by buses going from Vientiane to Hanoi and vice versa. It is also possible to use it if you are going to or coming from Sapa (Vietnam).",
                         Origin = LaosDestinations.SopHun,
                         Final = VietnamDestinations.TayTrang,
                         FrontierType = FrontierTypes.Terrestrial,                   
@@ -41,44 +41,36 @@ namespace Traveller.StaticData
 
                         new Frontier {
                         Name = "Laos Vietnam Namkan NhapCanh",
-                        Description  ="Usado por NhapCanh que van desde Vientiane o Luang Prabang hacia Hanoi y viceversa. Tambien es posible utilizarlo si se va o viene de Sapa (Vietnam)",
+                        Description  ="Used by NhapCanh going from Vientiane or Luang Prabang to Hanoi and vice versa. It is also possible to use it if you are coming or going from Sapa (Vietnam).",
                         Origin = LaosDestinations.Namkan,
                         Final = VietnamDestinations.NhapCanh,
                         FrontierType = FrontierTypes.Terrestrial,
                        //,
-
                         }
 
                          ,
 
                     new Frontier {
                         Name = "Cambodia Vietnam Prek Chak Ha Tien ",
-                        Description = "Si tu idea es cruzar a Vietnam por el sur de Camboya(o viceversa) la mejor manera es hacerlo por Prek Chak / Ha Tien.Por este paso fronterizo es fácil conectar la zona sur de Camboya(Sihanoukville, Kampot, Kep) con destinos como Chau Doc o Ho Chi Minh.",
+                        Description = "If your idea is to cross to Vietnam through the south of Cambodia (or vice versa) the best way is to do it through Prek Chak / Ha Tien, through this border crossing is easy to connect the southern part of Cambodia (Sihanoukville, Kampot, Kep) with destinations such as Chau Doc or Ho Chi Minh City.",
                         Origin = CambodiaDestinations.PrekChak,
                         Final = VietnamDestinations.HaTien,
                         FrontierType = FrontierTypes.Terrestrial,
 
                         }
-
-
-
                     ,
                       new Frontier {
                         Name = "Laos Vietnam Lao Bao Dansavanh ",
-                        Description = "Paso fronterizo a la altura de Hue. En la misma frontera hay autobuses que salen hacia Pakse (Laos) y  otra terminal de autobuses con destino a Savannakhet (5h)",
+                        Description = "Border crossing at Hue. At the same border there are buses to Pakse (Laos) and another bus terminal to Savannakhet (5h).",
                         Origin = LaosDestinations.Dansavanh,
                         Final = VietnamDestinations.LaoBao,
                         FrontierType = FrontierTypes.Terrestrial,
-
-
                         }
-
-
                       ,
 
                        new Frontier {
                         Name = "Laos Vietnam Nam Phao CauTreo",
-                        Description = "Paso fronterizo a la altura de Vinh",
+                        Description = "Border crossing point at Vinh",
                         Origin = LaosDestinations.NamPhao,
                         Final = VietnamDestinations.CauTreo,
                         FrontierType = FrontierTypes.Terrestrial,
@@ -91,14 +83,14 @@ namespace Traveller.StaticData
 
                     new Frontier {
                         Name = "Cambodia Vietnam Kaan Samnor / Ving Xuong ",
-                        Description =" Kaan Samnor / Ving Xuong es el paso fronterizo que hay entre la frontera natural que es el río Mekong. Este paso fronterizo es el usado por aquellos viajeros que estando en Phnom Penh prefieren ir en barco hasta Vietnam y así empezar la ruta por el pais recorriendo los Delta del Mekong.La ruta en barco llega hasta la población de Chau Doc para continuar hasta Ho Chi Minh en autobús.",
+                        Description ="Kaan Samnor / Ving Xuong is the border crossing between the natural border that is the Mekong River. This border crossing is used by those travelers who being in Phnom Penh prefer to go by boat to Vietnam and thus begin the route through the country touring the Mekong Delta.the boat route reaches the town of Chau Doc to continue to Ho Chi Minh City by bus.",
                         Origin = CambodiaDestinations.KaanSamnor,
                         Final = VietnamDestinations.VingXuong,
                         FrontierType = FrontierTypes.Terrestrial,
                         //Visas = new List<Visa> { new Visa { Duration = 30 } } 
                     },
 
-                       //Kaoam Samnor(Kandal Mekong)    Vietnam No  Sí
+                    //Kaoam Samnor(Kandal Mekong)    Vietnam No  Sí
                     //K'am Samnar Border Crossing Station
                      new Frontier {
                         Name = "Thuong Phuoc Gate - Kaoam Samnor Border Checkpoint (K'am Samnar)",
@@ -120,9 +112,6 @@ namespace Traveller.StaticData
 
                      //     //}
                      // }
-
-                        
-
                 };
         }
 

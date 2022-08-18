@@ -15,9 +15,9 @@ namespace StaticData.Laos
             {
                 Dictionary = new List<DictionaryItem<char>>()
                 {
-                      new DictionaryItem<char> { DictionaryKey = 'A', DictionaryValue = "Los precios suben hasta un 50 % en la costa; se recomienda reservar hotel con antelación."},
-                      new DictionaryItem<char> { DictionaryKey = 'M', DictionaryValue =  "Los paisajes verdes son preciosos. Temporada preferida por los viajeros españoles, además de mochileros de todo el mundo."},
-                      new DictionaryItem<char> { DictionaryKey = 'B', DictionaryValue = "En abril y mayo hace calor, con temperaturas de hasta 40ºC. En septiembre y octubre puede llover bastante, aunque los diluvios van acompañados de increíbles formaciones de nubes. " }
+                      new DictionaryItem<char> { DictionaryKey = 'A', DictionaryValue = "Prices increase up to 50% on the coast; it is recommended to book hotels in advance."},
+                      new DictionaryItem<char> { DictionaryKey = 'M', DictionaryValue = "The green landscapes are beautiful. Preferred season for Spanish travelers, as well as backpackers from all over the world."},
+                      new DictionaryItem<char> { DictionaryKey = 'B', DictionaryValue = "April and May are hot, with temperatures reaching 40ºC. In September and October it can rain quite a lot, although the deluges are accompanied by incredible cloud formations." }
 
                   }
             }
