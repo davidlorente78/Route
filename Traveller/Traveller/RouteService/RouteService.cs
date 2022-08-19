@@ -11,9 +11,6 @@ namespace Traveller.RouteService
             this.status = status;
         }
 
-
-
-
         //public List<TravellTask> EstimateTask() {
 
 

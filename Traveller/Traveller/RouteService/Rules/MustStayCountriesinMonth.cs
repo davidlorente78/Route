@@ -22,7 +22,7 @@ namespace Traveller.RouteService.Rules
         {
             string summmary = "";
 
-            summmary = summmary + "Se dede pasar el mes de  " + StayTravelMonth.ToString() + " en alguno de los siguiente paises.";  //TODO
+            summmary = summmary + "Se debe pasar el mes de  " + StayTravelMonth.ToString() + " en alguno de los siguiente paises.";  //TODO
 
             return summmary;
 
