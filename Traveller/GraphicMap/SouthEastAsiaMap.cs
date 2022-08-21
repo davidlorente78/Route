@@ -39,22 +39,18 @@ namespace GraphicMap
         {
 
 
-            RouteCombinationsGenerator routeGenerator = new RouteCombinationsGenerator(new MalasyaTailandiaBasedRuleWithBaliContainer());
+            RouteCombinationsGenerator routeGenerator = new RouteCombinationsGenerator(new MalasyaTailandiaLongStayRuleContainer());
 
 
             //RoutePermutationsGenerator routeGenerator = new RoutePermutationsGenerator(new AllDestinationsRuleContainer());
 
-            List<List<char>> routes = routeGenerator.Generate();
+            //List<List<char>> routes = routeGenerator.Generate();
 
+            var routes = new List<List<char>>();
 
-            //Cargar aqui los evaluadores 
-            RouteEvaluator routeEvaluator = new RouteEvaluator(
-              new List<IEvaluator> {
-                    new SeasonEvaluator(new SeasonDataContainer ()),
-                  }
-              );
+            routes.Add(new List<char> { 'T', 'L', 'V', 'C', 'M', 'M', 'M', 'T', 'T', 'V', 'L', 'T' });
 
-
+         
 
             //12 botones icono con explicacion del icono detallada en el ToolTip es lo mas basico
 
@@ -62,13 +58,6 @@ namespace GraphicMap
 
             //Los double se pueden ordenar y mostrar en el Datagrid
 
-
-            foreach (var route in routes)
-            {
-                Tuple<List<char>, List<List<Tuple<char, string>>>, List<double>> finalReport = routeEvaluator.EvaluateAndReport(route);
-                finalReports.Add(finalReport);
-                int count = routes.Count;
-            }
 
 
 

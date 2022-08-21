@@ -25,6 +25,12 @@ namespace RouteDataManager.Repositories
             ///
             return _context.Countries.Where(c=> c.CountryID == id).Include(c => c.Destinations).Include(c => c.Frontiers).Include(c => c.Visas).OrderBy(c => c.Name).ToList();
         }
-        
+
+        public Country GetCountryByCode(char ch)
+        {
+            ///
+            return _context.Countries.Where(c => c.Code == ch).Include(c => c.Destinations).Include(c => c.Frontiers).Include(c => c.Visas).ThenInclude(v=>v.QualifyNationalities).OrderBy(c => c.Name).FirstOrDefault();
+        }
+
     }   
 }

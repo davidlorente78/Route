@@ -6,6 +6,8 @@ using RouteDataManager.Repositories;
 using RouteDataManager.ViewModels;
 using StaticData;
 using Traveller.Domain;
+using Traveller.DomainServices;
+using Traveller.RouteService;
 
 namespace RouteDataManager.Controllers
 {
@@ -17,67 +19,46 @@ namespace RouteDataManager.Controllers
 
         private List<char> route = new List<char> { 'T', 'L', 'V', 'C', 'M', 'M', 'M', 'T', 'T', 'V', 'L', 'T' };
 
-        public ItineraryByMonthController(ApplicationContext context)
+        private IVisaService visaService;
+
+        private IRouteService routeService;
+
+        public ItineraryByMonthController(ApplicationContext context, IVisaService visaService, IRouteService routeService)
         {
             _context = context;
+            this.visaService = visaService;
+            this.routeService = routeService;
 
         }
 
         public async Task<IActionResult> Index(ItineraryByMonthIndexViewModel itineraryByMonthIndexViewModel)
         {
-            var countries = _context.Countries.ToList();
+            var countries = _context.Countries.Include(x=>x.Ranges).Where(x=>x.Ranges != null).ToList();
             var monthsList = _context.Months.ToList();
 
+            var MaxStay = new Dictionary <char, int>();
+            foreach (Country country in countries)
+            {
+                MaxStay.Add(country.Code, visaService.GetMaxStay(country.Code, "ES"));
+            }
 
+            var MaxStayMalaysia = visaService.GetMaxStay('M',"ES");
+            var MaxStayThailand = visaService.GetMaxStay('T',"ES");
+
+            var incumple = routeService.BrokenRules(this.route);
 
             itineraryByMonthIndexViewModel.FilterCountry1 = countries.Where(x => x.Code == route[0]).FirstOrDefault();
-            SelectList selectListCountries1 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry1.CountryID);
-            itineraryByMonthIndexViewModel.SelectListCountries1 = selectListCountries1;
-
             itineraryByMonthIndexViewModel.FilterCountry2 = countries.Where(x => x.Code == route[1]).FirstOrDefault();
-            SelectList selectListCountries2 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry2.CountryID);
-            itineraryByMonthIndexViewModel.SelectListCountries2 = selectListCountries2;
-
             itineraryByMonthIndexViewModel.FilterCountry3 = countries.Where(x => x.Code == route[2]).FirstOrDefault();
-            SelectList selectListCountries3 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry3.CountryID);
-            itineraryByMonthIndexViewModel.SelectListCountries3 = selectListCountries3;
-
             itineraryByMonthIndexViewModel.FilterCountry4 = countries.Where(x => x.Code == route[3]).FirstOrDefault();
-            SelectList selectListCountries4 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry4.CountryID);
-            itineraryByMonthIndexViewModel.SelectListCountries4 = selectListCountries4;
-
             itineraryByMonthIndexViewModel.FilterCountry5 = countries.Where(x => x.Code == route[4]).FirstOrDefault();
-            SelectList selectListCountries5 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry5.CountryID);
-            itineraryByMonthIndexViewModel.SelectListCountries5 = selectListCountries5;
-
             itineraryByMonthIndexViewModel.FilterCountry6 = countries.Where(x => x.Code == route[5]).FirstOrDefault();
-            SelectList selectListCountries6 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry6.CountryID);
-            itineraryByMonthIndexViewModel.SelectListCountries6 = selectListCountries6;
-
             itineraryByMonthIndexViewModel.FilterCountry7 = countries.Where(x => x.Code == route[6]).FirstOrDefault();
-            SelectList selectListCountries7 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry7.CountryID);
-            itineraryByMonthIndexViewModel.SelectListCountries7 = selectListCountries7;
-
             itineraryByMonthIndexViewModel.FilterCountry8 = countries.Where(x => x.Code == route[7]).FirstOrDefault();
-            SelectList selectListCountries8 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry8.CountryID);
-            itineraryByMonthIndexViewModel.SelectListCountries8 = selectListCountries8;
-
             itineraryByMonthIndexViewModel.FilterCountry9 = countries.Where(x => x.Code == route[8]).FirstOrDefault();
-            SelectList selectListCountries9 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry9.CountryID);
-            itineraryByMonthIndexViewModel.SelectListCountries9 = selectListCountries9;
-
             itineraryByMonthIndexViewModel.FilterCountry10 = countries.Where(x => x.Code == route[9]).FirstOrDefault();
-            SelectList selectListCountries10 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry10.CountryID);
-            itineraryByMonthIndexViewModel.SelectListCountries10 = selectListCountries10;
-
             itineraryByMonthIndexViewModel.FilterCountry11 = countries.Where(x => x.Code == route[10]).FirstOrDefault();
-            SelectList selectListCountries11 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry11.CountryID);
-            itineraryByMonthIndexViewModel.SelectListCountries11 = selectListCountries11;
-
             itineraryByMonthIndexViewModel.FilterCountry12 = countries.Where(x => x.Code == route[11]).FirstOrDefault();
-            SelectList selectListCountries12 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry12.CountryID);
-            itineraryByMonthIndexViewModel.SelectListCountries12 = selectListCountries12;
-
 
             //Montar lista de filterCountry
 
@@ -108,57 +89,38 @@ namespace RouteDataManager.Controllers
         public async Task<IActionResult> Reload(ItineraryByMonthIndexViewModel itineraryByMonthIndexViewModel)
         {
             var countries = _context.Countries.ToList();
-
-            itineraryByMonthIndexViewModel.FilterCountry1 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry1.CountryID).FirstOrDefault();
-            SelectList selectListCountries1 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry1.CountryID);
-            itineraryByMonthIndexViewModel.SelectListCountries1 = selectListCountries1;
-
-            itineraryByMonthIndexViewModel.FilterCountry2 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry2.CountryID).FirstOrDefault();
-            SelectList selectListCountries2 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry2.CountryID);
-            itineraryByMonthIndexViewModel.SelectListCountries2 = selectListCountries2;
-
-            itineraryByMonthIndexViewModel.FilterCountry3 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry3.CountryID).FirstOrDefault();
-            SelectList selectListCountries3 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry3.CountryID);
-            itineraryByMonthIndexViewModel.SelectListCountries3 = selectListCountries3;
-
-            itineraryByMonthIndexViewModel.FilterCountry4 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry4.CountryID).FirstOrDefault();
-            SelectList selectListCountries4 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry4.CountryID);
-            itineraryByMonthIndexViewModel.SelectListCountries4 = selectListCountries4;
-
-            itineraryByMonthIndexViewModel.FilterCountry5 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry5.CountryID).FirstOrDefault();
-            SelectList selectListCountries5 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry5.CountryID);
-            itineraryByMonthIndexViewModel.SelectListCountries5 = selectListCountries5;
-
-            itineraryByMonthIndexViewModel.FilterCountry6 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry6.CountryID).FirstOrDefault();
-            SelectList selectListCountries6 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry6.CountryID);
-            itineraryByMonthIndexViewModel.SelectListCountries6 = selectListCountries6;
-
-            itineraryByMonthIndexViewModel.FilterCountry7 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry7.CountryID).FirstOrDefault();
-            SelectList selectListCountries7 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry7.CountryID);
-            itineraryByMonthIndexViewModel.SelectListCountries7 = selectListCountries7;
-
-            itineraryByMonthIndexViewModel.FilterCountry8 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry8.CountryID).FirstOrDefault();
-            SelectList selectListCountries8 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry8.CountryID);
-            itineraryByMonthIndexViewModel.SelectListCountries8 = selectListCountries8;
-
-            itineraryByMonthIndexViewModel.FilterCountry9 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry9.CountryID).FirstOrDefault();
-            SelectList selectListCountries9 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry9.CountryID);
-            itineraryByMonthIndexViewModel.SelectListCountries9 = selectListCountries9;
-
-            itineraryByMonthIndexViewModel.FilterCountry10 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry10.CountryID).FirstOrDefault();
-            SelectList selectListCountries10 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry10.CountryID);
-            itineraryByMonthIndexViewModel.SelectListCountries10 = selectListCountries10;
-
-            itineraryByMonthIndexViewModel.FilterCountry11 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry11.CountryID).FirstOrDefault();
-            SelectList selectListCountries11 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry11.CountryID);
-            itineraryByMonthIndexViewModel.SelectListCountries11 = selectListCountries11;
-
-            itineraryByMonthIndexViewModel.FilterCountry12 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry12.CountryID).FirstOrDefault();
-            SelectList selectListCountries12 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry12.CountryID);
-            itineraryByMonthIndexViewModel.SelectListCountries12 = selectListCountries12;
             var monthsList = _context.Months.ToList();
 
-            //Montar lista de filterCountry
+            var route = new List<char> {
+
+                itineraryByMonthIndexViewModel.FilterCountry1.Code,
+                itineraryByMonthIndexViewModel.FilterCountry2.Code,
+                itineraryByMonthIndexViewModel.FilterCountry3.Code,
+                itineraryByMonthIndexViewModel.FilterCountry4.Code,
+                itineraryByMonthIndexViewModel.FilterCountry5.Code,
+                itineraryByMonthIndexViewModel.FilterCountry6.Code,
+                itineraryByMonthIndexViewModel.FilterCountry7.Code,
+                itineraryByMonthIndexViewModel.FilterCountry8.Code,
+                itineraryByMonthIndexViewModel.FilterCountry9.Code,
+                itineraryByMonthIndexViewModel.FilterCountry10.Code,
+                itineraryByMonthIndexViewModel.FilterCountry11.Code,
+                itineraryByMonthIndexViewModel.FilterCountry12.Code
+            };
+
+            var incumple = routeService.BrokenRules(route);
+
+            itineraryByMonthIndexViewModel.FilterCountry1 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry1.CountryID).FirstOrDefault();
+            itineraryByMonthIndexViewModel.FilterCountry2 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry2.CountryID).FirstOrDefault();
+            itineraryByMonthIndexViewModel.FilterCountry3 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry3.CountryID).FirstOrDefault();
+            itineraryByMonthIndexViewModel.FilterCountry4 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry4.CountryID).FirstOrDefault();
+            itineraryByMonthIndexViewModel.FilterCountry5 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry5.CountryID).FirstOrDefault();
+            itineraryByMonthIndexViewModel.FilterCountry6 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry6.CountryID).FirstOrDefault();
+            itineraryByMonthIndexViewModel.FilterCountry7 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry7.CountryID).FirstOrDefault();
+            itineraryByMonthIndexViewModel.FilterCountry8 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry8.CountryID).FirstOrDefault();
+            itineraryByMonthIndexViewModel.FilterCountry9 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry9.CountryID).FirstOrDefault();
+            itineraryByMonthIndexViewModel.FilterCountry10 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry10.CountryID).FirstOrDefault();
+            itineraryByMonthIndexViewModel.FilterCountry11 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry11.CountryID).FirstOrDefault();
+            itineraryByMonthIndexViewModel.FilterCountry12 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry12.CountryID).FirstOrDefault();
 
             List<Country> filterCountries = ViewModelContriesToList(itineraryByMonthIndexViewModel);
             itineraryByMonthIndexViewModel = DataToViewModel(itineraryByMonthIndexViewModel, monthsList, filterCountries);
@@ -169,6 +131,43 @@ namespace RouteDataManager.Controllers
 
         private ItineraryByMonthIndexViewModel DataToViewModel(ItineraryByMonthIndexViewModel itineraryByMonthIndexViewModel, List<Month> monthsList, List<Country> filterCountries)
         {
+
+            SelectList selectListCountries1 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry1.CountryID);
+            itineraryByMonthIndexViewModel.SelectListCountries1 = selectListCountries1;
+
+            SelectList selectListCountries2 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry2.CountryID);
+            itineraryByMonthIndexViewModel.SelectListCountries2 = selectListCountries2;
+
+            SelectList selectListCountries3 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry3.CountryID);
+            itineraryByMonthIndexViewModel.SelectListCountries3 = selectListCountries3;
+
+            SelectList selectListCountries4 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry4.CountryID);
+            itineraryByMonthIndexViewModel.SelectListCountries4 = selectListCountries4;
+
+            SelectList selectListCountries5 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry5.CountryID);
+            itineraryByMonthIndexViewModel.SelectListCountries5 = selectListCountries5;
+
+            SelectList selectListCountries6 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry6.CountryID);
+            itineraryByMonthIndexViewModel.SelectListCountries6 = selectListCountries6;
+
+            SelectList selectListCountries7 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry7.CountryID);
+            itineraryByMonthIndexViewModel.SelectListCountries7 = selectListCountries7;
+
+            SelectList selectListCountries8 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry8.CountryID);
+            itineraryByMonthIndexViewModel.SelectListCountries8 = selectListCountries8;
+
+            SelectList selectListCountries9 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry9.CountryID);
+            itineraryByMonthIndexViewModel.SelectListCountries9 = selectListCountries9;
+
+            SelectList selectListCountries10 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry10.CountryID);
+            itineraryByMonthIndexViewModel.SelectListCountries10 = selectListCountries10;
+
+            SelectList selectListCountries11 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry11.CountryID);
+            itineraryByMonthIndexViewModel.SelectListCountries11 = selectListCountries11;
+
+            SelectList selectListCountries12 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry12.CountryID);
+            itineraryByMonthIndexViewModel.SelectListCountries12 = selectListCountries12;
+
             int indexMonth = 0;
             itineraryByMonthIndexViewModel.Months = monthsList;
             foreach (var country in filterCountries)

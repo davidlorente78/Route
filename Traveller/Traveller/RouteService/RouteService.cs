@@ -1,18 +1,34 @@
-﻿using Traveller.Domain;
+﻿using System.Collections.Generic;
+using Traveller.Domain;
+using Traveller.RuleService;
 
 namespace Traveller.RouteService
 {
-    public class RouteService
+    public class RouteService : IRouteService
     {
-        Status status;
-        public RouteService(Status status)
+        private IRuleContainer ruleContainer;
+       
+        public RouteService(IRuleContainer ruleContainer)
         {
-
-            this.status = status;
+            this.ruleContainer = ruleContainer;
+          
         }
 
-        //public List<TravellTask> EstimateTask() {
 
+        public List<IRule> BrokenRules(List<char> route)
+        {
+
+            List<IRule> rules = ruleContainer.GetRules();
+            RouteValidator routeValidator = new RouteValidator(rules);
+
+            var incumple = routeValidator.Incumple(route);
+
+            return incumple;
+
+        }
+    }
+
+}
 
         //    //TODO 
 
@@ -112,5 +128,3 @@ namespace Traveller.RouteService
 
 
 
-    }
-}

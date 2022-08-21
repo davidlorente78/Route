@@ -6,7 +6,7 @@
 }
 
 
-<form asp-action="Reload">
+<form  id="Reload" asp-action="Reload">
 
     <div class="form-group">
         <p></p>
@@ -48,13 +48,13 @@
                     </td>
                     <td>
 
-                        <select asp-for="@Model.FilterCountry1.CountryID" class="form-control" asp-items="@Model.SelectListCountries1"></select>
+                        <select  id="ddlCountry1"  asp-for="@Model.FilterCountry1.CountryID" class="form-control" asp-items="@Model.SelectListCountries1" ></select>
 
                     </td>
                     <td>@Model.CountryReport.ElementAt(0)</td>
 
                 </tr>
-
+     
                 <tr>
                     <td>
                         <label class="control-label">@Model.Months[1].Name</label>
@@ -203,6 +203,4 @@
         
     </div>
 </form>
-
-
 

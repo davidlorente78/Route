@@ -20,8 +20,8 @@ namespace Traveller.RuleService
             rules.Add(new TotalStayinYearMustBeLessThanXMonth('M', 6));
             rules.Add(new TotalStayinYearMustBeLessThanXMonth('T', 6));
 
-            //rules.Add(new EachStayMustBeLessThanXMonth('T', 2));        
-            //rules.Add(new EachStayMustBeLessThanXMonth('M', 3));
+            rules.Add(new EachStayMustBeLessThanXMonth('T', 2));        
+            rules.Add(new EachStayMustBeLessThanXMonth('M', 3));
 
 
             //var T2M3 = new AndCondition(new List<IRule> { new EachStayMustBeLessThanXMonth('T', 2), new EachStayMustBeLessThanXMonth('M', 3), new TotalStayinYearMustBeLessThanXMonth('X', 2) });
@@ -40,10 +40,10 @@ namespace Traveller.RuleService
             rules.Add(new AnualEntriesMustBeLessThanX('T', 2));
             rules.Add(new AnualEntriesMustBeLessThanX('M', 2));
 
-            rules.Add(new TotalStayinYearMustBeXMonth('X', 3));  //LVC VCL 
+            //rules.Add(new TotalStayinYearMustBeXMonth('X', 3));  //LVC VCL 
 
-            //Con esta condicion se puede realizar cv
-            rules.Add(new BlockConnection('M', 'X', false));
+            ////Con esta condicion se puede realizar cv
+            //rules.Add(new BlockConnection('M', 'X', false));
 
 
 
@@ -52,7 +52,7 @@ namespace Traveller.RuleService
                 //Se aplican aqui los meses menos restrictivos
                 new RangeIntWithDictionary { Id = 'M', Values = new List<int> {1, 1, 1,1,1,1,1,1,1, 1,- 1,- 1 } } ,
                new RangeIntWithDictionary { Id = 'T', Values = new List<int> { 1, 1, 1,1,1,-1,-1,-1,1,  1, 1, 1 } } ,
-                new RangeIntWithDictionary { Id = 'X', Values = new List<int> { 1, 1, 1,1,1,-1,-1,-1,-1, 1, 1, 1 } } ,
+                //new RangeIntWithDictionary { Id = 'X', Values = new List<int> { 1, 1, 1,1,1,-1,-1,-1,-1, 1, 1, 1 } } ,
 
             }));
 
@@ -61,7 +61,7 @@ namespace Traveller.RuleService
             //Añadimos condicion para que la estancia fuera de M y T (X) sea de tres meses consecutivos
 
 
-            rules.Add(new OneStayYearWithXConsecutiveMonths('X', 3));
+            //rules.Add(new OneStayYearWithXConsecutiveMonths('X', 3));
 
             //Se reducen a 32 posibilidades
         }

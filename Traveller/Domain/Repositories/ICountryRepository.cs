@@ -10,6 +10,9 @@ namespace Domain.Repositories
     {
         IEnumerable<Country> GetCountriesOrderedByName();
 
+        //TODO Este es Country sin ENUMERABLE
         IEnumerable<Country> GetCountryByID(int id);
+
+        public Country GetCountryByCode(char ch);
     }
 }

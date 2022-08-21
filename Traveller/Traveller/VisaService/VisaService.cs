@@ -1,25 +1,37 @@
-﻿namespace Traveller.DomainServices
+﻿using RouteDataManager.Repositories;
+using System.Linq;
+using Traveller.Domain;
+
+namespace Traveller.DomainServices
 {
-    public class VisaService
+    public class VisaService : IVisaService
     {
 
-        //List<Visa>  GetAvailableVisa(Country destination) {
+        private IUnitOfWork unitOfWork;
+        public VisaService(IUnitOfWork unitOfWork)
+        {
 
-        //    return destination.Visas;
+            this.unitOfWork = unitOfWork;
 
-        //}
+        }
+        public int GetMaxStay(char countryCode, string nationalityCode)
+        {
+            var country = unitOfWork.Countries.GetCountryByCode(countryCode);
 
+            if (country.Visas.Count != 0)
+            {
+                var maxDuration = country.Visas
+                        .Where(
+                            s => s.QualifyNationalities.Select(n => n.Code).Contains(nationalityCode)
+                         )
+                        .Max(v => v.Duration);
 
-        //List<Visa> GetAvailableVisaFilterByEntryPoint(Country destination, Destination ExpectedEntryPoint)
-        //{
-        //    return destination.Visas.FindAll(x=>x.ValidEntryPoints.Contains(ExpectedEntryPoint)==true);
-        //}
+                return (int)maxDuration;
+            }
 
+            return 0;
+        }
 
-        //List<Visa> GetAvailableVisaFilterByExtensible(Country destination, Destination ExpectedEntryPoint)
-        //{
-        //    return destination.Visas.FindAll(x => x.Extensible == true);
-        //}
 
 
 

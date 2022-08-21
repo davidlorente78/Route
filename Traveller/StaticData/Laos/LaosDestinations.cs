@@ -29,6 +29,8 @@ namespace Traveller.StaticData
 
         public static Destination NongNokKhiene = new Destination { Name = "Nong Nok Khiene", DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }, Description = "" };
 
+        public static Destination MuangNgoiNeua = new Destination { Name = "Muang Ngoi Neua", DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism }, Description = "Muang Ngoi Neua is a small riverside village in Northern Laos wedged in between karst mountains at the confluence of the Nam Ngoi and the Nam Ou rivers. In the last few years it is beginning to appear as a destination on the Banana Pancake Trail as a backpacker favorite. Nevertheless, it remains a low-key destination in a stunning location. Interesting hikes can be made to tribal villages in the area." };
+
 
         public static List<Destination> GetAll() {
 
@@ -49,6 +51,7 @@ namespace Traveller.StaticData
             destinations.Add(XiengKhouang);
             destinations.Add(Oudomsay);
             destinations.Add(NongNokKhiene);
+            destinations.Add(MuangNgoiNeua);
 
 
 
