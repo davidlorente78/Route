@@ -40,7 +40,7 @@ namespace Traveller.RouteService.Rules
         {
             string summmary = "";
 
-            summmary = "La estancia en " + CodeDictionary.GetCountryByCode(countryCode) + " debe ser unica durante el año y tener exactamente  " + months.ToString() + " mes/es de duración ";
+            summmary = "The stay in " + CodeDictionary.GetCountryByCode(countryCode) + " it must be unique during the year and have exactly " + months.ToString() + " month/s of duration. ";
 
             return summmary;
         }

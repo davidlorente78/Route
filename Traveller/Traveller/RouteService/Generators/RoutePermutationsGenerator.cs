@@ -14,7 +14,7 @@ namespace Traveller
 
         public RoutePermutationsGenerator(IRuleContainer ruleContainer)
         {
-            this.vector = ruleContainer.GetVector();
+            this.vector = ruleContainer.Vector;
             this.ruleContainer = ruleContainer;
 
         }

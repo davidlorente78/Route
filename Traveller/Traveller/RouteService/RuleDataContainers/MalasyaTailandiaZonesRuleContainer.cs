@@ -5,16 +5,16 @@ using Traveller.RouteService.Rules;
 
 namespace Traveller.RuleService
 {
-    public class MalasyaTailandiaZonesRuleContainer : IRuleContainer
+    public class XXXMalasyaTailandiaZonesRuleContainer : IRuleContainer
     {
         private List<IRule> rules = new List<IRule>();
-        public List<char> vector = new List<char> { 'N', 'T', 'L', 'C', 'V', 'K', 'O', 'M', 'M', 'W', 'I' };
+        public List<char> Vector { get; set; } = new List<char> { 'N', 'T', 'L', 'C', 'V', 'K', 'O', 'M', 'M', 'W', 'I' };
 
         /// <summary>
         /// Laos-Vietnam-Cambodia-Thailand-Malaysia-Bali-Malaysia-Indonesia-Malaysia-Penang-Kochi-Chiang Mai-
         ///Laos-Vietnam-Cambodia-Thailand-Malaysia-Indonesia-Malaysia-Bali-Malaysia-Penang-Kochi-Chiang Mai-
         /// </summary>
-        public MalasyaTailandiaZonesRuleContainer()
+        public XXXMalasyaTailandiaZonesRuleContainer()
         {
             //Vietnam-Chiang Mai-Cambodia-Vietnam-Laos-Bali-Malaysia-Malaysia-Indonesia-Penang-Thailand-Kochi-
 
@@ -111,7 +111,12 @@ namespace Traveller.RuleService
 
         }
 
+        public void AddRule(IRule rule)
+        {
 
+            rules.Add(rule);
+
+        }
         public List<char> GetDestinationByMonth(int month)
         {
 
@@ -135,10 +140,7 @@ namespace Traveller.RuleService
             return this.rules;
         }
 
-        public List<char> GetVector()
-        {
-            return this.vector;
-        }
+       
     }
 
 }

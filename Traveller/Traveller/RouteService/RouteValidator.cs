@@ -38,12 +38,12 @@ namespace Traveller.RouteService
         }
 
 
-        public List<IRule> Incumple(List<char> route)
+        public List<string> GetBrokenRules(List<char> route)
         {
-            List<IRule> rules_broken = new List<IRule>();
+            List<string> rules_broken = new List<string>();
             foreach (IRule rule in rules)
             {
-                if (!rule.Validate(route)) rules_broken.Add(rule);
+                if (!rule.Validate(route)) rules_broken.Add(rule.ToString());
             }
 
             return rules_broken;

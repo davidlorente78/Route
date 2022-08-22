@@ -28,7 +28,7 @@ namespace Traveller.RouteService.Rules
         {
             string summmary = "";
 
-            summmary = "La estancia anual " + CodeDictionary.GetCountryByCode(countryCode) + " no puede superar los  " + maxMonths.ToString() + " mes/es. ";
+            summmary = "The annual stay " + CodeDictionary.GetCountryByCode(countryCode) + " cannot exceed " + maxMonths.ToString() + " month(s). ";
 
             return summmary;
         }

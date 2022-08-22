@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
+using Traveller.RuleService;
 
 namespace Traveller.RouteService
 {
     public interface IRouteService
     {
-        public List<IRule> BrokenRules(List<char> route);
+        public IRuleContainer ruleContainer { get; set; }
+        public List<string> BrokenRules(List<char> route);
 
     }
 

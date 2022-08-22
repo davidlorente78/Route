@@ -26,7 +26,7 @@ namespace Traveller.RouteService.Rules
 
         public override string ToString()
         {
-            string summary = "Que se cumplan todas las siguientes condiciones : ";
+            string summary = "All of the following conditions must be met : ";
 
             foreach (IRule rule in this.rules)
             {

@@ -16,6 +16,7 @@ namespace StaticData.Vietnam
         {
             Code = 'V',
             Name = "Vietnam",
+            Visas = new List<Visa> { VietnamVisas.eVisa_Vietnam, VietnamVisas.VisaExemption_Vietnam },
             Destinations = VietnamDestinations.GetAll(),
             Frontiers = VietnamFrontiers.GetAll(),
             Airports = VietnamAirports.GetAll(),

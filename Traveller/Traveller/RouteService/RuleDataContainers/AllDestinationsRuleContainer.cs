@@ -5,11 +5,11 @@ using Traveller.RouteService.Rules;
 
 namespace Traveller.RuleService
 {
-    public class AllDestinationsRuleContainer : IRuleContainer
+    public class XXXAllDestinationsRuleContainer : IRuleContainer
     {
         public List<IRule> rules = new List<IRule>();
 
-        public List<char> vector = new List<char> { 'B', 'T', 'L', 'C', 'V', 'H', 'K', 'S', 'M', 'G', 'I' };
+        public List<char> Vector { get; set; } =  new List<char> { 'B', 'T', 'L', 'C', 'V', 'H', 'K', 'S', 'M', 'G', 'I' };
 
         /// <summary>
         /// Vietnam-Myanmar-Cambodia-Vietnam-Laos-Singapore-Malaysia-Indonesia-Sri Lanka-Kochi-Thailand-Hainan-
@@ -39,7 +39,7 @@ namespace Traveller.RuleService
         //Kochi-Thailand-Cambodia-Vietnam-Laos-Myanmar-Indonesia-Malaysia-Singapore-Hainan-Thailand-Sri Lanka-
         //Kochi-Thailand-Cambodia-Vietnam-Laos-Myanmar-Indonesia-Singapore-Malaysia-Hainan-Thailand-Sri Lanka-
         /// </summary>
-        public AllDestinationsRuleContainer()
+        public XXXAllDestinationsRuleContainer()
         {
 
             //rules.Add(new MustStartCountries(new List<char> { 'T', 'M', 'H' }));
@@ -144,16 +144,18 @@ namespace Traveller.RuleService
 
 
         }
+        public void AddRule(IRule rule)
+        {
+
+            rules.Add(rule);
+
+        }
         public List<IRule> GetRules()
         {
             return this.rules;
         }
 
-        //TODO
-        public List<char> GetVector()
-        {
-            return this.vector;
-        }
+  
         public List<char> GetDestinationByMonth(int month)
         {
 

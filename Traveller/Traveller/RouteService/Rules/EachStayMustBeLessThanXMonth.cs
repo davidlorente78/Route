@@ -40,8 +40,9 @@ namespace Traveller.RouteService.Rules
         public override string ToString()
         {
             string summmary = "";
+           
 
-            summmary = "La misma estancia en " + CodeDictionary.GetCountryByCode(countryCode) + " no puede prolongarse mas de " + maxMonths.ToString() + " mes/es. ";
+            summmary = "The same stay in " + CodeDictionary.GetCountryByCode(countryCode) + " cannot be extended for more than " + maxMonths.ToString() + " month(s). ";
 
             return summmary;
         }

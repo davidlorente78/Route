@@ -91,11 +91,12 @@ namespace RouteDataManager.Repositories
                 ShowInDynamicHomeOrder = 4,
                 Destinations = new List<Destination> { NepalDestinations.Kathmandu },
                 Airports = NepalAirports.GetAll(),
+                Ranges = new List<RangeChar> { NepalRanges.MonsoonRange },
 
                 Frontiers = new List<Frontier> {
 
                             new Frontier {
-                            Name = NepalAirports.KTM.Name,
+                            Name = NepalAirports.KTM.Name,                            
                             Origin = NepalDestinations.Kathmandu,
                             Final = NepalDestinations.Kathmandu,
                             FrontierType = FrontierTypes.Airport,

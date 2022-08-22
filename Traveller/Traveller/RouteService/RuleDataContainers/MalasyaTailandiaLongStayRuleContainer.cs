@@ -5,11 +5,13 @@ using Traveller.RouteService.Rules;
 
 namespace Traveller.RuleService
 {
-    public class MalasyaTailandiaLongStayRuleContainer : IRuleContainer
+    public class XXXMalasyaTailandiaLongStayRuleContainer : IRuleContainer
     {
         private List<IRule> rules = new List<IRule>();
 
-        public MalasyaTailandiaLongStayRuleContainer()
+        public List<char> Vector { get; set; } = new List<char>();
+
+        public XXXMalasyaTailandiaLongStayRuleContainer()
         {
 
             //TODO USAR OR PARA ESTANCIAS T=3 (Visado Turista mas extension en inmigracion)
@@ -20,8 +22,8 @@ namespace Traveller.RuleService
             rules.Add(new TotalStayinYearMustBeLessThanXMonth('M', 6));
             rules.Add(new TotalStayinYearMustBeLessThanXMonth('T', 6));
 
-            rules.Add(new EachStayMustBeLessThanXMonth('T', 2));        
-            rules.Add(new EachStayMustBeLessThanXMonth('M', 3));
+            //rules.Add(new EachStayMustBeLessThanXMonth('T', 2));        
+            //rules.Add(new EachStayMustBeLessThanXMonth('M', 3));
 
 
             //var T2M3 = new AndCondition(new List<IRule> { new EachStayMustBeLessThanXMonth('T', 2), new EachStayMustBeLessThanXMonth('M', 3), new TotalStayinYearMustBeLessThanXMonth('X', 2) });
@@ -66,6 +68,12 @@ namespace Traveller.RuleService
             //Se reducen a 32 posibilidades
         }
 
+        public void AddRule(IRule rule)
+        {
+
+            rules.Add(rule);
+
+        }
 
         public List<char> GetDestinationByMonth(int month)
         {

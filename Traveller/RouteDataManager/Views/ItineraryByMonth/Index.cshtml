@@ -13,7 +13,16 @@
         <th>
             <input type="submit" value="Report" class="btn btn-primary btn-block" />
         </th>
-          <p></p>
+         <p></p>
+
+          <p>@Model.RulesReport.Count()  Broken Rules</p>
+
+          @foreach (var rule in @Model.RulesReport) 
+          {
+          <p>@rule.ToString()</p>
+          <br />
+          }
+
         <table class="table">
 
             <colgroup>
@@ -204,3 +213,12 @@
     </div>
 </form>
 
+<form  id="Save" asp-action="Save">
+
+    <div class="form-group">
+        <p></p>
+        <th>
+            <input type="submit" value="Save" class="btn btn-primary btn-block" />
+        </th>
+         <p></p>
+</form>

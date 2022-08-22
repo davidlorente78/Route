@@ -38,8 +38,7 @@ namespace Traveller.RouteService.Rules
         {
             string summmary = "";
 
-            summmary = "El numero de entradas anuales a " + CodeDictionary.GetCountryByCode(country_origin) + " queda limitado  a  " + numberEntries.ToString();
-
+            summmary = "The number of annual entries to " + CodeDictionary.GetCountryByCode(country_origin) + " is limited to " + numberEntries.ToString();
 
             return summmary;
         }

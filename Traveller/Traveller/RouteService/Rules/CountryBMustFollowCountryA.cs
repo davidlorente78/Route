@@ -51,11 +51,11 @@ namespace Traveller.RouteService.Rules
         {
             string summmary = "";
 
-            summmary = CodeDictionary.GetCountryByCode(country_origin) + " y  " + CodeDictionary.GetCountryByCode(country_destination) + " deben visitarse de manera consecutiva";
+            summmary = CodeDictionary.GetCountryByCode(country_origin) + " and " + CodeDictionary.GetCountryByCode(country_destination) + " must be visited consecutively.";
 
-            if (oneDirection) { summmary = summmary + " en el orden indicado."; }
+            if (oneDirection) { summmary = summmary + " in the indicated order."; }
 
-            else { summmary = summmary + " en cualquier orden."; }
+            else { summmary = summmary + " in any order."; }
 
             return summmary;
         }

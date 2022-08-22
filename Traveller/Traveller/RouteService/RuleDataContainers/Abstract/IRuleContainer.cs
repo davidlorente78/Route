@@ -5,8 +5,11 @@ namespace Traveller.RuleService
 {
     public interface IRuleContainer
     {
-        List<IRule> GetRules();
-        List<char> GetVector();
+        public List<char> Vector { get; set; }
+
+        public List<IRule> GetRules();
         List<char> GetDestinationByMonth(int month);
+
+        public void AddRule(IRule rule);
     }
 }

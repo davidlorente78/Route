@@ -45,7 +45,7 @@ namespace Traveller.RouteService.Rules
         {
             string summmary = "";
 
-            summmary = CodeDictionary.GetCountryByCode(country_origin) + " los dos meses no deben ser consecutivos";
+            summmary = CodeDictionary.GetCountryByCode(country_origin) + " the two visit months must not be consecutive.";
 
             return summmary;
         }

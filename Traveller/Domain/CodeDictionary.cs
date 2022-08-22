@@ -1,5 +1,6 @@
 ﻿namespace Traveller.Domain
 {
+    //TODO 
     public static class CodeDictionary
     {
         public static string GetCountryByCode(char input)
@@ -17,7 +18,7 @@
                     }
                 case 'T':
                     {
-                        return "Tailandia";
+                        return "Thailand";
                     }
                 case 'L':
                     {
@@ -26,7 +27,7 @@
                 case 'C':
 
                     {
-                        return "Camboya";
+                        return "Cambodia";
                     }
                 case 'V':
 
@@ -51,7 +52,7 @@
 
                 case 'M':
                     {
-                        return "Malasia";
+                        return "Malaysia";
                     }
                 case 'G':
 

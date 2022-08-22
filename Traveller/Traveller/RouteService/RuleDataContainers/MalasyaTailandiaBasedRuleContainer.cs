@@ -5,15 +5,15 @@ using Traveller.RouteService.Rules;
 
 namespace Traveller.RuleService
 {
-    public class MalasyaTailandiaBasedRuleContainer : IRuleContainer
+    public class XXXMalasyaTailandiaBasedRuleContainer : IRuleContainer
     {
         private List<IRule> rules = new List<IRule>();
 
-        private List<char> vector;
+        public List<char> Vector { get; set; } = new List<char>();
 
-        public MalasyaTailandiaBasedRuleContainer(List<char> vector)
+        public XXXMalasyaTailandiaBasedRuleContainer(List<char> vector)
         {
-            this.vector = vector;
+            Vector= vector;
 
       
 
@@ -72,7 +72,12 @@ namespace Traveller.RuleService
 
 
         }
+        public void AddRule(IRule rule)
+        {
 
+            rules.Add(rule);
+
+        }
 
         public List<char> GetDestinationByMonth(int month)
         {
@@ -97,10 +102,7 @@ namespace Traveller.RuleService
             return this.rules;
         }
 
-        public List<char> GetVector()
-        {
-            return this.vector;
-        }
+      
     }
 
 }

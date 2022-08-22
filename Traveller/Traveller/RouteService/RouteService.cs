@@ -6,7 +6,7 @@ namespace Traveller.RouteService
 {
     public class RouteService : IRouteService
     {
-        private IRuleContainer ruleContainer;
+        public IRuleContainer ruleContainer { get; set; }
        
         public RouteService(IRuleContainer ruleContainer)
         {
@@ -15,17 +15,18 @@ namespace Traveller.RouteService
         }
 
 
-        public List<IRule> BrokenRules(List<char> route)
+        public List<string> BrokenRules(List<char> route)
         {
 
             List<IRule> rules = ruleContainer.GetRules();
             RouteValidator routeValidator = new RouteValidator(rules);
 
-            var incumple = routeValidator.Incumple(route);
+            var brokenRules = routeValidator.GetBrokenRules(route);
 
-            return incumple;
+            return brokenRules;
 
         }
+                 
     }
 
 }

@@ -38,7 +38,7 @@ builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 builder.Services.AddTransient<ICountryService, CountryService>();
 builder.Services.AddTransient<IVisaService, VisaService>();
 builder.Services.AddTransient<IRouteService, RouteService>();
-builder.Services.AddTransient<IRuleContainer , MalasyaTailandiaLongStayRuleContainer>();
+builder.Services.AddTransient<IRuleContainer , RuleContainer>();
 
 
 

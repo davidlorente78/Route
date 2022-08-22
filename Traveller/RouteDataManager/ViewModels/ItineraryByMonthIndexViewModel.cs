@@ -8,14 +8,14 @@ namespace RouteDataManager.ViewModels
     {
         private List<char> route = new List<char> { 'T', 'L', 'V', 'C', 'M', 'M', 'M', 'T', 'T', 'V', 'L', 'T' };
 
+
+
         public ItineraryByMonthIndexViewModel() 
         {
             var check = 0;
         }
-        public ItineraryByMonthIndexViewModel(List<char> route) {
 
-            route = route;
-        }
+        public List<string> RulesReport { get; set; } = new List<string>();
 
         public List <string> CountryReport { get; set; } = new List<string>();
 

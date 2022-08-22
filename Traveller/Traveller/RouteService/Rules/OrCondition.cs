@@ -26,7 +26,7 @@ namespace Traveller.RouteService.Rules
 
         public override string ToString()
         {
-            string summary = "Que se cumpla una de estas condiciones :" + Environment.NewLine;
+            string summary = "One of the following conditions must be met :" + Environment.NewLine;
 
             foreach (IRule rule in this.rules)
             {

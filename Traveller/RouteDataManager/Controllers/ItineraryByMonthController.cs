@@ -8,6 +8,8 @@ using StaticData;
 using Traveller.Domain;
 using Traveller.DomainServices;
 using Traveller.RouteService;
+using Traveller.RouteService.Rules;
+using Traveller.RuleService;
 
 namespace RouteDataManager.Controllers
 {
@@ -23,29 +25,42 @@ namespace RouteDataManager.Controllers
 
         private IRouteService routeService;
 
+
         public ItineraryByMonthController(ApplicationContext context, IVisaService visaService, IRouteService routeService)
         {
             _context = context;
             this.visaService = visaService;
             this.routeService = routeService;
 
+
         }
 
         public async Task<IActionResult> Index(ItineraryByMonthIndexViewModel itineraryByMonthIndexViewModel)
         {
-            var countries = _context.Countries.Include(x=>x.Ranges).Where(x=>x.Ranges != null).ToList();
+            var countries = _context.Countries.Include(x => x.Ranges).Where(x => x.Ranges.Count != 0).ToList();
             var monthsList = _context.Months.ToList();
 
-            var MaxStay = new Dictionary <char, int>();
+            routeService.ruleContainer.Vector = countries.Select(c => c.Code).Distinct().ToList();
+
+            //TODO INPUT PARAM NATIONALITY
+            var MaxStayMalaysia = visaService.GetMaxStay('M', "ES");
+            var MaxStayThailand = visaService.GetMaxStay('T', "ES");
+
+            var MaxStay = new Dictionary<char, int>();
+
             foreach (Country country in countries)
             {
+                var MaxStayDays = visaService.GetMaxStay(country.Code, "ES");
+                var MaxStayMonth = MaxStayDays / 30;
                 MaxStay.Add(country.Code, visaService.GetMaxStay(country.Code, "ES"));
+
+                routeService.ruleContainer.AddRule(new EachStayMustBeLessThanXMonth(country.Code, MaxStayMonth));
+                routeService.ruleContainer.AddRule(new AnualEntriesMustBeLessThanX(country.Code, 2));
+
             }
 
-            var MaxStayMalaysia = visaService.GetMaxStay('M',"ES");
-            var MaxStayThailand = visaService.GetMaxStay('T',"ES");
-
-            var incumple = routeService.BrokenRules(this.route);
+            var brokenRules = routeService.BrokenRules(this.route);
+            itineraryByMonthIndexViewModel.RulesReport = brokenRules;
 
             itineraryByMonthIndexViewModel.FilterCountry1 = countries.Where(x => x.Code == route[0]).FirstOrDefault();
             itineraryByMonthIndexViewModel.FilterCountry2 = countries.Where(x => x.Code == route[1]).FirstOrDefault();
@@ -88,8 +103,42 @@ namespace RouteDataManager.Controllers
 
         public async Task<IActionResult> Reload(ItineraryByMonthIndexViewModel itineraryByMonthIndexViewModel)
         {
-            var countries = _context.Countries.ToList();
+            var countries = _context.Countries.Include(x => x.Ranges).Where(x => x.Ranges.Count != 0).ToList();
             var monthsList = _context.Months.ToList();
+
+            routeService.ruleContainer.Vector = countries.Select(c => c.Code).Distinct().ToList();
+
+            //TODO INPUT PARAM NATIONALITY
+            var MaxStayMalaysia = visaService.GetMaxStay('M', "ES");
+            var MaxStayThailand = visaService.GetMaxStay('T', "ES");
+
+            var MaxStay = new Dictionary<char, int>();
+
+            foreach (Country country in countries)
+            {
+                var MaxStayDays = visaService.GetMaxStay(country.Code, "ES");
+                var MaxStayMonth = MaxStayDays / 30;
+                MaxStay.Add(country.Code, visaService.GetMaxStay(country.Code, "ES"));
+
+                routeService.ruleContainer.AddRule(new EachStayMustBeLessThanXMonth(country.Code, MaxStayMonth));
+                routeService.ruleContainer.AddRule(new AnualEntriesMustBeLessThanX(country.Code, 2));
+
+            }
+
+            //Need to recover
+            itineraryByMonthIndexViewModel.FilterCountry1 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry1.CountryID).FirstOrDefault();
+            itineraryByMonthIndexViewModel.FilterCountry2 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry2.CountryID).FirstOrDefault();
+            itineraryByMonthIndexViewModel.FilterCountry3 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry3.CountryID).FirstOrDefault();
+            itineraryByMonthIndexViewModel.FilterCountry4 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry4.CountryID).FirstOrDefault();
+            itineraryByMonthIndexViewModel.FilterCountry5 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry5.CountryID).FirstOrDefault();
+            itineraryByMonthIndexViewModel.FilterCountry6 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry6.CountryID).FirstOrDefault();
+            itineraryByMonthIndexViewModel.FilterCountry7 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry7.CountryID).FirstOrDefault();
+            itineraryByMonthIndexViewModel.FilterCountry8 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry8.CountryID).FirstOrDefault();
+            itineraryByMonthIndexViewModel.FilterCountry9 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry9.CountryID).FirstOrDefault();
+            itineraryByMonthIndexViewModel.FilterCountry10 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry10.CountryID).FirstOrDefault();
+            itineraryByMonthIndexViewModel.FilterCountry11 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry11.CountryID).FirstOrDefault();
+            itineraryByMonthIndexViewModel.FilterCountry12 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry12.CountryID).FirstOrDefault();
+
 
             var route = new List<char> {
 
@@ -107,29 +156,18 @@ namespace RouteDataManager.Controllers
                 itineraryByMonthIndexViewModel.FilterCountry12.Code
             };
 
-            var incumple = routeService.BrokenRules(route);
+            var brokenRules = routeService.BrokenRules(route);
+            itineraryByMonthIndexViewModel.RulesReport = brokenRules;
 
-            itineraryByMonthIndexViewModel.FilterCountry1 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry1.CountryID).FirstOrDefault();
-            itineraryByMonthIndexViewModel.FilterCountry2 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry2.CountryID).FirstOrDefault();
-            itineraryByMonthIndexViewModel.FilterCountry3 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry3.CountryID).FirstOrDefault();
-            itineraryByMonthIndexViewModel.FilterCountry4 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry4.CountryID).FirstOrDefault();
-            itineraryByMonthIndexViewModel.FilterCountry5 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry5.CountryID).FirstOrDefault();
-            itineraryByMonthIndexViewModel.FilterCountry6 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry6.CountryID).FirstOrDefault();
-            itineraryByMonthIndexViewModel.FilterCountry7 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry7.CountryID).FirstOrDefault();
-            itineraryByMonthIndexViewModel.FilterCountry8 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry8.CountryID).FirstOrDefault();
-            itineraryByMonthIndexViewModel.FilterCountry9 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry9.CountryID).FirstOrDefault();
-            itineraryByMonthIndexViewModel.FilterCountry10 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry10.CountryID).FirstOrDefault();
-            itineraryByMonthIndexViewModel.FilterCountry11 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry11.CountryID).FirstOrDefault();
-            itineraryByMonthIndexViewModel.FilterCountry12 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry12.CountryID).FirstOrDefault();
 
             List<Country> filterCountries = ViewModelContriesToList(itineraryByMonthIndexViewModel);
             itineraryByMonthIndexViewModel = DataToViewModel(itineraryByMonthIndexViewModel, monthsList, filterCountries);
 
-            
+
             return PartialView("Index", itineraryByMonthIndexViewModel);
         }
 
-        private ItineraryByMonthIndexViewModel DataToViewModel(ItineraryByMonthIndexViewModel itineraryByMonthIndexViewModel, List<Month> monthsList, List<Country> filterCountries)
+        private ItineraryByMonthIndexViewModel DataToViewModel(ItineraryByMonthIndexViewModel itineraryByMonthIndexViewModel, List<Domain.Ranges.Month> monthsList, List<Country> filterCountries)
         {
 
             SelectList selectListCountries1 = new SelectList(_context.Countries, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry1.CountryID);
@@ -197,6 +235,31 @@ namespace RouteDataManager.Controllers
             }
 
             return itineraryByMonthIndexViewModel;
+        }
+
+        public void Save(ItineraryByMonthIndexViewModel itineraryByMonthIndexViewModel)
+        {
+            string countryCodeChars =
+
+                itineraryByMonthIndexViewModel.FilterCountry1.Code.ToString() +
+                itineraryByMonthIndexViewModel.FilterCountry2.Code.ToString() +
+                itineraryByMonthIndexViewModel.FilterCountry3.Code.ToString() +
+                itineraryByMonthIndexViewModel.FilterCountry4.Code.ToString() +
+                itineraryByMonthIndexViewModel.FilterCountry5.Code.ToString() +
+                itineraryByMonthIndexViewModel.FilterCountry6.Code.ToString() +
+                itineraryByMonthIndexViewModel.FilterCountry7.Code.ToString() +
+                itineraryByMonthIndexViewModel.FilterCountry8.Code.ToString() +
+                itineraryByMonthIndexViewModel.FilterCountry9.Code.ToString() +
+                itineraryByMonthIndexViewModel.FilterCountry10.Code.ToString() +
+                itineraryByMonthIndexViewModel.FilterCountry11.Code.ToString() +
+                itineraryByMonthIndexViewModel.FilterCountry12.Code.ToString();
+
+            var route = new Traveller.Domain.Route { CountryCodeChars = countryCodeChars };
+
+            _context.Routes.Add(route);
+            _context.SaveChanges();
+
+            this.Reload(itineraryByMonthIndexViewModel);
         }
     }
 }
