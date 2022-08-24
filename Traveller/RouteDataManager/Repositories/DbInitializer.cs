@@ -9,6 +9,7 @@ using StaticData.Vietnam;
 using StaticData.Nepal;
 using Traveller.Domain;
 using Traveller.StaticData;
+using StaticData.Indonesia;
 
 namespace RouteDataManager.Repositories
 {
@@ -77,6 +78,8 @@ namespace RouteDataManager.Repositories
             {
                 Code = 'I',
                 Name = "Indonesia",
+                Ranges = new List<RangeChar> { IndonesiaRanges.MonsoonRange },
+               
                 //Bali Lombok TODO
 
             };

@@ -8,12 +8,9 @@ namespace Domain
         public int BranchID { get; set; }
         public string Name { get; set; }
         public string? Description { get; set; }
-
         public bool MainBranch { get; set; }
-
         public int LineID { get; set; }
         public Line Line { get; set; }
-
         public ICollection<Station> Stations { get; set; }
 
 

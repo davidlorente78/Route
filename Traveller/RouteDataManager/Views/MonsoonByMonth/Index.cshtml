@@ -1,0 +1,76 @@
+﻿@using RouteDataManager.ViewModels
+@model MonsoonIndexByMonthViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<form asp-action="Index">
+
+            <div class="form-group">
+                <table class="table">
+                 <thead>
+
+                <tr>
+                    
+                     <th>
+                        <label class="control-label">Month</label>
+                        <select asp-for="@Model.FilterMonth.MonthID" class ="form-control" asp-items="@Model.SelectListMonth"></select>
+                    </th>
+                    
+                    <th>
+                      
+                    </th>
+                    
+
+                    <th>
+                      
+                    </th>
+
+                     <th>
+                      
+                    </th>
+                    
+                    <th>
+                            <input type="submit" value="Search" class="btn btn-primary btn-block" />
+                    </th>
+                </tr>
+
+                </thead>
+                </table>
+
+            </div>
+</form>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Country
+            </th>
+            <th>
+                Monsoon Description
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Country_MonsoonDescription)
+        {
+           
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Key)
+                    </td>
+
+                    <td>
+                          @Html.DisplayFor(modelItem => item.Value)
+                    </td>
+                                        
+                </tr>
+            }
+        
+    </tbody>
+</table>
+

@@ -17,7 +17,7 @@ namespace RouteDataManager.Controllers
 
         public async Task<IActionResult> Index(SeasonIndexByMonthViewModel seasonIndexByMonthViewModel)
         {
-            var countries = _context.Countries.ToList();
+            var countries = _context.Countries.Include(x => x.Ranges).Where(x => x.Ranges.Count != 0).ToList();
             var seasonRange = _context.Ranges
                  .Where(d => d.RangeType.Code == 'S')
                  .Include(f => f.EntityKey_ByMonth)

@@ -6,22 +6,27 @@
 }
 
 
-<form  id="Reload" asp-action="Reload">
+<form id="Reload" asp-action="Reload">
 
     <div class="form-group">
         <p></p>
         <th>
             <input type="submit" value="Report" class="btn btn-primary btn-block" />
         </th>
-         <p></p>
 
-          <p>@Model.RulesReport.Count()  Broken Rules</p>
+        <p></p>
 
-          @foreach (var rule in @Model.RulesReport) 
-          {
-          <p>@rule.ToString()</p>
-          <br />
-          }
+        <p>
+            <label class="control-label">
+                @Model.RulesReport.Count()  Broken Rules
+            </label>
+        </p>
+
+        @foreach (var rule in @Model.RulesReport)
+        {
+            <p>@rule.ToString()</p>
+
+        }
 
         <table class="table">
 
@@ -57,13 +62,13 @@
                     </td>
                     <td>
 
-                        <select  id="ddlCountry1"  asp-for="@Model.FilterCountry1.CountryID" class="form-control" asp-items="@Model.SelectListCountries1" ></select>
+                        <select id="ddlCountry1" asp-for="@Model.FilterCountry1.CountryID" class="form-control" asp-items="@Model.SelectListCountries1"></select>
 
                     </td>
                     <td>@Model.CountryReport.ElementAt(0)</td>
 
                 </tr>
-     
+
                 <tr>
                     <td>
                         <label class="control-label">@Model.Months[1].Name</label>
@@ -209,16 +214,18 @@
             </tbody>
         </table>
 
-        
+
     </div>
 </form>
 
-<form  id="Save" asp-action="Save">
+
+
+@*<form id="Save" asp-action="Save">
 
     <div class="form-group">
         <p></p>
         <th>
             <input type="submit" value="Save" class="btn btn-primary btn-block" />
         </th>
-         <p></p>
-</form>
+        <p></p>
+</form>*@

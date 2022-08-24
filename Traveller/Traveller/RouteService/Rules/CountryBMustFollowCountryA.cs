@@ -51,7 +51,7 @@ namespace Traveller.RouteService.Rules
         {
             string summmary = "";
 
-            summmary = CodeDictionary.GetCountryByCode(country_origin) + " and " + CodeDictionary.GetCountryByCode(country_destination) + " must be visited consecutively.";
+            summmary = CodeDictionary.GetCountryByCode(country_origin) + " and " + CodeDictionary.GetCountryByCode(country_destination) + " must be visited consecutively ";
 
             if (oneDirection) { summmary = summmary + " in the indicated order."; }
 

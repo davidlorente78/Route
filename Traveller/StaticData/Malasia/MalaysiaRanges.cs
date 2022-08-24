@@ -70,7 +70,7 @@ namespace StaticData.Malaysia
 
         //https://www.experiencetravelgroup.com/weather/when-to-go-to-malaysia
 
-        public static RangeChar MoonsoonRange = new RangeChar
+        public static RangeChar MonsoonRange = new RangeChar
         {
             //Este tipo de diccionario es distinto al de Season y los valores del segundo diccionario no estan relacionados con las key del primero. 
             RangeType = RangeTypes.MonsoonSeasonRangeType,
