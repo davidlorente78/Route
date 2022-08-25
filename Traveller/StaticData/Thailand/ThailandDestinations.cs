@@ -13,7 +13,7 @@ namespace Traveller.StaticData
         public static Destination PhangNga = new Destination
         {
             CountryID = 3,
-            Name = "PhangNga",
+            Name = "Phang Nga",
             DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism }
         };
 
@@ -21,21 +21,21 @@ namespace Traveller.StaticData
         {
             CountryID = 3,
             Name = "Bangkok",
-            DestinationTypes = new List<DestinationType> { DestinationTypes.Airport }
+            DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }
         };
 
         public static Destination ChiangMai = new Destination
         {
             CountryID = 3,
             Name = "Chiang Mai",
-            DestinationTypes = new List<DestinationType> { DestinationTypes.Airport }
+            DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }
         };
 
         public static Destination ChiangRai = new Destination
         {
             CountryID = 3,
             Name = "Chiang Rai",
-            DestinationTypes = new List<DestinationType> { DestinationTypes.Airport }
+            DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }
         };
 
         public static Destination HatYai = new Destination
@@ -49,14 +49,14 @@ namespace Traveller.StaticData
         {
             CountryID = 3,
             Name = "Krabi",
-            DestinationTypes = new List<DestinationType> { DestinationTypes.Airport }
+            DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }
         };
 
         public static Destination Phuket = new Destination
         {
             Name = "Phuket",
             CountryID = 3,
-            DestinationTypes = new List<DestinationType> { DestinationTypes.Airport }
+            DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }
         };
 
         public static Destination Sukhothai = new Destination
@@ -109,14 +109,14 @@ namespace Traveller.StaticData
         public static Destination VangTao = new Destination
         {
             Name = "Vang Tao",
-            Description = "En la provincia de Ubon Ratchathani. Cercano al aeropuerto de Pakse",
+            Description = "In the province of Ubon Ratchathani. Near Pakse airport",
             DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }
         };
 
         public static Destination UbonRatchathani = new Destination
         {
             Name = "Ubon Ratchathani",
-            Description = "Estacion de tren más cercana al paso de Vang Tao",
+            Description = "Nearest train station to Vang Tao pass",
             DestinationTypes = new List<DestinationType> { DestinationTypes.Train }
         };
 

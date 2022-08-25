@@ -71,7 +71,6 @@ namespace StaticData.Thailand
             MainBranch = true,
             Stations = new List<Station>
             {
-
                 ThailandTrainStations.BangkokHuaLamphong,
                 //Yommarat
                 //Ho Prajae Chit Lada
@@ -203,7 +202,6 @@ namespace StaticData.Thailand
                 //Pa Sao
                 //Saraphi
                 ThailandTrainStations.ChiangMai
-
             }
          ,
 
@@ -219,7 +217,6 @@ namespace StaticData.Thailand
                 ThailandTrainStations.BanDaraJunction,
                 ThailandTrainStations.KhlongMaphlap,
                 ThailandTrainStations.SawanKhalok,
-
             }
            ,
 
@@ -270,8 +267,7 @@ namespace StaticData.Thailand
             Stations = new List<Station>
              {
                 ThailandTrainStations.BuaYaiJunction,
-                ThailandTrainStations.ThanonChiraJunction,
-              
+                ThailandTrainStations.ThanonChiraJunction,              
              }
    
 
@@ -291,8 +287,6 @@ namespace StaticData.Thailand
                 ThailandTrainStations.SriRachaJunction,
                 ThailandTrainStations.Pattaya,
                 ThailandTrainStations.BanPluTaLuang,
-
-
              }
   ,
 
@@ -304,12 +298,9 @@ namespace StaticData.Thailand
             Description = "",
             MainBranch = true,
             Stations = new List<Station>
-             {
-        
+             {        
                 ThailandTrainStations.Pattaya,
                 ThailandTrainStations.MarpTaPut,
-
-
              }
 ,
 
@@ -317,14 +308,13 @@ namespace StaticData.Thailand
 
         public static Branch EasternLine_Aranyaprathet = new Branch
         {
-            Name = "Eastern Line Pattaya",
+            Name = "Eastern Line Pattaya - Aranyaprathet  Branch ",
             Description = "",
             MainBranch = true,
             Stations = new List<Station>
              {
                 ThailandTrainStations.BangkokHuaLamphong,
                 ThailandTrainStations.Aranyaprathet,
-
              }
 ,
 

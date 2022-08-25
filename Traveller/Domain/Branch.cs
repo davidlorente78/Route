@@ -1,4 +1,5 @@
-﻿using Traveller.Domain;
+﻿using System.ComponentModel.DataAnnotations;
+using Traveller.Domain;
 
 namespace Domain
 {
@@ -8,6 +9,8 @@ namespace Domain
         public int BranchID { get; set; }
         public string Name { get; set; }
         public string? Description { get; set; }
+
+        [Display(Name = "Main Branch")]
         public bool MainBranch { get; set; }
         public int LineID { get; set; }
         public Line Line { get; set; }

@@ -1,12 +1,21 @@
-﻿namespace Traveller.Domain
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Traveller.Domain
 {
     public class Airport
     {
         public int AirportID { get; set; }
+        [Display(Name = "Airport Type")]
         public AirportType AirportType { get; set; }
+
+        [Display(Name = "IATA Code")]
         public string IATACode { get; set; }
+
+        [Display(Name = "ICAO Code")]
         public string? ICAOCode { get; set; }
         public string Name { get; set; }
+
+        [Display(Name = "Local Name")]
         public string? LocalName { get; set; }
         public virtual ICollection<Destination>? ServingDestinations { get; set; }
         public int CountryID { get; set; }

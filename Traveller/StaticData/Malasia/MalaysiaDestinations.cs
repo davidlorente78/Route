@@ -1,4 +1,5 @@
 ﻿using StaticData;
+using StaticData.Malaysia;
 using Traveller.Domain;
 
 namespace Traveller.StaticData
@@ -30,12 +31,12 @@ namespace Traveller.StaticData
 
         public static Destination KotaBaharu = new Destination { Name = "Kota Baharu", DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism, DestinationTypes.Airport } };
 
-        public static Destination KualaTerengganu = new Destination { Name = "KKuala Terengganu", DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism, DestinationTypes.Airport } };
+        public static Destination KualaTerengganu = new Destination { Name = "Kuala Terengganu", DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism, DestinationTypes.Airport } };
 
         public static Destination Subang = new Destination { Name = "Subang", DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism, DestinationTypes.Airport } };
 
 
-        public static ICollection<Destination> GetAll()
+        public static List<Destination> GetStaticAll()
         {
             return new List<Destination> {
                 MalaysiaDestinations.KualaLumpur,
@@ -58,6 +59,61 @@ namespace Traveller.StaticData
                 MalaysiaDestinations.Ipoh
 
             };
+
+        }
+
+        public static List<Destination> CreateDestinationsFromStations()
+        {
+
+            List<Destination> destinations = new List<Destination>();
+
+            List<Destination> staticdestinations = GetStaticAll();
+
+            var trainLines = MalaysiaTrainLines.GetAll();
+
+            foreach (var trainLine in trainLines)
+            {
+                foreach (var branch in trainLine.Branches)
+                {
+                    foreach (var station in branch.Stations)
+                    {
+                        if (!staticdestinations.Where(x => x.Name == station.Name).Any())
+                        {
+
+                            Destination destination = new Destination
+                            {
+                                Name = station.Name,
+                                DestinationTypes = new List<DestinationType> { DestinationTypes.Train }
+                            };
+
+                            destinations.Add(destination);
+                        }
+                        else
+                        {
+                            var exist = staticdestinations.Where(x => x.Name == station.Name).FirstOrDefault();
+
+                            exist.DestinationTypes.Add(DestinationTypes.Train);
+
+                        }
+                    }
+                }
+
+            }
+
+            return destinations;
+
+        }
+
+        public static List<Destination> GetAll()
+
+        {
+            List<Destination> destinationsFromStatic = GetStaticAll();
+
+            List<Destination> destinationsFromStations = CreateDestinationsFromStations();
+
+            destinationsFromStatic.AddRange(destinationsFromStations);
+
+            return destinationsFromStatic;
 
         }
     }

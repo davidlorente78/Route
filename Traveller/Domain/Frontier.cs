@@ -1,4 +1,6 @@
-﻿namespace Traveller.Domain
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Traveller.Domain
 {
     public class Frontier
     {
@@ -27,7 +29,7 @@
 
         public string Name { get; set; }
         public string? Description { get; set; }
-
+        [Display(Name = "Frontier Type")]
         public FrontierType FrontierType { get; set; }     
 
         public virtual ICollection<Visa>? Visas { get; set; }

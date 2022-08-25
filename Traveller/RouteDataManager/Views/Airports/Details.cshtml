@@ -37,6 +37,16 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.AirportID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <table>
+        <tr>
+            <td>
+                    <a asp-action="Edit" class="btn btn-primary btn-block" asp-route-id="@Model?.AirportID">Edit</a> 
+
+            </td>
+            <td>
+                    <a asp-action="Index" class="btn btn-primary btn-block">Back to List</a>
+
+            </td>
+        </tr>
+    </table>
 </div>

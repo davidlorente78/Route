@@ -14,7 +14,7 @@ namespace StaticData.Vietnam
 
         public static Station Hanoi = new Station
         {
-            Type = 'T',      
+            Type = 'T',
             ServingDestinations = new List<Destination> { VietnamDestinations.Hanoi },
             Name = "Hanoi",
             LocalName = "Ga Hà Nội",
@@ -22,7 +22,7 @@ namespace StaticData.Vietnam
         };
 
 
-        
+
         public static Station PhủLý = new Station
         {
             Type = 'T',
@@ -41,15 +41,15 @@ namespace StaticData.Vietnam
             Remarks = ""
         };
 
-      
-       public static Station NinhBinh = new Station
-       {
-           Type = 'T',
-           ServingDestinations = new List<Destination> { },
-           Name = "Ninh Binh",
-           LocalName = "  Ninh Binh",
-           Remarks = ""
-       };
+
+        public static Station NinhBinh = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Ninh Binh",
+            LocalName = "  Ninh Binh",
+            Remarks = ""
+        };
 
         public static Station ThanhHóa = new Station
         {
@@ -61,7 +61,7 @@ namespace StaticData.Vietnam
         };
 
 
-       
+
         public static Station Vinh = new Station
         {
             Type = 'T',
@@ -71,7 +71,7 @@ namespace StaticData.Vietnam
             Remarks = ""
         };
 
-  
+
         public static Station TânẤp = new Station
         {
             Type = 'T',
@@ -92,19 +92,19 @@ namespace StaticData.Vietnam
 
 
 
-            public static Station ĐồngHà = new Station
-            {
-                Type = 'T',
-                ServingDestinations = new List<Destination> { },
-                Name = "Đồng Hà",
-                LocalName = "Đồng Hà",
-                Remarks = ""
-            };
+        public static Station ĐồngHà = new Station
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Đồng Hà",
+            LocalName = "Đồng Hà",
+            Remarks = ""
+        };
 
         public static Station Huế = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> {  },
+            ServingDestinations = new List<Destination> { },
             Name = "Huế",
             LocalName = "Huế",
             Remarks = ""
@@ -113,8 +113,7 @@ namespace StaticData.Vietnam
         public static Station DaNang = new Station
         {
             Type = 'T',
-
-            ServingDestinations = new List<Destination> { VietnamDestinations.HoiAn},
+            ServingDestinations = new List<Destination> { VietnamDestinations.HoiAn },
             Name = "Da Nang",
             LocalName = "Da Nang",
             Remarks = ""
@@ -124,17 +123,15 @@ namespace StaticData.Vietnam
         public static Station TamKỳ = new Station
         {
             Type = 'T',
-
             ServingDestinations = new List<Destination> { },
             Name = "Tam Kỳ",
             LocalName = "Tam Kỳ",
             Remarks = ""
         };
-     
+
         public static Station QuảngNgãi = new Station
         {
             Type = 'T',
-
             ServingDestinations = new List<Destination> { },
             Name = "Quảng Ngãi",
             LocalName = "Quảng Ngãi",
@@ -143,7 +140,6 @@ namespace StaticData.Vietnam
         public static Station DiêuTrì = new Station
         {
             Type = 'T',
-
             ServingDestinations = new List<Destination> { VietnamDestinations.QuiNhon },
             Name = "Diêu Trì",
             LocalName = "Diêu Trì",
@@ -152,28 +148,27 @@ namespace StaticData.Vietnam
         public static Station TuyHòa = new Station
         {
             Type = 'T',
-
             ServingDestinations = new List<Destination> { },
             Name = "Tuy Hòa",
             LocalName = "Tuy Hòa",
             Remarks = ""
         };
+
         public static Station NhaTrang = new Station
         {
             Type = 'T',
-
             ServingDestinations = new List<Destination> { },
-            Name = "",
+            Name = "Nha Trang",
             LocalName = "Nha Trang",
-            Remarks = "Nha Trang"
+            Remarks = ""
         };
+
         public static Station BìnhThuận = new Station
         {
             Type = 'T',
-
             ServingDestinations = new List<Destination> { VietnamDestinations.PhanThiet },
-            Name = "BìnhThuận",
-            LocalName = "BìnhThuận",
+            Name = "Bình Thuận",
+            LocalName = "Bình Thuận",
             Remarks = ""
         };
 
@@ -202,7 +197,7 @@ namespace StaticData.Vietnam
         public static Station LàoCai = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> {  },
+            ServingDestinations = new List<Destination> { },
             Name = "Lào Cai",
             Remarks = ""
         };
@@ -251,7 +246,7 @@ namespace StaticData.Vietnam
         //Yên Cư station(Yên Cư, Quảng Ninh Province)
         //Hạ Long station(Hạ Long, Quảng Ninh Province)
 
-        public static Station HaLong  = new Station
+        public static Station HaLong = new Station
         {
             Type = 'T',
             ServingDestinations = new List<Destination> { },
@@ -299,12 +294,12 @@ namespace StaticData.Vietnam
 
         //Quán Triều station
         public static Station QuánTriều = new Station
-                {
-                    Type = 'T',
-                    ServingDestinations = new List<Destination> { },
-                    Name = "Quán Triều",
-                    Remarks = ""
-                };
+        {
+            Type = 'T',
+            ServingDestinations = new List<Destination> { },
+            Name = "Quán Triều",
+            Remarks = ""
+        };
 
         #endregion
 
