@@ -8,7 +8,7 @@ using Traveller.Domain;
 namespace CURDOperationWithImageUploadCore5_Demo.Controllers
 {
     public class AirlinesController : Controller
-    {        
+    {
         private readonly ApplicationContext _context;
         private readonly IWebHostEnvironment _environment;
         public AirlinesController(ApplicationContext context, IWebHostEnvironment environment)
@@ -37,7 +37,7 @@ namespace CURDOperationWithImageUploadCore5_Demo.Controllers
                 var airlineViewModel = new AirlineViewModel()
                 {
                     Id = airline.Id,
-                    Name = airline.Name,      
+                    Name = airline.Name,
                     //TODO
                     Description = airline.Description,
                     ExistingImage = airline.Picture
@@ -71,11 +71,11 @@ namespace CURDOperationWithImageUploadCore5_Demo.Controllers
                 if (ModelState.IsValid)
                 {
                     string uniqueFileName = ProcessUploadedFile(model);
-                    Airline  airline = new()
+                    Airline airline = new()
                     {
-                         Name = model.Name,
-                         Description = model.Description,                                
-                         Picture = uniqueFileName
+                        Name = model.Name,
+                        Description = model.Description,
+                        Picture = uniqueFileName
                     };
 
                     _context.Add(airline);
@@ -98,11 +98,11 @@ namespace CURDOperationWithImageUploadCore5_Demo.Controllers
                 return NotFound();
             }
 
-            var airline= await _context.Airlines.FindAsync(id);
+            var airline = await _context.Airlines.FindAsync(id);
             var airlineViewModel = new AirlineViewModel()
             {
                 Id = airline.Id,
-                Name = airline.Name,               
+                Name = airline.Name,
                 Description = airline.Description,
                 ExistingImage = airline.Picture
                 //TODO OTHER FIELDS
@@ -121,13 +121,12 @@ namespace CURDOperationWithImageUploadCore5_Demo.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, AirlineViewModel model)
         {
-            try {
+            try
+            {
                 var airline = await _context.Airlines.FindAsync(model.Id);
 
                 airline.Name = model.Name;
                 airline.Description = model.Description;
-
-
 
                 if (model.MapPicture != null)
                 {
@@ -143,9 +142,9 @@ namespace CURDOperationWithImageUploadCore5_Demo.Controllers
                 _context.Update(airline);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            
+
             }
-        catch { throw; }
+            catch { throw; }
 
             return PartialView(model);
         }
@@ -163,7 +162,7 @@ namespace CURDOperationWithImageUploadCore5_Demo.Controllers
             var airlineViewModel = new AirlineViewModel()
             {
                 Id = airline.Id,
-                Name = airline.Name,           
+                Name = airline.Name,
                 Description = airline.Description,
                 ExistingImage = airline.Picture
             };
