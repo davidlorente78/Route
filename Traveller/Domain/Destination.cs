@@ -12,6 +12,9 @@ namespace Traveller.Domain
         public string? LocalName { get; set; }
         public string? Description { get; set; }
 
+        [Display(Name = "Photo")]
+        public string? Picture { get; set; }
+
         [Display(Name = "Destination Type")]
         public List<DestinationType>? DestinationTypes { get; set; } = new List<DestinationType>();
         public int CountryID { get; set; }

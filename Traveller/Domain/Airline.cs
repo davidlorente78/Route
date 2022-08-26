@@ -17,7 +17,7 @@ namespace Traveller.Domain
         public string Description { get; set; }
 
         [Display(Name = "Route Map")]
-        public string MapPicture { get; set; }
+        public string Picture { get; set; }
 
         [Display(Name = "Web Site")]
         public string? Url { get; set; }

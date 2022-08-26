@@ -7,78 +7,86 @@
 
 <form asp-action="Index">
 
-            <div class="form-group">
-                <table class="table">
-                 <thead>
+    <div class="form-group">
+        <table class="table">
+            <thead>
 
                 <tr>
+
+
                     <th>
-                         <label class="control-label">Country</label>
-                        <select asp-for="@Model.FilterCountry.CountryID" class ="form-control" asp-items="@Model.SelectListCountries"></select>
+                        <label class="control-label">Country</label>
+                        <select asp-for="@Model.FilterCountry.CountryID" class="form-control" asp-items="@Model.SelectListCountries"></select>
                     </th>
 
                     <th>
                         <label class="control-label">Destination Type</label>
-                        <select asp-for="@Model.FilterDestinationType.DestinationTypeID" class ="form-control" asp-items="@Model.SelectListDestinationTypes"></select>
-                    </th>
-                    
-
-                    <th>
-                      
+                        <select asp-for="@Model.FilterDestinationType.DestinationTypeID" class="form-control" asp-items="@Model.SelectListDestinationTypes"></select>
                     </th>
 
-                     <th>
-                      
-                    </th>
-                    
                     <th>
-                            <input type="submit" value="Search" class="btn btn-primary btn-block" />
+
+                    </th>
+
+
+                    <th>
+
+                    </th>
+
+                    <th>
+                        <input type="submit" value="Search" class="btn btn-primary btn-block" />
                     </th>
                 </tr>
 
-                </thead>
-                </table>
+            </thead>
+        </table>
 
-            </div>
+    </div>
 </form>
 
 <p>
-     <a asp-action="Create" class="btn btn-primary rounded-0"><i class="fa fa-plus-circle"></i>Add New</a>
+    <a asp-action="Create" class="btn btn-primary rounded-0"><i class="fa fa-plus-circle"></i>Add New</a>
 </p>
 
 <table class="table">
     <thead>
-        <tr>         
+        <tr>
+
             <th>
-               Name
+                Name
             </th>
             <th>
-               Description
+                Description
             </th>
-            @*<th>
-               Destination Type
-            </th>*@
+
+            <th>Photo</th>
+
+            <th></th>
+            <th></th>
             <th></th>
         </tr>
     </thead>
 
     <tbody>
-        @foreach (var item in Model.Destinations) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-           @* <td>
-                  @Html.DisplayFor(model => model.DestinationTypes.Select(x=>x.Description))
-            </td>*@
-             
-            <td>    <a asp-action="Edit"  class="btn btn-primary btn-block" asp-route-id="@item.DestinationID">Edit</a></td>
-             <td>   <a asp-action="Details" class="btn btn-primary btn-block" asp-route-id="@item.DestinationID">Details</a> </td>
-             <td>   <a asp-action="Delete" class="btn btn-primary btn-block" asp-route-id="@item.DestinationID">Delete</a> </td>
-        </tr>
-}
+        @foreach (var item in Model.Destinations)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.DestinationID">
+                        <img src="@DestinationFileLocation.RetriveFileFromFolder@item.Picture" class="img-thumbnail" height="100" width="100" asp-append-version="true" />
+                    </a>
+                </td>
+
+                <td>    <a asp-action="Edit" class="btn btn-primary btn-block" asp-route-id="@item.DestinationID">Edit</a></td>
+                <td>   <a asp-action="Details" class="btn btn-primary btn-block" asp-route-id="@item.DestinationID">Details</a> </td>
+                <td>   <a asp-action="Delete" class="btn btn-primary btn-block" asp-route-id="@item.DestinationID">Delete</a> </td>
+            </tr>
+        }
     </tbody>
 </table>

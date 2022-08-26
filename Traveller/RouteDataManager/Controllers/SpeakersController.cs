@@ -114,7 +114,8 @@ namespace CURDOperationWithImageUploadCore5_Demo.Controllers
                 SpeakingDate = speaker.SpeakingDate,
                 SpeakingTime = speaker.SpeakingTime,
                 Venue = speaker.Venue,
-                ExistingImage = speaker.ProfilePicture
+                ExistingImage = speaker.ProfilePicture 
+                 
             };
 
             if (speaker == null)

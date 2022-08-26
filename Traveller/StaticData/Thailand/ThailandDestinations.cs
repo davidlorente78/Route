@@ -21,6 +21,7 @@ namespace Traveller.StaticData
         {
             CountryID = 3,
             Name = "Bangkok",
+            Picture = "/Bangkok.jpg",
             DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }
         };
 
@@ -49,6 +50,8 @@ namespace Traveller.StaticData
         {
             CountryID = 3,
             Name = "Krabi",
+            Picture = "/Krabi.jpg",
+
             DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }
         };
 

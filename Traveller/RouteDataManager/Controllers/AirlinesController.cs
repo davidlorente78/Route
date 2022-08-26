@@ -40,7 +40,7 @@ namespace CURDOperationWithImageUploadCore5_Demo.Controllers
                     Name = airline.Name,      
                     //TODO
                     Description = airline.Description,
-                    ExistingImage = airline.MapPicture
+                    ExistingImage = airline.Picture
                 };
 
                 if (airline == null)
@@ -75,7 +75,7 @@ namespace CURDOperationWithImageUploadCore5_Demo.Controllers
                     {
                          Name = model.Name,
                          Description = model.Description,                                
-                         MapPicture = uniqueFileName
+                         Picture = uniqueFileName
                     };
 
                     _context.Add(airline);
@@ -104,10 +104,12 @@ namespace CURDOperationWithImageUploadCore5_Demo.Controllers
                 Id = airline.Id,
                 Name = airline.Name,               
                 Description = airline.Description,
-                ExistingImage = airline.MapPicture
+                ExistingImage = airline.Picture
                 //TODO OTHER FIELDS
             };
 
+
+            //Esto antes del <view model acces
             if (airline == null)
             {
                 return NotFound();
@@ -119,13 +121,13 @@ namespace CURDOperationWithImageUploadCore5_Demo.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, AirlineViewModel model)
         {
-            if (ModelState.IsValid)
-            {
+            try {
                 var airline = await _context.Airlines.FindAsync(model.Id);
 
                 airline.Name = model.Name;
                 airline.Description = model.Description;
-           
+
+
 
                 if (model.MapPicture != null)
                 {
@@ -135,13 +137,17 @@ namespace CURDOperationWithImageUploadCore5_Demo.Controllers
                         System.IO.File.Delete(filePath);
                     }
 
-                    airline.MapPicture = ProcessUploadedFile(model);
+                    //Here is the name of the file with the Guid Unique File Name
+                    airline.Picture = ProcessUploadedFile(model);
                 }
                 _context.Update(airline);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
+            
             }
-            return View();
+        catch { throw; }
+
+            return PartialView(model);
         }
 
         public async Task<IActionResult> Delete(int? id)
@@ -159,7 +165,7 @@ namespace CURDOperationWithImageUploadCore5_Demo.Controllers
                 Id = airline.Id,
                 Name = airline.Name,           
                 Description = airline.Description,
-                ExistingImage = airline.MapPicture
+                ExistingImage = airline.Picture
             };
             if (airline == null)
             {
@@ -176,7 +182,7 @@ namespace CURDOperationWithImageUploadCore5_Demo.Controllers
             var airline = await _context.Airlines.FindAsync(id);
             _context.Airlines.Remove(airline);
 
-            string deleteCurrentImageFilePath = _environment.WebRootPath + @"\" + AirlineFileLocation.FileUploadFolder + airline.MapPicture;
+            string deleteCurrentImageFilePath = _environment.WebRootPath + @"\" + AirlineFileLocation.FileUploadFolder + airline.Picture;
 
             if (System.IO.File.Exists(deleteCurrentImageFilePath))
             {

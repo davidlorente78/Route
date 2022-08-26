@@ -14,7 +14,7 @@
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
-            <th>@Html.DisplayNameFor(model => model.MapPicture)</th>
+            <th>@Html.DisplayNameFor(model => model.Picture)</th>
             <th>@Html.DisplayNameFor(model => model.Name)</th>       
             <th>@Html.DisplayNameFor(model => model.Description)</th>
             <th>Action(s)</th>
@@ -26,7 +26,7 @@
             <tr>
                 <td>
                     <a asp-action="Details" asp-route-id="@item.Id">
-                        <img src="@AirlineFileLocation.RetriveFileFromFolder@item.MapPicture" class="img-thumbnail" height="100" width="100" asp-append-version="true" />
+                        <img src="@AirlineFileLocation.RetriveFileFromFolder@item.Picture" class="img-thumbnail" height="100" width="100" asp-append-version="true" />
                     </a>
                 </td>
                 <td>@item.Name</td>

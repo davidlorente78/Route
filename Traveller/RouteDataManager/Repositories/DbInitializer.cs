@@ -176,44 +176,44 @@ namespace RouteDataManager.Repositories
 
 
             #region DemoSepakers
-            //if (!context.Speakers.Any())
-            //{
-            //    context.Speakers.AddRange(new List<Speaker>()
-            //        {
-            //            new Speaker()
-            //            {
-            //              SpeakerName="Jack Christiansen",
-            //              Experience=5,
-            //              Qualification="MSc Computer Science",
-            //              SpeakingDate=DateTime.Now.AddDays(2) ,
-            //              SpeakingTime=DateTime.Now.AddDays(2).AddHours(18).AddMinutes(00),
-            //              ProfilePicture="/avatar.png",
-            //              Venue="Bangalore"
-            //            },
-            //            new Speaker()
-            //            {
-            //              SpeakerName="Brenden Legros",
-            //              Experience=7,
-            //              Qualification="MBA",
-            //              SpeakingDate=DateTime.Now.AddDays(2) ,
-            //              SpeakingTime=DateTime.Now.AddDays(2).AddHours(20).AddMinutes(00),
-            //              ProfilePicture="/avatar.png",
-            //              Venue="Hyderabad"
-            //            },
-            //            new Speaker()
-            //            {
-            //              SpeakerName="Julia Adward",
-            //              Experience=5,
-            //              Qualification="Digital Marketing",
-            //              SpeakingDate=DateTime.Now.AddDays(2) ,
-            //              SpeakingTime=DateTime.Now.AddDays(2).AddHours(20).AddMinutes(00),
-            //              ProfilePicture="/avatar.png",
-            //              Venue="Chennai"
-            //            }
-            //        });
-            //    context.SaveChanges();
+            if (!context.Speakers.Any())
+            {
+                context.Speakers.AddRange(new List<Speaker>()
+                    {
+                        new Speaker()
+                        {
+                          SpeakerName="Jack Christiansen",
+                          Experience=5,
+                          Qualification="MSc Computer Science",
+                          SpeakingDate=DateTime.Now.AddDays(2) ,
+                          SpeakingTime=DateTime.Now.AddDays(2).AddHours(18).AddMinutes(00),
+                          ProfilePicture="/avatar.png",
+                          Venue="Bangalore"
+                        },
+                        new Speaker()
+                        {
+                          SpeakerName="Brenden Legros",
+                          Experience=7,
+                          Qualification="MBA",
+                          SpeakingDate=DateTime.Now.AddDays(2) ,
+                          SpeakingTime=DateTime.Now.AddDays(2).AddHours(20).AddMinutes(00),
+                          ProfilePicture="/avatar.png",
+                          Venue="Hyderabad"
+                        },
+                        new Speaker()
+                        {
+                          SpeakerName="Julia Adward",
+                          Experience=5,
+                          Qualification="Digital Marketing",
+                          SpeakingDate=DateTime.Now.AddDays(2) ,
+                          SpeakingTime=DateTime.Now.AddDays(2).AddHours(20).AddMinutes(00),
+                          ProfilePicture="/avatar.png",
+                          Venue="Chennai"
+                        }
+                    });
+                context.SaveChanges();
 
-            //}
+            }
             #endregion
 
             if (!context.RailwaySystems.Any())
@@ -261,7 +261,7 @@ namespace RouteDataManager.Repositories
                           Url = "ww.airasia.com",
                           MainAirport = MalaysiaAirports.KUL,
                           Name="Air Asia",
-                          MapPicture="/air-asia-routes.jpg",
+                          Picture="/air-asia-routes.jpg",
                           Description="AirAsia (stylized as airasia) is a Malaysian multinational low-cost airline headquartered near Kuala Lumpur, Malaysia. It is the largest airline in Malaysia by fleet size and destinations. AirAsia operates scheduled domestic and international flights to more than 165 destinations spanning 25 countries.[4] Its main base is klia2, the low-cost carrier terminal at Kuala Lumpur International Airport (KLIA) in Sepang, Selangor, Malaysia."
                         },
 
@@ -271,7 +271,7 @@ namespace RouteDataManager.Repositories
                           Url = "www.flyscoot.com",
                           MainAirport = SingaporeAirports.SIN,
                           Name="Scoot",
-                          MapPicture="/fly-scoot.jpg",
+                          Picture="/fly-scoot.jpg",
                           Description="Scoot Pte Ltd, operating as Scoot, is a Singaporean low-cost airline and a wholly owned subsidiary of Singapore Airlines. It began its operations on 4 June 2012 on medium and long-haul routes from Singapore, predominantly to various airports throughout the Asia-Pacific."  }
                     ,
 
@@ -283,7 +283,7 @@ namespace RouteDataManager.Repositories
                           MainAirport = ThailandAirports.DMK,
                           Url ="www.nokair.com",
                           Name="Nok Air",
-                          MapPicture="/nok-air-rutas.png",
+                          Picture="/nok-air-rutas.png",
                           Description="Nok Air is a low-cost airline in Thailand operating mostly domestic services out of Bangkok's Don Mueang International Airport. Nok Air also offers ferry services to domestic island destinations as well as domestic and cross border coach services to Vientiane and Pakse in Laos in conjunction with other tour operators."
 
                         }
@@ -295,7 +295,7 @@ namespace RouteDataManager.Repositories
                           MainAirport = ThailandAirports.BKK,
                           Url ="bangkokair.com",
                           Name="Bangkok Airways",
-                          MapPicture="/bangkok-airways-routes-map.jpg",
+                          Picture="/bangkok-airways-routes-map.jpg",
                           Description=" is a regional airline based in Bangkok, Thailand.[2] It operates scheduled services to destinations in Thailand, Cambodia, China, Hong Kong, India, Laos, Malaysia, Maldives, Myanmar, Singapore, and Vietnam. Its main base is Suvarnabhumi Airport."
                         }
 
@@ -306,7 +306,7 @@ namespace RouteDataManager.Repositories
                           //MainAirport = AustraliaAirports., //Merlbourbe
                           Url ="www.jetstar.com",
                           Name="Jet Star Airways",
-                          MapPicture="/jetstar-route.jpg",
+                          Picture="/jetstar-route.jpg",
                           Description="Is an Australian low-cost airline headquartered in Melbourne.[4][5] It is a wholly owned subsidiary of Qantas, created in response to the threat posed by airline Virgin Blue. Jetstar is part of Qantas' two brand strategy[6] of having Qantas Airways for the premium full-service market and Jetstar for the low-cost market. "
                          }
 

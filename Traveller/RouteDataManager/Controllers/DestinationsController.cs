@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using RouteDataManager.Models;
 using RouteDataManager.Repositories;
 using RouteDataManager.ViewModels;
+using RouteDataManager.ViewModels.Destination;
 using System.Linq;
 using Traveller.Domain;
 
@@ -11,24 +13,27 @@ namespace RouteDataManager.Controllers
     public class DestinationsController : Controller
     {
         private readonly ApplicationContext _context;
+        private readonly IWebHostEnvironment _environment;
 
-        public DestinationsController(ApplicationContext context)
+        public DestinationsController(ApplicationContext context, IWebHostEnvironment environment)
         {
             _context = context;
+            _environment = environment;
+
         }
 
         // GET: Destinations
         public async Task<IActionResult> Index(DestinationIndexViewModel destinationIndexViewModel)
         {
-            IOrderedQueryable<Destination>? applicationContext;
+            IOrderedQueryable<Traveller.Domain.Destination>? applicationContext;
 
             if (destinationIndexViewModel.FilterCountry.CountryID != 0)
             {
                 applicationContext = _context.Destinations
                     .Where(
                         d => d.CountryID == destinationIndexViewModel.FilterCountry.CountryID
-                        && 
-                        d.DestinationTypes.Select(d=>d.DestinationTypeID).Contains(destinationIndexViewModel.FilterDestinationType.DestinationTypeID)
+                        &&
+                        d.DestinationTypes.Select(d => d.DestinationTypeID).Contains(destinationIndexViewModel.FilterDestinationType.DestinationTypeID)
                      )
                     .Include(d => d.Country)
                     .Include(d => d.DestinationTypes)
@@ -44,7 +49,10 @@ namespace RouteDataManager.Controllers
 
             destinationIndexViewModel.SelectListCountries = selectListCountries;
             destinationIndexViewModel.SelectListDestinationTypes = selectListDestinationTypes;
-            destinationIndexViewModel.Destinations = await applicationContext.ToListAsync();
+
+            List<Traveller.Domain.Destination>? destinations = await applicationContext.ToListAsync();
+
+            destinationIndexViewModel.Destinations = destinations;
 
             return PartialView(destinationIndexViewModel);
         }
@@ -60,13 +68,15 @@ namespace RouteDataManager.Controllers
             var destination = await _context.Destinations
                 .Include(d => d.Country).Include(d => d.DestinationTypes)
                 .FirstOrDefaultAsync(m => m.DestinationID == id);
+
+
+
             if (destination == null)
             {
                 return NotFound();
             }
 
             ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name", destination.CountryID);
-            //ViewData["Type"] = new SelectList(_context.DestinationTypes, "DestinationTypeID", "Description", destination.DestinationType.DestinationTypeID); //NEW
 
             return PartialView(destination);
         }
@@ -83,19 +93,28 @@ namespace RouteDataManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DestinationID,CountryCode,Name,Description,Type,CountryID")] Destination destination)
+        public async Task<IActionResult> Create(DestinationViewModel model)
         {
             if (ModelState.IsValid)
             {
+                string uniqueFileName = ProcessUploadedFile(model);
+                Destination destination = new()
+                {
+                    CountryID = model.CountryID,
+                    Name = model.Name,
+                    Description = model.Description,
+                    Picture = uniqueFileName
+                };
+
                 _context.Add(destination);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name", destination.CountryID);
-           // ViewData["Type"] = new SelectList(_context.DestinationTypes, "DestinationTypeID", "Description", destination.DestinationType.DestinationTypeID); //NEW
+            ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name", model.CountryID);
 
-            return PartialView(destination);
+            return PartialView(model);
         }
+
 
         // GET: Destinations/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -105,44 +124,70 @@ namespace RouteDataManager.Controllers
                 return NotFound();
             }
 
-            var destination = await _context.Destinations.Include(d=>d.Country).Include(d => d.DestinationTypes).FirstAsync(d=>d.DestinationID==id);
+            var destination = await _context.Destinations.Include(d => d.Country).Include(d => d.DestinationTypes).FirstAsync(d => d.DestinationID == id);
+
             if (destination == null)
             {
                 return NotFound();
             }
-            //HERE
+
+            var destinationViewModel = new DestinationViewModel()
+            {
+                CountryID = destination.CountryID,
+                DestinationID = destination.DestinationID,
+                Description = destination.Description,
+                Id = destination.DestinationID,
+                Name = destination.Name,
+                ExistingImage = destination.Picture,
+
+            };
 
             ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name", destination.CountryID);
-            //ViewData["DestinationTypes"] = new SelectList(_context.DestinationTypes, "DestinationTypeID", "Description", destination.DestinationType.DestinationTypeID); //NEW
-            return PartialView(destination);
+            return PartialView(destinationViewModel);
         }
 
-        // POST: Destinations/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Destination destination)
+
+        public async Task<IActionResult> Edit(int id, DestinationViewModel model)
         {
-            if (id != destination.DestinationID)
+            //???
+            if (id != model.DestinationID)
             {
                 return NotFound();
             }
 
-            //TODO
-            //var DestinationTypeRecovered = _context.DestinationTypes.Single(t => t.DestinationTypeID == destination.DestinationType.DestinationTypeID);
-
-            //destination.DestinationType = DestinationTypeRecovered;
-
             try
             {
+                //Se recupera de la base de datos
+                var destination = await _context.Destinations.FindAsync(model.Id);
 
+                //Se actualizan los datos entrantes desde el modelo
+                destination.Name = model.Name;
+                destination.Description = model.Description;
+                destination.CountryID = model.CountryID;
+
+
+                if (model.Picture != null)
+                {
+                    if (model.ExistingImage != null)
+                    {
+                        string filePath = Path.Combine(_environment.WebRootPath, "Uploads", model.ExistingImage);
+                        System.IO.File.Delete(filePath);
+                    }
+
+                    destination.Picture = ProcessUploadedFile(model);
+                }
                 _context.Update(destination);
                 await _context.SaveChangesAsync();
+                ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name", model.CountryID);
+
+                return RedirectToAction(nameof(Index));
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!DestinationExists(destination.DestinationID))
+                if (!DestinationExists(model.DestinationID))
                 {
                     return NotFound();
                 }
@@ -151,23 +196,8 @@ namespace RouteDataManager.Controllers
                     throw;
                 }
             }
-            return RedirectToAction(nameof(Index));
-            //}
-            ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name", destination.CountryID);
-            //ViewData["DestinationTypes"] = new SelectList(_context.DestinationTypes, "DestinationTypeID", "Description", destination.DestinationType.DestinationTypeID);
 
-            //The “RenderBody” method has not been called for layout page
-
-
-            //This typically occurs when you: – have a partial view – use a _ViewStart.cshtml page – you call the partival view from your controller using: return View();
-
-            //And there you go wrong.It is a partial view, so you should return like this:
-
-            //return PartialView();
-
-            //Source: http://www.cloud-developer.eu/blog/2014/01/20/renderbody-method-called-layout-page/
-
-            return PartialView(destination);
+            return PartialView(model);
         }
 
         // GET: Destinations/Delete/5
@@ -203,14 +233,37 @@ namespace RouteDataManager.Controllers
             {
                 _context.Destinations.Remove(destination);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool DestinationExists(int id)
         {
-          return (_context.Destinations?.Any(e => e.DestinationID == id)).GetValueOrDefault();
+            return (_context.Destinations?.Any(e => e.DestinationID == id)).GetValueOrDefault();
+        }
+
+        private string ProcessUploadedFile(DestinationViewModel model)
+        {
+            string uniqueFileName = null;
+            string path = Path.Combine(_environment.WebRootPath, DestinationFileLocation.FileUploadFolder);
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+
+            if (model.Picture != null)
+            {
+                string uploadsFolder = Path.Combine(_environment.WebRootPath, DestinationFileLocation.FileUploadFolder);
+                uniqueFileName = Guid.NewGuid().ToString() + "_" + model.Picture.FileName;
+                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    model.Picture.CopyTo(fileStream);
+                }
+            }
+
+            return uniqueFileName;
         }
     }
 }
