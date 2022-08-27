@@ -9,7 +9,7 @@ namespace StaticData.Laos
         public static Airport VTE = new Airport
         {
             Name = "Wattay International Airport",
-            ServingDestinations = new List<Destination> { LaosDestinations.Vientiane },
+            Destinations = new List<Destination> { LaosDestinations.Vientiane },
             IATACode = "VTE",
             AirportType = AirportTypes.International
         };
@@ -17,7 +17,7 @@ namespace StaticData.Laos
         public static Airport LPQ = new Airport
         {
             Name = "Luang Prabrang International Airport",
-            ServingDestinations = new List<Destination> { LaosDestinations.LuangPrabang },
+            Destinations = new List<Destination> { LaosDestinations.LuangPrabang },
             IATACode = "LPQ",
             AirportType = AirportTypes.International
         };
@@ -25,7 +25,7 @@ namespace StaticData.Laos
         public static Airport PKZ = new Airport
         {
             Name = "Pakse Airport",
-            ServingDestinations = new List<Destination> { LaosDestinations.Pakse },
+            Destinations = new List<Destination> { LaosDestinations.Pakse },
             IATACode = "PKZ",
             AirportType = AirportTypes.International
         };
@@ -33,7 +33,7 @@ namespace StaticData.Laos
         public static Airport HOE = new Airport
         {
             Name = "Ban Huoeisay Airport",
-            ServingDestinations = new List<Destination> { LaosDestinations.HuayXai },
+            Destinations = new List<Destination> { LaosDestinations.HuayXai },
             IATACode = "HOE",
             AirportType = AirportTypes.Domestic
         };
@@ -41,14 +41,14 @@ namespace StaticData.Laos
         public static Airport LXG = new Airport
         {
             Name = "Luang Namtha Airport",
-            ServingDestinations = new List<Destination> { LaosDestinations.LuangNamtha },
+            Destinations = new List<Destination> { LaosDestinations.LuangNamtha },
             IATACode = "LXG",
             AirportType = AirportTypes.Domestic
         };
         public static Airport ODY = new Airport
         {
             Name = "Oudomsay Airport",
-            ServingDestinations = new List<Destination> { LaosDestinations.Oudomsay },
+            Destinations = new List<Destination> { LaosDestinations.Oudomsay },
             IATACode = "ODY",
             AirportType = AirportTypes.Domestic
         };
@@ -56,7 +56,7 @@ namespace StaticData.Laos
         public static Airport XKH = new Airport
         {
             Name = "Xieng Khouang Airport",
-            ServingDestinations = new List<Destination> { LaosDestinations.XiengKhouang },
+            Destinations = new List<Destination> { LaosDestinations.XiengKhouang },
             IATACode = "XKH",
             AirportType = AirportTypes.Domestic
         };

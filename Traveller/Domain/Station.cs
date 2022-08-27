@@ -13,7 +13,7 @@ namespace Domain
         public string? LocalName { get; set; }
         public char Type { get; set; }  // T B
         public string? Remarks { get; set; }
-        public ICollection<Destination>? ServingDestinations { get; set; }
+        public virtual ICollection<Destination>? Destinations { get; set; }
         //public ICollection<Destination>? MajorLandmarks { get; set; }
         //public ICollection<Destination>? InterchangeStations { get; set; }
 

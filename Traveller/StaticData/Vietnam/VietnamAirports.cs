@@ -14,7 +14,7 @@ namespace StaticData.Vietnam
         public static Airport SGN = new Airport
         {
             Name = "Tan Son Nhat International Airport",
-            ServingDestinations = new List<Destination> { VietnamDestinations.HoChiMinh },
+            Destinations = new List<Destination> { VietnamDestinations.HoChiMinh },
             IATACode = "SGN",
             AirportType = AirportTypes.International
 
@@ -23,7 +23,7 @@ namespace StaticData.Vietnam
         public static Airport HAN = new Airport
         {
             Name = "Noi Bai International Airport",
-            ServingDestinations = new List<Destination> { VietnamDestinations.Hanoi },
+            Destinations = new List<Destination> { VietnamDestinations.Hanoi },
             IATACode = "HAN",
             AirportType = AirportTypes.International
 
@@ -32,7 +32,7 @@ namespace StaticData.Vietnam
         public static Airport DAD = new Airport
         {
             Name = "Da Nang International Airport",
-            ServingDestinations = new List<Destination> { VietnamDestinations.Danang },
+            Destinations = new List<Destination> { VietnamDestinations.Danang },
             IATACode = "DAD",
             AirportType = AirportTypes.International
 
@@ -41,7 +41,7 @@ namespace StaticData.Vietnam
         public static Airport HPH = new Airport
         {
             Name = "Cat Bi International Airport",
-            ServingDestinations = new List<Destination> { VietnamDestinations.Haiphong },
+            Destinations = new List<Destination> { VietnamDestinations.Haiphong },
             IATACode = "HPH",
             AirportType = AirportTypes.International
 
@@ -51,7 +51,7 @@ namespace StaticData.Vietnam
         public static Airport VCL = new Airport
         {
             Name = "Chu Lai International Airport",
-            ServingDestinations = new List<Destination> { VietnamDestinations.DungQuatBay },
+            Destinations = new List<Destination> { VietnamDestinations.DungQuatBay },
             IATACode = "VCL",
             AirportType = AirportTypes.International
 
@@ -61,7 +61,7 @@ namespace StaticData.Vietnam
         public static Airport PQC = new Airport
         {
             Name = "Phu Quoc International Airport",
-            ServingDestinations = new List<Destination> { VietnamDestinations.PhuQuoc },
+            Destinations = new List<Destination> { VietnamDestinations.PhuQuoc },
             IATACode = "PQC",
             AirportType = AirportTypes.International
 
@@ -70,7 +70,7 @@ namespace StaticData.Vietnam
         public static Airport VCA = new Airport
         {
             Name = "Can Tho International Airport",
-            ServingDestinations = new List<Destination> { VietnamDestinations.CanTho },
+            Destinations = new List<Destination> { VietnamDestinations.CanTho },
             IATACode = "VCA",
             AirportType = AirportTypes.International
 
@@ -79,7 +79,7 @@ namespace StaticData.Vietnam
         public static Airport HUI = new Airport
         {
             Name = "Hue International Airport",
-            ServingDestinations = new List<Destination> { VietnamDestinations.Hue },
+            Destinations = new List<Destination> { VietnamDestinations.Hue },
             IATACode = "HUI",
             AirportType = AirportTypes.International
 
@@ -92,7 +92,7 @@ namespace StaticData.Vietnam
         public static Airport BMV = new Airport
         {
             Name = "Buon Ma Thuot Airport",
-            ServingDestinations = new List<Destination> { VietnamDestinations.BuonMaThuot },
+            Destinations = new List<Destination> { VietnamDestinations.BuonMaThuot },
             IATACode = "BMV",
             AirportType = AirportTypes.Domestic
 
@@ -101,7 +101,7 @@ namespace StaticData.Vietnam
         public static Airport CXR = new Airport
         {
             Name = "Cam Ranh Airport",
-            ServingDestinations = new List<Destination> { VietnamDestinations.NhaTrang },
+            Destinations = new List<Destination> { VietnamDestinations.NhaTrang },
             IATACode = "CXR",
             AirportType = AirportTypes.Domestic
 
@@ -110,7 +110,7 @@ namespace StaticData.Vietnam
         public static Airport VII = new Airport
         {
             Name = "Vinh Airport",
-            ServingDestinations = new List<Destination> { VietnamDestinations.Vinh },
+            Destinations = new List<Destination> { VietnamDestinations.Vinh },
             IATACode = "VII",
             AirportType = AirportTypes.Domestic
 
@@ -119,7 +119,7 @@ namespace StaticData.Vietnam
         public static Airport DLI = new Airport
         {
             Name = "Lien Khuong Airport",
-            ServingDestinations = new List<Destination> { VietnamDestinations.DaLat },
+            Destinations = new List<Destination> { VietnamDestinations.DaLat },
             IATACode = "DLI",
             AirportType = AirportTypes.Domestic
 
@@ -128,7 +128,7 @@ namespace StaticData.Vietnam
         public static Airport UIH = new Airport
         {
             Name = "Phu Cat Airport",
-            ServingDestinations = new List<Destination> { VietnamDestinations.QuyNohn },
+            Destinations = new List<Destination> { VietnamDestinations.QuyNohn },
             IATACode = "UIH",
             AirportType = AirportTypes.Domestic
 
@@ -137,7 +137,7 @@ namespace StaticData.Vietnam
         public static Airport CAH = new Airport
         {
             Name = "Cà Mau Airport",
-            ServingDestinations = new List<Destination> { VietnamDestinations.CàMau },
+            Destinations = new List<Destination> { VietnamDestinations.CàMau },
             IATACode = "CAH",
             AirportType = AirportTypes.Domestic
 
@@ -146,7 +146,7 @@ namespace StaticData.Vietnam
         public static Airport VCS = new Airport
         {
             Name = "Co Ong Airport",
-            ServingDestinations = new List<Destination> { VietnamDestinations.ConDao },
+            Destinations = new List<Destination> { VietnamDestinations.ConDao },
             IATACode = "VCS",
             AirportType = AirportTypes.Domestic
 
@@ -155,7 +155,7 @@ namespace StaticData.Vietnam
         public static Airport DIN = new Airport
         {
             Name = "Dien Bien Phu Airport",
-            ServingDestinations = new List<Destination> { VietnamDestinations.DienBienPhu },
+            Destinations = new List<Destination> { VietnamDestinations.DienBienPhu },
             IATACode = "DIN",
             AirportType = AirportTypes.Domestic
 
@@ -163,7 +163,7 @@ namespace StaticData.Vietnam
         public static Airport PXU = new Airport
         {
             Name = "Pleiku Airport",
-            ServingDestinations = new List<Destination> { VietnamDestinations.Pleiku },
+            Destinations = new List<Destination> { VietnamDestinations.Pleiku },
             IATACode = "PXU",
             AirportType = AirportTypes.Domestic
 
@@ -172,7 +172,7 @@ namespace StaticData.Vietnam
         public static Airport VKG = new Airport
         {
             Name = "Rach Gia Airport",
-            ServingDestinations = new List<Destination> { VietnamDestinations.RachGia },
+            Destinations = new List<Destination> { VietnamDestinations.RachGia },
             IATACode = "VKG",
             AirportType = AirportTypes.Domestic
 
@@ -181,7 +181,7 @@ namespace StaticData.Vietnam
         public static Airport TBB = new Airport
         {
             Name = "Dong Tac Airport",
-            ServingDestinations = new List<Destination> { VietnamDestinations.TuyHoa },
+            Destinations = new List<Destination> { VietnamDestinations.TuyHoa },
             IATACode = "TBB",
             AirportType = AirportTypes.Domestic
 
@@ -190,7 +190,7 @@ namespace StaticData.Vietnam
         public static Airport VDH = new Airport
         {
             Name = "Dong Hoi Airport",
-            ServingDestinations = new List<Destination> { VietnamDestinations.DongHoi },
+            Destinations = new List<Destination> { VietnamDestinations.DongHoi },
             IATACode = "VDH",
             AirportType = AirportTypes.Domestic
 

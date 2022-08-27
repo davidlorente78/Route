@@ -8,7 +8,7 @@ namespace RouteDataManager.ViewModels
         public IEnumerable<Traveller.Domain.Destination> Destinations { get; set; }
         public SelectList SelectListCountries { get; set; }
         public SelectList SelectListDestinationTypes{ get; set; }
-        public DestinationType FilterDestinationType { get; set; } = new DestinationType() {   DestinationTypeID = 2 };
+        public DestinationType FilterDestinationType { get; set; } = new DestinationType() {   DestinationTypeID = 3 };
         public Country FilterCountry { get; set; } = new Country() { CountryID = 3 };
 
     }

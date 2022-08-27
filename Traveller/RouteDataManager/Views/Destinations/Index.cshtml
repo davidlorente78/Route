@@ -9,6 +9,7 @@
 
     <div class="form-group">
         <table class="table">
+
             <thead>
 
                 <tr>
@@ -49,17 +50,28 @@
 </p>
 
 <table class="table">
+
+    <colgroup>
+        <col span="1" style="width: 15%;">
+        <col span="1" style="width: 46%;">
+        <col span="1" style="width: 15%;">
+        <col span="1" style="width: 8%;">
+        <col span="1" style="width: 8%;">
+        <col span="1" style="width: 8%;">
+    </colgroup>
     <thead>
         <tr>
-
             <th>
                 Name
             </th>
+
             <th>
                 Description
             </th>
 
-            <th>Photo</th>
+            <th>
+                Photo
+            </th>
 
             <th></th>
             <th></th>
@@ -68,22 +80,25 @@
     </thead>
 
     <tbody>
+
         @foreach (var item in Model.Destinations)
         {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
+
                 <td>
                     @Html.DisplayFor(modelItem => item.Description)
                 </td>
+
                 <td>
                     <a asp-action="Details" asp-route-id="@item.DestinationID">
                         <img src="@DestinationFileLocation.RetriveFileFromFolder@item.Picture" class="img-thumbnail" height="100" width="100" asp-append-version="true" />
                     </a>
                 </td>
 
-                <td>    <a asp-action="Edit" class="btn btn-primary btn-block" asp-route-id="@item.DestinationID">Edit</a></td>
+                <td>   <a asp-action="Edit" class="btn btn-primary btn-block" asp-route-id="@item.DestinationID">Edit</a></td>
                 <td>   <a asp-action="Details" class="btn btn-primary btn-block" asp-route-id="@item.DestinationID">Details</a> </td>
                 <td>   <a asp-action="Delete" class="btn btn-primary btn-block" asp-route-id="@item.DestinationID">Delete</a> </td>
             </tr>

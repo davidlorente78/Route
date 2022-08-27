@@ -12,7 +12,7 @@ namespace StaticData.Thailand
         public static Station BangkokHuaLamphong = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { ThailandDestinations.Bangkok},
+            Destinations = new List<Destination> { ThailandDestinations.Bangkok},
             Name = "Bangkok Hua Lamphong",
             Remarks = ""
         };
@@ -23,7 +23,7 @@ namespace StaticData.Thailand
         public static Station ThonBuri = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> {  },
+            Destinations = new List<Destination> {  },
             Name = "Thon Buri",
             Remarks = "Former terminus of Southern Line, however some southern trains remain to start the journey here."
         };
@@ -37,7 +37,7 @@ namespace StaticData.Thailand
         public static Station Ratchaburi = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Ratchaburi",
             Remarks = "Terminal for southern suburban service, also Ratchaburi main station."
         };
@@ -46,7 +46,7 @@ namespace StaticData.Thailand
         public static Station Phetchaburi = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Phetchaburi",
             Remarks = ""
         };
@@ -54,7 +54,7 @@ namespace StaticData.Thailand
         public static Station HuaHin = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Hua Hin",
             Remarks = "rovincial Station for Hua Hin in Prachuap Khiri Khan with crew changing station."
         };
@@ -64,7 +64,7 @@ namespace StaticData.Thailand
         public static Station PrachuapKhiriKhan = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Prachuap Khiri Khan",
             Remarks = "Prachuap Khiri Khan main station."
         };
@@ -74,7 +74,7 @@ namespace StaticData.Thailand
         public static Station Chumphon = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Chumphon",
             Remarks = "Main Chumphon station, locomotive depot with refuelling facility."
         };
@@ -83,7 +83,7 @@ namespace StaticData.Thailand
         public static Station LangSuan = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> {  },
+            Destinations = new List<Destination> {  },
             Name = "Lang Suan ",
             Remarks = "."
         };
@@ -94,7 +94,7 @@ namespace StaticData.Thailand
         public static Station KhiriRatNikhom  = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { ThailandDestinations.Phuket, ThailandDestinations.PhangNga},
+            Destinations = new List<Destination> { ThailandDestinations.Phuket, ThailandDestinations.PhangNga},
             Name = "Khiri Rat Nikhom Station",
             Remarks = "Terminus for the Khiri Rat Nikhom Branch and the railway to Phang Nga and Tanun (Phuket)."
         };
@@ -103,7 +103,7 @@ namespace StaticData.Thailand
         public static Station SuratThani = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Surat Thani",
             Remarks = "Surat Thani is a busy train station with connecting bus and ferry services to and from Koh Samui and Koh Phangan. A large number of passengers also pass through Surat Thani train station on the way to destinations on the Andaman coast, such as Krabi and Phuket, which are not connected to Thailand’s railway network. There are connecting bus and minivan services from Surat Thani to Phuket Town and Krabi Town."
         };
@@ -113,7 +113,7 @@ namespace StaticData.Thailand
         public static Station ThungSongJunction = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Thung Song",
             Remarks = "Locomotive depot, refuelling facility and junction for Kantang Branch."
         };
@@ -123,7 +123,7 @@ namespace StaticData.Thailand
         public static Station Trang = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { ThailandDestinations.Trang },
+            Destinations = new List<Destination> { ThailandDestinations.Trang },
             Name = "Trang",
             Remarks = "Main Trang station."
         };
@@ -133,7 +133,7 @@ namespace StaticData.Thailand
         public static Station Kantang = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Kantang",
             Remarks = "Terminus of Kantang Branch."
         };
@@ -144,7 +144,7 @@ namespace StaticData.Thailand
         public static Station KhaoChumThongJunction = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Khao Chum Thong Junction",
             Remarks = ""
         };
@@ -153,7 +153,7 @@ namespace StaticData.Thailand
         public static Station NakhonSiThammarat = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Nakhon Si Thammarat",
             Remarks = ""
         };
@@ -162,7 +162,7 @@ namespace StaticData.Thailand
         public static Station Phatthalung = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Phatthalung",
             Remarks = ""
         };
@@ -171,7 +171,7 @@ namespace StaticData.Thailand
         public static Station HatYaiJunction = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { ThailandDestinations.Songkhla },
+            Destinations = new List<Destination> { ThailandDestinations.Songkhla },
             Name = "Hat Yai Junction",
             Remarks = "Main junction for Malaysia and Singapore and Main Line of Southern Line, Locomotive Depot and refueling facility. Main Songkhla Station."
         };
@@ -180,7 +180,7 @@ namespace StaticData.Thailand
         public static Station PadangBesar = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { MalaysiaDestinations.PadangPesar, ThailandDestinations.PadangPesar },
+            Destinations = new List<Destination> { MalaysiaDestinations.PadangPesar, ThailandDestinations.PadangPesar },
             Name = "Padang Besar",
             Remarks = "International KTM station in Malaysia. Trains continue to Butterworth (Penang) and further."
         };
@@ -191,7 +191,7 @@ namespace StaticData.Thailand
         public static Station Pattani = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Pattani",
             Remarks = "formerly Khok Pho station, Pattani main station."
         };
@@ -201,7 +201,7 @@ namespace StaticData.Thailand
         public static Station Yala = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Yala",
             Remarks = "Main Yala station, crew changing station."
         };
@@ -211,7 +211,7 @@ namespace StaticData.Thailand
         public static Station TanyongMat = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> {  },
+            Destinations = new List<Destination> {  },
             Name = "Tanyong Mat",
             Remarks = "for Ra Ngae district and Narathiwat."
         };
@@ -219,7 +219,7 @@ namespace StaticData.Thailand
         public static Station SungaiKolok = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { ThailandDestinations.SungaiKolok, MalaysiaDestinations.RantanPanjang },
+            Destinations = new List<Destination> { ThailandDestinations.SungaiKolok, MalaysiaDestinations.RantanPanjang },
             Name = "Su-ngai",
             Remarks = "Terminus of Southern Line. Used to be an international station until the termination of cross border services."
         };
@@ -231,7 +231,7 @@ namespace StaticData.Thailand
         public static Station BanDaraJunction = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> {  },
+            Destinations = new List<Destination> {  },
             Name = "Ban Dara Junction",
             LocalName = "ชุมทางบ้านดารา",
             Remarks = "The terminal of Sawankhalok Line"
@@ -241,7 +241,7 @@ namespace StaticData.Thailand
         public static Station KhlongMaphlap  = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Khlong Maphlap",
             LocalName = "คลองมะพลับ",
             Remarks = ""
@@ -250,7 +250,7 @@ namespace StaticData.Thailand
         public static Station SawanKhalok = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Sawan Khalok",
             LocalName = "สวรรคโลก",
             Remarks = ""
@@ -266,7 +266,7 @@ namespace StaticData.Thailand
           public static Station Rangsit = new Station
           {
               Type = 'T',
-              ServingDestinations = new List<Destination> { },
+              Destinations = new List<Destination> { },
               Name = "Rangsit",
               LocalName = "",
               Remarks = ""
@@ -275,7 +275,7 @@ namespace StaticData.Thailand
         public static Station Ayutthaya = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Ayutthaya",
             LocalName = "อยุธยา",
             Remarks = "https://en.wikipedia.org/wiki/Ayutthaya_railway_station"
@@ -284,7 +284,7 @@ namespace StaticData.Thailand
         public static Station BanPhachiJunction = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Ban Pachi Junction",
            Remarks ="Start for NorthEast Line"
         };
@@ -292,7 +292,7 @@ namespace StaticData.Thailand
         public static Station LopBuri = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Lop Buri",
             LocalName = "ลพบุรี",
             Remarks = ""
@@ -301,7 +301,7 @@ namespace StaticData.Thailand
         public static Station BanTakhli = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Ban Takhli",
             LocalName = "",
             Remarks = ""
@@ -310,7 +310,7 @@ namespace StaticData.Thailand
         public static Station NakhonSawan = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Nakhon Sawan",
             LocalName = "",
             Remarks = ""
@@ -319,7 +319,7 @@ namespace StaticData.Thailand
         public static Station TaphanHin = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Taphan Hin",
             LocalName = "",
             Remarks = ""
@@ -327,16 +327,16 @@ namespace StaticData.Thailand
         public static Station Phichit = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Phichit",
             LocalName = "",
             Remarks = ""
         };
 
         public static Station Phitsanulok = new Station
-        {
+        {            
             Type = 'T',
-            ServingDestinations = new List<Destination> { ThailandDestinations.Sukhothai , ThailandDestinations.Phitsanulok },
+            Destinations = new List<Destination> { ThailandDestinations.Sukhothai , ThailandDestinations.Phitsanulok },
             Name = "Phitsanulok",
             LocalName = "พิษณุโลก",
             Remarks = ""
@@ -345,7 +345,7 @@ namespace StaticData.Thailand
         public static Station Uttaradit = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Uttaradit",
             LocalName = "",
             Remarks = ""
@@ -354,7 +354,7 @@ namespace StaticData.Thailand
         public static Station SilaAt = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Sila At",
             LocalName = "",
             Remarks = ""
@@ -363,7 +363,7 @@ namespace StaticData.Thailand
         public static Station DenChai = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Den Chai",
             LocalName = "",
             Remarks = ""
@@ -372,7 +372,7 @@ namespace StaticData.Thailand
         public static Station BanPin = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Ban Pin",
             LocalName = "",
             Remarks = ""
@@ -381,7 +381,7 @@ namespace StaticData.Thailand
         public static Station NakhonLampang = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Nakhon Lampang",
             LocalName = "",
             Remarks = ""
@@ -390,7 +390,7 @@ namespace StaticData.Thailand
         public static Station HangChat = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Hang Chat",
             LocalName = "",
             Remarks = ""
@@ -399,7 +399,7 @@ namespace StaticData.Thailand
         public static Station Lamphun = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Lamphun",
             LocalName = "",
             Remarks = ""
@@ -408,7 +408,7 @@ namespace StaticData.Thailand
         public static Station ChiangMai = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { ThailandDestinations.ChiangMai },
+            Destinations = new List<Destination> { ThailandDestinations.ChiangMai },
             Name = "Chiang Mai",
             LocalName = "",
             Remarks = ""
@@ -423,7 +423,7 @@ namespace StaticData.Thailand
         public static Station BanPachi = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Ban Pachi",
             LocalName = "",
             Remarks = ""
@@ -433,7 +433,7 @@ namespace StaticData.Thailand
         public static Station ThanonChiraJunction = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Thanon Chira Junction",
             LocalName = "",
             Remarks = ""
@@ -443,7 +443,7 @@ namespace StaticData.Thailand
         public static Station Surin = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Surin",
             LocalName = "",
             Remarks = ""
@@ -453,7 +453,7 @@ namespace StaticData.Thailand
         public static Station Sisaket = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Sisaket",
             LocalName = "",
             Remarks = ""
@@ -464,7 +464,7 @@ namespace StaticData.Thailand
         public static Station UbonRatchathani = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Ubon Ratchathani",
             LocalName = "",
             Remarks = ""
@@ -477,7 +477,7 @@ namespace StaticData.Thailand
         public static Station KaengKhoiJuction = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Kaeng Khoi Juction",
             LocalName = "",
             Remarks = ""
@@ -488,7 +488,7 @@ namespace StaticData.Thailand
         public static Station BuaYaiJunction = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Bua Yai Junction",
             LocalName = "",
             Remarks = ""
@@ -499,7 +499,7 @@ namespace StaticData.Thailand
         public static Station KhonKaen = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Khon Kaen",
             LocalName = "",
             Remarks = ""
@@ -509,7 +509,7 @@ namespace StaticData.Thailand
         public static Station UdonThani = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> {  },
+            Destinations = new List<Destination> {  },
             Name = "Udon Thani",
             LocalName = "",
             Remarks = ""
@@ -520,7 +520,7 @@ namespace StaticData.Thailand
         public static Station NongKhai = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> {ThailandDestinations.NongKhai, LaosDestinations.NongKhiang },
+            Destinations = new List<Destination> {ThailandDestinations.NongKhai, LaosDestinations.NongKhiang },
             Name = "Nong Khai",
             LocalName = "",
             Remarks = ""
@@ -537,7 +537,7 @@ namespace StaticData.Thailand
         public static Station Pattaya = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Pattaya",
             LocalName = "",
             Remarks = ""
@@ -546,7 +546,7 @@ namespace StaticData.Thailand
         public static Station Aranyaprathet = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { ThailandDestinations.Aranyaprathet },
+            Destinations = new List<Destination> { ThailandDestinations.Aranyaprathet },
             Name = "Aranyaprathet",
             LocalName = "",
             Remarks = ""
@@ -559,7 +559,7 @@ namespace StaticData.Thailand
         public static Station ChachengsaoJunction = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Chachengsao Junction",
             LocalName = "",
             Remarks = ""
@@ -568,7 +568,7 @@ namespace StaticData.Thailand
         public static Station Chonburi = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Chonburi",
             LocalName = "",
             Remarks = ""
@@ -577,7 +577,7 @@ namespace StaticData.Thailand
         public static Station SriRachaJunction = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Sri Racha Junction",
             LocalName = "",
             Remarks = ""
@@ -586,7 +586,7 @@ namespace StaticData.Thailand
         public static Station BanPluTaLuang = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             Name = "Ban Plu Ta Luang",
             LocalName = "",
             Remarks = ""
@@ -595,7 +595,7 @@ namespace StaticData.Thailand
         public static Station MarpTaPut = new Station
         {
             Type = 'T',
-            ServingDestinations = new List<Destination> { ThailandDestinations.Rayong},
+            Destinations = new List<Destination> { ThailandDestinations.Rayong},
             Name = "MarpTaPut",
             LocalName = "",
             Remarks = ""

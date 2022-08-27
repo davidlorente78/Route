@@ -5,6 +5,8 @@ namespace Traveller.Domain
     public class Airport
     {
         public int AirportID { get; set; }
+
+        [Required]
         [Display(Name = "Airport Type")]
         public AirportType AirportType { get; set; }
 
@@ -17,13 +19,13 @@ namespace Traveller.Domain
 
         [Display(Name = "Local Name")]
         public string? LocalName { get; set; }
-        public virtual ICollection<Destination>? ServingDestinations { get; set; }
+        public virtual ICollection<Destination>? Destinations { get; set; }
         public int CountryID { get; set; }
         public virtual Country Country { get; set; }
 
         public Airport() {
 
-            this.ServingDestinations = new HashSet<Destination>();
+            this.Destinations = new HashSet<Destination>();
         }
     }
 

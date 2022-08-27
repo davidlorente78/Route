@@ -10,6 +10,7 @@ using StaticData.Nepal;
 using Traveller.Domain;
 using Traveller.StaticData;
 using StaticData.Indonesia;
+using Domain;
 
 namespace RouteDataManager.Repositories
 {
@@ -79,7 +80,7 @@ namespace RouteDataManager.Repositories
                 Code = 'I',
                 Name = "Indonesia",
                 Ranges = new List<RangeChar> { IndonesiaRanges.MonsoonRange },
-               
+
                 //Bali Lombok TODO
 
             };
@@ -99,7 +100,7 @@ namespace RouteDataManager.Repositories
                 Frontiers = new List<Frontier> {
 
                             new Frontier {
-                            Name = NepalAirports.KTM.Name,                            
+                            Name = NepalAirports.KTM.Name,
                             Origin = NepalDestinations.Kathmandu,
                             Final = NepalDestinations.Kathmandu,
                             FrontierType = FrontierTypes.Airport,
@@ -148,8 +149,8 @@ namespace RouteDataManager.Repositories
                             //Frontier https://en.wikipedia.org/wiki/Malaysia%E2%80%93Singapore_Second_Link
                         },
                 Visas = new List<Visa> { SingaporeVisas.SGArrivalCard_Singapore },//Estas son las que salen en la pagina IndexView
-                Airports = new List<Airport> { SingaporeAirports.SIN},
-             
+                Airports = new List<Airport> { SingaporeAirports.SIN },
+
             };
 
             context.Countries.Add(Singapore);
@@ -176,44 +177,44 @@ namespace RouteDataManager.Repositories
 
 
             #region DemoSepakers
-            if (!context.Speakers.Any())
-            {
-                context.Speakers.AddRange(new List<Speaker>()
-                    {
-                        new Speaker()
-                        {
-                          SpeakerName="Jack Christiansen",
-                          Experience=5,
-                          Qualification="MSc Computer Science",
-                          SpeakingDate=DateTime.Now.AddDays(2) ,
-                          SpeakingTime=DateTime.Now.AddDays(2).AddHours(18).AddMinutes(00),
-                          ProfilePicture="/avatar.png",
-                          Venue="Bangalore"
-                        },
-                        new Speaker()
-                        {
-                          SpeakerName="Brenden Legros",
-                          Experience=7,
-                          Qualification="MBA",
-                          SpeakingDate=DateTime.Now.AddDays(2) ,
-                          SpeakingTime=DateTime.Now.AddDays(2).AddHours(20).AddMinutes(00),
-                          ProfilePicture="/avatar.png",
-                          Venue="Hyderabad"
-                        },
-                        new Speaker()
-                        {
-                          SpeakerName="Julia Adward",
-                          Experience=5,
-                          Qualification="Digital Marketing",
-                          SpeakingDate=DateTime.Now.AddDays(2) ,
-                          SpeakingTime=DateTime.Now.AddDays(2).AddHours(20).AddMinutes(00),
-                          ProfilePicture="/avatar.png",
-                          Venue="Chennai"
-                        }
-                    });
-                context.SaveChanges();
+            //if (!context.Speakers.Any())
+            //{
+            //    context.Speakers.AddRange(new List<Speaker>()
+            //        {
+            //            new Speaker()
+            //            {
+            //              SpeakerName="Jack Christiansen",
+            //              Experience=5,
+            //              Qualification="MSc Computer Science",
+            //              SpeakingDate=DateTime.Now.AddDays(2) ,
+            //              SpeakingTime=DateTime.Now.AddDays(2).AddHours(18).AddMinutes(00),
+            //              ProfilePicture="/avatar.png",
+            //              Venue="Bangalore"
+            //            },
+            //            new Speaker()
+            //            {
+            //              SpeakerName="Brenden Legros",
+            //              Experience=7,
+            //              Qualification="MBA",
+            //              SpeakingDate=DateTime.Now.AddDays(2) ,
+            //              SpeakingTime=DateTime.Now.AddDays(2).AddHours(20).AddMinutes(00),
+            //              ProfilePicture="/avatar.png",
+            //              Venue="Hyderabad"
+            //            },
+            //            new Speaker()
+            //            {
+            //              SpeakerName="Julia Adward",
+            //              Experience=5,
+            //              Qualification="Digital Marketing",
+            //              SpeakingDate=DateTime.Now.AddDays(2) ,
+            //              SpeakingTime=DateTime.Now.AddDays(2).AddHours(20).AddMinutes(00),
+            //              ProfilePicture="/avatar.png",
+            //              Venue="Chennai"
+            //            }
+            //        });
+            //    context.SaveChanges();
 
-            }
+            //}
             #endregion
 
             if (!context.RailwaySystems.Any())
@@ -275,11 +276,11 @@ namespace RouteDataManager.Repositories
                           Description="Scoot Pte Ltd, operating as Scoot, is a Singaporean low-cost airline and a wholly owned subsidiary of Singapore Airlines. It began its operations on 4 June 2012 on medium and long-haul routes from Singapore, predominantly to various airports throughout the Asia-Pacific."  }
                     ,
 
-                
+
                         new Airline()
                         {
                           IATACode ="DD",
-                           
+
                           MainAirport = ThailandAirports.DMK,
                           Url ="www.nokair.com",
                           Name="Nok Air",
@@ -299,7 +300,7 @@ namespace RouteDataManager.Repositories
                           Description=" is a regional airline based in Bangkok, Thailand.[2] It operates scheduled services to destinations in Thailand, Cambodia, China, Hong Kong, India, Laos, Malaysia, Maldives, Myanmar, Singapore, and Vietnam. Its main base is Suvarnabhumi Airport."
                         }
 
-                       ,                          
+                       ,
                          new Airline()
                         {
                           IATACode ="JQ",
@@ -310,15 +311,60 @@ namespace RouteDataManager.Repositories
                           Description="Is an Australian low-cost airline headquartered in Melbourne.[4][5] It is a wholly owned subsidiary of Qantas, created in response to the threat posed by airline Virgin Blue. Jetstar is part of Qantas' two brand strategy[6] of having Qantas Airways for the premium full-service market and Jetstar for the low-cost market. "
                          }
 
-                      
 
-                } );
 
-             
-                    context.SaveChanges();
+                });
+
+
+                context.SaveChanges();
+
+
+                //Algunas entidades con relacionados entre si no han podido ser introducidas antes en la base de datos
+
+                //Ejemplo de trabajo
+
+                //public static Destination Sukhothai = new Destination
+                //{
+                //    CountryID = 3,
+                //    Name = "Sukhothai",
+                //    LocalName = "สุโขทัย",
+                //    Description = "Ancient Sukhothai was the first capital of the Sukhothai Kingdom, a long arc of territory that ran through what is today's Laos and western Thailand as far as the Malay states. The kingdom was established in 1238 by Phokhun Si Intharathit, the founder of the Phra Ruang dynasty. It was the state that eventually had the greatest influence on the later Siamese and Thai kingdoms. Traditional Thai history has it that Ramkhamhaeng the Great, the third ruler of the Phra Ruang dynasty, developed the capital at Sukhothai. He is also venerated as being the inventor of the Thai alphabet and being an all-round role model for Thailand's politics, monarchy, and religion. Sukhothai is 12 km west of the modern city of Sukhothai Thani.",
+                //    //Airports = new List<Airport> { ThailandAirports.THS },
+                //    //Stations = new List<Station> { ThailandTrainStations.Phitsanulok },
+                //    Picture = "/Sukhothai.jpg",
+                //    DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }
+                //};
+
+                //Destination ID = 111 
+                //Este ID no se tiene cuando se asigna la relacion de la destination dentro de la entidad aeropuerto THS
+                //var Sukhotai = context.Destinations.Where(x => x.Name == ThailandDestinations.Sukhothai.Name).FirstOrDefault();
+                //Sukhotai.Airports = new List<Airport> { ThailandAirports.THS };
+                //Sukhotai.Stations = new List<Station> { ThailandTrainStations.Phitsanulok };
+                //context.Update(Sukhotai);
+
+                foreach (var destination in context.Destinations)
+                {
+
+                    //Buscar si existe un aeropuerto que tenga como destino la destination que estamos tratando
+                    var airports = context.Airports
+                            .Where(
+                                s => s.Destinations.Select(d => d.Name).Contains(destination.Name)
+                             );
+
+                    foreach (Airport airport in airports)
+                    {
+                        destination.Airports.Add(airport);
+                    }
+
+                    context.Update(destination);
+
+                }
+
+
+            
 
             }
-        
+
 
         }
     }

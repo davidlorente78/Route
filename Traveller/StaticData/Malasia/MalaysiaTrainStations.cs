@@ -13,7 +13,7 @@ namespace StaticData.Malaysia
         {
             Type = 'T',
             //Lines = new List<Line> { MalasiaTrainLines.KTMWestCoast },
-            ServingDestinations = new List<Destination> { MalaysiaDestinations.PadangPesar, ThailandDestinations.PadangPesar },
+            Destinations = new List<Destination> { MalaysiaDestinations.PadangPesar, ThailandDestinations.PadangPesar },
             Name = "Padang Besar",
             Remarks = "The station is where the Malaysia and Thai railway services meet, allowing for passengers to transfer between the two railway systems. The customs, immigration and quarantine facilities of both countries are co-located in the station, despite it being completely located within the Malaysian territory, about 200 metres south of the border. There is also a smaller railway station on the Thai side of the border called Padang Besar (Thai) railway station."
         };
@@ -50,7 +50,7 @@ namespace StaticData.Malaysia
         {
             Type = 'T',
             Name = "Kuala Kangsar",
-            ServingDestinations = new List<Destination> { MalaysiaDestinations.KualaKangsar}
+            Destinations = new List<Destination> { MalaysiaDestinations.KualaKangsar}
 
         };
 
@@ -62,7 +62,7 @@ namespace StaticData.Malaysia
         {
             Type = 'T',
             Name = "Ipoh",
-            ServingDestinations = new List<Destination> { MalaysiaDestinations.Ipoh }
+            Destinations = new List<Destination> { MalaysiaDestinations.Ipoh }
         };
 
         //Batu Gajah
@@ -89,14 +89,14 @@ namespace StaticData.Malaysia
         {
             Type = 'T',
             Name = "Kuala Lumpur",
-            ServingDestinations = new List<Destination> { MalaysiaDestinations.KualaLumpur }
+            Destinations = new List<Destination> { MalaysiaDestinations.KualaLumpur }
         };
 
         public static Station KualaLumpurSentral = new Station
         {
             Type = 'T',
             Name = "Kuala Lumpur Sentral",
-            ServingDestinations = new List<Destination> { MalaysiaDestinations.KualaLumpur },
+            Destinations = new List<Destination> { MalaysiaDestinations.KualaLumpur },
             Remarks = "Central interchange with all intercity and commuter trains, rapid transit, monorail and airport rail link"
         };
 
@@ -154,7 +154,7 @@ namespace StaticData.Malaysia
             Type = 'T',
             //Lines = new List<Line> { MalasiaTrainLines.KTMWestCoast },
             Name = "Woodlands Train Checkpoint",
-            ServingDestinations = new List<Destination> { SingaporeDestinations.WoodlandsCheckpoint },
+            Destinations = new List<Destination> { SingaporeDestinations.WoodlandsCheckpoint },
             Remarks = "" };
 
 

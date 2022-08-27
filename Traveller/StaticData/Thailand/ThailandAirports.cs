@@ -16,7 +16,7 @@ namespace StaticData.Thailand
         public static Airport BKK = new Airport
         {
             Name = "Suvarnabhumi Airport",
-            ServingDestinations = new List<Destination> { ThailandDestinations.Bangkok, ThailandDestinations.SamutPrakan },
+            Destinations = new List<Destination> { ThailandDestinations.Bangkok, ThailandDestinations.SamutPrakan },
             ICAOCode = "VTBS",
             IATACode = "BKK",
             AirportType = AirportTypes.International
@@ -26,7 +26,7 @@ namespace StaticData.Thailand
         public static Airport DMK = new Airport
         {
             Name = "Don Mueang International Airport",
-            ServingDestinations = new List<Destination> { ThailandDestinations.Bangkok, ThailandDestinations.Nonthaburi, ThailandDestinations.PathumThani },
+            Destinations = new List<Destination> { ThailandDestinations.Bangkok, ThailandDestinations.Nonthaburi, ThailandDestinations.PathumThani },
             ICAOCode = "VTBD",
             IATACode = "DMK",
             AirportType = AirportTypes.International
@@ -35,7 +35,7 @@ namespace StaticData.Thailand
         public static Airport BTZ = new Airport
         {
             Name = "Betong International Airport",
-            ServingDestinations = new List<Destination> { ThailandDestinations.Betong, ThailandDestinations.Yala, ThailandDestinations.PathumThani },
+            Destinations = new List<Destination> { ThailandDestinations.Betong, ThailandDestinations.Yala, ThailandDestinations.PathumThani },
             ICAOCode = "VTSY",
             IATACode = "BTZ",
             AirportType = AirportTypes.International
@@ -44,7 +44,7 @@ namespace StaticData.Thailand
         public static Airport CNX = new Airport
         {
             Name = "Chiang Mai International Airport",
-            ServingDestinations = new List<Destination> { ThailandDestinations.ChiangMai, ThailandDestinations.Lamphun },
+            Destinations = new List<Destination> { ThailandDestinations.ChiangMai, ThailandDestinations.Lamphun },
             ICAOCode = "VTCC",
             IATACode = "CNX",
             AirportType = AirportTypes.International
@@ -53,7 +53,7 @@ namespace StaticData.Thailand
         public static Airport CEI = new Airport
         {
             Name = "Mae Fah Luang Chiang Rai International Airport",
-            ServingDestinations = new List<Destination> { ThailandDestinations.ChiangRai },
+            Destinations = new List<Destination> { ThailandDestinations.ChiangRai },
             ICAOCode = "VTCT",
             IATACode = "CEI",
             AirportType = AirportTypes.International
@@ -62,7 +62,7 @@ namespace StaticData.Thailand
         public static Airport HDY = new Airport
         {
             Name = "Hat Yai International Airport",
-            ServingDestinations = new List<Destination> { ThailandDestinations.HatYai, ThailandDestinations.Songkhla },
+            Destinations = new List<Destination> { ThailandDestinations.HatYai, ThailandDestinations.Songkhla },
             ICAOCode = "VTSS",
             IATACode = "HDY",
             AirportType = AirportTypes.International
@@ -71,7 +71,7 @@ namespace StaticData.Thailand
         public static Airport HKT = new Airport
         {
             Name = "Phuket International Airport",
-            ServingDestinations = new List<Destination> { ThailandDestinations.Phuket },
+            Destinations = new List<Destination> { ThailandDestinations.Phuket },
             ICAOCode = "VTSP",
             IATACode = "HKT",
             AirportType = AirportTypes.International
@@ -80,7 +80,7 @@ namespace StaticData.Thailand
         public static Airport USM = new Airport
         {
             Name = "Samui International Airport",
-            ServingDestinations = new List<Destination> { ThailandDestinations.KoSamui },
+            Destinations = new List<Destination> { ThailandDestinations.KoSamui },
             ICAOCode = "VTSM",
             IATACode = "USM",
             AirportType = AirportTypes.International
@@ -89,7 +89,7 @@ namespace StaticData.Thailand
         public static Airport KBV = new Airport
         {
             Name = "Krabi International Airport",
-            ServingDestinations = new List<Destination> { ThailandDestinations.Krabi },
+            Destinations = new List<Destination> { ThailandDestinations.Krabi },
             ICAOCode = "VTSG",
             IATACode = "KBV",
             AirportType = AirportTypes.International
@@ -98,7 +98,7 @@ namespace StaticData.Thailand
         public static Airport URT = new Airport
         {
             Name = "Surat Thani International Airport",
-            ServingDestinations = new List<Destination> { ThailandDestinations.SuratThani },
+            Destinations = new List<Destination> { ThailandDestinations.SuratThani },
             ICAOCode = "VTSB",
             IATACode = "URT",
             AirportType = AirportTypes.International
@@ -107,7 +107,7 @@ namespace StaticData.Thailand
         public static Airport UTP = new Airport
         {
             Name = "U-Tapao International Airport",
-            ServingDestinations = new List<Destination> { ThailandDestinations.Rayong , ThailandDestinations.Pattaya },
+            Destinations = new List<Destination> { ThailandDestinations.Rayong , ThailandDestinations.Pattaya },
             ICAOCode = "VTBU",
             IATACode = "UTP",
             AirportType = AirportTypes.International
@@ -116,7 +116,7 @@ namespace StaticData.Thailand
         public static Airport UTH = new Airport
         {
             Name = "Udon Thani International Airport",
-            ServingDestinations = new List<Destination> { ThailandDestinations.UdonThani },
+            Destinations = new List<Destination> { ThailandDestinations.UdonThani },
             ICAOCode = "VTUD",
             IATACode = "UTH",
             AirportType = AirportTypes.International
@@ -128,7 +128,7 @@ namespace StaticData.Thailand
         public static Airport BFV = new Airport
         {
             Name = "Buriram Airport",
-            ServingDestinations = new List<Destination> { ThailandDestinations.Burinam },
+            Destinations = new List<Destination> { ThailandDestinations.Burinam },
             ICAOCode = "VTUO",
             IATACode = "BFV",
             AirportType = AirportTypes.Domestic
@@ -137,7 +137,7 @@ namespace StaticData.Thailand
         public static Airport CJM = new Airport
         {
             Name = " Chumphon Airport",
-            ServingDestinations = new List<Destination> { ThailandDestinations.Chumphon },
+            Destinations = new List<Destination> { ThailandDestinations.Chumphon },
             ICAOCode = "VTSE",
             IATACode = "CJM",
             AirportType = AirportTypes.Domestic
@@ -146,7 +146,7 @@ namespace StaticData.Thailand
         public static Airport HHQ = new Airport
         {
             Name = "Hua Hin Airport",
-            ServingDestinations = new List<Destination> { ThailandDestinations.HuaHin, ThailandDestinations.PrachuapKhiriKhan },
+            Destinations = new List<Destination> { ThailandDestinations.HuaHin, ThailandDestinations.PrachuapKhiriKhan },
             ICAOCode = "VTPH",
             IATACode = "HHQ",
             AirportType = AirportTypes.Domestic
@@ -155,7 +155,7 @@ namespace StaticData.Thailand
         public static Airport KKC = new Airport
         {
             Name = "Khon Kaen Airport",
-            ServingDestinations = new List<Destination> { ThailandDestinations.KhonKaen },
+            Destinations = new List<Destination> { ThailandDestinations.KhonKaen },
             ICAOCode = "VTUK",
             IATACode = "KKC",
             AirportType = AirportTypes.Domestic
@@ -164,7 +164,7 @@ namespace StaticData.Thailand
         public static Airport LPT = new Airport
         {
             Name = "Lampang Airport",
-            ServingDestinations = new List<Destination> { ThailandDestinations.Lampang },
+            Destinations = new List<Destination> { ThailandDestinations.Lampang },
             ICAOCode = "VTCL",
             IATACode = "LPT",
             AirportType = AirportTypes.Domestic
@@ -172,7 +172,7 @@ namespace StaticData.Thailand
         public static Airport LOE = new Airport
         {
             Name = "Loei Airport",
-            ServingDestinations = new List<Destination> { ThailandDestinations.Loei },
+            Destinations = new List<Destination> { ThailandDestinations.Loei },
             ICAOCode = "VTUL",
             IATACode = "LPT",
             AirportType = AirportTypes.Domestic
@@ -180,7 +180,7 @@ namespace StaticData.Thailand
         public static Airport HGN = new Airport
         {
             Name = "Mae Hong Son Airport",
-            ServingDestinations = new List<Destination> { ThailandDestinations.MaeHongSon },
+            Destinations = new List<Destination> { ThailandDestinations.MaeHongSon },
             ICAOCode = "VTCH",
             IATACode = "LPT",
             AirportType = AirportTypes.Domestic
@@ -189,7 +189,7 @@ namespace StaticData.Thailand
         public static Airport MAQ = new Airport
         {
             Name = "Mae Sot Airport",
-            ServingDestinations = new List<Destination> { ThailandDestinations.MaeSot, ThailandDestinations.Tak },
+            Destinations = new List<Destination> { ThailandDestinations.MaeSot, ThailandDestinations.Tak },
             ICAOCode = "VTPM",
             IATACode = "MAQ",
             AirportType = AirportTypes.Domestic
@@ -198,7 +198,7 @@ namespace StaticData.Thailand
         public static Airport KOP = new Airport
         {
             Name = "Nakhon Phanom Airport",
-            ServingDestinations = new List<Destination> { ThailandDestinations.NakhonPhanom },
+            Destinations = new List<Destination> { ThailandDestinations.NakhonPhanom },
             ICAOCode = "VTUW",
             IATACode = "KOP",
             AirportType = AirportTypes.Domestic
@@ -207,7 +207,7 @@ namespace StaticData.Thailand
         {
             //Khorat
             Name = "Nakhon Ratchasima Airport",
-            ServingDestinations = new List<Destination> { ThailandDestinations.NakhonRatchasima },
+            Destinations = new List<Destination> { ThailandDestinations.NakhonRatchasima },
             ICAOCode = "VTUQ",
             IATACode = "NAK",
             AirportType = AirportTypes.Domestic
@@ -216,7 +216,7 @@ namespace StaticData.Thailand
         public static Airport NST = new Airport
         {
             Name = "Nakhon Si Thammarat Airport",
-            ServingDestinations = new List<Destination> { ThailandDestinations.NakhonSiThammarat },
+            Destinations = new List<Destination> { ThailandDestinations.NakhonSiThammarat },
             ICAOCode = "VTSF",
             IATACode = "NST",
             AirportType = AirportTypes.Domestic
@@ -225,7 +225,7 @@ namespace StaticData.Thailand
         public static Airport NNT = new Airport
         {
             Name = "Nan Nakhon Airport",
-            ServingDestinations = new List<Destination> { ThailandDestinations.NanNakhon },
+            Destinations = new List<Destination> { ThailandDestinations.NanNakhon },
             ICAOCode = "VTSF",
             IATACode = "NNT",
             AirportType = AirportTypes.Domestic
@@ -235,7 +235,7 @@ namespace StaticData.Thailand
         {
             Name = "Narathiwat Airport",
             LocalName = "ท่าอากาศยานนราธิวาส",
-            ServingDestinations = new List<Destination> { ThailandDestinations.Narathiwat },
+            Destinations = new List<Destination> { ThailandDestinations.Narathiwat },
             ICAOCode = "VTSC",
             IATACode = "NAW",
             AirportType = AirportTypes.Domestic
@@ -243,7 +243,7 @@ namespace StaticData.Thailand
         public static Airport PHY = new Airport
         {
             Name = "Phetchabun Airport",
-            ServingDestinations = new List<Destination> { ThailandDestinations.Phetchabun },
+            Destinations = new List<Destination> { ThailandDestinations.Phetchabun },
             ICAOCode = "VTPB",
             IATACode = "PHY",
             AirportType = AirportTypes.Domestic
@@ -252,7 +252,7 @@ namespace StaticData.Thailand
         public static Airport PHS = new Airport
         {
             Name = "Phitsanulok Airport",
-            ServingDestinations = new List<Destination> { ThailandDestinations.Phitsanulok },
+            Destinations = new List<Destination> { ThailandDestinations.Phitsanulok },
             ICAOCode = "VTPP",
             IATACode = "PHS",
             AirportType = AirportTypes.Domestic
@@ -261,7 +261,7 @@ namespace StaticData.Thailand
         public static Airport PRH = new Airport
         {
             Name = "Phrae Airport",
-            ServingDestinations = new List<Destination> { ThailandDestinations.Phrae },
+            Destinations = new List<Destination> { ThailandDestinations.Phrae },
             ICAOCode = "VTCP",
             IATACode = "PRH",
             AirportType = AirportTypes.Domestic
@@ -270,7 +270,7 @@ namespace StaticData.Thailand
         public static Airport UNN = new Airport
         {
             Name = "Ranong Airport",
-            ServingDestinations = new List<Destination> { ThailandDestinations.Ranong },
+            Destinations = new List<Destination> { ThailandDestinations.Ranong },
             ICAOCode = "VTSR",
             IATACode = "UNN",
             AirportType = AirportTypes.Domestic
@@ -279,7 +279,7 @@ namespace StaticData.Thailand
         public static Airport ROI = new Airport
         {
             Name = "Roi Et Airport",
-            ServingDestinations = new List<Destination> { ThailandDestinations.RoiEt },
+            Destinations = new List<Destination> { ThailandDestinations.RoiEt },
             ICAOCode = "VTUV",
             IATACode = "ROI",
             AirportType = AirportTypes.Domestic
@@ -288,16 +288,16 @@ namespace StaticData.Thailand
         public static Airport SNO = new Airport
         {
             Name = "Sakon Nakhon Airport",
-            ServingDestinations = new List<Destination> { ThailandDestinations.SakonNakhon },
+            Destinations = new List<Destination> { ThailandDestinations.SakonNakhon },
             ICAOCode = "VTUI",
             IATACode = "SNO",
             AirportType = AirportTypes.Domestic
         };
 
         public static Airport THS = new Airport
-        {
+        {   CountryID =3,
             Name = "Sukhothai Airport",
-            ServingDestinations = new List<Destination> { ThailandDestinations.Sukhothai },
+            Destinations = new List<Destination> { ThailandDestinations.Sukhothai },
             ICAOCode = "VTPO",
             IATACode = "THS",
             AirportType = AirportTypes.Domestic
@@ -306,7 +306,7 @@ namespace StaticData.Thailand
         public static Airport TST = new Airport
         {
             Name = "Trang Airport",
-            ServingDestinations = new List<Destination> { ThailandDestinations.Trang },
+            Destinations = new List<Destination> { ThailandDestinations.Trang },
             ICAOCode = "VTST",
             IATACode = "TST",
             AirportType = AirportTypes.Domestic
@@ -315,7 +315,7 @@ namespace StaticData.Thailand
         public static Airport TDX = new Airport
         {
             Name = "Trat Airport",
-            ServingDestinations = new List<Destination> { ThailandDestinations.Trat },
+            Destinations = new List<Destination> { ThailandDestinations.Trat },
             ICAOCode = "VTBO",
             IATACode = "TST",
             AirportType = AirportTypes.Domestic
@@ -324,7 +324,7 @@ namespace StaticData.Thailand
         public static Airport UBP = new Airport
         { 
             Name = "Ubon Ratchathani Airport",
-            ServingDestinations = new List<Destination> { ThailandDestinations.UbonRatchathani },
+            Destinations = new List<Destination> { ThailandDestinations.UbonRatchathani },
             ICAOCode = "VTUU",
             IATACode = "UBP",
             AirportType = AirportTypes.Domestic

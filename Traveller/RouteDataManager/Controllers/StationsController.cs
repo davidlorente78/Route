@@ -30,14 +30,14 @@ namespace RouteDataManager.Controllers
                 stationIndexViewModel.FilterLine = itemsSelectLines.FirstOrDefault();
                 applicationContext = _context.Stations
                     .Where(
-                        s => s.ServingDestinations.Select(d => d.CountryID).Contains(stationIndexViewModel.FilterCountry.CountryID)
+                        s => s.Destinations.Select(d => d.CountryID).Contains(stationIndexViewModel.FilterCountry.CountryID)
                      )
-                    .Include(s => s.ServingDestinations)
+                    .Include(s => s.Destinations)
                     .OrderBy(s => s.StationID);
             }
             else
             {
-                applicationContext = _context.Stations.Include(s => s.ServingDestinations).OrderBy(s => s.Name);
+                applicationContext = _context.Stations.Include(s => s.Destinations).OrderBy(s => s.Name);
             }
 
             SelectList selectListCountries = new SelectList(_context.Countries, "CountryID", "Name", stationIndexViewModel.FilterCountry.CountryID);

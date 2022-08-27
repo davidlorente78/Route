@@ -129,8 +129,8 @@ namespace Traveller.StaticData
                 { 
                     Name = airport.Name,
                     Description = airport.Name,
-                    Origin = airport.ServingDestinations.FirstOrDefault(),
-                    Final = airport.ServingDestinations.FirstOrDefault(),
+                    Origin = airport.Destinations.FirstOrDefault(),
+                    Final = airport.Destinations.FirstOrDefault(),
                     FrontierType = FrontierTypes.Airport,
                    
                 };

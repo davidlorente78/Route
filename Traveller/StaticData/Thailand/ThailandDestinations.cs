@@ -29,6 +29,7 @@ namespace Traveller.StaticData
         {
             CountryID = 3,
             Name = "Chiang Mai",
+            Picture = "/ChiangMai.jpg",
             DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }
         };
 
@@ -36,6 +37,7 @@ namespace Traveller.StaticData
         {
             CountryID = 3,
             Name = "Chiang Rai",
+            Picture = "/ChiangRai.jpg",
             DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }
         };
 
@@ -59,13 +61,19 @@ namespace Traveller.StaticData
         {
             Name = "Phuket",
             CountryID = 3,
+            Picture = "/Phuket.jpg",
             DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }
         };
 
         public static Destination Sukhothai = new Destination
-        {
+        { 
             CountryID = 3,
             Name = "Sukhothai",
+            LocalName = "สุโขทัย",
+            Description = "Ancient Sukhothai was the first capital of the Sukhothai Kingdom, a long arc of territory that ran through what is today's Laos and western Thailand as far as the Malay states. The kingdom was established in 1238 by Phokhun Si Intharathit, the founder of the Phra Ruang dynasty. It was the state that eventually had the greatest influence on the later Siamese and Thai kingdoms. Traditional Thai history has it that Ramkhamhaeng the Great, the third ruler of the Phra Ruang dynasty, developed the capital at Sukhothai. He is also venerated as being the inventor of the Thai alphabet and being an all-round role model for Thailand's politics, monarchy, and religion. Sukhothai is 12 km west of the modern city of Sukhothai Thani.",
+            //Airports = new List<Airport> { ThailandAirports.THS },
+            //Stations = new List<Station> { ThailandTrainStations.Phitsanulok },
+            Picture = "/Sukhothai.jpg",
             DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }
         };
   
@@ -73,6 +81,7 @@ namespace Traveller.StaticData
         {
             CountryID = 3,
             Name = "Trang",
+            Picture = "/Trang.jpg",
             DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }
         };
 
@@ -229,7 +238,7 @@ namespace Traveller.StaticData
         };
 
         public static Destination Phitsanulok = new Destination
-        {
+        { 
             CountryID = 3,
             Name = "Phitsanulok",
             DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Train }

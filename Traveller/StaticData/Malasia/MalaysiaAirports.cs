@@ -14,21 +14,21 @@ namespace StaticData.Malaysia
         public static Airport KUL = new Airport
         {
             Name = "Kuala Lumpur International Airport",            
-            ServingDestinations = new List<Destination> { MalaysiaDestinations.KualaLumpur },
+            Destinations = new List<Destination> { MalaysiaDestinations.KualaLumpur },
             IATACode = "KUL",          
             AirportType = AirportTypes.International
         };
         public static Airport BKI = new Airport
         {
             Name = "Kota Kinabalu International Airport",
-            ServingDestinations = new List<Destination> { MalaysiaDestinations.KotaKinabalu },
+            Destinations = new List<Destination> { MalaysiaDestinations.KotaKinabalu },
             IATACode = "BKI",
             AirportType = AirportTypes.International
         };
         public static Airport PEN = new Airport
         {
             Name = "Penang International Airport",
-            ServingDestinations = new List<Destination> { MalaysiaDestinations.Penang },
+            Destinations = new List<Destination> { MalaysiaDestinations.Penang },
             IATACode = "PEN",
             AirportType = AirportTypes.International
         };
@@ -36,7 +36,7 @@ namespace StaticData.Malaysia
         public static Airport LGK = new Airport
         {
             Name = "Langkawi International Airport",
-            ServingDestinations = new List<Destination> { MalaysiaDestinations.Langkawi },
+            Destinations = new List<Destination> { MalaysiaDestinations.Langkawi },
             IATACode = "LGK",
             AirportType = AirportTypes.International
         };
@@ -44,7 +44,7 @@ namespace StaticData.Malaysia
         public static Airport KCH = new Airport
         {
             Name = "Kuching International Airport",
-            ServingDestinations = new List<Destination> { MalaysiaDestinations.Kuching },
+            Destinations = new List<Destination> { MalaysiaDestinations.Kuching },
             IATACode = "KCH",
             AirportType = AirportTypes.International
         };
@@ -52,7 +52,7 @@ namespace StaticData.Malaysia
         public static Airport JHB = new Airport
         {
             Name = "Senai International Airport",
-            ServingDestinations = new List<Destination> { MalaysiaDestinations.JohorBahru },
+            Destinations = new List<Destination> { MalaysiaDestinations.JohorBahru },
             IATACode = "JHB",
             AirportType = AirportTypes.International
         };
@@ -60,7 +60,7 @@ namespace StaticData.Malaysia
         public static Airport MYY = new Airport
         {
             Name = "Miri Airport",
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             IATACode = "MYY",
             AirportType = AirportTypes.Domestic
         };
@@ -68,7 +68,7 @@ namespace StaticData.Malaysia
         public static Airport AOR = new Airport
         {
             Name = "Sultan Abdul Halim Airport",
-            ServingDestinations = new List<Destination> { MalaysiaDestinations.AlorSatar },
+            Destinations = new List<Destination> { MalaysiaDestinations.AlorSatar },
             IATACode = "AOR",
             AirportType = AirportTypes.Domestic
         };
@@ -76,7 +76,7 @@ namespace StaticData.Malaysia
         public static Airport KBR = new Airport
         {
             Name = "Sultan Ismail Petra",
-            ServingDestinations = new List<Destination> { MalaysiaDestinations.KotaBaharu },
+            Destinations = new List<Destination> { MalaysiaDestinations.KotaBaharu },
             IATACode = "KBR",
             AirportType = AirportTypes.Domestic
         };
@@ -84,7 +84,7 @@ namespace StaticData.Malaysia
         public static Airport TGG = new Airport
         {
             Name = "Sultan Mahmud Airport",
-            ServingDestinations = new List<Destination> { MalaysiaDestinations.KualaTerengganu },
+            Destinations = new List<Destination> { MalaysiaDestinations.KualaTerengganu },
             IATACode = "TGG",
             AirportType = AirportTypes.Domestic
         };
@@ -92,7 +92,7 @@ namespace StaticData.Malaysia
         public static Airport SZB = new Airport
         {
             Name = "Sultan Abdul Aziz Shah",
-            ServingDestinations = new List<Destination> { MalaysiaDestinations.Subang },
+            Destinations = new List<Destination> { MalaysiaDestinations.Subang },
             IATACode = "SZB",
             AirportType = AirportTypes.Domestic
         };
@@ -102,7 +102,7 @@ namespace StaticData.Malaysia
         {
             Name = "Sibu Airport",
             LocalName = "Lapangan Terbang Sibu",
-            ServingDestinations = new List<Destination> { },
+            Destinations = new List<Destination> { },
             IATACode = "SBW",
             ICAOCode= "WBGS",
             AirportType = AirportTypes.Domestic
@@ -117,7 +117,7 @@ namespace StaticData.Malaysia
         public static Airport IPH = new Airport
         {
             Name = "Sultan Azlan Shah Airport",
-            ServingDestinations = new List<Destination> { MalaysiaDestinations.Ipoh },
+            Destinations = new List<Destination> { MalaysiaDestinations.Ipoh },
             IATACode = "IPH",
             AirportType = AirportTypes.Domestic
         };

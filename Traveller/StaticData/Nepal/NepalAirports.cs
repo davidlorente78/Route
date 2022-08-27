@@ -16,7 +16,7 @@ namespace StaticData.Nepal
         public static Airport KTM = new Airport
         {
             Name = "Tribhuvan International Airport",
-            ServingDestinations = new List<Destination> { NepalDestinations.Kathmandu },
+            Destinations = new List<Destination> { NepalDestinations.Kathmandu },
             IATACode = "KTM",
             AirportType = AirportTypes.International
         };
