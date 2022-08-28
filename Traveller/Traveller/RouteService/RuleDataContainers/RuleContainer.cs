@@ -9,8 +9,7 @@ namespace Traveller.RuleService
     {
         private List<IRule> rules = new List<IRule>();
         public List<char> Vector { get; set; } = new List<char>();
-
-       
+               
         public RuleContainer()
         {
          
@@ -19,26 +18,7 @@ namespace Traveller.RuleService
 
         public void AddRule(IRule rule)
         {
-
             rules.Add(rule);
-
-        }
-        public List<char> GetDestinationByMonth(int month)
-        {
-
-            List<char> chs = new List<char>();
-            foreach (IRule r in rules)
-            {
-                if (r.GetType() == typeof(MustConsiderWeather))
-                {
-
-                    MustConsiderWeather mustConsiderWeather = (MustConsiderWeather)r;
-                    chs.AddRange(mustConsiderWeather.MonthReport(month));
-
-                }
-            }
-
-            return chs;
         }
 
         public List<IRule> GetRules()
@@ -50,6 +30,8 @@ namespace Traveller.RuleService
         {
             return this.Vector;
         }
+
+
     }
 
 }

@@ -49,14 +49,14 @@ namespace Traveller.RuleService
 
 
 
-            rules.Add(new MustConsiderWeather(new List<RangeIntWithDictionary> {
+            //rules.Add(new MustConsiderWeather(new List<RangeIntWithDictionary> {
                
-                //Se aplican aqui los meses menos restrictivos
-                new RangeIntWithDictionary { Id = 'M', Values = new List<int> {1, 1, 1,1,1,1,1,1,1, 1,- 1,- 1 } } ,
-               new RangeIntWithDictionary { Id = 'T', Values = new List<int> { 1, 1, 1,1,1,-1,-1,-1,1,  1, 1, 1 } } ,
-                //new RangeIntWithDictionary { Id = 'X', Values = new List<int> { 1, 1, 1,1,1,-1,-1,-1,-1, 1, 1, 1 } } ,
+            //    //Se aplican aqui los meses menos restrictivos
+            //    new RangeIntWithDictionary { Id = 'M', Values = new List<int> {1, 1, 1,1,1,1,1,1,1, 1,- 1,- 1 } } ,
+            //   new RangeIntWithDictionary { Id = 'T', Values = new List<int> { 1, 1, 1,1,1,-1,-1,-1,1,  1, 1, 1 } } ,
+            //    //new RangeIntWithDictionary { Id = 'X', Values = new List<int> { 1, 1, 1,1,1,-1,-1,-1,-1, 1, 1, 1 } } ,
 
-            }));
+            //}));
 
             //Ofrece 266 resultados
 
@@ -79,16 +79,16 @@ namespace Traveller.RuleService
         {
 
             List<char> chs = new List<char>();
-            foreach (IRule r in rules)
-            {
-                if (r.GetType() == typeof(MustConsiderWeather))
-                {
+            //foreach (IRule r in rules)
+            //{
+            //    if (r.GetType() == typeof(MustConsiderWeather))
+            //    {
 
-                    MustConsiderWeather mustConsiderWeather = (MustConsiderWeather)r;
-                    chs.AddRange(mustConsiderWeather.MonthReport(month));
+            //        MustConsiderWeather mustConsiderWeather = (MustConsiderWeather)r;
+            //        chs.AddRange(mustConsiderWeather.MonthReport(month));
 
-                }
-            }
+            //    }
+            //}
 
             return chs;
         }

@@ -93,19 +93,19 @@ namespace Traveller.RuleService
             rules.Add(new BlockConnection('V', 'K', false));
 
 
-            rules.Add(new MustConsiderWeather(new List<RangeIntWithDictionary> {
-                new RangeIntWithDictionary { Id = 'V', Values = new List<int> { 1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1 } } ,
-                new RangeIntWithDictionary  { Id = 'L',  Values = new List<int> { 1, 1, -1,-1,1,1,1,-1,-1, 1, 1, 1 } } ,
-                new RangeIntWithDictionary  { Id = 'M', Values = new List<int> { -1, -1, 1,1,1,1,1,1,1, -1,- 1,- 1 } } ,
-                new RangeIntWithDictionary  { Id = 'T', Values = new List<int> { 1, 1, 1,1,-1,-1,-1,-1,-1, -1, 1, 1 } } ,
-                new RangeIntWithDictionary  { Id = 'C',  Values = new List<int> { 1, 1, 1,1,-1,-1,-1,-1,1, 1, 1, 1 } } ,
-                new RangeIntWithDictionary  { Id = 'N',  Values = new List<int> { 1, 1, 1,-1,-1,-1,-1,-1, -1, -1, 1, 1 } } ,
-                new RangeIntWithDictionary  { Id = 'I',  Values = new List<int> { -1, -1, -1,-1,1,1,1,1,1, -1, -1, -1 } } ,
-                new RangeIntWithDictionary  { Id = 'O',  Values = new List<int> { -1, -1, -1, 1, 1, 1, 1, 1, 1, 1, 1, -1 } } ,
-                new RangeIntWithDictionary  { Id = 'W',  Values = new List<int> { -1, -1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 } } ,
-                new RangeIntWithDictionary  { Id = 'K',  Values = new List<int> { 1, 1, 1,-1, -1,- 1, -1, -1,- 1, -1, 1, 1 } } ,
+            //rules.Add(new MustConsiderWeather(new List<RangeIntWithDictionary> {
+            //    new RangeIntWithDictionary { Id = 'V', Values = new List<int> { 1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1 } } ,
+            //    new RangeIntWithDictionary  { Id = 'L',  Values = new List<int> { 1, 1, -1,-1,1,1,1,-1,-1, 1, 1, 1 } } ,
+            //    new RangeIntWithDictionary  { Id = 'M', Values = new List<int> { -1, -1, 1,1,1,1,1,1,1, -1,- 1,- 1 } } ,
+            //    new RangeIntWithDictionary  { Id = 'T', Values = new List<int> { 1, 1, 1,1,-1,-1,-1,-1,-1, -1, 1, 1 } } ,
+            //    new RangeIntWithDictionary  { Id = 'C',  Values = new List<int> { 1, 1, 1,1,-1,-1,-1,-1,1, 1, 1, 1 } } ,
+            //    new RangeIntWithDictionary  { Id = 'N',  Values = new List<int> { 1, 1, 1,-1,-1,-1,-1,-1, -1, -1, 1, 1 } } ,
+            //    new RangeIntWithDictionary  { Id = 'I',  Values = new List<int> { -1, -1, -1,-1,1,1,1,1,1, -1, -1, -1 } } ,
+            //    new RangeIntWithDictionary  { Id = 'O',  Values = new List<int> { -1, -1, -1, 1, 1, 1, 1, 1, 1, 1, 1, -1 } } ,
+            //    new RangeIntWithDictionary  { Id = 'W',  Values = new List<int> { -1, -1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 } } ,
+            //    new RangeIntWithDictionary  { Id = 'K',  Values = new List<int> { 1, 1, 1,-1, -1,- 1, -1, -1,- 1, -1, 1, 1 } } ,
 
-            }));
+            //}));
 
 
 
@@ -121,16 +121,16 @@ namespace Traveller.RuleService
         {
 
             List<char> chs = new List<char>();
-            foreach (IRule r in rules)
-            {
-                if (r.GetType() == typeof(MustConsiderWeather))
-                {
+            //foreach (IRule r in rules)
+            //{
+            //    if (r.GetType() == typeof(MustConsiderWeather))
+            //    {
 
-                    MustConsiderWeather mustConsiderWeather = (MustConsiderWeather)r;
-                    chs.AddRange(mustConsiderWeather.MonthReport(month));
+            //        MustConsiderWeather mustConsiderWeather = (MustConsiderWeather)r;
+            //        chs.AddRange(mustConsiderWeather.MonthReport(month));
 
-                }
-            }
+            //    }
+            //}
 
             return chs;
         }

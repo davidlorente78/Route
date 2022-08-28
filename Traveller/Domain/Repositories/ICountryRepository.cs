@@ -14,5 +14,7 @@ namespace Domain.Repositories
         IEnumerable<Country> GetCountryByID(int id);
 
         public Country GetCountryByCode(char ch);
+
+        public Country GetCountryRangesByCode(char ch);
     }
 }

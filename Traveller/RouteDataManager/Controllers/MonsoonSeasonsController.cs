@@ -21,15 +21,15 @@ namespace RouteDataManager.Controllers
         {
             var seasonRange = _context.Ranges
                  .Where(d => d.CountryID == month_EntityByCountryIndexViewModel.FilterCountry.CountryID && d.RangeType.Code == RangeTypes.MonsoonSeasonRangeType.Code)
-                 .Include(f => f.EntityKey_Description).ThenInclude(x => x.Dictionary).FirstOrDefault();
+                 .Include(f => f.EntityKey_Description).ThenInclude(x => x.Items).FirstOrDefault();
 
             if (seasonRange != null)
             {
                 //Para cada Key
-                foreach (var item in seasonRange.EntityKey_Description.Dictionary)
+                foreach (var item in seasonRange.EntityKey_Description.Items)
                 {
-                    var Key = item.DictionaryKey;
-                    var Description = item.DictionaryValue;
+                    var Key = item.Key;
+                    var Description = item.Value;
                     month_EntityByCountryIndexViewModel.Month_EntityDescription.Add(Key.ToString(), Description);
                 }
             }

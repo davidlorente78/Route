@@ -1,70 +1,66 @@
-﻿using Domain.Ranges.WithDictionary;
+﻿using Domain.EntityFrameworkDictionary;
 using System.Collections.Generic;
+using System.Linq;
 using Traveller.Domain;
 
 namespace Traveller.RouteService.Rules
 {
     public class MustConsiderWeather : IRule
     {
+       
 
-        List<RangeIntWithDictionary> ranges = new List<RangeIntWithDictionary>();
-        public MustConsiderWeather(List<RangeIntWithDictionary> ranges)
+        private EntityFrameworkDictionary<int, int> EntityEvaluator_ByMonth;
+
+        private int StartMonth = 1;
+
+        private char CountryCode;
+
+        private List<char> route = new List<char>();
+        public MustConsiderWeather(EntityFrameworkDictionary<int, int> EntityEvaluator_ByMonth, char CountryCode, int StartMonth)
         {
-
-            this.ranges = ranges;
+            this.StartMonth = StartMonth;
+            this.CountryCode = CountryCode;
+            this.EntityEvaluator_ByMonth = EntityEvaluator_ByMonth;
         }
 
         public bool Validate(List<char> route)
         {
-            //TODO Debe buscar todas las ocurrencias no solo la primera!!!
-            foreach (RangeIntWithDictionary range in ranges)
+            this.route = route;
+
+            for (int x = 0; x < route.Count; x++)
             {
-
-                //Buscar posiciones de weatherRange.Country en route
-                string s = string.Join("", route);
-                char ch = range.Id;
-                int idx = s.IndexOf(ch);
-
-                for (int x = 0; x < route.Count; x++)
-                {
-
-                    if ((route[x] == ch) && (range.Values[x] == -1)) return false;
-
-
-                }
-
-
-
-
-            }
+                if ((route[x] == CountryCode) && (EntityEvaluator_ByMonth.Items.ElementAt(x).Value == -1)) return false;
+            }                  
 
             return true;
         }
 
-        public List<char> MonthReport(int month)
+
+        public List<string> Report()
         {
-            List<char> Countries = new List<char>();
-            foreach (RangeIntWithDictionary weatherRange in ranges)
+            List<string> report = new List<string>();
+
+            for (int x = 0; x < route.Count; x++)
             {
-                char ch = weatherRange.Id;
-
-
-                if (weatherRange.Values[(int)month] == 1) Countries.Add(ch);
+                if ((route[x] == CountryCode) && (EntityEvaluator_ByMonth.Items.ElementAt(x).Value == -1))
+                {
+                    report.Add(CodeDictionary.GetMonthByInt(x + 1)  + " weather " + " in " + CodeDictionary.GetCountryByCode(CountryCode) + " is not convenient");
+                } 
 
             }
 
-            return Countries;
-
-        }
+            return report;
+        }      
 
         public override string ToString()
         {
             string summmary = "";
 
-            summmary = summmary + "Se considera el clima de : ";
-            foreach (RangeIntWithDictionary weatherRange in ranges)
+            //summmary = summmary + "Introduction  : ";
+            
+            foreach (string s in Report())
             {
-                summmary = summmary + CodeDictionary.GetCountryByCode(weatherRange.Id) + " ";
+                summmary = summmary + s + "\n";
             }
 
             return summmary;

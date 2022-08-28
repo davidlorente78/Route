@@ -24,15 +24,14 @@ namespace Traveller
             get { return ruleContainer.GetRules(); }
 
         }
-        public List<List<char>> Generate()
+
+        public List<List<char>> Generate(int Months)
         {
             CombinationGenerator combinationGenerator = new CombinationGenerator();
 
             //Reducimos a 11 por Out of Memory
 
-            IEnumerable<IEnumerable<char>> result = combinationGenerator.Generate(this.vector, 11);
-
-           
+            IEnumerable<IEnumerable<char>> result = combinationGenerator.Generate(this.vector, Months);           
 
             int count = result.Count();
 
@@ -47,8 +46,6 @@ namespace Traveller
                 }
 
             }
-
-
          
             foreach (IEnumerable<char> r in result)
             {
@@ -57,9 +54,6 @@ namespace Traveller
                 routes.Add(rList);
 
             }
-
-
-
 
             List<List<char>> filterresult = new List<List<char>>();
 
@@ -84,8 +78,6 @@ namespace Traveller
                         }
 
                     }
-
-
 
                     filterresult.Add(route);
                     foreach (char countryCode in route)

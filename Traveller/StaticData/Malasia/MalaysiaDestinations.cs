@@ -16,10 +16,10 @@ namespace Traveller.StaticData
         public static Destination JohorBahru = new Destination { CountryID = 4, Name = "Johor Bahru", DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier , DestinationTypes.Airport } };
 
         public static Destination Butterworth = new Destination { Name = "Butterworth", DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism } };
-        public static Destination KualaLumpur = new Destination { CountryID = 4, Name = "Kuala Lumpur", DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism, DestinationTypes.Airport } };
+        public static Destination KualaLumpur = new Destination { CountryID = 4, Picture = "/KualaLumpur.jpg", Name = "Kuala Lumpur", DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism, DestinationTypes.Airport } };
 
-        public static Destination KualaKangsar = new Destination { Name = "Kuala Kangsar", DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism } };
-        public static Destination Ipoh = new Destination { Name = "Ipoh", DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism , DestinationTypes.Airport} };
+        public static Destination KualaKangsar = new Destination { Name = "Kuala Kangsar", Picture = "/KualaKangsar.jpg", DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism } };
+        public static Destination Ipoh = new Destination { Name = "Ipoh",  Picture = "/Ipoh.jpg", DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism , DestinationTypes.Airport} };
 
         public static Destination KotaKinabalu = new Destination { Name = "Kota Kinabalu", DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism, DestinationTypes.Airport } };
 

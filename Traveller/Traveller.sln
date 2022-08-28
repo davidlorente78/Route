@@ -5,8 +5,6 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DomainServices", "Traveller\DomainServices.csproj", "{53F0B9E1-3E0D-420F-9672-1D4946C7E589}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nomad", "Nomad\Nomad.csproj", "{C8B4C0F5-EBEC-41A0-857A-D2DDA37D1B7B}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{A068A0A6-4E53-4CC0-A6B8-8E4D520EFB47}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphicMap", "GraphicMap\GraphicMap.csproj", "{FBC26745-B369-4FD6-A04D-BB96E5C6EE89}"
@@ -27,10 +25,6 @@ Global
 		{53F0B9E1-3E0D-420F-9672-1D4946C7E589}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53F0B9E1-3E0D-420F-9672-1D4946C7E589}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53F0B9E1-3E0D-420F-9672-1D4946C7E589}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C8B4C0F5-EBEC-41A0-857A-D2DDA37D1B7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C8B4C0F5-EBEC-41A0-857A-D2DDA37D1B7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C8B4C0F5-EBEC-41A0-857A-D2DDA37D1B7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C8B4C0F5-EBEC-41A0-857A-D2DDA37D1B7B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A068A0A6-4E53-4CC0-A6B8-8E4D520EFB47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A068A0A6-4E53-4CC0-A6B8-8E4D520EFB47}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A068A0A6-4E53-4CC0-A6B8-8E4D520EFB47}.Release|Any CPU.ActiveCfg = Release|Any CPU

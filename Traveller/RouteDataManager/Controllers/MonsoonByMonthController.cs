@@ -23,7 +23,7 @@ namespace RouteDataManager.Controllers
             var seasonRange = _context.Ranges
                  .Where(d => d.RangeType.Code == RangeTypes.MonsoonSeasonRangeType.Code)                
                  .Include(f => f.EntityKey_Description)
-                 .ThenInclude(f => f.Dictionary);
+                 .ThenInclude(f => f.Items);
 
 
             var month = _context.Months.Where(x => x.MonthID == monsoonIndexByMonthViewModel.FilterMonth.MonthID).FirstOrDefault();
@@ -31,9 +31,9 @@ namespace RouteDataManager.Controllers
 
             foreach (var country in countries)
             {
-                var MonsoonRange = seasonRange.Where(x => x.CountryID == country.CountryID).Select(x => x.EntityDescription_ByMonth.Dictionary).FirstOrDefault();
+                var MonsoonRange = seasonRange.Where(x => x.CountryID == country.CountryID).Select(x => x.EntityDescription_ByMonth.Items).FirstOrDefault();
 
-                var MonsoonDescription = MonsoonRange.Where(x => x.DictionaryKey == monsoonIndexByMonthViewModel.FilterMonth.Name).Select(x => x.DictionaryValue).FirstOrDefault();
+                var MonsoonDescription = MonsoonRange.Where(x => x.Key == monsoonIndexByMonthViewModel.FilterMonth.Name).Select(x => x.Value).FirstOrDefault();
 
                 monsoonIndexByMonthViewModel.Country_MonsoonDescription.Add(country.Name, MonsoonDescription);
 

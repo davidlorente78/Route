@@ -15,9 +15,10 @@ namespace Nomad
         {
              //  
 
-             RouteCombinationsGenerator routeGenerator = new RouteCombinationsGenerator(new MalasyaTailandiaBasedRuleWithBaliContainer() { vector = new List<char> { 'M', 'T', 'X', 'I' } });
+            RouteCombinationsGenerator routeGenerator = new RouteCombinationsGenerator(new MalasyaTailandiaBasedRuleWithBaliContainer() { vector = new List<char> { 'M', 'T', 'X', 'I' } });
 
-            var routes = routeGenerator.Generate();
+            int months = 3;
+            var routes = routeGenerator.Generate(months);
 
             Console.WriteLine("Rutas encontradas " + routes.Count.ToString());
 

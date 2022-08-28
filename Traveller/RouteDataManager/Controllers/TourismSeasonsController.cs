@@ -21,16 +21,16 @@ namespace RouteDataManager.Controllers
         {
             var seasonRange = _context.Ranges
                  .Where(d => d.CountryID == month_EntityByCountryIndexViewModel.FilterCountry.CountryID && d.RangeType.Code==RangeTypes.TourismSeasonRangeType.Code)
-                 .Include(f => f.EntityKey_ByMonth).ThenInclude(x => x.Dictionary)
-                 .Include(f => f.EntityKey_Description).ThenInclude(x => x.Dictionary).FirstOrDefault();
+                 .Include(f => f.EntityKey_ByMonth).ThenInclude(x => x.Items)
+                 .Include(f => f.EntityKey_Description).ThenInclude(x => x.Items).FirstOrDefault();
 
             if (seasonRange != null)
             {
                 //Para cada mes
-                foreach (var item in seasonRange.EntityKey_ByMonth.Dictionary)
+                foreach (var item in seasonRange.EntityKey_ByMonth.Items)
                 {
-                    var Month = item.DictionaryKey;
-                    var SeasonDescription = seasonRange.EntityKey_Description.Dictionary.Where(x => (x.DictionaryKey).ToString() == item.DictionaryValue).Select(x => x.DictionaryValue).First();
+                    var Month = item.Key;
+                    var SeasonDescription = seasonRange.EntityKey_Description.Items.Where(x => (x.Key).ToString() == item.Value).Select(x => x.Value).First();
                     month_EntityByCountryIndexViewModel.Month_EntityDescription.Add(Month, SeasonDescription);
                 }
             }

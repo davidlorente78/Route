@@ -21,9 +21,9 @@ namespace RouteDataManager.Controllers
             var seasonRange = _context.Ranges
                  .Where(d => d.RangeType.Code == 'S')
                  .Include(f => f.EntityKey_ByMonth)
-                 .ThenInclude(f => f.Dictionary)                
+                 .ThenInclude(f => f.Items)                
                  .Include(f => f.EntityKey_Description)
-                 .ThenInclude(f => f.Dictionary);
+                 .ThenInclude(f => f.Items);
 
 
             var month = _context.Months.Where(x => x.MonthID == seasonIndexByMonthViewModel.FilterMonth.MonthID).FirstOrDefault();
@@ -32,10 +32,10 @@ namespace RouteDataManager.Controllers
             
             foreach (var country in countries) 
             {               
-                    var Season = seasonRange.Where(x => x.CountryID == country.CountryID).Select(x => x.EntityKey_ByMonth.Dictionary.Where(d => d.DictionaryKey == seasonIndexByMonthViewModel.FilterMonth.Name).FirstOrDefault());
+                    var Season = seasonRange.Where(x => x.CountryID == country.CountryID).Select(x => x.EntityKey_ByMonth.Items.Where(d => d.Key == seasonIndexByMonthViewModel.FilterMonth.Name).FirstOrDefault());
 
                     if (Season.Count() != 0) {
-                        var SeasonDictionary = Season.ToDictionary(x => x.DictionaryKey, x => x.DictionaryValue);
+                        var SeasonDictionary = Season.ToDictionary(x => x.Key, x => x.Value);
 
                         string StringSeasonChar = SeasonDictionary.GetValueOrDefault(seasonIndexByMonthViewModel.FilterMonth.Name);
 
@@ -44,7 +44,7 @@ namespace RouteDataManager.Controllers
 
                         var SeasonDescriptions = seasonRange.Where(x => x.CountryID == country.CountryID).Select(x => x.EntityKey_Description).FirstOrDefault();
 
-                        var SeasonDescriptionsDictionary = SeasonDescriptions.Dictionary.ToDictionary(x => x.DictionaryKey, x => x.DictionaryValue);
+                        var SeasonDescriptionsDictionary = SeasonDescriptions.Items.ToDictionary(x => x.Key, x => x.Value);
 
 
                         var SeasonDescription = SeasonDescriptionsDictionary.GetValueOrDefault(SeasonChar);

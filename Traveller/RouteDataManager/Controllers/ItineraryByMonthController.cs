@@ -25,39 +25,27 @@ namespace RouteDataManager.Controllers
 
         private IRouteService routeService;
 
+        private ICountryService countryService;
 
-        public ItineraryByMonthController(ApplicationContext context, IVisaService visaService, IRouteService routeService)
+
+        public ItineraryByMonthController(ApplicationContext context, IVisaService visaService, IRouteService routeService, ICountryService countryService)
         {
             _context = context;
             this.visaService = visaService;
             this.routeService = routeService;
-
-
+            this.countryService = countryService;   
         }
 
         public async Task<IActionResult> Index(ItineraryByMonthIndexViewModel itineraryByMonthIndexViewModel)
         {
-            var countries = _context.Countries.Include(x => x.Ranges).Where(x => x.Ranges.Count != 0).ToList();
+            var countries = _context.Countries.Include(x => x.Ranges)
+
+                .ThenInclude(r => r.RangeType).Where(x => x.Ranges.Count != 0).ToList();
             var monthsList = _context.Months.ToList();
 
             routeService.ruleContainer.Vector = countries.Select(c => c.Code).Distinct().ToList();
 
-            //TODO INPUT PARAM NATIONALITY
-            var MaxStayMalaysia = visaService.GetMaxStay('M', "ES");
-            var MaxStayThailand = visaService.GetMaxStay('T', "ES");
-
-            var MaxStay = new Dictionary<char, int>();
-
-            foreach (Country country in countries)
-            {
-                var MaxStayDays = visaService.GetMaxStay(country.Code, "ES");
-                var MaxStayMonth = MaxStayDays / 30;
-                MaxStay.Add(country.Code, visaService.GetMaxStay(country.Code, "ES"));
-
-                routeService.ruleContainer.AddRule(new EachStayMustBeLessThanXMonth(country.Code, MaxStayMonth));
-                routeService.ruleContainer.AddRule(new AnualEntriesMustBeLessThanX(country.Code, 2));
-
-            }
+            AddRules(countries);
 
             var brokenRules = routeService.BrokenRules(this.route);
             itineraryByMonthIndexViewModel.RulesReport = brokenRules;
@@ -81,6 +69,40 @@ namespace RouteDataManager.Controllers
 
             itineraryByMonthIndexViewModel = DataToViewModel(itineraryByMonthIndexViewModel, monthsList, filterCountries);
             return PartialView(itineraryByMonthIndexViewModel);
+        }
+
+        private void AddRules(List<Country> countries)
+        {
+            //TODO INPUT PARAM NATIONALITY
+            var MaxStayMalaysia = visaService.GetMaxStay('M', "ES");
+            var MaxStayThailand = visaService.GetMaxStay('T', "ES");
+
+            var MaxStay = new Dictionary<char, int>();
+
+            foreach (Country country in countries)
+            {
+                var MaxStayDays = visaService.GetMaxStay(country.Code, "ES");
+                var MaxStayMonth = MaxStayDays / 30;
+                MaxStay.Add(country.Code, visaService.GetMaxStay(country.Code, "ES"));
+
+                routeService.ruleContainer.AddRule(new EachStayMustBeLessThanXMonth(country.Code, MaxStayMonth));
+                routeService.ruleContainer.AddRule(new AnualEntriesMustBeLessThanX(country.Code, 2));
+
+                //var countryWithRanges = countryService.GetCountryRangesByCode(country.Code);
+
+                //Warning Code
+                var monsoonEvaluatorRange = _context.Ranges
+                    .Where(r => r.RangeType.Code == RangeTypes.MonsoonEvaluatorRangeType.Code && r.Country.Code == country.Code)
+                    .Include(f => f.EntityEvaluator_ByMonth).ThenInclude(x => x.Items)
+                    .FirstOrDefault();
+
+                var startRouteMonth = 1;
+                if (monsoonEvaluatorRange != null)
+                {
+                    routeService.ruleContainer.AddRule(new MustConsiderWeather(monsoonEvaluatorRange.EntityEvaluator_ByMonth, country.Code, startRouteMonth));
+                }
+
+            }
         }
 
         private static List<Country> ViewModelContriesToList(ItineraryByMonthIndexViewModel itineraryByMonthIndexViewModel)
@@ -108,24 +130,7 @@ namespace RouteDataManager.Controllers
 
             routeService.ruleContainer.Vector = countries.Select(c => c.Code).Distinct().ToList();
 
-            //TODO INPUT PARAM NATIONALITY
-            var MaxStayMalaysia = visaService.GetMaxStay('M', "ES");
-            var MaxStayThailand = visaService.GetMaxStay('T', "ES");
-
-            var MaxStay = new Dictionary<char, int>();
-
-            foreach (Country country in countries)
-            {
-                var MaxStayDays = visaService.GetMaxStay(country.Code, "ES");
-                var MaxStayMonth = MaxStayDays / 30;
-                MaxStay.Add(country.Code, visaService.GetMaxStay(country.Code, "ES"));
-
-                routeService.ruleContainer.AddRule(new EachStayMustBeLessThanXMonth(country.Code, MaxStayMonth));
-                routeService.ruleContainer.AddRule(new AnualEntriesMustBeLessThanX(country.Code, 2));
-                routeService.ruleContainer.AddRule(new TotalStayinYearMustBeLessThanXMonth(country.Code, 5));
-                
-
-            }
+            AddRules(countries);
 
             //Recover from ID
             itineraryByMonthIndexViewModel.FilterCountry1 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry1.CountryID).FirstOrDefault();
@@ -218,14 +223,14 @@ namespace RouteDataManager.Controllers
 
                 var seasonRange = _context.Ranges
                .Where(d => d.CountryID == country.CountryID && d.RangeType.Code == RangeTypes.MonsoonSeasonRangeType.Code)
-               .Include(f => f.EntityDescription_ByMonth).ThenInclude(x => x.Dictionary).FirstOrDefault();
+               .Include(f => f.EntityDescription_ByMonth).ThenInclude(x => x.Items).FirstOrDefault();
 
                 if (seasonRange != null)
                 {
 
                     var Month = monthsList[0].Name; //Esto es la Key del diccionario que se va a consultar
-                    ICollection<Domain.EntityFrameworkDictionary.DictionaryItem<string>>? MonsoonDictionary = seasonRange.EntityDescription_ByMonth.Dictionary;
-                    var Description = MonsoonDictionary.Where(x => x.DictionaryKey == monthsList[indexMonth].Name).FirstOrDefault().DictionaryValue;
+                    ICollection<Domain.EntityFrameworkDictionary.DictionaryItem<string, string>>? MonsoonDictionary = seasonRange.EntityDescription_ByMonth.Items;
+                    var Description = MonsoonDictionary.Where(x => x.Key == monthsList[indexMonth].Name).FirstOrDefault().Value;
                     itineraryByMonthIndexViewModel.CountryReport.Add(Description);
 
                 }

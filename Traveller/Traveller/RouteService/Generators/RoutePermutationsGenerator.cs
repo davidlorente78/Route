@@ -23,7 +23,7 @@ namespace Traveller
             get { return ruleContainer.GetRules(); }
 
         }
-        public List<List<char>> Generate()
+        public List<List<char>> Generate(int Months)
         {
 
             List<char[]> permutes = PermuteGenerator.Generate(vector);
@@ -38,7 +38,7 @@ namespace Traveller
             RouteValidator routeValidator = new RouteValidator(rules);
 
 
-            for (int month = 0; month < 12; month++)
+            for (int month = 0; month < Months; month++)
             {
 
                 foreach (char[] chararray in permutes)
@@ -57,8 +57,13 @@ namespace Traveller
                     if (routeValidator.Validate(routeChar))
                     {
                         List<List<char>> routes_with_monthly_destinations = new List<List<char>>();
-                        List<char> MonthOptions = ruleContainer.GetDestinationByMonth(month);
-                        //MonthOptions = new List<char> { 'M', 'T' }; 
+
+                        //TODO AQUI SE AÑADIAN SOLUCIONES PARA COMPLETAR LAS PERMUTACIONES
+                        //PERO ME HE CARGADO EL METODO
+                        //List<char> MonthOptions = ruleContainer.GetDestinationByMonth(month);
+
+
+                        List<char> MonthOptions = MonthOptions = new List<char> { 'M', 'T' }; 
                         routeChar.Remove('X');
 
                         foreach (char countryCode in MonthOptions)
