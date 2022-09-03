@@ -1,5 +1,4 @@
-﻿using Domain.Ranges;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RouteDataManager.Repositories;
@@ -9,7 +8,6 @@ using Traveller.Domain;
 using Traveller.DomainServices;
 using Traveller.RouteService;
 using Traveller.RouteService.Rules;
-using Traveller.RuleService;
 
 namespace RouteDataManager.Controllers
 {
@@ -19,7 +17,7 @@ namespace RouteDataManager.Controllers
 
         private ItineraryByMonthIndexViewModel itineraryByMonthIndexViewModel = new ItineraryByMonthIndexViewModel();
 
-        private List<char> route = new List<char> { 'T', 'L', 'V', 'C', 'M', 'M', 'M', 'T', 'T', 'V', 'L', 'T' };
+        private List<char> route = new List<char> { };
 
         private IVisaService visaService;
 
@@ -27,51 +25,99 @@ namespace RouteDataManager.Controllers
 
         private ICountryService countryService;
 
+        private int ShowingIndex = 0;
+
 
         public ItineraryByMonthController(ApplicationContext context, IVisaService visaService, IRouteService routeService, ICountryService countryService)
         {
             _context = context;
             this.visaService = visaService;
             this.routeService = routeService;
-            this.countryService = countryService;   
+            this.countryService = countryService;
         }
 
         public async Task<IActionResult> Index(ItineraryByMonthIndexViewModel itineraryByMonthIndexViewModel)
         {
             var countries = _context.Countries.Include(x => x.Ranges)
-
                 .ThenInclude(r => r.RangeType).Where(x => x.Ranges.Count != 0).ToList();
-            var monthsList = _context.Months.ToList();
 
+            List<Domain.Ranges.Month>? completeMonthsList = _context.Months.ToList();
+
+            //Ajustar lista de meses a los datos introducidos por el usuario en el filtro de entrado y a la duracion del itinerary
+            var StartMonth = itineraryByMonthIndexViewModel.FilterStartMonth.MonthID; //October
+            var EndMonth = itineraryByMonthIndexViewModel.FilterEndMonth.MonthID; //December
+
+            var monthsList = new List<Domain.Ranges.Month>();
+            for (int x = StartMonth; x < EndMonth + 1; x++)
+            {
+                monthsList.Add(completeMonthsList.ElementAt(x - 1)); //Sin embargo la lista esta indexada desde 0
+            }
+
+
+            int ItineraryMonths = EndMonth - StartMonth + 1;
+
+            if (ItineraryMonths > 6)
+            {
+
+                itineraryByMonthIndexViewModel = new ItineraryByMonthIndexViewModel();
+                itineraryByMonthIndexViewModel.RulesReport = new List<string> { "Too long to calculate" };
+                itineraryByMonthIndexViewModel.ItineraryMonths = -1;
+
+                return PartialView(itineraryByMonthIndexViewModel);
+
+            }
+            //Inicializacion Vector
             routeService.ruleContainer.Vector = countries.Select(c => c.Code).Distinct().ToList();
 
-            AddRules(countries);
+            routeService.ruleContainer.Vector = new List<char>() { 'T', 'L', 'V' };
+
+            //Inicializacion Reglas
+            AddRules(countries, StartMonth, routeService.ruleContainer.Vector);
+
+            var ProposedRoutes = routeService.proposedRoutes(ItineraryMonths);
+
+            //Para cada Proposed Route
+
+            if (ProposedRoutes.Count == 0)
+            {
+
+                itineraryByMonthIndexViewModel = new ItineraryByMonthIndexViewModel();
+                itineraryByMonthIndexViewModel.RulesReport = new List<string> { "We can not find any itinerary that acomplish all the rules" };
+                itineraryByMonthIndexViewModel.ItineraryMonths = -1;
+                return PartialView(itineraryByMonthIndexViewModel);
+
+            }
+
+            var InitialProposedRoute = ProposedRoutes[itineraryByMonthIndexViewModel.ShowingIndex];
+            route = InitialProposedRoute;
 
             var brokenRules = routeService.BrokenRules(this.route);
-            itineraryByMonthIndexViewModel.RulesReport = brokenRules;
 
-            itineraryByMonthIndexViewModel.FilterCountry1 = countries.Where(x => x.Code == route[0]).FirstOrDefault();
-            itineraryByMonthIndexViewModel.FilterCountry2 = countries.Where(x => x.Code == route[1]).FirstOrDefault();
-            itineraryByMonthIndexViewModel.FilterCountry3 = countries.Where(x => x.Code == route[2]).FirstOrDefault();
-            itineraryByMonthIndexViewModel.FilterCountry4 = countries.Where(x => x.Code == route[3]).FirstOrDefault();
-            itineraryByMonthIndexViewModel.FilterCountry5 = countries.Where(x => x.Code == route[4]).FirstOrDefault();
-            itineraryByMonthIndexViewModel.FilterCountry6 = countries.Where(x => x.Code == route[5]).FirstOrDefault();
-            itineraryByMonthIndexViewModel.FilterCountry7 = countries.Where(x => x.Code == route[6]).FirstOrDefault();
-            itineraryByMonthIndexViewModel.FilterCountry8 = countries.Where(x => x.Code == route[7]).FirstOrDefault();
-            itineraryByMonthIndexViewModel.FilterCountry9 = countries.Where(x => x.Code == route[8]).FirstOrDefault();
-            itineraryByMonthIndexViewModel.FilterCountry10 = countries.Where(x => x.Code == route[9]).FirstOrDefault();
-            itineraryByMonthIndexViewModel.FilterCountry11 = countries.Where(x => x.Code == route[10]).FirstOrDefault();
-            itineraryByMonthIndexViewModel.FilterCountry12 = countries.Where(x => x.Code == route[11]).FirstOrDefault();
+            itineraryByMonthIndexViewModel.RulesReport = brokenRules;
+            itineraryByMonthIndexViewModel.RoutesFoundCount = ProposedRoutes.Count;
+
+            if (ItineraryMonths > 0) itineraryByMonthIndexViewModel.FilterCountry1 = countries.Where(x => x.Code == route[0]).FirstOrDefault();
+            if (ItineraryMonths > 1) itineraryByMonthIndexViewModel.FilterCountry2 = countries.Where(x => x.Code == route[1]).FirstOrDefault();
+            if (ItineraryMonths > 2) itineraryByMonthIndexViewModel.FilterCountry3 = countries.Where(x => x.Code == route[2]).FirstOrDefault();
+            if (ItineraryMonths > 3) itineraryByMonthIndexViewModel.FilterCountry4 = countries.Where(x => x.Code == route[3]).FirstOrDefault();
+            if (ItineraryMonths > 4) itineraryByMonthIndexViewModel.FilterCountry5 = countries.Where(x => x.Code == route[4]).FirstOrDefault();
+            if (ItineraryMonths > 5) itineraryByMonthIndexViewModel.FilterCountry6 = countries.Where(x => x.Code == route[5]).FirstOrDefault();
+            if (ItineraryMonths > 6) itineraryByMonthIndexViewModel.FilterCountry7 = countries.Where(x => x.Code == route[6]).FirstOrDefault();
+            if (ItineraryMonths > 7) itineraryByMonthIndexViewModel.FilterCountry8 = countries.Where(x => x.Code == route[7]).FirstOrDefault();
+            if (ItineraryMonths > 8) itineraryByMonthIndexViewModel.FilterCountry9 = countries.Where(x => x.Code == route[8]).FirstOrDefault();
+            if (ItineraryMonths > 9) itineraryByMonthIndexViewModel.FilterCountry10 = countries.Where(x => x.Code == route[9]).FirstOrDefault();
+            if (ItineraryMonths > 10) itineraryByMonthIndexViewModel.FilterCountry11 = countries.Where(x => x.Code == route[10]).FirstOrDefault();
+            if (ItineraryMonths > 11) itineraryByMonthIndexViewModel.FilterCountry12 = countries.Where(x => x.Code == route[11]).FirstOrDefault();
 
             //Montar lista de filterCountry
 
             List<Country> filterCountries = ViewModelContriesToList(itineraryByMonthIndexViewModel);
 
-            itineraryByMonthIndexViewModel = DataToViewModel(itineraryByMonthIndexViewModel, monthsList, filterCountries);
+            itineraryByMonthIndexViewModel = DataToViewModel(itineraryByMonthIndexViewModel, monthsList, completeMonthsList, filterCountries, ItineraryMonths, StartMonth);
             return PartialView(itineraryByMonthIndexViewModel);
         }
 
-        private void AddRules(List<Country> countries)
+        private void AddRules(List<Country> countries, int startRouteMonth, List<char> vector)
         {
             //TODO INPUT PARAM NATIONALITY
             var MaxStayMalaysia = visaService.GetMaxStay('M', "ES");
@@ -81,25 +127,26 @@ namespace RouteDataManager.Controllers
 
             foreach (Country country in countries)
             {
-                var MaxStayDays = visaService.GetMaxStay(country.Code, "ES");
-                var MaxStayMonth = MaxStayDays / 30;
-                MaxStay.Add(country.Code, visaService.GetMaxStay(country.Code, "ES"));
-
-                routeService.ruleContainer.AddRule(new EachStayMustBeLessThanXMonth(country.Code, MaxStayMonth));
-                routeService.ruleContainer.AddRule(new AnualEntriesMustBeLessThanX(country.Code, 2));
-
-                //var countryWithRanges = countryService.GetCountryRangesByCode(country.Code);
-
-                //Warning Code
-                var monsoonEvaluatorRange = _context.Ranges
-                    .Where(r => r.RangeType.Code == RangeTypes.MonsoonEvaluatorRangeType.Code && r.Country.Code == country.Code)
-                    .Include(f => f.EntityEvaluator_ByMonth).ThenInclude(x => x.Items)
-                    .FirstOrDefault();
-
-                var startRouteMonth = 1;
-                if (monsoonEvaluatorRange != null)
+                if (vector.Contains(country.Code))
                 {
-                    routeService.ruleContainer.AddRule(new MustConsiderWeather(monsoonEvaluatorRange.EntityEvaluator_ByMonth, country.Code, startRouteMonth));
+                    var MaxStayDays = visaService.GetMaxStay(country.Code, "ES");
+                    var MaxStayMonth = MaxStayDays / 30;
+                    MaxStay.Add(country.Code, visaService.GetMaxStay(country.Code, "ES"));
+
+                    routeService.ruleContainer.AddRule(new EachStayMustBeLessThanXMonth(country.Code, MaxStayMonth));
+                    routeService.ruleContainer.AddRule(new AnualEntriesMustBeLessThanX(country.Code, 2));
+
+                    //Warning Code
+                    var monsoonEvaluatorRange = _context.Ranges
+                        .Where(r => r.RangeType.Code == RangeTypes.MonsoonEvaluatorRangeType.Code && r.Country.Code == country.Code)
+                        .Include(f => f.EntityEvaluator_ByMonth).ThenInclude(x => x.Items)
+                        .FirstOrDefault();
+
+                    //TODO Verificar que añade las reglas para el mes correcto
+                    if (monsoonEvaluatorRange != null)
+                    {
+                        routeService.ruleContainer.AddRule(new MustConsiderWeather(monsoonEvaluatorRange.EntityEvaluator_ByMonth, country.Code, startRouteMonth));
+                    }
                 }
 
             }
@@ -123,116 +170,33 @@ namespace RouteDataManager.Controllers
             return filterCountries;
         }
 
-        public async Task<IActionResult> Reload(ItineraryByMonthIndexViewModel itineraryByMonthIndexViewModel)
+        private ItineraryByMonthIndexViewModel DataToViewModel(ItineraryByMonthIndexViewModel itineraryByMonthIndexViewModel, List<Domain.Ranges.Month> monthsList, List<Domain.Ranges.Month> completeMonthsList, List<Country> filterCountries, int ItineraryMonths, int StartMonth)
         {
-            var countries = _context.Countries.Include(x => x.Ranges).Where(x => x.Ranges.Count != 0).ToList();
-            var monthsList = _context.Months.ToList();
+            itineraryByMonthIndexViewModel.ItineraryMonths = ItineraryMonths;
 
-            routeService.ruleContainer.Vector = countries.Select(c => c.Code).Distinct().ToList();
+            SelectList selectListStartMonth = new SelectList(completeMonthsList, "MonthID", "Name", itineraryByMonthIndexViewModel.FilterStartMonth.MonthID);
+            itineraryByMonthIndexViewModel.SelectListStartMonth = selectListStartMonth;
 
-            AddRules(countries);
-
-            //Recover from ID
-            itineraryByMonthIndexViewModel.FilterCountry1 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry1.CountryID).FirstOrDefault();
-            itineraryByMonthIndexViewModel.FilterCountry2 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry2.CountryID).FirstOrDefault();
-            itineraryByMonthIndexViewModel.FilterCountry3 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry3.CountryID).FirstOrDefault();
-            itineraryByMonthIndexViewModel.FilterCountry4 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry4.CountryID).FirstOrDefault();
-            itineraryByMonthIndexViewModel.FilterCountry5 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry5.CountryID).FirstOrDefault();
-            itineraryByMonthIndexViewModel.FilterCountry6 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry6.CountryID).FirstOrDefault();
-            itineraryByMonthIndexViewModel.FilterCountry7 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry7.CountryID).FirstOrDefault();
-            itineraryByMonthIndexViewModel.FilterCountry8 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry8.CountryID).FirstOrDefault();
-            itineraryByMonthIndexViewModel.FilterCountry9 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry9.CountryID).FirstOrDefault();
-            itineraryByMonthIndexViewModel.FilterCountry10 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry10.CountryID).FirstOrDefault();
-            itineraryByMonthIndexViewModel.FilterCountry11 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry11.CountryID).FirstOrDefault();
-            itineraryByMonthIndexViewModel.FilterCountry12 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry12.CountryID).FirstOrDefault();
-
-
-            var route = new List<char> {
-
-                itineraryByMonthIndexViewModel.FilterCountry1.Code,
-                itineraryByMonthIndexViewModel.FilterCountry2.Code,
-                itineraryByMonthIndexViewModel.FilterCountry3.Code,
-                itineraryByMonthIndexViewModel.FilterCountry4.Code,
-                itineraryByMonthIndexViewModel.FilterCountry5.Code,
-                itineraryByMonthIndexViewModel.FilterCountry6.Code,
-                itineraryByMonthIndexViewModel.FilterCountry7.Code,
-                itineraryByMonthIndexViewModel.FilterCountry8.Code,
-                itineraryByMonthIndexViewModel.FilterCountry9.Code,
-                itineraryByMonthIndexViewModel.FilterCountry10.Code,
-                itineraryByMonthIndexViewModel.FilterCountry11.Code,
-                itineraryByMonthIndexViewModel.FilterCountry12.Code
-            };
-
-            var brokenRules = routeService.BrokenRules(route);
-            itineraryByMonthIndexViewModel.RulesReport = brokenRules;
-
-
-            List<Country> filterCountries = ViewModelContriesToList(itineraryByMonthIndexViewModel);
-            itineraryByMonthIndexViewModel = DataToViewModel(itineraryByMonthIndexViewModel, monthsList, filterCountries);
-
-
-            return PartialView("Index", itineraryByMonthIndexViewModel);
-        }
-
-        private ItineraryByMonthIndexViewModel DataToViewModel(ItineraryByMonthIndexViewModel itineraryByMonthIndexViewModel, List<Domain.Ranges.Month> monthsList, List<Country> filterCountries)
-        {
+            SelectList selectListEndMonth = new SelectList(completeMonthsList, "MonthID", "Name", itineraryByMonthIndexViewModel.FilterEndMonth.MonthID);
+            itineraryByMonthIndexViewModel.SelectListEndMonth = selectListEndMonth;
 
             var countriesWithRanges = _context.Countries.Include(x => x.Ranges).Where(x => x.Ranges.Count != 0).ToList();
-
-            SelectList selectListCountries1 = new SelectList(countriesWithRanges, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry1.CountryID);
-            itineraryByMonthIndexViewModel.SelectListCountries1 = selectListCountries1;
-
-            SelectList selectListCountries2 = new SelectList(countriesWithRanges, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry2.CountryID);
-            itineraryByMonthIndexViewModel.SelectListCountries2 = selectListCountries2;
-
-            SelectList selectListCountries3 = new SelectList(countriesWithRanges, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry3.CountryID);
-            itineraryByMonthIndexViewModel.SelectListCountries3 = selectListCountries3;
-
-            SelectList selectListCountries4 = new SelectList(countriesWithRanges, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry4.CountryID);
-            itineraryByMonthIndexViewModel.SelectListCountries4 = selectListCountries4;
-
-            SelectList selectListCountries5 = new SelectList(countriesWithRanges, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry5.CountryID);
-            itineraryByMonthIndexViewModel.SelectListCountries5 = selectListCountries5;
-
-            SelectList selectListCountries6 = new SelectList(countriesWithRanges, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry6.CountryID);
-            itineraryByMonthIndexViewModel.SelectListCountries6 = selectListCountries6;
-
-            SelectList selectListCountries7 = new SelectList(countriesWithRanges, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry7.CountryID);
-            itineraryByMonthIndexViewModel.SelectListCountries7 = selectListCountries7;
-
-            SelectList selectListCountries8 = new SelectList(countriesWithRanges, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry8.CountryID);
-            itineraryByMonthIndexViewModel.SelectListCountries8 = selectListCountries8;
-
-            SelectList selectListCountries9 = new SelectList(countriesWithRanges, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry9.CountryID);
-            itineraryByMonthIndexViewModel.SelectListCountries9 = selectListCountries9;
-
-            SelectList selectListCountries10 = new SelectList(countriesWithRanges, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry10.CountryID);
-            itineraryByMonthIndexViewModel.SelectListCountries10 = selectListCountries10;
-
-            SelectList selectListCountries11 = new SelectList(countriesWithRanges, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry11.CountryID);
-            itineraryByMonthIndexViewModel.SelectListCountries11 = selectListCountries11;
-
-            SelectList selectListCountries12 = new SelectList(countriesWithRanges, "CountryID", "Name", itineraryByMonthIndexViewModel.FilterCountry12.CountryID);
-            itineraryByMonthIndexViewModel.SelectListCountries12 = selectListCountries12;
 
             int indexMonth = 0;
             itineraryByMonthIndexViewModel.Months = monthsList;
 
             foreach (var country in filterCountries)
             {
-
                 var seasonRange = _context.Ranges
                .Where(d => d.CountryID == country.CountryID && d.RangeType.Code == RangeTypes.MonsoonSeasonRangeType.Code)
                .Include(f => f.EntityDescription_ByMonth).ThenInclude(x => x.Items).FirstOrDefault();
 
                 if (seasonRange != null)
                 {
-
-                    var Month = monthsList[0].Name; //Esto es la Key del diccionario que se va a consultar
+                    var Month = completeMonthsList[StartMonth - 1].Name; //Esto es la Key del diccionario que se va a consultar
                     ICollection<Domain.EntityFrameworkDictionary.DictionaryItem<string, string>>? MonsoonDictionary = seasonRange.EntityDescription_ByMonth.Items;
-                    var Description = MonsoonDictionary.Where(x => x.Key == monthsList[indexMonth].Name).FirstOrDefault().Value;
+                    var Description = MonsoonDictionary.Where(x => x.Key == completeMonthsList[indexMonth].Name).FirstOrDefault().Value;
                     itineraryByMonthIndexViewModel.CountryReport.Add(Description);
-
                 }
                 else
                 {
@@ -240,52 +204,11 @@ namespace RouteDataManager.Controllers
                 }
 
                 indexMonth++;
-
-
             }
 
             return itineraryByMonthIndexViewModel;
         }
 
-        //TODO
-        //public void Save(ItineraryByMonthIndexViewModel itineraryByMonthIndexViewModel)
-        //{
-        //    var countries = _context.Countries.Include(x => x.Ranges).Where(x => x.Ranges.Count != 0).ToList();
-        //    //Recover from ID
-        //    itineraryByMonthIndexViewModel.FilterCountry1 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry1.CountryID).FirstOrDefault();
-        //    itineraryByMonthIndexViewModel.FilterCountry2 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry2.CountryID).FirstOrDefault();
-        //    itineraryByMonthIndexViewModel.FilterCountry3 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry3.CountryID).FirstOrDefault();
-        //    itineraryByMonthIndexViewModel.FilterCountry4 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry4.CountryID).FirstOrDefault();
-        //    itineraryByMonthIndexViewModel.FilterCountry5 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry5.CountryID).FirstOrDefault();
-        //    itineraryByMonthIndexViewModel.FilterCountry6 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry6.CountryID).FirstOrDefault();
-        //    itineraryByMonthIndexViewModel.FilterCountry7 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry7.CountryID).FirstOrDefault();
-        //    itineraryByMonthIndexViewModel.FilterCountry8 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry8.CountryID).FirstOrDefault();
-        //    itineraryByMonthIndexViewModel.FilterCountry9 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry9.CountryID).FirstOrDefault();
-        //    itineraryByMonthIndexViewModel.FilterCountry10 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry10.CountryID).FirstOrDefault();
-        //    itineraryByMonthIndexViewModel.FilterCountry11 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry11.CountryID).FirstOrDefault();
-        //    itineraryByMonthIndexViewModel.FilterCountry12 = countries.Where(x => x.CountryID == itineraryByMonthIndexViewModel.FilterCountry12.CountryID).FirstOrDefault();
-
-        //    string countryCodeChars =
-
-        //        itineraryByMonthIndexViewModel.FilterCountry1.Code.ToString() +
-        //        itineraryByMonthIndexViewModel.FilterCountry2.Code.ToString() +
-        //        itineraryByMonthIndexViewModel.FilterCountry3.Code.ToString() +
-        //        itineraryByMonthIndexViewModel.FilterCountry4.Code.ToString() +
-        //        itineraryByMonthIndexViewModel.FilterCountry5.Code.ToString() +
-        //        itineraryByMonthIndexViewModel.FilterCountry6.Code.ToString() +
-        //        itineraryByMonthIndexViewModel.FilterCountry7.Code.ToString() +
-        //        itineraryByMonthIndexViewModel.FilterCountry8.Code.ToString() +
-        //        itineraryByMonthIndexViewModel.FilterCountry9.Code.ToString() +
-        //        itineraryByMonthIndexViewModel.FilterCountry10.Code.ToString() +
-        //        itineraryByMonthIndexViewModel.FilterCountry11.Code.ToString() +
-        //        itineraryByMonthIndexViewModel.FilterCountry12.Code.ToString();
-
-        //    var route = new Traveller.Domain.Route { CountryCodeChars = countryCodeChars };
-
-        //    _context.Routes.Add(route);
-        //    _context.SaveChanges();
-
-        //    this.Reload(itineraryByMonthIndexViewModel);
-        //}
+      
     }
 }

@@ -98,6 +98,33 @@ namespace StaticData.Nepal
 
         };
 
+        public static RangeChar MonsoonRangeDATATESTEvaluator = new RangeChar
+        {
+            RangeType = RangeTypes.MonsoonEvaluatorRangeType,
+
+            EntityEvaluator_ByMonth = new EntityFrameworkDictionary<int, int>()
+            {
+
+                Items = new List<DictionaryItem<int, int>>()
+                {
+                    new DictionaryItem<int,int> { Key = 1, Value =0 },
+                    new DictionaryItem<int,int> { Key = 2, Value =0 },
+                    new DictionaryItem<int,int> { Key = 3, Value =0 },
+                    new DictionaryItem<int,int> { Key = 4, Value =0 },
+                    new DictionaryItem<int,int> { Key = 5, Value =0 },
+                    new DictionaryItem<int,int> { Key = 6, Value =0 },
+                    new DictionaryItem<int,int> { Key = 7, Value =0 },
+                    new DictionaryItem<int,int> { Key = 8, Value  = 0 },
+                    new DictionaryItem<int,int> { Key = 9, Value = 0 },
+                    new DictionaryItem<int,int> { Key = 10, Value = 0 },
+                    new DictionaryItem<int,int> { Key = 11, Value = 1 },
+                    new DictionaryItem<int,int> { Key = 12, Value =-1 },
+                }
+
+            }
+
+        };
+
 
     }
 }

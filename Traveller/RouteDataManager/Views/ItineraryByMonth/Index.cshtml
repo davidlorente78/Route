@@ -8,19 +8,65 @@
 
 <form id="Reload" asp-action="Reload">
 
+    <form asp-action="Index">
+
+        <div class="form-group">
+            <table class="table">
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            <label class="control-label">Month</label>
+                            <select asp-for="@Model.FilterStartMonth.MonthID" class="form-control" asp-items="@Model.SelectListStartMonth"></select>
+                        </th>
+
+                        <th>
+                            <label class="control-label">Month</label>
+                            <select asp-for="@Model.FilterEndMonth.MonthID" class="form-control" asp-items="@Model.SelectListEndMonth"></select>
+                        </th>
+
+
+                        <th>
+
+                        </th>
+
+                        <th>
+
+                        </th>
+
+                        <th>
+                            <input type="submit" value="Search" class="btn btn-primary btn-block" />
+                        </th>
+                    </tr>
+
+                </thead>
+            </table>
+
+        </div>
+    </form>
+
     <div class="form-group">
         <p></p>
-        <th>
-            <input type="submit" value="Report" class="btn btn-primary btn-block" />
-        </th>
-
-        <p></p>
-
+       
         <p>
             <label class="control-label">
-                @Model.RulesReport.Count()  Broken Rules
+                @Model.RoutesFoundCount.ToString()  Itineraries found
             </label>
         </p>
+
+           <input id="IndexId" name="ShowingIndex" type="hidden" value=@Model.ShowingIndex  />
+           <a class="carousel-control-prev"  action="Previous" data-slide="prev">
+                <div class="btn btn-dark" style="width: 45px; height: 45px;">
+                    <span class="carousel-control-prev-icon mb-n2"></span>
+                </div>
+            </a>
+
+            <a class="carousel-control-next" action="Next" data-slide="next">
+                <div class="btn btn-dark" style="width: 45px; height: 45px;">
+                    <span class="carousel-control-next-icon mb-n2"></span>
+                </div>
+            </a>
 
         @foreach (var rule in @Model.RulesReport)
         {
@@ -56,166 +102,183 @@
 
             <tbody>
 
-                <tr>
-                    <td>
-                        <label class="control-label">@Model.Months[0].Name</label>
-                    </td>
-                    <td>
+                @if (Model.ItineraryMonths >= 0)
+                {
+                    <tr>
+                        <td>
+                            <label class="control-label">@Model.Months[0].Name</label>
+                        </td>
 
-                        <select id="ddlCountry1" asp-for="@Model.FilterCountry1.CountryID" class="form-control" asp-items="@Model.SelectListCountries1"></select>
+                        <td>
+                            <label class="control-label">@Model.FilterCountry1.Name</label>
+                        </td>
+                  
+                        <td>@Model.CountryReport.ElementAt(0)</td>
 
-                    </td>
-                    <td>@Model.CountryReport.ElementAt(0)</td>
+                    </tr>
+                }
 
-                </tr>
+                @if (Model.ItineraryMonths > 1)
+                {
+                    <tr>
+                        <td>
+                            <label class="control-label">@Model.Months[1].Name</label>
+                        </td>
+                        <td>
+                            <label class="control-label">@Model.FilterCountry2.Name</label>
+                        </td>
+                        <td>@Model.CountryReport.ElementAt(1)</td>
 
-                <tr>
-                    <td>
-                        <label class="control-label">@Model.Months[1].Name</label>
-                    </td>
-                    <td>
+                    </tr>
+                }
 
-                        <select asp-for="@Model.FilterCountry2.CountryID" class="form-control" asp-items="@Model.SelectListCountries2"></select>
+                @if (Model.ItineraryMonths > 2)
+                {
+                    <tr>
+                        <td>
+                            <label class="control-label">@Model.Months[2].Name</label>
+                        </td>
+                        <td>
+                            <label class="control-label">@Model.FilterCountry3.Name</label>
+                        </td>
+                        <td>@Model.CountryReport.ElementAt(2)</td>
 
-                    </td>
-                    <td>@Model.CountryReport.ElementAt(1)</td>
+                    </tr>
+                }
 
-                </tr>
+                @if (Model.ItineraryMonths > 3)
+                {
+                    <tr>
+                        <td>
+                            <label class="control-label">@Model.Months[3].Name</label>
+                        </td>
+                        <td>
+                            <label class="control-label">@Model.FilterCountry4.Name</label>
+                        </td>
+                        <td>@Model.CountryReport.ElementAt(3)</td>
 
-                <tr>
-                    <td>
-                        <label class="control-label">@Model.Months[2].Name</label>
-                    </td>
-                    <td>
+                    </tr>
+                }
 
-                        <select asp-for="@Model.FilterCountry3.CountryID" class="form-control" asp-items="@Model.SelectListCountries3"></select>
+                @if (Model.ItineraryMonths > 4)
+                {
+                    <tr>
+                        <td>
+                            <label class="control-label">@Model.Months[4].Name</label>
+                        </td>
+                        <td>
+                            <label class="control-label">@Model.FilterCountry5.Name</label>
+                        </td>
+                        <td>@Model.CountryReport.ElementAt(4)</td>
 
-                    </td>
-                    <td>@Model.CountryReport.ElementAt(2)</td>
+                    </tr>
+                }
 
-                </tr>
+                @if (Model.ItineraryMonths > 5)
+                {
+                    <tr>
+                        <td>
+                            <label class="control-label">@Model.Months[5].Name</label>
+                        </td>
+                        <td>
+                            <label class="control-label">@Model.FilterCountry6.Name</label>
+                        </td>
+                        <td>@Model.CountryReport.ElementAt(5)</td>
 
+                    </tr>
 
-                <tr>
-                    <td>
-                        <label class="control-label">@Model.Months[3].Name</label>
-                    </td>
-                    <td>
+                }
 
-                        <select asp-for="@Model.FilterCountry4.CountryID" class="form-control" asp-items="@Model.SelectListCountries4"></select>
+                @if (Model.ItineraryMonths > 6)
+                {
+                    <tr>
+                        <td>
+                            <label class="control-label">@Model.Months[6].Name</label>
+                        </td>
+                        <td>
+                            <label class="control-label">@Model.FilterCountry7.Name</label>
+                        </td>
+                        <td>@Model.CountryReport.ElementAt(6)</td>
 
-                    </td>
-                    <td>@Model.CountryReport.ElementAt(3)</td>
+                    </tr>
+                }
 
-                </tr>
+                @if (Model.ItineraryMonths > 7)
+                {
+                    <tr>
+                        <td>
+                            <label class="control-label">@Model.Months[7].Name</label>
+                        </td>
+                        <td>
+                            <label class="control-label">@Model.FilterCountry8.Name</label>
+                        </td>
+                        <td>@Model.CountryReport.ElementAt(7)</td>
 
-                <tr>
-                    <td>
-                        <label class="control-label">@Model.Months[4].Name</label>
-                    </td>
-                    <td>
+                    </tr>
+                }
 
-                        <select asp-for="@Model.FilterCountry5.CountryID" class="form-control" asp-items="@Model.SelectListCountries5"></select>
+                @if (Model.ItineraryMonths > 8)
+                {
+                    <tr>
+                        <td>
+                            <label class="control-label">@Model.Months[8].Name</label>
+                        </td>
+                        <td>
+                            <label class="control-label">@Model.FilterCountry9.Name</label>
+                        </td>
+                        <td>@Model.CountryReport.ElementAt(8)</td>
 
-                    </td>
-                    <td>@Model.CountryReport.ElementAt(4)</td>
+                    </tr>
+                }
 
-                </tr>
+                @if (Model.ItineraryMonths > 9)
+                {
+                    <tr>
+                        <td>
+                            <label class="control-label">@Model.Months[9].Name</label>
+                        </td>
+                        <td>
+                            <label class="control-label">@Model.FilterCountry10.Name</label>
+                        </td>
+                        <td>@Model.CountryReport.ElementAt(9)</td>
 
-                <tr>
-                    <td>
-                        <label class="control-label">@Model.Months[5].Name</label>
-                    </td>
-                    <td>
+                    </tr>
+                }
 
-                        <select asp-for="@Model.FilterCountry6.CountryID" class="form-control" asp-items="@Model.SelectListCountries6"></select>
+                @if (Model.ItineraryMonths > 10)
+                {
+                    <tr>
+                        <td>
+                            <label class="control-label">@Model.Months[10].Name</label>
+                        </td>
+                        <td>
+                            <label class="control-label">@Model.FilterCountry11.Name</label>
+                        </td>
+                        <td>@Model.CountryReport.ElementAt(10)</td>
 
-                    </td>
-                    <td>@Model.CountryReport.ElementAt(5)</td>
+                    </tr>
+                }
 
-                </tr>
+                @if (Model.ItineraryMonths > 11)
+                {
 
-                <tr>
-                    <td>
-                        <label class="control-label">@Model.Months[6].Name</label>
-                    </td>
-                    <td>
+                    <tr>
+                        <td>
+                            <label class="control-label">@Model.Months[11].Name</label>
+                        </td>
+                        <td>
+                            <label class="control-label">@Model.FilterCountry12.Name</label>
+                        </td>
+                        <td>@Model.CountryReport.ElementAt(11)</td>
 
-                        <select asp-for="@Model.FilterCountry7.CountryID" class="form-control" asp-items="@Model.SelectListCountries7"></select>
+                    </tr>
 
-                    </td>
-                    <td>@Model.CountryReport.ElementAt(6)</td>
+                }
 
-                </tr>
-
-                <tr>
-                    <td>
-                        <label class="control-label">@Model.Months[7].Name</label>
-                    </td>
-                    <td>
-
-                        <select asp-for="@Model.FilterCountry8.CountryID" class="form-control" asp-items="@Model.SelectListCountries8"></select>
-
-                    </td>
-                    <td>@Model.CountryReport.ElementAt(7)</td>
-
-                </tr>
-
-                <tr>
-                    <td>
-                        <label class="control-label">@Model.Months[8].Name</label>
-                    </td>
-                    <td>
-
-                        <select asp-for="@Model.FilterCountry9.CountryID" class="form-control" asp-items="@Model.SelectListCountries9"></select>
-
-                    </td>
-                    <td>@Model.CountryReport.ElementAt(8)</td>
-
-                </tr>
-                <tr>
-                    <td>
-                        <label class="control-label">@Model.Months[9].Name</label>
-                    </td>
-                    <td>
-
-                        <select asp-for="@Model.FilterCountry10.CountryID" class="form-control" asp-items="@Model.SelectListCountries10"></select>
-
-                    </td>
-                    <td>@Model.CountryReport.ElementAt(9)</td>
-
-                </tr>
-
-                <tr>
-                    <td>
-                        <label class="control-label">@Model.Months[10].Name</label>
-                    </td>
-                    <td>
-
-                        <select asp-for="@Model.FilterCountry11.CountryID" class="form-control" asp-items="@Model.SelectListCountries11"></select>
-
-                    </td>
-                    <td>@Model.CountryReport.ElementAt(10)</td>
-
-                </tr>
-
-                <tr>
-                    <td>
-                        <label class="control-label">@Model.Months[11].Name</label>
-                    </td>
-                    <td>
-
-                        <select asp-for="@Model.FilterCountry12.CountryID" class="form-control" asp-items="@Model.SelectListCountries12"></select>
-
-                    </td>
-                    <td>@Model.CountryReport.ElementAt(11)</td>
-
-                </tr>
             </tbody>
         </table>
-
-
     </div>
+
 </form>
 
 

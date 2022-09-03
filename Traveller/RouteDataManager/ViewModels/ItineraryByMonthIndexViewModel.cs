@@ -6,18 +6,27 @@ namespace RouteDataManager.ViewModels
 {
     public class ItineraryByMonthIndexViewModel
     {
-        private List<char> route = new List<char> { 'T', 'L', 'V', 'C', 'M', 'M', 'M', 'T', 'T', 'V', 'L', 'T' };
 
-
-
-        public ItineraryByMonthIndexViewModel() 
+        public ItineraryByMonthIndexViewModel()
         {
-            var check = 0;
+            
         }
+
+        public int ItineraryMonths { get; set; }
+
+        public Month FilterStartMonth { get; set; } = new Month() { Name = "October", MonthID = 10 }; //Enero es 1 en Base de Datos
+
+        public SelectList SelectListStartMonth { get; set; }
+
+        public Month FilterEndMonth { get; set; } = new Month() { Name = "December", MonthID = 12 };
+
+        public SelectList SelectListEndMonth { get; set; }
 
         public List<string> RulesReport { get; set; } = new List<string>();
 
-        public List <string> CountryReport { get; set; } = new List<string>();
+        public int  RoutesFoundCount { get; set; }
+
+        public List<string> CountryReport { get; set; } = new List<string>();
 
         public Country FilterCountry1 { get; set; } = new Country() { CountryID = 1 };
 
@@ -43,31 +52,10 @@ namespace RouteDataManager.ViewModels
 
         public Country FilterCountry12 { get; set; } = new Country() { CountryID = 1 };
 
-        public List <Month> Months { get; set; }
+        public List<Month> Months { get; set; }
 
-        public SelectList SelectListCountries1 { get; set; }
-
-        public SelectList SelectListCountries2 { get; set; }
-
-        public SelectList SelectListCountries3 { get; set; }
-
-        public SelectList SelectListCountries4 { get; set; }
-
-        public SelectList SelectListCountries5 { get; set; }
-
-        public SelectList SelectListCountries6 { get; set; }
-
-        public SelectList SelectListCountries7 { get; set; }
-
-        public SelectList SelectListCountries8 { get; set; }
-
-        public SelectList SelectListCountries9 { get; set; }
-
-        public SelectList SelectListCountries10 { get; set; }
-
-        public SelectList SelectListCountries11 { get; set; }
-
-        public SelectList SelectListCountries12 { get; set; }
+        public int ShowingIndex { get; set; }
+        
 
     }
 }

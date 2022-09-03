@@ -77,7 +77,7 @@
 
                 case 'N':
                     {
-                        return "Chiang Mai";
+                        return "Nepal";
                     }
 
                 case 'O':

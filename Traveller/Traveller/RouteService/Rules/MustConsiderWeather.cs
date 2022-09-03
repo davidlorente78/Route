@@ -7,17 +7,18 @@ namespace Traveller.RouteService.Rules
 {
     public class MustConsiderWeather : IRule
     {
-       
+
 
         private EntityFrameworkDictionary<int, int> EntityEvaluator_ByMonth;
 
-        private int StartMonth = 1;
+        private int StartMonth = 0;
 
         private char CountryCode;
 
         private List<char> route = new List<char>();
         public MustConsiderWeather(EntityFrameworkDictionary<int, int> EntityEvaluator_ByMonth, char CountryCode, int StartMonth)
         {
+            //January will be 0
             this.StartMonth = StartMonth;
             this.CountryCode = CountryCode;
             this.EntityEvaluator_ByMonth = EntityEvaluator_ByMonth;
@@ -27,10 +28,17 @@ namespace Traveller.RouteService.Rules
         {
             this.route = route;
 
-            for (int x = 0; x < route.Count; x++)
+            var routeVectorEndIndex = route.Count + StartMonth;
+
+            for (int x = StartMonth; x < routeVectorEndIndex; x++)
             {
-                if ((route[x] == CountryCode) && (EntityEvaluator_ByMonth.Items.ElementAt(x).Value == -1)) return false;
-            }                  
+                var routeVectorIndex = x - StartMonth;
+                var ElementAt = EntityEvaluator_ByMonth.Items.ElementAt(x - 1);
+                if ((route[routeVectorIndex] == CountryCode) && (ElementAt.Value == -1))
+                {
+                    return false;
+                };
+            }
 
             return true;
         }
@@ -40,24 +48,22 @@ namespace Traveller.RouteService.Rules
         {
             List<string> report = new List<string>();
 
-            for (int x = 0; x < route.Count; x++)
+            for (int x = StartMonth; x < route.Count + StartMonth; x++)
             {
-                if ((route[x] == CountryCode) && (EntityEvaluator_ByMonth.Items.ElementAt(x).Value == -1))
+                if ((route[x - StartMonth] == CountryCode) && (EntityEvaluator_ByMonth.Items.ElementAt(x - StartMonth).Value == -1))
                 {
-                    report.Add(CodeDictionary.GetMonthByInt(x + 1)  + " weather " + " in " + CodeDictionary.GetCountryByCode(CountryCode) + " is not convenient");
-                } 
+                    report.Add(CodeDictionary.GetMonthByInt(x + 1) + " weather " + " in " + CodeDictionary.GetCountryByCode(CountryCode) + " is not convenient");
+                }
 
             }
 
             return report;
-        }      
+        }
 
         public override string ToString()
         {
-            string summmary = "";
+            string summmary = "Considering weather of " + CodeDictionary.GetCountryByCode(CountryCode);
 
-            //summmary = summmary + "Introduction  : ";
-            
             foreach (string s in Report())
             {
                 summmary = summmary + s + "\n";

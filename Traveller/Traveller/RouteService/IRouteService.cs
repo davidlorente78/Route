@@ -7,6 +7,7 @@ namespace Traveller.RouteService
     {
         public IRuleContainer ruleContainer { get; set; }
         public List<string> BrokenRules(List<char> route);
+        public List<List<char>> proposedRoutes(int months);
 
     }
 
