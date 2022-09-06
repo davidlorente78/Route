@@ -15,7 +15,7 @@ namespace RouteDataManager.Controllers
     {
         private readonly ApplicationContext _context;
 
-        private ItineraryByMonthIndexViewModel itineraryByMonthIndexViewModel = new ItineraryByMonthIndexViewModel();
+        // private ItineraryByMonthIndexViewModel itineraryByMonthIndexViewModel = new ItineraryByMonthIndexViewModel();
 
         private List<char> route = new List<char> { };
 
@@ -23,27 +23,27 @@ namespace RouteDataManager.Controllers
 
         private IRouteService routeService;
 
-        private ICountryService countryService;
-
-        private int ShowingIndex = 0;
-
 
         public ItineraryByMonthController(ApplicationContext context, IVisaService visaService, IRouteService routeService, ICountryService countryService)
         {
             _context = context;
             this.visaService = visaService;
             this.routeService = routeService;
-            this.countryService = countryService;
+            //this.countryService = countryService;
         }
 
         public async Task<IActionResult> Index(ItineraryByMonthIndexViewModel itineraryByMonthIndexViewModel)
+        {
+            return ProcessItinerary(ref itineraryByMonthIndexViewModel);
+        }
+
+        private IActionResult ProcessItinerary(ref ItineraryByMonthIndexViewModel itineraryByMonthIndexViewModel)
         {
             var countries = _context.Countries.Include(x => x.Ranges)
                 .ThenInclude(r => r.RangeType).Where(x => x.Ranges.Count != 0).ToList();
 
             List<Domain.Ranges.Month>? completeMonthsList = _context.Months.ToList();
 
-            //Ajustar lista de meses a los datos introducidos por el usuario en el filtro de entrado y a la duracion del itinerary
             var StartMonth = itineraryByMonthIndexViewModel.FilterStartMonth.MonthID; //October
             var EndMonth = itineraryByMonthIndexViewModel.FilterEndMonth.MonthID; //December
 
@@ -52,7 +52,6 @@ namespace RouteDataManager.Controllers
             {
                 monthsList.Add(completeMonthsList.ElementAt(x - 1)); //Sin embargo la lista esta indexada desde 0
             }
-
 
             int ItineraryMonths = EndMonth - StartMonth + 1;
 
@@ -76,17 +75,18 @@ namespace RouteDataManager.Controllers
 
             var ProposedRoutes = routeService.proposedRoutes(ItineraryMonths);
 
-            //Para cada Proposed Route
-
             if (ProposedRoutes.Count == 0)
             {
-
                 itineraryByMonthIndexViewModel = new ItineraryByMonthIndexViewModel();
                 itineraryByMonthIndexViewModel.RulesReport = new List<string> { "We can not find any itinerary that acomplish all the rules" };
                 itineraryByMonthIndexViewModel.ItineraryMonths = -1;
                 return PartialView(itineraryByMonthIndexViewModel);
-
             }
+
+            //Range Index controoll
+            if (itineraryByMonthIndexViewModel.ShowingIndex < 0) itineraryByMonthIndexViewModel.ShowingIndex = ProposedRoutes.Count - 1;
+            if (itineraryByMonthIndexViewModel.ShowingIndex > ProposedRoutes.Count - 1) itineraryByMonthIndexViewModel.ShowingIndex = 0;
+
 
             var InitialProposedRoute = ProposedRoutes[itineraryByMonthIndexViewModel.ShowingIndex];
             route = InitialProposedRoute;
@@ -113,8 +113,45 @@ namespace RouteDataManager.Controllers
 
             List<Country> filterCountries = ViewModelContriesToList(itineraryByMonthIndexViewModel);
 
-            itineraryByMonthIndexViewModel = DataToViewModel(itineraryByMonthIndexViewModel, monthsList, completeMonthsList, filterCountries, ItineraryMonths, StartMonth);
-            return PartialView(itineraryByMonthIndexViewModel);
+            itineraryByMonthIndexViewModel.ItineraryMonths = ItineraryMonths;
+            itineraryByMonthIndexViewModel.ShowingIndex = itineraryByMonthIndexViewModel.ShowingIndex;
+
+            SelectList selectListStartMonth = new SelectList(completeMonthsList, "MonthID", "Name", itineraryByMonthIndexViewModel.FilterStartMonth.MonthID);
+            itineraryByMonthIndexViewModel.SelectListStartMonth = selectListStartMonth;
+
+            SelectList selectListEndMonth = new SelectList(completeMonthsList, "MonthID", "Name", itineraryByMonthIndexViewModel.FilterEndMonth.MonthID);
+            itineraryByMonthIndexViewModel.SelectListEndMonth = selectListEndMonth;
+
+            var countriesWithRanges = _context.Countries.Include(x => x.Ranges).Where(x => x.Ranges.Count != 0).ToList();
+
+            int indexMonth = StartMonth;
+            itineraryByMonthIndexViewModel.Months = monthsList;
+
+            foreach (var country in filterCountries)
+            {
+                if (country != null)
+                {
+                    var seasonRange = _context.Ranges
+                   .Where(d => d.CountryID == country.CountryID && d.RangeType.Code == RangeTypes.MonsoonSeasonRangeType.Code)
+                   .Include(f => f.EntityDescription_ByMonth).ThenInclude(x => x.Items).FirstOrDefault();
+
+                    if (seasonRange != null)
+                    {
+                        var Month = completeMonthsList[StartMonth - 1].Name; //Esto es la Key del diccionario que se va a consultar
+                        ICollection<Domain.EntityFrameworkDictionary.DictionaryItem<string, string>>? MonsoonDictionary = seasonRange.EntityDescription_ByMonth.Items;
+                        var Description = MonsoonDictionary.Where(x => x.Key == completeMonthsList[indexMonth - 1].Name).FirstOrDefault().Value;
+                        itineraryByMonthIndexViewModel.CountryReport.Add(Description);
+                    }
+                    else
+                    {
+                        itineraryByMonthIndexViewModel.CountryReport = new List<string>();
+                    }
+
+                    indexMonth++;
+                }
+            }
+
+            return View("Index", itineraryByMonthIndexViewModel);
         }
 
         private void AddRules(List<Country> countries, int startRouteMonth, List<char> vector)
@@ -170,45 +207,24 @@ namespace RouteDataManager.Controllers
             return filterCountries;
         }
 
-        private ItineraryByMonthIndexViewModel DataToViewModel(ItineraryByMonthIndexViewModel itineraryByMonthIndexViewModel, List<Domain.Ranges.Month> monthsList, List<Domain.Ranges.Month> completeMonthsList, List<Country> filterCountries, int ItineraryMonths, int StartMonth)
+            public async Task<IActionResult> Previous(int ShowingIndex, int StartMonth, int EndMonth)
         {
-            itineraryByMonthIndexViewModel.ItineraryMonths = ItineraryMonths;
+            ItineraryByMonthIndexViewModel itineraryByMonthIndexViewModel = new ItineraryByMonthIndexViewModel();
+            itineraryByMonthIndexViewModel.FilterStartMonth.MonthID = StartMonth;
+            itineraryByMonthIndexViewModel.FilterEndMonth.MonthID = EndMonth;
+            itineraryByMonthIndexViewModel.ShowingIndex = ShowingIndex - 1;
 
-            SelectList selectListStartMonth = new SelectList(completeMonthsList, "MonthID", "Name", itineraryByMonthIndexViewModel.FilterStartMonth.MonthID);
-            itineraryByMonthIndexViewModel.SelectListStartMonth = selectListStartMonth;
-
-            SelectList selectListEndMonth = new SelectList(completeMonthsList, "MonthID", "Name", itineraryByMonthIndexViewModel.FilterEndMonth.MonthID);
-            itineraryByMonthIndexViewModel.SelectListEndMonth = selectListEndMonth;
-
-            var countriesWithRanges = _context.Countries.Include(x => x.Ranges).Where(x => x.Ranges.Count != 0).ToList();
-
-            int indexMonth = 0;
-            itineraryByMonthIndexViewModel.Months = monthsList;
-
-            foreach (var country in filterCountries)
-            {
-                var seasonRange = _context.Ranges
-               .Where(d => d.CountryID == country.CountryID && d.RangeType.Code == RangeTypes.MonsoonSeasonRangeType.Code)
-               .Include(f => f.EntityDescription_ByMonth).ThenInclude(x => x.Items).FirstOrDefault();
-
-                if (seasonRange != null)
-                {
-                    var Month = completeMonthsList[StartMonth - 1].Name; //Esto es la Key del diccionario que se va a consultar
-                    ICollection<Domain.EntityFrameworkDictionary.DictionaryItem<string, string>>? MonsoonDictionary = seasonRange.EntityDescription_ByMonth.Items;
-                    var Description = MonsoonDictionary.Where(x => x.Key == completeMonthsList[indexMonth].Name).FirstOrDefault().Value;
-                    itineraryByMonthIndexViewModel.CountryReport.Add(Description);
-                }
-                else
-                {
-                    itineraryByMonthIndexViewModel.CountryReport = new List<string>();
-                }
-
-                indexMonth++;
-            }
-
-            return itineraryByMonthIndexViewModel;
+            return ProcessItinerary(ref itineraryByMonthIndexViewModel);
         }
 
-      
+        public async Task<IActionResult> Next(int ShowingIndex, int StartMonth, int EndMonth)
+        {
+            ItineraryByMonthIndexViewModel itineraryByMonthIndexViewModel = new ItineraryByMonthIndexViewModel();
+            itineraryByMonthIndexViewModel.FilterStartMonth.MonthID = StartMonth;
+            itineraryByMonthIndexViewModel.FilterEndMonth.MonthID = EndMonth;
+            itineraryByMonthIndexViewModel.ShowingIndex = ShowingIndex + 1;
+
+            return ProcessItinerary(ref itineraryByMonthIndexViewModel);
+        }
     }
 }

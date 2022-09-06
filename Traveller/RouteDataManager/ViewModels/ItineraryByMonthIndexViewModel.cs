@@ -28,29 +28,29 @@ namespace RouteDataManager.ViewModels
 
         public List<string> CountryReport { get; set; } = new List<string>();
 
-        public Country FilterCountry1 { get; set; } = new Country() { CountryID = 1 };
+        public Country FilterCountry1 { get; set; } 
 
-        public Country FilterCountry2 { get; set; } = new Country() { CountryID = 1 };
+        public Country FilterCountry2 { get; set; }
 
-        public Country FilterCountry3 { get; set; } = new Country() { CountryID = 1 };
+        public Country FilterCountry3 { get; set; }
 
-        public Country FilterCountry4 { get; set; } = new Country() { CountryID = 1 };
+        public Country FilterCountry4 { get; set; }
 
-        public Country FilterCountry5 { get; set; } = new Country() { CountryID = 1 };
+        public Country FilterCountry5 { get; set; } 
 
-        public Country FilterCountry6 { get; set; } = new Country() { CountryID = 1 };
+        public Country FilterCountry6 { get; set; } 
 
-        public Country FilterCountry7 { get; set; } = new Country() { CountryID = 1 };
+        public Country FilterCountry7 { get; set; }
 
-        public Country FilterCountry8 { get; set; } = new Country() { CountryID = 1 };
+        public Country FilterCountry8 { get; set; } 
 
-        public Country FilterCountry9 { get; set; } = new Country() { CountryID = 1 };
+        public Country FilterCountry9 { get; set; } 
 
-        public Country FilterCountry10 { get; set; } = new Country() { CountryID = 1 };
+        public Country FilterCountry10 { get; set; } 
 
-        public Country FilterCountry11 { get; set; } = new Country() { CountryID = 1 };
+        public Country FilterCountry11 { get; set; } 
 
-        public Country FilterCountry12 { get; set; } = new Country() { CountryID = 1 };
+        public Country FilterCountry12 { get; set; } 
 
         public List<Month> Months { get; set; }
 

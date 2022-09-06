@@ -5,8 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-<form id="Reload" asp-action="Reload">
+<form id="Index_Dates" asp-action="Index">
 
     <form asp-action="Index">
 
@@ -48,25 +47,27 @@
 
     <div class="form-group">
         <p></p>
-       
-        <p>
-            <label class="control-label">
-                @Model.RoutesFoundCount.ToString()  Itineraries found
-            </label>
-        </p>
 
-           <input id="IndexId" name="ShowingIndex" type="hidden" value=@Model.ShowingIndex  />
-           <a class="carousel-control-prev"  action="Previous" data-slide="prev">
-                <div class="btn btn-dark" style="width: 45px; height: 45px;">
-                    <span class="carousel-control-prev-icon mb-n2"></span>
-                </div>
-            </a>
+        <table class="table">
+            <thead>
 
-            <a class="carousel-control-next" action="Next" data-slide="next">
-                <div class="btn btn-dark" style="width: 45px; height: 45px;">
-                    <span class="carousel-control-next-icon mb-n2"></span>
-                </div>
-            </a>
+                <tr>
+                    <td>
+                        @Html.ActionLink("Previous", "Previous", "ItineraryByMonth", new {  ShowingIndex = @Model.ShowingIndex,  StartMonth = @Model.FilterStartMonth.MonthID, EndMonth = @Model.FilterEndMonth.MonthID })
+                    </td>
+                    <td>
+                        Showing  @Model.ShowingIndex.ToString()  of @Model.RoutesFoundCount.ToString()  Itineraries found
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("Next", "Next", "ItineraryByMonth", new {  ShowingIndex = @Model.ShowingIndex,  StartMonth = @Model.FilterStartMonth.MonthID, EndMonth = @Model.FilterEndMonth.MonthID} )
+                    </td>
+                </tr>
+            </thead>
+        </table>
+
+
+
 
         @foreach (var rule in @Model.RulesReport)
         {
@@ -112,7 +113,7 @@
                         <td>
                             <label class="control-label">@Model.FilterCountry1.Name</label>
                         </td>
-                  
+
                         <td>@Model.CountryReport.ElementAt(0)</td>
 
                     </tr>
