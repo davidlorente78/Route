@@ -108,7 +108,7 @@ namespace StaticData.Indonesia
 
         };
 
-        public static RangeChar MonsoonRangeDATATESTEvaluator = new RangeChar
+        public static RangeChar MonsoonRangeEvaluator = new RangeChar
         {
             RangeType = RangeTypes.MonsoonEvaluatorRangeType,
 
@@ -117,18 +117,18 @@ namespace StaticData.Indonesia
 
                 Items = new List<DictionaryItem<int, int>>()
                 {
-                    new DictionaryItem<int,int> { Key = 1, Value =0 },
-                    new DictionaryItem<int,int> { Key = 2, Value =0 },
-                    new DictionaryItem<int,int> { Key = 3, Value =0 },
+                    new DictionaryItem<int,int> { Key = 1, Value =-1 },
+                    new DictionaryItem<int,int> { Key = 2, Value =-1 },
+                    new DictionaryItem<int,int> { Key = 3, Value =-1 },
                     new DictionaryItem<int,int> { Key = 4, Value =0 },
-                    new DictionaryItem<int,int> { Key = 5, Value =0 },
-                    new DictionaryItem<int,int> { Key = 6, Value =0 },
-                    new DictionaryItem<int,int> { Key = 7, Value =0 },
-                    new DictionaryItem<int,int> { Key = 8, Value  = 0 },
-                    new DictionaryItem<int,int> { Key = 9, Value = 0 },
-                    new DictionaryItem<int,int> { Key = 10, Value = -1 },
-                    new DictionaryItem<int,int> { Key = 11, Value = 1 },
-                    new DictionaryItem<int,int> { Key = 12, Value = 1 },
+                    new DictionaryItem<int,int> { Key = 5, Value =1 },
+                    new DictionaryItem<int,int> { Key = 6, Value =1 },
+                    new DictionaryItem<int,int> { Key = 7, Value =1 },
+                    new DictionaryItem<int,int> { Key = 8, Value  = 1 },
+                    new DictionaryItem<int,int> { Key = 9, Value = 1 },
+                    new DictionaryItem<int,int> { Key = 10, Value = 0 },
+                    new DictionaryItem<int,int> { Key = 11, Value = -1 },
+                    new DictionaryItem<int,int> { Key = 12, Value = -1 },
                 }
 
             }

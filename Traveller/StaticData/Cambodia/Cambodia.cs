@@ -12,7 +12,7 @@ namespace StaticData.Cambodia
             Destinations = CambodiaDestinations.GetAll(),
             Frontiers = CambodiaFrontiers.GetAll(),
             Airports = CambodiaAirports.GetAll(),
-            Ranges = new List<RangeChar> { CambodiaRanges.SeasonRange , CambodiaRanges.MonsoonRange},
+            Ranges = new List<RangeChar> { CambodiaRanges.SeasonRange , CambodiaRanges.MonsoonRange, CambodiaRanges.MonsoonRangeEvaluator},
             ShowInDynamicHome = true,
             ShowInDynamicHomeOrder = 2,
             Visas = new List<Visa>() { CambodiaVisas.eVisa_Cambodia }

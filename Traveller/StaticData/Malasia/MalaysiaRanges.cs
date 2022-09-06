@@ -114,6 +114,7 @@ namespace StaticData.Malaysia
                     new DictionaryItem<string,string> { Key = "September", Value = "The climate on the east coast remains dry with relatively low humidity, sunshine and little rain. A northeast monsoon begins to blow, bringing slightly rougher sea conditions and a cooler temperature than the summer months. The west coast wet season declines although rain can still come. In particular, Penang and Langkawi can experience heavy storms. The west of Malaysia, where you’ll find popular beach spots like Langkawi and Pangkor, has heavier rain in September and October. However, it is still possible to experience a lovely beach stay with little more than a short sharp downpour at this time." },
 
                     new DictionaryItem<string,string> { Key = "October",Value = "The climate on the east coast remains dry with relatively low humidity, sunshine and little rain. A northeast monsoon begins to blow, bringing slightly rougher sea conditions and a cooler temperature than the summer months. The west coast wet season declines although rain can still come. In particular, Penang and Langkawi can experience heavy storms. The west of Malaysia, where you’ll find popular beach spots like Langkawi and Pangkor, has heavier rain in September and October. However, it is still possible to experience a lovely beach stay with little more than a short sharp downpour at this time." },
+
                     new DictionaryItem<string,string> { Key = "November", Value ="Dry and sunny weather returns to the west of Malaysia marking the start of the peak season. You can expect reliably hot weather, with long periods of sunshine on the west coast throughout this period. On the east coast, however, the monsoon brings heavy rains. Many resorts in eastern Malaysia close during this period, reopening again in March/April time. The east of Malaysia, including islands like Tioman, Redang and the Perhentian Islands, see heavy rains between November and February. These showers can be longer and heavier than those in the west, so we generally advise travellers to avoid the east of Malaysia at this time. " },
 
                     new DictionaryItem<string,string> { Key = "December", Value ="As ever, the weather in Malaysia in December is a decidedly mixed bag. It’s excellent on the west coast, with dry weather perfect for a beach stay and the less extreme heat makes it a perfect time for exploring too. On the east coast, however, downpours and storms are frequent and many resorts remain firmly closed. The east of Malaysia, including islands like Tioman, Redang and the Perhentian Islands, see heavy rains between November and February. These showers can be longer and heavier than those in the west, so we generally advise travellers to avoid the east of Malaysia at this time. " }
@@ -122,5 +123,34 @@ namespace StaticData.Malaysia
             }
 
         };
+
+        public static RangeChar MonsoonRangeEvaluator = new RangeChar
+        {
+            RangeType = RangeTypes.MonsoonEvaluatorRangeType,
+
+            EntityEvaluator_ByMonth = new EntityFrameworkDictionary<int, int>()
+            {
+
+                Items = new List<DictionaryItem<int, int>>()
+                {
+                    new DictionaryItem<int,int> { Key = 1, Value = 1 },
+                    new DictionaryItem<int,int> { Key = 2, Value = 1 },
+                    new DictionaryItem<int,int> { Key = 3, Value = 1 },
+                    new DictionaryItem<int,int> { Key = 4, Value = 1 },
+                    new DictionaryItem<int,int> { Key = 5, Value = 1 },
+                    new DictionaryItem<int,int> { Key = 6, Value = 1 },
+                    new DictionaryItem<int,int> { Key = 7, Value = 1 },
+                    new DictionaryItem<int,int> { Key = 8, Value = 1 },
+                    new DictionaryItem<int,int> { Key = 9, Value = 1 },
+                    new DictionaryItem<int,int> { Key = 10, Value = 1 },
+                    new DictionaryItem<int,int> { Key = 11, Value = 1 },
+                    new DictionaryItem<int,int> { Key = 12, Value = 1 },
+                }
+
+            }
+
+        };
+
+
     }
 }

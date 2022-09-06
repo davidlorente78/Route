@@ -79,7 +79,7 @@ namespace RouteDataManager.Repositories
             {
                 Code = 'I',
                 Name = "Indonesia",
-                Ranges = new List<RangeChar> { IndonesiaRanges.MonsoonRange , IndonesiaRanges.MonsoonRangeDATATESTEvaluator },
+                Ranges = new List<RangeChar> { IndonesiaRanges.MonsoonRange , IndonesiaRanges.MonsoonRangeEvaluator },
 
                 //Bali Lombok TODO
 
@@ -95,7 +95,7 @@ namespace RouteDataManager.Repositories
                 ShowInDynamicHomeOrder = 4,
                 Destinations = new List<Destination> { NepalDestinations.Kathmandu },
                 Airports = NepalAirports.GetAll(),
-                Ranges = new List<RangeChar> { NepalRanges.MonsoonRange , NepalRanges.MonsoonRangeDATATESTEvaluator },
+                Ranges = new List<RangeChar> { NepalRanges.MonsoonRange , NepalRanges.MonsoonRangeEvaluator },
 
                 Frontiers = new List<Frontier> {
 

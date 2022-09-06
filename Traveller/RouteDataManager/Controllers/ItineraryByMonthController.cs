@@ -68,7 +68,7 @@ namespace RouteDataManager.Controllers
             //Inicializacion Vector
             routeService.ruleContainer.Vector = countries.Select(c => c.Code).Distinct().ToList();
 
-            routeService.ruleContainer.Vector = new List<char>() { 'T', 'L', 'V' };
+            //routeService.ruleContainer.Vector = new List<char>() { 'T', 'L', 'V' };
 
             //Inicializacion Reglas
             AddRules(countries, StartMonth, routeService.ruleContainer.Vector);

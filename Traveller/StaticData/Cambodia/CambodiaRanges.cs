@@ -108,35 +108,35 @@ namespace StaticData.Cambodia
                     new DictionaryItem<string, string> { Key = "December", Value ="First period of the dry season is the least hot of the year. Coolest month" }, }
 
             }
-
         };
+
 
         public static RangeChar MonsoonRangeEvaluator = new RangeChar
         {
             RangeType = RangeTypes.MonsoonEvaluatorRangeType,
 
-            EntityDescription_ByMonth = new EntityFrameworkDictionary<string, string>()
+            EntityEvaluator_ByMonth = new EntityFrameworkDictionary<int, int>()
             {
 
-                Items = new List<DictionaryItem<string, string>>()
+                Items = new List<DictionaryItem<int, int>>()
                 {
-
-                    new DictionaryItem<string, string> { Key = "January", Value ="1" },
-                    new DictionaryItem<string, string> { Key = "February", Value ="1" },
-                    new DictionaryItem<string, string> { Key = "March", Value = "1" },
-                    new DictionaryItem<string, string> { Key = "April", Value = "0" },
-                    new DictionaryItem<string, string> { Key = "May", Value = "0" },
-                    new DictionaryItem<string, string> { Key = "June", Value = "0" },
-                    new DictionaryItem<string, string> { Key = "July", Value = "0" },
-                    new DictionaryItem<string, string> { Key = "August", Value  = "0" },
-                    new DictionaryItem<string, string> { Key = "September", Value = "0" },
-                    new DictionaryItem<string, string> { Key = "October", Value = "0" },
-                    new DictionaryItem<string, string> { Key = "November", Value ="1" },
-                    new DictionaryItem<string, string> { Key = "December", Value ="1" },
+                    new DictionaryItem<int,int> { Key = 1, Value =1 },
+                    new DictionaryItem<int,int> { Key = 2, Value =1 },
+                    new DictionaryItem<int,int> { Key = 3, Value =1 },
+                    new DictionaryItem<int,int> { Key = 4, Value =0 },
+                    new DictionaryItem<int,int> { Key = 5, Value =0 },
+                    new DictionaryItem<int,int> { Key = 6, Value =0 },
+                    new DictionaryItem<int,int> { Key = 7, Value =0 },
+                    new DictionaryItem<int,int> { Key = 8, Value  = 0 },
+                    new DictionaryItem<int,int> { Key = 9, Value = 0 },
+                    new DictionaryItem<int,int> { Key = 10, Value = 0 },
+                    new DictionaryItem<int,int> { Key = 11, Value = 1 },
+                    new DictionaryItem<int,int> { Key = 12, Value =1 },
                 }
 
             }
 
         };
+
     }
 }
