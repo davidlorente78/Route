@@ -76,33 +76,33 @@ namespace StaticData.Laos
 
             EntityDescription_ByMonth = new EntityFrameworkDictionary<string, string>()
             {
-
+                ///https://www.selectiveasia.com/weather/january
                 Items = new List<DictionaryItem<string, string>>()
                 {
 
-                    new DictionaryItem<string,string> { Key = "January",Value ="Cool dry season" },
+                    new DictionaryItem<string,string> { Key = "January",Value ="Cool dry season. December and January are part of dry and cool season. Central regions are having nice warm weather. Temperature range is between 22 and 25 °C (72-75 °F). Mountainous areas are naturally cooler with 15 to 21 °C (59-70 °F) depending on altitude of certain location with occasional rains. The dry season continues during the month of January, promising premium travelling conditions throughout Laos. Comfortable average temperatures, plenty of sunshine, and minimal rainfall can be expected across the country. " },
 
-                    new DictionaryItem<string,string> { Key = "February", Value ="Cool dry season" },
+                    new DictionaryItem<string,string> { Key = "February", Value ="Cool dry season. Entrying Hoy dry season. Technically February relates to hot season but first half of the month is rather comfortable for active vacation in the country. In addition amount of visitors’ decreases as well as pricing. February’s weather conditions are similar to January as dry season continues in Laos. Sunny days, comfortable temperatures and low rainfall can be expected throughout the country. It's an excellent time of year if you plan on trekking in Phongsali and the northern regions." },
 
-                    new DictionaryItem<string,string> { Key = "March", Value ="Hot dry season" },
+                    new DictionaryItem<string,string> { Key = "March", Value ="Hot dry season. Temperature range of spring in Laos may scare even salted travelers. At March and April air warms up to 30 – 40 °C (86-104 °F) on whole territory of the country. Even coolness of Mekong brings no relief for river is shallow. First two months of spring are part of dry and hot season. May marks beginning of longest wet and hot season. In fact it is the hottest month of a year. High temperatures are combined with extreme humidity and humongous amounts of rain. Staying in the country at this period is barely bearable. As dry season draws to a close, March sees the temperatures gradually rise throughout Laos, with the mercury pushing 30°C and even warmer in the south. Travel early in the month or head to the hills to escape the heat. " },
 
-                    new DictionaryItem<string,string> { Key = "April", Value ="Hot dry season" },  
-                    
-                    new DictionaryItem<string,string> { Key = "May", Value ="Rainy season" },   
-                    
-                    new DictionaryItem<string,string> { Key = "June",Value ="Rainy season" },   
-                    
-                    new DictionaryItem<string,string> { Key = "July", Value ="Rainy season" },   
-                    
-                    new DictionaryItem<string,string> { Key = "August", Value ="Rainy season" },   
-                    
-                    new DictionaryItem<string,string> { Key = "September", Value = "Rainy season" },   
-                    
-                    new DictionaryItem<string,string> { Key = "October",Value = "Rainy season" },   
-                    
-                    new DictionaryItem<string,string> { Key = "November", Value ="Cool dry season" },
+                    new DictionaryItem<string,string> { Key = "April", Value ="Hot dry season. Temperature range of spring in Laos may scare even salted travelers. At March and April air warms up to 30 – 40 °C (86-104 °F) on whole territory of the country. Even coolness of Mekong brings no relief for river is shallow. First two months of spring are part of dry and hot season. May marks beginning of longest wet and hot season. In fact it is the hottest month of a year. High temperatures are combined with extreme humidity and humongous amounts of rain. Staying in the country at this period is barely bearable.April in Laos is hot, hot, hot! Being the final month of Laos' dry season, days are typically sunny and rain-free, although the odd shower should be expected towards the end of the month.  " },
 
-                    new DictionaryItem<string,string> { Key = "December", Value ="Cool dry season" }
+                    new DictionaryItem<string,string> { Key = "May", Value ="Rainy season. Whilst rain can be expected throughout Laos during May, it is typically intense and short lived and quickly replaced by blue skies and sunshine, although longer downpours are generally experienced in the south of the country. Temperatures remain high, with Luang Prabang and Vientiane experiencing average temperatures of 28°C, whilst further south in Pakse and the 4000 Islands highs of 35°C are the norm. Avoid the short, heavy showers and you will find that May is still a great month of the year to visit Laos as plenty of sunshine can still be expected and visitor numbers are lower than previous months. " },   
+                    
+                    new DictionaryItem<string,string> { Key = "June",Value ="Rainy season. June is considerable time to visit the country. Short yet intense monsoon showers are cousin vivid growth of local vegetation and daily temperature range is acceptable lying between 24 °C and 30 °C (75-86 °F). Weather conditions of June are more or less same." },   
+                    
+                    new DictionaryItem<string,string> { Key = "July", Value ="Rainy season. July is one of the wettest months of the year in Laos, although showers tend to be short and intense, lasting for a few hours rather than all-day downpours, and plenty of dry days can still be expected. July is considerable time to visit the country. Short yet intense monsoon showers are cousin vivid growth of local vegetation and daily temperature range is acceptable" },   
+                    
+                    new DictionaryItem<string,string> { Key = "August", Value ="Rainy season. Hot, wet and humid characterises the weather in Laos in August. Wet season reaches its peak in August, which is one of the wettest months of the year in Laos. There is a high probability of daily rainfall with showers increasing in severity. At August showers are reaching their peak. Aside personal discomfort this circumstance makes difficulties in moving around the country. Dirt roads are damped so main personal transport, moped, lose its relevance. But all concerns can’t prevail the fact that summer is rather warm than hot season which often becomes key factor in making decision to travel to Laos at summer." },   
+                    
+                    new DictionaryItem<string,string> { Key = "September", Value = "Rainy season. Autumn brings relative stability to weather in Laos. At September there is still rainy but gradually temperature goes to comfortable 25 °C (77 °F) and showers are subsiding by the end of October. September’s weather conditions in Laos are similar to August, with a high probability of rain. Although as the month rolls on and dry season approaches the intense downpours become more infrequent and less severe, and sunshine gradually replaces overcast skies." },   
+                    
+                    new DictionaryItem<string,string> { Key = "October",Value = "Rainy season. Laos' wet season finally draws to a close in October, with a higher chance of dry days towards the end of the month. Average temperatures sit comfortably around the mid 20°Cs. All-in-all October is a good time of year to visit Laos and beat the crowds who flock back from November. Autumn brings relative stability to weather in Laos. At September there is still rainy but gradually temperature goes to comfortable 25 °C (77 °F) and showers are subsiding by the end of October. The country is exceptionally rich on cultural and natural sights. Temples of the capital, lakes, waterfalls, caves and river rapids of Mekong are providing great basis for planning unforgettable vacation. And at October with its mild temperatures and little precipitation is perfect time for this. " },   
+                    
+                    new DictionaryItem<string,string> { Key = "November", Value = "Cool dry season. November sees the start of dry season throughout Laos: the chance of rain is minimal for the next five months and sunny days are the norm. Following several months of rain, the countryside is lush and green, and river levels remain high, making November a great month for river cruising. Pleasant average temperatures hover around 23°C in Vientiane and Luang Prabang, and 26°C in Pakse and the 4000 Islands, with peak temperatures not expected until March. At November in Laos weather acquires optimal state for main type of entertainment – excursions. The former is the most comfortable time to visit Laos particularly in November and December, the rivers are high enough to make river travel a breeze. However it's more expensive to travel in Laos during this period as it is the peak season." },
+
+                    new DictionaryItem<string,string> { Key = "December", Value ="Cool dry season. December is one of the best months of the year to visit Laos. Throughout the country, days are typically dry and sunny, and the temperatures make travelling comfortable. December and January are part of dry and cool season. Central regions are having nice warm weather. Temperature range is between 22 and 25 °C (72-75 °F). Mountainous areas are naturally cooler with 15 to 21 °C (59-70 °F) depending on altitude of certain location with occasional rains.The former is the most comfortable time to visit Laos particularly in November and December, the rivers are high enough to make river travel a breeze. However it's more expensive to travel in Laos during this period as it is the peak season." }
                 }
 
             }
@@ -120,7 +120,7 @@ namespace StaticData.Laos
                 {
                     new DictionaryItem<int,int> { Key = 1, Value =1 },
                     new DictionaryItem<int,int> { Key = 2, Value =1 },
-                    new DictionaryItem<int,int> { Key = 3, Value =0 },
+                    new DictionaryItem<int,int> { Key = 3, Value =-1 },
                     new DictionaryItem<int,int> { Key = 4, Value =-1 },
                     new DictionaryItem<int,int> { Key = 5, Value =-1 },
                     new DictionaryItem<int,int> { Key = 6, Value =-1 },
