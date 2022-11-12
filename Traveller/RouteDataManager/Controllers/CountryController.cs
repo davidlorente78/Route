@@ -48,7 +48,7 @@ namespace RouteDataManager.Controllers
                 ViewBag.CountryId = id.Value;
 
                 var selectedCountryDestinations = countries.Single(c => c.CountryID == id.Value).Destinations.OrderBy(c=>c.Country.Name);
-                var selectedCountryFrontiers = countries.Single(c => c.CountryID == id.Value).Frontiers;
+                var selectedCountryFrontiers = countries.Single(c => c.CountryID == id.Value).BorderCrossings;
                 var selectedCountryVisas = countries.Single(c => c.CountryID == id.Value).Visas;
 
                

@@ -5,17 +5,18 @@ namespace RouteDataManager.Repositories
     public class UnitOfWork : IUnitOfWork
     {
         private readonly ApplicationContext _context;
+
         public UnitOfWork(ApplicationContext context)
         {
             _context = context;
             Countries = new CountryRepository(_context);
             Destinations = new DestinationRepository(_context);
-            Frontiers = new BorderCrossingRepository(_context);
+            BorderCrossings = new BorderCrossingRepository(_context);
         }
+
         public ICountryRepository Countries { get; private set; }
         public IDestinationRepository Destinations { get; private set; }
-        public IFrontierRepository Frontiers { get; private set; }
-
+        public IBorderCrossingRepository BorderCrossings { get; private set; }
 
         //TODO TO Check
         public int Complete()

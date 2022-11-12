@@ -13,9 +13,7 @@ namespace Traveller.Domain
 
         public BorderCrossing()
         {
-
             this.Visas = new HashSet<Visa>();
-
         }
         public int BorderCrossingID { get; set; }
 
@@ -29,11 +27,11 @@ namespace Traveller.Domain
 
         public string Name { get; set; }
         public string? Description { get; set; }
-        [Display(Name = "Frontier Type")]
-        public BorderCrossingType FrontierType { get; set; }     
+
+        [Display(Name = "Border Crossing Type")]
+        public BorderCrossingType BorderCrossingType { get; set; }     
 
         public virtual ICollection<Visa>? Visas { get; set; }
-
      
         public override string ToString()
         {

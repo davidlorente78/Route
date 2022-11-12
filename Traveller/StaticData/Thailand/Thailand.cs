@@ -19,7 +19,7 @@ namespace StaticData.Thailand
             Name = "Thailand",
             Visas = new List<Visa> { ThailandVisas.VisaExemption_Thailand },
             Destinations = ThailandDestinations.GetAll(),
-            Frontiers = ThailandFrontiers.GetAll(),
+            BorderCrossings = ThailandBorderCrossings.GetAll(),
             TrainLines = ThailandTrainLines.GetAll(),
             Airports = ThailandAirports.GetAll(),
             Ranges = new List<RangeChar> { ThailandRanges.SeasonRange , ThailandRanges.MonsoonRange , ThailandRanges.MonsoonRangeEvaluator },

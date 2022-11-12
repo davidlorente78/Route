@@ -21,7 +21,7 @@ namespace Traveller.Domain
         public int ShowInDynamicHomeOrder { get; set; }
         
         public virtual ICollection<Destination> Destinations { get; set; } = new List <Destination> ();
-        public virtual ICollection<BorderCrossing> Frontiers { get; set; } = new List<BorderCrossing>();
+        public virtual ICollection<BorderCrossing> BorderCrossings { get; set; } = new List<BorderCrossing>();
         public virtual ICollection<Visa> Visas { get; set; } = new List<Visa>();
         public virtual ICollection<RailwayLine> TrainLines { get; set; } = new List<RailwayLine>();
         public virtual ICollection<RangeChar> Ranges { get; set; } = new List<RangeChar>();

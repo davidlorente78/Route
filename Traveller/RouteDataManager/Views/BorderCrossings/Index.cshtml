@@ -1,4 +1,4 @@
-﻿@model RouteDataManager.ViewModels.FrontiersIndexViewModel
+﻿@model RouteDataManager.ViewModels.BorderCrossingsIndexViewModel
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -21,8 +21,8 @@
                         <select asp-for="@Model.FilterCountryFinal.CountryID" class="form-control" asp-items="@Model.SelectListCountriesFinal"></select>
                     </th>
                     <th>
-                        <label class="control-label">Frontier Type</label>
-                        <select asp-for="@Model.FilterFrontierType.BorderCrossingTypeID" class="form-control" asp-items="@Model.SelectListFrontierTypes"></select>
+                        <label class="control-label">Border Crossing Type</label>
+                        <select asp-for="@Model.FilterBorderCrossingType.BorderCrossingTypeID" class="form-control" asp-items="@Model.SelectListBorderCrossingTypes"></select>
                     </th>
 
                     <th>
@@ -60,13 +60,13 @@
                     Description
                 </th>
                 <th>
-                    Frontier Type
+                    Border Crossing Type
                 </th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model.Frontiers)
+            @foreach (var item in Model.BorderCrossings)
             {
                 <tr>
                     <td>
@@ -82,10 +82,10 @@
                         @Html.DisplayFor(modelItem => item.Description)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.FrontierType.Description)
+                        @Html.DisplayFor(modelItem => item.BorderCrossingType.Description)
                     </td>
 
-                    <td>    <a asp-action="Edit" class="btn btn-primary btn-block" asp-route-id="@item.BorderCrossingID">Edit</a></td>
+                    <td>   <a asp-action="Edit" class="btn btn-primary btn-block" asp-route-id="@item.BorderCrossingID">Edit</a></td>
                     <td>   <a asp-action="Details" class="btn btn-primary btn-block" asp-route-id="@item.BorderCrossingID">Details</a> </td>
                     <td>   <a asp-action="Delete" class="btn btn-primary btn-block" asp-route-id="@item.BorderCrossingID">Delete</a> </td>
 

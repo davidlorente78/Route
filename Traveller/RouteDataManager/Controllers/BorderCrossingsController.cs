@@ -16,42 +16,35 @@ namespace RouteDataManager.Controllers
             _context = context;
         }
 
-        //// GET: Frontiers
-        //public async Task<IActionResult> Index()
-        //{
-        //    var applicationContext = _context.Frontiers.Include(f => f.Final).Include(f => f.Origin).Include(f => f.FrontierType);
-        //    return View(await applicationContext.ToListAsync());
-        //}
 
-        public async Task<IActionResult> Index(FrontiersIndexViewModel frontiersIndexViewModel)
+        public async Task<IActionResult> Index(BorderCrossingsIndexViewModel borderCrossingsIndexViewModel)
         {
             IOrderedQueryable<BorderCrossing>? applicationContext;
 
-            if ((frontiersIndexViewModel.FilterCountryOrigin.CountryID != 0) && (frontiersIndexViewModel.FilterCountryFinal.CountryID != 0))
+            if ((borderCrossingsIndexViewModel.FilterCountryOrigin.CountryID != 0) && (borderCrossingsIndexViewModel.FilterCountryFinal.CountryID != 0))
             {
                 applicationContext = _context.BorderCrossings.Where(
-                    f => f.Origin.CountryID == frontiersIndexViewModel.FilterCountryOrigin.CountryID
-                && f.Final.CountryID == frontiersIndexViewModel.FilterCountryFinal.CountryID
-                && f.FrontierType.BorderCrossingTypeID == frontiersIndexViewModel.FilterFrontierType.BorderCrossingTypeID).Include(f => f.Origin).Include(f => f.Final).OrderBy(f => f.Name);
+                    f => f.Origin.CountryID == borderCrossingsIndexViewModel.FilterCountryOrigin.CountryID
+                && f.Final.CountryID == borderCrossingsIndexViewModel.FilterCountryFinal.CountryID
+                && f.BorderCrossingType.BorderCrossingTypeID == borderCrossingsIndexViewModel.FilterBorderCrossingType.BorderCrossingTypeID).Include(f => f.Origin).Include(f => f.Final).OrderBy(f => f.Name);
             }
             else
             {
                 applicationContext = (IOrderedQueryable<BorderCrossing>?)_context.BorderCrossings.Include(f => f.Final).Include(f => f.Origin);
             }
 
-            SelectList selectListCountriesOrigin = new SelectList(_context.Countries, "CountryID", "Name", frontiersIndexViewModel.FilterCountryOrigin.CountryID);
-            SelectList selectListCountriesFinal = new SelectList(_context.Countries, "CountryID", "Name", frontiersIndexViewModel.FilterCountryFinal.CountryID);
-            SelectList selectListFrontierTypes = new SelectList(_context.BorderCrossingTypes, "BorderCrossingTypeID", "Description", frontiersIndexViewModel.FilterFrontierType.BorderCrossingTypeID);
+            SelectList selectListCountriesOrigin = new SelectList(_context.Countries, "CountryID", "Name", borderCrossingsIndexViewModel.FilterCountryOrigin.CountryID);
+            SelectList selectListCountriesFinal = new SelectList(_context.Countries, "CountryID", "Name", borderCrossingsIndexViewModel.FilterCountryFinal.CountryID);
+            SelectList selectListBorderCrossingTypes = new SelectList(_context.BorderCrossingTypes, "BorderCrossingTypeID", "Description", borderCrossingsIndexViewModel.FilterBorderCrossingType.BorderCrossingTypeID);
 
-            frontiersIndexViewModel.SelectListCountriesOrigin = selectListCountriesOrigin;
-            frontiersIndexViewModel.SelectListCountriesFinal = selectListCountriesFinal;
-            frontiersIndexViewModel.SelectListFrontierTypes = selectListFrontierTypes;
-            frontiersIndexViewModel.Frontiers = await applicationContext.ToListAsync();
+            borderCrossingsIndexViewModel.SelectListCountriesOrigin = selectListCountriesOrigin;
+            borderCrossingsIndexViewModel.SelectListCountriesFinal = selectListCountriesFinal;
+            borderCrossingsIndexViewModel.SelectListBorderCrossingTypes = selectListBorderCrossingTypes;
+            borderCrossingsIndexViewModel.BorderCrossings = await applicationContext.ToListAsync();
 
-            return PartialView(frontiersIndexViewModel);
+            return PartialView(borderCrossingsIndexViewModel);
         }
 
-        // GET: Frontiers/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.BorderCrossings == null)
@@ -59,51 +52,46 @@ namespace RouteDataManager.Controllers
                 return NotFound();
             }
 
-            var frontier = await _context.BorderCrossings
+            var borderCrossing = await _context.BorderCrossings
                 .Include(f => f.Final)
                 .Include(f => f.Origin)
-                .Include(f => f.FrontierType)
+                .Include(f => f.BorderCrossingType)
                 .FirstOrDefaultAsync(m => m.BorderCrossingID == id);
 
-            if (frontier == null)
+            if (borderCrossing == null)
             {
                 return NotFound();
             }
 
-            return View(frontier);
+            return View(borderCrossing);
         }
 
-        // GET: Frontiers/Create
         public IActionResult Create()
         {
             ViewData["FinalID"] = new SelectList(_context.Destinations, "DestinationID", "Name");
             ViewData["OriginID"] = new SelectList(_context.Destinations, "DestinationID", "Name");
-            ViewData["FrontierTypes"] = new SelectList(_context.BorderCrossingTypes, "FrontierTypeID", "Description"); //Selected?
+            ViewData["BorderCrossingTypes"] = new SelectList(_context.BorderCrossingTypes, "BorderCrossingTypeID", "Description"); //Selected?
 
             return View();
         }
 
-        // POST: Frontiers/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FrontierID,OriginID,FinalID,Name,Description,FrontierTypeID")] BorderCrossing frontier)
+        public async Task<IActionResult> Create([Bind("BorderCrossingID,OriginID,FinalID,Name,Description,BorderCrossingTypeID")] BorderCrossing borderCrossing)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(frontier);
+                _context.Add(borderCrossing);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["FinalID"] = new SelectList(_context.Destinations, "DestinationID", "Name", frontier.FinalID);
-            ViewData["OriginID"] = new SelectList(_context.Destinations, "DestinationID", "Name", frontier.OriginID);
-            ViewData["FrontierTypes"] = new SelectList(_context.BorderCrossingTypes, "FrontierTypeID", "Description", frontier.FrontierType.BorderCrossingTypeID);
+            ViewData["FinalID"] = new SelectList(_context.Destinations, "DestinationID", "Name", borderCrossing.FinalID);
+            ViewData["OriginID"] = new SelectList(_context.Destinations, "DestinationID", "Name", borderCrossing.OriginID);
+            ViewData["BorderCrossingTypes"] = new SelectList(_context.BorderCrossingTypes, "BorderCrossingTypeID", "Description", borderCrossing.BorderCrossingType.BorderCrossingTypeID);
 
-            return View(frontier);
+            return View(borderCrossing);
         }
 
-        // GET: Frontiers/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.BorderCrossings == null)
@@ -111,62 +99,68 @@ namespace RouteDataManager.Controllers
                 return NotFound();
             }
 
-            var frontier = _context.BorderCrossings
+            var borderCrossing = _context.BorderCrossings
                 .Include(f => f.Final)
                 .Include(f => f.Origin)
-                .Include(f => f.FrontierType)
+                .Include(f => f.BorderCrossingType)
                 .Single(f => f.BorderCrossingID == id);
-            if (frontier == null)
+
+            if (borderCrossing == null)
             {
                 return NotFound();
             }
 
             //HERE items, data Value, data Text
-            ViewData["FinalID"] = new SelectList(_context.Destinations, "DestinationID", "Name", frontier.FinalID);
-            ViewData["OriginID"] = new SelectList(_context.Destinations, "DestinationID", "Name", frontier.OriginID);
-            ViewData["FrontierTypes"] = new SelectList(_context.BorderCrossingTypes, "FrontierTypeID", "Description", frontier.FrontierType.BorderCrossingTypeID);
+            ViewData["FinalID"] = new SelectList(_context.Destinations, "DestinationID", "Name", borderCrossing.FinalID);
+            ViewData["OriginID"] = new SelectList(_context.Destinations, "DestinationID", "Name", borderCrossing.OriginID);
+            ViewData["BorderCrossingTypes"] = new SelectList(_context.BorderCrossingTypes, "BorderCrossingTypeID", "Description", borderCrossing.BorderCrossingType.BorderCrossingTypeID);
 
-            return View(frontier);
+            return View(borderCrossing);
         }
 
-        // POST: Frontiers/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, BorderCrossing frontier)
+        public async Task<IActionResult> Edit(int id, BorderCrossing borderCrossing)
         {
-            if (id != frontier.BorderCrossingID)
+            if (id != borderCrossing.BorderCrossingID)
             {
                 return NotFound();
             }
 
             //TODO ASK
-            var FrontierTypeRecovered = _context.BorderCrossingTypes.Single(t => t.BorderCrossingTypeID == frontier.FrontierType.BorderCrossingTypeID);
-            frontier.FrontierType = FrontierTypeRecovered;
+            var BorderCrossingTypeRecovered = _context
+                .BorderCrossingTypes
+                .Single(t => t.BorderCrossingTypeID == borderCrossing.BorderCrossingType.BorderCrossingTypeID);
+            
+            borderCrossing.BorderCrossingType = BorderCrossingTypeRecovered;
 
             //Recover Final and Origin
 
-            var DestinationOriginRecovered = _context.Destinations.Include(f => f.DestinationTypes).Single(d => d.DestinationID == frontier.OriginID);
+            var DestinationOriginRecovered = _context.Destinations
+                .Include(f => f.DestinationTypes)
+                .Single(d => d.DestinationID == borderCrossing.OriginID);
 
-            frontier.Origin = DestinationOriginRecovered;
+            borderCrossing.Origin = DestinationOriginRecovered;
 
-            var DestinationFinalRecovered = _context.Destinations.Include(f => f.DestinationTypes).Single(d => d.DestinationID == frontier.FinalID);
+            var DestinationFinalRecovered = _context.Destinations
+                .Include(f => f.DestinationTypes)
+                .Single(d => d.DestinationID == borderCrossing.FinalID);
 
-            frontier.Final = DestinationFinalRecovered;
+            borderCrossing.Final = DestinationFinalRecovered;
 
             //TODO Model State check 
             //if (ModelState.IsValid)
             //{
             try
             {
-                _context.Update(frontier);
+                _context.Update(borderCrossing);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!FrontierExists(frontier.BorderCrossingID))
+                if (!BorderCrossingExists(borderCrossing.BorderCrossingID))
                 {
                     return NotFound();
                 }
@@ -178,14 +172,13 @@ namespace RouteDataManager.Controllers
 
             //}
 
-            ViewData["FinalID"] = new SelectList(_context.Destinations, "DestinationID", "Name", frontier.FinalID);
-            ViewData["OriginID"] = new SelectList(_context.Destinations, "DestinationID", "Name", frontier.OriginID);
-            ViewData["FrontierTypes"] = new SelectList(_context.BorderCrossingTypes, "FrontierTypeID", "Description", frontier.FrontierType.BorderCrossingTypeID);
+            ViewData["FinalID"] = new SelectList(_context.Destinations, "DestinationID", "Name", borderCrossing.FinalID);
+            ViewData["OriginID"] = new SelectList(_context.Destinations, "DestinationID", "Name", borderCrossing.OriginID);
+            ViewData["BorderCrossingTypes"] = new SelectList(_context.BorderCrossingTypes, "BorderCrossingTypeID", "Description", borderCrossing.BorderCrossingType.BorderCrossingTypeID);
 
-            return View(frontier);
+            return View(borderCrossing);
         }
 
-        // GET: Frontiers/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.BorderCrossings == null)
@@ -193,39 +186,40 @@ namespace RouteDataManager.Controllers
                 return NotFound();
             }
 
-            var frontier = await _context.BorderCrossings
+            var borderCrossing = await _context.BorderCrossings
                 .Include(f => f.Final)
                 .Include(f => f.Origin)
-                .Include(f => f.FrontierType)
+                .Include(f => f.BorderCrossingType)
                 .FirstOrDefaultAsync(m => m.BorderCrossingID == id);
-            if (frontier == null)
+
+            if (borderCrossing == null)
             {
                 return NotFound();
             }
 
-            return View(frontier);
+            return View(borderCrossing);
         }
 
-        // POST: Frontiers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.BorderCrossings == null)
             {
-                return Problem("Entity set 'ApplicationContext.Frontiers'  is null.");
+                return Problem("Entity set 'ApplicationContext.BorderCrossings'  is null.");
             }
-            var frontier = await _context.BorderCrossings.FindAsync(id);
-            if (frontier != null)
+
+            var borderCrossing = await _context.BorderCrossings.FindAsync(id);
+            if (borderCrossing != null)
             {
-                _context.BorderCrossings.Remove(frontier);
+                _context.BorderCrossings.Remove(borderCrossing);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool FrontierExists(int id)
+        private bool BorderCrossingExists(int id)
         {
             return (_context.BorderCrossings?.Any(e => e.BorderCrossingID == id)).GetValueOrDefault();
         }

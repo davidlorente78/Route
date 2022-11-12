@@ -4,7 +4,7 @@ using Traveller.Domain;
 
 namespace Traveller.StaticData
 {
-    public static class CambodiaFrontiers
+    public static class CambodiaBorderCrossings
     {
 
 
@@ -37,7 +37,7 @@ namespace Traveller.StaticData
                     Description = airport.Name,
                     Origin = airport.Destinations.FirstOrDefault(),
                     Final = airport.Destinations.FirstOrDefault(),
-                    FrontierType = FrontierTypes.Airport,
+                    BorderCrossingType = FrontierTypes.Airport,
                     Visas = new List<Visa> { CambodiaVisas.eVisa_Cambodia },
                 };
 
@@ -62,7 +62,7 @@ namespace Traveller.StaticData
                         Name = "Poipet",
                         Origin = ThailandDestinations.Aranyaprathet,
                         Final = CambodiaDestinations.Poipet,
-                        FrontierType = FrontierTypes.Terrestrial,
+                        BorderCrossingType = FrontierTypes.Terrestrial,
 
                         },
 
@@ -71,7 +71,7 @@ namespace Traveller.StaticData
                         Name = "Cham Yeam Border Check Point",
                         Origin = ThailandDestinations.BanHatLek, //Trat Province
                         Final = CambodiaDestinations.ChamYeam,
-                        FrontierType = FrontierTypes.Terrestrial,
+                        BorderCrossingType = FrontierTypes.Terrestrial,
 
                         },
 
@@ -84,7 +84,7 @@ namespace Traveller.StaticData
                         Name = "Ban Pakkad (Ban Pakard) Border Checkpoint (Thailand)",
                         Origin = ThailandDestinations.KhlongYai, //Ban Pakkad Border Checkpoint  WFGV+H9P, Khlong Yai, Pong Nam Ron District, Chanthaburi 22140, Tailandia
                         Final = CambodiaDestinations.Prom,
-                        FrontierType = FrontierTypes.Terrestrial,
+                        BorderCrossingType = FrontierTypes.Terrestrial,
                         Description = "This smaller, quieter crossing is not frequently used by tourists but you may find it handy if you find yourself in the area. On the Thai side, it is close to Chanthaburi, about an hour’s drive away, and Koh Chang, which is about two hours away. The unremarkable town of Pailin is about half an hour’s drive away on the Cambodian side. Realistically, it’s likely that other border crossings will be more convenient, however here they do issue visas on arrival."
                         },
 
@@ -96,7 +96,7 @@ namespace Traveller.StaticData
                         Name = "Bavet Border Checkpoint (Thailand)",
                         Origin = VietnamDestinations.MocBai, //Cửa Khẩu Mộc Bài
                         Final = CambodiaDestinations.Bavet, //ប៉ុស្ដិ៍ព្រំដែនបាវិត
-                        FrontierType = FrontierTypes.Terrestrial,
+                        BorderCrossingType = FrontierTypes.Terrestrial,
                         },
 
                     //Kaoam Samnor(Kandal Mekong)    Vietnam No  Sí
@@ -105,7 +105,7 @@ namespace Traveller.StaticData
                         Name = "Kaoam Samnor Border Checkpoint (K'am Samnar)",
                         Origin = VietnamDestinations.ThuongPhuoc , //Thuong Phuoc Gate
                         Final = CambodiaDestinations.KamSamnar, //ច្រកទ្វារព្រំដែនអន្តរជាតិក្អមសំណរ
-                        FrontierType = FrontierTypes.Terrestrial,
+                        BorderCrossingType = FrontierTypes.Terrestrial,
                         },
 
                     //Phnom Den(Takeo)   Vietnam No  Sí
@@ -116,7 +116,7 @@ namespace Traveller.StaticData
                         Name = "Tropaeng Kreal Border Post",
                         Origin = LaosDestinations.NongNokKhiene , 
                         Final = CambodiaDestinations.TropaengKreal, 
-                        FrontierType = FrontierTypes.Terrestrial,
+                        BorderCrossingType = FrontierTypes.Terrestrial,
                          Description = "This land border crossing is called Nong Nok Khiene on the Laos side and Tropaeng Kreal on the Cambodia side. The Cambodian province of Stung Treng borders the 4,000 Islands area of southern Laos."
                         },
                      

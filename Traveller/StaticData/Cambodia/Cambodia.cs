@@ -10,7 +10,7 @@ namespace StaticData.Cambodia
         {   Code ='C',
             Name = "Cambodia",
             Destinations = CambodiaDestinations.GetAll(),
-            Frontiers = CambodiaFrontiers.GetAll(),
+            BorderCrossings = CambodiaBorderCrossings.GetAll(),
             Airports = CambodiaAirports.GetAll(),
             Ranges = new List<RangeChar> { CambodiaRanges.SeasonRange , CambodiaRanges.MonsoonRange, CambodiaRanges.MonsoonRangeEvaluator},
             ShowInDynamicHome = true,

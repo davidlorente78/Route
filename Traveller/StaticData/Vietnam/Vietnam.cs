@@ -18,7 +18,7 @@ namespace StaticData.Vietnam
             Name = "Vietnam",
             Visas = new List<Visa> { VietnamVisas.eVisa_Vietnam, VietnamVisas.VisaExemption_Vietnam },
             Destinations = VietnamDestinations.GetAll(),
-            Frontiers = VietnamFrontiers.GetAll(),
+            BorderCrossings = VietnamBorderCrossings.GetAll(),
             Airports = VietnamAirports.GetAll(),
             TrainLines = VietnamTrainLines.GetAll(),
             Ranges = new List<RangeChar> { VietnamRanges.SeasonRange , VietnamRanges.MonsoonRange, VietnamRanges.MonsoonRangeEvaluator },

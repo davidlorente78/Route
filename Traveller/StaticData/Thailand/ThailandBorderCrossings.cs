@@ -4,7 +4,7 @@ using Traveller.StaticData;
 
 namespace StaticData.Thailand
 {   //https://www.thaiembassy.com/thailand/thailands-land-borders
-    public class ThailandFrontiers
+    public class ThailandBorderCrossings
 
     //Also, you should be aware that there is a rule that you can only obtain two visa-exempt entries at land borders per calendar year, but there is no such restriction by air.
     {
@@ -18,7 +18,7 @@ namespace StaticData.Thailand
                     Origin = LaosDestinations.Vientiane,
                     Final = ThailandDestinations.NongKhai,
                     Description = "With a “Friendship Bridge” separating the two countries, this border can be crossed easily using international buses, private taxis, or a tuk-tuk. You should be wary of any taxi or tuk-tuk drivers trying to take you anywhere other than the crossing itself as they are likely trying to get you to use and pay for the service of a travel agent who won’t do much more than fill out the forms for you.",
-                    FrontierType = FrontierTypes.Terrestrial,
+                    BorderCrossingType = FrontierTypes.Terrestrial,
                     Visas = new List<Visa>
                     { ThailandVisas.VisaExemption_Thailand
                     },
@@ -33,7 +33,7 @@ namespace StaticData.Thailand
                     Origin = LaosDestinations.Savannakhet,
                     Final = ThailandDestinations.Mukdahan,
                     Description = "Located in the northeastern region known as Isaan, Mukdahan and Savannakhet are separated by a bridge spanning the mighty Mekong River (the second “Friendship Bridge”). This crossing is very popular with ex-pats and tourists due to the Thai embassy in Savannakhet, which has long been known as one of the friendlier embassies where you can obtain a new visa and then re-enter Thailand. Savannakhet, although a fairly small, dusty provincial Laos town, does have a few markets, bars, and various restaurants, as well as a casino and, will keep you busy for a day or two whilst you wait for your visa to be processed (which is an overnight process). It is about two hours from Nakhon Phanom and there are two buses an hour from Mukdahan. There is no train line to Mukdahan",
-                    FrontierType = FrontierTypes.Terrestrial,
+                    BorderCrossingType = FrontierTypes.Terrestrial,
                     Visas = new List<Visa> { ThailandVisas.VisaExemption_Thailand },
 
                 }
@@ -46,7 +46,7 @@ namespace StaticData.Thailand
                     Origin = LaosDestinations.HuayXai,
                     Final = ThailandDestinations.ChiangKhong,
                     Description = "",
-                    FrontierType = FrontierTypes.Terrestrial,
+                    BorderCrossingType = FrontierTypes.Terrestrial,
                     Visas = new List<Visa> { ThailandVisas.VisaExemption_Thailand },
 
                 }
@@ -58,7 +58,7 @@ namespace StaticData.Thailand
                     Name = "Padang Pesar - Padang Pesar (Pekan Siam)",
                     Origin = MalaysiaDestinations.PadangPesar,
                     Final = ThailandDestinations.PadangPesar,
-                   FrontierType = FrontierTypes.Terrestrial,
+                   BorderCrossingType = FrontierTypes.Terrestrial,
                     Visas = new List<Visa> { ThailandVisas.VisaExemption_Thailand },
                     Description ="This crossing can be reached easily on both sides by public transport, including train (in which case you’ll need to alight from the train to clear immigration before getting back on). Known as a fairly friendly crossing, however, if you’re trying to enter Thailand here on a visa-exempt entry, they have been known to ask for a hotel booking and flight out of Thailand (as well as a sufficient amount of cash) before stamping you in, although these requests seem to be applied inconsistently. This can cause a bit of a headache if you haven’t made any plans yet, but you can make a booking with your smartphone and show it to them if you need to, so ensure you have some credit on your phone as you won’t be allowed to use their Wi-Fi."
 
@@ -71,7 +71,7 @@ namespace StaticData.Thailand
                     Name = "Sungai Kolok - Rantan Panjang",
                     Origin = MalaysiaDestinations.RantanPanjang,
                     Final = ThailandDestinations.SungaiKolok,
-                    FrontierType = FrontierTypes.Terrestrial,
+                    BorderCrossingType = FrontierTypes.Terrestrial,
                     Visas = new List<Visa> { ThailandVisas.VisaExemption_Thailand },
                     Description ="A popular crossing, there is plenty of public transportation available on both sides. Once stamped out, you’ll have a short walk across a bridge before being stamped into your next country. There are plenty of taxi drivers lurking on both sides of the border happy to give you a ride. Sungai Kolok is a small town, but it has a lot of very good value guesthouses and restaurants and would be a good place to spend the night if you’ve been traveling all day, then can cross the border first thing in the morning."
                 }
@@ -97,7 +97,7 @@ namespace StaticData.Thailand
                     Name = "Chong Mek - Vang Tao",
                     Origin = LaosDestinations.ChongMek,
                     Final = ThailandDestinations.VangTao,
-                    FrontierType = FrontierTypes.Terrestrial,
+                    BorderCrossingType = FrontierTypes.Terrestrial,
                     Visas = new List<Visa> { ThailandVisas.VisaExemption_Thailand },
                     Description = "The towns on both sides of this border are small and don’t have much to see or do other than shop at some fairly basic markets or grab a bite to eat. Once through to the crossing itself, there is a walk of a few hundred meters to enter the other immigration checkpoint. Chong Mek is around 100km east of Ubon Ratchathani, takes around an hour and a half in a taxi, and costs around 1000 baht ($33). On the Laos side, Pakse is the first point of interest and is about 40km or so east of the crossing, and takes under an hour to reach."
                 }
@@ -110,7 +110,7 @@ namespace StaticData.Thailand
                     Name = "Aranyaprathet",
                     Origin = CambodiaDestinations.Poipet,
                     Final = ThailandDestinations.Aranyaprathet,
-                    FrontierType = FrontierTypes.Terrestrial,
+                    BorderCrossingType = FrontierTypes.Terrestrial,
                     Visas = new List<Visa> { ThailandVisas.VisaExemption_Thailand },
                     Description ="By far the most popular crossing into Cambodia, this crossing can be reached by bus from Bangkok in around four hours. Hot and dusty, the plot of land between the two immigration offices is packed with casinos, which in general should be avoided. The immigration officials at this crossing are known for being overly militant when checking your details and may even deny entry back into Thailand if they think you’ve stayed “too long”. Also, this checkpoint is known for being rife with touts and scammers, don’t even think about changing your money here unless you want to lose a third of it immediately. In reality, if you have been in and out of Thailand several times already, you should avoid this crossing entirely and either use a different crossing or even fly into Thailand."
                 },
@@ -119,7 +119,7 @@ namespace StaticData.Thailand
                         Name = "Ban Hat Lek Border Check Point",
                         Origin = CambodiaDestinations.ChamYeam,
                         Final = ThailandDestinations.BanHatLek, //Trat Province
-                        FrontierType = FrontierTypes.Terrestrial,
+                        BorderCrossingType = FrontierTypes.Terrestrial,
 
                         },
 
@@ -127,7 +127,7 @@ namespace StaticData.Thailand
                         Name = "Ban Pakkad Border Checkpoint (Thailand)",
                         Origin = CambodiaDestinations.Prom,
                         Final = ThailandDestinations.KhlongYai, //Ban Pakkad Border Checkpoint  WFGV+H9P, Khlong Yai, Pong Nam Ron District, Chanthaburi 22140, Tailandia
-                        FrontierType = FrontierTypes.Terrestrial,
+                        BorderCrossingType = FrontierTypes.Terrestrial,
                          Description = "This smaller, quieter crossing is not frequently used by tourists but you may find it handy if you find yourself in the area. On the Thai side, it is close to Chanthaburi, about an hour’s drive away, and Koh Chang, which is about two hours away. The unremarkable town of Pailin is about half an hour’s drive away on the Cambodian side. Realistically, it’s likely that other border crossings will be more convenient, however here they do issue visas on arrival."
                        
                         },
@@ -163,7 +163,7 @@ namespace StaticData.Thailand
                     Description = airport.Name,
                     Origin = airport.Destinations.FirstOrDefault(),
                     Final = airport.Destinations.FirstOrDefault(),
-                    FrontierType = FrontierTypes.Airport,
+                    BorderCrossingType = FrontierTypes.Airport,
                     Visas = new List<Visa> { ThailandVisas.VisaExemption_Thailand },
                 };
 

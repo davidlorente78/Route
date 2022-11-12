@@ -20,7 +20,7 @@ namespace StaticData.Malaysia
             Name = "Malaysia",
             Destinations = MalaysiaDestinations.GetAll(),
             Airports = MalaysiaAirports.GetAll(),
-            Frontiers = MalaysiaFrontiers.GetAll(),
+            BorderCrossings = MalaysiaBorderCrossings.GetAll(),
             TrainLines = MalaysiaTrainLines.GetAll(),
             Ranges = new List<RangeChar> { MalaysiaRanges.SeasonRange , MalaysiaRanges.MonsoonRange, MalaysiaRanges.MonsoonRangeEvaluator },
             ShowInDynamicHome = true,

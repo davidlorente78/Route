@@ -11,7 +11,7 @@ namespace StaticData.Laos
             Code = 'L',
             Name = "Laos",
             Destinations = LaosDestinations.GetAll(),
-            Frontiers = LaosFrontiers.GetAll(),
+            BorderCrossings = LaosBorderCrossings.GetAll(),
             Airports = LaosAirports.GetAll(),
             Ranges = new List<RangeChar> { LaosRanges.SeasonRange , LaosRanges.MonsoonRange , LaosRanges.MonsoonRangeEvaluator},
             ShowInDynamicHome = true,
@@ -19,8 +19,6 @@ namespace StaticData.Laos
             Visas = new List<Visa> { LaosVisas.LaoVisa, LaosVisas.eLaoVisa },
 
         };
-
-
     }
 }
 

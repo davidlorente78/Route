@@ -5,8 +5,8 @@ namespace Traveller.DomainServices
 {
     public interface IBorderCrossingService
     {
-        ICollection<BorderCrossing> GetFrontiersByOriginCountryID(int originCountryID);
-        ICollection<BorderCrossing> GetFrontiersByFinalCountryID(int finalCountryID);
-        ICollection<BorderCrossing> GetFrontiersByOriginAndFinalCountryCode(int originCountryID, int finalCountryID);
+        ICollection<BorderCrossing> GetBorderCrossingsByOriginCountryID(int originCountryID);
+        ICollection<BorderCrossing> GetBorderCrossingsByFinalCountryID(int finalCountryID);
+        ICollection<BorderCrossing> GetBorderCrossingsByOriginAndFinalCountryCode(int originCountryID, int finalCountryID);
     }
 }

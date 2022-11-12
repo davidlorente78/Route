@@ -100,13 +100,13 @@ namespace RouteDataManager.Repositories
                 Airports = NepalAirports.GetAll(),
                 Ranges = new List<RangeChar> { NepalRanges.MonsoonRange, NepalRanges.MonsoonRangeEvaluator },
 
-                Frontiers = new List<BorderCrossing> {
+                BorderCrossings = new List<BorderCrossing> {
 
                             new BorderCrossing {
                             Name = NepalAirports.KTM.Name,
                             Origin = NepalDestinations.Kathmandu,
                             Final = NepalDestinations.Kathmandu,
-                            FrontierType = FrontierTypes.Airport,
+                            BorderCrossingType = FrontierTypes.Airport,
                             Visas = new List<Visa> { NepalVisas.OnArrivalVisa15_Nepal, NepalVisas.OnArrivalVisa30_Nepal, NepalVisas.OnArrivalVisa90_Nepal, NepalVisas.FreeVisa_Nepal } },
                         },
                 Visas = new List<Visa> { NepalVisas.OnArrivalVisa15_Nepal, NepalVisas.OnArrivalVisa30_Nepal, NepalVisas.OnArrivalVisa90_Nepal, NepalVisas.FreeVisa_Nepal }
@@ -132,13 +132,13 @@ namespace RouteDataManager.Repositories
                 //La lista de fronteras que se especifican son los puntos de entrada a Singapore
                 //El origen de la frontera es el del pais de entrada 
                 //El destino es la frontera del pais al que se entra. En este caso WoodLands
-                Frontiers = new List<BorderCrossing> {
+                BorderCrossings = new List<BorderCrossing> {
 
                             new BorderCrossing {
                             Name = "Singapore Changi Airport",
                             Origin = SingaporeDestinations.Singapore,
                             Final = SingaporeDestinations.Singapore,
-                            FrontierType = FrontierTypes.Airport,
+                            BorderCrossingType = FrontierTypes.Airport,
                            //https://www.ica.gov.sg/
                             Visas = new List<Visa> { SingaporeVisas.SGArrivalCard_Singapore } },
 
@@ -146,7 +146,7 @@ namespace RouteDataManager.Repositories
                             Name = SingaporeDestinations.WoodlandsCheckpoint.Name,
                             Origin = MalaysiaDestinations.JohorBahru,
                             Final = SingaporeDestinations.WoodlandsCheckpoint,
-                            FrontierType = FrontierTypes.Terrestrial,
+                            BorderCrossingType = FrontierTypes.Terrestrial,
                             Visas = new List<Visa> { SingaporeVisas.SGArrivalCard_Singapore } },
 
                             //Frontier https://en.wikipedia.org/wiki/Malaysia%E2%80%93Singapore_Second_Link

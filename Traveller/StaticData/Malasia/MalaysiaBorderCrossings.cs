@@ -4,7 +4,7 @@ using Traveller.StaticData;
 
 namespace StaticData.Malaysia
 {
-    public class MalaysiaFrontiers
+    public class MalaysiaBorderCrossings
     {
         public static List<BorderCrossing> GetAll()
 
@@ -35,7 +35,7 @@ namespace StaticData.Malaysia
                     Description = airport.Name,
                     Origin = airport.Destinations.FirstOrDefault(),
                     Final = airport.Destinations.FirstOrDefault(),
-                    FrontierType = FrontierTypes.Airport,
+                    BorderCrossingType = FrontierTypes.Airport,
                     Visas = new List<Visa> { ThailandVisas.VisaExemption_Thailand },
                 };
 
@@ -56,7 +56,7 @@ namespace StaticData.Malaysia
                     Name = "Padang Pesar",
                     Origin = ThailandDestinations.PadangPesar,
                     Final = MalaysiaDestinations.PadangPesar,
-                    FrontierType = FrontierTypes.Terrestrial,
+                    BorderCrossingType = FrontierTypes.Terrestrial,
                     Visas = new List<Visa> { MalaysiaVisas.freeVisa_Malaysia, MalaysiaVisas.eVisa_Malaysia }
                 }
 
@@ -66,7 +66,7 @@ namespace StaticData.Malaysia
                     Name = "Sungai Kolok - Rantan Panjang",
                     Origin = ThailandDestinations.SungaiKolok,
                     Final = MalaysiaDestinations.RantanPanjang,
-                    FrontierType = FrontierTypes.Terrestrial,
+                    BorderCrossingType = FrontierTypes.Terrestrial,
                     Visas = new List<Visa> { MalaysiaVisas.freeVisa_Malaysia, MalaysiaVisas.eVisa_Malaysia }
                 }
 
@@ -77,7 +77,7 @@ namespace StaticData.Malaysia
                     Origin = SingaporeDestinations.WoodlandsCheckpoint,
                     //https://onemotoring.lta.gov.sg/content/onemotoring/home/driving/traffic_information/traffic-cameras/woodlands.html#trafficCameras
                     Final = MalaysiaDestinations.JohorBahru,
-                    FrontierType = FrontierTypes.Terrestrial,
+                    BorderCrossingType = FrontierTypes.Terrestrial,
                     Visas = new List<Visa> { MalaysiaVisas.freeVisa_Malaysia, MalaysiaVisas.eVisa_Malaysia }
 
                 }

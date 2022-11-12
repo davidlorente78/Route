@@ -22,7 +22,7 @@ builder.Services.AddDbContext<ApplicationContext>(options =>
 
 #region Repositories
 builder.Services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-builder.Services.AddTransient<IFrontierRepository, BorderCrossingRepository>();
+builder.Services.AddTransient<IBorderCrossingRepository, BorderCrossingRepository>();
 builder.Services.AddTransient<ICountryRepository, CountryRepository>();
 builder.Services.AddTransient<IDestinationRepository, DestinationRepository>();
 

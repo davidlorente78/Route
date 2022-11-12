@@ -6,7 +6,7 @@ namespace RouteDataManager.Repositories
     {
         ICountryRepository Countries { get;  }
         IDestinationRepository Destinations { get;  }
-        IFrontierRepository Frontiers { get; }
+        IBorderCrossingRepository BorderCrossings { get; }
         int Complete();
     }
 }

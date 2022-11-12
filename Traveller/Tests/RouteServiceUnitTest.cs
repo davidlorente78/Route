@@ -115,7 +115,7 @@ namespace Test.RouteServiceUnitTest
         {
 
             //Access Laos from Thailand
-            var frontiers = frontierService.GetFrontiersByOriginAndFinalCountryCode('L', 'T');
+            var frontiers = frontierService.GetBorderCrossingsByOriginAndFinalCountryCode('L', 'T');
             
 
             //NongKhai e Internacional
