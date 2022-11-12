@@ -1,5 +1,6 @@
 ﻿using Domain.EntityFrameworkDictionary;
 using Domain.Ranges;
+using StaticData.EntityTypes;
 
 namespace StaticData.Nepal
 {

@@ -1,4 +1,6 @@
 ﻿using Domain;
+using Domain.Transport.Aviation;
+using Domain.Transport.Railway;
 using System.ComponentModel.DataAnnotations;
 
 namespace Traveller.Domain
@@ -18,19 +20,15 @@ namespace Traveller.Domain
         public string? Picture { get; set; }
 
         [Display(Name = "Destination Type")]
-        public List<DestinationType>? DestinationTypes { get; set; } = new List<DestinationType>();
+        public List<DestinationType> DestinationTypes { get; set; } = new List<DestinationType>();
       
-        public ICollection<Airport>? Airports { get; set; }
+        public ICollection<Airport> Airports { get; set; } = new List<Airport>();
 
-        public ICollection<Station>? Stations { get; set; }
-    }
+        public ICollection<RailwayStation> Stations { get; set; } = new List<RailwayStation>();
 
-    public class DestinationType
-    {
-        public int DestinationTypeID { get; set; }
-        public char? Code { get; set; }      
-        public string? Description { get; set; }
-        public ICollection<Destination> Destinations { get; set; }
+        public ICollection<Hotel> Hotels { get; set; } = new List<Hotel>();
 
     }
+
+ 
 }

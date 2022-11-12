@@ -11,6 +11,9 @@ using Traveller.Domain;
 using Traveller.StaticData;
 using StaticData.Indonesia;
 using Domain;
+using StaticData.EntityTypes;
+using Domain.Transport.Railway;
+using Domain.Transport.Aviation;
 
 namespace RouteDataManager.Repositories
 {
@@ -40,18 +43,18 @@ namespace RouteDataManager.Repositories
 
             if (!context.Months.Any())
             {
-                context.Months.Add(new Month { Name = "January" });
-                context.Months.Add(new Month { Name = "February" });
-                context.Months.Add(new Month { Name = "March" });
-                context.Months.Add(new Month { Name = "April" });
-                context.Months.Add(new Month { Name = "May" });
-                context.Months.Add(new Month { Name = "June" });
-                context.Months.Add(new Month { Name = "July" });
-                context.Months.Add(new Month { Name = "August" });
-                context.Months.Add(new Month { Name = "September" });
-                context.Months.Add(new Month { Name = "October" });
-                context.Months.Add(new Month { Name = "November" });
-                context.Months.Add(new Month { Name = "December" });
+                context.Months.Add(new Month { Order = 1, Name = "January" });
+                context.Months.Add(new Month { Order = 2, Name = "February" });
+                context.Months.Add(new Month { Order = 3, Name = "March" });
+                context.Months.Add(new Month { Order = 4, Name = "April" });
+                context.Months.Add(new Month { Order = 5, Name = "May" });
+                context.Months.Add(new Month { Order = 6, Name = "June" });
+                context.Months.Add(new Month { Order = 7, Name = "July" });
+                context.Months.Add(new Month { Order = 8, Name = "August" });
+                context.Months.Add(new Month { Order = 9, Name = "September" });
+                context.Months.Add(new Month { Order = 10, Name = "October" });
+                context.Months.Add(new Month { Order = 11, Name = "November" });
+                context.Months.Add(new Month { Order = 12, Name = "December" });
 
             }
 
@@ -79,7 +82,7 @@ namespace RouteDataManager.Repositories
             {
                 Code = 'I',
                 Name = "Indonesia",
-                Ranges = new List<RangeChar> { IndonesiaRanges.MonsoonRange , IndonesiaRanges.MonsoonRangeEvaluator },
+                Ranges = new List<RangeChar> { IndonesiaRanges.MonsoonRange, IndonesiaRanges.MonsoonRangeEvaluator },
 
                 //Bali Lombok TODO
 
@@ -95,11 +98,11 @@ namespace RouteDataManager.Repositories
                 ShowInDynamicHomeOrder = 4,
                 Destinations = new List<Destination> { NepalDestinations.Kathmandu },
                 Airports = NepalAirports.GetAll(),
-                Ranges = new List<RangeChar> { NepalRanges.MonsoonRange , NepalRanges.MonsoonRangeEvaluator },
+                Ranges = new List<RangeChar> { NepalRanges.MonsoonRange, NepalRanges.MonsoonRangeEvaluator },
 
-                Frontiers = new List<Frontier> {
+                Frontiers = new List<BorderCrossing> {
 
-                            new Frontier {
+                            new BorderCrossing {
                             Name = NepalAirports.KTM.Name,
                             Origin = NepalDestinations.Kathmandu,
                             Final = NepalDestinations.Kathmandu,
@@ -129,9 +132,9 @@ namespace RouteDataManager.Repositories
                 //La lista de fronteras que se especifican son los puntos de entrada a Singapore
                 //El origen de la frontera es el del pais de entrada 
                 //El destino es la frontera del pais al que se entra. En este caso WoodLands
-                Frontiers = new List<Frontier> {
+                Frontiers = new List<BorderCrossing> {
 
-                            new Frontier {
+                            new BorderCrossing {
                             Name = "Singapore Changi Airport",
                             Origin = SingaporeDestinations.Singapore,
                             Final = SingaporeDestinations.Singapore,
@@ -139,7 +142,7 @@ namespace RouteDataManager.Repositories
                            //https://www.ica.gov.sg/
                             Visas = new List<Visa> { SingaporeVisas.SGArrivalCard_Singapore } },
 
-                            new Frontier {
+                            new BorderCrossing {
                             Name = SingaporeDestinations.WoodlandsCheckpoint.Name,
                             Origin = MalaysiaDestinations.JohorBahru,
                             Final = SingaporeDestinations.WoodlandsCheckpoint,
@@ -172,51 +175,6 @@ namespace RouteDataManager.Repositories
             };
             context.Countries.Add(China);
 
-
-            //#endregion
-
-
-            #region DemoSepakers
-            //if (!context.Speakers.Any())
-            //{
-            //    context.Speakers.AddRange(new List<Speaker>()
-            //        {
-            //            new Speaker()
-            //            {
-            //              SpeakerName="Jack Christiansen",
-            //              Experience=5,
-            //              Qualification="MSc Computer Science",
-            //              SpeakingDate=DateTime.Now.AddDays(2) ,
-            //              SpeakingTime=DateTime.Now.AddDays(2).AddHours(18).AddMinutes(00),
-            //              ProfilePicture="/avatar.png",
-            //              Venue="Bangalore"
-            //            },
-            //            new Speaker()
-            //            {
-            //              SpeakerName="Brenden Legros",
-            //              Experience=7,
-            //              Qualification="MBA",
-            //              SpeakingDate=DateTime.Now.AddDays(2) ,
-            //              SpeakingTime=DateTime.Now.AddDays(2).AddHours(20).AddMinutes(00),
-            //              ProfilePicture="/avatar.png",
-            //              Venue="Hyderabad"
-            //            },
-            //            new Speaker()
-            //            {
-            //              SpeakerName="Julia Adward",
-            //              Experience=5,
-            //              Qualification="Digital Marketing",
-            //              SpeakingDate=DateTime.Now.AddDays(2) ,
-            //              SpeakingTime=DateTime.Now.AddDays(2).AddHours(20).AddMinutes(00),
-            //              ProfilePicture="/avatar.png",
-            //              Venue="Chennai"
-            //            }
-            //        });
-            //    context.SaveChanges();
-
-            //}
-            #endregion
-
             if (!context.RailwaySystems.Any())
             {
                 context.RailwaySystems.AddRange(new List<RailwaySystem>()
@@ -239,7 +197,6 @@ namespace RouteDataManager.Repositories
                           MapPicture="/Railway System Vietnam.jpg",
                           Description=""
                         },
-
                           new RailwaySystem()
                         {
                           Name="Railway System Sri Lanka",
@@ -247,8 +204,8 @@ namespace RouteDataManager.Repositories
                           Description=""
                         },
                     });
-                context.SaveChanges();
 
+                context.SaveChanges();
             }
 
 
@@ -263,7 +220,7 @@ namespace RouteDataManager.Repositories
                           MainAirport = MalaysiaAirports.KUL,
                           Name="Air Asia",
                           Picture="/air-asia-routes.jpg",
-                          Description="AirAsia (stylized as airasia) is a Malaysian multinational low-cost airline headquartered near Kuala Lumpur, Malaysia. It is the largest airline in Malaysia by fleet size and destinations. AirAsia operates scheduled domestic and international flights to more than 165 destinations spanning 25 countries.[4] Its main base is klia2, the low-cost carrier terminal at Kuala Lumpur International Airport (KLIA) in Sepang, Selangor, Malaysia."
+                          Description="AirAsia (stylized as airasia) is a Malaysian multinational low-cost airline headquartered near Kuala Lumpur, Malaysia. It is the largest airline in Malaysia by fleet size and destinations. AirAsia operates scheduled domestic and international flights to more than 165 destinations spanning 25 countries. Its main base is KLIA2, the low-cost carrier terminal at Kuala Lumpur International Airport (KLIA) in Sepang, Selangor, Malaysia."
                         },
 
                         new Airline()
@@ -275,8 +232,6 @@ namespace RouteDataManager.Repositories
                           Picture="/fly-scoot.jpg",
                           Description="Scoot Pte Ltd, operating as Scoot, is a Singaporean low-cost airline and a wholly owned subsidiary of Singapore Airlines. It began its operations on 4 June 2012 on medium and long-haul routes from Singapore, predominantly to various airports throughout the Asia-Pacific."  }
                     ,
-
-
                         new Airline()
                         {
                           IATACode ="DD",
@@ -286,20 +241,17 @@ namespace RouteDataManager.Repositories
                           Name="Nok Air",
                           Picture="/nok-air-rutas.png",
                           Description="Nok Air is a low-cost airline in Thailand operating mostly domestic services out of Bangkok's Don Mueang International Airport. Nok Air also offers ferry services to domestic island destinations as well as domestic and cross border coach services to Vientiane and Pakse in Laos in conjunction with other tour operators."
-
                         }
                         ,
                          new Airline()
                         {
                           IATACode ="DD",
-
                           MainAirport = ThailandAirports.BKK,
                           Url ="bangkokair.com",
                           Name="Bangkok Airways",
                           Picture="/bangkok-airways-routes-map.jpg",
-                          Description=" is a regional airline based in Bangkok, Thailand.[2] It operates scheduled services to destinations in Thailand, Cambodia, China, Hong Kong, India, Laos, Malaysia, Maldives, Myanmar, Singapore, and Vietnam. Its main base is Suvarnabhumi Airport."
+                          Description=" is a regional airline based in Bangkok, Thailand. It operates scheduled services to destinations in Thailand, Cambodia, China, Hong Kong, India, Laos, Malaysia, Maldives, Myanmar, Singapore, and Vietnam. Its main base is Suvarnabhumi Airport."
                         }
-
                        ,
                          new Airline()
                         {
@@ -308,11 +260,8 @@ namespace RouteDataManager.Repositories
                           Url ="www.jetstar.com",
                           Name="Jet Star Airways",
                           Picture="/jetstar-route.jpg",
-                          Description="Is an Australian low-cost airline headquartered in Melbourne.[4][5] It is a wholly owned subsidiary of Qantas, created in response to the threat posed by airline Virgin Blue. Jetstar is part of Qantas' two brand strategy[6] of having Qantas Airways for the premium full-service market and Jetstar for the low-cost market. "
+                          Description="Is an Australian low-cost airline headquartered in Melbourne. It is a wholly owned subsidiary of Qantas, created in response to the threat posed by airline Virgin Blue. Jetstar is part of Qantas' two brand strategy of having Qantas Airways for the premium full-service market and Jetstar for the low-cost market."
                          }
-
-
-
                 });
 
 
@@ -348,12 +297,23 @@ namespace RouteDataManager.Repositories
                     //Buscar si existe un aeropuerto que tenga como destino la destination que estamos tratando
                     var airports = context.Airports
                             .Where(
-                                s => s.Destinations.Select(d => d.Name).Contains(destination.Name)
+                                a => a.Destinations.Select(a => a.Name).Contains(destination.Name)
                              );
+
+                    var stations = context.RailwayStations
+                           .Where(
+                               s => s.Destinations.Select(d => d.Name).Contains(destination.Name)
+                            );
+
 
                     foreach (Airport airport in airports)
                     {
                         destination.Airports.Add(airport);
+                    }
+
+                    foreach (RailwayStation station in stations)
+                    {
+                        destination.Stations.Add(station);
                     }
 
                     context.Update(destination);
@@ -361,7 +321,6 @@ namespace RouteDataManager.Repositories
                 }
 
 
-            
 
             }
 

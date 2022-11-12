@@ -1,0 +1,108 @@
+﻿@using RouteDataManager.ViewModels
+@model StationIndexViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-action="Index">
+
+    <div class="form-group">
+        <table class="table">
+            <thead>
+
+                <tr>
+                    <th>
+                        <label class="control-label">Country</label>
+                        <select  id ="ddlCountries" asp-for="@Model.FilterCountry.CountryID"  class="form-control" asp-items="@Model.SelectListCountries"></select>
+                    </th>
+
+                    <th>
+                        <label class="control-label">Line</label>
+                        <select id ="ddlLines" asp-for="@Model.FilterLine.RailwayLineID" class="form-control" asp-items="@Model.SelectListLines"></select>
+                    </th>
+
+                    <th>
+
+                    </th>
+
+                    <th>
+
+                    </th>
+
+                    <th>
+                        <input type="submit" value="Search" class="btn btn-primary btn-block" />
+                    </th>
+                </tr>
+
+            </thead>
+        </table>
+
+    </div>
+</form>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary rounded-0"><i class="fa fa-plus-circle"></i>Add New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Local Name
+            </th>
+
+            <th>
+                Remarks
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Stations)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LocalName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remarks)
+                </td>
+
+
+                <td>   <a asp-action="Edit" class="btn btn-primary btn-block" asp-route-id="@item.RailwayStationID">Edit</a></td>
+                <td>   <a asp-action="Details" class="btn btn-primary btn-block" asp-route-id="@item.RailwayStationID">Details</a> </td>
+                <td>   <a asp-action="Delete" class="btn btn-primary btn-block" asp-route-id="@item.RailwayStationID">Delete</a> </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+
+@section scripts {
+
+    <script>
+        $(document).ready(function () {
+            $("#ddlCountries").change(function () {
+                $.get("/Stations/GetLinesListByCountryID", { CountryID: $("#ddlCountries").val() }, function (data) {
+                    $("#ddlLines").empty();                
+                    $.each(data, function (index, row) {
+                        $("#ddlLines").append("<option value='" + row.value + "'>" + row.text + "</option>")
+                    });
+                });
+            });
+        });
+    </script>
+
+}
+

@@ -9,7 +9,7 @@ namespace RouteDataManager.ViewModels
         /// </summary>
         public IEnumerable<Country> Countries { get; set; }
         public IEnumerable<Traveller.Domain.Destination> Destinations { get; set; }
-        public IEnumerable<Frontier> Frontiers { get; set; }
+        public IEnumerable<BorderCrossing> Frontiers { get; set; }
 
         public IEnumerable<Visa> Visas { get; set; }
     }

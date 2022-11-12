@@ -1,4 +1,4 @@
-﻿using StaticData;
+﻿using StaticData.EntityTypes;
 using StaticData.Vietnam;
 using Traveller.Domain;
 

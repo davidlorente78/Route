@@ -1,16 +1,17 @@
 ﻿using Domain;
+using Domain.Transport.Railway;
 
 namespace StaticData.Thailand
 {
     public static class ThailandTrainBranches
     {
         //TODO Khiri Ratthanikhom
-        public static Branch SouthernLine = new Branch
+        public static RailwayBranch SouthernLine = new RailwayBranch
         {
 
             Name = "Southern Line",
             MainBranch = true,
-            Stations = new List<Station>
+            Stations = new List<RailwayStation>
             {   ThailandTrainStations.BangkokHuaLamphong,
                 ThailandTrainStations.Ratchaburi,
                 ThailandTrainStations.Phetchaburi,
@@ -32,13 +33,13 @@ namespace StaticData.Thailand
             
         };
        
-        public static Branch SouthernLine_KantangBranch = new Branch
+        public static RailwayBranch SouthernLine_KantangBranch = new RailwayBranch
         {
             
             Name = "Southern Line Kantang Branch",
             Description = "Southern Line Kantang Branch",
             MainBranch = false,
-            Stations = new List<Station>
+            Stations = new List<RailwayStation>
             {
                 ThailandTrainStations.ThungSongJunction,
                 ThailandTrainStations.Trang,
@@ -48,12 +49,12 @@ namespace StaticData.Thailand
                       
                    };
 
-        public static Branch SouthernLine_PadangBesar = new Branch
+        public static RailwayBranch SouthernLine_PadangBesar = new RailwayBranch
         {
             Name = "Southern Line Padang Besar Branch",
             Description = "Southern Line Padang Besar Branch",
             MainBranch = false,
-            Stations = new List<Station>
+            Stations = new List<RailwayStation>
             {
                 ThailandTrainStations.HatYaiJunction,
                 ThailandTrainStations.PadangBesar,
@@ -64,12 +65,12 @@ namespace StaticData.Thailand
         };
 
 
-        public static Branch NorthernLine= new Branch
+        public static RailwayBranch NorthernLine= new RailwayBranch
         {
             Name = "Northern Line",
             Description = "Northern Line",
             MainBranch = true,
-            Stations = new List<Station>
+            Stations = new List<RailwayStation>
             {
                 ThailandTrainStations.BangkokHuaLamphong,
                 //Yommarat
@@ -207,12 +208,12 @@ namespace StaticData.Thailand
 
         };
 
-        public static Branch NorthernLine_Sawankhalok = new Branch
+        public static RailwayBranch NorthernLine_Sawankhalok = new RailwayBranch
         {
             Name = "Northern Line Sawan Khalok Branch",
             Description = "Northern Line Sawan Khalok Branch",
             MainBranch = false,
-            Stations = new List<Station>
+            Stations = new List<RailwayStation>
             {
                 ThailandTrainStations.BanDaraJunction,
                 ThailandTrainStations.KhlongMaphlap,
@@ -223,12 +224,12 @@ namespace StaticData.Thailand
         };
 
 
-        public static Branch NorthEasternLine_UbonRatchathani = new Branch
+        public static RailwayBranch NorthEasternLine_UbonRatchathani = new RailwayBranch
         {
             Name = "North East Line Ubon Ratchathani Branch",
             Description = "North East Line Ubon Ratchathani Branch",
             MainBranch = true,
-            Stations = new List<Station>
+            Stations = new List<RailwayStation>
              {
                 ThailandTrainStations.BanPachi,
                 ThailandTrainStations.KaengKhoiJuction,
@@ -241,12 +242,12 @@ namespace StaticData.Thailand
 
         };
 
-        public static Branch NorthEasternLineLine_NongKhai = new Branch
+        public static RailwayBranch NorthEasternLineLine_NongKhai = new RailwayBranch
         {
             Name = "North East Line Ubon NongKhai Branch",
             Description = "North East Line Ubon NongKhai Branch",
             MainBranch = true,
-            Stations = new List<Station>
+            Stations = new List<RailwayStation>
              {
                 ThailandTrainStations.BanPachi,
                 ThailandTrainStations.KaengKhoiJuction,
@@ -259,12 +260,12 @@ namespace StaticData.Thailand
 
         };
 
-        public static Branch NorthEasternLine_BuaYai_ThanonChira = new Branch
+        public static RailwayBranch NorthEasternLine_BuaYai_ThanonChira = new RailwayBranch
         {
             Name = "North East Line Bua Yai Junction - Thanon Chira Junction Branch",
             Description = "North East Line Bua Yai Junction - Thanon Chira Junction Branch",
             MainBranch = false,
-            Stations = new List<Station>
+            Stations = new List<RailwayStation>
              {
                 ThailandTrainStations.BuaYaiJunction,
                 ThailandTrainStations.ThanonChiraJunction,              
@@ -274,12 +275,12 @@ namespace StaticData.Thailand
         };
 
 
-        public static Branch EasternLine_Pattaya = new Branch
+        public static RailwayBranch EasternLine_Pattaya = new RailwayBranch
         {
             Name = "Eastern Line Pattaya",
             Description = "",
             MainBranch = true,
-            Stations = new List<Station>
+            Stations = new List<RailwayStation>
              {
                 ThailandTrainStations.BangkokHuaLamphong,
                 ThailandTrainStations.ChachengsaoJunction,
@@ -292,12 +293,12 @@ namespace StaticData.Thailand
 
         };
 
-        public static Branch EasternLine_Pattaya_MarpTaPutBranch = new Branch
+        public static RailwayBranch EasternLine_Pattaya_MarpTaPutBranch = new RailwayBranch
         {
             Name = "Eastern Line Pattaya - MarpTaPut Branch ",
             Description = "",
             MainBranch = true,
-            Stations = new List<Station>
+            Stations = new List<RailwayStation>
              {        
                 ThailandTrainStations.Pattaya,
                 ThailandTrainStations.MarpTaPut,
@@ -306,12 +307,12 @@ namespace StaticData.Thailand
 
         };
 
-        public static Branch EasternLine_Aranyaprathet = new Branch
+        public static RailwayBranch EasternLine_Aranyaprathet = new RailwayBranch
         {
             Name = "Eastern Line Pattaya - Aranyaprathet  Branch ",
             Description = "",
             MainBranch = true,
-            Stations = new List<Station>
+            Stations = new List<RailwayStation>
              {
                 ThailandTrainStations.BangkokHuaLamphong,
                 ThailandTrainStations.Aranyaprathet,
@@ -319,10 +320,10 @@ namespace StaticData.Thailand
 ,
 
         };
-        public static ICollection<Branch> GetSoutherLineAllBranches()
+        public static ICollection<RailwayBranch> GetSoutherLineAllBranches()
         {
             //Branch Lines must be returned here in order to avoid Key message error
-            return new List<Branch> { SouthernLine , SouthernLine_KantangBranch , SouthernLine_PadangBesar };
+            return new List<RailwayBranch> { SouthernLine , SouthernLine_KantangBranch , SouthernLine_PadangBesar };
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using StaticData;
+﻿using StaticData.EntityTypes;
 using StaticData.Malaysia;
 using Traveller.Domain;
 

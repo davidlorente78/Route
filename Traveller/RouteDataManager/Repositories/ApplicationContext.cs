@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using CURDOperationWithImageUploadCore5_Demo.Models;
 using System.Collections;
 using Domain.Ranges;
+using Domain.Transport.Railway;
+using Domain.Transport.Aviation;
 
 namespace RouteDataManager.Repositories
 {
@@ -35,7 +37,7 @@ namespace RouteDataManager.Repositories
             //En este caso no es necesario porque ya se encarga EF de formar el plural directamente
             modelBuilder.Entity<Destination>().ToTable("Destinations");
 
-            modelBuilder.Entity<Branch>().ToTable("Branches");
+            modelBuilder.Entity<RailwayBranch>().ToTable("Branches");
 
             #region Speakers
             modelBuilder.Entity("CURDOperationWithImageUploadCore5_Demo.Models.Speaker", b =>
@@ -93,36 +95,35 @@ namespace RouteDataManager.Repositories
        
         public DbSet<Destination>? Destinations { get; set; }
 
-        public DbSet<Frontier>? Frontiers { get; set; }
+        public DbSet<BorderCrossing>? BorderCrossings { get; set; }
 
         public DbSet<DestinationType>? DestinationTypes { get; set; }
 
-        public DbSet<FrontierType>? FrontierTypes { get; set; }
+        public DbSet<BorderCrossingType>? BorderCrossingTypes { get; set; }
 
-        public DbSet<Line>? Lines { get; set; }
+        public DbSet<RailwaySystem>? RailwaySystems { get; set; }
 
-        public DbSet<Station>? Stations { get; set; }
+        public DbSet<RailwayLine>? RailwayLines { get; set; }
 
-        public DbSet<Branch>? Branches { get; set; }
+        public DbSet<RailwayStation>? RailwayStations { get; set; }
+
+        public DbSet<RailwayBranch>? RailwayBranches { get; set; }
 
         public DbSet<Visa>? Visas { get; set; }
 
         public DbSet<Speaker>? Speakers { get; set; }
 
-        public DbSet<RailwaySystem>? RailwaySystems { get; set; }
-
         public DbSet<Airport>? Airports { get; set; }
 
         public DbSet<AirportType>? AirportTypes { get; set; }
-
-        public DbSet<Nationality>? Nationalities { get; set; }
 
         public DbSet<Airline>? Airlines { get; set; }
 
         public DbSet<AirlineType>? AirlineTypes { get; set; }
 
-        public DbSet<RangeChar>? Ranges { get; set; }
+        public DbSet<Nationality>? Nationalities { get; set; }    
 
+        public DbSet<RangeChar>? Ranges { get; set; }
 
         public DbSet<RangeType>? RangeTypes { get; set; }
 

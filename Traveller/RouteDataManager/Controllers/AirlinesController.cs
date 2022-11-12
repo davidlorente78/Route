@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Domain.Transport.Aviation;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RouteDataManager.Models;
 using RouteDataManager.Repositories;
 using RouteDataManager.ViewModels.Airline;
-using Traveller.Domain;
 
 namespace CURDOperationWithImageUploadCore5_Demo.Controllers
 {

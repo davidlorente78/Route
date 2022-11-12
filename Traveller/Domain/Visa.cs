@@ -4,9 +4,7 @@ using System.ComponentModel;
 namespace Traveller.Domain
 {
     public class Visa
-    {
-
-      
+    {      
         public int VisaID { get; set; }
         public string Name { get; set; }
         public string? Description { get; set; }

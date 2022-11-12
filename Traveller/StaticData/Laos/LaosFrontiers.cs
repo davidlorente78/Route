@@ -1,4 +1,4 @@
-﻿using StaticData;
+﻿using StaticData.EntityTypes;
 using StaticData.Laos;
 using Traveller.Domain;
 
@@ -8,7 +8,7 @@ namespace Traveller.StaticData
     {
 
   
-        public static Frontier Frienship_Bridge_I = new Frontier
+        public static BorderCrossing Frienship_Bridge_I = new BorderCrossing
         {
             Name = "Thailand Laos Frienship Bridge I",
 
@@ -22,7 +22,7 @@ namespace Traveller.StaticData
 
     
 
-        public static Frontier Frienship_Bridge_II = new Frontier
+        public static BorderCrossing Frienship_Bridge_II = new BorderCrossing
         {
             Name = "Thailand Laos Frienship Bridge II",
             Description = "Bridge over the Mekong that connects Mukdahan Province in Thailand with Savannakhet in Laos. Located in the northeastern region known as Isaan, Mukdahan and Savannakhet are separated by a bridge spanning the mighty Mekong River (the second “Friendship Bridge”). This crossing is very popular with ex-pats and tourists due to the Thai embassy in Savannakhet, which has long been known as one of the friendlier embassies where you can obtain a new visa and then re-enter Thailand. Savannakhet, although a fairly small, dusty provincial Laos town, does have a few markets, bars, and various restaurants, as well as a casino and, will keep you busy for a day or two whilst you wait for your visa to be processed (which is an overnight process). It is about two hours from Nakhon Phanom and there are two buses an hour from Mukdahan. There is no train line to Mukdahan",
@@ -34,7 +34,7 @@ namespace Traveller.StaticData
         };
 
 
-        public static Frontier ChiangKhongHuayXai = new Frontier
+        public static BorderCrossing ChiangKhongHuayXai = new BorderCrossing
         {
             Name = "Thailand Laos Chiang Khong - Huay Xai",
             Origin = ThailandDestinations.ChiangKhong,
@@ -46,7 +46,7 @@ namespace Traveller.StaticData
         };
 
 
-        public static Frontier ChongMekVangTao = new Frontier
+        public static BorderCrossing ChongMekVangTao = new BorderCrossing
         {
             Name = "Chong Mek - Vang Tao",
             Origin = ThailandDestinations.VangTao,
@@ -55,7 +55,7 @@ namespace Traveller.StaticData
         };
 
 
-        public static Frontier TayTrangTaichang = new Frontier {
+        public static BorderCrossing TayTrangTaichang = new BorderCrossing {
             Name = "Laos Vietnam  Sop Hun - Tay Trang ",
             Description = "Used by buses going from Vientiane to Hanoi and vice versa. It is also possible to use it if you are going to or coming from Sapa (Vietnam).",
             Origin = VietnamDestinations.TayTrang,
@@ -65,7 +65,7 @@ namespace Traveller.StaticData
 
         };
 
-        public static Frontier NamkanNhapCanh =  new Frontier
+        public static BorderCrossing NamkanNhapCanh =  new BorderCrossing
         {
             Name = "Laos Vietnam Namkan - Nhap Canh ",
             Description = "It is used by buses going from Vientiane or Luang Prabang to Hanoi and vice versa. It is also possible to use it if you are coming or going from Sapa (Vietnam).",
@@ -76,7 +76,7 @@ namespace Traveller.StaticData
 
 
 
-        public static Frontier DansavanhLaoBao = new Frontier {
+        public static BorderCrossing DansavanhLaoBao = new BorderCrossing {
             Name = "Laos Vietnam Lao Bao - Dansavanh ",
             Description = "Border crossing near Hue. At the same border there are buses to Pakse (Laos) and another bus terminal to Savannakhet.",
             Origin = VietnamDestinations.LaoBao,
@@ -87,7 +87,7 @@ namespace Traveller.StaticData
 
         };
 
-        public static Frontier NamPhaoCauTreo = new Frontier
+        public static BorderCrossing NamPhaoCauTreo = new BorderCrossing
         {
             Name = "Laos Vietnam Nam Phao - Cau Treo",
             Description = "Border crossing point near Vinh",
@@ -100,7 +100,7 @@ namespace Traveller.StaticData
         };
 
         //Tropaeng Kreal Border Post(Stung Treng)    Laos Sí  Sí
-        public static Frontier TropaengKreal = new Frontier
+        public static BorderCrossing TropaengKreal = new BorderCrossing
         {
             Name = "Tropaeng Kreal Border Post",
             Origin = CambodiaDestinations.TropaengKreal,
@@ -109,12 +109,12 @@ namespace Traveller.StaticData
             Description = "This land border crossing is called Nong Nok Khiene on the Laos side and Tropaeng Kreal on the Cambodia side. The Cambodian province of Stung Treng borders the 4,000 Islands area of southern Laos."
         };
 
-        public static List<Frontier> GetAll()
+        public static List<BorderCrossing> GetAll()
 
         {
-            List<Frontier> terrestrial = GetAllTerrestrialFrontiers();
+            List<BorderCrossing> terrestrial = GetAllTerrestrialFrontiers();
 
-            List<Frontier> frontiersFromAirports = CreateFrontiersFromInternationalAirports();
+            List<BorderCrossing> frontiersFromAirports = CreateFrontiersFromInternationalAirports();
 
             terrestrial.AddRange(frontiersFromAirports);
 
@@ -122,9 +122,9 @@ namespace Traveller.StaticData
 
         }
 
-        public static List<Frontier> CreateFrontiersFromInternationalAirports()
+        public static List<BorderCrossing> CreateFrontiersFromInternationalAirports()
         {
-            List<Frontier> frontiers = new List<Frontier>();
+            List<BorderCrossing> frontiers = new List<BorderCrossing>();
 
 
             var airports = LaosAirports.GetAll();
@@ -132,7 +132,7 @@ namespace Traveller.StaticData
             foreach (var airport in airports.Where(a => a.AirportType == AirportTypes.International))
             {
 
-                Frontier frontierFromAirport = new Frontier()
+                BorderCrossing frontierFromAirport = new BorderCrossing()
                 {
                     Name = airport.Name,
                     Description = airport.Name,
@@ -150,9 +150,9 @@ namespace Traveller.StaticData
             return frontiers;
 
         }
-        public static List<Frontier> GetAllTerrestrialFrontiers()
+        public static List<BorderCrossing> GetAllTerrestrialFrontiers()
         {
-            return new List<Frontier> {
+            return new List<BorderCrossing> {
           
                 LaosFrontiers.Frienship_Bridge_I,
                 LaosFrontiers.Frienship_Bridge_II,

@@ -1,4 +1,5 @@
 ﻿using Domain;
+using Domain.Transport.Railway;
 using Traveller.Domain;
 using Traveller.StaticData;
 
@@ -9,7 +10,7 @@ namespace StaticData.Malaysia
 
         //KTMWestCoast
 
-        public static Station PadangBesar = new Station
+        public static RailwayStation PadangBesar = new RailwayStation
         {
             Type = 'T',
             //Lines = new List<Line> { MalasiaTrainLines.KTMWestCoast },
@@ -18,14 +19,14 @@ namespace StaticData.Malaysia
             Remarks = "The station is where the Malaysia and Thai railway services meet, allowing for passengers to transfer between the two railway systems. The customs, immigration and quarantine facilities of both countries are co-located in the station, despite it being completely located within the Malaysian territory, about 200 metres south of the border. There is also a smaller railway station on the Thai side of the border called Padang Besar (Thai) railway station."
         };
 
-        public static Station BukitKetri = new Station
+        public static RailwayStation BukitKetri = new RailwayStation
         {
             Type = 'T',
             //Lines = new List<Line> { MalasiaTrainLines.KTMWestCoast },
             Name = "Bukit Ketri"
         };
 
-        public static Station Arau = new Station
+        public static RailwayStation Arau = new RailwayStation
         {
             Type = 'T',
             Name = "Arau", 
@@ -46,7 +47,7 @@ namespace StaticData.Malaysia
         //Taiping
         //Padang Rengas
 
-        public static Station KualaKangsar = new Station
+        public static RailwayStation KualaKangsar = new RailwayStation
         {
             Type = 'T',
             Name = "Kuala Kangsar",
@@ -58,7 +59,7 @@ namespace StaticData.Malaysia
         //Tanjung Rambutan
         //Tasek
 
-        public static Station Ipoh = new Station
+        public static RailwayStation Ipoh = new RailwayStation
         {
             Type = 'T',
             Name = "Ipoh",
@@ -85,14 +86,14 @@ namespace StaticData.Malaysia
         //Putra
         //Bank Negara
 
-        public static Station KualaLumpur = new Station
+        public static RailwayStation KualaLumpur = new RailwayStation
         {
             Type = 'T',
             Name = "Kuala Lumpur",
             Destinations = new List<Destination> { MalaysiaDestinations.KualaLumpur }
         };
 
-        public static Station KualaLumpurSentral = new Station
+        public static RailwayStation KualaLumpurSentral = new RailwayStation
         {
             Type = 'T',
             Name = "Kuala Lumpur Sentral",
@@ -120,7 +121,7 @@ namespace StaticData.Malaysia
         //Batang Melaka
         //Air Kuning Selatan
 
-        public static Station Gemas = new Station
+        public static RailwayStation Gemas = new RailwayStation
         {
             Type = 'T',
             Name = "Gemas",
@@ -142,7 +143,7 @@ namespace StaticData.Malaysia
         //Kempas Baru
         //Danga City Mall
 
-        public static Station JohorBahru = new Station {
+        public static RailwayStation JohorBahru = new RailwayStation {
             Type = 'T',
             //Lines = new List<Line> { MalasiaTrainLines.KTMWestCoast },
             Name = "Johor Bahru Sentral", 
@@ -150,7 +151,7 @@ namespace StaticData.Malaysia
 
 
 
-        public static Station WoodlandsTrainCheckpoint = new Station {
+        public static RailwayStation WoodlandsTrainCheckpoint = new RailwayStation {
             Type = 'T',
             //Lines = new List<Line> { MalasiaTrainLines.KTMWestCoast },
             Name = "Woodlands Train Checkpoint",
@@ -160,14 +161,14 @@ namespace StaticData.Malaysia
 
         //KTMEastCoast
 
-        public static Station Tumpat = new Station
+        public static RailwayStation Tumpat = new RailwayStation
         {
             Type = 'T',
             Name = "Tumpat",         
             Remarks = ""
         };
 
-        public static Station KualaKrai = new Station
+        public static RailwayStation KualaKrai = new RailwayStation
         {
             Type = 'T',
             Name = "Kuala Krai",
@@ -175,21 +176,21 @@ namespace StaticData.Malaysia
         };
 
 
-        public static Station Dabong = new Station
+        public static RailwayStation Dabong = new RailwayStation
         {
             Type = 'T',
             Name = "Dabong",
             Remarks = ""
         };
 
-        public static Station GuaMusang = new Station
+        public static RailwayStation GuaMusang = new RailwayStation
         {
             Type = 'T',
             Name = "Gua Musang",
             Remarks = ""
         };
 
-        public static Station KualaLipis = new Station
+        public static RailwayStation KualaLipis = new RailwayStation
         {
             Type = 'T',
             Name = "Kuala Lipis",

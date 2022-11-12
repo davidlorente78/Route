@@ -13,7 +13,7 @@ namespace Test.RouteServiceUnitTest
 {
     public class RouteServiceTest
     {
-        private FrontierService frontierService;
+        private BorderCrossingService frontierService;
 
         public RouteServiceTest() {   }
 
@@ -242,7 +242,7 @@ namespace Test.RouteServiceUnitTest
 
             List<char> route = new List<char> { 'T', 'M', 'M', 'M', 'T', 'M', 'M', 'M', 'T', 'T', 'T', 'T' };
 
-            MalasyaTailandiaLongStayRuleContainer malasyaTailandiaLongStayContainer = new MalasyaTailandiaLongStayRuleContainer();
+            XXXMalasyaTailandiaLongStayRuleContainer malasyaTailandiaLongStayContainer = new XXXMalasyaTailandiaLongStayRuleContainer();
             RouteValidator routeValidator = new RouteValidator(malasyaTailandiaLongStayContainer.GetRules());
 
 
@@ -257,7 +257,7 @@ namespace Test.RouteServiceUnitTest
 
             }
 
-            var BrokenRules = routeValidator.Incumple(new List<char> { 'T', 'M', 'M', 'M', 'T', 'M', 'M', 'M', 'T', 'T', 'T', 'T' });
+            var BrokenRules = routeValidator.GetBrokenRules(new List<char> { 'T', 'M', 'M', 'M', 'T', 'M', 'M', 'M', 'T', 'T', 'T', 'T' });
 
             int count = BrokenRules.Count;
 

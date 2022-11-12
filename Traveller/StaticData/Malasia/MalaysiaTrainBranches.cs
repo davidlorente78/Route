@@ -1,16 +1,17 @@
 ﻿using Domain;
+using Domain.Transport.Railway;
 
 namespace StaticData.Malaysia
 {
     public static class MalaysiaTrainBranches
     {
 
-        public static Branch KTMWestCoast = new Branch
+        public static RailwayBranch KTMWestCoast = new RailwayBranch
         {
 
             Name = "KTM West Coast Railway Line",
             MainBranch = true,
-             Stations = new List<Station>
+             Stations = new List<RailwayStation>
             {
                 MalaysiaTrainStations.PadangBesar,
                 MalaysiaTrainStations.BukitKetri,
@@ -30,12 +31,12 @@ namespace StaticData.Malaysia
         /// <summary>
         /// https://www.nomadicnotes.com/jungle-railway-malaysia/
         /// </summary>
-        public static Branch KTMEastCoast = new Branch
+        public static RailwayBranch KTMEastCoast = new RailwayBranch
         {
 
             Name = "KTM East Coast Railway Line",
              MainBranch = true,
-            Stations = new List<Station>
+            Stations = new List<RailwayStation>
             {
                MalaysiaTrainStations.Tumpat,
                MalaysiaTrainStations.KualaKrai,

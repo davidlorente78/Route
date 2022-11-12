@@ -9,7 +9,7 @@ namespace Domain.Ranges
     public class Month
     {
         public int MonthID { get; set; }
+        public int Order { get; set; }
         public string? Name { get; set; }
-
     }
 }

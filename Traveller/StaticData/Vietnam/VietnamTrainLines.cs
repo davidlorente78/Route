@@ -1,4 +1,5 @@
 ﻿using Domain;
+using Domain.Transport.Railway;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,19 +11,19 @@ namespace StaticData.Vietnam
     public static class VietnamTrainLines
     {
         
-        public static Line NorthSouthLine = new Line
+        public static RailwayLine NorthSouthLine = new RailwayLine
         {
             Name = "Reunification Express",
             Description = "The Hanoi–Ho Chi Minh City line is the primary railway line serving Vietnam. Trains travelling this line are sometimes referred to as the 'Reunification Express'. ",
             LineType = 'T',
-            Branches = new List<Branch> { VietnamTrainBranches.NorthSouth }
+            Branches = new List<RailwayBranch> { VietnamTrainBranches.NorthSouth }
         };
 
         //TODO Add Other Lines
 
-        public static ICollection<Line> GetAll()
+        public static ICollection<RailwayLine> GetAll()
         {
-            return new List<Line> { NorthSouthLine };
+            return new List<RailwayLine> { NorthSouthLine };
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using Traveller.Domain;
+﻿using Domain.Transport.Aviation;
+using StaticData.EntityTypes;
+using Traveller.Domain;
 using Traveller.StaticData;
 
 namespace StaticData.Laos

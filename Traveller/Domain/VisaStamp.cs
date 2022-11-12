@@ -4,8 +4,8 @@
     {
         public Visa Visa;
         public Country Country { get; set; }
-        public Frontier EntryPoint { get; set; }
-        public Frontier ExitPoint { get; set; }
+        public BorderCrossing EntryPoint { get; set; }
+        public BorderCrossing ExitPoint { get; set; }
 
 
         public DateTime IssueDate { get; set; }

@@ -39,7 +39,7 @@ namespace GraphicMap
         {
 
 
-            RouteCombinationsGenerator routeGenerator = new RouteCombinationsGenerator(new MalasyaTailandiaLongStayRuleContainer());
+            RouteCombinationsGenerator routeGenerator = new RouteCombinationsGenerator(new XXXMalasyaTailandiaLongStayRuleContainer());
 
 
             //RoutePermutationsGenerator routeGenerator = new RoutePermutationsGenerator(new AllDestinationsRuleContainer());

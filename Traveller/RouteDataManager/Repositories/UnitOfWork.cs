@@ -10,7 +10,7 @@ namespace RouteDataManager.Repositories
             _context = context;
             Countries = new CountryRepository(_context);
             Destinations = new DestinationRepository(_context);
-            Frontiers = new FrontierRepository(_context);
+            Frontiers = new BorderCrossingRepository(_context);
         }
         public ICountryRepository Countries { get; private set; }
         public IDestinationRepository Destinations { get; private set; }

@@ -1,4 +1,5 @@
 ﻿using Domain;
+using Domain.Transport.Railway;
 using Traveller.Domain;
 using Traveller.StaticData;
 
@@ -9,7 +10,7 @@ namespace StaticData.Thailand
 
         #region Southern Line
 
-        public static Station BangkokHuaLamphong = new Station
+        public static RailwayStation BangkokHuaLamphong = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { ThailandDestinations.Bangkok},
@@ -20,7 +21,7 @@ namespace StaticData.Thailand
         //Taling Chan Junction- Junction for Southern Main Line(Bang Sue-Taling Chan Link) and Thonburi Branch.
         //Thon Buri Station - Former terminus of Southern Line, however some southern trains remain to start the journey here.
 
-        public static Station ThonBuri = new Station
+        public static RailwayStation ThonBuri = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> {  },
@@ -34,7 +35,7 @@ namespace StaticData.Thailand
         //Ban Pong Station - Interchange to Kanchanaburi for those who did not travel along Nam Tok branch line
         //Ratchaburi Station - Terminal for southern suburban service, also Ratchaburi main station.
 
-        public static Station Ratchaburi = new Station
+        public static RailwayStation Ratchaburi = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -43,7 +44,7 @@ namespace StaticData.Thailand
         };
 
         //Phetchaburi Station - Phetchaburi main station.
-        public static Station Phetchaburi = new Station
+        public static RailwayStation Phetchaburi = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -51,7 +52,7 @@ namespace StaticData.Thailand
             Remarks = ""
         };
         //Hua Hin Station - Provincial Station for Hua Hin in Prachuap Khiri Khan with crew changing station.
-        public static Station HuaHin = new Station
+        public static RailwayStation HuaHin = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -61,7 +62,7 @@ namespace StaticData.Thailand
         //Wang Phong Station- One of the stations in Pran Buri. Also for the nearby Thanarat Military Camp.More trains stop here for Pran Buri than Pran Buri Station itself.
         //Pran Buri Station- Smaller station for Pran Buri, with a well-established Saturday Night Market opposite the station.
         //Prachuap Khiri Khan Station - Prachuap Khiri Khan main station.
-        public static Station PrachuapKhiriKhan = new Station
+        public static RailwayStation PrachuapKhiriKhan = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -71,7 +72,7 @@ namespace StaticData.Thailand
         //Bang Saphan Yai Station - Regional town station.All trains going further south must stop here.
 
         //Chumphon Station - Main Chumphon station, locomotive depot with refuelling facility
-        public static Station Chumphon = new Station
+        public static RailwayStation Chumphon = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -80,7 +81,7 @@ namespace StaticData.Thailand
         };
 
 
-        public static Station LangSuan = new Station
+        public static RailwayStation LangSuan = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> {  },
@@ -91,7 +92,7 @@ namespace StaticData.Thailand
 
 
 
-        public static Station KhiriRatNikhom  = new Station
+        public static RailwayStation KhiriRatNikhom  = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { ThailandDestinations.Phuket, ThailandDestinations.PhangNga},
@@ -100,7 +101,7 @@ namespace StaticData.Thailand
         };
 
         //Surat Thani Station - Crew changing station and Surat Thani main station.
-        public static Station SuratThani = new Station
+        public static RailwayStation SuratThani = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -110,7 +111,7 @@ namespace StaticData.Thailand
 
         
         //Thung Song Junction - Locomotive depot, refuelling facility and junction for Kantang Branch.
-        public static Station ThungSongJunction = new Station
+        public static RailwayStation ThungSongJunction = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -120,7 +121,7 @@ namespace StaticData.Thailand
 
         //Trang Station - Trang main station.
 
-        public static Station Trang = new Station
+        public static RailwayStation Trang = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { ThailandDestinations.Trang },
@@ -130,7 +131,7 @@ namespace StaticData.Thailand
 
         //Kantang Station - Terminus of Kantang Branch.
 
-        public static Station Kantang = new Station
+        public static RailwayStation Kantang = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -141,7 +142,7 @@ namespace StaticData.Thailand
       
         //Khao Chum Thong Junction - Junction for Nakhon Si Thammarat Branch.
 
-        public static Station KhaoChumThongJunction = new Station
+        public static RailwayStation KhaoChumThongJunction = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -150,7 +151,7 @@ namespace StaticData.Thailand
         };
         //Nakhon Si Thammarat Station - Terminus of Nakhon Si Thammarat Branch. Nakhon Si Thammarat main station.
 
-        public static Station NakhonSiThammarat = new Station
+        public static RailwayStation NakhonSiThammarat = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -159,7 +160,7 @@ namespace StaticData.Thailand
         };
         //Phatthalung Station - Phatthalung main station, crew changing station
 
-        public static Station Phatthalung = new Station
+        public static RailwayStation Phatthalung = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -168,7 +169,7 @@ namespace StaticData.Thailand
         };
 
         //Hat Yai Junction - Main junction for Malaysia[23] and Singapore and Main Line of Southern Line, Locomotive Depot and refueling facility.Main Songkhla Station.
-        public static Station HatYaiJunction = new Station
+        public static RailwayStation HatYaiJunction = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { ThailandDestinations.Songkhla },
@@ -177,18 +178,18 @@ namespace StaticData.Thailand
         };
 
         //Padang Besar Station - International KTM station in Malaysia.Trains continue to Butterworth (Penang) and further.
-        public static Station PadangBesar = new Station
+        public static RailwayStation PadangBesar = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { MalaysiaDestinations.PadangPesar, ThailandDestinations.PadangPesar },
             Name = "Padang Besar",
-            Remarks = "International KTM station in Malaysia. Trains continue to Butterworth (Penang) and further."
+            Remarks = "The Padang Besar railway station has Malaysia's only co-located or juxtaposed customs, immigration and quarantine facility for both Malaysia and Thailand and rail passengers are processed for exiting Malaysia and entering Thailand (or vice versa if traveling the other direction) in the station. The Padang Besar station in Thailand only serves as a domestic station."
         };
 
         //Branch
         //Pattani Station - formerly Khok Pho station, Pattani main station.
 
-        public static Station Pattani = new Station
+        public static RailwayStation Pattani = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -198,7 +199,7 @@ namespace StaticData.Thailand
 
         //Yala Station - Main Yala station, crew changing station
 
-        public static Station Yala = new Station
+        public static RailwayStation Yala = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -208,7 +209,7 @@ namespace StaticData.Thailand
 
         //Tanyong Mat Station - for Ra Ngae district and Narathiwat.
 
-        public static Station TanyongMat = new Station
+        public static RailwayStation TanyongMat = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> {  },
@@ -216,7 +217,7 @@ namespace StaticData.Thailand
             Remarks = "for Ra Ngae district and Narathiwat."
         };
 
-        public static Station SungaiKolok = new Station
+        public static RailwayStation SungaiKolok = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { ThailandDestinations.SungaiKolok, MalaysiaDestinations.RantanPanjang },
@@ -228,7 +229,7 @@ namespace StaticData.Thailand
 
         #region NorthernLine_Sawankhalok
 
-        public static Station BanDaraJunction = new Station
+        public static RailwayStation BanDaraJunction = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> {  },
@@ -238,7 +239,7 @@ namespace StaticData.Thailand
         };
 
 
-        public static Station KhlongMaphlap  = new Station
+        public static RailwayStation KhlongMaphlap  = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -247,7 +248,7 @@ namespace StaticData.Thailand
             Remarks = ""
         };
 
-        public static Station SawanKhalok = new Station
+        public static RailwayStation SawanKhalok = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -263,7 +264,7 @@ namespace StaticData.Thailand
 
 
         
-          public static Station Rangsit = new Station
+          public static RailwayStation Rangsit = new RailwayStation
           {
               Type = 'T',
               Destinations = new List<Destination> { },
@@ -272,16 +273,17 @@ namespace StaticData.Thailand
               Remarks = ""
           };
 
-        public static Station Ayutthaya = new Station
+        public static RailwayStation Ayutthaya = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
             Name = "Ayutthaya",
             LocalName = "อยุธยา",
-            Remarks = "https://en.wikipedia.org/wiki/Ayutthaya_railway_station"
+            Remarks = "https://en.wikipedia.org/wiki/Ayutthaya_railway_station" +
+            "Ayutthaya Railway Station is located on the East side of the river 3.1 km walking distance from Bang Lan Night Market in the centre of Ayutthaya. Built in 1921 the main station building and the ticket hall has been superbly preserved and this is one of Thailand’s best train stations. The station is a busy transport hub with all trains travelling on the Northern Line and the North Eastern Line stopping here."
         };
 
-        public static Station BanPhachiJunction = new Station
+        public static RailwayStation BanPhachiJunction = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -289,7 +291,7 @@ namespace StaticData.Thailand
            Remarks ="Start for NorthEast Line"
         };
 
-        public static Station LopBuri = new Station
+        public static RailwayStation LopBuri = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -298,7 +300,7 @@ namespace StaticData.Thailand
             Remarks = ""
         };
 
-        public static Station BanTakhli = new Station
+        public static RailwayStation BanTakhli = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -307,7 +309,7 @@ namespace StaticData.Thailand
             Remarks = ""
         };
 
-        public static Station NakhonSawan = new Station
+        public static RailwayStation NakhonSawan = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -316,7 +318,7 @@ namespace StaticData.Thailand
             Remarks = ""
         };
 
-        public static Station TaphanHin = new Station
+        public static RailwayStation TaphanHin = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -324,7 +326,7 @@ namespace StaticData.Thailand
             LocalName = "",
             Remarks = ""
         };
-        public static Station Phichit = new Station
+        public static RailwayStation Phichit = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -333,7 +335,7 @@ namespace StaticData.Thailand
             Remarks = ""
         };
 
-        public static Station Phitsanulok = new Station
+        public static RailwayStation Phitsanulok = new RailwayStation
         {            
             Type = 'T',
             Destinations = new List<Destination> { ThailandDestinations.Sukhothai , ThailandDestinations.Phitsanulok },
@@ -342,7 +344,7 @@ namespace StaticData.Thailand
             Remarks = ""
         };
 
-        public static Station Uttaradit = new Station
+        public static RailwayStation Uttaradit = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -351,7 +353,7 @@ namespace StaticData.Thailand
             Remarks = ""
         };
 
-        public static Station SilaAt = new Station
+        public static RailwayStation SilaAt = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -360,7 +362,7 @@ namespace StaticData.Thailand
             Remarks = ""
         };
 
-        public static Station DenChai = new Station
+        public static RailwayStation DenChai = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -369,7 +371,7 @@ namespace StaticData.Thailand
             Remarks = ""
         };
 
-        public static Station BanPin = new Station
+        public static RailwayStation BanPin = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -378,7 +380,7 @@ namespace StaticData.Thailand
             Remarks = ""
         };
 
-        public static Station NakhonLampang = new Station
+        public static RailwayStation NakhonLampang = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -387,7 +389,7 @@ namespace StaticData.Thailand
             Remarks = ""
         };
 
-        public static Station HangChat = new Station
+        public static RailwayStation HangChat = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -396,7 +398,7 @@ namespace StaticData.Thailand
             Remarks = ""
         };
 
-        public static Station Lamphun = new Station
+        public static RailwayStation Lamphun = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -405,7 +407,7 @@ namespace StaticData.Thailand
             Remarks = ""
         };
 
-        public static Station ChiangMai = new Station
+        public static RailwayStation ChiangMai = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { ThailandDestinations.ChiangMai },
@@ -420,7 +422,7 @@ namespace StaticData.Thailand
         #region NorthEast Line Main Stations UbonRatchathani Branch
 
         //BanPachi
-        public static Station BanPachi = new Station
+        public static RailwayStation BanPachi = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -430,7 +432,7 @@ namespace StaticData.Thailand
         };
 
         //Thanon Chira Junction
-        public static Station ThanonChiraJunction = new Station
+        public static RailwayStation ThanonChiraJunction = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -440,7 +442,7 @@ namespace StaticData.Thailand
         };
 
         //Surin
-        public static Station Surin = new Station
+        public static RailwayStation Surin = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -450,7 +452,7 @@ namespace StaticData.Thailand
         };
 
         //Sisaket
-        public static Station Sisaket = new Station
+        public static RailwayStation Sisaket = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -461,7 +463,7 @@ namespace StaticData.Thailand
 
 
         //UbonRatchathani
-        public static Station UbonRatchathani = new Station
+        public static RailwayStation UbonRatchathani = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -474,7 +476,7 @@ namespace StaticData.Thailand
         #region NorthEast Line Main Stations UbonRatchathani Nong Khai
 
         //Kaeng Khoi Juction
-        public static Station KaengKhoiJuction = new Station
+        public static RailwayStation KaengKhoiJuction = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -485,7 +487,7 @@ namespace StaticData.Thailand
 
         //Bua Yai Junction
 
-        public static Station BuaYaiJunction = new Station
+        public static RailwayStation BuaYaiJunction = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -496,7 +498,7 @@ namespace StaticData.Thailand
 
         //Khon Kaen
 
-        public static Station KhonKaen = new Station
+        public static RailwayStation KhonKaen = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -506,7 +508,7 @@ namespace StaticData.Thailand
         };
         //Udon Thani
 
-        public static Station UdonThani = new Station
+        public static RailwayStation UdonThani = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> {  },
@@ -517,7 +519,7 @@ namespace StaticData.Thailand
 
 
         //Nong Khai
-        public static Station NongKhai = new Station
+        public static RailwayStation NongKhai = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> {ThailandDestinations.NongKhai, LaosDestinations.NongKhiang },
@@ -534,7 +536,7 @@ namespace StaticData.Thailand
 
         #endregion
 
-        public static Station Pattaya = new Station
+        public static RailwayStation Pattaya = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -543,20 +545,22 @@ namespace StaticData.Thailand
             Remarks = ""
         };
 
-        public static Station Aranyaprathet = new Station
+        public static RailwayStation Aranyaprathet = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { ThailandDestinations.Aranyaprathet },
             Name = "Aranyaprathet",
-            LocalName = "",
-            Remarks = ""
+            LocalName = "อรัญประเทศ",
+            Remarks = "Aranyaprathet railway station is a railway station located in Aranyaprathet Subdistrict, Aranyaprathet District, Sa Kaeo, Thailand. The station is a class 1 railway station located 254.5 km (158.1 mi) from Bangkok Railway Station. Aranyaprathet Railway Station opened in 8 November 1926 as part of the Eastern Line Kabin Buri–Aranyaprathet section.",
+             
+
         };
 
 
 
         #region Eastern Line
 
-        public static Station ChachengsaoJunction = new Station
+        public static RailwayStation ChachengsaoJunction = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -565,7 +569,7 @@ namespace StaticData.Thailand
             Remarks = ""
         };
 
-        public static Station Chonburi = new Station
+        public static RailwayStation Chonburi = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -574,7 +578,7 @@ namespace StaticData.Thailand
             Remarks = ""
         };
 
-        public static Station SriRachaJunction = new Station
+        public static RailwayStation SriRachaJunction = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -583,7 +587,7 @@ namespace StaticData.Thailand
             Remarks = ""
         };
 
-        public static Station BanPluTaLuang = new Station
+        public static RailwayStation BanPluTaLuang = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -592,7 +596,7 @@ namespace StaticData.Thailand
             Remarks = ""
         };
 
-        public static Station MarpTaPut = new Station
+        public static RailwayStation MarpTaPut = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { ThailandDestinations.Rayong},

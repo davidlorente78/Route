@@ -124,7 +124,7 @@ namespace RouteDataManager.Controllers
                 return NotFound();
             }
 
-            var destination = await _context.Destinations.Include(d => d.Country).Include(d => d.DestinationTypes).FirstAsync(d => d.DestinationID == id);
+            var destination = await _context.Destinations.Include(d => d.Country).Include(d => d.DestinationTypes).Include(d=>d.Stations).FirstAsync(d => d.DestinationID == id);
 
             if (destination == null)
             {

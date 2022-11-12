@@ -1,5 +1,5 @@
-﻿using StaticData;
-using StaticData.Cambodia;
+﻿using StaticData.Cambodia;
+using StaticData.EntityTypes;
 using Traveller.Domain;
 
 namespace Traveller.StaticData
@@ -8,12 +8,12 @@ namespace Traveller.StaticData
     {
 
 
-        public static List<Frontier> GetAll()
+        public static List<BorderCrossing> GetAll()
 
         {
-            List<Frontier> terrestrial = GetAllTerrestrialFrontiers();
+            List<BorderCrossing> terrestrial = GetAllTerrestrialFrontiers();
 
-            List<Frontier> frontiersFromAirports = CreateFrontiersFromInternationalAirports();
+            List<BorderCrossing> frontiersFromAirports = CreateFrontiersFromInternationalAirports();
 
             terrestrial.AddRange(frontiersFromAirports);
 
@@ -21,9 +21,9 @@ namespace Traveller.StaticData
 
         }
 
-        public static List<Frontier> CreateFrontiersFromInternationalAirports()
+        public static List<BorderCrossing> CreateFrontiersFromInternationalAirports()
         {
-            List<Frontier> frontiers = new List<Frontier>();
+            List<BorderCrossing> frontiers = new List<BorderCrossing>();
 
 
             var airports = CambodiaAirports.GetAll();
@@ -31,7 +31,7 @@ namespace Traveller.StaticData
             foreach (var airport in airports.Where(a => a.AirportType == AirportTypes.International))
             {
 
-                Frontier frontierFromAirport = new Frontier()
+                BorderCrossing frontierFromAirport = new BorderCrossing()
                 {
                     Name = airport.Name,
                     Description = airport.Name,
@@ -53,12 +53,12 @@ namespace Traveller.StaticData
 
 
 
-        public static List<Frontier> GetAllTerrestrialFrontiers()
+        public static List<BorderCrossing> GetAllTerrestrialFrontiers()
         {
-            return new List<Frontier> {
+            return new List<BorderCrossing> {
                 //Poi Pet(Banteay Meanchey)  Tailandia Sí  Sí
                 //Banteay Meanchey es la provincia Camboyana
-                new Frontier {
+                new BorderCrossing {
                         Name = "Poipet",
                         Origin = ThailandDestinations.Aranyaprathet,
                         Final = CambodiaDestinations.Poipet,
@@ -67,7 +67,7 @@ namespace Traveller.StaticData
                         },
 
                   //Cham Yeam(Koh Kong)    Tailandia Sí  Sí
-                  new Frontier {
+                  new BorderCrossing {
                         Name = "Cham Yeam Border Check Point",
                         Origin = ThailandDestinations.BanHatLek, //Trat Province
                         Final = CambodiaDestinations.ChamYeam,
@@ -80,7 +80,7 @@ namespace Traveller.StaticData
 
                   //Prom(Pailin)   Tailandia No  Sí
                   //Ban Pakard/Phsa Prum
-                  new Frontier {
+                  new BorderCrossing {
                         Name = "Ban Pakkad (Ban Pakard) Border Checkpoint (Thailand)",
                         Origin = ThailandDestinations.KhlongYai, //Ban Pakkad Border Checkpoint  WFGV+H9P, Khlong Yai, Pong Nam Ron District, Chanthaburi 22140, Tailandia
                         Final = CambodiaDestinations.Prom,
@@ -92,7 +92,7 @@ namespace Traveller.StaticData
                   //Chong Chom border crossing
 
                   //Bavet(Svay Rieng)  Vietnam Sí  Sí
-                    new Frontier {
+                    new BorderCrossing {
                         Name = "Bavet Border Checkpoint (Thailand)",
                         Origin = VietnamDestinations.MocBai, //Cửa Khẩu Mộc Bài
                         Final = CambodiaDestinations.Bavet, //ប៉ុស្ដិ៍ព្រំដែនបាវិត
@@ -101,7 +101,7 @@ namespace Traveller.StaticData
 
                     //Kaoam Samnor(Kandal Mekong)    Vietnam No  Sí
                     //K'am Samnar Border Crossing Station
-                     new Frontier {
+                     new BorderCrossing {
                         Name = "Kaoam Samnor Border Checkpoint (K'am Samnar)",
                         Origin = VietnamDestinations.ThuongPhuoc , //Thuong Phuoc Gate
                         Final = CambodiaDestinations.KamSamnar, //ច្រកទ្វារព្រំដែនអន្តរជាតិក្អមសំណរ
@@ -112,7 +112,7 @@ namespace Traveller.StaticData
                     //Trapaing Sre(Kratie)   Vietnam No  Sí
                     //Dong Kralo(Stung Treng)    Laos No  Sí
                     //Tropaeng Kreal Border Post(Stung Treng)    Laos Sí  Sí
-                      new Frontier {
+                      new BorderCrossing {
                         Name = "Tropaeng Kreal Border Post",
                         Origin = LaosDestinations.NongNokKhiene , 
                         Final = CambodiaDestinations.TropaengKreal, 

@@ -1,5 +1,4 @@
-﻿
-using StaticData;
+﻿using StaticData.EntityTypes;
 using Traveller.Domain;
 
 namespace Traveller.StaticData

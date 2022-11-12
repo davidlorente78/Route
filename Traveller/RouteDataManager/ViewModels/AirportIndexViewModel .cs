@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Domain.Transport.Aviation;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Traveller.Domain;
 
 namespace RouteDataManager.ViewModels

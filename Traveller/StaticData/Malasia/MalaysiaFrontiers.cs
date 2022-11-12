@@ -1,16 +1,17 @@
-﻿using Traveller.Domain;
+﻿using StaticData.EntityTypes;
+using Traveller.Domain;
 using Traveller.StaticData;
 
 namespace StaticData.Malaysia
 {
     public class MalaysiaFrontiers
     {
-        public static List<Frontier> GetAll()
+        public static List<BorderCrossing> GetAll()
 
         {
-            List<Frontier> terrestrial = GetAllTerrestrialFrontiers();
+            List<BorderCrossing> terrestrial = GetAllTerrestrialFrontiers();
 
-            List<Frontier> frontiersFromAirports = CreateFrontiersFromInternationalAirports();
+            List<BorderCrossing> frontiersFromAirports = CreateFrontiersFromInternationalAirports();
 
             terrestrial.AddRange(frontiersFromAirports);
 
@@ -18,9 +19,9 @@ namespace StaticData.Malaysia
 
         }
 
-        public static List<Frontier> CreateFrontiersFromInternationalAirports()
+        public static List<BorderCrossing> CreateFrontiersFromInternationalAirports()
         {
-            List<Frontier> frontiers = new List<Frontier>();
+            List<BorderCrossing> frontiers = new List<BorderCrossing>();
 
 
             var airports = MalaysiaAirports.GetAll();
@@ -28,7 +29,7 @@ namespace StaticData.Malaysia
             foreach (var airport in airports.Where(a => a.AirportType == AirportTypes.International))
             {
 
-                Frontier frontierFromAirport = new Frontier()
+                BorderCrossing frontierFromAirport = new BorderCrossing()
                 {
                     Name = airport.Name,
                     Description = airport.Name,
@@ -46,12 +47,12 @@ namespace StaticData.Malaysia
             return frontiers;
 
         }
-        public static List<Frontier> GetAllTerrestrialFrontiers()
+        public static List<BorderCrossing> GetAllTerrestrialFrontiers()
         {
-            return  new List<Frontier> {
+            return  new List<BorderCrossing> {
 
 
-               new Frontier {
+               new BorderCrossing {
                     Name = "Padang Pesar",
                     Origin = ThailandDestinations.PadangPesar,
                     Final = MalaysiaDestinations.PadangPesar,
@@ -61,7 +62,7 @@ namespace StaticData.Malaysia
 
                          ,
 
-                new Frontier {
+                new BorderCrossing {
                     Name = "Sungai Kolok - Rantan Panjang",
                     Origin = ThailandDestinations.SungaiKolok,
                     Final = MalaysiaDestinations.RantanPanjang,
@@ -71,7 +72,7 @@ namespace StaticData.Malaysia
 
                          ,
 
-                new Frontier {
+                new BorderCrossing {
                     Name = MalaysiaDestinations.JohorBahru.Name,
                     Origin = SingaporeDestinations.WoodlandsCheckpoint,
                     //https://onemotoring.lta.gov.sg/content/onemotoring/home/driving/traffic_information/traffic-cameras/woodlands.html#trafficCameras

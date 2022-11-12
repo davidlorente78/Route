@@ -1,4 +1,5 @@
-﻿using Traveller.Domain;
+﻿using StaticData.EntityTypes;
+using Traveller.Domain;
 using Traveller.StaticData;
 
 namespace StaticData.Thailand
@@ -7,11 +8,11 @@ namespace StaticData.Thailand
 
     //Also, you should be aware that there is a rule that you can only obtain two visa-exempt entries at land borders per calendar year, but there is no such restriction by air.
     {
-        public static List<Frontier> GetAllTerrestrialFrontiers()
+        public static List<BorderCrossing> GetAllTerrestrialFrontiers()
         {
-            return new List<Frontier>
+            return new List<BorderCrossing>
             {
-                new Frontier
+                new BorderCrossing
                 {
                     Name = "Thailand Laos Frienship Bridge I ",
                     Origin = LaosDestinations.Vientiane,
@@ -26,7 +27,7 @@ namespace StaticData.Thailand
 
                          ,
 
-                new Frontier
+                new BorderCrossing
                 {
                     Name = "Thailand Laos Frienship Bridge II ",
                     Origin = LaosDestinations.Savannakhet,
@@ -39,7 +40,7 @@ namespace StaticData.Thailand
 
                          ,
 
-                new Frontier
+                new BorderCrossing
                 {
                     Name = "Chiang Khong - Huay Xai",
                     Origin = LaosDestinations.HuayXai,
@@ -52,7 +53,7 @@ namespace StaticData.Thailand
 
                          ,
 
-                new Frontier
+                new BorderCrossing
                 {
                     Name = "Padang Pesar - Padang Pesar (Pekan Siam)",
                     Origin = MalaysiaDestinations.PadangPesar,
@@ -65,7 +66,7 @@ namespace StaticData.Thailand
 
                          ,
 
-                new Frontier
+                new BorderCrossing
                 {
                     Name = "Sungai Kolok - Rantan Panjang",
                     Origin = MalaysiaDestinations.RantanPanjang,
@@ -91,7 +92,7 @@ namespace StaticData.Thailand
 //The ferry from either Koh Lipe or Satun (on the mainland) in Thailand to Langkawi runs several times per day, weather permitting, and is another popular crossing into Malaysia. A convenient and easy way to cross, however, if you’re entering Thailand from Langkawi and have a history of many visits to Thailand recently, expect to at least be questioned about what you’re doing in Thailand, if they’re not satisfied with your responses then you could well be denied entry.
                 
                 
-                new Frontier
+                new BorderCrossing
                 {
                     Name = "Chong Mek - Vang Tao",
                     Origin = LaosDestinations.ChongMek,
@@ -104,7 +105,7 @@ namespace StaticData.Thailand
                 ,
 
 
-                new Frontier
+                new BorderCrossing
                 {
                     Name = "Aranyaprathet",
                     Origin = CambodiaDestinations.Poipet,
@@ -114,7 +115,7 @@ namespace StaticData.Thailand
                     Description ="By far the most popular crossing into Cambodia, this crossing can be reached by bus from Bangkok in around four hours. Hot and dusty, the plot of land between the two immigration offices is packed with casinos, which in general should be avoided. The immigration officials at this crossing are known for being overly militant when checking your details and may even deny entry back into Thailand if they think you’ve stayed “too long”. Also, this checkpoint is known for being rife with touts and scammers, don’t even think about changing your money here unless you want to lose a third of it immediately. In reality, if you have been in and out of Thailand several times already, you should avoid this crossing entirely and either use a different crossing or even fly into Thailand."
                 },
 
-                 new Frontier {
+                 new BorderCrossing {
                         Name = "Ban Hat Lek Border Check Point",
                         Origin = CambodiaDestinations.ChamYeam,
                         Final = ThailandDestinations.BanHatLek, //Trat Province
@@ -122,7 +123,7 @@ namespace StaticData.Thailand
 
                         },
 
-                  new Frontier {
+                  new BorderCrossing {
                         Name = "Ban Pakkad Border Checkpoint (Thailand)",
                         Origin = CambodiaDestinations.Prom,
                         Final = ThailandDestinations.KhlongYai, //Ban Pakkad Border Checkpoint  WFGV+H9P, Khlong Yai, Pong Nam Ron District, Chanthaburi 22140, Tailandia
@@ -147,16 +148,16 @@ namespace StaticData.Thailand
             };
         }
 
-        public static List<Frontier> CreateFrontiersFromInternationalAirports()
+        public static List<BorderCrossing> CreateFrontiersFromInternationalAirports()
         {
-            List<Frontier> frontiers = new List<Frontier>();
+            List<BorderCrossing> frontiers = new List<BorderCrossing>();
 
 
             var airports = ThailandAirports.GetAll();
 
             foreach (var airport in airports.Where(a=> a.AirportType == AirportTypes.International)) {
 
-                Frontier frontierFromAirport = new Frontier()
+                BorderCrossing frontierFromAirport = new BorderCrossing()
                 {
                     Name = airport.Name,
                     Description = airport.Name,
@@ -175,12 +176,12 @@ namespace StaticData.Thailand
 
         }
 
-        public static List<Frontier> GetAll()
+        public static List<BorderCrossing> GetAll()
 
         {
-            List<Frontier> terrestrial = GetAllTerrestrialFrontiers();
+            List<BorderCrossing> terrestrial = GetAllTerrestrialFrontiers();
 
-            List<Frontier> frontiersFromAirports = CreateFrontiersFromInternationalAirports();
+            List<BorderCrossing> frontiersFromAirports = CreateFrontiersFromInternationalAirports();
 
             terrestrial.AddRange(frontiersFromAirports);
 

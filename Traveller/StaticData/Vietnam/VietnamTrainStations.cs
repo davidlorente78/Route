@@ -1,4 +1,5 @@
 ﻿using Domain;
+using Domain.Transport.Railway;
 using Traveller.Domain;
 using Traveller.StaticData;
 
@@ -12,7 +13,7 @@ namespace StaticData.Vietnam
 
         #region North–South railway
 
-        public static Station Hanoi = new Station
+        public static RailwayStation Hanoi = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { VietnamDestinations.Hanoi },
@@ -23,7 +24,7 @@ namespace StaticData.Vietnam
 
 
 
-        public static Station PhủLý = new Station
+        public static RailwayStation PhủLý = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -32,7 +33,7 @@ namespace StaticData.Vietnam
             Remarks = ""
         };
 
-        public static Station NamĐịnh = new Station
+        public static RailwayStation NamĐịnh = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -42,7 +43,7 @@ namespace StaticData.Vietnam
         };
 
 
-        public static Station NinhBinh = new Station
+        public static RailwayStation NinhBinh = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -51,7 +52,7 @@ namespace StaticData.Vietnam
             Remarks = ""
         };
 
-        public static Station ThanhHóa = new Station
+        public static RailwayStation ThanhHóa = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -62,7 +63,7 @@ namespace StaticData.Vietnam
 
 
 
-        public static Station Vinh = new Station
+        public static RailwayStation Vinh = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -72,7 +73,7 @@ namespace StaticData.Vietnam
         };
 
 
-        public static Station TânẤp = new Station
+        public static RailwayStation TânẤp = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -81,7 +82,7 @@ namespace StaticData.Vietnam
             Remarks = ""
         };
 
-        public static Station ĐồngHới = new Station
+        public static RailwayStation ĐồngHới = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -92,7 +93,7 @@ namespace StaticData.Vietnam
 
 
 
-        public static Station ĐồngHà = new Station
+        public static RailwayStation ĐồngHà = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -101,7 +102,7 @@ namespace StaticData.Vietnam
             Remarks = ""
         };
 
-        public static Station Huế = new Station
+        public static RailwayStation Huế = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -110,7 +111,7 @@ namespace StaticData.Vietnam
             Remarks = ""
         };
 
-        public static Station DaNang = new Station
+        public static RailwayStation DaNang = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { VietnamDestinations.HoiAn },
@@ -120,7 +121,7 @@ namespace StaticData.Vietnam
         };
 
 
-        public static Station TamKỳ = new Station
+        public static RailwayStation TamKỳ = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -129,7 +130,7 @@ namespace StaticData.Vietnam
             Remarks = ""
         };
 
-        public static Station QuảngNgãi = new Station
+        public static RailwayStation QuảngNgãi = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -137,7 +138,7 @@ namespace StaticData.Vietnam
             LocalName = "Quảng Ngãi",
             Remarks = ""
         };
-        public static Station DiêuTrì = new Station
+        public static RailwayStation DiêuTrì = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { VietnamDestinations.QuiNhon },
@@ -145,7 +146,7 @@ namespace StaticData.Vietnam
             LocalName = "Diêu Trì",
             Remarks = ""
         };
-        public static Station TuyHòa = new Station
+        public static RailwayStation TuyHòa = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -154,7 +155,7 @@ namespace StaticData.Vietnam
             Remarks = ""
         };
 
-        public static Station NhaTrang = new Station
+        public static RailwayStation NhaTrang = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -163,7 +164,7 @@ namespace StaticData.Vietnam
             Remarks = ""
         };
 
-        public static Station BìnhThuận = new Station
+        public static RailwayStation BìnhThuận = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { VietnamDestinations.PhanThiet },
@@ -172,7 +173,7 @@ namespace StaticData.Vietnam
             Remarks = ""
         };
 
-        public static Station Saigon = new Station
+        public static RailwayStation Saigon = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { VietnamDestinations.HoChiMinh },
@@ -194,7 +195,7 @@ namespace StaticData.Vietnam
         //Yên Bái station(Yên Bái, Yên Bái Province)
 
         //Lào Cai station(Lào Cai, Lào Cai Province)
-        public static Station LàoCai = new Station
+        public static RailwayStation LàoCai = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -215,7 +216,7 @@ namespace StaticData.Vietnam
         //Bắc Giang station(Bắc Giang, Bắc Giang Province)
 
         //Kép station(Kép, Bắc Giang Province)
-        public static Station Kép = new Station
+        public static RailwayStation Kép = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -226,7 +227,7 @@ namespace StaticData.Vietnam
         //Lạng Sơn station(Lạng Sơn, Lạng Sơn Province)
         //Đồng Đăng station(Đồng Đăng, Lạng Sơn Province)
 
-        public static Station DongDang = new Station
+        public static RailwayStation DongDang = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -246,7 +247,7 @@ namespace StaticData.Vietnam
         //Yên Cư station(Yên Cư, Quảng Ninh Province)
         //Hạ Long station(Hạ Long, Quảng Ninh Province)
 
-        public static Station HaLong = new Station
+        public static RailwayStation HaLong = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -264,7 +265,7 @@ namespace StaticData.Vietnam
         //Hải Dương station(Hải Dương, Hải Dương Province)
         //Hai Phong station(Hai Phong)
 
-        public static Station HaiPhong = new Station
+        public static RailwayStation HaiPhong = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -284,7 +285,7 @@ namespace StaticData.Vietnam
         //Lưu Xá station
 
         //Thái Nguyên station
-        public static Station TháiNguyên = new Station
+        public static RailwayStation TháiNguyên = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
@@ -293,7 +294,7 @@ namespace StaticData.Vietnam
         };
 
         //Quán Triều station
-        public static Station QuánTriều = new Station
+        public static RailwayStation QuánTriều = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
