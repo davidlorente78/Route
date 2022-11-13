@@ -2,7 +2,7 @@
 using Traveller.Domain;
 using Traveller.StaticData;
 
-namespace StaticData.Laos
+namespace Data.Laos
 {
     public static class DataLaos
     {

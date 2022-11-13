@@ -1,5 +1,5 @@
-﻿using StaticData.EntityTypes;
-using StaticData.Malaysia;
+﻿using Data.EntityTypes;
+using Data.Malaysia;
 using Traveller.Domain;
 
 namespace Traveller.StaticData

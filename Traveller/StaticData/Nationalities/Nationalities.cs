@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Traveller.Domain;
 using Traveller.StaticData;
 
-namespace StaticData.Nationalities
+namespace Data.Nationalities
 {
     public static class Nationalities
     {

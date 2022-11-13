@@ -2,7 +2,7 @@
 using Traveller.Domain;
 using Traveller.StaticData;
 
-namespace StaticData.Cambodia
+namespace Data.Cambodia
 {
     public static class DataCambodia
     {

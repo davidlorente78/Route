@@ -3,8 +3,7 @@ using Traveller.DomainServices;
 
 namespace Traveller.Tests.DomainServices
 {
-
-      public class CountryServiceTest
+    public class CountryServiceTest
     {
         private ICountryService countryService;
 
@@ -25,9 +24,9 @@ namespace Traveller.Tests.DomainServices
         [Test]
         public void Test1()
         {
-            bool result = countryService.CountryExists(1);
+            var result = countryService.GetCountry(1);
 
-            Assert.AreEqual(true, result);
+            Assert.AreEqual(result.Name, "Laos");
         }
 
         [Test]

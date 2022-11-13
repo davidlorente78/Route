@@ -3,7 +3,7 @@ using Domain.Transport.Railway;
 using Traveller.Domain;
 using Traveller.StaticData;
 
-namespace StaticData.Malaysia
+namespace Data.Malaysia
 {
     public class MalaysiaTrainStations
     {

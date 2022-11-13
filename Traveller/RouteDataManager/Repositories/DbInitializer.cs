@@ -1,17 +1,17 @@
 ﻿using CURDOperationWithImageUploadCore5_Demo.Models;
 using Domain.Ranges;
-using StaticData;
-using StaticData.Cambodia;
-using StaticData.Laos;
-using StaticData.Malaysia;
-using StaticData.Thailand;
-using StaticData.Vietnam;
-using StaticData.Nepal;
+using Data;
+using Data.Cambodia;
+using Data.Laos;
+using Data.Malaysia;
+using Data.Thailand;
+using Data.Vietnam;
+using Data.Nepal;
 using Traveller.Domain;
 using Traveller.StaticData;
-using StaticData.Indonesia;
+using Data.Indonesia;
 using Domain;
-using StaticData.EntityTypes;
+using Data.EntityTypes;
 using Domain.Transport.Railway;
 using Domain.Transport.Aviation;
 

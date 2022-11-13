@@ -3,7 +3,7 @@ using Domain.Transport.Railway;
 using Traveller.Domain;
 using Traveller.StaticData;
 
-namespace StaticData.Vietnam
+namespace Data.Vietnam
 {
     /// <summary>
     /// Al añadir Destination en Serving Destinations de debe dar de alta en Destinations e incluir el codigo de pais CountryID = 2

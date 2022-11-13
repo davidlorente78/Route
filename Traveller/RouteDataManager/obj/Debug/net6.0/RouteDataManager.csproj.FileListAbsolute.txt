@@ -246,9 +246,7 @@ D:\Code Project\Route\Traveller\RouteDataManager\bin\Debug\net6.0\runtimes\win\l
 D:\Code Project\Route\Traveller\RouteDataManager\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 D:\Code Project\Route\Traveller\RouteDataManager\bin\Debug\net6.0\Domain.dll
 D:\Code Project\Route\Traveller\RouteDataManager\bin\Debug\net6.0\DomainServices.dll
-D:\Code Project\Route\Traveller\RouteDataManager\bin\Debug\net6.0\StaticData.dll
 D:\Code Project\Route\Traveller\RouteDataManager\bin\Debug\net6.0\Domain.pdb
-D:\Code Project\Route\Traveller\RouteDataManager\bin\Debug\net6.0\StaticData.pdb
 D:\Code Project\Route\Traveller\RouteDataManager\bin\Debug\net6.0\DomainServices.pdb
 D:\Code Project\Route\Traveller\RouteDataManager\obj\Debug\net6.0\RouteDataManager.csproj.AssemblyReference.cache
 D:\Code Project\Route\Traveller\RouteDataManager\obj\Debug\net6.0\RouteDataManager.GeneratedMSBuildEditorConfig.editorconfig
@@ -270,3 +268,9 @@ D:\Code Project\Route\Traveller\RouteDataManager\obj\Debug\net6.0\refint\RouteDa
 D:\Code Project\Route\Traveller\RouteDataManager\obj\Debug\net6.0\RouteDataManager.pdb
 D:\Code Project\Route\Traveller\RouteDataManager\obj\Debug\net6.0\RouteDataManager.genruntimeconfig.cache
 D:\Code Project\Route\Traveller\RouteDataManager\obj\Debug\net6.0\ref\RouteDataManager.dll
+D:\Code Project\Route\Traveller\RouteDataManager\bin\Debug\net6.0\AutoMapper.dll
+D:\Code Project\Route\Traveller\RouteDataManager\bin\Debug\net6.0\Data.dll
+D:\Code Project\Route\Traveller\RouteDataManager\bin\Debug\net6.0\Data.pdb
+D:\Code Project\Route\Traveller\RouteDataManager\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\Code Project\Route\Traveller\RouteDataManager\bin\Debug\net6.0\Application.dll
+D:\Code Project\Route\Traveller\RouteDataManager\bin\Debug\net6.0\Application.pdb

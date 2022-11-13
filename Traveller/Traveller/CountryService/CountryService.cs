@@ -1,6 +1,8 @@
-﻿using RouteDataManager.Repositories;
+﻿using AutoMapper;
+using RouteDataManager.Repositories;
 using System.Collections.Generic;
 using System.Linq;
+using Traveller.Application.Dto;
 using Traveller.Domain;
 
 namespace Traveller.DomainServices
@@ -8,57 +10,75 @@ namespace Traveller.DomainServices
     public class CountryService : ICountryService
     {
         private IUnitOfWork unitOfWork;
-        public CountryService(IUnitOfWork unitOfWork)
+        private readonly IMapper mapper;
+        public CountryService(IUnitOfWork unitOfWork, IMapper mapper)
         {
             this.unitOfWork = unitOfWork;
+            this.mapper = mapper;
+
         }
 
         public bool CountryExists(int id)
         {
-            return (unitOfWork.Countries?.Find(e => e.CountryID == id)).Count() != 0;
+            return (unitOfWork.ICountryRepository?.Find(e => e.CountryID == id)).Count() != 0;
         }
 
         public ICollection<Country> GetAllCountries()
         {
-            var countries = unitOfWork.Countries.GetCountriesOrderedByName();
+            var countries = unitOfWork.ICountryRepository.GetCountriesOrderedByName();
 
             return countries.ToList();
-
         }
 
         public Country GetCountryByID(int ID)
         {           
-            var country = unitOfWork.Countries.GetCountryByID(ID);
+            var country = unitOfWork.ICountryRepository.GetCountryByID(ID);
 
             return country.First();
-
         }
 
-        public Country GetCountryRangesByCode(char CountryCode)
+        public CountryDto GetCountry(int ID)
+        {
+            var country = unitOfWork.ICountryRepository.GetCountryByID(ID).FirstOrDefault();
+            CountryDto countryDto = mapper.Map<CountryDto>(country);
+
+            return countryDto;
+        }
+
+        public ICollection<CountryDto> GetCountries()
+        {
+            var countries = unitOfWork.ICountryRepository.GetCountriesOrderedByName().ToList();
+
+            List<CountryDto> countriesDto = mapper.Map<List<CountryDto>>(countries);
+            return countriesDto;
+        }
+
+        public Country GetCountryIncludingRangesByCountryCode(char CountryCode)
         {            
-            var country = unitOfWork.Countries.GetCountryRangesByCode(CountryCode);
+            var country = unitOfWork.ICountryRepository.GetCountryIncludingRangesByCode(CountryCode);
 
             return country;
         }
 
         public int AddCountry(Country country)
         {            
-           unitOfWork.Countries.Add(country);
-           return unitOfWork.Complete();
+           unitOfWork.ICountryRepository.Add(country);
 
+           return unitOfWork.SaveChanges();
         }
 
         public int RemoveCountry(Country country)
         {
-            unitOfWork.Countries.Remove(country);
-            return unitOfWork.Complete();
+            unitOfWork.ICountryRepository.Remove(country);
+
+            return unitOfWork.SaveChanges();
         }
 
         public int UpdateCountry(Country country)
         {
-            unitOfWork.Countries.Update(country);
-            //Needed to save changes ¿?
-            return unitOfWork.Complete();
+            unitOfWork.ICountryRepository.Update(country);
+
+            return unitOfWork.SaveChanges();
         }
 
 

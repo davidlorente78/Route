@@ -1,9 +1,9 @@
 ﻿using Domain.Transport.Aviation;
-using StaticData.EntityTypes;
+using Data.EntityTypes;
 using Traveller.Domain;
 using Traveller.StaticData;
 
-namespace StaticData.Laos
+namespace Data.Laos
 {
     public static class LaosAirports
     {

@@ -6,10 +6,8 @@ D:\Code Project\Route\Traveller\GraphicMap\bin\Debug\net6.0-windows\GraphicMap.p
 D:\Code Project\Route\Traveller\GraphicMap\bin\Debug\net6.0-windows\Microsoft.EntityFrameworkCore.Abstractions.dll
 D:\Code Project\Route\Traveller\GraphicMap\bin\Debug\net6.0-windows\Domain.dll
 D:\Code Project\Route\Traveller\GraphicMap\bin\Debug\net6.0-windows\DomainServices.dll
-D:\Code Project\Route\Traveller\GraphicMap\bin\Debug\net6.0-windows\StaticData.dll
 D:\Code Project\Route\Traveller\GraphicMap\bin\Debug\net6.0-windows\DomainServices.pdb
 D:\Code Project\Route\Traveller\GraphicMap\bin\Debug\net6.0-windows\Domain.pdb
-D:\Code Project\Route\Traveller\GraphicMap\bin\Debug\net6.0-windows\StaticData.pdb
 D:\Code Project\Route\Traveller\GraphicMap\obj\Debug\net6.0-windows\GraphicMap.csproj.AssemblyReference.cache
 D:\Code Project\Route\Traveller\GraphicMap\obj\Debug\net6.0-windows\GraphicMap.Properties.Resources.resources
 D:\Code Project\Route\Traveller\GraphicMap\obj\Debug\net6.0-windows\GraphicMap.SouthEastAsiaMap.resources
@@ -24,3 +22,6 @@ D:\Code Project\Route\Traveller\GraphicMap\obj\Debug\net6.0-windows\refint\Graph
 D:\Code Project\Route\Traveller\GraphicMap\obj\Debug\net6.0-windows\GraphicMap.pdb
 D:\Code Project\Route\Traveller\GraphicMap\obj\Debug\net6.0-windows\GraphicMap.genruntimeconfig.cache
 D:\Code Project\Route\Traveller\GraphicMap\obj\Debug\net6.0-windows\ref\GraphicMap.dll
+D:\Code Project\Route\Traveller\GraphicMap\bin\Debug\net6.0-windows\AutoMapper.dll
+D:\Code Project\Route\Traveller\GraphicMap\bin\Debug\net6.0-windows\Data.dll
+D:\Code Project\Route\Traveller\GraphicMap\bin\Debug\net6.0-windows\Data.pdb

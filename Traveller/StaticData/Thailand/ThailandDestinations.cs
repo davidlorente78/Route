@@ -1,6 +1,6 @@
 ﻿using Domain;
-using StaticData.EntityTypes;
-using StaticData.Thailand;
+using Data.EntityTypes;
+using Data.Thailand;
 using Traveller.Domain;
 
 namespace Traveller.StaticData

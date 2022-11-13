@@ -1,4 +1,4 @@
-﻿@model Traveller.Domain.Country
+﻿@model Traveller.Application.Dto.CountryDto
 
 @{
     ViewData["Title"] = "Details";
@@ -29,12 +29,10 @@
     <table>
         <tr>
             <td>
-                    <a asp-action="Edit" class="btn btn-primary btn-block"  asp-route-id="@Model?.CountryID">Edit</a>
-
+                <a asp-action="Edit" class="btn btn-primary btn-block"  asp-route-id="@Model?.CountryID">Edit</a>
             </td>
             <td>
-                    <a asp-action="Index" class="btn btn-primary btn-block">Back to List</a>
-
+                <a asp-action="Index" class="btn btn-primary btn-block">Back to List</a>
             </td>
         </tr>
     </table>

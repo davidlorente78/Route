@@ -1,8 +1,8 @@
 ﻿using Domain.EntityFrameworkDictionary;
 using Domain.Ranges;
-using StaticData.EntityTypes;
+using Data.EntityTypes;
 
-namespace StaticData.Sinpagore
+namespace Data.Sinpagore
 {
     public class SingaporeRanges
     {

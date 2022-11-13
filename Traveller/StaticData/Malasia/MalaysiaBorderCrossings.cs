@@ -1,8 +1,8 @@
-﻿using StaticData.EntityTypes;
+﻿using Data.EntityTypes;
 using Traveller.Domain;
 using Traveller.StaticData;
 
-namespace StaticData.Malaysia
+namespace Data.Malaysia
 {
     public class MalaysiaBorderCrossings
     {

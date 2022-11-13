@@ -1,5 +1,5 @@
-﻿using StaticData.EntityTypes;
-using StaticData.Laos;
+﻿using Data.EntityTypes;
+using Data.Laos;
 using Traveller.Domain;
 
 namespace Traveller.StaticData

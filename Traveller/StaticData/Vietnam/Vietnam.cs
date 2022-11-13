@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Traveller.Domain;
 using Traveller.StaticData;
 
-namespace StaticData.Vietnam
+namespace Data.Vietnam
 {
  
         public static class DataVietnam

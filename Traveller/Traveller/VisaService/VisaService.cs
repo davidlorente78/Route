@@ -16,7 +16,7 @@ namespace Traveller.DomainServices
         }
         public int GetMaxStay(char countryCode, string nationalityCode)
         {
-            var country = unitOfWork.Countries.GetCountryByCode(countryCode);
+            var country = unitOfWork.ICountryRepository.GetCountryByCode(countryCode);
 
             if (country.Visas.Count != 0)
             {

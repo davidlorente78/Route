@@ -1,7 +1,7 @@
 ﻿using Domain.Ranges;
 using Traveller.Domain;
 
-namespace StaticData
+namespace Data
 {
     public static class RangeTypes
     {

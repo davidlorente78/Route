@@ -1,7 +1,7 @@
 ﻿using Domain;
 using Domain.Transport.Railway;
 
-namespace StaticData.Vietnam
+namespace Data.Vietnam
 {
     public static class VietnamTrainBranches
     {

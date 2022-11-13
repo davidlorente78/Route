@@ -1,5 +1,5 @@
 ﻿using Domain;
-using StaticData.Nationalities;
+using Data.Nationalities;
 using Traveller.Domain;
 
 namespace Traveller.StaticData

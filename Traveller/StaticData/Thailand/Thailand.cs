@@ -1,5 +1,5 @@
 ﻿using Domain.Ranges;
-using StaticData.Thailand;
+using Data.Thailand;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Traveller.Domain;
 using Traveller.StaticData;
 
-namespace StaticData.Thailand
+namespace Data.Thailand
 {
  
         public static class DataThailand

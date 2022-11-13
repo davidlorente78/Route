@@ -1,7 +1,7 @@
 ﻿using Domain.Transport.Aviation;
 using Traveller.Domain;
 
-namespace StaticData.EntityTypes
+namespace Data.EntityTypes
 {
     public static class DestinationTypes
     {

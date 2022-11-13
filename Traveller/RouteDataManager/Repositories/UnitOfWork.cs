@@ -6,20 +6,19 @@ namespace RouteDataManager.Repositories
     {
         private readonly ApplicationContext _context;
 
+        public ICountryRepository ICountryRepository { get; private set; }
+        public IDestinationRepository IDestinationRepository { get; private set; }
+        public IBorderCrossingRepository IBorderCrossingRepository { get; private set; }
+
         public UnitOfWork(ApplicationContext context)
         {
             _context = context;
-            Countries = new CountryRepository(_context);
-            Destinations = new DestinationRepository(_context);
-            BorderCrossings = new BorderCrossingRepository(_context);
+            ICountryRepository = new CountryRepository(_context);
+            IDestinationRepository = new DestinationRepository(_context);
+            IBorderCrossingRepository = new BorderCrossingRepository(_context);
         }
 
-        public ICountryRepository Countries { get; private set; }
-        public IDestinationRepository Destinations { get; private set; }
-        public IBorderCrossingRepository BorderCrossings { get; private set; }
-
-        //TODO TO Check
-        public int Complete()
+        public int SaveChanges()
         {
             return _context.SaveChanges();
         }

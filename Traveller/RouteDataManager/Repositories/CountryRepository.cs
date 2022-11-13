@@ -29,9 +29,13 @@ namespace RouteDataManager.Repositories
             return _context.Countries.Where(c => c.Code == ch).Include(c => c.Destinations).Include(c => c.BorderCrossings).Include(c => c.Visas).ThenInclude(v => v.QualifyNationalities).OrderBy(c => c.Name).FirstOrDefault();
         }
 
-        public Country GetCountryRangesByCode(char ch)
+        public Country? GetCountryIncludingRangesByCode(char ch)
         {
-            return _context.Countries.Where(c => c.Code == ch).Include(c => c.Ranges).ThenInclude(r => r.RangeType).FirstOrDefault();
+            return _context.Countries?
+                .Where(c => c.Code == ch)
+                .Include(c => c.Ranges)
+                .ThenInclude(r => r.RangeType)
+                .FirstOrDefault();
         }
 
     }

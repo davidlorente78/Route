@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RouteDataManager.Repositories;
 using RouteDataManager.ViewModels;
-using StaticData;
+using Data;
 
 namespace RouteDataManager.Controllers
 {

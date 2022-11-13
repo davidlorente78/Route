@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using RouteDataManager.Repositories;
 using RouteDataManager.ViewModels;
+using Traveller.Application.Dto;
 using Traveller.Domain;
 using Traveller.DomainServices;
 
@@ -15,23 +15,10 @@ namespace RouteDataManager.Controllers
     public class CountryController : Controller
     {
         private readonly ICountryService  countryService;
-        //private readonly IUnitOfWork unitOfWork;
-
-        //EN ESTA CLASE ESTAN MEZCLADAS EL ACCESO POR SERVICIO Y ACCESO POR CONTEXTO
-
-        //TODO
-        //InvalidOperationException: Unable to resolve service for type 'Traveller.RouteService.CountryService' while attempting to activate 'RouteDataManager.Controllers.CountryController'.
-        //Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, bool isDefaultParameterRequired)
-
-        /// <summary>
-        /// Here are injecting only the IUnitOfWork object. This way, you can completely avoid writing lines and lines of injections to your controllers.
-        /// </summary>
-        /// <param name="unitOfWork"></param>
-        /// 
-        public CountryController(ICountryService countryService, IUnitOfWork   unitOfWork)
+         
+        public CountryController(ICountryService countryService)
         {
             this.countryService = countryService;
-            //this.unitOfWork = unitOfWork;
         }
         public IActionResult Index(int? id)
         {
@@ -59,9 +46,6 @@ namespace RouteDataManager.Controllers
             return View(viewModel);
         }
 
-
-
-        // GET: Countries/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null )
@@ -69,23 +53,15 @@ namespace RouteDataManager.Controllers
                 return NotFound();
             }
 
-            Country country = countryService.GetCountryByID((int)id);
+            CountryDto countryDto = countryService.GetCountry((int)id);
+           
 
-            var viewModel = new CountryViewModel();
-
-            viewModel.CountryID = country.CountryID;
-            viewModel.Code = country.Code;
-            viewModel.Name = country.Name;
-
-            //HERE
-
-
-            if (country == null)
+            if (countryDto == null)
             {
                 return NotFound();
             }
 
-            return View(country);
+            return View(countryDto);
         }
 
         // GET: Countries/Create

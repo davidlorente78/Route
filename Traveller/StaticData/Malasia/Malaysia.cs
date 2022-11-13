@@ -1,6 +1,6 @@
 ﻿using Domain;
 using Domain.Ranges;
-using StaticData.Malaysia;
+using Data.Malaysia;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using Traveller.Domain;
 using Traveller.StaticData;
 
-namespace StaticData.Malaysia
+namespace Data.Malaysia
 {
  
         public static class DataMalaysia

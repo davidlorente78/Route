@@ -1,8 +1,8 @@
-﻿using StaticData.EntityTypes;
+﻿using Data.EntityTypes;
 using Traveller.Domain;
 using Traveller.StaticData;
 
-namespace StaticData.Thailand
+namespace Data.Thailand
 {   //https://www.thaiembassy.com/thailand/thailands-land-borders
     public class ThailandBorderCrossings
 

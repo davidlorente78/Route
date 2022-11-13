@@ -1,5 +1,5 @@
 ﻿using Domain.Transport.Aviation;
-using StaticData.EntityTypes;
+using Data.EntityTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Traveller.Domain;
 using Traveller.StaticData;
 
-namespace StaticData.Cambodia
+namespace Data.Cambodia
 {
     public static class CambodiaAirports
     {
