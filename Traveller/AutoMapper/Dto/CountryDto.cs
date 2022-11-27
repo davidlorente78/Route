@@ -7,6 +7,5 @@
         public string Name { get; set; }
         public bool ShowInDynamicHome { get; set; }
         public int ShowInDynamicHomeOrder { get; set; }
-
     }
 }

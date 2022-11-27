@@ -1,6 +1,5 @@
-﻿using CURDOperationWithImageUploadCore5_Demo.Models;
-using Domain.Ranges;
-using Data;
+﻿using Domain.Ranges;
+using Domain;
 using Data.Cambodia;
 using Data.Laos;
 using Data.Malaysia;
@@ -10,28 +9,22 @@ using Data.Nepal;
 using Traveller.Domain;
 using Traveller.StaticData;
 using Data.Indonesia;
-using Domain;
 using Data.EntityTypes;
 using Domain.Transport.Railway;
 using Domain.Transport.Aviation;
 
 namespace RouteDataManager.Repositories
 {
-    /// <summary>
-    /// Comprueba si existe la base de datos:
-    ///Si no se encuentra la base de datos,
-    ///se crea y se carga con datos de prueba.Carga los datos de prueba en matrices en lugar de colecciones List<T> para optimizar el rendimiento.
-    ///Si la base de datos se encuentra, no se realiza ninguna acción.
-    /// </summary>
     public class DbInitializer
     {
         //https://www.tiansungi.com/border-crossing-laos-cambodia/
 
         public DbInitializer() { }
 
+
         public static void Initialize(ApplicationContext context)
         {
-            context.Database.EnsureDeleted(); //
+            context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
 
             if (!context.RangeTypes.Any())
@@ -106,7 +99,7 @@ namespace RouteDataManager.Repositories
                             Name = NepalAirports.KTM.Name,
                             Origin = NepalDestinations.Kathmandu,
                             Final = NepalDestinations.Kathmandu,
-                            BorderCrossingType = FrontierTypes.Airport,
+                            BorderCrossingType = BorderCrossingTypes.Airport,
                             Visas = new List<Visa> { NepalVisas.OnArrivalVisa15_Nepal, NepalVisas.OnArrivalVisa30_Nepal, NepalVisas.OnArrivalVisa90_Nepal, NepalVisas.FreeVisa_Nepal } },
                         },
                 Visas = new List<Visa> { NepalVisas.OnArrivalVisa15_Nepal, NepalVisas.OnArrivalVisa30_Nepal, NepalVisas.OnArrivalVisa90_Nepal, NepalVisas.FreeVisa_Nepal }
@@ -138,7 +131,7 @@ namespace RouteDataManager.Repositories
                             Name = "Singapore Changi Airport",
                             Origin = SingaporeDestinations.Singapore,
                             Final = SingaporeDestinations.Singapore,
-                            BorderCrossingType = FrontierTypes.Airport,
+                            BorderCrossingType = BorderCrossingTypes.Airport,
                            //https://www.ica.gov.sg/
                             Visas = new List<Visa> { SingaporeVisas.SGArrivalCard_Singapore } },
 
@@ -146,7 +139,7 @@ namespace RouteDataManager.Repositories
                             Name = SingaporeDestinations.WoodlandsCheckpoint.Name,
                             Origin = MalaysiaDestinations.JohorBahru,
                             Final = SingaporeDestinations.WoodlandsCheckpoint,
-                            BorderCrossingType = FrontierTypes.Terrestrial,
+                            BorderCrossingType = BorderCrossingTypes.Terrestrial,
                             Visas = new List<Visa> { SingaporeVisas.SGArrivalCard_Singapore } },
 
                             //Frontier https://en.wikipedia.org/wiki/Malaysia%E2%80%93Singapore_Second_Link
@@ -219,19 +212,20 @@ namespace RouteDataManager.Repositories
                           Url = "ww.airasia.com",
                           MainAirport = MalaysiaAirports.KUL,
                           Name="Air Asia",
+                          AirlineType = AirlineTypes.Budget,
                           Picture="/air-asia-routes.jpg",
                           Description="AirAsia (stylized as airasia) is a Malaysian multinational low-cost airline headquartered near Kuala Lumpur, Malaysia. It is the largest airline in Malaysia by fleet size and destinations. AirAsia operates scheduled domestic and international flights to more than 165 destinations spanning 25 countries. Its main base is KLIA2, the low-cost carrier terminal at Kuala Lumpur International Airport (KLIA) in Sepang, Selangor, Malaysia."
                         },
-
                         new Airline()
                         {
                           IATACode ="TR",
                           Url = "www.flyscoot.com",
                           MainAirport = SingaporeAirports.SIN,
+                          AirlineType = AirlineTypes.Budget,
                           Name="Scoot",
                           Picture="/fly-scoot.jpg",
-                          Description="Scoot Pte Ltd, operating as Scoot, is a Singaporean low-cost airline and a wholly owned subsidiary of Singapore Airlines. It began its operations on 4 June 2012 on medium and long-haul routes from Singapore, predominantly to various airports throughout the Asia-Pacific."  }
-                    ,
+                          Description="Scoot Pte Ltd, operating as Scoot, is a Singaporean low-cost airline and a wholly owned subsidiary of Singapore Airlines. It began its operations on 4 June 2012 on medium and long-haul routes from Singapore, predominantly to various airports throughout the Asia-Pacific."
+                        },
                         new Airline()
                         {
                           IATACode ="DD",
@@ -239,26 +233,27 @@ namespace RouteDataManager.Repositories
                           MainAirport = ThailandAirports.DMK,
                           Url ="www.nokair.com",
                           Name="Nok Air",
+                          AirlineType = AirlineTypes.Budget,
                           Picture="/nok-air-rutas.png",
                           Description="Nok Air is a low-cost airline in Thailand operating mostly domestic services out of Bangkok's Don Mueang International Airport. Nok Air also offers ferry services to domestic island destinations as well as domestic and cross border coach services to Vientiane and Pakse in Laos in conjunction with other tour operators."
-                        }
-                        ,
+                        },
                          new Airline()
                         {
                           IATACode ="DD",
                           MainAirport = ThailandAirports.BKK,
                           Url ="bangkokair.com",
                           Name="Bangkok Airways",
+                          AirlineType = AirlineTypes.Budget,
                           Picture="/bangkok-airways-routes-map.jpg",
                           Description=" is a regional airline based in Bangkok, Thailand. It operates scheduled services to destinations in Thailand, Cambodia, China, Hong Kong, India, Laos, Malaysia, Maldives, Myanmar, Singapore, and Vietnam. Its main base is Suvarnabhumi Airport."
-                        }
-                       ,
+                         },
                          new Airline()
                         {
                           IATACode ="JQ",
                           //MainAirport = AustraliaAirports., //Merlbourbe
                           Url ="www.jetstar.com",
                           Name="Jet Star Airways",
+                          AirlineType = AirlineTypes.Budget,
                           Picture="/jetstar-route.jpg",
                           Description="Is an Australian low-cost airline headquartered in Melbourne. It is a wholly owned subsidiary of Qantas, created in response to the threat posed by airline Virgin Blue. Jetstar is part of Qantas' two brand strategy of having Qantas Airways for the premium full-service market and Jetstar for the low-cost market."
                          }
@@ -294,7 +289,7 @@ namespace RouteDataManager.Repositories
                 foreach (var destination in context.Destinations)
                 {
 
-                    //Buscar si existe un aeropuerto que tenga como destino la destination que estamos tratando
+                    //Buscar si existe un aeropuerto o una station que tenga como destino la destination que estamos tratando
                     var airports = context.Airports
                             .Where(
                                 a => a.Destinations.Select(a => a.Name).Contains(destination.Name)
@@ -317,14 +312,8 @@ namespace RouteDataManager.Repositories
                     }
 
                     context.Update(destination);
-
                 }
-
-
-
             }
-
-
         }
     }
 }

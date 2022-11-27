@@ -1,18 +1,10 @@
-﻿using Domain;
-using Domain.Ranges;
-using Data.Malaysia;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Domain.Ranges;
 using Traveller.Domain;
 using Traveller.StaticData;
 
-namespace Data.Malaysia
-{
- 
-        public static class DataMalaysia
+namespace Data.Malaysia{
+
+    public static class DataMalaysia
     {
         public static Country Malaysia = new Country
         {
@@ -26,8 +18,6 @@ namespace Data.Malaysia
             ShowInDynamicHome = true,
             ShowInDynamicHomeOrder = 3,
             Visas = new List<Visa> { MalaysiaVisas.freeVisa_Malaysia, MalaysiaVisas.eVisa_Malaysia}
-
         };
-    }
-    
+    }    
 }

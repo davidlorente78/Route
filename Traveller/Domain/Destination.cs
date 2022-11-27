@@ -8,8 +8,8 @@ namespace Traveller.Domain
     public class Destination
     {
         public int DestinationID { get; set; }
-        public int CountryID { get; set; }
-        public virtual Country Country { get; set; }
+        public int DestinationCountryID { get; set; }
+        public virtual Country DestinationCountry { get; set; }
         public string? Name { get; set; }
 
         [Display(Name = "Local Name")]
@@ -20,7 +20,7 @@ namespace Traveller.Domain
         public string? Picture { get; set; }
 
         [Display(Name = "Destination Type")]
-        public List<DestinationType> DestinationTypes { get; set; } = new List<DestinationType>();
+        public ICollection<DestinationType> DestinationTypes { get; set; } = new List<DestinationType>();
       
         public ICollection<Airport> Airports { get; set; } = new List<Airport>();
 

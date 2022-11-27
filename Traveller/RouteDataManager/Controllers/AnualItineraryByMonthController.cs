@@ -1,15 +1,14 @@
-﻿using Domain.Ranges;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RouteDataManager.Repositories;
 using RouteDataManager.ViewModels;
-using Data;
 using Traveller.Domain;
 using Traveller.DomainServices;
 using Traveller.RouteService;
 using Traveller.RouteService.Rules;
-using Traveller.RuleService;
+using Data.EntityTypes;
+using Domain.EntityFrameworkDictionary;
 
 namespace RouteDataManager.Controllers
 {
@@ -229,7 +228,7 @@ namespace RouteDataManager.Controllers
                 {
 
                     var Month = monthsList[0].Name; //Esto es la Key del diccionario que se va a consultar
-                    ICollection<Domain.EntityFrameworkDictionary.DictionaryItem<string, string>>? MonsoonDictionary = seasonRange.EntityDescription_ByMonth.Items;
+                    ICollection<DictionaryItem<string, string>>? MonsoonDictionary = seasonRange.EntityDescription_ByMonth.Items;
                     var Description = MonsoonDictionary.Where(x => x.Key == monthsList[indexMonth].Name).FirstOrDefault().Value;
                     anulItineraryByMonthIndexViewModel.CountryReport.Add(Description);
 

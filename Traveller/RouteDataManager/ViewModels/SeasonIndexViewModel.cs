@@ -7,7 +7,7 @@ namespace RouteDataManager.ViewModels
     {
         public Dictionary<string, string> Month_EntityDescription { get; set; } = new Dictionary<string, string>();
         public SelectList SelectListCountries { get; set; }
-        public Country FilterCountry { get; set; } = new Country() { CountryID = 1 };
+        public Traveller.Domain.Country FilterCountry { get; set; } = new Traveller.Domain.Country() { CountryID = 1 };
 
     }
 }

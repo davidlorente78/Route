@@ -9,13 +9,13 @@ namespace RouteDataManager.Repositories
         {
         }
 
+        public IEnumerable<Destination> GetAllDestinationsOrderByName()
+        {
+            var destinationsList = new List<Destination>();
 
-        //public async Task<IActionResult> Index()
-        //{
-        //    return _context.Destinations != null ?
-        //                View(await _context.Destinations.Include(d => d.Country).ToListAsync()) :
-        //                Problem("Entity set 'ApplicationContext.Destination'  is null.");
-        //}
-        //Include(c=> c.Destinations)
+            destinationsList = _context.Destinations.OrderBy(c => c.Name).ToList();
+
+            return destinationsList;
+        }       
     }
 }

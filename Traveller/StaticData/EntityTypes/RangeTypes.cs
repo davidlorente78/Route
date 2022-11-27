@@ -1,7 +1,6 @@
 ﻿using Domain.Ranges;
-using Traveller.Domain;
 
-namespace Data
+namespace Data.EntityTypes
 {
     public static class RangeTypes
     {

@@ -16,36 +16,26 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<ApplicationContext>(options =>
-  options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-//Finally, let’s register these Interfaces to the respective implementaions in the Startup.cs of the WebApi Project. Navigate to Startup.cs/ConfigureServices Method and add these lines.
-
-#region Repositories
-builder.Services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-builder.Services.AddTransient<IBorderCrossingRepository, BorderCrossingRepository>();
-builder.Services.AddTransient<ICountryRepository, CountryRepository>();
-builder.Services.AddTransient<IDestinationRepository, DestinationRepository>();
+builder.Services.AddDbContext<ApplicationContext>(
+    options =>
+    options
+    .UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))  
+  );
 
 
-builder.Services.AddTransient<IDestinationRepository, DestinationRepository>();
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddScoped<IBorderCrossingRepository, BorderCrossingRepository>();
+builder.Services.AddScoped<ICountryRepository, CountryRepository>();
+builder.Services.AddScoped<IDestinationRepository, DestinationRepository>();
+builder.Services.AddScoped<IDestinationRepository, DestinationRepository>();
 
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<ICountryService, CountryService>();
+builder.Services.AddScoped<IDestinationService, DestinationService>();
+builder.Services.AddScoped<IVisaService, VisaService>();
+builder.Services.AddScoped<IRouteService, RouteService>();
+builder.Services.AddScoped<IRuleContainer , RuleContainer>();
 
-//Note that, Here we are injecting a private AppplicationContext. Let’s wire up or controllers with these Repositories. Ideally you would want to have a service layer between the Repository and Controllers. But, to keep things fairly simple, we will avoid the service layer now.
-//Before that, let’s not forget to register the IUnitofWork Interface in our Application. Navigate to Startup.cs/ConfigureServices Method and add this line.
-
-
-builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
-builder.Services.AddTransient<ICountryService, CountryService>();
-builder.Services.AddTransient<IVisaService, VisaService>();
-builder.Services.AddTransient<IRouteService, RouteService>();
-builder.Services.AddTransient<IRuleContainer , RuleContainer>();
-
-
-
-
-
-#endregion
 
 
 #region AutoMapper

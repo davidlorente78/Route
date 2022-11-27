@@ -1,10 +1,5 @@
 ﻿using Domain.Transport.Aviation;
 using Data.EntityTypes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Traveller.Domain;
 using Traveller.StaticData;
 
@@ -179,6 +174,7 @@ namespace Data.Thailand
             IATACode = "LPT",
             AirportType = AirportTypes.Domestic
         };
+
         public static Airport HGN = new Airport
         {
             Name = "Mae Hong Son Airport",
@@ -205,6 +201,7 @@ namespace Data.Thailand
             IATACode = "KOP",
             AirportType = AirportTypes.Domestic
         };
+
         public static Airport NAK = new Airport
         {
             //Khorat
@@ -242,6 +239,7 @@ namespace Data.Thailand
             IATACode = "NAW",
             AirportType = AirportTypes.Domestic
         };
+
         public static Airport PHY = new Airport
         {
             Name = "Phetchabun Airport",
@@ -297,7 +295,7 @@ namespace Data.Thailand
         };
 
         public static Airport THS = new Airport
-        {   CountryID =3,
+        {   AirportCountryID =3,
             Name = "Sukhothai Airport",
             Destinations = new List<Destination> { ThailandDestinations.Sukhothai },
             ICAOCode = "VTPO",
@@ -334,7 +332,6 @@ namespace Data.Thailand
 
 
         public static ICollection<Airport> GetAll() {
-
 
             return new List<Airport> {
                     BKK,

@@ -18,7 +18,7 @@ namespace Traveller.StaticData
                         Description  ="The Bavet / Moc Bai border is the most used by tourists because it allows you to connect by bus Phnom Penh with Ho Chi Minh City in the fastest and most direct way.",
                         Origin = CambodiaDestinations.Bavet,
                         Final = VietnamDestinations.MocBai,
-                        BorderCrossingType = FrontierTypes.Terrestrial,
+                        BorderCrossingType = BorderCrossingTypes.Terrestrial,
                        //,
                         //Visas = new List<Visa> { new Visa { Duration = 30 } } ,
 
@@ -31,7 +31,7 @@ namespace Traveller.StaticData
                         Description  ="Used by buses going from Vientiane to Hanoi and vice versa. It is also possible to use it if you are going to or coming from Sapa (Vietnam).",
                         Origin = LaosDestinations.SopHun,
                         Final = VietnamDestinations.TayTrang,
-                        BorderCrossingType = FrontierTypes.Terrestrial,                   
+                        BorderCrossingType = BorderCrossingTypes.Terrestrial,                   
                         //,
                         //Este paso no acepta visa Online
 
@@ -44,7 +44,7 @@ namespace Traveller.StaticData
                         Description  ="Used by NhapCanh going from Vientiane or Luang Prabang to Hanoi and vice versa. It is also possible to use it if you are coming or going from Sapa (Vietnam).",
                         Origin = LaosDestinations.Namkan,
                         Final = VietnamDestinations.NhapCanh,
-                        BorderCrossingType = FrontierTypes.Terrestrial,
+                        BorderCrossingType = BorderCrossingTypes.Terrestrial,
                        //,
                         }
 
@@ -55,7 +55,7 @@ namespace Traveller.StaticData
                         Description = "If your idea is to cross to Vietnam through the south of Cambodia (or vice versa) the best way is to do it through Prek Chak / Ha Tien, through this border crossing is easy to connect the southern part of Cambodia (Sihanoukville, Kampot, Kep) with destinations such as Chau Doc or Ho Chi Minh City.",
                         Origin = CambodiaDestinations.PrekChak,
                         Final = VietnamDestinations.HaTien,
-                        BorderCrossingType = FrontierTypes.Terrestrial,
+                        BorderCrossingType = BorderCrossingTypes.Terrestrial,
 
                         }
                     ,
@@ -64,21 +64,21 @@ namespace Traveller.StaticData
                         Description = "Border crossing at Hue. At the same border there are buses to Pakse (Laos) and another bus terminal to Savannakhet (5h).",
                         Origin = LaosDestinations.Dansavanh,
                         Final = VietnamDestinations.LaoBao,
-                        BorderCrossingType = FrontierTypes.Terrestrial,
+                        BorderCrossingType = BorderCrossingTypes.Terrestrial,
                         }
                       ,
 
-                       new BorderCrossing {
+                       new BorderCrossing 
+                       {
                         Name = "Laos Vietnam Nam Phao CauTreo",
                         Description = "Border crossing point at Vinh",
                         Origin = LaosDestinations.NamPhao,
                         Final = VietnamDestinations.CauTreo,
-                        BorderCrossingType = FrontierTypes.Terrestrial,
+                        BorderCrossingType = BorderCrossingTypes.Terrestrial,
                         //,
                         //Visas = new List<Visa> { new Visa { Duration = 30 } } ,
 
                         }
-
                          ,
 
                     new BorderCrossing {
@@ -86,20 +86,18 @@ namespace Traveller.StaticData
                         Description ="Kaan Samnor / Ving Xuong is the border crossing between the natural border that is the Mekong River. This border crossing is used by those travelers who being in Phnom Penh prefer to go by boat to Vietnam and thus begin the route through the country touring the Mekong Delta.the boat route reaches the town of Chau Doc to continue to Ho Chi Minh City by bus.",
                         Origin = CambodiaDestinations.KaanSamnor,
                         Final = VietnamDestinations.VingXuong,
-                        BorderCrossingType = FrontierTypes.Terrestrial,
+                        BorderCrossingType = BorderCrossingTypes.Terrestrial,
                         //Visas = new List<Visa> { new Visa { Duration = 30 } } 
                     },
-
                     //Kaoam Samnor(Kandal Mekong)    Vietnam No  Sí
                     //K'am Samnar Border Crossing Station
                      new BorderCrossing {
                         Name = "Thuong Phuoc Gate - Kaoam Samnor Border Checkpoint (K'am Samnar)",
-                        Origin = CambodiaDestinations.KamSamnar, 
+                        Origin = CambodiaDestinations.KamSamnar,
                         Final =  VietnamDestinations.ThuongPhuoc,
-                        BorderCrossingType = FrontierTypes.Terrestrial,
-                         
-                        },
+                        BorderCrossingType = BorderCrossingTypes.Terrestrial,
 
+                        },
                     
                      //   }
 
@@ -119,35 +117,28 @@ namespace Traveller.StaticData
         {
             List<BorderCrossing> frontiers = new List<BorderCrossing>();
 
-
             var airports = VietnamAirports.GetAll();
 
             foreach (var airport in airports.Where(a => a.AirportType == AirportTypes.International))
             {
-
                 BorderCrossing frontierFromAirport = new BorderCrossing()
-                { 
+                {
                     Name = airport.Name,
                     Description = airport.Name,
                     Origin = airport.Destinations.FirstOrDefault(),
                     Final = airport.Destinations.FirstOrDefault(),
-                    BorderCrossingType = FrontierTypes.Airport,
-                   
+                    BorderCrossingType = BorderCrossingTypes.Airport,
+
                 };
 
                 frontiers.Add(frontierFromAirport);
-
-
             }
 
             return frontiers;
-
         }
 
         public static List<BorderCrossing> GetAll()
-
         {
-
             List<BorderCrossing> all = new List<BorderCrossing>();
 
             List<BorderCrossing> terrestrial = GetAllTerrestrialFrontiers();
@@ -157,7 +148,6 @@ namespace Traveller.StaticData
             all.AddRange(frontiersFromAirports);
 
             return all;
-
         }
     }
 }

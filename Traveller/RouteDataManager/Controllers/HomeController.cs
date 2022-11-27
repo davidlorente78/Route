@@ -26,7 +26,7 @@ namespace RouteDataManager.Controllers
 
         public IActionResult Index()
         {
-            DynamicIndexData dynamicIndexData = new DynamicIndexData();
+            DynamicIndexViewModel dynamicIndexData = new DynamicIndexViewModel();
 
             var countriesOrderedByShowInDynamicHomeOrder = _context.Countries.Where(c => c.ShowInDynamicHome == true).Include(c => c.Destinations).Include(c => c.Airports).OrderBy(c=>c.ShowInDynamicHomeOrder);
 

@@ -7,5 +7,6 @@ namespace Domain.Repositories
     /// </summary>
     public interface IDestinationRepository : IGenericRepository <Destination>
     {
+        IEnumerable<Destination> GetAllDestinationsOrderByName();
     }
 }

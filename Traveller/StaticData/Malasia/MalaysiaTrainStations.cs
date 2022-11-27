@@ -1,4 +1,4 @@
-﻿using Domain;
+﻿using Data;
 using Domain.Transport.Railway;
 using Traveller.Domain;
 using Traveller.StaticData;
@@ -7,7 +7,6 @@ namespace Data.Malaysia
 {
     public class MalaysiaTrainStations
     {
-
         //KTMWestCoast
 
         public static RailwayStation PadangBesar = new RailwayStation
@@ -29,7 +28,7 @@ namespace Data.Malaysia
         public static RailwayStation Arau = new RailwayStation
         {
             Type = 'T',
-            Name = "Arau", 
+            Name = "Arau",
         };
 
         //Kodiang
@@ -51,8 +50,7 @@ namespace Data.Malaysia
         {
             Type = 'T',
             Name = "Kuala Kangsar",
-            Destinations = new List<Destination> { MalaysiaDestinations.KualaKangsar}
-
+            Destinations = new List<Destination> { MalaysiaDestinations.KualaKangsar }
         };
 
         //Sungai Siput
@@ -128,7 +126,6 @@ namespace Data.Malaysia
             Remarks = "The station is the meeting point of and the railway junction connecting the West Coast Line (Padang Besar–Singapore) with the East Coast Line (Tumpat–Gemas)"
         };
 
-
         //Batu Anam
         //Segamat
         //Tenang
@@ -143,28 +140,29 @@ namespace Data.Malaysia
         //Kempas Baru
         //Danga City Mall
 
-        public static RailwayStation JohorBahru = new RailwayStation {
+        public static RailwayStation JohorBahru = new RailwayStation
+        {
             Type = 'T',
             //Lines = new List<Line> { MalasiaTrainLines.KTMWestCoast },
-            Name = "Johor Bahru Sentral", 
-            Remarks = "" };
+            Name = "Johor Bahru Sentral",
+            Remarks = ""
+        };
 
-
-
-        public static RailwayStation WoodlandsTrainCheckpoint = new RailwayStation {
+        public static RailwayStation WoodlandsTrainCheckpoint = new RailwayStation
+        {
             Type = 'T',
             //Lines = new List<Line> { MalasiaTrainLines.KTMWestCoast },
             Name = "Woodlands Train Checkpoint",
             Destinations = new List<Destination> { SingaporeDestinations.WoodlandsCheckpoint },
-            Remarks = "" };
-
+            Remarks = ""
+        };
 
         //KTMEastCoast
 
         public static RailwayStation Tumpat = new RailwayStation
         {
             Type = 'T',
-            Name = "Tumpat",         
+            Name = "Tumpat",
             Remarks = ""
         };
 
@@ -174,7 +172,6 @@ namespace Data.Malaysia
             Name = "Kuala Krai",
             Remarks = ""
         };
-
 
         public static RailwayStation Dabong = new RailwayStation
         {
@@ -200,8 +197,5 @@ namespace Data.Malaysia
         ///
 
         //Gemas // Junction
-
-
-
     }
 }

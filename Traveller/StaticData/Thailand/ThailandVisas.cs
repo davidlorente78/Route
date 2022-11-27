@@ -1,5 +1,5 @@
-﻿using Domain;
-using Data.Nationalities;
+﻿using Data.Nationalities;
+using Domain;
 using Traveller.Domain;
 
 namespace Traveller.StaticData
@@ -20,12 +20,8 @@ namespace Traveller.StaticData
             Extensible = false,
             QualifyNationalities = new List<Nationality> { Nationalities.ES },
             URL = "https://madrid.thaiembassy.org/en/index"
-
         };
 
-
         ///Visado (expedido por la Embajada de Tailandia o por los Consulados de representación) es necesario sólo si la estancia en el país es superior a 30 días.
-
-
     }
 }

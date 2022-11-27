@@ -1,6 +1,5 @@
 ﻿using Domain.Ranges;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Traveller.Domain;
 
 namespace RouteDataManager.ViewModels
 {

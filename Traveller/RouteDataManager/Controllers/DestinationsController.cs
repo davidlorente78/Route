@@ -1,12 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Application.Dto;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RouteDataManager.Models;
 using RouteDataManager.Repositories;
 using RouteDataManager.ViewModels;
 using RouteDataManager.ViewModels.Destination;
-using System.Linq;
+using Traveller.Application.Dto;
 using Traveller.Domain;
+using Traveller.DomainServices;
 
 namespace RouteDataManager.Controllers
 {
@@ -15,36 +17,54 @@ namespace RouteDataManager.Controllers
         private readonly ApplicationContext _context;
         private readonly IWebHostEnvironment _environment;
 
-        public DestinationsController(ApplicationContext context, IWebHostEnvironment environment)
+        private readonly ICountryService countryService;
+        private readonly IDestinationService destinationService;
+
+        private IEnumerable<CountryDto> countries;
+        private IEnumerable<DestinationDto> destinations;
+
+
+
+
+        public DestinationsController(
+            ApplicationContext context, 
+            IWebHostEnvironment environment, 
+            ICountryService countryService,
+            IDestinationService destinationService)
         {
             _context = context;
             _environment = environment;
+            this.countryService = countryService;
+            this.destinationService = destinationService;
+
+            countries = countryService.GetAllCountries();
+            destinations = destinationService.GetAllDestinations();
 
         }
 
         // GET: Destinations
         public async Task<IActionResult> Index(DestinationIndexViewModel destinationIndexViewModel)
         {
-            IOrderedQueryable<Traveller.Domain.Destination>? applicationContext;
+            IOrderedQueryable<Destination>? applicationContext;
 
             if (destinationIndexViewModel.FilterCountry.CountryID != 0)
             {
                 applicationContext = _context.Destinations
                     .Where(
-                        d => d.CountryID == destinationIndexViewModel.FilterCountry.CountryID
+                        d => d.DestinationCountryID == destinationIndexViewModel.FilterCountry.CountryID
                         &&
                         d.DestinationTypes.Select(d => d.DestinationTypeID).Contains(destinationIndexViewModel.FilterDestinationType.DestinationTypeID)
                      )
-                    .Include(d => d.Country)
+                    .Include(d => d.DestinationCountry)
                     .Include(d => d.DestinationTypes)
                     .OrderBy(d => d.Name);
             }
             else
             {
-                applicationContext = _context.Destinations.Include(d => d.Country).Include(d => d.DestinationTypes).OrderBy(d => d.Name);
+                applicationContext = _context.Destinations.Include(d => d.DestinationCountry).Include(d => d.DestinationTypes).OrderBy(d => d.Name);
             }
 
-            SelectList selectListCountries = new SelectList(_context.Countries, "CountryID", "Name", destinationIndexViewModel.FilterCountry.CountryID);
+            SelectList selectListCountries = new SelectList(countries, "CountryID", "Name", destinationIndexViewModel.FilterCountry.CountryID);
             SelectList selectListDestinationTypes = new SelectList(_context.DestinationTypes, "DestinationTypeID", "Description", destinationIndexViewModel.FilterDestinationType.DestinationTypeID);
 
             destinationIndexViewModel.SelectListCountries = selectListCountries;
@@ -66,7 +86,7 @@ namespace RouteDataManager.Controllers
             }
 
             var destination = await _context.Destinations
-                .Include(d => d.Country).Include(d => d.DestinationTypes)
+                .Include(d => d.DestinationCountry).Include(d => d.DestinationTypes)
                 .FirstOrDefaultAsync(m => m.DestinationID == id);
 
 
@@ -76,7 +96,7 @@ namespace RouteDataManager.Controllers
                 return NotFound();
             }
 
-            ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name", destination.CountryID);
+            ViewData["CountryID"] = new SelectList(countries, "CountryID", "Name", destination.DestinationCountryID);
 
             return PartialView(destination);
         }
@@ -84,7 +104,7 @@ namespace RouteDataManager.Controllers
         // GET: Destinations/Create
         public IActionResult Create()
         {
-            ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name");
+            ViewData["CountryID"] = new SelectList(countries, "CountryID", "Name");
             return PartialView();
         }
 
@@ -100,7 +120,7 @@ namespace RouteDataManager.Controllers
                 string uniqueFileName = ProcessUploadedFile(model);
                 Destination destination = new()
                 {
-                    CountryID = model.CountryID,
+                    DestinationCountryID = model.CountryID,
                     Name = model.Name,
                     Description = model.Description,
                     Picture = uniqueFileName
@@ -111,7 +131,7 @@ namespace RouteDataManager.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name", model.CountryID);
+            ViewData["CountryID"] = new SelectList(countries, "CountryID", "Name", model.CountryID);
 
             return PartialView(model);
         }
@@ -124,7 +144,7 @@ namespace RouteDataManager.Controllers
                 return NotFound();
             }
 
-            var destination = await _context.Destinations.Include(d => d.Country).Include(d => d.DestinationTypes).Include(d=>d.Stations).FirstAsync(d => d.DestinationID == id);
+            var destination = await _context.Destinations.Include(d => d.DestinationCountry).Include(d => d.DestinationTypes).Include(d=>d.Stations).FirstAsync(d => d.DestinationID == id);
 
             if (destination == null)
             {
@@ -133,7 +153,7 @@ namespace RouteDataManager.Controllers
 
             var destinationViewModel = new DestinationViewModel()
             {
-                CountryID = destination.CountryID,
+                CountryID = destination.DestinationCountryID,
                 DestinationID = destination.DestinationID,
                 Description = destination.Description,
                 Id = destination.DestinationID,
@@ -142,7 +162,7 @@ namespace RouteDataManager.Controllers
 
             };
 
-            ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name", destination.CountryID);
+            ViewData["CountryID"] = new SelectList(countries, "CountryID", "Name", destination.DestinationCountryID);
             return PartialView(destinationViewModel);
         }
 
@@ -166,7 +186,7 @@ namespace RouteDataManager.Controllers
                 //Se actualizan los datos entrantes desde el modelo
                 destination.Name = model.Name;
                 destination.Description = model.Description;
-                destination.CountryID = model.CountryID;
+                destination.DestinationCountryID = model.CountryID;
 
 
                 if (model.Picture != null)
@@ -181,7 +201,7 @@ namespace RouteDataManager.Controllers
                 }
                 _context.Update(destination);
                 await _context.SaveChangesAsync();
-                ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name", model.CountryID);
+                ViewData["CountryID"] = new SelectList(countries, "CountryID", "Name", model.CountryID);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -209,8 +229,9 @@ namespace RouteDataManager.Controllers
             }
 
             var destination = await _context.Destinations
-                .Include(d => d.Country)
+                .Include(d => d.DestinationCountry)
                 .FirstOrDefaultAsync(m => m.DestinationID == id);
+
             if (destination == null)
             {
                 return NotFound();

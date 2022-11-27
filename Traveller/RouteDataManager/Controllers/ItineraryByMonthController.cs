@@ -3,11 +3,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RouteDataManager.Repositories;
 using RouteDataManager.ViewModels;
-using Data;
+using Domain.Ranges;
 using Traveller.Domain;
 using Traveller.DomainServices;
 using Traveller.RouteService;
 using Traveller.RouteService.Rules;
+using Data.EntityTypes;
 
 namespace RouteDataManager.Controllers
 {

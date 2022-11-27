@@ -6,12 +6,11 @@ namespace Traveller.DomainServices
 {
     public interface ICountryService
     {
-        ICollection<Country> GetAllCountries();
-        Country GetCountryByID(int ID);
-        CountryDto GetCountry(int ID);
+        ICollection<CountryDto> GetAllCountries();
+        CountryDto GetCountryByID(int ID);
         bool CountryExists(int id);
         int AddCountry(Country country);
-        int RemoveCountry(Country country);
+        int RemoveCountry(CountryDto countryDto);
         int UpdateCountry(Country country);
         public Country GetCountryIncludingRangesByCountryCode(char CountryCode);
     }

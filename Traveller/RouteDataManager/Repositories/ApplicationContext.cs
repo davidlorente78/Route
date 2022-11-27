@@ -22,20 +22,39 @@ namespace RouteDataManager.Repositories
 
 
         public DbSet<Country> Countries { get; set; }
-
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    var connectionString = @"Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;";
-        //    optionsBuilder.UseSqlServer(connectionString);
-        //}
-
-
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Country>().ToTable("Countries");
 
-            //En este caso no es necesario porque ya se encarga EF de formar el plural directamente
-            modelBuilder.Entity<Destination>().ToTable("Destinations");
+            modelBuilder.Entity<Country>()
+                    .HasMany(x => x.Destinations)
+                    .WithOne(x => x.DestinationCountry)
+                    .HasForeignKey(x => x.DestinationCountryID)
+                    .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Destination>()
+                .ToTable("Destinations")
+                .HasKey(x => x.DestinationID);
+
+            modelBuilder.Entity<Destination>()
+                   .HasMany(x => x.Airports)
+                   .WithMany(x => x.Destinations);
+
+            modelBuilder.Entity<Airport>()
+                .ToTable("Airports")
+                .HasKey(x => x.AirportID);
+
+            modelBuilder.Entity<Airport>()
+                .HasMany(x => x.Destinations);
+
+            modelBuilder.Entity<Airport>()
+                  .HasOne(x => x.AirportCountry);
+
+            modelBuilder.Entity<Airport>()
+                .HasOne(x => x.AirportType);
+
+
 
             modelBuilder.Entity<RailwayBranch>().ToTable("Branches");
 
@@ -80,19 +99,16 @@ namespace RouteDataManager.Repositories
 
                 b.ToTable("Speakers");
             });
-#endregion
-            //EF Not Core versions
-            //builder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            #endregion
 
             // Global turn off delete behaviour on foreign keys
             foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
             {
                 relationship.DeleteBehavior = DeleteBehavior.Restrict;
             }
-
         }
 
-       
+
         public DbSet<Destination>? Destinations { get; set; }
 
         public DbSet<BorderCrossing>? BorderCrossings { get; set; }
@@ -121,7 +137,7 @@ namespace RouteDataManager.Repositories
 
         public DbSet<AirlineType>? AirlineTypes { get; set; }
 
-        public DbSet<Nationality>? Nationalities { get; set; }    
+        public DbSet<Nationality>? Nationalities { get; set; }
 
         public DbSet<RangeChar>? Ranges { get; set; }
 

@@ -10,8 +10,8 @@ namespace RouteDataManager.ViewModels
         public SelectList SelectListCountriesFinal { get; set; }
         public SelectList SelectListBorderCrossingTypes { get; set; }
         public BorderCrossingType FilterBorderCrossingType { get; set; } = new BorderCrossingType() { BorderCrossingTypeID = 2 }; //Terrestrial
-        public Country FilterCountryOrigin { get; set; } = new Country() { CountryID = 4 };
-        public Country FilterCountryFinal { get; set; } = new Country() { CountryID = 3 };
+        public Traveller.Domain.Country FilterCountryOrigin { get; set; } = new Traveller.Domain.Country() { CountryID = 4 };
+        public Traveller.Domain.Country FilterCountryFinal { get; set; } = new Traveller.Domain.Country() { CountryID = 3 };
 
     }
 }

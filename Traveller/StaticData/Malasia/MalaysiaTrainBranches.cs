@@ -1,4 +1,4 @@
-﻿using Domain;
+﻿using Data;
 using Domain.Transport.Railway;
 
 namespace Data.Malaysia
@@ -46,6 +46,5 @@ namespace Data.Malaysia
                MalaysiaTrainStations.Gemas,
             }
         };
-
     }
 }

@@ -1,5 +1,6 @@
-﻿using Domain;
+﻿using Data;
 using Data.Nationalities;
+using Domain;
 using Traveller.Domain;
 
 namespace Traveller.StaticData
@@ -21,11 +22,6 @@ namespace Traveller.StaticData
             Extensible = false,
             QualifyNationalities = new List<Nationality> { Nationalities.ES },
             URL = "https://www.ica.gov.sg/"
-
         };
-
-
-
-
     }
 }

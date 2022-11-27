@@ -12,6 +12,8 @@ namespace Domain.Transport.Aviation
         public int? MainAirportID { get; set; }
         public virtual Airport? MainAirport { get; set; }
         public List<Airport>? Airports { get; set; }
+        public virtual AirlineType? AirlineType { get; set; }
+        public int AirlineTypeID{ get; set; }
 
         [Required]
         [StringLength(5000)]

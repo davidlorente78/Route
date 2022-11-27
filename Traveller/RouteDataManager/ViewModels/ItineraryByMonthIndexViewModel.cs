@@ -1,6 +1,5 @@
 ﻿using Domain.Ranges;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Traveller.Domain;
 
 namespace RouteDataManager.ViewModels
 {
@@ -28,29 +27,29 @@ namespace RouteDataManager.ViewModels
 
         public List<string> CountryReport { get; set; } = new List<string>();
 
-        public Country FilterCountry1 { get; set; } 
+        public Traveller.Domain.Country FilterCountry1 { get; set; } 
 
-        public Country FilterCountry2 { get; set; }
+        public Traveller.Domain.Country FilterCountry2 { get; set; }
 
-        public Country FilterCountry3 { get; set; }
+        public Traveller.Domain.Country FilterCountry3 { get; set; }
 
-        public Country FilterCountry4 { get; set; }
+        public Traveller.Domain.Country FilterCountry4 { get; set; }
 
-        public Country FilterCountry5 { get; set; } 
+        public Traveller.Domain.Country FilterCountry5 { get; set; } 
 
-        public Country FilterCountry6 { get; set; } 
+        public Traveller.Domain.Country FilterCountry6 { get; set; } 
 
-        public Country FilterCountry7 { get; set; }
+        public Traveller.Domain.Country FilterCountry7 { get; set; }
 
-        public Country FilterCountry8 { get; set; } 
+        public Traveller.Domain.Country FilterCountry8 { get; set; } 
 
-        public Country FilterCountry9 { get; set; } 
+        public Traveller.Domain.Country FilterCountry9 { get; set; } 
 
-        public Country FilterCountry10 { get; set; } 
+        public Traveller.Domain.Country FilterCountry10 { get; set; } 
 
-        public Country FilterCountry11 { get; set; } 
+        public Traveller.Domain.Country FilterCountry11 { get; set; } 
 
-        public Country FilterCountry12 { get; set; } 
+        public Traveller.Domain.Country FilterCountry12 { get; set; } 
 
         public List<Month> Months { get; set; }
 

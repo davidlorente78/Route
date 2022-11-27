@@ -21,22 +21,14 @@ namespace Domain.Transport.Aviation
         [Display(Name = "Local Name")]
         public string? LocalName { get; set; }
         public virtual ICollection<Destination>? Destinations { get; set; }
-        public int CountryID { get; set; }
-        public virtual Country Country { get; set; }
+        public int AirportCountryID { get; set; }
+        public virtual Country AirportCountry { get; set; }
 
         public Airport()
         {
-
             Destinations = new HashSet<Destination>();
         }
     }
 
-    public class AirportType
-    {
-        public int AirportTypeID { get; set; }
-        public char? Code { get; set; }
-        public string? Description { get; set; }
-
-
-    }
+   
 }

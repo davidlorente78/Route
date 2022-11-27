@@ -11,7 +11,7 @@ namespace RouteDataManager.ViewModels
         public SelectList SelectListAirportTypes{ get; set; }
 
         public AirportType FilterAirportType { get; set; } = new AirportType() {   AirportTypeID = 1 };
-        public Country FilterCountry { get; set; } = new Country() { CountryID = 1 };
+        public Traveller.Domain.Country FilterCountry { get; set; } = new Traveller.Domain.Country() { CountryID = 1 };
 
     }
 }

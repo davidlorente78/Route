@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using RouteDataManager.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Traveller.Application.Dto;
@@ -11,6 +12,7 @@ namespace Traveller.DomainServices
     {
         private IUnitOfWork unitOfWork;
         private readonly IMapper mapper;
+
         public CountryService(IUnitOfWork unitOfWork, IMapper mapper)
         {
             this.unitOfWork = unitOfWork;
@@ -23,21 +25,16 @@ namespace Traveller.DomainServices
             return (unitOfWork.ICountryRepository?.Find(e => e.CountryID == id)).Count() != 0;
         }
 
-        public ICollection<Country> GetAllCountries()
+        public ICollection<CountryDto> GetAllCountries()
         {
-            var countries = unitOfWork.ICountryRepository.GetCountriesOrderedByName();
+            var countries = unitOfWork.ICountryRepository.GetCountriesOrderedByName().ToList();
 
-            return countries.ToList();
+            List<CountryDto> countriesDto = mapper.Map<List<CountryDto>>(countries);
+
+            return countriesDto;
         }
-
-        public Country GetCountryByID(int ID)
-        {           
-            var country = unitOfWork.ICountryRepository.GetCountryByID(ID);
-
-            return country.First();
-        }
-
-        public CountryDto GetCountry(int ID)
+        
+        public CountryDto GetCountryByID(int ID)
         {
             var country = unitOfWork.ICountryRepository.GetCountryByID(ID).FirstOrDefault();
             CountryDto countryDto = mapper.Map<CountryDto>(country);
@@ -67,11 +64,17 @@ namespace Traveller.DomainServices
            return unitOfWork.SaveChanges();
         }
 
-        public int RemoveCountry(Country country)
+        public int RemoveCountry(CountryDto countryDto)
         {
+            var country = GetCountryEntityByID(countryDto.CountryID);
             unitOfWork.ICountryRepository.Remove(country);
-
             return unitOfWork.SaveChanges();
+        }
+
+        private Country CreateEntityFromDto(CountryDto countryDto)
+        {
+            Country country = mapper.Map<Country>(countryDto);
+            return country;
         }
 
         public int UpdateCountry(Country country)
@@ -81,6 +84,12 @@ namespace Traveller.DomainServices
             return unitOfWork.SaveChanges();
         }
 
+        private Country GetCountryEntityByID(int ID)
+        {
+            var country = unitOfWork.ICountryRepository.GetCountryByID(ID).FirstOrDefault();
+
+            return country;
+        }
 
     }
 }

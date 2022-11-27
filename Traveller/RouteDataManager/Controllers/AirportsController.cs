@@ -29,11 +29,11 @@ namespace RouteDataManager.Controllers
             {
                 //applicationContext = _context.Airports.Where(d => d.CountryID == airportIndexViewModel.FilterCountry.CountryID).Include(d => d.Country).Include(d => d.AirportType).OrderBy(c => c.Country.Name);
 
-                applicationContext = _context.Airports.Where(d => d.CountryID == airportIndexViewModel.FilterCountry.CountryID && d.AirportType.AirportTypeID == airportIndexViewModel.FilterAirportType.AirportTypeID).Include(d => d.Country).Include(d => d.AirportType).OrderBy(c => c.Country.Name);
+                applicationContext = _context.Airports.Where(d => d.AirportCountryID == airportIndexViewModel.FilterCountry.CountryID && d.AirportType.AirportTypeID == airportIndexViewModel.FilterAirportType.AirportTypeID).Include(d => d.AirportCountry).Include(d => d.AirportType).OrderBy(c => c.AirportCountry.Name);
             }
             else
             {
-                applicationContext = _context.Airports.Include(d => d.Country).Include(d => d.AirportType).OrderBy(c => c.Country.Name);
+                applicationContext = _context.Airports.Include(d => d.AirportCountry).Include(d => d.AirportType).OrderBy(c => c.AirportCountry.Name);
             }
 
             SelectList selectListCountries = new SelectList(_context.Countries, "CountryID", "Name", airportIndexViewModel.FilterCountry.CountryID);
