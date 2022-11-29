@@ -25,21 +25,59 @@ namespace RouteDataManager.Repositories
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Country>().ToTable("Countries");
+            // Global turn off delete behaviour on foreign keys
+            foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
+            {
+                relationship.DeleteBehavior = DeleteBehavior.Restrict;
+            }
+
+            //Country
+            modelBuilder.Entity<Country>()
+                .ToTable("Countries")
+                .HasKey(x => x.CountryID);
+             
 
             modelBuilder.Entity<Country>()
-                    .HasMany(x => x.Destinations)
-                    .WithOne(x => x.DestinationCountry)
-                    .HasForeignKey(x => x.DestinationCountryID)
-                    .OnDelete(DeleteBehavior.Cascade);
+                .HasMany<Destination>(c => c.Destinations)
+                .WithOne(d => d.DestinationCountry)
+                .HasForeignKey(d => d.DestinationCountryID)
+                .OnDelete(DeleteBehavior.ClientCascade);
 
+             modelBuilder.Entity<Country>()
+                .HasMany<BorderCrossing>(c => c.BorderCrossings)
+                .WithOne(d => d.BorderCrossingCountry)
+                .HasForeignKey(d => d.BorderCrossingCountryID)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            //Destination
             modelBuilder.Entity<Destination>()
                 .ToTable("Destinations")
                 .HasKey(x => x.DestinationID);
 
             modelBuilder.Entity<Destination>()
-                   .HasMany(x => x.Airports)
-                   .WithMany(x => x.Destinations);
+                .HasMany(x => x.Airports)
+                .WithMany(x => x.Destinations);
+
+            //BorderCrossings
+            modelBuilder.Entity<BorderCrossing>()
+               .ToTable("BorderCrossings");
+
+            modelBuilder.Entity<BorderCrossing>()
+                .HasOne(b => b.DestinationOrigin)
+                .WithMany()
+                .HasForeignKey(d => d.DestinationOriginID)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<BorderCrossing>()
+                .HasOne(b => b.DestinationFinal)
+                .WithMany()
+                .HasForeignKey(d => d.DestinationFinalID)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<BorderCrossing>()                
+                .HasMany(b => b.Visas)
+                .WithMany(x => x.BorderCrossings)
+                .UsingEntity("VisaBorderCrossing");                
 
             modelBuilder.Entity<Airport>()
                 .ToTable("Airports")
@@ -49,12 +87,10 @@ namespace RouteDataManager.Repositories
                 .HasMany(x => x.Destinations);
 
             modelBuilder.Entity<Airport>()
-                  .HasOne(x => x.AirportCountry);
+                .HasOne(x => x.AirportCountry);
 
             modelBuilder.Entity<Airport>()
                 .HasOne(x => x.AirportType);
-
-
 
             modelBuilder.Entity<RailwayBranch>().ToTable("Branches");
 
@@ -101,15 +137,11 @@ namespace RouteDataManager.Repositories
             });
             #endregion
 
-            // Global turn off delete behaviour on foreign keys
-            foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
-            {
-                relationship.DeleteBehavior = DeleteBehavior.Restrict;
-            }
+          
         }
 
 
-        public DbSet<Destination>? Destinations { get; set; }
+        public DbSet<Destination>? Destinations { get; set; } 
 
         public DbSet<BorderCrossing>? BorderCrossings { get; set; }
 

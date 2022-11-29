@@ -1,6 +1,5 @@
-﻿using Application.Dto;
+﻿using Traveller.Application.Dto;
 using System.Collections.Generic;
-using Traveller.Domain;
 
 namespace Traveller.DomainServices
 {

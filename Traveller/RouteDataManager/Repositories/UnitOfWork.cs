@@ -9,6 +9,8 @@ namespace RouteDataManager.Repositories
         public ICountryRepository ICountryRepository { get; private set; }
         public IDestinationRepository IDestinationRepository { get; private set; }
         public IBorderCrossingRepository IBorderCrossingRepository { get; private set; }
+        public IRailwayStationRepository IRailwayStationRepository { get; private set; }
+
 
         public UnitOfWork(ApplicationContext context)
         {
@@ -16,6 +18,7 @@ namespace RouteDataManager.Repositories
             ICountryRepository = new CountryRepository(_context);
             IDestinationRepository = new DestinationRepository(_context);
             IBorderCrossingRepository = new BorderCrossingRepository(_context);
+            IRailwayStationRepository = new RailwayStationRepository(_context);
         }
 
         public int SaveChanges()

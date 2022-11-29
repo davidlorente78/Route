@@ -33,7 +33,7 @@ namespace Traveller.DomainServices
 
             return countriesDto;
         }
-        
+
         public CountryDto GetCountryByID(int ID)
         {
             var country = unitOfWork.ICountryRepository.GetCountryByID(ID).FirstOrDefault();
@@ -47,28 +47,47 @@ namespace Traveller.DomainServices
             var countries = unitOfWork.ICountryRepository.GetCountriesOrderedByName().ToList();
 
             List<CountryDto> countriesDto = mapper.Map<List<CountryDto>>(countries);
+
             return countriesDto;
         }
 
         public Country GetCountryIncludingRangesByCountryCode(char CountryCode)
-        {            
+        {
             var country = unitOfWork.ICountryRepository.GetCountryIncludingRangesByCode(CountryCode);
 
             return country;
         }
 
-        public int AddCountry(Country country)
-        {            
-           unitOfWork.ICountryRepository.Add(country);
+        public int AddCountry(CountryDto countryDto)
+        {
+            var country = CreateEntityFromDto(countryDto);
+            unitOfWork.ICountryRepository.Add(country);
 
-           return unitOfWork.SaveChanges();
+            return unitOfWork.SaveChanges();
         }
 
-        public int RemoveCountry(CountryDto countryDto)
+        public int RemoveCountry(int id)
         {
-            var country = GetCountryEntityByID(countryDto.CountryID);
+            var country = GetCountryEntityByID(id);
             unitOfWork.ICountryRepository.Remove(country);
             return unitOfWork.SaveChanges();
+        }
+
+        public int UpdateCountry(CountryDto countryDto)
+        {
+            var country = GetCountryEntityByID(countryDto.CountryID);
+
+            country = UpdateEntityFromDto(countryDto, country);
+            unitOfWork.ICountryRepository.Update(country);
+
+            return unitOfWork.SaveChanges();
+        }
+
+        private Country GetCountryEntityByID(int id)
+        {
+            var country = unitOfWork.ICountryRepository.GetCountryByID(id).FirstOrDefault();
+
+            return country;
         }
 
         private Country CreateEntityFromDto(CountryDto countryDto)
@@ -77,17 +96,10 @@ namespace Traveller.DomainServices
             return country;
         }
 
-        public int UpdateCountry(Country country)
+        private Country UpdateEntityFromDto(CountryDto countryDto, Country country)
         {
-            unitOfWork.ICountryRepository.Update(country);
-
-            return unitOfWork.SaveChanges();
-        }
-
-        private Country GetCountryEntityByID(int ID)
-        {
-            var country = unitOfWork.ICountryRepository.GetCountryByID(ID).FirstOrDefault();
-
+            country.Code = countryDto.Code;
+            country.Name = countryDto.Name;
             return country;
         }
 

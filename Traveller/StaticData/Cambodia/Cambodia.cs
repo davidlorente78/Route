@@ -15,7 +15,7 @@ namespace Data.Cambodia
             Ranges = new List<RangeChar> { CambodiaRanges.SeasonRange , CambodiaRanges.MonsoonRange, CambodiaRanges.MonsoonRangeEvaluator},
             ShowInDynamicHome = true,
             ShowInDynamicHomeOrder = 2,
-            Visas = new List<Visa>() { CambodiaVisas.eVisa_Cambodia }
+            //Visas = new List<Visa>() { CambodiaVisas.eVisa_Cambodia }
 
         };
 

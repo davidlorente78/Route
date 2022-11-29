@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Traveller.Application.Dto;
 
-namespace Application.Dto
+namespace Traveller.Application.Dto
 {
     public class DestinationDto
     {

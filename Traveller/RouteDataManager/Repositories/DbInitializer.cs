@@ -97,12 +97,13 @@ namespace RouteDataManager.Repositories
 
                             new BorderCrossing {
                             Name = NepalAirports.KTM.Name,
-                            Origin = NepalDestinations.Kathmandu,
-                            Final = NepalDestinations.Kathmandu,
+                            DestinationOrigin = NepalDestinations.Kathmandu,
+                            DestinationFinal = NepalDestinations.Kathmandu,
                             BorderCrossingType = BorderCrossingTypes.Airport,
                             Visas = new List<Visa> { NepalVisas.OnArrivalVisa15_Nepal, NepalVisas.OnArrivalVisa30_Nepal, NepalVisas.OnArrivalVisa90_Nepal, NepalVisas.FreeVisa_Nepal } },
-                        },
-                Visas = new List<Visa> { NepalVisas.OnArrivalVisa15_Nepal, NepalVisas.OnArrivalVisa30_Nepal, NepalVisas.OnArrivalVisa90_Nepal, NepalVisas.FreeVisa_Nepal }
+                        }
+
+            //Visas = new List<Visa> { NepalVisas.OnArrivalVisa15_Nepal, NepalVisas.OnArrivalVisa30_Nepal, NepalVisas.OnArrivalVisa90_Nepal, NepalVisas.FreeVisa_Nepal }
             ,
 
             };
@@ -129,22 +130,22 @@ namespace RouteDataManager.Repositories
 
                             new BorderCrossing {
                             Name = "Singapore Changi Airport",
-                            Origin = SingaporeDestinations.Singapore,
-                            Final = SingaporeDestinations.Singapore,
+                            DestinationOrigin = SingaporeDestinations.Singapore,
+                            DestinationFinal = SingaporeDestinations.Singapore,
                             BorderCrossingType = BorderCrossingTypes.Airport,
                            //https://www.ica.gov.sg/
                             Visas = new List<Visa> { SingaporeVisas.SGArrivalCard_Singapore } },
 
                             new BorderCrossing {
                             Name = SingaporeDestinations.WoodlandsCheckpoint.Name,
-                            Origin = MalaysiaDestinations.JohorBahru,
-                            Final = SingaporeDestinations.WoodlandsCheckpoint,
+                            DestinationOrigin = MalaysiaDestinations.JohorBahru,
+                            DestinationFinal = SingaporeDestinations.WoodlandsCheckpoint,
                             BorderCrossingType = BorderCrossingTypes.Terrestrial,
                             Visas = new List<Visa> { SingaporeVisas.SGArrivalCard_Singapore } },
 
                             //Frontier https://en.wikipedia.org/wiki/Malaysia%E2%80%93Singapore_Second_Link
                         },
-                Visas = new List<Visa> { SingaporeVisas.SGArrivalCard_Singapore },//Estas son las que salen en la pagina IndexView
+                //Visas = new List<Visa> { SingaporeVisas.SGArrivalCard_Singapore },//Estas son las que salen en la pagina IndexView
                 Airports = new List<Airport> { SingaporeAirports.SIN },
 
             };

@@ -16,7 +16,7 @@ namespace Data.Vietnam
         {
             Code = 'V',
             Name = "Vietnam",
-            Visas = new List<Visa> { VietnamVisas.eVisa_Vietnam, VietnamVisas.VisaExemption_Vietnam },
+            //Visas = new List<Visa> { VietnamVisas.eVisa_Vietnam, VietnamVisas.VisaExemption_Vietnam },
             Destinations = VietnamDestinations.GetAll(),
             BorderCrossings = VietnamBorderCrossings.GetAll(),
             Airports = VietnamAirports.GetAll(),

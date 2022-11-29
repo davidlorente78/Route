@@ -1,4 +1,4 @@
-﻿using Application.Dto;
+﻿using Traveller.Application.Dto;
 using AutoMapper;
 using Traveller.Application.Dto;
 using Traveller.Domain;

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using RouteDataManager.ViewModels.Country;
 using Traveller.Application.Dto;
-using Traveller.Domain;
+//using Traveller.Domain;
 using Traveller.DomainServices;
 
 
@@ -22,8 +22,6 @@ namespace RouteDataManager.Controllers
         {
             var countryIndexViewModel = new CountryIndexViewModel();
 
-            //TODO Mapeo entre entidades de dominio y entidades del modelo de la vista
-
             ICollection<CountryDto>? countries = countryService.GetAllCountries();
 
             countryIndexViewModel.Countries = countries;
@@ -31,18 +29,8 @@ namespace RouteDataManager.Controllers
             if (id != null)
             {
                 ViewBag.CountryId = id.Value;
-
-                //TODO Pendiente ajustar a Dto y Mapper
-
-                //var selectedCountryDestinations = countries.Single(c => c.CountryID == id.Value).Destinations.OrderBy(c => c.Country.Name);
-                //var selectedCountryFrontiers = countries.Single(c => c.CountryID == id.Value).BorderCrossings;
-                //var selectedCountryVisas = countries.Single(c => c.CountryID == id.Value).Visas;
-
-
-                //viewModel.Destinations = selectedCountryDestinations;
-                //viewModel.BorderCrossings = selectedCountryFrontiers;
-                //viewModel.Visas = selectedCountryVisas;
             }
+
             return View(countryIndexViewModel);
         }
 
@@ -75,19 +63,15 @@ namespace RouteDataManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CountryID,Code,Name")] Country country)
+        public async Task<IActionResult> Create([Bind("CountryID,Code,Name")] CountryDto countryDto)
         {
-            //HERE
-            //country.Frontiers = null;
-            country.Destinations = null;
-
             if (ModelState.IsValid)
             {
-                countryService.AddCountry(country);
+                countryService.AddCountry(countryDto);
 
                 return RedirectToAction(nameof(Index));
             }
-            return PartialView(country);
+            return PartialView(countryDto);
         }
 
         // GET: Countries/Edit/5
@@ -112,9 +96,9 @@ namespace RouteDataManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CountryID,Code,Name")] Country country)
+        public async Task<IActionResult> Edit(int id, [Bind("CountryID,Code,Name")] CountryDto countryDto)
         {
-            if (id != country.CountryID)
+            if (id != countryDto.CountryID)
             {
                 return NotFound();
             }
@@ -123,12 +107,12 @@ namespace RouteDataManager.Controllers
             {
                 try
                 {
-                    countryService.UpdateCountry(country);
+                    countryService.UpdateCountry(countryDto);
 
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!countryService.CountryExists(country.CountryID))
+                    if (!countryService.CountryExists(countryDto.CountryID))
                     {
                         return NotFound();
                     }
@@ -139,10 +123,9 @@ namespace RouteDataManager.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(country);
+            return View(countryDto);
         }
 
-        // GET: Countries/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || countryService.CountryExists((int)id) == false)
@@ -159,29 +142,22 @@ namespace RouteDataManager.Controllers
             return View(countryDto);
         }
 
-        // POST: Countries/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (countryService.CountryExists((int)id) == false)
-            {
-                return Problem("Country does not exist.");
-            }
-
             CountryDto countryDto = countryService.GetCountryByID((int)id);
 
             if (countryDto != null)
             {
-                countryService.RemoveCountry(countryDto);
+                countryService.RemoveCountry(countryDto.CountryID);
+            }
+            else
+            {
+                return Problem("Country does not exist.");
             }
 
             return RedirectToAction(nameof(Index));
         }
-
-
-
     }
-
-
 }

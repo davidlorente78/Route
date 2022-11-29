@@ -16,7 +16,7 @@ namespace Data.Laos
             Ranges = new List<RangeChar> { LaosRanges.SeasonRange , LaosRanges.MonsoonRange , LaosRanges.MonsoonRangeEvaluator},
             ShowInDynamicHome = true,
             ShowInDynamicHomeOrder = 1,
-            Visas = new List<Visa> { LaosVisas.LaoVisa, LaosVisas.eLaoVisa },
+            //Visas = new List<Visa> { LaosVisas.LaoVisa, LaosVisas.eLaoVisa },
 
         };
     }

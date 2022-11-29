@@ -17,6 +17,7 @@ namespace RouteDataManager.Repositories
         ICountryRepository ICountryRepository { get;  }
         IDestinationRepository IDestinationRepository { get;  }
         IBorderCrossingRepository IBorderCrossingRepository { get; }
+        IRailwayStationRepository IRailwayStationRepository { get; }
         int SaveChanges();
     }
 }

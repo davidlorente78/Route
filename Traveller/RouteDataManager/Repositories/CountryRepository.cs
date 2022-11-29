@@ -14,19 +14,37 @@ namespace RouteDataManager.Repositories
         {
             var countryList = new List<Country>();
 
-            countryList = _context.Countries.Include(c => c.Destinations).ThenInclude(d => d.DestinationTypes).Include(c => c.BorderCrossings).ThenInclude(f => f.BorderCrossingType).Include(c => c.Visas).OrderBy(c => c.Name).ToList();
+            countryList = _context
+                .Countries
+                    .Include(c => c.Destinations)
+                        .ThenInclude(d => d.DestinationTypes)                
+                    .Include(c => c.BorderCrossings)
+                        .ThenInclude(f => f.BorderCrossingType)
+                    .Include(c => c.BorderCrossings)
+                        .ThenInclude(b => b.Visas)
+                    .OrderBy(c => c.Name).ToList();
 
             return countryList;
         }
 
         public IEnumerable<Country> GetCountryByID(int id)
         {
-            return _context.Countries.Where(c => c.CountryID == id).Include(c => c.Destinations).Include(c => c.BorderCrossings).Include(c => c.Visas).OrderBy(c => c.Name).ToList();
+            return _context.Countries.Where(c => c.CountryID == id)
+                .Include(c => c.Destinations)
+                .Include(c => c.BorderCrossings)
+                    .ThenInclude(b=>b.DestinationOrigin)
+                .Include(c => c.BorderCrossings)
+                    .ThenInclude(c => c.Visas)
+                .OrderBy(c => c.Name).ToList();
         }
 
         public Country GetCountryByCode(char ch)
         {
-            return _context.Countries.Where(c => c.Code == ch).Include(c => c.Destinations).Include(c => c.BorderCrossings).Include(c => c.Visas).ThenInclude(v => v.QualifyNationalities).OrderBy(c => c.Name).FirstOrDefault();
+            return _context.Countries.Where(c => c.Code == ch)
+                .Include(c => c.Destinations)
+                .Include(c => c.BorderCrossings)
+                    .ThenInclude(c => c.Visas).ThenInclude(v => v.QualifyNationalities)
+                 .OrderBy(c => c.Name).FirstOrDefault();
         }
 
         public Country? GetCountryIncludingRangesByCode(char ch)

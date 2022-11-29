@@ -24,13 +24,13 @@ namespace RouteDataManager.Controllers
             if ((borderCrossingsIndexViewModel.FilterCountryOrigin.CountryID != 0) && (borderCrossingsIndexViewModel.FilterCountryFinal.CountryID != 0))
             {
                 applicationContext = _context.BorderCrossings.Where(
-                    f => f.Origin.DestinationCountryID == borderCrossingsIndexViewModel.FilterCountryOrigin.CountryID
-                && f.Final.DestinationCountryID == borderCrossingsIndexViewModel.FilterCountryFinal.CountryID
-                && f.BorderCrossingType.BorderCrossingTypeID == borderCrossingsIndexViewModel.FilterBorderCrossingType.BorderCrossingTypeID).Include(f => f.Origin).Include(f => f.Final).OrderBy(f => f.Name);
+                    f => f.DestinationOrigin.DestinationCountryID == borderCrossingsIndexViewModel.FilterCountryOrigin.CountryID
+                && f.DestinationFinal.DestinationCountryID == borderCrossingsIndexViewModel.FilterCountryFinal.CountryID
+                && f.BorderCrossingType.BorderCrossingTypeID == borderCrossingsIndexViewModel.FilterBorderCrossingType.BorderCrossingTypeID).Include(f => f.DestinationOrigin).Include(f => f.DestinationFinal).OrderBy(f => f.Name);
             }
             else
             {
-                applicationContext = (IOrderedQueryable<BorderCrossing>?)_context.BorderCrossings.Include(f => f.Final).Include(f => f.Origin);
+                applicationContext = (IOrderedQueryable<BorderCrossing>?)_context.BorderCrossings.Include(f => f.DestinationFinal).Include(f => f.DestinationOrigin);
             }
 
             SelectList selectListCountriesOrigin = new SelectList(_context.Countries, "CountryID", "Name", borderCrossingsIndexViewModel.FilterCountryOrigin.CountryID);
@@ -53,8 +53,8 @@ namespace RouteDataManager.Controllers
             }
 
             var borderCrossing = await _context.BorderCrossings
-                .Include(f => f.Final)
-                .Include(f => f.Origin)
+                .Include(f => f.DestinationFinal)
+                .Include(f => f.DestinationOrigin)
                 .Include(f => f.BorderCrossingType)
                 .FirstOrDefaultAsync(m => m.BorderCrossingID == id);
 
@@ -85,8 +85,8 @@ namespace RouteDataManager.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["FinalID"] = new SelectList(_context.Destinations, "DestinationID", "Name", borderCrossing.FinalID);
-            ViewData["OriginID"] = new SelectList(_context.Destinations, "DestinationID", "Name", borderCrossing.OriginID);
+            ViewData["FinalID"] = new SelectList(_context.Destinations, "DestinationID", "Name", borderCrossing.DestinationFinalID);
+            ViewData["OriginID"] = new SelectList(_context.Destinations, "DestinationID", "Name", borderCrossing.DestinationOriginID);
             ViewData["BorderCrossingTypes"] = new SelectList(_context.BorderCrossingTypes, "BorderCrossingTypeID", "Description", borderCrossing.BorderCrossingType.BorderCrossingTypeID);
 
             return View(borderCrossing);
@@ -100,8 +100,8 @@ namespace RouteDataManager.Controllers
             }
 
             var borderCrossing = _context.BorderCrossings
-                .Include(f => f.Final)
-                .Include(f => f.Origin)
+                .Include(f => f.DestinationFinal)
+                .Include(f => f.DestinationOrigin)
                 .Include(f => f.BorderCrossingType)
                 .Single(f => f.BorderCrossingID == id);
 
@@ -111,8 +111,8 @@ namespace RouteDataManager.Controllers
             }
 
             //HERE items, data Value, data Text
-            ViewData["FinalID"] = new SelectList(_context.Destinations, "DestinationID", "Name", borderCrossing.FinalID);
-            ViewData["OriginID"] = new SelectList(_context.Destinations, "DestinationID", "Name", borderCrossing.OriginID);
+            ViewData["FinalID"] = new SelectList(_context.Destinations, "DestinationID", "Name", borderCrossing.DestinationFinalID);
+            ViewData["OriginID"] = new SelectList(_context.Destinations, "DestinationID", "Name", borderCrossing.DestinationOriginID);
             ViewData["BorderCrossingTypes"] = new SelectList(_context.BorderCrossingTypes, "BorderCrossingTypeID", "Description", borderCrossing.BorderCrossingType.BorderCrossingTypeID);
 
             return View(borderCrossing);
@@ -139,15 +139,15 @@ namespace RouteDataManager.Controllers
 
             var DestinationOriginRecovered = _context.Destinations
                 .Include(f => f.DestinationTypes)
-                .Single(d => d.DestinationID == borderCrossing.OriginID);
+                .Single(d => d.DestinationID == borderCrossing.DestinationOriginID);
 
-            borderCrossing.Origin = DestinationOriginRecovered;
+            borderCrossing.DestinationOrigin = DestinationOriginRecovered;
 
             var DestinationFinalRecovered = _context.Destinations
                 .Include(f => f.DestinationTypes)
-                .Single(d => d.DestinationID == borderCrossing.FinalID);
+                .Single(d => d.DestinationID == borderCrossing.DestinationFinalID);
 
-            borderCrossing.Final = DestinationFinalRecovered;
+            borderCrossing.DestinationFinal = DestinationFinalRecovered;
 
             //TODO Model State check 
             //if (ModelState.IsValid)
@@ -172,8 +172,8 @@ namespace RouteDataManager.Controllers
 
             //}
 
-            ViewData["FinalID"] = new SelectList(_context.Destinations, "DestinationID", "Name", borderCrossing.FinalID);
-            ViewData["OriginID"] = new SelectList(_context.Destinations, "DestinationID", "Name", borderCrossing.OriginID);
+            ViewData["FinalID"] = new SelectList(_context.Destinations, "DestinationID", "Name", borderCrossing.DestinationFinalID);
+            ViewData["OriginID"] = new SelectList(_context.Destinations, "DestinationID", "Name", borderCrossing.DestinationOriginID);
             ViewData["BorderCrossingTypes"] = new SelectList(_context.BorderCrossingTypes, "BorderCrossingTypeID", "Description", borderCrossing.BorderCrossingType.BorderCrossingTypeID);
 
             return View(borderCrossing);
@@ -187,8 +187,8 @@ namespace RouteDataManager.Controllers
             }
 
             var borderCrossing = await _context.BorderCrossings
-                .Include(f => f.Final)
-                .Include(f => f.Origin)
+                .Include(f => f.DestinationFinal)
+                .Include(f => f.DestinationOrigin)
                 .Include(f => f.BorderCrossingType)
                 .FirstOrDefaultAsync(m => m.BorderCrossingID == id);
 

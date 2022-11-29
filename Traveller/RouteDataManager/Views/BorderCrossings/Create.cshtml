@@ -17,12 +17,12 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="OriginID" class="control-label"></label>
-                <select asp-for="OriginID" class ="form-control" asp-items="ViewBag.OriginID"></select>
+                <label asp-for="DestinationOriginID" class="control-label"></label>
+                <select asp-for="DestinationOriginID" class ="form-control" asp-items="ViewBag.OriginID"></select>
             </div>
             <div class="form-group">
-                <label asp-for="FinalID" class="control-label"></label>
-                <select asp-for="FinalID" class ="form-control" asp-items="ViewBag.FinalID"></select>
+                <label asp-for="DestinationFinalID" class="control-label"></label>
+                <select asp-for="DestinationFinalID" class ="form-control" asp-items="ViewBag.FinalID"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>

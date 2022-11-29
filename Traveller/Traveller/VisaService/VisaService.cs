@@ -18,9 +18,9 @@ namespace Traveller.DomainServices
         {
             var country = unitOfWork.ICountryRepository.GetCountryByCode(countryCode);
 
-            if (country.Visas.Count != 0)
+            if (country.BorderCrossings.SelectMany(b=>b.Visas).Count() != 0)
             {
-                var maxDuration = country.Visas
+                var maxDuration = country.BorderCrossings.SelectMany(b => b.Visas)
                         .Where(
                             s => s.QualifyNationalities.Select(n => n.Code).Contains(nationalityCode)
                          )

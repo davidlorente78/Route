@@ -22,13 +22,7 @@ namespace RouteDataManager.Controllers
             _context = context;
         }
 
-        //// GET: Visas
-        //public async Task<IActionResult> Index()
-        //{
-        //      return _context.Visa != null ? 
-        //                  View(await _context.Visa.ToListAsync()) :
-        //                  Problem("Entity set 'ApplicationContext.Visa'  is null.");
-        //}
+     
         public async Task<IActionResult> Index(VisaIndexViewModel visaIndexViewModel)
         {
             IOrderedQueryable<Visa>? applicationContext;
@@ -38,30 +32,21 @@ namespace RouteDataManager.Controllers
             {
 
 
-                var checkNatinalities = _context.Visas
+                var checkNationalities = _context.Visas
                     .Where(
                         v => v.QualifyNationalities.Select(d => d.NationalityID).Contains(visaIndexViewModel.FilterNationality.NationalityID)).ToList();
 
                 var checkCountry = _context.Visas
                     .Where(
-                        v => v.CountryID == visaIndexViewModel.FilterCountry.CountryID).ToList();
+                        v => v.BorderCrossings.Select(d => d.BorderCrossingCountryID).Contains(visaIndexViewModel.FilterCountry.CountryID)).ToList();
 
-                var checkJoin = checkNatinalities.Intersect(checkCountry);
+                var checkJoin = checkNationalities.Intersect(checkCountry);
 
                 itemsSelectNationalities = _context.Nationalities;
                 visaIndexViewModel.FilterNationality = itemsSelectNationalities.FirstOrDefault();
 
                 visaIndexViewModel.Visas = checkJoin
-                  .OrderBy(v => v.Name).ToList();
-
-                //applicationContext = _context.Visas
-                //    .Where(
-                //        v => (v.QualifyNationalities.Select(d => d.NationalityID).Contains(visaIndexViewModel.FilterNationality.NationalityID)
-                //         &&
-                //        v.CountryID == visaIndexViewModel.FilterCountry.CountryID
-                //        ))                     
-                //    .Include(v => v.QualifyNationalities)
-                //    .OrderBy(v => v.Name);
+                  .OrderBy(v => v.Name).ToList();             
             }
             else
             {
@@ -79,18 +64,6 @@ namespace RouteDataManager.Controllers
         }
 
 
-
-        //public JsonResult GetLinesListByCountryID(int CountryID)
-        //{
-        //    //https://www.findandsolve.com/articles/cascading-dropdownlist-in-net-core-5
-        //    //https://www.rafaelacosta.net/Blog/2019/11/24/c%C3%B3mo-crear-un-cascading-dropdownlist-en-aspnet-mvc
-
-        //    List<Line>? data = _context.Lines.Where(l => l.CountryID == CountryID).ToList();
-
-        //    var selectList = new SelectList(data, "NationalityID", "Description");
-        //    return Json(selectList);
-        //}
-        // GET: Visas/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Visas == null)

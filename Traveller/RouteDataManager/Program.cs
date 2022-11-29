@@ -27,7 +27,7 @@ builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepositor
 builder.Services.AddScoped<IBorderCrossingRepository, BorderCrossingRepository>();
 builder.Services.AddScoped<ICountryRepository, CountryRepository>();
 builder.Services.AddScoped<IDestinationRepository, DestinationRepository>();
-builder.Services.AddScoped<IDestinationRepository, DestinationRepository>();
+builder.Services.AddScoped<IRailwayStationRepository, RailwayStationRepository>();
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<ICountryService, CountryService>();

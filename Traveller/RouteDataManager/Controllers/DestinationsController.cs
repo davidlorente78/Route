@@ -1,4 +1,4 @@
-﻿using Application.Dto;
+﻿using Traveller.Application.Dto;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;

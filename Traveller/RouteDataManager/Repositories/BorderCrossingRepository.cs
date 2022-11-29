@@ -13,9 +13,9 @@ namespace RouteDataManager.Repositories
         public IEnumerable<BorderCrossing> GetBorderCrossingsByOriginCountryCode(int OriginCountryID)
         {
             return _context.BorderCrossings
-                .Where(f => f.Origin.DestinationCountry.CountryID == OriginCountryID)
-                .Include(f => f.Final)
-                .Include(f => f.Origin)
+                .Where(f => f.DestinationOrigin.DestinationCountry.CountryID == OriginCountryID)
+                .Include(f => f.DestinationFinal)
+                .Include(f => f.DestinationOrigin)
                 .OrderBy(c => c.Name)
                 .ToList();
         }
@@ -23,9 +23,9 @@ namespace RouteDataManager.Repositories
         public IEnumerable<BorderCrossing> GetBorderCrossingsByFinalCountryCode(int FinalCountryID)
         {
             return _context.BorderCrossings
-                .Where(f => f.Final.DestinationCountry.CountryID == FinalCountryID)
-                .Include(f => f.Final)
-                .Include(f => f.Origin)
+                .Where(f => f.DestinationFinal.DestinationCountry.CountryID == FinalCountryID)
+                .Include(f => f.DestinationFinal)
+                .Include(f => f.DestinationOrigin)
                 .OrderBy(c => c.Name)
                 .ToList();
         }
@@ -33,9 +33,9 @@ namespace RouteDataManager.Repositories
         public IEnumerable<BorderCrossing> GetBorderCrossingsByOriginAndFinalCountryCode(int OriginCountryID, int FinalCountryID)
         {
             return _context.BorderCrossings
-                .Where(f => f.Final.DestinationCountry.CountryID == FinalCountryID && f.Origin.DestinationCountry.CountryID == OriginCountryID)
-                .Include(f => f.Final)
-                .Include(f => f.Origin)
+                .Where(f => f.DestinationFinal.DestinationCountry.CountryID == FinalCountryID && f.DestinationOrigin.DestinationCountry.CountryID == OriginCountryID)
+                .Include(f => f.DestinationFinal)
+                .Include(f => f.DestinationOrigin)
                 .OrderBy(c => c.Name)
                 .ToList();
         }

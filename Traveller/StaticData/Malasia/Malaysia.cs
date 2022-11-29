@@ -17,7 +17,7 @@ namespace Data.Malaysia{
             Ranges = new List<RangeChar> { MalaysiaRanges.SeasonRange , MalaysiaRanges.MonsoonRange, MalaysiaRanges.MonsoonRangeEvaluator },
             ShowInDynamicHome = true,
             ShowInDynamicHomeOrder = 3,
-            Visas = new List<Visa> { MalaysiaVisas.freeVisa_Malaysia, MalaysiaVisas.eVisa_Malaysia}
+            //Visas = new List<Visa> { MalaysiaVisas.freeVisa_Malaysia, MalaysiaVisas.eVisa_Malaysia}
         };
     }    
 }

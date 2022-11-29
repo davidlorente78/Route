@@ -12,8 +12,8 @@ namespace Traveller.StaticData
         {
             Name = "Thailand Laos Frienship Bridge I",
 
-            Origin = ThailandDestinations.NongKhai,
-            Final = LaosDestinations.Vientiane,
+            DestinationOrigin = ThailandDestinations.NongKhai,
+            DestinationFinal = LaosDestinations.Vientiane,
             BorderCrossingType = BorderCrossingTypes.Terrestrial,
             Description = "With a “Friendship Bridge” separating the two countries, this border can be crossed easily using international buses, private taxis, or a tuk-tuk. You should be wary of any taxi or tuk-tuk drivers trying to take you anywhere other than the crossing itself as they are likely trying to get you to use and pay for the service of a travel agent who won’t do much more than fill out the forms for you.",
 
@@ -27,8 +27,8 @@ namespace Traveller.StaticData
             Name = "Thailand Laos Frienship Bridge II",
             Description = "Bridge over the Mekong that connects Mukdahan Province in Thailand with Savannakhet in Laos. Located in the northeastern region known as Isaan, Mukdahan and Savannakhet are separated by a bridge spanning the mighty Mekong River (the second “Friendship Bridge”). This crossing is very popular with ex-pats and tourists due to the Thai embassy in Savannakhet, which has long been known as one of the friendlier embassies where you can obtain a new visa and then re-enter Thailand. Savannakhet, although a fairly small, dusty provincial Laos town, does have a few markets, bars, and various restaurants, as well as a casino and, will keep you busy for a day or two whilst you wait for your visa to be processed (which is an overnight process). It is about two hours from Nakhon Phanom and there are two buses an hour from Mukdahan. There is no train line to Mukdahan",
 
-            Origin = ThailandDestinations.Mukdahan,
-            Final = LaosDestinations.Savannakhet,
+            DestinationOrigin = ThailandDestinations.Mukdahan,
+            DestinationFinal = LaosDestinations.Savannakhet,
             BorderCrossingType = BorderCrossingTypes.Terrestrial,
             Visas = new List<Visa> { { LaosVisas.eLaoVisa } }
         };
@@ -37,8 +37,8 @@ namespace Traveller.StaticData
         public static BorderCrossing ChiangKhongHuayXai = new BorderCrossing
         {
             Name = "Thailand Laos Chiang Khong - Huay Xai",
-            Origin = ThailandDestinations.ChiangKhong,
-            Final = LaosDestinations.HuayXai,
+            DestinationOrigin = ThailandDestinations.ChiangKhong,
+            DestinationFinal = LaosDestinations.HuayXai,
             Description = "It does not accept electronic visa but it allows to make the crossing of the Mekong to Luang Prabang in one way and downstream.",
             BorderCrossingType = BorderCrossingTypes.Terrestrial,
             Visas = new List<Visa> { { LaosVisas.LaoVisa } }
@@ -49,8 +49,8 @@ namespace Traveller.StaticData
         public static BorderCrossing ChongMekVangTao = new BorderCrossing
         {
             Name = "Chong Mek - Vang Tao",
-            Origin = ThailandDestinations.VangTao,
-            Final = LaosDestinations.ChongMek,
+            DestinationOrigin = ThailandDestinations.VangTao,
+            DestinationFinal = LaosDestinations.ChongMek,
             BorderCrossingType = BorderCrossingTypes.Terrestrial,
         };
 
@@ -58,8 +58,8 @@ namespace Traveller.StaticData
         public static BorderCrossing TayTrangTaichang = new BorderCrossing {
             Name = "Laos Vietnam  Sop Hun - Tay Trang ",
             Description = "Used by buses going from Vientiane to Hanoi and vice versa. It is also possible to use it if you are going to or coming from Sapa (Vietnam).",
-            Origin = VietnamDestinations.TayTrang,
-            Final = LaosDestinations.SopHun,
+            DestinationOrigin = VietnamDestinations.TayTrang,
+            DestinationFinal = LaosDestinations.SopHun,
             BorderCrossingType = BorderCrossingTypes.Terrestrial,
 
 
@@ -69,8 +69,8 @@ namespace Traveller.StaticData
         {
             Name = "Laos Vietnam Namkan - Nhap Canh ",
             Description = "It is used by buses going from Vientiane or Luang Prabang to Hanoi and vice versa. It is also possible to use it if you are coming or going from Sapa (Vietnam).",
-            Origin = VietnamDestinations.NhapCanh,
-            Final = LaosDestinations.Namkan,
+            DestinationOrigin = VietnamDestinations.NhapCanh,
+            DestinationFinal = LaosDestinations.Namkan,
             BorderCrossingType = BorderCrossingTypes.Terrestrial,
         };
 
@@ -79,8 +79,8 @@ namespace Traveller.StaticData
         public static BorderCrossing DansavanhLaoBao = new BorderCrossing {
             Name = "Laos Vietnam Lao Bao - Dansavanh ",
             Description = "Border crossing near Hue. At the same border there are buses to Pakse (Laos) and another bus terminal to Savannakhet.",
-            Origin = VietnamDestinations.LaoBao,
-            Final = LaosDestinations.Dansavanh,
+            DestinationOrigin = VietnamDestinations.LaoBao,
+            DestinationFinal = LaosDestinations.Dansavanh,
             BorderCrossingType = BorderCrossingTypes.Terrestrial,
             //,
             //Visas = new List<Visa> { new Visa { Duration = 30 } } ,
@@ -91,8 +91,8 @@ namespace Traveller.StaticData
         {
             Name = "Laos Vietnam Nam Phao - Cau Treo",
             Description = "Border crossing point near Vinh",
-            Origin = VietnamDestinations.CauTreo,
-            Final = LaosDestinations.NamPhao,
+            DestinationOrigin = VietnamDestinations.CauTreo,
+            DestinationFinal = LaosDestinations.NamPhao,
             BorderCrossingType = BorderCrossingTypes.Terrestrial,
             //,
             //Visas = new List<Visa> { new Visa { Duration = 30 } } ,
@@ -103,8 +103,8 @@ namespace Traveller.StaticData
         public static BorderCrossing TropaengKreal = new BorderCrossing
         {
             Name = "Tropaeng Kreal Border Post",
-            Origin = CambodiaDestinations.TropaengKreal,
-            Final = LaosDestinations.NongNokKhiene,
+            DestinationOrigin = CambodiaDestinations.TropaengKreal,
+            DestinationFinal = LaosDestinations.NongNokKhiene,
             BorderCrossingType = BorderCrossingTypes.Terrestrial,
             Description = "This land border crossing is called Nong Nok Khiene on the Laos side and Tropaeng Kreal on the Cambodia side. The Cambodian province of Stung Treng borders the 4,000 Islands area of southern Laos."
         };
@@ -136,8 +136,8 @@ namespace Traveller.StaticData
                 {
                     Name = airport.Name,
                     Description = airport.Name,
-                    Origin = airport.Destinations.FirstOrDefault(),
-                    Final = airport.Destinations.FirstOrDefault(),
+                    DestinationOrigin = airport.Destinations.FirstOrDefault(),
+                    DestinationFinal = airport.Destinations.FirstOrDefault(),
                     BorderCrossingType = BorderCrossingTypes.Airport,
                     Visas = new List<Visa> { ThailandVisas.VisaExemption_Thailand },
                 };

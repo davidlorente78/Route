@@ -17,7 +17,7 @@ namespace Data.Thailand
         {
             Code = 'T',
             Name = "Thailand",
-            Visas = new List<Visa> { ThailandVisas.VisaExemption_Thailand },
+            //Visas = new List<Visa> { ThailandVisas.VisaExemption_Thailand },
             Destinations = ThailandDestinations.GetAll(),
             BorderCrossings = ThailandBorderCrossings.GetAll(),
             TrainLines = ThailandTrainLines.GetAll(),

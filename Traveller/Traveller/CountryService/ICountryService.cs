@@ -9,9 +9,9 @@ namespace Traveller.DomainServices
         ICollection<CountryDto> GetAllCountries();
         CountryDto GetCountryByID(int ID);
         bool CountryExists(int id);
-        int AddCountry(Country country);
-        int RemoveCountry(CountryDto countryDto);
-        int UpdateCountry(Country country);
+        int AddCountry(CountryDto countryDto);
+        int RemoveCountry(int id);
+        int UpdateCountry(CountryDto countryDto);
         public Country GetCountryIncludingRangesByCountryCode(char CountryCode);
     }
 }

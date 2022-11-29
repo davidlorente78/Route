@@ -11,14 +11,14 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="BorderCrossingID" />
             <div class="form-group">
-                <label asp-for="OriginID" class="control-label"></label>
-                <select asp-for="OriginID" class="form-control" asp-items="ViewBag.OriginID"></select>
-                <span asp-validation-for="OriginID" class="text-danger"></span>
+                <label asp-for="DestinationOriginID" class="control-label"></label>
+                <select asp-for="DestinationOriginID" class="form-control" asp-items="ViewBag.OriginID"></select>
+                <span asp-validation-for="DestinationOriginID" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="FinalID" class="control-label"></label>
-                <select asp-for="FinalID" class="form-control" asp-items="ViewBag.FinalID"></select>
-                <span asp-validation-for="FinalID" class="text-danger"></span>
+                <label asp-for="DestinationFinalID" class="control-label"></label>
+                <select asp-for="DestinationFinalID" class="form-control" asp-items="ViewBag.FinalID"></select>
+                <span asp-validation-for="DestinationFinalID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
