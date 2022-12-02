@@ -60,6 +60,7 @@ namespace RouteDataManager.Repositories
 
             context.Countries.Add(DataLaos.Laos);
 
+            
             context.Countries.Add(DataVietnam.Vietnam);
 
             context.Countries.Add(DataThailand.Thailand);

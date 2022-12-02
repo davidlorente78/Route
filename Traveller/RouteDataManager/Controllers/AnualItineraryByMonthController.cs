@@ -96,9 +96,10 @@ namespace RouteDataManager.Controllers
                     .FirstOrDefault();
 
                 var startRouteMonth = 1;
+                var strict = true;
                 if (monsoonEvaluatorRange != null)
                 {
-                    routeService.ruleContainer.AddRule(new MustConsiderWeather(monsoonEvaluatorRange.EntityEvaluator_ByMonth, country.Code, startRouteMonth));
+                    routeService.ruleContainer.AddRule(new MustConsiderWeather(monsoonEvaluatorRange.EntityEvaluator_ByMonth, country.Code, startRouteMonth, strict));
                 }
 
             }

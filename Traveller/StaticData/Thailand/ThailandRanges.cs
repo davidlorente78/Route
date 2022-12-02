@@ -125,7 +125,7 @@ namespace Data.Thailand
                     new DictionaryItem<int,int> { Key = 1, Value =1 },
                     new DictionaryItem<int,int> { Key = 2, Value =1 },
                     new DictionaryItem<int,int> { Key = 3, Value =0 },
-                    new DictionaryItem<int,int> { Key = 4, Value =0 },
+                    new DictionaryItem<int,int> { Key = 4, Value =-1 },
                     new DictionaryItem<int,int> { Key = 5, Value =0 },
                     new DictionaryItem<int,int> { Key = 6, Value =0 },
                     new DictionaryItem<int,int> { Key = 7, Value =-1 },

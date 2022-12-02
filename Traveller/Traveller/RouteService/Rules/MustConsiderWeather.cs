@@ -7,7 +7,7 @@ namespace Traveller.RouteService.Rules
 {
     public class MustConsiderWeather : IRule
     {
-
+        private bool strict = true;
 
         private EntityFrameworkDictionary<int, int> EntityEvaluator_ByMonth;
 
@@ -16,12 +16,13 @@ namespace Traveller.RouteService.Rules
         private char CountryCode;
 
         private List<char> route = new List<char>();
-        public MustConsiderWeather(EntityFrameworkDictionary<int, int> EntityEvaluator_ByMonth, char CountryCode, int StartMonth)
+        public MustConsiderWeather(EntityFrameworkDictionary<int, int> EntityEvaluator_ByMonth, char CountryCode, int StartMonth, bool strict)
         {
             //January will be 0
             this.StartMonth = StartMonth;
             this.CountryCode = CountryCode;
             this.EntityEvaluator_ByMonth = EntityEvaluator_ByMonth;
+            this.strict = strict;
         }
 
         public bool Validate(List<char> route)
@@ -34,7 +35,13 @@ namespace Traveller.RouteService.Rules
             {
                 var routeVectorIndex = x - StartMonth;
                 var ElementAt = EntityEvaluator_ByMonth.Items.ElementAt(x - 1);
+
                 if ((route[routeVectorIndex] == CountryCode) && (ElementAt.Value == -1))
+                {
+                    return false;
+                };
+
+                if (strict && (route[routeVectorIndex] == CountryCode) && (ElementAt.Value == 0))
                 {
                     return false;
                 };
@@ -52,7 +59,12 @@ namespace Traveller.RouteService.Rules
             {
                 if ((route[x - StartMonth] == CountryCode) && (EntityEvaluator_ByMonth.Items.ElementAt(x - StartMonth).Value == -1))
                 {
-                    report.Add(CodeDictionary.GetMonthByInt(x + 1) + " weather " + " in " + CodeDictionary.GetCountryByCode(CountryCode) + " is not convenient");
+                    report.Add(CodeDictionary.GetMonthByInt(x + 1) + " weather " + " in " + CodeDictionary.GetCountryByCode(CountryCode) + " is not convenient at all.");
+                }
+
+                if ((route[x - StartMonth] == CountryCode) && (EntityEvaluator_ByMonth.Items.ElementAt(x - StartMonth).Value == 0))
+                {
+                    report.Add(CodeDictionary.GetMonthByInt(x + 1) + " weather " + " in " + CodeDictionary.GetCountryByCode(CountryCode) + " can be better.");
                 }
 
             }

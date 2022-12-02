@@ -78,9 +78,17 @@ namespace RouteDataManager.Controllers
 
             if (ProposedRoutes.Count == 0)
             {
+                //var StartMonthReload = itineraryByMonthIndexViewModel.FilterStartMonth.MonthID;
+                //var EndMonthReload = itineraryByMonthIndexViewModel.FilterEndMonth.MonthID;
                 itineraryByMonthIndexViewModel = new ItineraryByMonthIndexViewModel();
                 itineraryByMonthIndexViewModel.RulesReport = new List<string> { "We can not find any itinerary that acomplish all the rules" };
                 itineraryByMonthIndexViewModel.ItineraryMonths = -1;
+                SelectList selectListStartMonthReload = new SelectList(completeMonthsList, "MonthID", "Name", StartMonth);
+                itineraryByMonthIndexViewModel.SelectListStartMonth = selectListStartMonthReload;
+
+                SelectList selectListEndMonthReload = new SelectList(completeMonthsList, "MonthID", "Name", EndMonth);
+                itineraryByMonthIndexViewModel.SelectListEndMonth = selectListEndMonthReload;
+
                 return PartialView(itineraryByMonthIndexViewModel);
             }
 
@@ -180,10 +188,11 @@ namespace RouteDataManager.Controllers
                         .Include(f => f.EntityEvaluator_ByMonth).ThenInclude(x => x.Items)
                         .FirstOrDefault();
 
+                    var strict = true;
                     //TODO Verificar que añade las reglas para el mes correcto
                     if (monsoonEvaluatorRange != null)
                     {
-                        routeService.ruleContainer.AddRule(new MustConsiderWeather(monsoonEvaluatorRange.EntityEvaluator_ByMonth, country.Code, startRouteMonth));
+                        routeService.ruleContainer.AddRule(new MustConsiderWeather(monsoonEvaluatorRange.EntityEvaluator_ByMonth, country.Code, startRouteMonth, strict));
                     }
                 }
 
