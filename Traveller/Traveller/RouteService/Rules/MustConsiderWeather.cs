@@ -1,4 +1,5 @@
 ﻿using Domain.EntityFrameworkDictionary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Traveller.Domain;
@@ -31,20 +32,67 @@ namespace Traveller.RouteService.Rules
 
             var routeVectorEndIndex = route.Count + StartMonth;
 
-            for (int x = StartMonth; x < routeVectorEndIndex; x++)
+            //PAM
+            var changeYear = false;
+            if (routeVectorEndIndex > 11)
             {
-                var routeVectorIndex = x - StartMonth;
-                var ElementAt = EntityEvaluator_ByMonth.Items.ElementAt(x - 1);
+                changeYear = true;
+            }
 
-                if ((route[routeVectorIndex] == CountryCode) && (ElementAt.Value == -1))
+            if (!changeYear)
+            {
+                for (int x = StartMonth; x < routeVectorEndIndex; x++)
                 {
-                    return false;
-                };
+                    var routeVectorIndex = x - StartMonth;
+                    var ElementAt = EntityEvaluator_ByMonth.Items.ElementAt(x - 1);
 
-                if (strict && (route[routeVectorIndex] == CountryCode) && (ElementAt.Value == 0))
+                    if ((route[routeVectorIndex] == CountryCode) && (ElementAt.Value == -1))
+                    {
+                        return false;
+                    };
+
+                    if (strict && (route[routeVectorIndex] == CountryCode) && (ElementAt.Value == 0))
+                    {
+                        return false;
+                    };
+                }
+            }
+            else
+            {
+
+                for (int x = StartMonth; x < 12; x++)
                 {
-                    return false;
-                };
+                    var routeVectorIndex = Math.Abs(x - StartMonth);
+                    var ElementAt = EntityEvaluator_ByMonth.Items.ElementAt(x - 1);
+
+                    if ((route[routeVectorIndex] == CountryCode) && (ElementAt.Value == -1))
+                    {
+                        return false;
+                    };
+
+                    if (strict && (route[routeVectorIndex] == CountryCode) && (ElementAt.Value == 0))
+                    {
+                        return false;
+                    };
+                }
+
+                for (int x = 0; x < StartMonth - route.Count - 12; x++)
+                {
+                    var routeVectorIndex = x - StartMonth;
+                    var ElementAt = EntityEvaluator_ByMonth.Items.ElementAt(x - 1);
+
+                    if ((route[routeVectorIndex] == CountryCode) && (ElementAt.Value == -1))
+                    {
+                        return false;
+                    };
+
+                    if (strict && (route[routeVectorIndex] == CountryCode) && (ElementAt.Value == 0))
+                    {
+                        return false;
+                    };
+                }
+
+
             }
 
             return true;
@@ -66,7 +114,6 @@ namespace Traveller.RouteService.Rules
                 {
                     report.Add(CodeDictionary.GetMonthByInt(x + 1) + " weather " + " in " + CodeDictionary.GetCountryByCode(CountryCode) + " can be better.");
                 }
-
             }
 
             return report;
