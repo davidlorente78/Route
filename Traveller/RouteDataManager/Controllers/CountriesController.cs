@@ -2,14 +2,10 @@
 using Microsoft.EntityFrameworkCore;
 using RouteDataManager.ViewModels.Country;
 using Traveller.Application.Dto;
-//using Traveller.Domain;
 using Traveller.DomainServices;
 
-
-//using RouteDataManager.Repositories; Solved
 namespace RouteDataManager.Controllers
 {
-
     public class CountriesController : Controller
     {
         private readonly ICountryService countryService;
@@ -96,7 +92,7 @@ namespace RouteDataManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CountryID,Code,Name")] CountryDto countryDto)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Code,Name")] CountryDto countryDto)
         {
             if (id != countryDto.Id)
             {

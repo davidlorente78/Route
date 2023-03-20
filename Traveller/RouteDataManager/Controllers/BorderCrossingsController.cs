@@ -33,8 +33,8 @@ namespace RouteDataManager.Controllers
                 applicationContext = (IOrderedQueryable<BorderCrossing>?)_context.BorderCrossings.Include(f => f.DestinationFinal).Include(f => f.DestinationOrigin);
             }
 
-            SelectList selectListCountriesOrigin = new SelectList(_context.Countries, "CountryID", "Name", borderCrossingsIndexViewModel.FilterCountryOrigin.Id);
-            SelectList selectListCountriesFinal = new SelectList(_context.Countries, "CountryID", "Name", borderCrossingsIndexViewModel.FilterCountryFinal.Id);
+            SelectList selectListCountriesOrigin = new SelectList(_context.Countries, "Id", "Name", borderCrossingsIndexViewModel.FilterCountryOrigin.Id);
+            SelectList selectListCountriesFinal = new SelectList(_context.Countries, "Id", "Name", borderCrossingsIndexViewModel.FilterCountryFinal.Id);
             SelectList selectListBorderCrossingTypes = new SelectList(_context.BorderCrossingTypes, "BorderCrossingTypeID", "Description", borderCrossingsIndexViewModel.FilterBorderCrossingType.BorderCrossingTypeID);
 
             borderCrossingsIndexViewModel.SelectListCountriesOrigin = selectListCountriesOrigin;

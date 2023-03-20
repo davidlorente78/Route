@@ -5,7 +5,6 @@ using RouteDataManager.Repositories;
 using System.Collections.Generic;
 using System.Linq;
 using Traveller.Application.Dto;
-using Traveller.Domain;
 
 namespace Traveller.DomainServices
 {
@@ -78,6 +77,7 @@ namespace Traveller.DomainServices
             return entity;
         }
 
+        //Esto sacarlo a un mapper. TODO
         private TEntity CreateEntityFromDto(TDto dto)
         {
             TEntity entity = mapper.Map<TEntity>(dto);
