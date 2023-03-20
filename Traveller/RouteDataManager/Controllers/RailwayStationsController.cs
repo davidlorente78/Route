@@ -25,13 +25,13 @@ namespace RouteDataManager.Controllers
             IOrderedQueryable<RailwayStation>? applicationContext;
             IQueryable<RailwayLine>? itemsSelectLines = _context.RailwayLines;
 
-            if (stationIndexViewModel.FilterCountry.CountryID != 0)
+            if (stationIndexViewModel.FilterCountry.Id != 0)
             {
-                itemsSelectLines = _context.RailwayLines.Where(l => l.CountryID == stationIndexViewModel.FilterCountry.CountryID);
+                itemsSelectLines = _context.RailwayLines.Where(l => l.CountryID == stationIndexViewModel.FilterCountry.Id);
                 stationIndexViewModel.FilterLine = itemsSelectLines.FirstOrDefault();
                 applicationContext = _context.RailwayStations
                     .Where(
-                        s => s.Destinations.Select(d => d.DestinationCountryID).Contains(stationIndexViewModel.FilterCountry.CountryID)
+                        s => s.Destinations.Select(d => d.DestinationCountryID).Contains(stationIndexViewModel.FilterCountry.Id)
                      )
                     .Include(s => s.Destinations)
                     .OrderBy(s => s.RailwayStationID);
@@ -41,7 +41,7 @@ namespace RouteDataManager.Controllers
                 applicationContext = _context.RailwayStations.Include(s => s.Destinations).OrderBy(s => s.Name);
             }
 
-            SelectList selectListCountries = new SelectList(_context.Countries, "CountryID", "Name", stationIndexViewModel.FilterCountry.CountryID);
+            SelectList selectListCountries = new SelectList(_context.Countries, "CountryID", "Name", stationIndexViewModel.FilterCountry.Id);
             SelectList selectListLines = new SelectList(itemsSelectLines.ToList(), "RailwayLineID", "Name", stationIndexViewModel.FilterLine.RailwayLineID);
 
             stationIndexViewModel.SelectListCountries = selectListCountries;

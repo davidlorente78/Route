@@ -11,7 +11,7 @@ namespace RouteDataManager.ViewModels
         public SelectList SelectListCountries { get; set; }
         public SelectList SelectListLines{ get; set; }
         public RailwayLine FilterLine { get; set; } = new RailwayLine();
-        public Traveller.Domain.Country FilterCountry { get; set; } = new Traveller.Domain.Country() { CountryID = 3 };
+        public Traveller.Domain.Country FilterCountry { get; set; } = new Traveller.Domain.Country() { Id = 3 };
 
     }
 }

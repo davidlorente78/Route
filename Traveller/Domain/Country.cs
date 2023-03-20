@@ -1,5 +1,4 @@
-﻿
-using Domain;
+﻿using Domain.Generic;
 using Domain.Ranges;
 using Domain.Transport.Aviation;
 using Domain.Transport.Railway;
@@ -8,21 +7,21 @@ using Domain.Transport.Railway;
 /// </summary>
 namespace Traveller.Domain
 {
-    public class Country
+    public class Country : Entity
     {
         //Se debe añadir get set para que ser interpretado correctamente como columna en la tabla
         //De forma predeterminada, EF interpreta como la clave principal una propiedad que se denomine ID o classnameID.
         //Por ejemplo, la clave principal puede tener el nombre CountryID en lugar de ID.
 
-        public int CountryID { get; set; }
+        public int Id { get; set; }
         public char Code { get; set; }
         public string Name { get; set; }
         public bool ShowInDynamicHome { get; set; }
         public int ShowInDynamicHomeOrder { get; set; }
-        
-        public virtual ICollection<Destination> Destinations { get; set; } = new List <Destination> ();
+
+        public virtual ICollection<Destination> Destinations { get; set; } = new List<Destination>();
         public virtual ICollection<BorderCrossing> BorderCrossings { get; set; } = new List<BorderCrossing>();
-        
+
         //public virtual ICollection<Visa> Visas { get; set; } = new List<Visa>();
         public virtual ICollection<RailwayLine> TrainLines { get; set; } = new List<RailwayLine>();
         public virtual ICollection<RangeChar> Ranges { get; set; } = new List<RangeChar>();

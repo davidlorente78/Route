@@ -22,7 +22,7 @@ namespace RouteDataManager.Controllers
         {
             var countryIndexViewModel = new CountryIndexViewModel();
 
-            ICollection<CountryDto>? countries = countryService.GetAllCountries();
+            ICollection<CountryDto>? countries = countryService.GetAll();
 
             countryIndexViewModel.Countries = countries;
 
@@ -41,7 +41,7 @@ namespace RouteDataManager.Controllers
                 return NotFound();
             }
 
-            CountryDto countryDto = countryService.GetCountryByID((int)id);
+            CountryDto countryDto = countryService.GetByID((int)id);
 
 
             if (countryDto == null)
@@ -67,7 +67,7 @@ namespace RouteDataManager.Controllers
         {
             if (ModelState.IsValid)
             {
-                countryService.AddCountry(countryDto);
+                countryService.Add(countryDto);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -77,12 +77,12 @@ namespace RouteDataManager.Controllers
         // GET: Countries/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || countryService.CountryExists((int)id) == false)
+            if (id == null || countryService.Exists((int)id) == false)
             {
                 return NotFound();
             }
 
-            CountryDto countryDto = countryService.GetCountryByID((int)id);
+            CountryDto countryDto = countryService.GetByID((int)id);
 
             if (countryDto == null)
             {
@@ -98,7 +98,7 @@ namespace RouteDataManager.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("CountryID,Code,Name")] CountryDto countryDto)
         {
-            if (id != countryDto.CountryID)
+            if (id != countryDto.Id)
             {
                 return NotFound();
             }
@@ -107,12 +107,12 @@ namespace RouteDataManager.Controllers
             {
                 try
                 {
-                    countryService.UpdateCountry(countryDto);
+                    countryService.Update(countryDto);
 
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!countryService.CountryExists(countryDto.CountryID))
+                    if (!countryService.Exists(countryDto.Id))
                     {
                         return NotFound();
                     }
@@ -128,12 +128,12 @@ namespace RouteDataManager.Controllers
 
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || countryService.CountryExists((int)id) == false)
+            if (id == null || countryService.Exists((int)id) == false)
             {
                 return NotFound();
             }
 
-            CountryDto countryDto = countryService.GetCountryByID((int)id);
+            CountryDto countryDto = countryService.GetByID((int)id);
             if (countryDto == null)
             {
                 return NotFound();
@@ -146,11 +146,11 @@ namespace RouteDataManager.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            CountryDto countryDto = countryService.GetCountryByID((int)id);
+            CountryDto countryDto = countryService.GetByID((int)id);
 
             if (countryDto != null)
             {
-                countryService.RemoveCountry(countryDto.CountryID);
+                countryService.Remove(countryDto.Id);
             }
             else
             {

@@ -17,3 +17,22 @@ D:\Code Project\Route\Traveller\Traveller\bin\Debug\net6.0\Data.dll
 D:\Code Project\Route\Traveller\Traveller\bin\Debug\net6.0\Data.pdb
 D:\Code Project\Route\Traveller\Traveller\bin\Debug\net6.0\Application.dll
 D:\Code Project\Route\Traveller\Traveller\bin\Debug\net6.0\Application.pdb
+C:\Route\Traveller\Traveller\bin\Debug\net6.0\DomainServices.deps.json
+C:\Route\Traveller\Traveller\bin\Debug\net6.0\DomainServices.dll
+C:\Route\Traveller\Traveller\bin\Debug\net6.0\DomainServices.pdb
+C:\Route\Traveller\Traveller\bin\Debug\net6.0\Application.dll
+C:\Route\Traveller\Traveller\bin\Debug\net6.0\Data.dll
+C:\Route\Traveller\Traveller\bin\Debug\net6.0\Domain.dll
+C:\Route\Traveller\Traveller\bin\Debug\net6.0\Application.pdb
+C:\Route\Traveller\Traveller\bin\Debug\net6.0\Domain.pdb
+C:\Route\Traveller\Traveller\bin\Debug\net6.0\Data.pdb
+C:\Route\Traveller\Traveller\obj\Debug\net6.0\DomainServices.csproj.AssemblyReference.cache
+C:\Route\Traveller\Traveller\obj\Debug\net6.0\DomainServices.GeneratedMSBuildEditorConfig.editorconfig
+C:\Route\Traveller\Traveller\obj\Debug\net6.0\DomainServices.AssemblyInfoInputs.cache
+C:\Route\Traveller\Traveller\obj\Debug\net6.0\DomainServices.AssemblyInfo.cs
+C:\Route\Traveller\Traveller\obj\Debug\net6.0\DomainServices.csproj.CoreCompileInputs.cache
+C:\Route\Traveller\Traveller\obj\Debug\net6.0\DomainServices.csproj.CopyComplete
+C:\Route\Traveller\Traveller\obj\Debug\net6.0\DomainServices.dll
+C:\Route\Traveller\Traveller\obj\Debug\net6.0\refint\DomainServices.dll
+C:\Route\Traveller\Traveller\obj\Debug\net6.0\DomainServices.pdb
+C:\Route\Traveller\Traveller\obj\Debug\net6.0\ref\DomainServices.dll

@@ -6,19 +6,21 @@ namespace RouteDataManager.Repositories
     {
         private readonly ApplicationContext _context;
 
-        public ICountryRepository ICountryRepository { get; private set; }
-        public IDestinationRepository IDestinationRepository { get; private set; }
-        public IBorderCrossingRepository IBorderCrossingRepository { get; private set; }
-        public IRailwayStationRepository IRailwayStationRepository { get; private set; }
+        public ICountryRepository CountryRepository { get; private set; }
+        public IDestinationRepository DestinationRepository { get; private set; }
+        public IBorderCrossingRepository BorderCrossingRepository { get; private set; }
+        public IRailwayStationRepository RailwayStationRepository { get; private set; }
 
+        public IRailwayLineRepository RailwayLineRepository { get; private set; }
 
         public UnitOfWork(ApplicationContext context)
         {
             _context = context;
-            ICountryRepository = new CountryRepository(_context);
-            IDestinationRepository = new DestinationRepository(_context);
-            IBorderCrossingRepository = new BorderCrossingRepository(_context);
-            IRailwayStationRepository = new RailwayStationRepository(_context);
+            CountryRepository = new CountryRepository(_context);
+            DestinationRepository = new DestinationRepository(_context);
+            BorderCrossingRepository = new BorderCrossingRepository(_context);
+            RailwayStationRepository = new RailwayStationRepository(_context);
+            RailwayLineRepository = new RailwayLineRepository(_context);
         }
 
         public int SaveChanges()

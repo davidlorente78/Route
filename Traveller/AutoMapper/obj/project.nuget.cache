@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "RLTmFLbZxHs1pJJL6WbPUW1gS4i3e00bcFL2ZNMTcUKBycSyqfo4b/F9eRf8zxEvq5R4cR2rOD9KaP+b9m0VcA==",
+  "success": true,
+  "projectFilePath": "C:\\Route\\Traveller\\AutoMapper\\Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.6\\microsoft.entityframeworkcore.abstractions.6.0.6.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,8 +1,7 @@
 ﻿namespace Traveller.Application.Dto
 {
-    public class CountryDto
+    public class CountryDto : Dto
     {
-        public int CountryID { get; set; }
         public char Code { get; set; }
         public string Name { get; set; }
         public bool ShowInDynamicHome { get; set; }

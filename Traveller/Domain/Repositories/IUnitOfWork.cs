@@ -14,10 +14,12 @@ namespace RouteDataManager.Repositories
     /// </summary>
     public interface IUnitOfWork : IDisposable
     {
-        ICountryRepository ICountryRepository { get;  }
-        IDestinationRepository IDestinationRepository { get;  }
-        IBorderCrossingRepository IBorderCrossingRepository { get; }
-        IRailwayStationRepository IRailwayStationRepository { get; }
+        ICountryRepository CountryRepository { get;  }
+        IDestinationRepository DestinationRepository { get;  }
+        IBorderCrossingRepository BorderCrossingRepository { get; }
+        IRailwayStationRepository RailwayStationRepository { get; }
+        IRailwayLineRepository RailwayLineRepository { get; }
+
         int SaveChanges();
     }
 }

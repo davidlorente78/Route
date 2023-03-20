@@ -9,7 +9,7 @@ namespace RouteDataManager.ViewModels
         public SelectList SelectListCountries { get; set; }
         public SelectList SelectListDestinationTypes{ get; set; }
         public DestinationType FilterDestinationType { get; set; } = new DestinationType() {   DestinationTypeID = 3 };
-        public Traveller.Domain.Country FilterCountry { get; set; } = new Traveller.Domain.Country() { CountryID = 3 };
+        public Traveller.Domain.Country FilterCountry { get; set; } = new Traveller.Domain.Country() { Id = 3 };
 
     }
 }

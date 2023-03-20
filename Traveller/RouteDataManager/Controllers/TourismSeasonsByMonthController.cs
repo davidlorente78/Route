@@ -32,7 +32,7 @@ namespace RouteDataManager.Controllers
             
             foreach (var country in countries) 
             {               
-                    var Season = seasonRange.Where(x => x.CountryID == country.CountryID).Select(x => x.EntityKey_ByMonth.Items.Where(d => d.Key == seasonIndexByMonthViewModel.FilterMonth.Name).FirstOrDefault());
+                    var Season = seasonRange.Where(x => x.CountryID == country.Id).Select(x => x.EntityKey_ByMonth.Items.Where(d => d.Key == seasonIndexByMonthViewModel.FilterMonth.Name).FirstOrDefault());
 
                     if (Season.Count() != 0) {
                         var SeasonDictionary = Season.ToDictionary(x => x.Key, x => x.Value);
@@ -42,7 +42,7 @@ namespace RouteDataManager.Controllers
                         char SeasonChar = StringSeasonChar.ToCharArray()[0];
 
 
-                        var SeasonDescriptions = seasonRange.Where(x => x.CountryID == country.CountryID).Select(x => x.EntityKey_Description).FirstOrDefault();
+                        var SeasonDescriptions = seasonRange.Where(x => x.CountryID == country.Id).Select(x => x.EntityKey_Description).FirstOrDefault();
 
                         var SeasonDescriptionsDictionary = SeasonDescriptions.Items.ToDictionary(x => x.Key, x => x.Value);
 

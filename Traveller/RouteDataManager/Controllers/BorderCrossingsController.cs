@@ -21,11 +21,11 @@ namespace RouteDataManager.Controllers
         {
             IOrderedQueryable<BorderCrossing>? applicationContext;
 
-            if ((borderCrossingsIndexViewModel.FilterCountryOrigin.CountryID != 0) && (borderCrossingsIndexViewModel.FilterCountryFinal.CountryID != 0))
+            if ((borderCrossingsIndexViewModel.FilterCountryOrigin.Id != 0) && (borderCrossingsIndexViewModel.FilterCountryFinal.Id != 0))
             {
                 applicationContext = _context.BorderCrossings.Where(
-                    f => f.DestinationOrigin.DestinationCountryID == borderCrossingsIndexViewModel.FilterCountryOrigin.CountryID
-                && f.DestinationFinal.DestinationCountryID == borderCrossingsIndexViewModel.FilterCountryFinal.CountryID
+                    f => f.DestinationOrigin.DestinationCountryID == borderCrossingsIndexViewModel.FilterCountryOrigin.Id
+                && f.DestinationFinal.DestinationCountryID == borderCrossingsIndexViewModel.FilterCountryFinal.Id
                 && f.BorderCrossingType.BorderCrossingTypeID == borderCrossingsIndexViewModel.FilterBorderCrossingType.BorderCrossingTypeID).Include(f => f.DestinationOrigin).Include(f => f.DestinationFinal).OrderBy(f => f.Name);
             }
             else
@@ -33,8 +33,8 @@ namespace RouteDataManager.Controllers
                 applicationContext = (IOrderedQueryable<BorderCrossing>?)_context.BorderCrossings.Include(f => f.DestinationFinal).Include(f => f.DestinationOrigin);
             }
 
-            SelectList selectListCountriesOrigin = new SelectList(_context.Countries, "CountryID", "Name", borderCrossingsIndexViewModel.FilterCountryOrigin.CountryID);
-            SelectList selectListCountriesFinal = new SelectList(_context.Countries, "CountryID", "Name", borderCrossingsIndexViewModel.FilterCountryFinal.CountryID);
+            SelectList selectListCountriesOrigin = new SelectList(_context.Countries, "CountryID", "Name", borderCrossingsIndexViewModel.FilterCountryOrigin.Id);
+            SelectList selectListCountriesFinal = new SelectList(_context.Countries, "CountryID", "Name", borderCrossingsIndexViewModel.FilterCountryFinal.Id);
             SelectList selectListBorderCrossingTypes = new SelectList(_context.BorderCrossingTypes, "BorderCrossingTypeID", "Description", borderCrossingsIndexViewModel.FilterBorderCrossingType.BorderCrossingTypeID);
 
             borderCrossingsIndexViewModel.SelectListCountriesOrigin = selectListCountriesOrigin;

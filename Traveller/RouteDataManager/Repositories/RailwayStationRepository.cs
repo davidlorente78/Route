@@ -1,13 +1,12 @@
 ﻿using Domain.Repositories;
-using Traveller.Domain;
+using Domain.Transport.Railway;
 
 namespace RouteDataManager.Repositories
 {
-    public class RailwayStationRepository : GenericRepository<Domain.Transport.Railway.RailwayStation>, IRailwayStationRepository
+    public class RailwayStationRepository : GenericRepository<RailwayStation>, IRailwayStationRepository
     {
         public RailwayStationRepository(ApplicationContext context) : base(context)
         {
         }
-    
     }
 }

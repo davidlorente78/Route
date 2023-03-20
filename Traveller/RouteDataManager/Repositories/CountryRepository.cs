@@ -29,7 +29,7 @@ namespace RouteDataManager.Repositories
 
         public IEnumerable<Country> GetCountryByID(int id)
         {
-            return _context.Countries.Where(c => c.CountryID == id)
+            return _context.Countries.Where(c => c.Id == id)
                 .Include(c => c.Destinations)
                 .Include(c => c.BorderCrossings)
                     .ThenInclude(b=>b.DestinationOrigin)

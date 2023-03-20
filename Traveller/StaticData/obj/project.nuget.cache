@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "iClhFawxbRzniQZGryyevNCEgkEEkGAInPLR4W3pVqoNG8xxhhdy5Ri0XIMYvQvJTWP31IkjQr298H06d/yM9g==",
+  "success": true,
+  "projectFilePath": "C:\\Route\\Traveller\\StaticData\\Data.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.6\\microsoft.entityframeworkcore.abstractions.6.0.6.nupkg.sha512"
+  ],
+  "logs": []
+}

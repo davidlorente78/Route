@@ -19,12 +19,12 @@ namespace Traveller.DomainServices
 
         public bool DestinationExists(int id)
         {
-            return (unitOfWork.IDestinationRepository?.Find(e => e.DestinationID == id)).Count() != 0;
+            return (unitOfWork.DestinationRepository?.Find(e => e.DestinationID == id)).Count() != 0;
         }
 
         public ICollection<DestinationDto> GetAllDestinations()
         {
-            var destinations = unitOfWork.IDestinationRepository.GetAllDestinationsOrderByName().ToList();         
+            var destinations = unitOfWork.DestinationRepository.GetAllDestinationsOrderByName().ToList();         
 
             return mapper.Map<List<DestinationDto>>(destinations);
         }       

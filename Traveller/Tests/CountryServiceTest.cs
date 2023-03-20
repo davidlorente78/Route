@@ -24,7 +24,7 @@ namespace Traveller.Tests.DomainServices
         [Test]
         public void Test1()
         {
-            var result = countryService.GetCountry(1);
+            var result = countryService.GetByID(1);
 
             Assert.AreEqual(result.Name, "Laos");
         }
@@ -32,10 +32,10 @@ namespace Traveller.Tests.DomainServices
         [Test]
         public void Test2()
         {
-            var country = countryService.GetCountryByID(1);
-            countryService.RemoveCountry(country);
+            var country = countryService.GetByID(1);
+            countryService.Remove(country.Id);
 
-            bool result = countryService.CountryExists(1);
+            bool result = countryService.Exists(1);
 
             Assert.AreEqual(false, result);
         }

@@ -1,20 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Domain.Transport.Railway;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Data;
 using RouteDataManager.Repositories;
 using RouteDataManager.ViewModels;
-using Domain.Transport.Railway;
+using Traveller.DomainServices;
 
 namespace RouteDataManager.Controllers
 {
     public class RailwayLinesController : Controller
     {
         private readonly ApplicationContext _context;
+        private ICountryService ICountryService;
 
         public RailwayLinesController(ApplicationContext context)
         {
@@ -32,12 +29,12 @@ namespace RouteDataManager.Controllers
         {
             IOrderedQueryable<RailwayLine>? applicationContext;
 
-            if (lineIndexViewModel.FilterCountry.CountryID != 0)
+            if (lineIndexViewModel.FilterCountry.Id != 0)
             {
                 applicationContext = _context.RailwayLines
                     .Where(
-                        d => d.CountryID == lineIndexViewModel.FilterCountry.CountryID
-                     
+                        d => d.CountryID == lineIndexViewModel.FilterCountry.Id
+
                      )
                     .Include(d => d.Country)
                     .OrderBy(d => d.Name);
@@ -47,7 +44,7 @@ namespace RouteDataManager.Controllers
                 applicationContext = _context.RailwayLines.Include(b => b.Branches).OrderBy(b => b.RailwayLineID);
             }
 
-            SelectList selectListCountries = new SelectList(_context.Countries, "CountryID", "Name", lineIndexViewModel.FilterCountry.CountryID);
+            SelectList selectListCountries = new SelectList(_context.Countries, "CountryID", "Name", lineIndexViewModel.FilterCountry.Id);
 
             lineIndexViewModel.SelectListCountries = selectListCountries;
             lineIndexViewModel.Lines = await applicationContext.ToListAsync();
@@ -184,14 +181,14 @@ namespace RouteDataManager.Controllers
             {
                 _context.RailwayLines.Remove(line);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool LineExists(int id)
         {
-          return (_context.RailwayLines?.Any(e => e.RailwayLineID == id)).GetValueOrDefault();
+            return (_context.RailwayLines?.Any(e => e.RailwayLineID == id)).GetValueOrDefault();
         }
     }
 }

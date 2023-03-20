@@ -28,7 +28,7 @@ namespace RouteDataManager.Controllers
             IOrderedQueryable<Visa>? applicationContext;
             IQueryable<Nationality>? itemsSelectNationalities = _context.Nationalities;
 
-            if (visaIndexViewModel.FilterCountry.CountryID != 0)
+            if (visaIndexViewModel.FilterCountry.Id != 0)
             {
 
 
@@ -38,7 +38,7 @@ namespace RouteDataManager.Controllers
 
                 var checkCountry = _context.Visas
                     .Where(
-                        v => v.BorderCrossings.Select(d => d.BorderCrossingCountryID).Contains(visaIndexViewModel.FilterCountry.CountryID)).ToList();
+                        v => v.BorderCrossings.Select(d => d.BorderCrossingCountryID).Contains(visaIndexViewModel.FilterCountry.Id)).ToList();
 
                 var checkJoin = checkNationalities.Intersect(checkCountry);
 
@@ -53,7 +53,7 @@ namespace RouteDataManager.Controllers
                 applicationContext = _context.Visas.Include(v => v.QualifyNationalities).OrderBy(s => s.Name);
             }
 
-            SelectList selectListCountries = new SelectList(_context.Countries, "CountryID", "Name", visaIndexViewModel.FilterCountry.CountryID);
+            SelectList selectListCountries = new SelectList(_context.Countries, "CountryID", "Name", visaIndexViewModel.FilterCountry.Id);
             SelectList selectListNationalities = new SelectList(itemsSelectNationalities.ToList(), "NationalityID", "Description", visaIndexViewModel.FilterNationality.NationalityID);
 
             visaIndexViewModel.SelectListCountries = selectListCountries;

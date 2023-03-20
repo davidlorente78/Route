@@ -16,7 +16,7 @@ namespace Traveller.DomainServices
         public ICollection<BorderCrossing> GetBorderCrossingsByOriginCountryID(int CountryID)
         {
             ///Metodo especifico para Repositorio en Countries. No es del repositorio generico.
-            var borderCrossings = unitOfWork.IBorderCrossingRepository.GetBorderCrossingsByOriginCountryCode(CountryID);
+            var borderCrossings = unitOfWork.BorderCrossingRepository.GetBorderCrossingsByOriginCountryCode(CountryID);
 
             return borderCrossings.ToList();
         }
@@ -24,7 +24,7 @@ namespace Traveller.DomainServices
         public ICollection<BorderCrossing> GetBorderCrossingsByFinalCountryID(int CountryID)
         {
             ///Metodo especifico para Repositorio en Countries. No es del repositorio generico.
-            var borderCrossings = unitOfWork.IBorderCrossingRepository.GetBorderCrossingsByFinalCountryCode(CountryID);
+            var borderCrossings = unitOfWork.BorderCrossingRepository.GetBorderCrossingsByFinalCountryCode(CountryID);
 
             return borderCrossings.ToList();
         }
@@ -32,7 +32,7 @@ namespace Traveller.DomainServices
         public ICollection<BorderCrossing> GetBorderCrossingsByOriginAndFinalCountryCode(int originCountryID, int finalCountryID)
         {
             ///Metodo especifico para Repositorio en Countries. No es del repositorio generico.
-            var borderCrossings = unitOfWork.IBorderCrossingRepository.GetBorderCrossingsByOriginAndFinalCountryCode(originCountryID, finalCountryID);
+            var borderCrossings = unitOfWork.BorderCrossingRepository.GetBorderCrossingsByOriginAndFinalCountryCode(originCountryID, finalCountryID);
 
             return borderCrossings.ToList();
         }

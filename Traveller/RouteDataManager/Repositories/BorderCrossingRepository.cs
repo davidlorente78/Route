@@ -13,7 +13,7 @@ namespace RouteDataManager.Repositories
         public IEnumerable<BorderCrossing> GetBorderCrossingsByOriginCountryCode(int OriginCountryID)
         {
             return _context.BorderCrossings
-                .Where(f => f.DestinationOrigin.DestinationCountry.CountryID == OriginCountryID)
+                .Where(f => f.DestinationOrigin.DestinationCountry.Id == OriginCountryID)
                 .Include(f => f.DestinationFinal)
                 .Include(f => f.DestinationOrigin)
                 .OrderBy(c => c.Name)
@@ -23,7 +23,7 @@ namespace RouteDataManager.Repositories
         public IEnumerable<BorderCrossing> GetBorderCrossingsByFinalCountryCode(int FinalCountryID)
         {
             return _context.BorderCrossings
-                .Where(f => f.DestinationFinal.DestinationCountry.CountryID == FinalCountryID)
+                .Where(f => f.DestinationFinal.DestinationCountry.Id == FinalCountryID)
                 .Include(f => f.DestinationFinal)
                 .Include(f => f.DestinationOrigin)
                 .OrderBy(c => c.Name)
@@ -33,7 +33,7 @@ namespace RouteDataManager.Repositories
         public IEnumerable<BorderCrossing> GetBorderCrossingsByOriginAndFinalCountryCode(int OriginCountryID, int FinalCountryID)
         {
             return _context.BorderCrossings
-                .Where(f => f.DestinationFinal.DestinationCountry.CountryID == FinalCountryID && f.DestinationOrigin.DestinationCountry.CountryID == OriginCountryID)
+                .Where(f => f.DestinationFinal.DestinationCountry.Id == FinalCountryID && f.DestinationOrigin.DestinationCountry.Id == OriginCountryID)
                 .Include(f => f.DestinationFinal)
                 .Include(f => f.DestinationOrigin)
                 .OrderBy(c => c.Name)

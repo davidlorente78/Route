@@ -25,18 +25,18 @@ namespace RouteDataManager.Controllers
         {
             IOrderedQueryable<Airport>? applicationContext;
 
-            if (airportIndexViewModel.FilterCountry.CountryID != 0)
+            if (airportIndexViewModel.FilterCountry.Id != 0)
             {
                 //applicationContext = _context.Airports.Where(d => d.CountryID == airportIndexViewModel.FilterCountry.CountryID).Include(d => d.Country).Include(d => d.AirportType).OrderBy(c => c.Country.Name);
 
-                applicationContext = _context.Airports.Where(d => d.AirportCountryID == airportIndexViewModel.FilterCountry.CountryID && d.AirportType.AirportTypeID == airportIndexViewModel.FilterAirportType.AirportTypeID).Include(d => d.AirportCountry).Include(d => d.AirportType).OrderBy(c => c.AirportCountry.Name);
+                applicationContext = _context.Airports.Where(d => d.AirportCountryID == airportIndexViewModel.FilterCountry.Id && d.AirportType.AirportTypeID == airportIndexViewModel.FilterAirportType.AirportTypeID).Include(d => d.AirportCountry).Include(d => d.AirportType).OrderBy(c => c.AirportCountry.Name);
             }
             else
             {
                 applicationContext = _context.Airports.Include(d => d.AirportCountry).Include(d => d.AirportType).OrderBy(c => c.AirportCountry.Name);
             }
 
-            SelectList selectListCountries = new SelectList(_context.Countries, "CountryID", "Name", airportIndexViewModel.FilterCountry.CountryID);
+            SelectList selectListCountries = new SelectList(_context.Countries, "CountryID", "Name", airportIndexViewModel.FilterCountry.Id);
             SelectList selectListAirportTypes = new SelectList(_context.AirportTypes, "AirportTypeID", "Description", airportIndexViewModel.FilterAirportType.AirportTypeID);
 
             airportIndexViewModel.SelectListCountries = selectListCountries;

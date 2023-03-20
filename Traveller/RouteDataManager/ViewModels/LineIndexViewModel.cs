@@ -9,7 +9,7 @@ namespace RouteDataManager.ViewModels
     {
         public IEnumerable<RailwayLine> Lines { get; set; }
         public SelectList SelectListCountries { get; set; }
-        public Traveller.Domain.Country FilterCountry { get; set; } = new Traveller.Domain.Country() { CountryID = 3 };
+        public Traveller.Domain.Country FilterCountry { get; set; } = new Traveller.Domain.Country() { Id = 3 };
 
     }
 }

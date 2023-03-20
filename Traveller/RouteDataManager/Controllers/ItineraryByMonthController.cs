@@ -85,9 +85,9 @@ namespace RouteDataManager.Controllers
             itineraryByMonthIndexViewModel.RulesReport = brokenRules;
             itineraryByMonthIndexViewModel.RoutesFoundCount = ProposedRoutes.Count;
 
-            if (itineraryMonthsCount > 0) itineraryByMonthIndexViewModel.FilterCountry1 = countries.Where(x => x.Code == route[0]).FirstOrDefault();
-            if (itineraryMonthsCount > 1) itineraryByMonthIndexViewModel.FilterCountry2 = countries.Where(x => x.Code == route[1]).FirstOrDefault();
-            if (itineraryMonthsCount > 2) itineraryByMonthIndexViewModel.FilterCountry3 = countries.Where(x => x.Code == route[2]).FirstOrDefault();
+            if (itineraryMonthsCount > 0) itineraryByMonthIndexViewModel.FilterCountry1 = countries.FirstOrDefault(x => x.Code == route[0]);
+            if (itineraryMonthsCount > 1) itineraryByMonthIndexViewModel.FilterCountry2 = countries.FirstOrDefault(x => x.Code == route[1]);
+            if (itineraryMonthsCount > 2) itineraryByMonthIndexViewModel.FilterCountry3 = countries.FirstOrDefault(x => x.Code == route[2]);
             if (itineraryMonthsCount > 3) itineraryByMonthIndexViewModel.FilterCountry4 = countries.Where(x => x.Code == route[3]).FirstOrDefault();
             if (itineraryMonthsCount > 4) itineraryByMonthIndexViewModel.FilterCountry5 = countries.Where(x => x.Code == route[4]).FirstOrDefault();
             if (itineraryMonthsCount > 5) itineraryByMonthIndexViewModel.FilterCountry6 = countries.Where(x => x.Code == route[5]).FirstOrDefault();
@@ -119,7 +119,7 @@ namespace RouteDataManager.Controllers
             foreach (var country in filterCountries.Where(c=>c != null))
             {
                    var seasonRange = _context.Ranges
-                   .Where(d => d.CountryID == country.CountryID && d.RangeType.Code == RangeTypes.MonsoonSeasonRangeType.Code)
+                   .Where(d => d.CountryID == country.Id && d.RangeType.Code == RangeTypes.MonsoonSeasonRangeType.Code)
                        .Include(f => f.EntityDescription_ByMonth)
                             .ThenInclude(x => x.Items).FirstOrDefault();
 

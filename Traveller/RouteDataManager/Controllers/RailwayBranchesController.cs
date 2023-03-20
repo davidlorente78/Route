@@ -24,11 +24,11 @@ namespace RouteDataManager.Controllers
         {
             IOrderedQueryable<RailwayBranch>? applicationContext;
 
-            if (branchIndexViewModel.FilterCountry.CountryID != 0)
+            if (branchIndexViewModel.FilterCountry.Id != 0)
             {
                 applicationContext = _context.RailwayBranches
                       .Where(
-                        b => b.RailwayLine.CountryID == branchIndexViewModel.FilterCountry.CountryID)
+                        b => b.RailwayLine.CountryID == branchIndexViewModel.FilterCountry.Id)
                         
                      
                     .Include(d => d.Stations)
@@ -39,7 +39,7 @@ namespace RouteDataManager.Controllers
                 applicationContext = _context.RailwayBranches.Include(b => b.Stations).OrderBy(b => b.Name);
             }
 
-            SelectList selectListCountries = new SelectList(_context.Countries, "CountryID", "Name", branchIndexViewModel.FilterCountry.CountryID);
+            SelectList selectListCountries = new SelectList(_context.Countries, "CountryID", "Name", branchIndexViewModel.FilterCountry.Id);
 
             branchIndexViewModel.SelectListCountries = selectListCountries;
             branchIndexViewModel.Branches = await applicationContext.ToListAsync();

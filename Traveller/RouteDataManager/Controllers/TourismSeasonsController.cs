@@ -21,7 +21,7 @@ namespace RouteDataManager.Controllers
         public async Task<IActionResult> Index(Month_EntityByCountryIndexViewModel month_EntityByCountryIndexViewModel)
         {
             var seasonRange = _context.Ranges
-                 .Where(d => d.CountryID == month_EntityByCountryIndexViewModel.FilterCountry.CountryID && d.RangeType.Code==RangeTypes.TourismSeasonRangeType.Code)
+                 .Where(d => d.CountryID == month_EntityByCountryIndexViewModel.FilterCountry.Id && d.RangeType.Code==RangeTypes.TourismSeasonRangeType.Code)
                  .Include(f => f.EntityKey_ByMonth).ThenInclude(x => x.Items)
                  .Include(f => f.EntityKey_Description).ThenInclude(x => x.Items).FirstOrDefault();
 
@@ -39,7 +39,7 @@ namespace RouteDataManager.Controllers
                 month_EntityByCountryIndexViewModel.Month_EntityDescription = new Dictionary<string, string>();
             }
 
-            SelectList selectListCountries = new SelectList(_context.Countries, "CountryID", "Name", month_EntityByCountryIndexViewModel.FilterCountry.CountryID);
+            SelectList selectListCountries = new SelectList(_context.Countries, "CountryID", "Name", month_EntityByCountryIndexViewModel.FilterCountry.Id);
 
             month_EntityByCountryIndexViewModel.SelectListCountries = selectListCountries;
             return PartialView(month_EntityByCountryIndexViewModel);

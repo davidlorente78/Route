@@ -37,7 +37,7 @@ namespace RouteDataManager.Controllers
             this.countryService = countryService;
             this.destinationService = destinationService;
 
-            countries = countryService.GetAllCountries();
+            countries = countryService.GetAll();
             destinations = destinationService.GetAllDestinations();
 
         }
@@ -47,11 +47,11 @@ namespace RouteDataManager.Controllers
         {
             IOrderedQueryable<Destination>? applicationContext;
 
-            if (destinationIndexViewModel.FilterCountry.CountryID != 0)
+            if (destinationIndexViewModel.FilterCountry.Id != 0)
             {
                 applicationContext = _context.Destinations
                     .Where(
-                        d => d.DestinationCountryID == destinationIndexViewModel.FilterCountry.CountryID
+                        d => d.DestinationCountryID == destinationIndexViewModel.FilterCountry.Id
                         &&
                         d.DestinationTypes.Select(d => d.DestinationTypeID).Contains(destinationIndexViewModel.FilterDestinationType.DestinationTypeID)
                      )
@@ -64,7 +64,7 @@ namespace RouteDataManager.Controllers
                 applicationContext = _context.Destinations.Include(d => d.DestinationCountry).Include(d => d.DestinationTypes).OrderBy(d => d.Name);
             }
 
-            SelectList selectListCountries = new SelectList(countries, "CountryID", "Name", destinationIndexViewModel.FilterCountry.CountryID);
+            SelectList selectListCountries = new SelectList(countries, "CountryID", "Name", destinationIndexViewModel.FilterCountry.Id);
             SelectList selectListDestinationTypes = new SelectList(_context.DestinationTypes, "DestinationTypeID", "Description", destinationIndexViewModel.FilterDestinationType.DestinationTypeID);
 
             destinationIndexViewModel.SelectListCountries = selectListCountries;
