@@ -5,6 +5,8 @@ using Traveller.DomainServices;
 using Traveller.RouteService;
 using Traveller.RuleService;
 using Application.Profiles;
+using DomainServices.GenericService;
+using Application.Mapper;
 
 
 // Add services to the container.
@@ -24,6 +26,9 @@ builder.Services.AddDbContext<ApplicationContext>(
 
 
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddScoped(typeof(CountryMapper), typeof(CountryMapper));
+
+
 builder.Services.AddScoped<IBorderCrossingRepository, BorderCrossingRepository>();
 builder.Services.AddScoped<ICountryRepository, CountryRepository>();
 builder.Services.AddScoped<IDestinationRepository, DestinationRepository>();

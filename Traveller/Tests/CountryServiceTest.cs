@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using DomainServices.GenericService;
+using NUnit.Framework;
 using Traveller.DomainServices;
 
 namespace Traveller.Tests.DomainServices

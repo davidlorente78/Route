@@ -12,8 +12,6 @@ namespace Traveller.Domain
         //Se debe añadir get set para que ser interpretado correctamente como columna en la tabla
         //De forma predeterminada, EF interpreta como la clave principal una propiedad que se denomine ID o classnameID.
         //Por ejemplo, la clave principal puede tener el nombre CountryID en lugar de ID.
-
-        public int Id { get; set; }
         public char Code { get; set; }
         public string Name { get; set; }
         public bool ShowInDynamicHome { get; set; }

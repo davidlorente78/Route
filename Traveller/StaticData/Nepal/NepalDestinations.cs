@@ -5,7 +5,11 @@ namespace Traveller.StaticData
 {
     public static class NepalDestinations
     {
-        public static Destination Kathmandu  = new Destination {  DestinationCountryID = 7, Name = "Kathmandu", DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism } };
-
+        public static Destination Kathmandu = new Destination
+        {
+            DestinationCountryID = 7,
+            Name = "Kathmandu",
+            DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism }
+        };
     }
 }

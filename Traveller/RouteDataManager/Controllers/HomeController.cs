@@ -15,9 +15,9 @@ namespace RouteDataManager.Controllers
         private readonly ICountryService countryService;
         private readonly ApplicationContext _context;
 
-       
 
-        public HomeController(ApplicationContext context,ICountryService countryService,ILogger<HomeController> logger)
+
+        public HomeController(ApplicationContext context, ICountryService countryService, ILogger<HomeController> logger)
         {
             _logger = logger;
             _context = context;
@@ -28,10 +28,11 @@ namespace RouteDataManager.Controllers
         {
             DynamicIndexViewModel dynamicIndexData = new DynamicIndexViewModel();
 
-            var countriesOrderedByShowInDynamicHomeOrder = _context.Countries.Where(c => c.ShowInDynamicHome == true).Include(c => c.Destinations).Include(c => c.Airports).OrderBy(c=>c.ShowInDynamicHomeOrder);
+            var countriesOrderedByShowInDynamicHomeOrder = _context.Countries.Where(c => c.ShowInDynamicHome == true).Include(c => c.Destinations).Include(c => c.Airports).OrderBy(c => c.ShowInDynamicHomeOrder);
 
-            foreach (Country country in countriesOrderedByShowInDynamicHomeOrder) { 
-            
+            foreach (Country country in countriesOrderedByShowInDynamicHomeOrder)
+            {
+
                 dynamicIndexData.CountryNames.Add(country.Name);
                 dynamicIndexData.DestinationCountryCount.Add(country.Destinations.Count);
 

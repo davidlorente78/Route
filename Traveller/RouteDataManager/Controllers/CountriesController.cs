@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DomainServices.GenericService;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RouteDataManager.ViewModels.Country;
 using Traveller.Application.Dto;
@@ -124,12 +125,13 @@ namespace RouteDataManager.Controllers
 
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || countryService.Exists((int)id) == false)
+            if (id == null || !countryService.Exists(id.Value) )
             {
                 return NotFound();
             }
 
-            CountryDto countryDto = countryService.GetByID((int)id);
+            CountryDto countryDto = countryService.GetByID(id.Value);
+
             if (countryDto == null)
             {
                 return NotFound();
@@ -142,7 +144,7 @@ namespace RouteDataManager.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            CountryDto countryDto = countryService.GetByID((int)id);
+            CountryDto countryDto = countryService.GetByID(id);
 
             if (countryDto != null)
             {

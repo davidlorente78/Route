@@ -7,18 +7,18 @@ namespace Application.Profiles
     /// <summary>
     /// A good way to organize your mapping configurations is with profiles. Create classes that inherit from Profile and put the configuration in the constructor:
     /// </summary>
-    public class CountryProfile : Profile
+    public class DestinationProfile : Profile
     {
 
         /// <summary>
         /// https://docs.automapper.org/en/stable/Configuration.html
         /// </summary>
         /// <returns></returns>
-        public CountryProfile()
+        public DestinationProfile()
         {
-            CreateMap<Country, CountryDto>()
+            CreateMap<Destination, DestinationDto>()
                 .ForMember(dest => dest.Name, act => act.MapFrom(src => src.Name))
-                .ForMember(dest => dest.ShowInDynamicHome, act => act.MapFrom(src => src.ShowInDynamicHome))
+                .ForMember(dest => dest.DestinationCountry, act => act.MapFrom(src => src.DestinationCountry))
                 .ReverseMap();
         }
     }

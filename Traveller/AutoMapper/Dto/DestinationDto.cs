@@ -1,10 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Application.Dto.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Traveller.Application.Dto
 {
-    public class DestinationDto
+    public class DestinationDto : GenericDto
     {
-        public int DestinationID { get; set; }
         public int DestinationCountryID { get; set; }
         public CountryDto DestinationCountry { get; set; }
         public string Name { get; set; }

@@ -1,6 +1,8 @@
-﻿namespace Traveller.Application.Dto
+﻿using Application.Dto.Generic;
+
+namespace Traveller.Application.Dto
 {
-    public class CountryDto : Dto
+    public class CountryDto : GenericDto
     {
         public char Code { get; set; }
         public string Name { get; set; }

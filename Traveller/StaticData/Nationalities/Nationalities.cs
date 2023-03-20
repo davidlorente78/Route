@@ -1,11 +1,4 @@
 ﻿using Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Traveller.Domain;
-using Traveller.StaticData;
 
 namespace Data.Nationalities
 {
@@ -13,9 +6,9 @@ namespace Data.Nationalities
     {
 
         public static Nationality ES = new Nationality
-        { 
-              Code = "ES",
-              Description ="Spain"                
+        {
+            Code = "ES",
+            Description = "Spain"
         };
 
         public static Nationality CN = new Nationality
@@ -23,7 +16,5 @@ namespace Data.Nationalities
             Code = "CN",
             Description = "China"
         };
-
-
     }
 }

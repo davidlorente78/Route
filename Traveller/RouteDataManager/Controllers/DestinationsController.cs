@@ -1,5 +1,4 @@
-﻿using Traveller.Application.Dto;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RouteDataManager.Models;
@@ -27,8 +26,8 @@ namespace RouteDataManager.Controllers
 
 
         public DestinationsController(
-            ApplicationContext context, 
-            IWebHostEnvironment environment, 
+            ApplicationContext context,
+            IWebHostEnvironment environment,
             ICountryService countryService,
             IDestinationService destinationService)
         {
@@ -144,7 +143,7 @@ namespace RouteDataManager.Controllers
                 return NotFound();
             }
 
-            var destination = await _context.Destinations.Include(d => d.DestinationCountry).Include(d => d.DestinationTypes).Include(d=>d.Stations).FirstAsync(d => d.DestinationID == id);
+            var destination = await _context.Destinations.Include(d => d.DestinationCountry).Include(d => d.DestinationTypes).Include(d => d.Stations).FirstAsync(d => d.DestinationID == id);
 
             if (destination == null)
             {

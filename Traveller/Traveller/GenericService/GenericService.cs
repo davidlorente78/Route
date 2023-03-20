@@ -1,25 +1,25 @@
-﻿using AutoMapper;
+﻿using Application.Dto.Generic;
+using Application.Mapper;
 using Domain.Generic;
 using Domain.Repositories;
 using RouteDataManager.Repositories;
 using System.Collections.Generic;
 using System.Linq;
-using Traveller.Application.Dto;
 
-namespace Traveller.DomainServices
+namespace DomainServices.GenericService
 {
     public class GenericService<TDto, TEntity>
-        where TDto : Dto
+        where TDto : GenericDto
         where TEntity : Entity
     {
         protected IUnitOfWork unitOfWork;
-        protected readonly IMapper mapper;
+        protected readonly GenericMapper<TDto, TEntity> genericMapper;
         private IGenericRepository<TEntity> repository;
 
-        public GenericService(IUnitOfWork unitOfWork, IMapper mapper, IGenericRepository<TEntity> repository)
+        public GenericService(IUnitOfWork unitOfWork, GenericMapper<TDto, TEntity> genericMapper, IGenericRepository<TEntity> repository)
         {
             this.unitOfWork = unitOfWork;
-            this.mapper = mapper;
+            this.genericMapper = genericMapper;
             this.repository = repository;
         }
 
@@ -32,7 +32,7 @@ namespace Traveller.DomainServices
         {
             var entities = repository.GetAll().ToList();
 
-            List<TDto> dtos = mapper.Map<List<TDto>>(entities);
+            List<TDto> dtos = genericMapper.mapper.Map<List<TDto>>(entities);
 
             return dtos;
         }
@@ -40,14 +40,14 @@ namespace Traveller.DomainServices
         public TDto GetByID(int id)
         {
             var entity = repository.GetById(id);
-            TDto dto = mapper.Map<TDto>(entity);
+            TDto dto = genericMapper.mapper.Map<TDto>(entity);
 
             return dto;
         }
 
         public int Add(TDto dto)
         {
-            var entity = CreateEntityFromDto(dto);
+            var entity = genericMapper.CreateEntityFromDto(dto);
             repository.Add(entity);
 
             return unitOfWork.SaveChanges();
@@ -64,7 +64,7 @@ namespace Traveller.DomainServices
         {
             var entity = GetEntityByID(dto.Id);
 
-            entity = UpdateEntityFromDto(dto, entity);
+            entity = genericMapper.UpdateEntityFromDto(dto, entity);
             repository.Update(entity);
 
             return unitOfWork.SaveChanges();
@@ -76,19 +76,5 @@ namespace Traveller.DomainServices
 
             return entity;
         }
-
-        //Esto sacarlo a un mapper. TODO
-        private TEntity CreateEntityFromDto(TDto dto)
-        {
-            TEntity entity = mapper.Map<TEntity>(dto);
-            return entity;
-        }
-
-        private TEntity UpdateEntityFromDto(TDto dto, TEntity entity)
-        {
-            entity.Id = dto.Id;
-            return entity;
-        }
-
     }
 }

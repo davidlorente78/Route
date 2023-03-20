@@ -1,5 +1,7 @@
-﻿using AutoMapper;
+﻿using Application.Mapper;
+using AutoMapper;
 using Domain.Repositories;
+using DomainServices.GenericService;
 using RouteDataManager.Repositories;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,15 +12,18 @@ namespace Traveller.DomainServices
 {
     public class CountryService : GenericService<CountryDto, Country>, ICountryService
     {
-        public CountryService(IUnitOfWork unitOfWork, IMapper mapper, IGenericRepository<Country> countryRepository) : base(unitOfWork, mapper, countryRepository)
+        CountryMapper coutryMapper;
+
+        public CountryService(IUnitOfWork unitOfWork, CountryMapper coutryMapper, IGenericRepository<Country> countryRepository) : base(unitOfWork, coutryMapper, countryRepository)
         {
+            this.coutryMapper = coutryMapper;
         }
 
         public ICollection<CountryDto> GetCountriesOrderedByName()
         {
             var countries = unitOfWork.CountryRepository.GetCountriesOrderedByName().ToList();
 
-            List<CountryDto> countriesDto = mapper.Map<List<CountryDto>>(countries);
+            List<CountryDto> countriesDto = genericMapper.mapper.Map<List<CountryDto>>(countries);
 
             return countriesDto;
         }
