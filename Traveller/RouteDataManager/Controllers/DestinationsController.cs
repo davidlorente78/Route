@@ -22,9 +22,6 @@ namespace RouteDataManager.Controllers
         private IEnumerable<CountryDto> countries;
         private IEnumerable<DestinationDto> destinations;
 
-
-
-
         public DestinationsController(
             ApplicationContext context,
             IWebHostEnvironment environment,
@@ -63,7 +60,7 @@ namespace RouteDataManager.Controllers
                 applicationContext = _context.Destinations.Include(d => d.DestinationCountry).Include(d => d.DestinationTypes).OrderBy(d => d.Name);
             }
 
-            SelectList selectListCountries = new SelectList(countries, "CountryID", "Name", destinationIndexViewModel.FilterCountry.Id);
+            SelectList selectListCountries = new SelectList(countries, "Id", "Name", destinationIndexViewModel.FilterCountry.Id);
             SelectList selectListDestinationTypes = new SelectList(_context.DestinationTypes, "DestinationTypeID", "Description", destinationIndexViewModel.FilterDestinationType.DestinationTypeID);
 
             destinationIndexViewModel.SelectListCountries = selectListCountries;
@@ -95,7 +92,7 @@ namespace RouteDataManager.Controllers
                 return NotFound();
             }
 
-            ViewData["CountryID"] = new SelectList(countries, "CountryID", "Name", destination.DestinationCountryID);
+            ViewData["CountryID"] = new SelectList(countries, "Id", "Name", destination.DestinationCountryID);
 
             return PartialView(destination);
         }
@@ -103,7 +100,7 @@ namespace RouteDataManager.Controllers
         // GET: Destinations/Create
         public IActionResult Create()
         {
-            ViewData["CountryID"] = new SelectList(countries, "CountryID", "Name");
+            ViewData["CountryID"] = new SelectList(countries, "Id", "Name");
             return PartialView();
         }
 
@@ -130,7 +127,7 @@ namespace RouteDataManager.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            ViewData["CountryID"] = new SelectList(countries, "CountryID", "Name", model.CountryID);
+            ViewData["CountryID"] = new SelectList(countries, "Id", "Name", model.CountryID);
 
             return PartialView(model);
         }
@@ -161,7 +158,7 @@ namespace RouteDataManager.Controllers
 
             };
 
-            ViewData["CountryID"] = new SelectList(countries, "CountryID", "Name", destination.DestinationCountryID);
+            ViewData["CountryID"] = new SelectList(countries, "Id", "Name", destination.DestinationCountryID);
             return PartialView(destinationViewModel);
         }
 
@@ -200,7 +197,7 @@ namespace RouteDataManager.Controllers
                 }
                 _context.Update(destination);
                 await _context.SaveChangesAsync();
-                ViewData["CountryID"] = new SelectList(countries, "CountryID", "Name", model.CountryID);
+                ViewData["CountryID"] = new SelectList(countries, "Id", "Name", model.CountryID);
 
                 return RedirectToAction(nameof(Index));
             }

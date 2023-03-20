@@ -12,16 +12,20 @@ namespace Traveller.DomainServices
 {
     public class CountryService : GenericService<CountryDto, Country>, ICountryService
     {
-        CountryMapper coutryMapper;
+        //CountryMapper coutryMapper;
+        ICountryRepository specificCountryRepository;
 
-        public CountryService(IUnitOfWork unitOfWork, CountryMapper coutryMapper, IGenericRepository<Country> countryRepository) : base(unitOfWork, coutryMapper, countryRepository)
+        public CountryService(IUnitOfWork unitOfWork, CountryMapper coutryMapper, IGenericRepository<Country> countryRepository, ICountryRepository specificCountryRepository) : base(unitOfWork, coutryMapper, countryRepository)
         {
-            this.coutryMapper = coutryMapper;
+            //this.coutryMapper = coutryMapper;
+            this.specificCountryRepository = specificCountryRepository;
         }
 
         public ICollection<CountryDto> GetCountriesOrderedByName()
         {
-            var countries = unitOfWork.CountryRepository.GetCountriesOrderedByName().ToList();
+            //var countries = unitOfWork.CountryRepository.GetCountriesOrderedByName().ToList();
+            var countries = specificCountryRepository.GetCountriesOrderedByName().ToList();
+
 
             List<CountryDto> countriesDto = genericMapper.mapper.Map<List<CountryDto>>(countries);
 
@@ -30,7 +34,7 @@ namespace Traveller.DomainServices
 
         public Country GetCountryIncludingRangesByCountryCode(char CountryCode)
         {
-            var country = unitOfWork.CountryRepository.GetCountryIncludingRangesByCode(CountryCode);
+            var country = specificCountryRepository.GetCountryIncludingRangesByCode(CountryCode);
 
             return country;
         }
