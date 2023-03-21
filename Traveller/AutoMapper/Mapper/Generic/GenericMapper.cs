@@ -2,9 +2,9 @@
 using AutoMapper;
 using Domain.Generic;
 
-namespace Application.Mapper
+namespace Application.Mapper.Generic
 {
-    public class GenericMapper<TDto, TEntity>
+    public class GenericMapper<TDto, TEntity> : IGenericMapper<TDto, TEntity>
         where TDto : GenericDto
         where TEntity : Entity
     {

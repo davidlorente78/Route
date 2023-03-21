@@ -5,8 +5,11 @@ using Traveller.DomainServices;
 using Traveller.RouteService;
 using Traveller.RuleService;
 using Application.Profiles;
-using DomainServices.GenericService;
+using DomainServices.Generic;
 using Application.Mapper;
+using DomainServices.DestinationService;
+using DomainServices.CountryService;
+using Application.Mapper.Generic;
 
 
 // Add services to the container.
@@ -24,10 +27,11 @@ builder.Services.AddDbContext<ApplicationContext>(
     .UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))  
   );
 
-
+builder.Services.AddScoped(typeof(IGenericMapper<,>), typeof(GenericMapper<,>));
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-builder.Services.AddScoped(typeof(CountryMapper), typeof(CountryMapper));
+builder.Services.AddScoped(typeof(IGenericService<,>), typeof(GenericService<,>));
 
+builder.Services.AddScoped(typeof(ICountryMapper), typeof(CountryMapper));
 
 builder.Services.AddScoped<IBorderCrossingRepository, BorderCrossingRepository>();
 builder.Services.AddScoped<ICountryRepository, CountryRepository>();
@@ -35,6 +39,7 @@ builder.Services.AddScoped<IDestinationRepository, DestinationRepository>();
 builder.Services.AddScoped<IRailwayStationRepository, RailwayStationRepository>();
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
 builder.Services.AddScoped<ICountryService, CountryService>();
 builder.Services.AddScoped<IDestinationService, DestinationService>();
 builder.Services.AddScoped<IVisaService, VisaService>();

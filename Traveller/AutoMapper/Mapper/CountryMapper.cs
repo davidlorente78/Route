@@ -1,10 +1,11 @@
-﻿using AutoMapper;
+﻿using Application.Mapper.Generic;
+using AutoMapper;
 using Traveller.Application.Dto;
 using Traveller.Domain;
 
 namespace Application.Mapper
 {
-    public class CountryMapper : GenericMapper<CountryDto, Country>
+    public class CountryMapper : GenericMapper<CountryDto, Country>, ICountryMapper
     {
         public CountryMapper(IMapper mapper) : base(mapper) { }
 
@@ -19,6 +20,7 @@ namespace Application.Mapper
         {
             entity.Id = dto.Id;
             entity.Name = dto.Name;
+            entity.Code = dto.Code;
             return entity;
         }
     }

@@ -1,26 +1,30 @@
 ﻿using Application.Dto.Generic;
-using Application.Mapper;
+using Application.Mapper.Generic;
+using AutoMapper;
 using Domain.Generic;
 using Domain.Repositories;
 using RouteDataManager.Repositories;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DomainServices.GenericService
+namespace DomainServices.Generic
 {
-    public class GenericService<TDto, TEntity>
+    public class GenericService<TDto, TEntity> : IGenericService<TDto, TEntity>
         where TDto : GenericDto
-        where TEntity : Entity
+        where TEntity : Entity 
+      
     {
         protected IUnitOfWork unitOfWork;
-        protected readonly GenericMapper<TDto, TEntity> genericMapper;
+        protected readonly IGenericMapper<TDto, TEntity> genericMapper;
         private IGenericRepository<TEntity> repository;
+        public readonly IMapper mapper;
 
-        public GenericService(IUnitOfWork unitOfWork, GenericMapper<TDto, TEntity> genericMapper, IGenericRepository<TEntity> repository)
+        public GenericService(IUnitOfWork unitOfWork, IGenericMapper<TDto, TEntity> genericMapper, IMapper mapper, IGenericRepository<TEntity> repository)
         {
             this.unitOfWork = unitOfWork;
             this.genericMapper = genericMapper;
             this.repository = repository;
+            this.mapper = mapper;
         }
 
         public bool Exists(int id)
@@ -32,7 +36,7 @@ namespace DomainServices.GenericService
         {
             var entities = repository.GetAll().ToList();
 
-            List<TDto> dtos = genericMapper.mapper.Map<List<TDto>>(entities);
+            List<TDto> dtos = mapper.Map<List<TDto>>(entities);
 
             return dtos;
         }
@@ -40,7 +44,7 @@ namespace DomainServices.GenericService
         public TDto GetByID(int id)
         {
             var entity = repository.GetById(id);
-            TDto dto = genericMapper.mapper.Map<TDto>(entity);
+            TDto dto = mapper.Map<TDto>(entity);
 
             return dto;
         }

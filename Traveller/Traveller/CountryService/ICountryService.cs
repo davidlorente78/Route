@@ -1,4 +1,4 @@
-﻿using DomainServices.GenericService;
+﻿using DomainServices.Generic;
 using Traveller.Application.Dto;
 using Traveller.Domain;
 

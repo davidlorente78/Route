@@ -1,5 +1,5 @@
 ﻿using Domain.Transport.Railway;
-using DomainServices.GenericService;
+using DomainServices.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;

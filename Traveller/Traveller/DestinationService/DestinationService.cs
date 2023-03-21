@@ -4,7 +4,7 @@ using RouteDataManager.Repositories;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Traveller.DomainServices
+namespace DomainServices.DestinationService
 {
     public class DestinationService : IDestinationService
     {
@@ -24,10 +24,10 @@ namespace Traveller.DomainServices
 
         public ICollection<DestinationDto> GetAllDestinations()
         {
-            var destinations = unitOfWork.DestinationRepository.GetAllDestinationsOrderByName().ToList();         
+            var destinations = unitOfWork.DestinationRepository.GetAllDestinationsOrderByName().ToList();
 
             return mapper.Map<List<DestinationDto>>(destinations);
-        }       
-    
+        }
+
     }
 }

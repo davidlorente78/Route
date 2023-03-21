@@ -1,4 +1,4 @@
-﻿using DomainServices.GenericService;
+﻿using DomainServices.Generic;
 using NUnit.Framework;
 using Traveller.DomainServices;
 

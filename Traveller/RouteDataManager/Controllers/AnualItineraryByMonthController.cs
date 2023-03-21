@@ -9,7 +9,7 @@ using Traveller.RouteService;
 using Traveller.RouteService.Rules;
 using Data.EntityTypes;
 using Domain.EntityFrameworkDictionary;
-using DomainServices.GenericService;
+using DomainServices.Generic;
 
 namespace RouteDataManager.Controllers
 {

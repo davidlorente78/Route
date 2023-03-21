@@ -1,7 +1,7 @@
 ﻿using Traveller.Application.Dto;
 using System.Collections.Generic;
 
-namespace Traveller.DomainServices
+namespace DomainServices.DestinationService
 {
     public interface IDestinationService
     {

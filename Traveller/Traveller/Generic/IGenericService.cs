@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DomainServices.GenericService
+namespace DomainServices.Generic
 {
     public interface IGenericService<TDto, TEntity>
     {
