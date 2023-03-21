@@ -5,313 +5,312 @@ build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
-build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = RouteDataManager
 build_property.RootNamespace = RouteDataManager
-build_property.ProjectDir = C:\Route\Traveller\RouteDataManager\
+build_property.ProjectDir = D:\Code Project\Route\Traveller\RouteDataManager\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Route\Traveller\RouteDataManager
+build_property.MSBuildProjectDirectory = D:\Code Project\Route\Traveller\RouteDataManager
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Route/Traveller/RouteDataManager/Pages/_ValidationScriptsPartial.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Pages/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Airlines/Create.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Airlines/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWlybGluZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Airlines/Delete.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Airlines/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWlybGluZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Airlines/Details.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Airlines/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWlybGluZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Airlines/Edit.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Airlines/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWlybGluZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Airlines/Index.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Airlines/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWlybGluZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Airports/Create.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Airports/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWlycG9ydHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Airports/Delete.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Airports/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWlycG9ydHNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Airports/Details.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Airports/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWlycG9ydHNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Airports/Edit.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Airports/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWlycG9ydHNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Airports/Index.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Airports/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWlycG9ydHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/AnualItineraryByMonth/Index.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/AnualItineraryByMonth/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW51YWxJdGluZXJhcnlCeU1vbnRoXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/BorderCrossings/Create.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/BorderCrossings/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9yZGVyQ3Jvc3NpbmdzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/BorderCrossings/Delete.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/BorderCrossings/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9yZGVyQ3Jvc3NpbmdzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/BorderCrossings/Details.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/BorderCrossings/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9yZGVyQ3Jvc3NpbmdzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/BorderCrossings/Edit.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/BorderCrossings/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9yZGVyQ3Jvc3NpbmdzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/BorderCrossings/Index.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/BorderCrossings/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9yZGVyQ3Jvc3NpbmdzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Countries/Create.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Countries/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnRyaWVzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Countries/Delete.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Countries/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnRyaWVzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Countries/Details.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Countries/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnRyaWVzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Countries/Edit.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Countries/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnRyaWVzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Countries/Index.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Countries/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnRyaWVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Destinations/Create.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Destinations/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Destinations/Delete.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Destinations/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Destinations/Details.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Destinations/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Destinations/Edit.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Destinations/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Destinations/Index.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Destinations/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/DynamicHome/About.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/DynamicHome/About.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHluYW1pY0hvbWVcQWJvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/DynamicHome/Index.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/DynamicHome/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHluYW1pY0hvbWVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/DynamicHome/Privacy.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/DynamicHome/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHluYW1pY0hvbWVcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Home/About.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Home/About.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Home/Index.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Home/Privacy.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Home/SpeakerIndex.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Home/SpeakerIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTcGVha2VySW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/ItineraryByMonth/Index.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/ItineraryByMonth/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXRpbmVyYXJ5QnlNb250aFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/MonsoonByMonth/Index.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/MonsoonByMonth/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9uc29vbkJ5TW9udGhcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/MonsoonSeasons/Index.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/MonsoonSeasons/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9uc29vblNlYXNvbnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Monsoon/Index.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Monsoon/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9uc29vblxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/RailwayBranches/Create.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/RailwayBranches/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFpbHdheUJyYW5jaGVzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/RailwayBranches/Delete.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/RailwayBranches/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFpbHdheUJyYW5jaGVzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/RailwayBranches/Details.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/RailwayBranches/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFpbHdheUJyYW5jaGVzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/RailwayBranches/Edit.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/RailwayBranches/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFpbHdheUJyYW5jaGVzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/RailwayBranches/Index.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/RailwayBranches/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFpbHdheUJyYW5jaGVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/RailwayLines/Create.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/RailwayLines/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFpbHdheUxpbmVzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/RailwayLines/Delete.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/RailwayLines/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFpbHdheUxpbmVzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/RailwayLines/Details.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/RailwayLines/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFpbHdheUxpbmVzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/RailwayLines/Edit.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/RailwayLines/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFpbHdheUxpbmVzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/RailwayLines/Index.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/RailwayLines/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFpbHdheUxpbmVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/RailwayStations/Create.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/RailwayStations/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFpbHdheVN0YXRpb25zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/RailwayStations/Delete.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/RailwayStations/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFpbHdheVN0YXRpb25zXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/RailwayStations/Details.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/RailwayStations/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFpbHdheVN0YXRpb25zXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/RailwayStations/Edit.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/RailwayStations/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFpbHdheVN0YXRpb25zXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/RailwayStations/Index.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/RailwayStations/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFpbHdheVN0YXRpb25zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/RailwaySystems/Create.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/RailwaySystems/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFpbHdheVN5c3RlbXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/RailwaySystems/Delete.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/RailwaySystems/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFpbHdheVN5c3RlbXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/RailwaySystems/Details.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/RailwaySystems/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFpbHdheVN5c3RlbXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/RailwaySystems/Edit.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/RailwaySystems/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFpbHdheVN5c3RlbXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/RailwaySystems/Index.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/RailwaySystems/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFpbHdheVN5c3RlbXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Shared/Error.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Speakers/Create.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Speakers/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3BlYWtlcnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Speakers/Delete.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Speakers/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3BlYWtlcnNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Speakers/Details.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Speakers/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3BlYWtlcnNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Speakers/Edit.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Speakers/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3BlYWtlcnNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Speakers/Index.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Speakers/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3BlYWtlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/TourismSeasonsByMonth/Index.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/TourismSeasonsByMonth/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cmlzbVNlYXNvbnNCeU1vbnRoXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/TourismSeasons/Index.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/TourismSeasons/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cmlzbVNlYXNvbnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Visas/Create.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Visas/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlzYXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Visas/Delete.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Visas/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlzYXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Visas/Details.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Visas/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlzYXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Visas/Edit.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Visas/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlzYXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Visas/Index.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Visas/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlzYXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/_ViewImports.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/_ViewStart.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Route/Traveller/RouteDataManager/Views/Shared/_Layout.cshtml]
+[D:/Code Project/Route/Traveller/RouteDataManager/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-2ec9mjwpo9
