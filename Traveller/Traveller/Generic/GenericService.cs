@@ -11,20 +11,25 @@ namespace DomainServices.Generic
 {
     public class GenericService<TDto, TEntity> : IGenericService<TDto, TEntity>
         where TDto : GenericDto
-        where TEntity : Entity 
-      
+        where TEntity : Entity
+
     {
+        ////Da acceso a todos los repositorios y es posible implementar metodos con Order o Include
         protected IUnitOfWork unitOfWork;
-        protected readonly IGenericMapper<TDto, TEntity> genericMapper;
-        private IGenericRepository<TEntity> repository;
+
+        //Utiliza Automapper y el Profile basico definido para realizar la transformacion
         public readonly IMapper mapper;
 
-        public GenericService(IUnitOfWork unitOfWork, IGenericMapper<TDto, TEntity> genericMapper, IMapper mapper, IGenericRepository<TEntity> repository)
+        protected readonly IGenericMapper<TDto, TEntity> genericMapper;
+        private IGenericRepository<TEntity> repository;
+
+        public GenericService(IUnitOfWork unitOfWork, IMapper mapper, IGenericMapper<TDto, TEntity> genericMapper, IGenericRepository<TEntity> repository)
         {
             this.unitOfWork = unitOfWork;
+            this.mapper = mapper;
+
             this.genericMapper = genericMapper;
             this.repository = repository;
-            this.mapper = mapper;
         }
 
         public bool Exists(int id)

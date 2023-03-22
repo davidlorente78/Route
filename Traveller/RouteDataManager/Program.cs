@@ -32,6 +32,8 @@ builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepositor
 builder.Services.AddScoped(typeof(IGenericService<,>), typeof(GenericService<,>));
 
 builder.Services.AddScoped(typeof(ICountryMapper), typeof(CountryMapper));
+builder.Services.AddScoped(typeof(IDestinationMapper), typeof(DestinationMapper));
+
 
 builder.Services.AddScoped<IBorderCrossingRepository, BorderCrossingRepository>();
 builder.Services.AddScoped<ICountryRepository, CountryRepository>();
@@ -49,12 +51,14 @@ builder.Services.AddScoped<IRuleContainer , RuleContainer>();
 
 
 #region AutoMapper
+
 //You define the configuration using profiles. And then you let AutoMapper know in what assemblies are those profiles defined by calling the IServiceCollection extension method AddAutoMapper at startup:
 builder.Services.AddAutoMapper(typeof(CountryProfile));
 //Now you can inject AutoMapper at runtime into your services/controllers:
 
 
 #endregion
+
 var app = builder.Build();
 
 //Create Scope and Initialize Data Base

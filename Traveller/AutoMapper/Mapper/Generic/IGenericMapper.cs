@@ -1,5 +1,4 @@
 ﻿using Application.Dto.Generic;
-using AutoMapper;
 using Domain.Generic;
 
 namespace Application.Mapper.Generic

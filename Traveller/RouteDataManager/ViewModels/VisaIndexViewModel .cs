@@ -11,6 +11,5 @@ namespace RouteDataManager.ViewModels
         public SelectList SelectListNationalities{ get; set; }
         public Nationality FilterNationality { get; set; } = new Nationality() {  NationalityID = 1};
         public Traveller.Domain.Country FilterCountry { get; set; } = new Traveller.Domain.Country() { Id = 3 };
-
     }
 }

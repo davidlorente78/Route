@@ -1,17 +1,16 @@
-﻿using Domain.Ranges;
-using Domain;
-using Data.Cambodia;
+﻿using Data.Cambodia;
+using Data.EntityTypes;
+using Data.Indonesia;
 using Data.Laos;
 using Data.Malaysia;
+using Data.Nepal;
 using Data.Thailand;
 using Data.Vietnam;
-using Data.Nepal;
+using Domain.Ranges;
+using Domain.Transport.Aviation;
+using Domain.Transport.Railway;
 using Traveller.Domain;
 using Traveller.StaticData;
-using Data.Indonesia;
-using Data.EntityTypes;
-using Domain.Transport.Railway;
-using Domain.Transport.Aviation;
 
 namespace RouteDataManager.Repositories
 {
@@ -60,7 +59,6 @@ namespace RouteDataManager.Repositories
 
             context.Countries.Add(DataLaos.Laos);
 
-            
             context.Countries.Add(DataVietnam.Vietnam);
 
             context.Countries.Add(DataThailand.Thailand);
@@ -72,10 +70,8 @@ namespace RouteDataManager.Repositories
             //#region Other Countries
             ////Indonesia Nepal Sri Lanka Philippines China Singapore
 
-            Country Indonesia = new Country
+            Country Indonesia = new Country('I', "Indonesia", false, 0)
             {
-                Code = 'I',
-                Name = "Indonesia",
                 Ranges = new List<RangeChar> { IndonesiaRanges.MonsoonRange, IndonesiaRanges.MonsoonRangeEvaluator },
 
                 //Bali Lombok TODO
@@ -84,12 +80,8 @@ namespace RouteDataManager.Repositories
 
             context.Countries.Add(Indonesia);
 
-            Country Nepal = new Country
+            Country Nepal = new Country('N', "Nepal", true, 4)
             {
-                Code = 'N',
-                Name = "Nepal",
-                ShowInDynamicHome = true,
-                ShowInDynamicHomeOrder = 4,
                 Destinations = new List<Destination> { NepalDestinations.Kathmandu },
                 Airports = NepalAirports.GetAll(),
                 Ranges = new List<RangeChar> { NepalRanges.MonsoonRange, NepalRanges.MonsoonRangeEvaluator },
@@ -111,18 +103,12 @@ namespace RouteDataManager.Repositories
 
             context.Countries.Add(Nepal);
 
-            Country Philippines = new Country
-            {
-                Code = 'P',
-                Name = "Philippines",
-            };
+            Country Philippines = new Country('P', "Philippines", false, 0) { };
 
             context.Countries.Add(Philippines);
 
-            Country Singapore = new Country
+            Country Singapore = new Country('S', "Singapore", false, 0)
             {
-                Code = 'S',
-                Name = "Singapore",
                 Destinations = new List<Destination> { SingaporeDestinations.Singapore, SingaporeDestinations.WoodlandsCheckpoint },
                 //La lista de fronteras que se especifican son los puntos de entrada a Singapore
                 //El origen de la frontera es el del pais de entrada 
@@ -153,21 +139,12 @@ namespace RouteDataManager.Repositories
 
             context.Countries.Add(Singapore);
 
-            Country SriLanka = new Country
-            {
-                Code = 'R',
-                Name = "Sri Lanka",
-
-            };
+            Country SriLanka = new Country('R', "Sri Lanka", false, 0);
 
             context.Countries.Add(SriLanka);
 
-            Country China = new Country
-            {
-                Code = 'H',
-                Name = "China",
+            Country China = new Country('H', "China", false, 0);
 
-            };
             context.Countries.Add(China);
 
             if (!context.RailwaySystems.Any())

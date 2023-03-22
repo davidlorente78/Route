@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Domain.Transport.Railway;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RouteDataManager.Repositories;
 using RouteDataManager.ViewModels;
-using Domain.Transport.Railway;
 
 namespace RouteDataManager.Controllers
 {
@@ -29,8 +25,8 @@ namespace RouteDataManager.Controllers
                 applicationContext = _context.RailwayBranches
                       .Where(
                         b => b.RailwayLine.CountryID == branchIndexViewModel.FilterCountry.Id)
-                        
-                     
+
+
                     .Include(d => d.Stations)
                     .OrderBy(d => d.Name);
             }
@@ -39,7 +35,7 @@ namespace RouteDataManager.Controllers
                 applicationContext = _context.RailwayBranches.Include(b => b.Stations).OrderBy(b => b.Name);
             }
 
-            SelectList selectListCountries = new SelectList(_context.Countries, "CountryID", "Name", branchIndexViewModel.FilterCountry.Id);
+            SelectList selectListCountries = new SelectList(_context.Countries, "Id", "Name", branchIndexViewModel.FilterCountry.Id);
 
             branchIndexViewModel.SelectListCountries = selectListCountries;
             branchIndexViewModel.Branches = await applicationContext.ToListAsync();
@@ -47,7 +43,6 @@ namespace RouteDataManager.Controllers
             return PartialView(branchIndexViewModel);
         }
 
-        // GET: Branches/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.RailwayBranches == null)
@@ -65,15 +60,12 @@ namespace RouteDataManager.Controllers
             return View(branch);
         }
 
-        // GET: Branches/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Branches/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("BranchID,Name,Description,MainBranch")] RailwayBranch branch)
@@ -87,7 +79,6 @@ namespace RouteDataManager.Controllers
             return View(branch);
         }
 
-        // GET: Branches/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.RailwayBranches == null)
@@ -103,9 +94,6 @@ namespace RouteDataManager.Controllers
             return View(branch);
         }
 
-        // POST: Branches/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("BranchID,Name,Description,MainBranch")] RailwayBranch branch)
@@ -138,7 +126,6 @@ namespace RouteDataManager.Controllers
             return View(branch);
         }
 
-        // GET: Branches/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.RailwayBranches == null)
@@ -156,7 +143,6 @@ namespace RouteDataManager.Controllers
             return View(branch);
         }
 
-        // POST: Branches/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -170,14 +156,14 @@ namespace RouteDataManager.Controllers
             {
                 _context.RailwayBranches.Remove(branch);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool BranchExists(int id)
         {
-          return (_context.RailwayBranches?.Any(e => e.RailwayBranchID == id)).GetValueOrDefault();
+            return (_context.RailwayBranches?.Any(e => e.RailwayBranchID == id)).GetValueOrDefault();
         }
     }
 }

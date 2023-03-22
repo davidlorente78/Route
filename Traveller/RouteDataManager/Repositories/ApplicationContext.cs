@@ -20,7 +20,6 @@ namespace RouteDataManager.Repositories
         {
         }
 
-
         public DbSet<Country> Countries { get; set; }
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -41,18 +40,30 @@ namespace RouteDataManager.Repositories
                 .HasMany<Destination>(c => c.Destinations)
                 .WithOne(d => d.DestinationCountry)
                 .HasForeignKey(d => d.DestinationCountryID)
-                .OnDelete(DeleteBehavior.ClientCascade);
+                .OnDelete(DeleteBehavior.Cascade);
 
              modelBuilder.Entity<Country>()
                 .HasMany<BorderCrossing>(c => c.BorderCrossings)
-                .WithOne(d => d.BorderCrossingCountry)
-                .HasForeignKey(d => d.BorderCrossingCountryID)
+                .WithOne(b => b.BorderCrossingCountry)
+                .HasForeignKey(b => b.BorderCrossingCountryID)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Country>()
+                .HasMany<Airport>(c => c.Airports)
+                .WithOne(a => a.AirportCountry)
+                .HasForeignKey(a => a.AirportCountryID)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Country>()
+                 .HasMany<RailwayLine>(c => c.TrainLines)
+                 .WithOne(r => r.Country)
+                 .HasForeignKey(r => r.CountryID)
+                 .OnDelete(DeleteBehavior.Cascade);
 
             //Destination
             modelBuilder.Entity<Destination>()
                 .ToTable("Destinations")
-                .HasKey(x => x.DestinationID);
+                .HasKey(x => x.Id);
 
             modelBuilder.Entity<Destination>()
                 .HasMany(x => x.Airports)

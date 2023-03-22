@@ -2,6 +2,7 @@
 using Domain.Ranges;
 using Domain.Transport.Aviation;
 using Domain.Transport.Railway;
+
 /// <summary>
 /// Domain – Holds the Entities and Interfaces. It does not depend on any other project in the solution.
 /// </summary>
@@ -26,6 +27,16 @@ namespace Traveller.Domain
         public virtual ICollection<Airport> Airports { get; set; } = new List<Airport>();
 
         public Country() { }
+
+        public Country(char code, string name, bool showInDynamicHome, int showInDynamicHomeOrder)
+        {
+            Code = code;
+            Name = name;
+            ShowInDynamicHome = showInDynamicHome;
+            ShowInDynamicHomeOrder = showInDynamicHomeOrder;
+
+            //TODO Inicializar listas aqui
+        }
 
 
     }

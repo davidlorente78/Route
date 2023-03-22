@@ -16,12 +16,9 @@ namespace RouteDataManager.Repositories
 
             countryList = _context
                 .Countries
-                    .Include(c => c.Destinations)
-                        .ThenInclude(d => d.DestinationTypes)
-                    .Include(c => c.BorderCrossings)
-                        .ThenInclude(f => f.BorderCrossingType)
-                    .Include(c => c.BorderCrossings)
-                        .ThenInclude(b => b.Visas)
+                    .Include(c => c.Destinations).ThenInclude(d => d.DestinationTypes)
+                    .Include(c => c.BorderCrossings).ThenInclude(f => f.BorderCrossingType)
+                    .Include(c => c.BorderCrossings).ThenInclude(b => b.Visas)
                     .OrderBy(c => c.Name).ToList();
 
             return countryList;
@@ -31,19 +28,17 @@ namespace RouteDataManager.Repositories
         {
             return _context.Countries.Where(c => c.Id == id)
                 .Include(c => c.Destinations)
-                .Include(c => c.BorderCrossings)
-                    .ThenInclude(b => b.DestinationOrigin)
-                .Include(c => c.BorderCrossings)
-                    .ThenInclude(c => c.Visas)
+                .Include(c => c.BorderCrossings).ThenInclude(b => b.DestinationOrigin)
+                .Include(c => c.BorderCrossings).ThenInclude(c => c.Visas)
                 .OrderBy(c => c.Name).ToList();
         }
 
         public Country GetCountryByCode(char ch)
         {
-            return _context.Countries.Where(c => c.Code == ch)
+            return _context.Countries
+                .Where(c => c.Code == ch)
                 .Include(c => c.Destinations)
-                .Include(c => c.BorderCrossings)
-                    .ThenInclude(c => c.Visas).ThenInclude(v => v.QualifyNationalities)
+                .Include(c => c.BorderCrossings).ThenInclude(c => c.Visas).ThenInclude(v => v.QualifyNationalities)
                  .OrderBy(c => c.Name).FirstOrDefault();
         }
 
@@ -55,6 +50,5 @@ namespace RouteDataManager.Repositories
                 .ThenInclude(r => r.RangeType)
                 .FirstOrDefault();
         }
-
     }
 }

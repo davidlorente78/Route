@@ -139,13 +139,13 @@ namespace RouteDataManager.Controllers
 
             var DestinationOriginRecovered = _context.Destinations
                 .Include(f => f.DestinationTypes)
-                .Single(d => d.DestinationID == borderCrossing.DestinationOriginID);
+                .Single(d => d.Id == borderCrossing.DestinationOriginID);
 
             borderCrossing.DestinationOrigin = DestinationOriginRecovered;
 
             var DestinationFinalRecovered = _context.Destinations
                 .Include(f => f.DestinationTypes)
-                .Single(d => d.DestinationID == borderCrossing.DestinationFinalID);
+                .Single(d => d.Id == borderCrossing.DestinationFinalID);
 
             borderCrossing.DestinationFinal = DestinationFinalRecovered;
 

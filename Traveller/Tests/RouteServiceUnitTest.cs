@@ -13,7 +13,7 @@ namespace Test.RouteServiceUnitTest
 {
     public class RouteServiceTest
     {
-        private BorderCrossingService frontierService;
+        private BorderCrossingService borderCrossingService;
 
         public RouteServiceTest() {   }
 
@@ -91,7 +91,6 @@ namespace Test.RouteServiceUnitTest
             SeasonEvaluator seasonEvaluator = new SeasonEvaluator(new SeasonDataContainer());
             double eval = seasonEvaluator.Evaluate(route);
 
-
             Assert.AreEqual(37, eval);
         }
 
@@ -106,17 +105,14 @@ namespace Test.RouteServiceUnitTest
 
             List<Tuple<char, string>> report = seasonEvaluator.Report(route);
 
-
             Assert.AreEqual(report.Count, 12);
         }
 
         [Test]
         public void TestFrontierService()
         {
-
             //Access Laos from Thailand
-            var frontiers = frontierService.GetBorderCrossingsByOriginAndFinalCountryCode('L', 'T');
-            
+            var frontiers = borderCrossingService.GetBorderCrossingsByOriginAndFinalCountryCode('L', 'T');            
 
             //NongKhai e Internacional
             //var frontier_airport = frontierService.FrontierstoAccesDestinationFromOriginIncludingAirports('L', 'T');
@@ -129,17 +125,13 @@ namespace Test.RouteServiceUnitTest
         [Test]
         public void DetectRepeatedChars()
         {
-
             var decomposed = Helper.DetectRepeatedChars(new List<char> { 'T', 'T', 'M', 'M', 'M', 'M', 'T' });
-
 
             Assert.AreEqual(true, decomposed[0].Item1 == 'T');
             Assert.AreEqual(true, decomposed[1].Item1 == 'M');
 
             Assert.AreEqual(true, decomposed[0].Item2 == 3);
             Assert.AreEqual(true, decomposed[1].Item2 == 4);
-
-
         }
 
 
@@ -149,13 +141,9 @@ namespace Test.RouteServiceUnitTest
 
             var decomposed = Helper.DetectRepeatedChars(new List<char> { 'T', 'T', 'T', 'T', 'T', 'T', 'T' });
 
-
             Assert.AreEqual(true, decomposed[0].Item1 == 'T');
 
             Assert.AreEqual(true, decomposed[0].Item2 == 7);
-
-
-
         }
 
         [Test]
@@ -174,8 +162,6 @@ namespace Test.RouteServiceUnitTest
             Assert.AreEqual(true, decomposed[1].Item2 == 4);
             Assert.AreEqual(true, decomposed[2].Item2 == 1);
             Assert.AreEqual(true, decomposed[3].Item2 == 1);
-
-
         }
 
 
@@ -198,22 +184,19 @@ namespace Test.RouteServiceUnitTest
             Assert.AreEqual(true, decomposed[2].Item2 == 3);
             Assert.AreEqual(true, decomposed[3].Item2 == 5);
             Helper.DetectRepeatedChars(route);
-
         }
+
         [Test]
         public void NumberEntries()
         {
 
             List<Tuple<char, int>> NumberofEntries = Helper.CountNumberofEntries(new List<char> { 'T', 'T', 'M', 'M', 'M', 'M', 'T' });
 
-
             Assert.AreEqual(true, NumberofEntries[0].Item1 == 'T');
             Assert.AreEqual(true, NumberofEntries[1].Item1 == 'M');
 
             Assert.AreEqual(true, NumberofEntries[0].Item2 == 1);
             Assert.AreEqual(true, NumberofEntries[1].Item2 == 1);
-
-
         }
 
         [Test]
@@ -229,9 +212,6 @@ namespace Test.RouteServiceUnitTest
 
             Assert.AreEqual(true, NumberofEntries[0].Item2 == 2);
             Assert.AreEqual(true, NumberofEntries[1].Item2 == 2);
-
-
-
         }
 
         [Test]
@@ -260,8 +240,6 @@ namespace Test.RouteServiceUnitTest
             var BrokenRules = routeValidator.GetBrokenRules(new List<char> { 'T', 'M', 'M', 'M', 'T', 'M', 'M', 'M', 'T', 'T', 'T', 'T' });
 
             int count = BrokenRules.Count;
-
-
         }
 
 
@@ -279,8 +257,6 @@ namespace Test.RouteServiceUnitTest
             var result = oneStayYearWithXConsecutiveMonths.Validate(route);
 
             Assert.AreEqual(true, result);
-
-
         }
 
 
@@ -297,8 +273,6 @@ namespace Test.RouteServiceUnitTest
             var result = oneStayYearWithXConsecutiveMonths.Validate(route);
 
             Assert.AreEqual(false, result);
-
-
         }
     }
 }

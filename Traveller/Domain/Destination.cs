@@ -1,13 +1,12 @@
-﻿using Domain;
+﻿using Domain.Generic;
 using Domain.Transport.Aviation;
 using Domain.Transport.Railway;
 using System.ComponentModel.DataAnnotations;
 
 namespace Traveller.Domain
 {
-    public class Destination
+    public class Destination : Entity
     {
-        public int DestinationID { get; set; }
         public int DestinationCountryID { get; set; }
         public virtual Country DestinationCountry { get; set; }
         public string? Name { get; set; }
@@ -21,7 +20,7 @@ namespace Traveller.Domain
 
         [Display(Name = "Destination Type")]
         public ICollection<DestinationType> DestinationTypes { get; set; } = new List<DestinationType>();
-      
+
         public ICollection<Airport> Airports { get; set; } = new List<Airport>();
 
         public ICollection<RailwayStation> Stations { get; set; } = new List<RailwayStation>();
@@ -29,6 +28,4 @@ namespace Traveller.Domain
         public ICollection<Hotel> Hotels { get; set; } = new List<Hotel>();
 
     }
-
- 
 }

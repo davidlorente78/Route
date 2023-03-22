@@ -2,22 +2,20 @@
 using Traveller.Domain;
 using Traveller.StaticData;
 
-namespace Data.Malaysia{
+namespace Data.Malaysia
+{
 
     public static class DataMalaysia
     {
-        public static Country Malaysia = new Country
-        {
-            Code = 'M',
-            Name = "Malaysia",
+        public static Country Malaysia = new Country('M', "Malaysia", true, 3)
+        {          
             Destinations = MalaysiaDestinations.GetAll(),
             Airports = MalaysiaAirports.GetAll(),
             BorderCrossings = MalaysiaBorderCrossings.GetAll(),
             TrainLines = MalaysiaTrainLines.GetAll(),
-            Ranges = new List<RangeChar> { MalaysiaRanges.SeasonRange , MalaysiaRanges.MonsoonRange, MalaysiaRanges.MonsoonRangeEvaluator },
-            ShowInDynamicHome = true,
-            ShowInDynamicHomeOrder = 3,
+            Ranges = new List<RangeChar> { MalaysiaRanges.SeasonRange, MalaysiaRanges.MonsoonRange, MalaysiaRanges.MonsoonRangeEvaluator },
+         
             //Visas = new List<Visa> { MalaysiaVisas.freeVisa_Malaysia, MalaysiaVisas.eVisa_Malaysia}
         };
-    }    
+    }
 }

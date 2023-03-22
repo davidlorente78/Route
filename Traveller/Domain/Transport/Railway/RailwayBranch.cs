@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Traveller.Domain;
 
 namespace Domain.Transport.Railway
 {
@@ -14,10 +13,5 @@ namespace Domain.Transport.Railway
         public int RailwayLineID { get; set; }
         public RailwayLine RailwayLine { get; set; }
         public ICollection<RailwayStation> Stations { get; set; }
-
-
     }
-
-
-
 }

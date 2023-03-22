@@ -1,5 +1,7 @@
 ﻿using DomainServices.Generic;
 using NUnit.Framework;
+using System.Linq;
+using Traveller.Application.Dto;
 using Traveller.DomainServices;
 
 namespace Traveller.Tests.DomainServices
@@ -8,7 +10,7 @@ namespace Traveller.Tests.DomainServices
     {
         private ICountryService countryService;
 
-        public CountryServiceTest() { }
+        //public CountryServiceTest() { }
 
         //CHECK TODO DI in Unit Test
         public CountryServiceTest(ICountryService countryService)
@@ -23,7 +25,7 @@ namespace Traveller.Tests.DomainServices
         }
 
         [Test]
-        public void Test1()
+        public void GetByID()
         {
             var result = countryService.GetByID(1);
 
@@ -31,7 +33,7 @@ namespace Traveller.Tests.DomainServices
         }
 
         [Test]
-        public void Test2()
+        public void Exists()
         {
             var country = countryService.GetByID(1);
             countryService.Remove(country.Id);
@@ -39,6 +41,16 @@ namespace Traveller.Tests.DomainServices
             bool result = countryService.Exists(1);
 
             Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public void Add()
+        {
+            CountryDto dto = new CountryDto() { Code = 'K' , Name = "Test" , ShowInDynamicHome = true};
+            countryService.Add(dto);
+
+            var result = countryService.GetAll().FirstOrDefault(item=> item.Code == dto.Code);
+            Assert.AreEqual(result.Name, dto.Name);
         }
     }
 }

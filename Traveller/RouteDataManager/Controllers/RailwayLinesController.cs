@@ -1,5 +1,4 @@
 ﻿using Domain.Transport.Railway;
-using DomainServices.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -18,13 +17,6 @@ namespace RouteDataManager.Controllers
         {
             _context = context;
         }
-
-        //// GET: Lines
-        //public async Task<IActionResult> Index()
-        //{
-        //    var applicationContext = _context.Lines.Include(l => l.Country);
-        //    return View(await applicationContext.ToListAsync());
-        //}
 
         public async Task<IActionResult> Index(LineIndexViewModel lineIndexViewModel)
         {
@@ -45,7 +37,7 @@ namespace RouteDataManager.Controllers
                 applicationContext = _context.RailwayLines.Include(b => b.Branches).OrderBy(b => b.RailwayLineID);
             }
 
-            SelectList selectListCountries = new SelectList(_context.Countries, "CountryID", "Name", lineIndexViewModel.FilterCountry.Id);
+            SelectList selectListCountries = new SelectList(_context.Countries, "Id", "Name", lineIndexViewModel.FilterCountry.Id);
 
             lineIndexViewModel.SelectListCountries = selectListCountries;
             lineIndexViewModel.Lines = await applicationContext.ToListAsync();
@@ -53,7 +45,6 @@ namespace RouteDataManager.Controllers
             return PartialView(lineIndexViewModel);
         }
 
-        // GET: Lines/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.RailwayLines == null)
@@ -72,16 +63,13 @@ namespace RouteDataManager.Controllers
             return View(line);
         }
 
-        // GET: Lines/Create
         public IActionResult Create()
         {
-            ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name");
+            ViewData["CountryID"] = new SelectList(_context.Countries, "Id", "Name");
             return View();
         }
 
-        // POST: Lines/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+    
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("LineID,Name,Description,LineType,CountryID")] RailwayLine line)
@@ -92,11 +80,10 @@ namespace RouteDataManager.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name", line.CountryID);
+            ViewData["CountryID"] = new SelectList(_context.Countries, "Id", "Name", line.CountryID);
             return View(line);
         }
-
-        // GET: Lines/Edit/5
+            
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.RailwayLines == null)
@@ -109,13 +96,10 @@ namespace RouteDataManager.Controllers
             {
                 return NotFound();
             }
-            ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name", line.CountryID);
+            ViewData["CountryID"] = new SelectList(_context.Countries, "Id", "Name", line.CountryID);
             return View(line);
         }
 
-        // POST: Lines/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("LineID,Name,Description,LineType,CountryID")] RailwayLine line)
@@ -145,11 +129,10 @@ namespace RouteDataManager.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CountryID"] = new SelectList(_context.Countries, "CountryID", "Name", line.CountryID);
+            ViewData["CountryID"] = new SelectList(_context.Countries, "Id", "Name", line.CountryID);
             return View(line);
         }
 
-        // GET: Lines/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.RailwayLines == null)
@@ -168,7 +151,6 @@ namespace RouteDataManager.Controllers
             return View(line);
         }
 
-        // POST: Lines/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

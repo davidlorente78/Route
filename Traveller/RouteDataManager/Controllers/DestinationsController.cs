@@ -35,7 +35,7 @@ namespace RouteDataManager.Controllers
             this.destinationService = destinationService;
 
             countries = countryService.GetAll();
-            destinations = destinationService.GetAllDestinations();
+            destinations = destinationService.GetAll();
 
         }
 
@@ -84,7 +84,7 @@ namespace RouteDataManager.Controllers
 
             var destination = await _context.Destinations
                 .Include(d => d.DestinationCountry).Include(d => d.DestinationTypes)
-                .FirstOrDefaultAsync(m => m.DestinationID == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
 
 
@@ -141,7 +141,12 @@ namespace RouteDataManager.Controllers
                 return NotFound();
             }
 
-            var destination = await _context.Destinations.Include(d => d.DestinationCountry).Include(d => d.DestinationTypes).Include(d => d.Stations).FirstAsync(d => d.DestinationID == id);
+            var destination = await _context
+                .Destinations
+                .Include(d => d.DestinationCountry)
+                .Include(d => d.DestinationTypes)
+                .Include(d => d.Stations)
+                .FirstAsync(d => d.Id == id);
 
             if (destination == null)
             {
@@ -151,9 +156,9 @@ namespace RouteDataManager.Controllers
             var destinationViewModel = new DestinationViewModel()
             {
                 CountryID = destination.DestinationCountryID,
-                DestinationID = destination.DestinationID,
+                DestinationID = destination.Id,
                 Description = destination.Description,
-                Id = destination.DestinationID,
+                Id = destination.Id,
                 Name = destination.Name,
                 ExistingImage = destination.Picture,
 
@@ -170,7 +175,7 @@ namespace RouteDataManager.Controllers
         public async Task<IActionResult> Edit(int id, DestinationViewModel model)
         {
             //???
-            if (id != model.DestinationID)
+            if (id != model.Id)
             {
                 return NotFound();
             }
@@ -204,7 +209,7 @@ namespace RouteDataManager.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!DestinationExists(model.DestinationID))
+                if (!DestinationExists(model.Id))
                 {
                     return NotFound();
                 }
@@ -213,8 +218,6 @@ namespace RouteDataManager.Controllers
                     throw;
                 }
             }
-
-            return PartialView(model);
         }
 
         // GET: Destinations/Delete/5
@@ -227,7 +230,7 @@ namespace RouteDataManager.Controllers
 
             var destination = await _context.Destinations
                 .Include(d => d.DestinationCountry)
-                .FirstOrDefaultAsync(m => m.DestinationID == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             if (destination == null)
             {
@@ -258,7 +261,7 @@ namespace RouteDataManager.Controllers
 
         private bool DestinationExists(int id)
         {
-            return (_context.Destinations?.Any(e => e.DestinationID == id)).GetValueOrDefault();
+            return (_context.Destinations?.Any(e => e.Id == id)).GetValueOrDefault();
         }
 
         private string ProcessUploadedFile(DestinationViewModel model)

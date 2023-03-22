@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Domain.Transport.Aviation;
+﻿using Domain.Transport.Aviation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -36,7 +32,7 @@ namespace RouteDataManager.Controllers
                 applicationContext = _context.Airports.Include(d => d.AirportCountry).Include(d => d.AirportType).OrderBy(c => c.AirportCountry.Name);
             }
 
-            SelectList selectListCountries = new SelectList(_context.Countries, "CountryID", "Name", airportIndexViewModel.FilterCountry.Id);
+            SelectList selectListCountries = new SelectList(_context.Countries, "Id", "Name", airportIndexViewModel.FilterCountry.Id);
             SelectList selectListAirportTypes = new SelectList(_context.AirportTypes, "AirportTypeID", "Description", airportIndexViewModel.FilterAirportType.AirportTypeID);
 
             airportIndexViewModel.SelectListCountries = selectListCountries;
@@ -46,8 +42,8 @@ namespace RouteDataManager.Controllers
             return PartialView(airportIndexViewModel);
         }
 
-            // GET: Airports/Details/5
-            public async Task<IActionResult> Details(int? id)
+        // GET: Airports/Details/5
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Airports == null)
             {
@@ -169,14 +165,14 @@ namespace RouteDataManager.Controllers
             {
                 _context.Airports.Remove(airport);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool AirportExists(int id)
         {
-          return (_context.Airports?.Any(e => e.AirportID == id)).GetValueOrDefault();
+            return (_context.Airports?.Any(e => e.AirportID == id)).GetValueOrDefault();
         }
     }
 }

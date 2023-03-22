@@ -1,33 +1,23 @@
-﻿using Traveller.Application.Dto;
+﻿using Application.Mapper;
 using AutoMapper;
+using Domain.Repositories;
+using DomainServices.Generic;
 using RouteDataManager.Repositories;
-using System.Collections.Generic;
-using System.Linq;
+using Traveller.Application.Dto;
+using Traveller.Domain;
 
 namespace DomainServices.DestinationService
 {
-    public class DestinationService : IDestinationService
+    public class DestinationService : GenericService<DestinationDto, Destination>, IDestinationService
     {
-        private IUnitOfWork unitOfWork;
-        private readonly IMapper mapper;
-
-        public DestinationService(IUnitOfWork unitOfWork, IMapper mapper)
+        public DestinationService(
+            IUnitOfWork unitOfWork,
+            IMapper mapper,
+            IDestinationMapper destinationMapper,
+            IGenericRepository<Destination> destinationRepository,
+            IDestinationRepository specificdestinationRepository)
+            : base(unitOfWork, mapper, destinationMapper, destinationRepository)
         {
-            this.unitOfWork = unitOfWork;
-            this.mapper = mapper;
         }
-
-        public bool DestinationExists(int id)
-        {
-            return (unitOfWork.DestinationRepository?.Find(e => e.DestinationID == id)).Count() != 0;
-        }
-
-        public ICollection<DestinationDto> GetAllDestinations()
-        {
-            var destinations = unitOfWork.DestinationRepository.GetAllDestinationsOrderByName().ToList();
-
-            return mapper.Map<List<DestinationDto>>(destinations);
-        }
-
     }
 }

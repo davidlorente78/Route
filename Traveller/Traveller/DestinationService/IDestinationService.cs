@@ -1,15 +1,12 @@
 ﻿using Traveller.Application.Dto;
 using System.Collections.Generic;
+using DomainServices.Generic;
+using Traveller.Domain;
 
 namespace DomainServices.DestinationService
 {
-    public interface IDestinationService
+    public interface IDestinationService : IGenericService<DestinationDto, Destination>
     {
-        ICollection<DestinationDto> GetAllDestinations();
-        //DestinationDto GetDestinationByID(int ID);
-        //bool DestinationExists(int id);
-        //int AddDestination(Destination destination);
-        //int RemoveDestination(DestinationDto destinationDto);
-        //int UpdateDestination(Destination destination);
+        ICollection<DestinationDto> GetAll();      
     }
 }

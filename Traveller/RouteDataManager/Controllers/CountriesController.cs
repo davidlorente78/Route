@@ -1,7 +1,4 @@
-﻿using DomainServices.Generic;
-using Microsoft.AspNetCore.Mvc;
-using RouteDataManager.Controllers.Generic;
-using RouteDataManager.ViewModels.Country;
+﻿using RouteDataManager.Controllers.Generic;
 using Traveller.Application.Dto;
 using Traveller.Domain;
 using Traveller.DomainServices;
@@ -15,20 +12,20 @@ namespace RouteDataManager.Controllers
         {
         }
 
-        public override IActionResult Index(int? id)
-        {
-            var countryIndexViewModel = new CountryIndexViewModel();
+        //public override IActionResult Index(int? id)
+        //{
+        //    var countryIndexViewModel = new CountryIndexViewModel();
 
-            ICollection<CountryDto>? countries = genericService.GetAll();
+        //    ICollection<CountryDto>? countries = genericService.GetAll();
 
-            countryIndexViewModel.Countries = countries;
+        //    countryIndexViewModel.Countries = countries;
 
-            if (id != null)
-            {
-                ViewBag.CountryId = id.Value;
-            }
+        //    if (id != null)
+        //    {
+        //        ViewBag.CountryId = id.Value;
+        //    }
 
-            return View(countryIndexViewModel);
-        }     
+        //    return View(countryIndexViewModel);
+        //}     
     }
 }

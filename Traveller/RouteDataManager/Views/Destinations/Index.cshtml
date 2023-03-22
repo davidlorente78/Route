@@ -93,14 +93,14 @@
                 </td>
 
                 <td>
-                    <a asp-action="Details" asp-route-id="@item.DestinationID">
+                    <a asp-action="Details" asp-route-id="@item.Id">
                         <img src="@DestinationFileLocation.RetriveFileFromFolder@item.Picture" class="img-thumbnail" height="100" width="100" asp-append-version="true" />
                     </a>
                 </td>
 
-                <td>   <a asp-action="Edit" class="btn btn-primary btn-block" asp-route-id="@item.DestinationID">Edit</a></td>
-                <td>   <a asp-action="Details" class="btn btn-primary btn-block" asp-route-id="@item.DestinationID">Details</a> </td>
-                <td>   <a asp-action="Delete" class="btn btn-primary btn-block" asp-route-id="@item.DestinationID">Delete</a> </td>
+                <td>   <a asp-action="Edit" class="btn btn-primary btn-block" asp-route-id="@item.Id">Edit</a></td>
+                <td>   <a asp-action="Details" class="btn btn-primary btn-block" asp-route-id="@item.Id">Details</a> </td>
+                <td>   <a asp-action="Delete" class="btn btn-primary btn-block" asp-route-id="@item.Id">Delete</a> </td>
             </tr>
         }
     </tbody>

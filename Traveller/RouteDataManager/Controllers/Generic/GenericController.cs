@@ -20,16 +20,7 @@ namespace RouteDataManager.Controllers.Generic
 
         public virtual IActionResult Index(int? id)
         {
-            //var countryIndexViewModel = new CountryIndexViewModel();
-
             ICollection<TDto>? dtos = genericService.GetAll();
-
-            //countryIndexViewModel.Countries = dtos;
-
-            //if (id != null)
-            //{
-            //    ViewBag.CountryId = id.Value;
-            //}
 
             return View(dtos);
         }
@@ -41,7 +32,7 @@ namespace RouteDataManager.Controllers.Generic
                 return NotFound();
             }
 
-            TDto dto = genericService.GetByID((int)id);
+            TDto dto = genericService.GetByID(id.Value);
 
             if (dto == null)
             {
@@ -150,7 +141,7 @@ namespace RouteDataManager.Controllers.Generic
             }
             else
             {
-                return Problem("Country does not exist.");
+                return Problem("Entity does not exist.");
             }
 
             return RedirectToAction(nameof(Index));
