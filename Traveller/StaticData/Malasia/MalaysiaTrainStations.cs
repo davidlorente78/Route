@@ -8,7 +8,6 @@ namespace Data.Malaysia
     public class MalaysiaTrainStations
     {
         //KTMWestCoast
-
         public static RailwayStation PadangBesar = new RailwayStation
         {
             Type = 'T',
@@ -193,8 +192,6 @@ namespace Data.Malaysia
             Name = "Kuala Lipis",
             Remarks = ""
         };
-
-        ///
 
         //Gemas // Junction
     }

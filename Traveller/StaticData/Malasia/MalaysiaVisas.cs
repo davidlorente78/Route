@@ -51,7 +51,5 @@ namespace Traveller.StaticData
 
             //ValidEntryPoints = new List<Destination> { MalasiaDestinations.PadangPesar, MalasiaDestinations.RantanPanjang }
         };
-
-
     }
 }

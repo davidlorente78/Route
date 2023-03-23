@@ -18,16 +18,12 @@ namespace Data.Nepal
                     new DictionaryItem<char,string> { Key = 'M', Value = "The north and the gulf coast are ideal in September and October."},
                     new DictionaryItem<char,string> { Key = 'B', Value = "Visiting Kathmandu Valley during the monsoon is not advised as one may not be able to explore the attractions due to heavy rains and it is also dangerous to trek during this time of the year. The monsoon in Kathmandu ends around the month of September." }
                 }
-
-            }
-            ,
+            },
 
             EntityKey_ByMonth = new EntityFrameworkDictionary<string, string>()
             {
-
                 Items = new List<DictionaryItem<string, string>>()
                 {
-
                     new DictionaryItem<string,string> { Key = "January", Value ="X" },
 
                     new DictionaryItem<string,string> { Key = "February", Value ="X" },
@@ -51,11 +47,8 @@ namespace Data.Nepal
                     new DictionaryItem<string,string> { Key = "November", Value ="A" },
 
                     new DictionaryItem<string,string> { Key = "December", Value ="A" },
-
                 }
-
             }
-
         };
 
         public static RangeChar MonsoonRange = new RangeChar
@@ -66,20 +59,13 @@ namespace Data.Nepal
             {
                 Items = new List<DictionaryItem<char, string>>()
                 {
-
                     new DictionaryItem<char,string> { Key = 'M', Value = "Monsoon season." },
-                
-               }
-
-            }
-            ,
-
+                }
+            },
             EntityDescription_ByMonth = new EntityFrameworkDictionary<string, string>()
             {
-
                 Items = new List<DictionaryItem<string, string>>()
                 {
-
                     new DictionaryItem<string,string> { Key = "January", Value ="From late December through to February, Nepal's weather is pleasant during the day but temperatures drop significantly at night-time; especially in the mountains. January is the coldest month, but fewer visitors results in quieter sightseeing opportunities. Many hotels and lodges offer fireplaces, blankets and hot water bottles to keep you cosy. January and February can be very cold, especially at night, with average temperatures of 6°C in Namche Bazaar. But you’ll be rewarded with clear skies, incredible panoramas and quieter trekking trails, as there are fewer visitors. High altitude trekking is not recommended at this time. Kathmandu : January, the same as December, is another enjoyable winter month in Kathmandu, Nepal, with an average temperature ranging between max 19.1°C (66.4°F) and min 2.4°C (36.3°F). January is the coldest month, with an average high-temperature of 19.1°C (66.4°F) and an average low-temperature of 2.4°C (36.3°F). "},
                     new DictionaryItem<string,string> { Key = "February",  Value ="From late December through to February, Nepal's weather is pleasant during the day but temperatures drop significantly at night-time; especially in the mountains. January is the coldest month, but fewer visitors results in quieter sightseeing opportunities. Many hotels and lodges offer fireplaces, blankets and hot water bottles to keep you cosy.January and February can be very cold, especially at night, with average temperatures of 6°C in Namche Bazaar. But you’ll be rewarded with clear skies, incredible panoramas and quieter trekking trails, as there are fewer visitors. High altitude trekking is not recommended at this time. Kathmandu : The last month of the winter, February, is a pleasant month in Kathmandu, Nepal, with an average temperature ranging between max 21.4°C (70.5°F) and min 4.5°C (40.1°F). In Kathmandu, Nepal, the average high-temperature in February is relatively the same as in January - a pleasant 21.4°C (70.5°F)."},
                     new DictionaryItem<string,string> { Key = "March", Value ="March marks the beginning of spring, when temperatures increase and rhododendrons bloom. Days are longer during March and April, making them perfect for trekking, although temperatures are still cool at night. It's a popular time to travel, so plan well in advance. Kathmandu : The first month of the spring, March, is a warm month in Kathmandu, Nepal, with temperature in the range of an average low of 8.2°C (46.8°F) and an average high of 25.3°C (77.5°F). In March, the average high-temperature slightly increases from an agreeable 21.4°C (70.5°F) in February to a warm 25.3°C (77.5°F)." },
@@ -92,11 +78,8 @@ namespace Data.Nepal
                     new DictionaryItem<string,string> { Key = "October", Value ="As the monsoon dissipates in September, Nepal welcomes beautiful clear skies, fresh air and incredible views. October and November are two of the best months to visit as dry days make trekking easier and offer good visibility. The verdant landscapes following the rains are ideal for photographers. The best time to visit Nepal is between October and December, when the skies are a clear blue and the views spectacular. The weather remains dry until about April, with temperatures varying between regions. Kathmandu : October, the same as September, is a moderately hot autumn month in Kathmandu, Nepal, with an average temperature varying between 26.8°C (80.2°F) and 13.4°C (56.1°F). In October, the average high-temperature is relatively the same as in September - a still warm 26.8°C (80.2°F)."},
                     new DictionaryItem<string,string> { Key = "November",Value ="As the monsoon dissipates in September, Nepal welcomes beautiful clear skies, fresh air and incredible views. October and November are two of the best months to visit as dry days make trekking easier and offer good visibility. The verdant landscapes following the rains are ideal for photographers. The best time to visit Nepal is between October and December, when the skies are a clear blue and the views spectacular. The weather remains dry until about April, with temperatures varying between regions.Kathmandu : The last month of the autumn, November, is also a moderately hot month in Kathmandu, Nepal, with temperature in the range of an average high of 23.6°C (74.5°F) and an average low of 7.8°C (46°F). In Kathmandu, the average high-temperature in November marginally drops from 26.8°C (80.2°F) in October to a still moderately hot 23.6°C (74.5°F). " },
                     new DictionaryItem<string,string> { Key = "December",  Value ="From late December through to February, Nepal's weather is pleasant during the day but temperatures drop significantly at night-time; especially in the mountains. January is the coldest month, but fewer visitors results in quieter sightseeing opportunities. Many hotels and lodges offer fireplaces, blankets and hot water bottles to keep you cosy. The best time to visit Nepal is between October and December, when the skies are a clear blue and the views spectacular. The weather remains dry until about April, with temperatures varying between regions. Kathmandu : The first month of the winter, December, is still a pleasant month in Kathmandu, Nepal, with temperature in the range of an average high of 20.2°C (68.4°F) and an average low of 3.7°C (38.7°F). In December, the average high-temperature slightly decreases from a moderately hot 23.6°C (74.5°F) in November to a pleasant 20.2°C (68.4°F)."},
-
                 }
-
             }
-
         };
 
         public static RangeChar MonsoonRangeEvaluator = new RangeChar
@@ -105,7 +88,6 @@ namespace Data.Nepal
 
             EntityEvaluator_ByMonth = new EntityFrameworkDictionary<int, int>()
             {
-
                 Items = new List<DictionaryItem<int, int>>()
                 {
                     new DictionaryItem<int,int> { Key = 1, Value = 1 },
@@ -121,11 +103,7 @@ namespace Data.Nepal
                     new DictionaryItem<int,int> { Key = 11, Value = 0 },
                     new DictionaryItem<int,int> { Key = 12, Value = 1 },
                 }
-
             }
-
         };
-
-
     }
 }

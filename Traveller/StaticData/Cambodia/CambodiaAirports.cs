@@ -31,7 +31,6 @@ namespace Data.Cambodia
             IATACode = "KOS",
             AirportType = AirportTypes.International
         };
-
  
         public static ICollection<Airport> GetAll()
         {
@@ -39,7 +38,6 @@ namespace Data.Cambodia
             {
                 REP,PNH,KOS
             };
-
         }
     }
 }

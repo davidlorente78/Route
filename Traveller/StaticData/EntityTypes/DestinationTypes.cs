@@ -4,7 +4,6 @@ namespace Data.EntityTypes
 {
     public static class DestinationTypes
     {
-
         public static DestinationType BorderCrossing = new DestinationType { Code = 'F', Description = "Border Crossing" };
         public static DestinationType Tourism = new DestinationType { Code = 'T', Description = "Tourism" };
         public static DestinationType Airport = new DestinationType { Code = 'A', Description = "Airport" };

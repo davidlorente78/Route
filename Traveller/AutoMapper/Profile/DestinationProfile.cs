@@ -5,8 +5,7 @@ using Traveller.Domain;
 namespace Application.Profiles{
     
     public class DestinationProfile : Profile
-    {
-        
+    {        
         public DestinationProfile()
         {
             CreateMap<Destination, DestinationDto>()

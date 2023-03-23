@@ -4,7 +4,6 @@ namespace Data.Nationalities
 {
     public static class Nationalities
     {
-
         public static Nationality ES = new Nationality
         {
             Code = "ES",

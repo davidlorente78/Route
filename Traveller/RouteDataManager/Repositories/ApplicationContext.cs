@@ -33,8 +33,7 @@ namespace RouteDataManager.Repositories
             //Country
             modelBuilder.Entity<Country>()
                 .ToTable("Countries")
-                .HasKey(x => x.Id);
-             
+                .HasKey(x => x.Id);             
 
             modelBuilder.Entity<Country>()
                 .HasMany<Destination>(c => c.Destinations)

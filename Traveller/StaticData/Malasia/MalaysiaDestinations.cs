@@ -27,30 +27,29 @@ namespace Traveller.StaticData
         public static List<Destination> GetStaticAll()
         {
             return new List<Destination> {
-                MalaysiaDestinations.KualaLumpur,
-                MalaysiaDestinations.RantanPanjang,
-                MalaysiaDestinations.PadangPesar,
-                MalaysiaDestinations.KualaLumpur,
-                MalaysiaDestinations.Penang,
-                MalaysiaDestinations.Butterworth,
-                MalaysiaDestinations.KotaBahru,
-                MalaysiaDestinations.KUL,
-                MalaysiaDestinations.JohorBahru,
-                MalaysiaDestinations.KotaKinabalu,
-                MalaysiaDestinations.Langkawi,
-                MalaysiaDestinations.Kuching,
-                MalaysiaDestinations.AlorSatar,
-                MalaysiaDestinations.KotaBaharu,
-                MalaysiaDestinations.KualaTerengganu,
-                MalaysiaDestinations.Subang,                     
-                MalaysiaDestinations.KualaKangsar,
-                MalaysiaDestinations.Ipoh
+                KualaLumpur,
+                RantanPanjang,
+                PadangPesar,
+                KualaLumpur,
+                Penang,
+                Butterworth,
+                KotaBahru,
+                KUL,
+                JohorBahru,
+                KotaKinabalu,
+                Langkawi,
+                Kuching,
+                AlorSatar,
+                KotaBaharu,
+                KualaTerengganu,
+                Subang,                     
+                KualaKangsar,
+                Ipoh
             };
         }
 
         public static List<Destination> CreateDestinationsFromStations()
         {
-
             List<Destination> destinations = new List<Destination>();
 
             List<Destination> staticdestinations = GetStaticAll();
@@ -76,9 +75,7 @@ namespace Traveller.StaticData
                         else
                         {
                             var exist = staticdestinations.Where(x => x.Name == station.Name).FirstOrDefault();
-
                             exist.DestinationTypes.Add(DestinationTypes.Train);
-
                         }
                     }
                 }

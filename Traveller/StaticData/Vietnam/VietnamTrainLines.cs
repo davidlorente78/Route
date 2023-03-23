@@ -10,7 +10,7 @@ namespace Data.Vietnam
 {
     public static class VietnamTrainLines
     {
-        
+
         public static RailwayLine NorthSouthLine = new RailwayLine
         {
             Name = "Reunification Express",
@@ -20,7 +20,6 @@ namespace Data.Vietnam
         };
 
         //TODO Add Other Lines
-
         public static ICollection<RailwayLine> GetAll()
         {
             return new List<RailwayLine> { NorthSouthLine };

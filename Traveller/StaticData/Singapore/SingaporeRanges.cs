@@ -13,21 +13,14 @@ namespace Data.Sinpagore
             {
                 Items = new List<DictionaryItem<char, string>>()
                 {
-
-
                     new DictionaryItem<char,string> { Key = 'X', Value = ""},
-
                 }
-
-            }
-            ,
+            },
 
             EntityKey_ByMonth = new EntityFrameworkDictionary<string, string>()
             {
-
                 Items = new List<DictionaryItem<string, string>>()
                 {
-
                     new DictionaryItem<string,string> { Key = "January", Value ="X" },
 
                     new DictionaryItem<string,string> { Key = "February", Value ="X" },
@@ -51,11 +44,8 @@ namespace Data.Sinpagore
                     new DictionaryItem<string,string> { Key = "November", Value ="X" },
 
                     new DictionaryItem<string,string> { Key = "December", Value ="X" },
-
                 }
-
             }
-
         };
 
         public static RangeChar MonsoonRange = new RangeChar
@@ -66,20 +56,13 @@ namespace Data.Sinpagore
             {
                 Items = new List<DictionaryItem<char, string>>()
                 {
-
                     new DictionaryItem<char,string> { Key = 'X', Value = "X." },
-
                }
-
-            }
-            ,
-
+            },
             EntityDescription_ByMonth = new EntityFrameworkDictionary<string, string>()
             {
-
                 Items = new List<DictionaryItem<string, string>>()
                 {
-
                     new DictionaryItem<string,string> { Key = "January", Value =""},
                     new DictionaryItem<string,string> { Key = "February",  Value =""},
                     new DictionaryItem<string,string> { Key = "March", Value =""},
@@ -93,19 +76,15 @@ namespace Data.Sinpagore
                     new DictionaryItem<string,string> { Key = "November", Value =""},
                     new DictionaryItem<string,string> { Key = "December",  Value =""},
                 }
-
             }
-
         };
 
-        //
         public static RangeChar MonsoonRangeEvaluator = new RangeChar
         {
             RangeType = RangeTypes.MonsoonEvaluatorRangeType,
 
             EntityEvaluator_ByMonth = new EntityFrameworkDictionary<int, int>()
             {
-
                 Items = new List<DictionaryItem<int, int>>()
                 {
                     new DictionaryItem<int,int> { Key = 1, Value =1 },
@@ -121,11 +100,7 @@ namespace Data.Sinpagore
                     new DictionaryItem<int,int> { Key = 11, Value = 1 },
                     new DictionaryItem<int,int> { Key = 12, Value =1 },
                 }
-
             }
-
         };
-
-
     }
 }

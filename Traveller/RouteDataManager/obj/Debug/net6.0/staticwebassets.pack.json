@@ -61,6 +61,10 @@
       "PackagePath": "staticwebassets\\DestinationUploads\\15fb2312-3b5b-4e66-8f8d-9b1bef78b398_6.69x9.61_BW_420 Cover Volumen 1 Front.jpg"
     },
     {
+      "Id": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\49ec4456-95d7-41ae-9f0f-760e2a07ea33_Kindle PAPERBACK_6.690x9.610_385_BW_WHITE_en_US.png",
+      "PackagePath": "staticwebassets\\DestinationUploads\\49ec4456-95d7-41ae-9f0f-760e2a07ea33_Kindle PAPERBACK_6.690x9.610_385_BW_WHITE_en_US.png"
+    },
+    {
       "Id": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\AranyaPrathet.jpg",
       "PackagePath": "staticwebassets\\DestinationUploads\\AranyaPrathet.jpg"
     },
@@ -81,6 +85,10 @@
       "PackagePath": "staticwebassets\\DestinationUploads\\ChiangRai.jpg"
     },
     {
+      "Id": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\HuayXai.jpg",
+      "PackagePath": "staticwebassets\\DestinationUploads\\HuayXai.jpg"
+    },
+    {
       "Id": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\Ipoh.jpg",
       "PackagePath": "staticwebassets\\DestinationUploads\\Ipoh.jpg"
     },
@@ -97,6 +105,14 @@
       "PackagePath": "staticwebassets\\DestinationUploads\\KualaLumpur.jpg"
     },
     {
+      "Id": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\LuangPrabang.jpg",
+      "PackagePath": "staticwebassets\\DestinationUploads\\LuangPrabang.jpg"
+    },
+    {
+      "Id": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\MuangNgoiNeua.jpg",
+      "PackagePath": "staticwebassets\\DestinationUploads\\MuangNgoiNeua.jpg"
+    },
+    {
       "Id": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\PhangNga.jpg",
       "PackagePath": "staticwebassets\\DestinationUploads\\PhangNga.jpg"
     },
@@ -109,12 +125,24 @@
       "PackagePath": "staticwebassets\\DestinationUploads\\PulauKapas.jpg"
     },
     {
+      "Id": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\Savannakhet.jpg",
+      "PackagePath": "staticwebassets\\DestinationUploads\\Savannakhet.jpg"
+    },
+    {
       "Id": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\Sukhothai.jpg",
       "PackagePath": "staticwebassets\\DestinationUploads\\Sukhothai.jpg"
     },
     {
       "Id": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\Trang.jpg",
       "PackagePath": "staticwebassets\\DestinationUploads\\Trang.jpg"
+    },
+    {
+      "Id": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\VangVieng.jpg",
+      "PackagePath": "staticwebassets\\DestinationUploads\\VangVieng.jpg"
+    },
+    {
+      "Id": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\Vientiane.jpg",
+      "PackagePath": "staticwebassets\\DestinationUploads\\Vientiane.jpg"
     },
     {
       "Id": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\RailwaySystemUploads\\6370556d-bb4b-40ea-ac63-4ae47cf3c9b0_6.69x9.61_BW_420 Cover Volumen 1 Front.jpg",

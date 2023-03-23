@@ -7,7 +7,6 @@ namespace Data.Thailand
 {
     public class ThailandAirports
     {
-
         #region International Airports
 
         public static Airport BKK = new Airport
@@ -120,7 +119,6 @@ namespace Data.Thailand
         };
 
         #endregion
-
 
         public static Airport BFV = new Airport
         {
@@ -330,7 +328,6 @@ namespace Data.Thailand
             AirportType = AirportTypes.Domestic
         };
 
-
         public static ICollection<Airport> GetAll() {
 
             return new List<Airport> {
@@ -369,7 +366,7 @@ namespace Data.Thailand
                     TST,
                     TDX,
                     UBP
-                    };
+            };
         }
     }
 }

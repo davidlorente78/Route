@@ -9,7 +9,4 @@ namespace Data.EntityTypes
         public static AirlineType Charter = new AirlineType { Code = 'C', Description = "Charter" };
         public static AirlineType Budget = new AirlineType { Code = 'L', Description = "Budget" };
     }
-
-
-
 }

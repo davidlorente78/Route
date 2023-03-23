@@ -58,7 +58,6 @@ namespace Traveller.StaticData
             Extensible = false,
             QualifyNationalities = new List<Nationality> { Nationalities.ES },
             URL = "https://e-visado.es/vietnam/requisitos"
-
         };
     }
 }

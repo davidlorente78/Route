@@ -19,21 +19,16 @@ namespace Data.Malaysia
             {
                 Items = new List<DictionaryItem<char, string>>()
                 {
-
                     new DictionaryItem<char,string> { Key = 'A', Value = "The end-of-year school vacations, followed by Chinese New Year, drive up prices and it pays to book transport and accommodation. It's monsoon season on the east coast of Peninsular Malaysia and western Sarawak." },
 
                     new DictionaryItem<char,string> { Key = 'M', Value = "From July to August you will be competing with visitors from the Gulf states escaping the heat; it's the so-called Arabian season. It is monsoon season on the west coast of peninsular Malaysia until September." },
 
                     new DictionaryItem<char,string> { Key = 'B', Value = "It is advisable to avoid the worst rainy and humid season. That's when it's the quietest time to enjoy certain very touristy places." },
-
                 }
-
-            }
-            ,
+            },
 
             EntityKey_ByMonth = new EntityFrameworkDictionary<string, string>()
             {
-
                 Items = new List<DictionaryItem<string, string>>()
                 {
                     //TODO
@@ -60,11 +55,8 @@ namespace Data.Malaysia
                     new DictionaryItem<string,string> { Key = "November", Value ="M" },
 
                     new DictionaryItem<string,string> { Key = "December", Value ="B" },
-
                 }
-
             }
-
         };
 
         //Malaysia has two monsoon seasons and therefore its dry seasons are different too. The east-coast dry season runs from March until September, and the west-coast dry season runs from October to April.
@@ -79,23 +71,17 @@ namespace Data.Malaysia
             {
                 Items = new List<DictionaryItem<char, string>>()
                 {
-
                     new DictionaryItem<char,string> { Key = 'E', Value = "The east-coast dry season runs from March until September." },
                     new DictionaryItem<char,string> { Key = 'W', Value = "The west-coast dry season runs from October to April"},
                     new DictionaryItem<char,string> { Key = 'I', Value = "The east of Malaysia, including islands like Tioman, Redang and the Perhentian Islands, see heavy rains between November and February. These showers can be longer and heavier than those in the west, so we generally advise travellers to avoid the east of Malaysia at this time. ." },
                     new DictionaryItem<char,string> { Key = 'M', Value = "The west of Malaysia, where you’ll find popular beach spots like Langkawi and Pangkor, has heavier rain in September and October. However, it is still possible to experience a lovely beach stay with little more than a short sharp downpour at this time."},
-
-
                 }
-            }
-         ,
+            },
 
             EntityDescription_ByMonth = new EntityFrameworkDictionary<string, string>()
             {
-
                 Items = new List<DictionaryItem<string, string>>()
                 {
-
                     new DictionaryItem<string,string> { Key = "January",Value ="Malaysia. January. With the west coast basking in sunshine, it’s a fantastic time to visit Langkawi, Penang, Kuala Lumpur, Malacca and the Cameron highlands. On the east coast, however, the rainy season ensues so is best avoided. The east of Malaysia, including islands like Tioman, Redang and the Perhentian Islands, see heavy rains between November and February. These showers can be longer and heavier than those in the west, so we generally advise travellers to avoid the east of Malaysia at this time. " },
 
                     new DictionaryItem<string,string> { Key = "February", Value ="Malaysia. February. With the west coast basking in sunshine, it’s a fantastic time to visit Langkawi, Penang, Kuala Lumpur, Malacca and the Cameron highlands. On the east coast, however, the rainy season ensues so is best avoided. The east of Malaysia, including islands like Tioman, Redang and the Perhentian Islands, see heavy rains between November and February. These showers can be longer and heavier than those in the west, so we generally advise travellers to avoid the east of Malaysia at this time. " },
@@ -120,9 +106,7 @@ namespace Data.Malaysia
 
                     new DictionaryItem<string,string> { Key = "December", Value ="Malaysia. December. As ever, the weather in Malaysia in December is a decidedly mixed bag. It’s excellent on the west coast, with dry weather perfect for a beach stay and the less extreme heat makes it a perfect time for exploring too. On the east coast, however, downpours and storms are frequent and many resorts remain firmly closed. The east of Malaysia, including islands like Tioman, Redang and the Perhentian Islands, see heavy rains between November and February. These showers can be longer and heavier than those in the west, so we generally advise travellers to avoid the east of Malaysia at this time. " }
                 }
-
             }
-
         };
 
         public static RangeChar MonsoonRangeEvaluator = new RangeChar
@@ -131,7 +115,6 @@ namespace Data.Malaysia
 
             EntityEvaluator_ByMonth = new EntityFrameworkDictionary<int, int>()
             {
-
                 Items = new List<DictionaryItem<int, int>>()
                 {
                     new DictionaryItem<int,int> { Key = 1, Value = 1 },
@@ -147,11 +130,7 @@ namespace Data.Malaysia
                     new DictionaryItem<int,int> { Key = 11, Value = 1 },
                     new DictionaryItem<int,int> { Key = 12, Value = 1 },
                 }
-
             }
-
         };
-
-
     }
 }

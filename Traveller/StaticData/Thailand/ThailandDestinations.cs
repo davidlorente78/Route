@@ -53,7 +53,6 @@ namespace Traveller.StaticData
             DestinationCountryID = 3,
             Name = "Krabi",
             Picture = "/Krabi.jpg",
-
             DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }
         };
 
@@ -119,8 +118,7 @@ namespace Traveller.StaticData
             LocalName = "อรัญประเทศ",
             DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing },
             Description = "Aranyaprathet is a town (thesaban mueang) in Sa Kaeo province in eastern Thailand . It covers the entire tambon of Aranyaprathet, in Aranyaprathet district. As of 2005, the town has 16,937 inhabitants. It is located just 6 kilometres (3.7 mi) from the border with Cambodia; the town of Poipet is on the other side of the border. On the Thai side of the border is the huge Rongkluea market. Cambodian people cross the border daily with pushcarts and scooters with side cars loaded with their products. A significant part of the trade is in second hand clothes.[1] Just over the border on the Cambodian side there are casinos. These are visited by many Thai people because gambling is prohibited in Thailand.",
-            Picture = "/AranyaPrathet.jpg",
-             
+            Picture = "/AranyaPrathet.jpg",             
         };
 
         public static Destination VangTao = new Destination
@@ -292,7 +290,6 @@ namespace Traveller.StaticData
         };
 
         public static Destination SamutPrakan = new Destination
-
         {
             DestinationCountryID = 3,
             Name = "Samut Prakan",
@@ -373,6 +370,7 @@ namespace Traveller.StaticData
         {
             DestinationCountryID = 3,
             Name = "Khlong Yai",
+            Description = "Close to Chanthaburi",
             DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing }
         };
 
@@ -385,10 +383,9 @@ namespace Traveller.StaticData
 
         public static List<Destination> CreateDestinationsFromStations()
         {
-
             List<Destination> destinations = new List<Destination>();
 
-            List<Destination> staticdestinations = GetStaticAll();
+            List<Destination> staticDestinations = GetStaticAll();
 
             var trainLines = ThailandTrainLines.GetAll();
 
@@ -398,7 +395,7 @@ namespace Traveller.StaticData
                 {
                     foreach (var station in branch.Stations)
                     {
-                        if (!staticdestinations.Where(x => x.Name == station.Name).Any())
+                        if (!staticDestinations.Where(x => x.Name == station.Name).Any())
                         {
 
                             Destination destination = new Destination
@@ -411,87 +408,81 @@ namespace Traveller.StaticData
                         }
                         else
                         {
-                            var exist = staticdestinations.Where(x => x.Name == station.Name).FirstOrDefault();
+                            var exist = staticDestinations.Where(x => x.Name == station.Name).FirstOrDefault();
 
                             exist.DestinationTypes.Add(DestinationTypes.Train);
 
                         }
                     }
                 }
-
             }
 
             return destinations;
-
         }
 
         public static List<Destination> GetStaticAll()
         {
             List<Destination> destinations = new List<Destination> {
-                ThailandDestinations.Mukdahan,
-                ThailandDestinations.NongKhai,
-                ThailandDestinations.PadangPesar,
-                ThailandDestinations.SungaiKolok,
-                ThailandDestinations.ChiangKhong,
-                ThailandDestinations.Aranyaprathet,
-                ThailandDestinations.VangTao,
-                ThailandDestinations.UbonRatchathani,
-                ThailandDestinations.Songkhla,
-                ThailandDestinations.Trang,
-                ThailandDestinations.Sukhothai,
-                ThailandDestinations.Bangkok,
-                ThailandDestinations.ChiangMai,
-                ThailandDestinations.ChiangRai,
-                ThailandDestinations.HatYai,
-                ThailandDestinations.Krabi,
-                ThailandDestinations.Phuket,
-                ThailandDestinations.Sukhothai,
-                ThailandDestinations.Trang,
-                ThailandDestinations.Burinam,
-                ThailandDestinations.Chumphon,
-                ThailandDestinations.HuaHin,
-                ThailandDestinations.KhonKaen,
-                ThailandDestinations.Lampang,
-                ThailandDestinations.MaeHongSon,
-                ThailandDestinations.MaeSot,
-                ThailandDestinations.Tak,
-                ThailandDestinations.NakhonPhanom,
-                ThailandDestinations.NakhonRatchasima,
-                ThailandDestinations.NanNakhon,
-                ThailandDestinations.Loei,
-                ThailandDestinations.NakhonSiThammarat,
-                ThailandDestinations.Narathiwat,
-                ThailandDestinations.Phetchabun,
-                ThailandDestinations.Phitsanulok,
-                ThailandDestinations.Phrae,
-                ThailandDestinations.Ranong,
-                ThailandDestinations.RoiEt,
-                ThailandDestinations.SakonNakhon,
-                ThailandDestinations.Trat,
-                ThailandDestinations.PrachuapKhiriKhan,
-                ThailandDestinations.SamutPrakan,
-                ThailandDestinations.Nonthaburi,
-                ThailandDestinations.PathumThani,
-                ThailandDestinations.Betong,
-                ThailandDestinations.Yala,
-                ThailandDestinations.KoSamui,
-                ThailandDestinations.SuratThani,
-                ThailandDestinations.Rayong,
-                ThailandDestinations.Pattaya,
-                ThailandDestinations.UdonThani,
-                ThailandDestinations.Lamphun,
-                ThailandDestinations.KhlongYai,
-                ThailandDestinations.BanHatLek
-
+                Mukdahan,
+                NongKhai,
+                PadangPesar,
+                SungaiKolok,
+                ChiangKhong,
+                Aranyaprathet,
+                VangTao,
+                UbonRatchathani,
+                Songkhla,
+                Trang,
+                Bangkok,
+                ChiangMai,
+                ChiangRai,
+                HatYai,
+                Krabi,
+                Phuket,
+                Sukhothai,
+                Trang,
+                Burinam,
+                Chumphon,
+                HuaHin,
+                KhonKaen,
+                Lampang,
+                MaeHongSon,
+                MaeSot,
+                Tak,
+                NakhonPhanom,
+                NakhonRatchasima,
+                NanNakhon,
+                Loei,
+                NakhonSiThammarat,
+                Narathiwat,
+                Phetchabun,
+                Phitsanulok,
+                Phrae,
+                Ranong,
+                RoiEt,
+                SakonNakhon,
+                Trat,
+                PrachuapKhiriKhan,
+                SamutPrakan,
+                Nonthaburi,
+                PathumThani,
+                Betong,
+                Yala,
+                KoSamui,
+                SuratThani,
+                Rayong,
+                Pattaya,
+                UdonThani,
+                Lamphun,
+                KhlongYai,
+                BanHatLek
             };
 
 
             return destinations;
-
         }
 
         public static List<Destination> GetAll()
-
         {
             List<Destination> destinationsFromStatic = GetStaticAll();
 
@@ -500,7 +491,6 @@ namespace Traveller.StaticData
             destinationsFromStatic.AddRange(destinationsFromStations);
 
             return destinationsFromStatic;
-
         }
     }
 }

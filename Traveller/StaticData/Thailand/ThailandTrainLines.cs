@@ -1,11 +1,9 @@
-﻿using Domain;
-using Domain.Transport.Railway;
+﻿using Domain.Transport.Railway;
 
 namespace Data.Thailand
 {
     public static class ThailandTrainLines
     {
-
         public static RailwayLine SouthernLine = new RailwayLine
         {
             Name = "Southern Line",
@@ -23,7 +21,6 @@ namespace Data.Thailand
 
         public static RailwayLine NorthEasternLine = new RailwayLine
         {
-
             Name = "North Eastern Line",
             LineType = 'T',
             Branches = new List<RailwayBranch> { ThailandTrainBranches.NorthEasternLine_BuaYai_ThanonChira, ThailandTrainBranches.NorthEasternLine_UbonRatchathani, ThailandTrainBranches.NorthEasternLineLine_NongKhai }
@@ -31,16 +28,14 @@ namespace Data.Thailand
 
         public static RailwayLine EasternLine = new RailwayLine
         {
-
             Name = "Eastern Line",
             LineType = 'T',
             Branches = new List<RailwayBranch> { ThailandTrainBranches.EasternLine_Pattaya, ThailandTrainBranches.EasternLine_Aranyaprathet }
         };
 
-        
         public static ICollection<RailwayLine> GetAll()
         {
-            return new List<RailwayLine> { SouthernLine , NorthernLine, NorthEasternLine, EasternLine};
+            return new List<RailwayLine> { SouthernLine, NorthernLine, NorthEasternLine, EasternLine };
         }
     }
 }

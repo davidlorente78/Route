@@ -6,8 +6,7 @@ using Traveller.StaticData;
 namespace Data.Laos
 {
     public static class LaosAirports
-    {
-        
+    {        
         public static Airport VTE = new Airport
         {
             Name = "Wattay International Airport",
@@ -65,13 +64,10 @@ namespace Data.Laos
 
         public static ICollection<Airport> GetAll()
         {
-
-
             return new List<Airport>
             {
                 VTE,LPQ,PKZ,HOE,LXG,ODY,XKH
             };
-
         }
     }
 }

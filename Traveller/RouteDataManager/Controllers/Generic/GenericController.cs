@@ -51,7 +51,7 @@ namespace RouteDataManager.Controllers.Generic
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Code,Name")] TDto dto)
+        public async Task<IActionResult> Create(TDto dto)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace RouteDataManager.Controllers.Generic
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Code,Name")] TDto dto)
+        public async Task<IActionResult> Edit(int id,TDto dto)
         {
             if (id != dto.Id)
             {

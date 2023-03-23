@@ -4,8 +4,6 @@
     {
         public int RangeTypeID { get; set; }
         public char? Code { get; set; }
-        public string? Description { get; set; }
-
-      
+        public string? Description { get; set; }      
     }
 }

@@ -16,8 +16,6 @@ namespace Data.Cambodia
                 CambodiaRanges.MonsoonRange,
                 CambodiaRanges.MonsoonRangeEvaluator
             },
-
-            Visas = new List<Visa>() { CambodiaVisas.eVisa_Cambodia }
         };
     }
 }

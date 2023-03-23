@@ -28,7 +28,7 @@ namespace Data.Thailand
                     DestinationFinal = ThailandDestinations.Mukdahan,
                     Description = "Located in the northeastern region known as Isaan, Mukdahan and Savannakhet are separated by a bridge spanning the mighty Mekong River (the second “Friendship Bridge”). This crossing is very popular with ex-pats and tourists due to the Thai embassy in Savannakhet, which has long been known as one of the friendlier embassies where you can obtain a new visa and then re-enter Thailand. Savannakhet, although a fairly small, dusty provincial Laos town, does have a few markets, bars, and various restaurants, as well as a casino and, will keep you busy for a day or two whilst you wait for your visa to be processed (which is an overnight process). It is about two hours from Nakhon Phanom and there are two buses an hour from Mukdahan. There is no train line to Mukdahan",
                     BorderCrossingType = BorderCrossingTypes.Terrestrial,
-                 
+
                 },
                 new BorderCrossing
                 {
@@ -58,20 +58,19 @@ namespace Data.Thailand
                     Description ="A popular crossing, there is plenty of public transportation available on both sides. Once stamped out, you’ll have a short walk across a bridge before being stamped into your next country. There are plenty of taxi drivers lurking on both sides of the border happy to give you a ride. Sungai Kolok is a small town, but it has a lot of very good value guesthouses and restaurants and would be a good place to spend the night if you’ve been traveling all day, then can cross the border first thing in the morning."
                 },
 
-//                MalasiaFrontiers
-//                Wang Prajan
-//A small, quiet, and not as well-known crossing, there’s not much to see or do on either side but it is scenic, as on the Thai side is the Thale Ban national park.Songtaews run-up to the border from Satun on the Thai side and taxis are available on the Malaysian side but you may need to ask someone at immigration to call one for you.There is a big weekend market and the ASEAN grand bazaar on the Thai side, alongside a few restaurants serving southern - style Thai food.
+                //MalasiaFrontiers
+                //Wang Prajan
+                //A small, quiet, and not as well-known crossing, there’s not much to see or do on either side but it is scenic, as on the Thai side is the Thale Ban national park.Songtaews run-up to the border from Satun on the Thai side and taxis are available on the Malaysian side but you may need to ask someone at immigration to call one for you.There is a big weekend market and the ASEAN grand bazaar on the Thai side, alongside a few restaurants serving southern - style Thai food.
 
 
-//                Sadao / Chanlung
-//Open 24 hours a day, this is a popular crossing but be warned, there’s not much on the Malaysian side and therefore can be a bit awkward finding public transport.There are plenty of places to eat and drink on both sides, with some bars and supermarkets on the Thai side and some very nice Nasi Kandar(Indian-style curry and rice) restaurants on the Malaysian side.Frequently used by western travelers.
+                //Sadao / Chanlung
+                //Open 24 hours a day, this is a popular crossing but be warned, there’s not much on the Malaysian side and therefore can be a bit awkward finding public transport.There are plenty of places to eat and drink on both sides, with some bars and supermarkets on the Thai side and some very nice Nasi Kandar(Indian-style curry and rice) restaurants on the Malaysian side.Frequently used by western travelers.
             
                 
                 
-//                Langkawi/Satun
-//The ferry from either Koh Lipe or Satun (on the mainland) in Thailand to Langkawi runs several times per day, weather permitting, and is another popular crossing into Malaysia. A convenient and easy way to cross, however, if you’re entering Thailand from Langkawi and have a history of many visits to Thailand recently, expect to at least be questioned about what you’re doing in Thailand, if they’re not satisfied with your responses then you could well be denied entry.
-                
-                
+                //Langkawi/Satun
+                //The ferry from either Koh Lipe or Satun (on the mainland) in Thailand to Langkawi runs several times per day, weather permitting, and is another popular crossing into Malaysia. A convenient and easy way to cross, however, if you’re entering Thailand from Langkawi and have a history of many visits to Thailand recently, expect to at least be questioned about what you’re doing in Thailand, if they’re not satisfied with your responses then you could well be denied entry.
+                                
                 new BorderCrossing
                 {
                     Name = "Chong Mek - Vang Tao",
@@ -90,15 +89,15 @@ namespace Data.Thailand
                     Visas = new List<Visa> { ThailandVisas.VisaExemption_Thailand },
                     Description ="By far the most popular crossing into Cambodia, this crossing can be reached by bus from Bangkok in around four hours. Hot and dusty, the plot of land between the two immigration offices is packed with casinos, which in general should be avoided. The immigration officials at this crossing are known for being overly militant when checking your details and may even deny entry back into Thailand if they think you’ve stayed “too long”. Also, this checkpoint is known for being rife with touts and scammers, don’t even think about changing your money here unless you want to lose a third of it immediately. In reality, if you have been in and out of Thailand several times already, you should avoid this crossing entirely and either use a different crossing or even fly into Thailand."
                 },
-                 new BorderCrossing
-                 {
+                new BorderCrossing
+                {
                     Name = "Ban Hat Lek Border Check Point",
                     DestinationOrigin = CambodiaDestinations.ChamYeam,
                     DestinationFinal = ThailandDestinations.BanHatLek, //Trat Province
                     BorderCrossingType = BorderCrossingTypes.Terrestrial,
-                 },
-                  new BorderCrossing
-                  {
+                },
+                new BorderCrossing
+                {
                     Name = "Ban Pakkad Border Checkpoint (Thailand)",
                     DestinationOrigin = CambodiaDestinations.Prom,
                     DestinationFinal = ThailandDestinations.KhlongYai, //Ban Pakkad Border Checkpoint  WFGV+H9P, Khlong Yai, Pong Nam Ron District, Chanthaburi 22140, Tailandia
@@ -106,18 +105,18 @@ namespace Data.Thailand
                     Description = "This smaller, quieter crossing is not frequently used by tourists but you may find it handy if you find yourself in the area. On the Thai side, it is close to Chanthaburi, about an hour’s drive away, and Koh Chang, which is about two hours away. The unremarkable town of Pailin is about half an hour’s drive away on the Cambodian side. Realistically, it’s likely that other border crossings will be more convenient, however here they do issue visas on arrival."
                   },
 
-                  //CambodiaFrontiers
-                  //Had Lek/Koh Kong
-                  //This crossing allows you to travel from the island of Koh Chang in the east of Thailand to the beach town of Sihanoukville in Cambodia. It is quite convenient, however, to make your crossing into Cambodia smoother, it’s advisable to have your Cambodian visa sorted out before arriving at the crossing, as the officials there can make it a slow and tedious process, and there are reports of many people being charged too much when trying to obtain their visa at the crossing itself. You can obtain your Cambodian visa in Bangkok
+                //CambodiaFrontiers
+                //Had Lek/Koh Kong
+                //This crossing allows you to travel from the island of Koh Chang in the east of Thailand to the beach town of Sihanoukville in Cambodia. It is quite convenient, however, to make your crossing into Cambodia smoother, it’s advisable to have your Cambodian visa sorted out before arriving at the crossing, as the officials there can make it a slow and tedious process, and there are reports of many people being charged too much when trying to obtain their visa at the crossing itself. You can obtain your Cambodian visa in Bangkok
 
-                  //Chong Jom/O Smach
+                //Chong Jom/O Smach
                 //If you find yourself in Isaan, this border crossing is very convenient if you want to travel to Siem Reap and visit the temples at Angor Wat.Close to Surin on the Thai side, it’s fairly easy to find a taxi or minibus on the Cambodian side which will take you on to Siem reap.Not usually very busy, but you may see a few westerners traveling with their Thai wives.Expect to pay around 350 baht(around $11.50) for public transport to Siem Reap, the buses tend to depart from opposite the O Smach Casino Resort.
            
                 //Chong Sa Ngam/Anlong Veng
                 //A quieter crossing only really worthwhile if you insist on traveling to the small town of Anlong Veng, although it does now have a casino. There is little to no public transportation available on either side of the border here, so not generally recommended.
 
-//                  Ban Laem/Daun Lem
-//Another small and quiet border crossing not far from the Ban Pakard crossing, which for most travelers will be a better option as they can issue Cambodian visas.In Ban Laem on the Thai side, you will find a very busy and hectic market selling all kinds of goods at rock - bottom prices, it’s a great place to pick up some cheap clothes, souvenirs, and perfume.
+                //Ban Laem/Daun Lem
+                //Another small and quiet border crossing not far from the Ban Pakard crossing, which for most travelers will be a better option as they can issue Cambodian visas.In Ban Laem on the Thai side, you will find a very busy and hectic market selling all kinds of goods at rock - bottom prices, it’s a great place to pick up some cheap clothes, souvenirs, and perfume.
             };
         }
 
@@ -155,11 +154,9 @@ namespace Data.Thailand
             terrestrial.AddRange(frontiersFromAirports);
 
             return terrestrial;
-
         }
     }
 }
-
 
 
 //Myanmar Borders

@@ -8,7 +8,6 @@ namespace Data.Vietnam
 
         public static RailwayBranch NorthSouth = new RailwayBranch
         {
-
             Name = "North–South Line",
             MainBranch = true,
             Description = "",
@@ -34,15 +33,12 @@ namespace Data.Vietnam
                 //VietnamTrainStations.PhanThiet,
                 VietnamTrainStations.BìnhThuận,                
                 VietnamTrainStations.Saigon
-
             }
-
         };
 
 
         public static RailwayBranch HanoiLàoCai = new RailwayBranch
         {
-
             Name = "Hanoi–Lào Cai Line",
             Description = "",
             MainBranch = true,
@@ -55,7 +51,6 @@ namespace Data.Vietnam
 
         public static RailwayBranch HanoiĐồngĐăng = new RailwayBranch
         {
-
             Name = "Hanoi–Đồng Đăng Line",
             Description = "",
             MainBranch = true,
@@ -69,7 +64,6 @@ namespace Data.Vietnam
 
         public static RailwayBranch KépHạLong = new RailwayBranch
         {
-
             Name = "Kép–Hạ Long Line",
             Description = "",
             MainBranch = true,
@@ -82,7 +76,6 @@ namespace Data.Vietnam
 
         public static RailwayBranch HanoiHaiphong = new RailwayBranch
         {
-
             Name = "Hanoi–Haiphong Line",
             Description = "",
             MainBranch = true,
@@ -95,7 +88,6 @@ namespace Data.Vietnam
 
         public static RailwayBranch HanoiTháiNguyên = new RailwayBranch
         {
-
             Name = "Hanoi–Thái Nguyên Line",
             Description = "",
             MainBranch = true,
@@ -118,8 +110,5 @@ namespace Data.Vietnam
                VietnamTrainStations.Kép,
             }
         };
-
-
-
     }
 }

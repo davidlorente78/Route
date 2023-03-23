@@ -8,7 +8,6 @@ namespace Domain.EntityFrameworkDictionary
         [Key]
         public int EntityFrameworkDictionaryID { get; set; }
         public ICollection<DictionaryItem<T,G>> Items { get; set; }
-
     }
 
     public class DictionaryItem<T,G>

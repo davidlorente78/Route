@@ -183,6 +183,7 @@ namespace Data.Vietnam
 
 
         #endregion
+
         #region Hanoi–Lào Cai railway
 
         //Hanoi station(Hanoi)
@@ -204,7 +205,6 @@ namespace Data.Vietnam
         };
 
         #endregion
-
 
         #region     Hanoi–Đồng Đăng railway
 
@@ -275,6 +275,7 @@ namespace Data.Vietnam
 
 
         #endregion
+
         #region    Hanoi–Thái Nguyên railway
 
         //Hanoi station

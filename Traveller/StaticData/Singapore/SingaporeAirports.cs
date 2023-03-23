@@ -1,17 +1,10 @@
-﻿using Domain.Transport.Aviation;
-using Data.EntityTypes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Traveller.StaticData;
+﻿using Data.EntityTypes;
+using Domain.Transport.Aviation;
 
 namespace Data.Nepal
 {
     public static class SingaporeAirports
     {
-
         public static Airport SIN = new Airport
         {
             Name = "Singapore Changi Airport",
@@ -20,18 +13,12 @@ namespace Data.Nepal
             AirportType = AirportTypes.International
         };
 
-
-    public static ICollection<Airport> GetAll()
+        public static ICollection<Airport> GetAll()
         {
-
-
             return new List<Airport>
             {
                 SIN
             };
-
         }
     }
-
-
 }

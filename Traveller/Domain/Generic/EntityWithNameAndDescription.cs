@@ -9,7 +9,6 @@ namespace Domain.Generic
     public abstract class EntityWithNameAndDescription : Entity
     {
         protected EntityWithNameAndDescription() { }
-
         public string Name { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
     }

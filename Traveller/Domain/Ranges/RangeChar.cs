@@ -14,7 +14,6 @@ namespace Domain.Ranges
         public EntityFrameworkDictionary<char,string>? EntityKey_Description { get; set; }
         public EntityFrameworkDictionary<string,string>? EntityDescription_ByMonth { get; set; }
         public EntityFrameworkDictionary<string,string>? EntityKey_ByMonth { get; set; }
-        public EntityFrameworkDictionary<int,int>? EntityEvaluator_ByMonth { get; set; }
-        
+        public EntityFrameworkDictionary<int,int>? EntityEvaluator_ByMonth { get; set; }        
     }
 }

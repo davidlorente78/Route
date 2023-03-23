@@ -23,6 +23,7 @@ namespace Traveller.Domain
         public virtual Destination DestinationFinal { get; set; }
 
         public string Name { get; set; }
+        public string? LocalName { get; set; }
         public string? Description { get; set; }
 
         [Display(Name = "Border Crossing Type")]

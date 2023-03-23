@@ -20,10 +20,8 @@ namespace Data.Vietnam
                     new DictionaryItem<char,string> { Key = 'M', Value = "Another time to avoid is the Tet Festival or Nguyen Dan, Vietnam's Lunar New Year, during which the Vietnamese often take 5-7 days off, resulting in crowded streets and peak rates at fully booked hotels."},
                     new DictionaryItem<char,string> { Key = 'B', Value = "The best times to visit Vietnam are Spring (February to April) or Fall (August to October). Temperatures during these two windows are generally moderate throughout the country and rainfall is light, though travel any time of the year provides an excellent experience. Around the 30th of April [Vietnam reunification day] and 1st of May [international work day], people often get a short vacation and it becomes almost impossible to book any accommodation or transportation around those dates if it is not done early enough. " },
                     new DictionaryItem<char,string> { Key = 'V', Value = "One of the best times to visit Vietnam except the central coast which is gradually emerging from its rainy season." }
-}
-
-            }
-            ,
+                }
+            },
 
             EntityKey_ByMonth = new EntityFrameworkDictionary<string, string>()
             {
@@ -53,11 +51,8 @@ namespace Data.Vietnam
                     new DictionaryItem<string,string> { Key = "November", Value = SeasonDefinition.ElementAt(10).ToString() },
 
                     new DictionaryItem<string,string> { Key = "December",Value = SeasonDefinition.ElementAt(11).ToString() },
-
                 }
-
             }
-
         };
 
         public static RangeChar MonsoonRange = new RangeChar
@@ -73,15 +68,13 @@ namespace Data.Vietnam
                     new DictionaryItem<char,string> { Key = 'S', Value = "From April through October, the summer monsoon brings hot, humid weather and heavy rain to most of the country, except for mountainous places. Between July and November, typhoons hit northern and central Vietnam."},
                }
 
-            }
-            ,
+            },
 
             EntityDescription_ByMonth = new EntityFrameworkDictionary<string, string>()
             {
                 //https://www.roughguides.com/vietnam/when-to-go/
                 Items = new List<DictionaryItem<string, string>>()
                 {
-
                     new DictionaryItem<string,string> { Key = "January",  Value ="In January, cold winter weather hits the north. This is often accompanied by fine persistent mists, which could spoil your views at Ha Long Bay. There’s also the chance of ground frost in higher regions, or even a rare snowfall. Don’t let it put you off outdoor activities though – while January is the coldest month in mountainous areas, such as Sa Pa, rainfall is at its lowest, making perfect trekking conditions. Hanoi averages a pleasant 20ºC. The southern end of the country is firmly into the dry season come January, so it’s a good time to explore cities such as Ho Chi Minh. And for post-city downtime make for beaches within easy reach of the capital, such as at Phan Thiet and Mui Ne. It’s a fantastic time to try water-related activities, such as diving, around Phu Quoc. Nha Trang and Da Nang beaches also start to beckon in January, as the central coast sees the tail end of the rains." },
                     new DictionaryItem<string,string> { Key = "February",  Value = "Vietnam sees optimum weather conditions all-round in February. The south and the central coast, are perfect for beach bums, with just a smattering of rain perhaps on the beaches between Hoi An and Da Nang. If you can tear yourself away from the sands near Da Nang to dip into the back streets of the city, you’re in for some of the best street food in Vietnam. The north sees the chill lifting, leaving clear and warm days for hiking and exploring the region. Dominating the calendar is Tet, or the Lunar New Year, and the biggest festival in Vietnam. While it’s wonderfully festive throughout, note that much of the country shuts down during this period, such as restaurants and museums. Also, accommodation can be hard to come by, as the Vietnamese take their holidays, and the transport system is stretched." },
                     new DictionaryItem<string,string> { Key = "March",  Value ="In terms of the weather, March is perhaps the best month to visit Vietnam, especially if you want to see the whole country. Temperatures in the north are rising, making March a perfect time for adventure and trekking in the highlands and mountains. Clear skies around Ha Long Bay make it an ideal time to take a boat tour, stopping off at the beguiling Cat Ba Island. Dry weather means you can visit the awesome Phong Nha Caves in Phong Nha-ke Bang National Park, which boasts the world’s biggest cave. You can be sure of sunshine and hot days in the south, which means lazy days on the beaches and water-based activities are a must, also on beaches on the central coast, such as at Nha Trang. The central highlands are generally warm and dry now, so it’s a good time to visit Da Lat and surrounding areas." },
@@ -95,9 +88,7 @@ namespace Data.Vietnam
                     new DictionaryItem<string,string> { Key = "November", Value ="Balmy temperatures in the south and favourable conditions in the north make this an ideal month to visit either end of the country. Take your pick of the beaches in the south, or go trekking in the north. November is also the best time of year to visit Vietnam for a cruise at Ha Long Bay. It’s a different picture along the central coast. The wet season starts with a flourish around Nha Trang, and be warned that when the northeasterly winter monsoon hits, the riptides between Da Nang and Hoi An become particularly dangerous." },
                     new DictionaryItem<string,string> { Key = "December", Value ="Most of Vietnam enjoys dry conditions and basks in sunshine by December. Central Vietnam is the exception, which is gradually emerging from its rainy season. So it’s a good time to head to the southern coast if you want to soak up some rays and rack up some time on Vietnam’s gorgeous beaches. Beaches such as Mui Ne, or on the island of Phu Quoc are great in this month.  It’s also a good time to visit Ho Chi Minh City, with temperatures averaging a comfortable 26ºC.  If you’re planning a Christmas getaway be aware that things get booked up way in advance, so plan ahead.  Outdoor activities in the north are good in December. It is somewhat chilly, however, especially in the mountains – so pack extra layers.  " }
                 }
-
             }
-
         };
 
         //Este es el evaluador general del pais. Debe ser 1 si existe una region en la que el tiempo es bueno. 
@@ -110,7 +101,6 @@ namespace Data.Vietnam
 
             EntityEvaluator_ByMonth = new EntityFrameworkDictionary<int, int>()
             {
-
                 Items = new List<DictionaryItem<int, int>>()
                 {
                     new DictionaryItem<int,int> { Key = 1, Value =0 },
@@ -126,13 +116,8 @@ namespace Data.Vietnam
                     new DictionaryItem<int,int> { Key = 11, Value =1 },
                     new DictionaryItem<int,int> { Key = 12, Value =1 },
                 }
-
             }
-
         };
     };
-
-
-
 }
 

@@ -8,10 +8,14 @@
           "Microsoft.CSharp": "4.7.0"
         },
         "compile": {
-          "lib/netstandard2.1/AutoMapper.dll": {}
+          "lib/netstandard2.1/AutoMapper.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.1/AutoMapper.dll": {}
+          "lib/netstandard2.1/AutoMapper.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.CSharp/4.7.0": {
@@ -26,10 +30,14 @@
       "Microsoft.EntityFrameworkCore.Abstractions/6.0.6": {
         "type": "package",
         "compile": {
-          "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {}
+          "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {}
+          "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.NETCore.Platforms/1.1.0": {
@@ -58,7 +66,9 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.3/System.Collections.dll": {}
+          "ref/netstandard1.3/System.Collections.dll": {
+            "related": ".xml"
+          }
         }
       },
       "System.Runtime/4.3.0": {
@@ -68,7 +78,9 @@
           "Microsoft.NETCore.Targets": "1.1.0"
         },
         "compile": {
-          "ref/netstandard1.5/System.Runtime.dll": {}
+          "ref/netstandard1.5/System.Runtime.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Application/1.0.0": {
@@ -428,19 +440,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\David\\.nuget\\packages\\": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Code Project\\Route\\Traveller\\Traveller\\DomainServices.csproj",
+      "projectUniqueName": "C:\\Route\\Traveller\\Traveller\\DomainServices.csproj",
       "projectName": "DomainServices",
-      "projectPath": "D:\\Code Project\\Route\\Traveller\\Traveller\\DomainServices.csproj",
-      "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
-      "outputPath": "D:\\Code Project\\Route\\Traveller\\Traveller\\obj\\",
+      "projectPath": "C:\\Route\\Traveller\\Traveller\\DomainServices.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "C:\\Route\\Traveller\\Traveller\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -454,14 +466,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\Code Project\\Route\\Traveller\\AutoMapper\\Application.csproj": {
-              "projectPath": "D:\\Code Project\\Route\\Traveller\\AutoMapper\\Application.csproj"
+            "C:\\Route\\Traveller\\AutoMapper\\Application.csproj": {
+              "projectPath": "C:\\Route\\Traveller\\AutoMapper\\Application.csproj"
             },
-            "D:\\Code Project\\Route\\Traveller\\Domain\\Domain.csproj": {
-              "projectPath": "D:\\Code Project\\Route\\Traveller\\Domain\\Domain.csproj"
+            "C:\\Route\\Traveller\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Route\\Traveller\\Domain\\Domain.csproj"
             },
-            "D:\\Code Project\\Route\\Traveller\\StaticData\\Data.csproj": {
-              "projectPath": "D:\\Code Project\\Route\\Traveller\\StaticData\\Data.csproj"
+            "C:\\Route\\Traveller\\StaticData\\Data.csproj": {
+              "projectPath": "C:\\Route\\Traveller\\StaticData\\Data.csproj"
             }
           }
         }
@@ -491,7 +503,8 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -500,7 +513,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

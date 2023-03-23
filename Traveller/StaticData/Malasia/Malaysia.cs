@@ -4,7 +4,6 @@ using Traveller.StaticData;
 
 namespace Data.Malaysia
 {
-
     public static class DataMalaysia
     {
         public static Country Malaysia = new Country('M', "Malaysia", true, 3)
@@ -13,9 +12,7 @@ namespace Data.Malaysia
             Airports = MalaysiaAirports.GetAll(),
             BorderCrossings = MalaysiaBorderCrossings.GetAll(),
             TrainLines = MalaysiaTrainLines.GetAll(),
-            Ranges = new List<RangeChar> { MalaysiaRanges.SeasonRange, MalaysiaRanges.MonsoonRange, MalaysiaRanges.MonsoonRangeEvaluator },
-         
-            Visas = new List<Visa> { MalaysiaVisas.freeVisa_Malaysia, MalaysiaVisas.eVisa_Malaysia}
+            Ranges = new List<RangeChar> { MalaysiaRanges.SeasonRange, MalaysiaRanges.MonsoonRange, MalaysiaRanges.MonsoonRangeEvaluator },         
         };
     }
 }

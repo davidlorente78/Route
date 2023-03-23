@@ -1,5 +1,4 @@
-﻿using Data;
-using Data.Nationalities;
+﻿using Data.Nationalities;
 using Domain;
 using Traveller.Domain;
 
@@ -9,7 +8,6 @@ namespace Traveller.StaticData
     {
         public static Visa SGArrivalCard_Singapore = new Visa
         {
-            
             Currency = '$',
             Fee = 0,
             Entries = 'S',

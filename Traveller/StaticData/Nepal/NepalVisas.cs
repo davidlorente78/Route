@@ -7,8 +7,7 @@ namespace Traveller.StaticData
     public static class NepalVisas
     {
         public static Visa OnArrivalVisa15_Nepal = new Visa
-        {
-           
+        {           
             Currency = '$',
             Fee = 30,
             Entries = 'S',
@@ -22,13 +21,10 @@ namespace Traveller.StaticData
             AdditionalDaysFee = 3,
             QualifyNationalities = new List<Nationality> { Nationalities.ES},
             URL = "https://www.immigration.gov.np/page/visa-on-arrival"
-
         };
 
-
         public static Visa OnArrivalVisa30_Nepal= new Visa
-        {
-          
+        {          
             Currency = '$',
             Fee = 50,
             Entries = 'S',
@@ -42,12 +38,10 @@ namespace Traveller.StaticData
             AdditionalDaysFee = 3,
             QualifyNationalities = new List<Nationality> { Nationalities.ES },
             URL = "https://www.immigration.gov.np/page/visa-on-arrival"
-
         };
 
         public static Visa OnArrivalVisa90_Nepal = new Visa
-        {
-           
+        {           
             Currency = '$',
             Fee = 125,
             Entries = 'S',
@@ -61,12 +55,10 @@ namespace Traveller.StaticData
             AdditionalDaysFee = 3,
             QualifyNationalities = new List<Nationality> { Nationalities.ES },
             URL = "https://www.immigration.gov.np/page/visa-on-arrival"
-
         };
 
         public static Visa FreeVisa_Nepal = new Visa
-        {
-           
+        {           
             Currency = '$',
             Fee = 0,
             Entries = 'S',
@@ -79,9 +71,7 @@ namespace Traveller.StaticData
             Extensible = false,            
             QualifyNationalities = new List<Nationality> { Nationalities.CN },
             URL = "https://www.immigration.gov.np/page/visa-on-arrival"
-
         };
-
 
         //On Arrival Visa Fee at Entry Points
 
@@ -99,7 +89,5 @@ namespace Traveller.StaticData
         //Tourist visa extension is done for minimum 15 days with USD 45 and USD 3 per day for additional days.
         //In the case of delay less than 150 days additional USD 5 per day as late fine.
     }
-
-
 }
 

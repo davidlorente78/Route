@@ -12,6 +12,5 @@ namespace Domain.Repositories
         IEnumerable<BorderCrossing> GetBorderCrossingsByFinalCountryCode(int CountryID);
 
         IEnumerable<BorderCrossing> GetBorderCrossingsByOriginAndFinalCountryCode(int originCountryID, int finalCountryID);
-
     }
 }

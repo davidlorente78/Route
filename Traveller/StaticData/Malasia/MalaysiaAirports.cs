@@ -1,10 +1,5 @@
-﻿using Domain.Transport.Aviation;
-using Data.EntityTypes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Data.EntityTypes;
+using Domain.Transport.Aviation;
 using Traveller.Domain;
 using Traveller.StaticData;
 
@@ -12,12 +7,11 @@ namespace Data.Malaysia
 {
     public static class MalaysiaAirports
     {
-
         public static Airport KUL = new Airport
         {
-            Name = "Kuala Lumpur International Airport",            
+            Name = "Kuala Lumpur International Airport",
             Destinations = new List<Destination> { MalaysiaDestinations.KualaLumpur },
-            IATACode = "KUL",          
+            IATACode = "KUL",
             AirportType = AirportTypes.International
         };
         public static Airport BKI = new Airport
@@ -99,14 +93,13 @@ namespace Data.Malaysia
             AirportType = AirportTypes.Domestic
         };
 
-
         public static Airport SBW = new Airport
         {
             Name = "Sibu Airport",
             LocalName = "Lapangan Terbang Sibu",
             Destinations = new List<Destination> { },
             IATACode = "SBW",
-            ICAOCode= "WBGS",
+            ICAOCode = "WBGS",
             AirportType = AirportTypes.Domestic
         };
 
@@ -123,6 +116,7 @@ namespace Data.Malaysia
             IATACode = "IPH",
             AirportType = AirportTypes.Domestic
         };
+
         //LGL Long Lellang Airport    Long Datih  1	2
         //ODN Long Seridan Airport    Long Seridan    1	2
         //LMN Limbang Airport Limbang 1	1
@@ -134,17 +128,24 @@ namespace Data.Malaysia
         //LDU Lahad Datu Airport  Lahad Datu  1	1
         //KUD Kudat Airport Kudat   1	2
         //LBP Long Banga Airport  Long Banga  1	1
-
-
         public static ICollection<Airport> GetAll()
-            { 
-
-
+        {
             return new List<Airport>
             {
-                BKI,PEN,LGK,KCH,JHB,MYY,AOR,KBR,TGG,SZB,SBW,KUL,IPH
+                BKI,
+                PEN,
+                LGK,
+                KCH,
+                JHB,
+                MYY,
+                AOR,
+                KBR,
+                TGG,
+                SZB,
+                SBW,
+                KUL,
+                IPH
             };
-
         }
     }
 }

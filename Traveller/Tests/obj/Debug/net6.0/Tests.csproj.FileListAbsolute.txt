@@ -355,11 +355,6 @@ D:\Code Project\Route\Traveller\Tests\bin\Debug\net6.0\Application.dll
 D:\Code Project\Route\Traveller\Tests\bin\Debug\net6.0\Data.dll
 D:\Code Project\Route\Traveller\Tests\bin\Debug\net6.0\Application.pdb
 D:\Code Project\Route\Traveller\Tests\bin\Debug\net6.0\Data.pdb
-C:\Route\Traveller\Tests\obj\Debug\net6.0\Tests.csproj.AssemblyReference.cache
-C:\Route\Traveller\Tests\obj\Debug\net6.0\Tests.GeneratedMSBuildEditorConfig.editorconfig
-C:\Route\Traveller\Tests\obj\Debug\net6.0\Tests.AssemblyInfoInputs.cache
-C:\Route\Traveller\Tests\obj\Debug\net6.0\Tests.AssemblyInfo.cs
-C:\Route\Traveller\Tests\obj\Debug\net6.0\Tests.csproj.CoreCompileInputs.cache
 C:\Route\Traveller\Tests\bin\Debug\net6.0\RouteDataManager.deps.json
 C:\Route\Traveller\Tests\bin\Debug\net6.0\RouteDataManager.runtimeconfig.json
 C:\Route\Traveller\Tests\bin\Debug\net6.0\appsettings.Development.json
@@ -706,6 +701,11 @@ C:\Route\Traveller\Tests\bin\Debug\net6.0\DomainServices.pdb
 C:\Route\Traveller\Tests\bin\Debug\net6.0\Application.pdb
 C:\Route\Traveller\Tests\bin\Debug\net6.0\Data.pdb
 C:\Route\Traveller\Tests\bin\Debug\net6.0\Domain.pdb
+C:\Route\Traveller\Tests\obj\Debug\net6.0\Tests.csproj.AssemblyReference.cache
+C:\Route\Traveller\Tests\obj\Debug\net6.0\Tests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Route\Traveller\Tests\obj\Debug\net6.0\Tests.AssemblyInfoInputs.cache
+C:\Route\Traveller\Tests\obj\Debug\net6.0\Tests.AssemblyInfo.cs
+C:\Route\Traveller\Tests\obj\Debug\net6.0\Tests.csproj.CoreCompileInputs.cache
 C:\Route\Traveller\Tests\obj\Debug\net6.0\Tests.csproj.CopyComplete
 C:\Route\Traveller\Tests\obj\Debug\net6.0\Tests.dll
 C:\Route\Traveller\Tests\obj\Debug\net6.0\refint\Tests.dll

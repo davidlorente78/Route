@@ -36,9 +36,7 @@ namespace Traveller.StaticData
             Description = "Print one copy. No es valido para las entradas por las fronteras terrestres de Camboya, Vietnam y China.",
             Extensible = true,
             QualifyNationalities = new List<Nationality> { Nationalities.ES }
-
         };
-
        
         public static Visa LaoVisa = new Visa
         {
@@ -56,7 +54,6 @@ namespace Traveller.StaticData
             URL = "", //TODO Enlace para verificar que pasos estan abiertos en todo momento
             Category = "Tourism",
             QualifyNationalities = new List<Nationality> { Nationalities.ES }
-
         };
     }
 }

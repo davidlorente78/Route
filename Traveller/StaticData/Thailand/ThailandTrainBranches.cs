@@ -8,7 +8,6 @@ namespace Data.Thailand
         //TODO Khiri Ratthanikhom
         public static RailwayBranch SouthernLine = new RailwayBranch
         {
-
             Name = "Southern Line",
             MainBranch = true,
             Stations = new List<RailwayStation>
@@ -27,15 +26,11 @@ namespace Data.Thailand
                 ThailandTrainStations.Yala,
                 ThailandTrainStations.TanyongMat,
                 ThailandTrainStations.SungaiKolok
-
-            },
-                      
-            
+            },  
         };
        
         public static RailwayBranch SouthernLine_KantangBranch = new RailwayBranch
-        {
-            
+        {            
             Name = "Southern Line Kantang Branch",
             Description = "Southern Line Kantang Branch",
             MainBranch = false,
@@ -43,11 +38,9 @@ namespace Data.Thailand
             {
                 ThailandTrainStations.ThungSongJunction,
                 ThailandTrainStations.Trang,
-                ThailandTrainStations.Kantang,
-               
+                ThailandTrainStations.Kantang,               
             } 
-                      
-                   };
+        };
 
         public static RailwayBranch SouthernLine_PadangBesar = new RailwayBranch
         {
@@ -57,13 +50,9 @@ namespace Data.Thailand
             Stations = new List<RailwayStation>
             {
                 ThailandTrainStations.HatYaiJunction,
-                ThailandTrainStations.PadangBesar,
-          
-            }
-            ,
-
+                ThailandTrainStations.PadangBesar,          
+            } ,
         };
-
 
         public static RailwayBranch NorthernLine= new RailwayBranch
         {
@@ -203,9 +192,7 @@ namespace Data.Thailand
                 //Pa Sao
                 //Saraphi
                 ThailandTrainStations.ChiangMai
-            }
-         ,
-
+            } ,
         };
 
         public static RailwayBranch NorthernLine_Sawankhalok = new RailwayBranch
@@ -218,11 +205,8 @@ namespace Data.Thailand
                 ThailandTrainStations.BanDaraJunction,
                 ThailandTrainStations.KhlongMaphlap,
                 ThailandTrainStations.SawanKhalok,
-            }
-           ,
-
+            } ,
         };
-
 
         public static RailwayBranch NorthEasternLine_UbonRatchathani = new RailwayBranch
         {
@@ -237,9 +221,7 @@ namespace Data.Thailand
                 ThailandTrainStations.Surin,
                 ThailandTrainStations.Sisaket,
                 ThailandTrainStations.UbonRatchathani,
-             }
-           ,
-
+             },
         };
 
         public static RailwayBranch NorthEasternLineLine_NongKhai = new RailwayBranch
@@ -255,9 +237,7 @@ namespace Data.Thailand
                 ThailandTrainStations.KhonKaen,
                 ThailandTrainStations.UdonThani,
                 ThailandTrainStations.NongKhai,
-             }
-           ,
-
+             },
         };
 
         public static RailwayBranch NorthEasternLine_BuaYai_ThanonChira = new RailwayBranch
@@ -270,10 +250,7 @@ namespace Data.Thailand
                 ThailandTrainStations.BuaYaiJunction,
                 ThailandTrainStations.ThanonChiraJunction,              
              }
-   
-
         };
-
 
         public static RailwayBranch EasternLine_Pattaya = new RailwayBranch
         {
@@ -288,9 +265,7 @@ namespace Data.Thailand
                 ThailandTrainStations.SriRachaJunction,
                 ThailandTrainStations.Pattaya,
                 ThailandTrainStations.BanPluTaLuang,
-             }
-  ,
-
+             },
         };
 
         public static RailwayBranch EasternLine_Pattaya_MarpTaPutBranch = new RailwayBranch
@@ -303,8 +278,6 @@ namespace Data.Thailand
                 ThailandTrainStations.Pattaya,
                 ThailandTrainStations.MarpTaPut,
              }
-,
-
         };
 
         public static RailwayBranch EasternLine_Aranyaprathet = new RailwayBranch
@@ -313,13 +286,12 @@ namespace Data.Thailand
             Description = "",
             MainBranch = true,
             Stations = new List<RailwayStation>
-             {
+            {
                 ThailandTrainStations.BangkokHuaLamphong,
                 ThailandTrainStations.Aranyaprathet,
-             }
-,
-
+            },
         };
+
         public static ICollection<RailwayBranch> GetSoutherLineAllBranches()
         {
             //Branch Lines must be returned here in order to avoid Key message error

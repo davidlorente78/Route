@@ -92,7 +92,6 @@ namespace Data.Vietnam
             Destinations = new List<Destination> { VietnamDestinations.BuonMaThuot },
             IATACode = "BMV",
             AirportType = AirportTypes.Domestic
-
         };
 
         public static Airport CXR = new Airport
@@ -101,7 +100,6 @@ namespace Data.Vietnam
             Destinations = new List<Destination> { VietnamDestinations.NhaTrang },
             IATACode = "CXR",
             AirportType = AirportTypes.Domestic
-
         };
 
         public static Airport VII = new Airport
@@ -110,7 +108,6 @@ namespace Data.Vietnam
             Destinations = new List<Destination> { VietnamDestinations.Vinh },
             IATACode = "VII",
             AirportType = AirportTypes.Domestic
-
         };
 
         public static Airport DLI = new Airport
@@ -119,7 +116,6 @@ namespace Data.Vietnam
             Destinations = new List<Destination> { VietnamDestinations.DaLat },
             IATACode = "DLI",
             AirportType = AirportTypes.Domestic
-
         };
 
         public static Airport UIH = new Airport
@@ -128,7 +124,6 @@ namespace Data.Vietnam
             Destinations = new List<Destination> { VietnamDestinations.QuyNohn },
             IATACode = "UIH",
             AirportType = AirportTypes.Domestic
-
         };
 
         public static Airport CAH = new Airport
@@ -137,7 +132,6 @@ namespace Data.Vietnam
             Destinations = new List<Destination> { VietnamDestinations.CàMau },
             IATACode = "CAH",
             AirportType = AirportTypes.Domestic
-
         };
 
         public static Airport VCS = new Airport
@@ -146,7 +140,6 @@ namespace Data.Vietnam
             Destinations = new List<Destination> { VietnamDestinations.ConDao },
             IATACode = "VCS",
             AirportType = AirportTypes.Domestic
-
         };
 
         public static Airport DIN = new Airport
@@ -155,15 +148,14 @@ namespace Data.Vietnam
             Destinations = new List<Destination> { VietnamDestinations.DienBienPhu },
             IATACode = "DIN",
             AirportType = AirportTypes.Domestic
-
         };
+
         public static Airport PXU = new Airport
         {
             Name = "Pleiku Airport",
             Destinations = new List<Destination> { VietnamDestinations.Pleiku },
             IATACode = "PXU",
             AirportType = AirportTypes.Domestic
-
         };
 
         public static Airport VKG = new Airport
@@ -172,7 +164,6 @@ namespace Data.Vietnam
             Destinations = new List<Destination> { VietnamDestinations.RachGia },
             IATACode = "VKG",
             AirportType = AirportTypes.Domestic
-
         };
 
         public static Airport TBB = new Airport
@@ -181,7 +172,6 @@ namespace Data.Vietnam
             Destinations = new List<Destination> { VietnamDestinations.TuyHoa },
             IATACode = "TBB",
             AirportType = AirportTypes.Domestic
-
         };
 
         public static Airport VDH = new Airport
@@ -190,7 +180,6 @@ namespace Data.Vietnam
             Destinations = new List<Destination> { VietnamDestinations.DongHoi },
             IATACode = "VDH",
             AirportType = AirportTypes.Domestic
-
         };
 
         #endregion
@@ -218,7 +207,6 @@ namespace Data.Vietnam
                 VKG ,
                 TBB ,
                 VDH
-
             };
         }
     }

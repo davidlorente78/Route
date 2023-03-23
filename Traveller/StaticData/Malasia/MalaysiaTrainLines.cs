@@ -5,7 +5,6 @@ namespace Data.Malaysia
 {
     public static class MalaysiaTrainLines
     {
-
         public static RailwayLine WestCoast = new RailwayLine
         {
             Name = "KTM West Coast",
@@ -14,14 +13,12 @@ namespace Data.Malaysia
             Branches = new List<RailwayBranch> { MalaysiaTrainBranches.KTMWestCoast }
         };
 
-
         public static RailwayLine EastCoast = new RailwayLine
         {
             Name = "KTM East Coast",
             Description = "The East Coast railway line (ECRL) is the single track metre gauge runs between Gemas railway station, in Negeri Sembilan and Tumpat railway station, in Kelantan of Malaysia.",
             LineType = 'T',
             Branches = new List<RailwayBranch> { MalaysiaTrainBranches.KTMEastCoast }
-
         };
 
         public static List<RailwayLine> GetAll()

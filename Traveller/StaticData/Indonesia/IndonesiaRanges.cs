@@ -6,7 +6,6 @@ namespace Data.Indonesia
 {
     public class IndonesiaRanges
     {
-
         private static List<char> SeasonDefinition = new List<char> { 'B', 'B', 'B', 'M', 'M', 'A', 'A', 'A', 'M', 'M', 'B', 'B', };
 
         public static RangeChar SeasonRange = new RangeChar
@@ -21,15 +20,12 @@ namespace Data.Indonesia
                       new DictionaryItem<char,string> { Key = 'B', Value = "The wettest months to visit Bali are from November to March. December, January, and February are extra rainy and a little hotter. These are the peak months in Thailand and countries north of Indonesia that are celebrating their dry seasons before the heat really moves in." }
 
                   }
-            }
-          ,
+            },
 
             EntityKey_ByMonth = new EntityFrameworkDictionary<string,string>()
             {
-
                 Items = new List<DictionaryItem<string, string>>()
                 {
-
                     new DictionaryItem<string,string> { Key = "January", Value = SeasonDefinition.ElementAt(0).ToString() },
 
                     new DictionaryItem<string,string> { Key = "February", Value= SeasonDefinition.ElementAt(1).ToString() },
@@ -53,11 +49,8 @@ namespace Data.Indonesia
                     new DictionaryItem<string,string> { Key = "November", Value = SeasonDefinition.ElementAt(10).ToString() },
 
                     new DictionaryItem<string,string> { Key = "December",Value = SeasonDefinition.ElementAt(11).ToString() },
-
                 }
-
             }
-
         };
 
         public static RangeChar MonsoonRange = new RangeChar
@@ -72,12 +65,10 @@ namespace Data.Indonesia
                     new DictionaryItem<char,string> { Key = 'W', Value = "Bali has a tropical climate, hot all year round, with a rainy season from November to March, due to the northwest monsoon, and a relatively dry season from April to October, when, however, some showers can still occur. In the rainy season, it usually rains a couple of hours in the morning and a couple of hours in the afternoon, while in the rest of the day the sun shines for a few hours.Mosquitoes are much worse between rains, making dengue fever more of a threat on the island. Visibility at dive and snorkel sites is often worse because of sediment washed into the sea. Rougher seas may make boat trips less enjoyable." },
                    
                 }
-            }
-           ,
+            },
 
             EntityDescription_ByMonth = new EntityFrameworkDictionary<string, string>()
             {
-
                 Items = new List<DictionaryItem<string, string>>()
                 {
                     new DictionaryItem<string,string> { Key = "January",Value ="Rainy season. In the rainy season the sun shines for a few hours a day, between one rain shower and another. There's muggy heat due to high humidity. Temperatures are high and uniform throughout the year. They are slightly higher from October to April, when the daily average is around 28 °C (82 °F)" },
@@ -104,9 +95,7 @@ namespace Data.Indonesia
 
                     new DictionaryItem<string,string> { Key = "December", Value ="Rainy season.  In the rainy season the sun shines for a few hours a day, between one rain shower and another.There's muggy heat due to high humidity. Temperatures are high and uniform throughout the year. They are slightly higher from October to April, when the daily average is around 28 °C (82 °F)" }
                 }
-
             }
-
         };
 
         public static RangeChar MonsoonRangeEvaluator = new RangeChar
@@ -115,7 +104,6 @@ namespace Data.Indonesia
 
             EntityEvaluator_ByMonth = new EntityFrameworkDictionary<int, int>()
             {
-
                 Items = new List<DictionaryItem<int, int>>()
                 {
                     new DictionaryItem<int,int> { Key = 1, Value =-1 },
@@ -131,9 +119,7 @@ namespace Data.Indonesia
                     new DictionaryItem<int,int> { Key = 11, Value = -1 },
                     new DictionaryItem<int,int> { Key = 12, Value = -1 },
                 }
-
             }
-
         };
     }
 }
