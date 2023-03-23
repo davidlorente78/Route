@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Route\\Traveller\\Traveller\\DomainServices.csproj": {}
+    "D:\\Code Project\\Route\\Traveller\\Traveller\\DomainServices.csproj": {}
   },
   "projects": {
-    "C:\\Route\\Traveller\\AutoMapper\\Application.csproj": {
+    "D:\\Code Project\\Route\\Traveller\\AutoMapper\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Route\\Traveller\\AutoMapper\\Application.csproj",
+        "projectUniqueName": "D:\\Code Project\\Route\\Traveller\\AutoMapper\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Route\\Traveller\\AutoMapper\\Application.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Route\\Traveller\\AutoMapper\\obj\\",
+        "projectPath": "D:\\Code Project\\Route\\Traveller\\AutoMapper\\Application.csproj",
+        "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
+        "outputPath": "D:\\Code Project\\Route\\Traveller\\AutoMapper\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Route\\Traveller\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Route\\Traveller\\Domain\\Domain.csproj"
+              "D:\\Code Project\\Route\\Traveller\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\Code Project\\Route\\Traveller\\Domain\\Domain.csproj"
               }
             }
           }
@@ -55,8 +55,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -65,21 +64,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Route\\Traveller\\Domain\\Domain.csproj": {
+    "D:\\Code Project\\Route\\Traveller\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Route\\Traveller\\Domain\\Domain.csproj",
+        "projectUniqueName": "D:\\Code Project\\Route\\Traveller\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Route\\Traveller\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Route\\Traveller\\Domain\\obj\\",
+        "projectPath": "D:\\Code Project\\Route\\Traveller\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
+        "outputPath": "D:\\Code Project\\Route\\Traveller\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -116,8 +115,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -126,21 +124,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Route\\Traveller\\StaticData\\Data.csproj": {
+    "D:\\Code Project\\Route\\Traveller\\StaticData\\Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Route\\Traveller\\StaticData\\Data.csproj",
+        "projectUniqueName": "D:\\Code Project\\Route\\Traveller\\StaticData\\Data.csproj",
         "projectName": "Data",
-        "projectPath": "C:\\Route\\Traveller\\StaticData\\Data.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Route\\Traveller\\StaticData\\obj\\",
+        "projectPath": "D:\\Code Project\\Route\\Traveller\\StaticData\\Data.csproj",
+        "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
+        "outputPath": "D:\\Code Project\\Route\\Traveller\\StaticData\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -154,8 +152,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Route\\Traveller\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Route\\Traveller\\Domain\\Domain.csproj"
+              "D:\\Code Project\\Route\\Traveller\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\Code Project\\Route\\Traveller\\Domain\\Domain.csproj"
               }
             }
           }
@@ -175,8 +173,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -185,21 +182,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Route\\Traveller\\Traveller\\DomainServices.csproj": {
+    "D:\\Code Project\\Route\\Traveller\\Traveller\\DomainServices.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Route\\Traveller\\Traveller\\DomainServices.csproj",
+        "projectUniqueName": "D:\\Code Project\\Route\\Traveller\\Traveller\\DomainServices.csproj",
         "projectName": "DomainServices",
-        "projectPath": "C:\\Route\\Traveller\\Traveller\\DomainServices.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Route\\Traveller\\Traveller\\obj\\",
+        "projectPath": "D:\\Code Project\\Route\\Traveller\\Traveller\\DomainServices.csproj",
+        "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
+        "outputPath": "D:\\Code Project\\Route\\Traveller\\Traveller\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -213,14 +210,14 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Route\\Traveller\\AutoMapper\\Application.csproj": {
-                "projectPath": "C:\\Route\\Traveller\\AutoMapper\\Application.csproj"
+              "D:\\Code Project\\Route\\Traveller\\AutoMapper\\Application.csproj": {
+                "projectPath": "D:\\Code Project\\Route\\Traveller\\AutoMapper\\Application.csproj"
               },
-              "C:\\Route\\Traveller\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Route\\Traveller\\Domain\\Domain.csproj"
+              "D:\\Code Project\\Route\\Traveller\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\Code Project\\Route\\Traveller\\Domain\\Domain.csproj"
               },
-              "C:\\Route\\Traveller\\StaticData\\Data.csproj": {
-                "projectPath": "C:\\Route\\Traveller\\StaticData\\Data.csproj"
+              "D:\\Code Project\\Route\\Traveller\\StaticData\\Data.csproj": {
+                "projectPath": "D:\\Code Project\\Route\\Traveller\\StaticData\\Data.csproj"
               }
             }
           }
@@ -250,8 +247,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -260,7 +256,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
