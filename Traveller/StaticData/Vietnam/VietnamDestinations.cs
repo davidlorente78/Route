@@ -6,15 +6,15 @@ namespace Traveller.StaticData
 {
     public static class VietnamDestinations
     {
-        public static Destination MocBai = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }, Name = "Moc Bai", Description = "Border town of Vietnam near Bavet (Cambodia)" };
-        public static Destination VingXuong = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }, Name = "Ving Xuong", Description = "Vietnamese border town close to Kaam Samnor" };
-        public static Destination NhapCanh = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }, Description = "", Name = "Nhap Canh" };
-        public static Destination TayTrang = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }, Name = "Tay Trang", Description = "Ah 13, Na ư, h. Điện Biên, Điện Biên, Vietnam. Tay Trang, newly incorporated and with little traffic. Access to it was complicated and long, although the landscapes of Northern Laos are the most amazing in the whole country. The first city after crossing the border is Lai Chau, from where you can go to Sa Pa, a place where we can make many excursions through the mountains, rice fields and villages. It was our favorite in case we were encouraged to go to Sa Pa." };
-        public static Destination LaoBao = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }, Description = "", Name = "Lao Bao" };
-        public static Destination NaMeo = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }, Description = "Border town in Vietnam very close to Tam Coc and Ninh Binh.", Name = "Na Meo" };
-        public static Destination LaoCai = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }, Description = "", Name = "Lao Cai" };
-        public static Destination HaTien = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }, Description = "Border location in Vietnam near Chau Doc, used to enter or leave from Kampot (Cambodia) In front of Phu Quoc Island. ", Name = "Ha Tien / Xa Xia" };
-        public static Destination CauTreo = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }, Description = "Leaving from Lak Sao and following route 8 you arrive at this border locality. It gives access to Vietnam at the height of Vinh.", Name = "Cau Treo / Cao Tree" };
+        public static Destination MocBai = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing }, Name = "Moc Bai", Description = "Border town of Vietnam near Bavet (Cambodia)" };
+        public static Destination VingXuong = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing }, Name = "Ving Xuong", Description = "Vietnamese border town close to Kaam Samnor" };
+        public static Destination NhapCanh = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing }, Description = "", Name = "Nhap Canh" };
+        public static Destination TayTrang = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing }, Name = "Tay Trang", Description = "Ah 13, Na ư, h. Điện Biên, Điện Biên, Vietnam. Tay Trang, newly incorporated and with little traffic. Access to it was complicated and long, although the landscapes of Northern Laos are the most amazing in the whole country. The first city after crossing the border is Lai Chau, from where you can go to Sa Pa, a place where we can make many excursions through the mountains, rice fields and villages. It was our favorite in case we were encouraged to go to Sa Pa." };
+        public static Destination LaoBao = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing }, Description = "", Name = "Lao Bao" };
+        public static Destination NaMeo = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing }, Description = "Border town in Vietnam very close to Tam Coc and Ninh Binh.", Name = "Na Meo" };
+        public static Destination LaoCai = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing }, Description = "", Name = "Lao Cai" };
+        public static Destination HaTien = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing }, Description = "Border location in Vietnam near Chau Doc, used to enter or leave from Kampot (Cambodia) In front of Phu Quoc Island. ", Name = "Ha Tien / Xa Xia" };
+        public static Destination CauTreo = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing }, Description = "Leaving from Lak Sao and following route 8 you arrive at this border locality. It gives access to Vietnam at the height of Vinh.", Name = "Cau Treo / Cao Tree" };
         public static Destination NinhBinh = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism }, Description = "Ninh Binh", Name = "Ninh Binh" };
         //Si esta relacionada con una estacion tambien debe tener CountryID para evitar conflicto con FK en inicializacion de Base de datos
         public static Destination HoiAn = new Destination { DestinationCountryID = 2, DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism }, Description = "Hoi An", Name = "Hoi An" };
@@ -41,7 +41,11 @@ namespace Traveller.StaticData
         public static Destination DaLat = new Destination { DestinationCountryID = 2, Name = "Da Lat", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
         public static Destination Vinh = new Destination { DestinationCountryID = 2, Name = "Vinh", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
         public static Destination NhaTrang = new Destination { DestinationCountryID = 2, Name = "Nha Trang", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
-        public static Destination ThuongPhuoc = new Destination { DestinationCountryID = 2, Name = "Thuong Phuoc", DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier } };
+        public static Destination ThuongPhuoc = new Destination { DestinationCountryID = 2, Name = "Thuong Phuoc", DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing } };
+        public static Destination ChanMay = new Destination { DestinationCountryID = 2, Name = "Chan May", DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing } };
+        public static Destination HonGai = new Destination { DestinationCountryID = 2, Name = "Hon Gai", DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing } };
+        public static Destination QuyNhon = new Destination { DestinationCountryID = 2, Name = "Quy Nhon", DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing } };
+        public static Destination VungTau = new Destination { DestinationCountryID = 2, Name = "Vung Tau", DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing } };
 
         public static List<Destination> GetStaticAll()
         {

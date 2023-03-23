@@ -15,7 +15,7 @@ namespace Data.Malaysia
             TrainLines = MalaysiaTrainLines.GetAll(),
             Ranges = new List<RangeChar> { MalaysiaRanges.SeasonRange, MalaysiaRanges.MonsoonRange, MalaysiaRanges.MonsoonRangeEvaluator },
          
-            //Visas = new List<Visa> { MalaysiaVisas.freeVisa_Malaysia, MalaysiaVisas.eVisa_Malaysia}
+            Visas = new List<Visa> { MalaysiaVisas.freeVisa_Malaysia, MalaysiaVisas.eVisa_Malaysia}
         };
     }
 }

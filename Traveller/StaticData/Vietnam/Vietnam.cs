@@ -8,7 +8,6 @@ namespace Data.Vietnam
     {
         public static Country Vietnam = new Country('V', "Vietnam", true, 0)
         {
-            //Visas = new List<Visa> { VietnamVisas.eVisa_Vietnam, VietnamVisas.VisaExemption_Vietnam },
             Destinations = VietnamDestinations.GetAll(),
             BorderCrossings = VietnamBorderCrossings.GetAll(),
             Airports = VietnamAirports.GetAll(),

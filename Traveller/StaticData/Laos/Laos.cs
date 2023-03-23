@@ -13,7 +13,7 @@ namespace Data.Laos
             Airports = LaosAirports.GetAll(),
             Ranges = new List<RangeChar> { LaosRanges.SeasonRange , LaosRanges.MonsoonRange , LaosRanges.MonsoonRangeEvaluator},
           
-            //Visas = new List<Visa> { LaosVisas.LaoVisa, LaosVisas.eLaoVisa },
+            Visas = new List<Visa> { LaosVisas.LaoVisa, LaosVisas.eLaoVisa },
         };
     }
 }

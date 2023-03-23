@@ -1,58 +1,23 @@
 ﻿using Data.Cambodia;
 using Data.EntityTypes;
+using Data.Utils;
 using Traveller.Domain;
 
 namespace Traveller.StaticData
 {
     public static class CambodiaBorderCrossings
     {
-
-
         public static List<BorderCrossing> GetAll()
-
         {
             List<BorderCrossing> terrestrial = GetAllTerrestrialFrontiers();
 
-            List<BorderCrossing> frontiersFromAirports = CreateFrontiersFromInternationalAirports();
+            List<BorderCrossing> frontiersFromAirports = BorderCrossingUtils.CreateFrontiersFromInternationalAirports(CambodiaAirports.GetAll(), new List<Visa> { CambodiaVisas.eVisa_Cambodia });
 
             terrestrial.AddRange(frontiersFromAirports);
 
             return terrestrial;
-
         }
-
-        public static List<BorderCrossing> CreateFrontiersFromInternationalAirports()
-        {
-            List<BorderCrossing> frontiers = new List<BorderCrossing>();
-
-
-            var airports = CambodiaAirports.GetAll();
-
-            foreach (var airport in airports.Where(a => a.AirportType == AirportTypes.International))
-            {
-
-                BorderCrossing frontierFromAirport = new BorderCrossing()
-                {
-                    Name = airport.Name,
-                    Description = airport.Name,
-                    DestinationOrigin = airport.Destinations.FirstOrDefault(),
-                    DestinationFinal = airport.Destinations.FirstOrDefault(),
-                    BorderCrossingType = BorderCrossingTypes.Airport,
-                    Visas = new List<Visa> { CambodiaVisas.eVisa_Cambodia },
-                };
-
-                frontiers.Add(frontierFromAirport);
-
-
-            }
-
-            return frontiers;
-
-        }
-
-
-
-
+    
         public static List<BorderCrossing> GetAllTerrestrialFrontiers()
         {
             return new List<BorderCrossing> {
@@ -117,14 +82,9 @@ namespace Traveller.StaticData
                         DestinationFinal = CambodiaDestinations.TropaengKreal, 
                         BorderCrossingType = BorderCrossingTypes.Terrestrial,
                          Description = "This land border crossing is called Nong Nok Khiene on the Laos side and Tropaeng Kreal on the Cambodia side. The Cambodian province of Stung Treng borders the 4,000 Islands area of southern Laos."
-                        },
-                     
+                        },                  
 
-                 };
-
-            
+                 };            
         }
-
-
     }
 }

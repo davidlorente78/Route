@@ -1,4 +1,5 @@
 ﻿using Data.EntityTypes;
+using Data.Utils;
 using Data.Vietnam;
 using Traveller.Domain;
 
@@ -19,12 +20,8 @@ namespace Traveller.StaticData
                         DestinationOrigin = CambodiaDestinations.Bavet,
                         DestinationFinal = VietnamDestinations.MocBai,
                         BorderCrossingType = BorderCrossingTypes.Terrestrial,
-                       //,
-                        //Visas = new List<Visa> { new Visa { Duration = 30 } } ,
-
-                        }
-
-                         ,
+                        Visas = new List<Visa> { VietnamVisas.eVisa_Vietnam, VietnamVisas.VisaExemption_Vietnam },
+                        },
 
                        new BorderCrossing {
                         Name = "Laos Vietnam Sop Hun Tay Trang ",
@@ -34,10 +31,7 @@ namespace Traveller.StaticData
                         BorderCrossingType = BorderCrossingTypes.Terrestrial,                   
                         //,
                         //Este paso no acepta visa Online
-
-                        }
-
-                         ,
+                        },
 
                         new BorderCrossing {
                         Name = "Laos Vietnam Namkan NhapCanh",
@@ -46,11 +40,8 @@ namespace Traveller.StaticData
                         DestinationFinal = VietnamDestinations.NhapCanh,
                         BorderCrossingType = BorderCrossingTypes.Terrestrial,
                        //,
-                        }
-
-                         ,
-
-                    new BorderCrossing {
+                        },
+                new BorderCrossing {
                         Name = "Cambodia Vietnam Prek Chak Ha Tien ",
                         Description = "If your idea is to cross to Vietnam through the south of Cambodia (or vice versa) the best way is to do it through Prek Chak / Ha Tien, through this border crossing is easy to connect the southern part of Cambodia (Sihanoukville, Kampot, Kep) with destinations such as Chau Doc or Ho Chi Minh City.",
                         DestinationOrigin = CambodiaDestinations.PrekChak,
@@ -68,7 +59,7 @@ namespace Traveller.StaticData
                         }
                       ,
 
-                       new BorderCrossing 
+                       new BorderCrossing
                        {
                         Name = "Laos Vietnam Nam Phao CauTreo",
                         Description = "Border crossing point at Vinh",
@@ -96,9 +87,55 @@ namespace Traveller.StaticData
                         DestinationOrigin = CambodiaDestinations.KamSamnar,
                         DestinationFinal =  VietnamDestinations.ThuongPhuoc,
                         BorderCrossingType = BorderCrossingTypes.Terrestrial,
-
                         },
-                    
+                     new BorderCrossing {
+                        Name = "Chan May Seaport",
+                        DestinationOrigin = VietnamDestinations.ChanMay,
+                        DestinationFinal =  VietnamDestinations.ChanMay,
+                        BorderCrossingType = BorderCrossingTypes.Seaport,
+                        }
+                     ,new BorderCrossing {
+                        Name = "Da Nang Seaport",
+                        DestinationOrigin = VietnamDestinations.Danang,
+                        DestinationFinal =  VietnamDestinations.Danang,
+                        BorderCrossingType = BorderCrossingTypes.Seaport,
+                        },
+                      new BorderCrossing {
+                        Name = "Hai Phong Seaport",
+                        DestinationOrigin = VietnamDestinations.Haiphong,
+                        DestinationFinal =  VietnamDestinations.Haiphong,
+                        BorderCrossingType = BorderCrossingTypes.Seaport,
+                        },
+                    new BorderCrossing {
+                        Name = "Ho Chi Minh City Seaport",
+                        DestinationOrigin = VietnamDestinations.HoChiMinh,
+                        DestinationFinal =  VietnamDestinations.HoChiMinh,
+                        BorderCrossingType = BorderCrossingTypes.Seaport,
+                        },
+                    new BorderCrossing {
+                        Name = "Hon Gai Seaport",
+                        DestinationOrigin = VietnamDestinations.HonGai,
+                        DestinationFinal =  VietnamDestinations.HonGai,
+                        BorderCrossingType = BorderCrossingTypes.Seaport,
+                        },
+                    new BorderCrossing {
+                            Name = "Nha Trag Seaport",
+                            DestinationOrigin = VietnamDestinations.NhaTrang,
+                            DestinationFinal =  VietnamDestinations.NhaTrang,
+                            BorderCrossingType = BorderCrossingTypes.Seaport,
+                            },
+                    new BorderCrossing {
+                            Name = "Quy Nhon Seaport",
+                            DestinationOrigin = VietnamDestinations.QuyNhon,
+                            DestinationFinal =  VietnamDestinations.QuyNhon,
+                            BorderCrossingType = BorderCrossingTypes.Seaport,
+                            },
+                    new BorderCrossing {
+                            Name = "Vung Tau Seaport",
+                            DestinationOrigin = VietnamDestinations.VungTau,
+                            DestinationFinal =  VietnamDestinations.VungTau,
+                            BorderCrossingType = BorderCrossingTypes.Seaport,
+                            },
                      //   }
 
                      ////No Vietnam visa on arrival for those going from Laos into Vietnam - must be pre-arranged.
@@ -113,36 +150,12 @@ namespace Traveller.StaticData
                 };
         }
 
-        public static List<BorderCrossing> CreateFrontiersFromInternationalAirports()
-        {
-            List<BorderCrossing> frontiers = new List<BorderCrossing>();
-
-            var airports = VietnamAirports.GetAll();
-
-            foreach (var airport in airports.Where(a => a.AirportType == AirportTypes.International))
-            {
-                BorderCrossing frontierFromAirport = new BorderCrossing()
-                {
-                    Name = airport.Name,
-                    Description = airport.Name,
-                    DestinationOrigin = airport.Destinations.FirstOrDefault(),
-                    DestinationFinal = airport.Destinations.FirstOrDefault(),
-                    BorderCrossingType = BorderCrossingTypes.Airport,
-
-                };
-
-                frontiers.Add(frontierFromAirport);
-            }
-
-            return frontiers;
-        }
-
         public static List<BorderCrossing> GetAll()
         {
             List<BorderCrossing> all = new List<BorderCrossing>();
 
             List<BorderCrossing> terrestrial = GetAllTerrestrialFrontiers();
-            List<BorderCrossing> frontiersFromAirports = CreateFrontiersFromInternationalAirports();
+            List<BorderCrossing> frontiersFromAirports = BorderCrossingUtils.CreateFrontiersFromInternationalAirports(VietnamAirports.GetAll(), new List<Visa> { VietnamVisas.eVisa_Vietnam, VietnamVisas.VisaExemption_Vietnam });
 
             all.AddRange(terrestrial);
             all.AddRange(frontiersFromAirports);

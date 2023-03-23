@@ -1,10 +1,5 @@
-﻿using Domain.Transport.Aviation;
-using Data.EntityTypes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Data.EntityTypes;
+using Domain.Transport.Aviation;
 using Traveller.Domain;
 using Traveller.StaticData;
 
@@ -202,8 +197,6 @@ namespace Data.Vietnam
 
         public static ICollection<Airport> GetAll()
         {
-
-
             return new List<Airport> {
                 SGN,
                 HUI,

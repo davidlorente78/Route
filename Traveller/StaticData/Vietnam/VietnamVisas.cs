@@ -27,6 +27,7 @@ namespace Traveller.StaticData
             //Cam Ranh(Khanh Hoa)    Can Tho Cat Bi International Airport(Hai Phong)
             //Da Nang International Airport   Noi Bai International Airport(Ha Noi)  Phu Bai International Airport
             //Phu Quoc International Airport  Tan Son Nhat International Airport(Ho Chi Minh City)
+
             //Por vía terrestre
             //Nombre paso fronterizo
             //Bo Y    Cau Treo    Cha Lo

@@ -96,7 +96,7 @@ namespace Traveller.StaticData
         {
             Name = "Su-ngai Kolok",
             LocalName = "สุไหงโกลก",
-            DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier },
+            DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing },
             Description = "Su-ngai (สุไหงโกลก) is a border town in Narathiwat, Thailand, just north of the Malaysian border. The town on the Malaysian side of the border is Rantau Panjang which is in the state of Kelantan."
         };
 
@@ -104,20 +104,20 @@ namespace Traveller.StaticData
         {
             Name = "Padang Pesar - Pekan Siam",
             LocalName = "ڤدڠ بسر",
-            DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }
+            DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing }
         };
 
         public static Destination ChiangKhong = new Destination
         {
             Name = "Chiang Khong",
-            DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }
+            DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing }
         };
 
         public static Destination Aranyaprathet = new Destination
         {
             Name = "Aranyaprathet",
             LocalName = "อรัญประเทศ",
-            DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier },
+            DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing },
             Description = "Aranyaprathet is a town (thesaban mueang) in Sa Kaeo province in eastern Thailand . It covers the entire tambon of Aranyaprathet, in Aranyaprathet district. As of 2005, the town has 16,937 inhabitants. It is located just 6 kilometres (3.7 mi) from the border with Cambodia; the town of Poipet is on the other side of the border. On the Thai side of the border is the huge Rongkluea market. Cambodian people cross the border daily with pushcarts and scooters with side cars loaded with their products. A significant part of the trade is in second hand clothes.[1] Just over the border on the Cambodian side there are casinos. These are visited by many Thai people because gambling is prohibited in Thailand.",
             Picture = "/AranyaPrathet.jpg",
              
@@ -127,7 +127,7 @@ namespace Traveller.StaticData
         {
             Name = "Vang Tao",
             Description = "In the province of Ubon Ratchathani. Near Pakse airport",
-            DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }
+            DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing }
         };
 
         public static Destination UbonRatchathani = new Destination
@@ -373,14 +373,14 @@ namespace Traveller.StaticData
         {
             DestinationCountryID = 3,
             Name = "Khlong Yai",
-            DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }
+            DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing }
         };
 
         public static Destination BanHatLek = new Destination
         {
             DestinationCountryID = 3,
             Name = "Ban Hat Lek",
-            DestinationTypes = new List<DestinationType> { DestinationTypes.Frontier }
+            DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing }
         };
 
         public static List<Destination> CreateDestinationsFromStations()

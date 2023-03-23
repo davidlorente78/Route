@@ -53,7 +53,7 @@ namespace RouteDataManager.Controllers
                 applicationContext = _context.Visas.Include(v => v.QualifyNationalities).OrderBy(s => s.Name);
             }
 
-            SelectList selectListCountries = new SelectList(_context.Countries, "CountryID", "Name", visaIndexViewModel.FilterCountry.Id);
+            SelectList selectListCountries = new SelectList(_context.Countries, "Id", "Name", visaIndexViewModel.FilterCountry.Id);
             SelectList selectListNationalities = new SelectList(itemsSelectNationalities.ToList(), "NationalityID", "Description", visaIndexViewModel.FilterNationality.NationalityID);
 
             visaIndexViewModel.SelectListCountries = selectListCountries;
