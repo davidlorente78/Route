@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using RouteDataManager.Controllers.Generic;
 using RouteDataManager.Models;
 using RouteDataManager.Repositories;
 using RouteDataManager.ViewModels;
@@ -12,69 +13,83 @@ using Traveller.DomainServices;
 
 namespace RouteDataManager.Controllers
 {
-    public class DestinationsController : Controller
+    /// <summary>
+    /// https://stackoverflow.com/questions/5849398/mvc-3-form-post-and-persisting-model-data
+    /// </summary>
+    public class DestinationsController : GenericController<DestinationDto, Destination>
     {
         private readonly ApplicationContext _context;
         private readonly IWebHostEnvironment _environment;
 
         private readonly ICountryService countryService;
         private readonly IDestinationService destinationService;
+        private readonly IDestinationTypeService destinationTypeService;
+
 
         private IEnumerable<CountryDto> countries;
         private IEnumerable<DestinationDto> destinations;
+        private IEnumerable<DestinationTypeDto> destinationTypes;
 
-        public DestinationsController(
-            ApplicationContext context,
-            IWebHostEnvironment environment,
+
+        public DestinationsController(     
             ICountryService countryService,
-            IDestinationService destinationService)
+            IDestinationService destinationService,
+            IDestinationTypeService destinationTypeService
+            ) 
+            : base(destinationService)
         {
-            _context = context;
-            _environment = environment;
+           
             this.countryService = countryService;
             this.destinationService = destinationService;
+            this.destinationTypeService = destinationTypeService;
 
             countries = countryService.GetAll();
             destinations = destinationService.GetAll();
-
+            destinationTypes = destinationTypeService.GetAll();
         }
 
-        // GET: Destinations
-        public async Task<IActionResult> Index(DestinationIndexViewModel destinationIndexViewModel)
+        [HttpGet]
+        public IActionResult Index(DestinationIndexViewModel destinationIndexViewModel)
         {
-            IOrderedQueryable<Destination>? applicationContext;
+            if (destinationIndexViewModel is null)
+            {
+                throw new ArgumentNullException(nameof(destinationIndexViewModel));
+            }
 
-            if (destinationIndexViewModel.FilterCountry.Id != 0)
-            {
-                applicationContext = _context.Destinations
-                    .Where(
-                        d => d.DestinationCountryID == destinationIndexViewModel.FilterCountry.Id
-                        &&
-                        d.DestinationTypes.Select(d => d.DestinationTypeID).Contains(destinationIndexViewModel.FilterDestinationType.DestinationTypeID)
-                     )
-                    .Include(d => d.DestinationCountry)
-                    .Include(d => d.DestinationTypes)
-                    .OrderBy(d => d.Name);
-            }
-            else
-            {
-                applicationContext = _context.Destinations.Include(d => d.DestinationCountry).Include(d => d.DestinationTypes).OrderBy(d => d.Name);
-            }
+            var destinations = destinationService.GetByCountryIdAndDestinationTypeId(destinationIndexViewModel.FilterCountry.Id, destinationIndexViewModel.FilterDestinationType.Id);
 
             SelectList selectListCountries = new SelectList(countries, "Id", "Name", destinationIndexViewModel.FilterCountry.Id);
-            SelectList selectListDestinationTypes = new SelectList(_context.DestinationTypes, "DestinationTypeID", "Description", destinationIndexViewModel.FilterDestinationType.DestinationTypeID);
+            SelectList selectListDestinationTypes = new SelectList(destinationTypes, "Id", "Description", destinationIndexViewModel.FilterDestinationType.Id);
 
             destinationIndexViewModel.SelectListCountries = selectListCountries;
             destinationIndexViewModel.SelectListDestinationTypes = selectListDestinationTypes;
 
-            List<Traveller.Domain.Destination>? destinations = await applicationContext.ToListAsync();
+            destinationIndexViewModel.Destinations = destinations;
+
+            return (View(destinationIndexViewModel));
+        }
+
+        [HttpPost]
+        public IActionResult Results(DestinationIndexViewModel destinationIndexViewModel)
+        {
+            if (destinationIndexViewModel is null)
+            {
+                throw new ArgumentNullException(nameof(destinationIndexViewModel));
+            }
+
+            var destinations = destinationService.GetByCountryIdAndDestinationTypeId(destinationIndexViewModel.FilterCountry.Id, destinationIndexViewModel.FilterDestinationType.Id);
+
+            SelectList selectListCountries = new SelectList(countries, "Id", "Name", destinationIndexViewModel.FilterCountry.Id);
+            SelectList selectListDestinationTypes = new SelectList(destinationTypes, "Id", "Description", destinationIndexViewModel.FilterDestinationType.Id);
+
+            destinationIndexViewModel.SelectListCountries = selectListCountries;
+            destinationIndexViewModel.SelectListDestinationTypes = selectListDestinationTypes;
 
             destinationIndexViewModel.Destinations = destinations;
 
-            return PartialView(destinationIndexViewModel);
+            return (View("Index", destinationIndexViewModel));
         }
 
-        // GET: Destinations/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Destinations == null)
@@ -86,8 +101,6 @@ namespace RouteDataManager.Controllers
                 .Include(d => d.DestinationCountry).Include(d => d.DestinationTypes)
                 .FirstOrDefaultAsync(m => m.Id == id);
 
-
-
             if (destination == null)
             {
                 return NotFound();
@@ -98,16 +111,13 @@ namespace RouteDataManager.Controllers
             return PartialView(destination);
         }
 
-        // GET: Destinations/Create
         public IActionResult Create()
         {
             ViewData["CountryID"] = new SelectList(countries, "Id", "Name");
             return PartialView();
         }
 
-        // POST: Destinations/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(DestinationViewModel model)
@@ -133,7 +143,6 @@ namespace RouteDataManager.Controllers
             return PartialView(model);
         }
 
-        // GET: Destinations/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Destinations == null)

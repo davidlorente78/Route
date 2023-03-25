@@ -7,6 +7,6 @@
     {
         public char Id;
         public Dictionary<char, string> Description ;
-        public new List<char> Values; 
+        public List<char> Values; 
     }
 }

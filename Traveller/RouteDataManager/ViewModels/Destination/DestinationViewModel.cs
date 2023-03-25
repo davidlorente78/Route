@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace RouteDataManager.ViewModels.Destination
 {
@@ -9,7 +8,7 @@ namespace RouteDataManager.ViewModels.Destination
         [Required]
         [Display(Name = "Name")]
         public string Name { get; set; }
-      
+
         [Required]
         public string Description { get; set; }
 

@@ -1,15 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
-using Traveller.Domain;
+using Traveller.Application.Dto;
 
 namespace RouteDataManager.ViewModels
 {
     public class DestinationIndexViewModel
     {
-        public IEnumerable<Traveller.Domain.Destination> Destinations { get; set; }
+        public IEnumerable<DestinationDto> Destinations { get; set; }
         public SelectList SelectListCountries { get; set; }
-        public SelectList SelectListDestinationTypes{ get; set; }
-        public DestinationType FilterDestinationType { get; set; } = new DestinationType() {   DestinationTypeID = 3 };
-        public Traveller.Domain.Country FilterCountry { get; set; } = new Traveller.Domain.Country() { Id = 3 };
-
+        public SelectList SelectListDestinationTypes { get; set; }
+        public DestinationTypeDto FilterDestinationType { get; set; } = new DestinationTypeDto() { Id = 3 };
+        public CountryDto FilterCountry { get; set; } = new CountryDto() { Id = 3 };
     }
 }

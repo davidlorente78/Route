@@ -1,4 +1,5 @@
 ﻿using Domain.Repositories;
+using Microsoft.EntityFrameworkCore;
 using Traveller.Domain;
 
 namespace RouteDataManager.Repositories
@@ -7,6 +8,16 @@ namespace RouteDataManager.Repositories
     {
         public DestinationRepository(ApplicationContext context) : base(context)
         {
+        }
+
+        public IEnumerable<Destination> GetAllIncludingDestinations(int countryId, int destinationTypeId)
+        {
+            return _context.Destinations
+                 .Where(d => d.DestinationCountryID == countryId &&
+                      d.DestinationTypes.Select(d => d.Id).Contains(destinationTypeId))
+                  .Include(d => d.DestinationCountry)
+                  .Include(d => d.DestinationTypes)
+                  .OrderBy(d => d.Name).ToList();
         }
     }
 }

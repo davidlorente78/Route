@@ -34,6 +34,8 @@ builder.Services.AddScoped(typeof(IGenericService<,>), typeof(GenericService<,>)
 
 builder.Services.AddScoped(typeof(ICountryMapper), typeof(CountryMapper));
 builder.Services.AddScoped(typeof(IDestinationMapper), typeof(DestinationMapper));
+builder.Services.AddScoped(typeof(IDestinationTypeMapper), typeof(DestinationTypeMapper));
+
 
 
 builder.Services.AddScoped<IBorderCrossingRepository, BorderCrossingRepository>();
@@ -45,6 +47,8 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 builder.Services.AddScoped<ICountryService, CountryService>();
 builder.Services.AddScoped<IDestinationService, DestinationService>();
+builder.Services.AddScoped<IDestinationTypeService, DestinationTypeService>();
+
 builder.Services.AddScoped<IVisaService, VisaService>();
 builder.Services.AddScoped<IRouteService, RouteService>();
 builder.Services.AddScoped<IRuleContainer , RuleContainer>();

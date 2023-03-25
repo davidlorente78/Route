@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Domain.Generic
+﻿namespace Domain.Generic
 {
-    public class EntityType
+    public class EntityType : Entity
     {
         public char? Code { get; set; }
         public string? Description { get; set; }

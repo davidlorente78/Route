@@ -1,20 +1,17 @@
-﻿@model RouteDataManager.ViewModels.DestinationIndexViewModel
+﻿@using RouteDataManager.ViewModels;
+@model RouteDataManager.ViewModels.DestinationIndexViewModel
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-<form asp-action="Index">
-
+@using (Html.BeginForm("Results", "Destinations", new DestinationIndexViewModel { FilterCountry = @Model.FilterCountry }, FormMethod.Post))
+{
     <div class="form-group">
         <table class="table">
 
             <thead>
-
                 <tr>
-
-
                     <th>
                         <label class="control-label">Country</label>
                         <select asp-for="@Model.FilterCountry.Id" class="form-control" asp-items="@Model.SelectListCountries"></select>
@@ -22,28 +19,25 @@
 
                     <th>
                         <label class="control-label">Destination Type</label>
-                        <select asp-for="@Model.FilterDestinationType.DestinationTypeID" class="form-control" asp-items="@Model.SelectListDestinationTypes"></select>
+                        <select asp-for="@Model.FilterDestinationType.Id" class="form-control" asp-items="@Model.SelectListDestinationTypes"></select>
                     </th>
 
                     <th>
 
                     </th>
 
-
                     <th>
 
                     </th>
 
                     <th>
-                        <input type="submit" value="Search" class="btn btn-primary btn-block" />
+                        <input type="submit" class="btn btn-primary btn-block" value="Search"/>
                     </th>
                 </tr>
-
             </thead>
         </table>
-
     </div>
-</form>
+}
 
 <p>
     <a asp-action="Create" class="btn btn-primary rounded-0"><i class="fa fa-plus-circle"></i>Add New</a>

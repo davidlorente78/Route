@@ -3,6 +3,7 @@ using AutoMapper;
 using Domain.Repositories;
 using DomainServices.Generic;
 using RouteDataManager.Repositories;
+using System.Collections.Generic;
 using Traveller.Application.Dto;
 using Traveller.Domain;
 
@@ -18,6 +19,13 @@ namespace DomainServices.DestinationService
             IDestinationRepository specificdestinationRepository)
             : base(unitOfWork, mapper, destinationMapper, destinationRepository)
         {
+        }
+
+        public ICollection<DestinationDto> GetByCountryIdAndDestinationTypeId(int countryId, int destinationTypeId)
+        {
+            var destinations = unitOfWork.DestinationRepository.GetAllIncludingDestinations(countryId, destinationTypeId);
+
+            return mapper.Map<List<DestinationDto>>(destinations);
         }
     }
 }
