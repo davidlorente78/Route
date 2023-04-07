@@ -12,7 +12,7 @@ namespace Data.Malaysia
             Airports = MalaysiaAirports.GetAll(),
             BorderCrossings = MalaysiaBorderCrossings.GetAll(),
             TrainLines = MalaysiaTrainLines.GetAll(),
-            Ranges = new List<RangeChar> { MalaysiaRanges.SeasonRange, MalaysiaRanges.MonsoonRange, MalaysiaRanges.MonsoonRangeEvaluator },         
+            Ranges = MalaysiaRanges.GetAll()     
         };
     }
 }

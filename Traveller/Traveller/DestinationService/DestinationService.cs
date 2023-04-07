@@ -21,11 +21,11 @@ namespace DomainServices.DestinationService
         {
         }
 
-        public ICollection<DestinationDto> GetByCountryIdAndDestinationTypeId(int countryId, int destinationTypeId)
-        {
-            var destinations = unitOfWork.DestinationRepository.GetAllIncludingDestinations(countryId, destinationTypeId);
+        //public ICollection<DestinationDto> GetByCountryIdAndDestinationTypeId(int countryId, int destinationTypeId)
+        //{
+        //    var destinations = unitOfWork.DestinationRepository.GetAllIncludingDestinations(countryId, destinationTypeId);
 
-            return mapper.Map<List<DestinationDto>>(destinations);
-        }
+        //    return mapper.Map<List<DestinationDto>>(destinations);
+        //}
     }
 }

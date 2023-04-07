@@ -118,5 +118,7 @@ namespace Data.Thailand
                 }
             }
         };
+
+        public static ICollection<RangeChar> GetAll() => new List<RangeChar> { SeasonRange, MonsoonRange, MonsoonRangeEvaluator };
     }
 }

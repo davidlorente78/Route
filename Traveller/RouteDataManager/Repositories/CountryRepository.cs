@@ -39,7 +39,8 @@ namespace RouteDataManager.Repositories
                 .Where(c => c.Code == ch)
                 .Include(c => c.Destinations)
                 .Include(c => c.BorderCrossings).ThenInclude(c => c.Visas).ThenInclude(v => v.QualifyNationalities)
-                 .OrderBy(c => c.Name).FirstOrDefault();
+                 .OrderBy(c => c.Name)
+                 .FirstOrDefault();
         }
 
         public Country? GetCountryIncludingRangesByCode(char ch)

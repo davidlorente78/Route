@@ -12,7 +12,7 @@ namespace Data.Vietnam
             BorderCrossings = VietnamBorderCrossings.GetAll(),
             Airports = VietnamAirports.GetAll(),
             TrainLines = VietnamTrainLines.GetAll(),
-            Ranges = new List<RangeChar> { VietnamRanges.SeasonRange, VietnamRanges.MonsoonRange, VietnamRanges.MonsoonRangeEvaluator },
+            Ranges = VietnamRanges.GetAll()
         };
     }
 }

@@ -12,7 +12,7 @@ namespace Data.Thailand
             BorderCrossings = ThailandBorderCrossings.GetAll(),
             TrainLines = ThailandTrainLines.GetAll(),
             Airports = ThailandAirports.GetAll(),
-            Ranges = new List<RangeChar> { ThailandRanges.SeasonRange, ThailandRanges.MonsoonRange, ThailandRanges.MonsoonRangeEvaluator },
+            Ranges = ThailandRanges.GetAll()
         };
     }
 }

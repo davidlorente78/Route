@@ -4,8 +4,10 @@ using AutoMapper;
 using Domain.Generic;
 using Domain.Repositories;
 using RouteDataManager.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace DomainServices.Generic
 {
@@ -52,6 +54,16 @@ namespace DomainServices.Generic
             TDto dto = mapper.Map<TDto>(entity);
 
             return dto;
+        }
+
+        //https://stackoverflow.com/questions/5376421/ef-including-other-entities-generic-repository-pattern
+        public ICollection<TDto> GetIncluding(Expression<Func<TEntity, bool>> expression, params Expression<Func<TEntity, object>>[] includes)
+        {
+            var entities = repository.Including(expression, includes);
+
+            List<TDto> dtos = mapper.Map<List<TDto>>(entities);
+
+            return dtos;
         }
 
         public int Add(TDto dto)

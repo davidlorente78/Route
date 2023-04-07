@@ -26,6 +26,5 @@ namespace Traveller.Domain
         public ICollection<RailwayStation> Stations { get; set; } = new List<RailwayStation>();
 
         public ICollection<Hotel> Hotels { get; set; } = new List<Hotel>();
-
     }
 }

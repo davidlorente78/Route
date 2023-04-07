@@ -21,7 +21,46 @@ namespace RouteDataManager.Repositories
         }
 
         public DbSet<Country> Countries { get; set; }
-        
+
+        public DbSet<Destination>? Destinations { get; set; }
+
+        public DbSet<BorderCrossing>? BorderCrossings { get; set; }
+
+        public DbSet<DestinationType>? DestinationTypes { get; set; }
+
+        public DbSet<BorderCrossingType>? BorderCrossingTypes { get; set; }
+
+        public DbSet<RailwaySystem>? RailwaySystems { get; set; }
+
+        public DbSet<RailwayLine>? RailwayLines { get; set; }
+
+        public DbSet<RailwayStation>? RailwayStations { get; set; }
+
+        public DbSet<RailwayBranch>? RailwayBranches { get; set; }
+
+        public DbSet<Visa>? Visas { get; set; }
+
+        public DbSet<Speaker>? Speakers { get; set; }
+
+        public DbSet<Airport>? Airports { get; set; }
+
+        public DbSet<AirportType>? AirportTypes { get; set; }
+
+        public DbSet<Airline>? Airlines { get; set; }
+
+        public DbSet<AirlineType>? AirlineTypes { get; set; }
+
+        public DbSet<Nationality>? Nationalities { get; set; }
+
+        public DbSet<RangeChar>? Ranges { get; set; }
+
+        public DbSet<RangeType>? RangeTypes { get; set; }
+
+        public DbSet<Month>? Months { get; set; }
+
+        public DbSet<Traveller.Domain.Route>? Routes { get; set; }
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Global turn off delete behaviour on foreign keys
@@ -149,47 +188,5 @@ namespace RouteDataManager.Repositories
 
           
         }
-
-
-        public DbSet<Destination>? Destinations { get; set; } 
-
-        public DbSet<BorderCrossing>? BorderCrossings { get; set; }
-
-        public DbSet<DestinationType>? DestinationTypes { get; set; }
-
-        public DbSet<BorderCrossingType>? BorderCrossingTypes { get; set; }
-
-        public DbSet<RailwaySystem>? RailwaySystems { get; set; }
-
-        public DbSet<RailwayLine>? RailwayLines { get; set; }
-
-        public DbSet<RailwayStation>? RailwayStations { get; set; }
-
-        public DbSet<RailwayBranch>? RailwayBranches { get; set; }
-
-        public DbSet<Visa>? Visas { get; set; }
-
-        public DbSet<Speaker>? Speakers { get; set; }
-
-        public DbSet<Airport>? Airports { get; set; }
-
-        public DbSet<AirportType>? AirportTypes { get; set; }
-
-        public DbSet<Airline>? Airlines { get; set; }
-
-        public DbSet<AirlineType>? AirlineTypes { get; set; }
-
-        public DbSet<Nationality>? Nationalities { get; set; }
-
-        public DbSet<RangeChar>? Ranges { get; set; }
-
-        public DbSet<RangeType>? RangeTypes { get; set; }
-
-        public DbSet<Month>? Months { get; set; }
-
-        public DbSet<Traveller.Domain.Route>? Routes { get; set; }
-
-
-
     }
 }

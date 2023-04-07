@@ -21,7 +21,7 @@ namespace Domain.Repositories
 
         //Some people says Update method can NOT be in a repository
         void Update(T entity);
-
-
+        //https://stackoverflow.com/questions/5376421/ef-including-other-entities-generic-repository-pattern
+        IEnumerable<T> Including(Expression<Func<T, bool>> expression, Expression<Func<T, object>> [] includes);
     }
 }

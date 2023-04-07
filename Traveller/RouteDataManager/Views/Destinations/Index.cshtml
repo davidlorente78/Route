@@ -5,7 +5,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using (Html.BeginForm("Results", "Destinations", new DestinationIndexViewModel { FilterCountry = @Model.FilterCountry }, FormMethod.Post))
+@using (Html.BeginForm(
+    "Results", 
+    "Destinations", 
+    new DestinationIndexViewModel 
+    { 
+        FilterCountry = @Model.FilterCountry,
+        FilterDestinationType = @Model.FilterDestinationType
+    },
+    FormMethod.Post)
+    )
 {
     <div class="form-group">
         <table class="table">

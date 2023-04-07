@@ -1,4 +1,5 @@
-﻿using DomainServices.DestinationService;
+﻿using Data.EntityTypes;
+using DomainServices.DestinationService;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -56,7 +57,10 @@ namespace RouteDataManager.Controllers
                 throw new ArgumentNullException(nameof(destinationIndexViewModel));
             }
 
-            var destinations = destinationService.GetByCountryIdAndDestinationTypeId(destinationIndexViewModel.FilterCountry.Id, destinationIndexViewModel.FilterDestinationType.Id);
+            var destinations = destinationService.GetIncluding(
+                d => d.DestinationCountryID == destinationIndexViewModel.FilterCountry.Id && d.DestinationTypes.Select(d => d.Id).Contains(destinationIndexViewModel.FilterDestinationType.Id),
+                d => d.DestinationCountry, d => d.DestinationTypes);
+
 
             SelectList selectListCountries = new SelectList(countries, "Id", "Name", destinationIndexViewModel.FilterCountry.Id);
             SelectList selectListDestinationTypes = new SelectList(destinationTypes, "Id", "Description", destinationIndexViewModel.FilterDestinationType.Id);
@@ -77,15 +81,14 @@ namespace RouteDataManager.Controllers
                 throw new ArgumentNullException(nameof(destinationIndexViewModel));
             }
 
-            var destinations = destinationService.GetByCountryIdAndDestinationTypeId(destinationIndexViewModel.FilterCountry.Id, destinationIndexViewModel.FilterDestinationType.Id);
-
-            SelectList selectListCountries = new SelectList(countries, "Id", "Name", destinationIndexViewModel.FilterCountry.Id);
-            SelectList selectListDestinationTypes = new SelectList(destinationTypes, "Id", "Description", destinationIndexViewModel.FilterDestinationType.Id);
-
-            destinationIndexViewModel.SelectListCountries = selectListCountries;
-            destinationIndexViewModel.SelectListDestinationTypes = selectListDestinationTypes;
+            var destinations = destinationService.GetIncluding(
+                d => d.DestinationCountryID == destinationIndexViewModel.FilterCountry.Id &&  d.DestinationTypes.Select(d => d.Id).Contains(destinationIndexViewModel.FilterDestinationType.Id),
+                d => d.DestinationCountry, d => d.DestinationTypes);
 
             destinationIndexViewModel.Destinations = destinations;
+            destinationIndexViewModel.SelectListCountries = new SelectList(countries, "Id", "Name", destinationIndexViewModel.FilterCountry.Id); ;
+            destinationIndexViewModel.SelectListDestinationTypes = new SelectList(destinationTypes, "Id", "Description", destinationIndexViewModel.FilterDestinationType.Id);
+          
 
             return (View("Index", destinationIndexViewModel));
         }

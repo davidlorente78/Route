@@ -118,6 +118,11 @@ namespace Data.Vietnam
                 }
             }
         };
-    };
+
+        internal static ICollection<RangeChar> GetAll()
+        {
+            return new List<RangeChar> { SeasonRange, MonsoonRange, MonsoonRangeEvaluator };
+        }
+    }
 }
 

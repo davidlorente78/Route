@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace DomainServices.Generic
 {
@@ -10,5 +12,6 @@ namespace DomainServices.Generic
         int Add(TDto dto);
         int Remove(int id);
         int Update(TDto dto);
+        ICollection<TDto> GetIncluding(Expression<Func<TEntity, bool>> expression, params Expression<Func<TEntity, object>>[] includes);
     }
 }

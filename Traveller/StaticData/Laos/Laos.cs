@@ -11,7 +11,7 @@ namespace Data.Laos
             Destinations = LaosDestinations.GetAll(),
             BorderCrossings = LaosBorderCrossings.GetAll(),
             Airports = LaosAirports.GetAll(),
-            Ranges = new List<RangeChar> { LaosRanges.SeasonRange , LaosRanges.MonsoonRange , LaosRanges.MonsoonRangeEvaluator},          
+            Ranges = LaosRanges.GetAll()  
         };
     }
 }
