@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dm4J53lSDyRTcJElAy9sqevVLPZtFCX9WiXeIcKAkPk=",
+  "Hash": "DXvjw3ZhUAGpDT2EiEo2sqq/sHTOrRj2EI41ICkR+f0=",
   "Source": "RouteDataManager",
   "BasePath": "_content/RouteDataManager",
   "Mode": "Default",
@@ -3060,12 +3060,12 @@
       "OriginalItemSpec": "wwwroot\\css\\style.min.css"
     },
     {
-      "Identity": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\15fb2312-3b5b-4e66-8f8d-9b1bef78b398_6.69x9.61_BW_420 Cover Volumen 1 Front.jpg",
+      "Identity": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\Angkor.jpg",
       "SourceId": "RouteDataManager",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\",
       "BasePath": "_content/RouteDataManager",
-      "RelativePath": "DestinationUploads/15fb2312-3b5b-4e66-8f8d-9b1bef78b398_6.69x9.61_BW_420 Cover Volumen 1 Front.jpg",
+      "RelativePath": "DestinationUploads/Angkor.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -3074,24 +3074,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\DestinationUploads\\15fb2312-3b5b-4e66-8f8d-9b1bef78b398_6.69x9.61_BW_420 Cover Volumen 1 Front.jpg"
-    },
-    {
-      "Identity": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\49ec4456-95d7-41ae-9f0f-760e2a07ea33_Kindle PAPERBACK_6.690x9.610_385_BW_WHITE_en_US.png",
-      "SourceId": "RouteDataManager",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\",
-      "BasePath": "_content/RouteDataManager",
-      "RelativePath": "DestinationUploads/49ec4456-95d7-41ae-9f0f-760e2a07ea33_Kindle PAPERBACK_6.690x9.610_385_BW_WHITE_en_US.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\DestinationUploads\\49ec4456-95d7-41ae-9f0f-760e2a07ea33_Kindle PAPERBACK_6.690x9.610_385_BW_WHITE_en_US.png"
+      "OriginalItemSpec": "wwwroot\\DestinationUploads\\Angkor.jpg"
     },
     {
       "Identity": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\AranyaPrathet.jpg",
@@ -3126,6 +3109,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\DestinationUploads\\Bangkok.jpg"
+    },
+    {
+      "Identity": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\Battambang.jpg",
+      "SourceId": "RouteDataManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\",
+      "BasePath": "_content/RouteDataManager",
+      "RelativePath": "DestinationUploads/Battambang.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\DestinationUploads\\Battambang.jpg"
     },
     {
       "Identity": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\Burinam.jpg",
@@ -3315,6 +3315,23 @@
       "OriginalItemSpec": "wwwroot\\DestinationUploads\\PhangNga.jpg"
     },
     {
+      "Identity": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\PhnomPenh.jpg",
+      "SourceId": "RouteDataManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\",
+      "BasePath": "_content/RouteDataManager",
+      "RelativePath": "DestinationUploads/PhnomPenh.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\DestinationUploads\\PhnomPenh.jpg"
+    },
+    {
       "Identity": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\Phuket.jpg",
       "SourceId": "RouteDataManager",
       "SourceType": "Discovered",
@@ -3364,6 +3381,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\DestinationUploads\\Savannakhet.jpg"
+    },
+    {
+      "Identity": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\SiemReap.jpg",
+      "SourceId": "RouteDataManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\",
+      "BasePath": "_content/RouteDataManager",
+      "RelativePath": "DestinationUploads/SiemReap.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\DestinationUploads\\SiemReap.jpg"
+    },
+    {
+      "Identity": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\Sihanoukville.jpg",
+      "SourceId": "RouteDataManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\",
+      "BasePath": "_content/RouteDataManager",
+      "RelativePath": "DestinationUploads/Sihanoukville.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\DestinationUploads\\Sihanoukville.jpg"
     },
     {
       "Identity": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\Sukhothai.jpg",
@@ -7359,6 +7410,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Uploads\\avatar.png"
+    },
+    {
+      "Identity": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\Uploads\\c5211cac-034b-4d62-94ce-9dcfdb6f5949_0217078877.png",
+      "SourceId": "RouteDataManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\",
+      "BasePath": "_content/RouteDataManager",
+      "RelativePath": "Uploads/c5211cac-034b-4d62-94ce-9dcfdb6f5949_0217078877.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\c5211cac-034b-4d62-94ce-9dcfdb6f5949_0217078877.png"
     }
   ]
 }

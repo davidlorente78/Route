@@ -1,11 +1,12 @@
 ﻿using Data;
 using Data.EntityTypes;
 using Data.Thailand;
+using System.Reflection;
 using Traveller.Domain;
 
 namespace Traveller.StaticData
 {
-    public static class ThailandDestinations 
+    public static class ThailandDestinations
     {
         public static Destination Mukdahan = new Destination { Name = "Mukdahan" };
         public static Destination NongKhai = new Destination { Name = "Nong Khai" };
@@ -65,7 +66,7 @@ namespace Traveller.StaticData
         };
 
         public static Destination Sukhothai = new Destination
-        { 
+        {
             DestinationCountryID = 3,
             Name = "Sukhothai",
             LocalName = "สุโขทัย",
@@ -75,7 +76,7 @@ namespace Traveller.StaticData
             Picture = "/Sukhothai.jpg",
             DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }
         };
-  
+
         public static Destination Trang = new Destination
         {
             DestinationCountryID = 3,
@@ -118,7 +119,7 @@ namespace Traveller.StaticData
             LocalName = "อรัญประเทศ",
             DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing },
             Description = "Aranyaprathet is a town (thesaban mueang) in Sa Kaeo province in eastern Thailand . It covers the entire tambon of Aranyaprathet, in Aranyaprathet district. As of 2005, the town has 16,937 inhabitants. It is located just 6 kilometres (3.7 mi) from the border with Cambodia; the town of Poipet is on the other side of the border. On the Thai side of the border is the huge Rongkluea market. Cambodian people cross the border daily with pushcarts and scooters with side cars loaded with their products. A significant part of the trade is in second hand clothes.[1] Just over the border on the Cambodian side there are casinos. These are visited by many Thai people because gambling is prohibited in Thailand.",
-            Picture = "/AranyaPrathet.jpg",             
+            Picture = "/AranyaPrathet.jpg",
         };
 
         public static Destination VangTao = new Destination
@@ -241,7 +242,7 @@ namespace Traveller.StaticData
         };
 
         public static Destination Phitsanulok = new Destination
-        { 
+        {
             DestinationCountryID = 3,
             Name = "Phitsanulok",
             DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Train }
@@ -400,7 +401,7 @@ namespace Traveller.StaticData
 
                             Destination destination = new Destination
                             {
-                                Name = station.Name,                                 
+                                Name = station.Name,
                                 DestinationTypes = new List<DestinationType> { DestinationTypes.Train }
                             };
 
@@ -422,65 +423,21 @@ namespace Traveller.StaticData
 
         public static List<Destination> GetStaticAll()
         {
-            List<Destination> destinations = new List<Destination> {
-                Mukdahan,
-                NongKhai,
-                PadangPesar,
-                SungaiKolok,
-                ChiangKhong,
-                Aranyaprathet,
-                VangTao,
-                UbonRatchathani,
-                Songkhla,
-                Trang,
-                Bangkok,
-                ChiangMai,
-                ChiangRai,
-                HatYai,
-                Krabi,
-                Phuket,
-                Sukhothai,
-                Trang,
-                Burinam,
-                Chumphon,
-                HuaHin,
-                KhonKaen,
-                Lampang,
-                MaeHongSon,
-                MaeSot,
-                Tak,
-                NakhonPhanom,
-                NakhonRatchasima,
-                NanNakhon,
-                Loei,
-                NakhonSiThammarat,
-                Narathiwat,
-                Phetchabun,
-                Phitsanulok,
-                Phrae,
-                Ranong,
-                RoiEt,
-                SakonNakhon,
-                Trat,
-                PrachuapKhiriKhan,
-                SamutPrakan,
-                Nonthaburi,
-                PathumThani,
-                Betong,
-                Yala,
-                KoSamui,
-                SuratThani,
-                Rayong,
-                Pattaya,
-                UdonThani,
-                Lamphun,
-                KhlongYai,
-                BanHatLek
-            };
+            var fields = typeof(ThailandDestinations).GetFields(BindingFlags.Static | BindingFlags.Public);
 
+            var destinations = new List<Destination>();
+
+            foreach (var field in fields)
+            {
+                if (field.FieldType == typeof(Destination))
+                {
+                    destinations.Add((Destination)field.GetValue(null));
+                }
+            }
 
             return destinations;
         }
+
 
         public static List<Destination> GetAll()
         {

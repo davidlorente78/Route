@@ -57,12 +57,8 @@
       "PackagePath": "staticwebassets\\AirlineUploads\\tiger_airways-route.png"
     },
     {
-      "Id": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\15fb2312-3b5b-4e66-8f8d-9b1bef78b398_6.69x9.61_BW_420 Cover Volumen 1 Front.jpg",
-      "PackagePath": "staticwebassets\\DestinationUploads\\15fb2312-3b5b-4e66-8f8d-9b1bef78b398_6.69x9.61_BW_420 Cover Volumen 1 Front.jpg"
-    },
-    {
-      "Id": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\49ec4456-95d7-41ae-9f0f-760e2a07ea33_Kindle PAPERBACK_6.690x9.610_385_BW_WHITE_en_US.png",
-      "PackagePath": "staticwebassets\\DestinationUploads\\49ec4456-95d7-41ae-9f0f-760e2a07ea33_Kindle PAPERBACK_6.690x9.610_385_BW_WHITE_en_US.png"
+      "Id": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\Angkor.jpg",
+      "PackagePath": "staticwebassets\\DestinationUploads\\Angkor.jpg"
     },
     {
       "Id": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\AranyaPrathet.jpg",
@@ -71,6 +67,10 @@
     {
       "Id": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\Bangkok.jpg",
       "PackagePath": "staticwebassets\\DestinationUploads\\Bangkok.jpg"
+    },
+    {
+      "Id": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\Battambang.jpg",
+      "PackagePath": "staticwebassets\\DestinationUploads\\Battambang.jpg"
     },
     {
       "Id": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\Burinam.jpg",
@@ -117,6 +117,10 @@
       "PackagePath": "staticwebassets\\DestinationUploads\\PhangNga.jpg"
     },
     {
+      "Id": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\PhnomPenh.jpg",
+      "PackagePath": "staticwebassets\\DestinationUploads\\PhnomPenh.jpg"
+    },
+    {
       "Id": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\Phuket.jpg",
       "PackagePath": "staticwebassets\\DestinationUploads\\Phuket.jpg"
     },
@@ -127,6 +131,14 @@
     {
       "Id": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\Savannakhet.jpg",
       "PackagePath": "staticwebassets\\DestinationUploads\\Savannakhet.jpg"
+    },
+    {
+      "Id": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\SiemReap.jpg",
+      "PackagePath": "staticwebassets\\DestinationUploads\\SiemReap.jpg"
+    },
+    {
+      "Id": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\Sihanoukville.jpg",
+      "PackagePath": "staticwebassets\\DestinationUploads\\Sihanoukville.jpg"
     },
     {
       "Id": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\Sukhothai.jpg",
@@ -171,6 +183,10 @@
     {
       "Id": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\Uploads\\avatar.png",
       "PackagePath": "staticwebassets\\Uploads\\avatar.png"
+    },
+    {
+      "Id": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\Uploads\\c5211cac-034b-4d62-94ce-9dcfdb6f5949_0217078877.png",
+      "PackagePath": "staticwebassets\\Uploads\\c5211cac-034b-4d62-94ce-9dcfdb6f5949_0217078877.png"
     },
     {
       "Id": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\bootstrap\\css\\bootstrap-grid.css",

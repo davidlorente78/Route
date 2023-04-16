@@ -1,5 +1,4 @@
-﻿using Domain.Ranges;
-using Traveller.Domain;
+﻿using Traveller.Domain;
 using Traveller.StaticData;
 
 namespace Data.Thailand

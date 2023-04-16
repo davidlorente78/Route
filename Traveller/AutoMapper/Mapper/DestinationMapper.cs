@@ -27,6 +27,9 @@ namespace Application.Mapper
 
             entity.Id = dto.Id;
             entity.Name = dto.Name;
+            entity.Picture = dto.Picture;
+            entity.Description = dto.Description;
+            entity.DestinationCountryID = dto.DestinationCountryID;
 
             return entity;
         }

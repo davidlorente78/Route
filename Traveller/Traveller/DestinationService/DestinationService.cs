@@ -3,7 +3,6 @@ using AutoMapper;
 using Domain.Repositories;
 using DomainServices.Generic;
 using RouteDataManager.Repositories;
-using System.Collections.Generic;
 using Traveller.Application.Dto;
 using Traveller.Domain;
 

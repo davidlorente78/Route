@@ -14,8 +14,9 @@ namespace RouteDataManager.Controllers.Generic
         public readonly IGenericService<TDto, TEntity> genericService;
 
         public GenericController(IGenericService<TDto, TEntity> genericService)
-        {
+        {         
             this.genericService = genericService;
+
         }
 
         public virtual IActionResult Index(int? id)
@@ -25,7 +26,7 @@ namespace RouteDataManager.Controllers.Generic
             return View(dtos);
         }
 
-        public async Task<IActionResult> Details(int? id)
+        public virtual IActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -51,7 +52,7 @@ namespace RouteDataManager.Controllers.Generic
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(TDto dto)
+        public virtual IActionResult Create(TDto dto)
         {
             if (ModelState.IsValid)
             {
@@ -63,7 +64,7 @@ namespace RouteDataManager.Controllers.Generic
             return PartialView(dto);
         }
 
-        public async Task<IActionResult> Edit(int? id)
+        public virtual IActionResult Edit(int? id)
         {
             if (id == null || genericService.Exists(id.Value) == false)
             {
@@ -76,13 +77,14 @@ namespace RouteDataManager.Controllers.Generic
             {
                 return NotFound();
             }
+
             return PartialView(dto);
         }
 
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id,TDto dto)
+        public virtual IActionResult Edit(int id, TDto dto)
         {
             if (id != dto.Id)
             {
@@ -107,12 +109,14 @@ namespace RouteDataManager.Controllers.Generic
                         throw;
                     }
                 }
+
                 return RedirectToAction(nameof(Index));
             }
+
             return View(dto);
         }
 
-        public async Task<IActionResult> Delete(int? id)
+        public virtual IActionResult Delete(int? id)
         {
             if (id == null || !genericService.Exists(id.Value))
             {
@@ -131,7 +135,7 @@ namespace RouteDataManager.Controllers.Generic
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public IActionResult DeleteConfirmed(int id)
         {
             TDto dto = genericService.GetByID(id);
 

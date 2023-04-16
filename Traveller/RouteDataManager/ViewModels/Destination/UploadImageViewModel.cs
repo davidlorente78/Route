@@ -1,11 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
-using System.ComponentModel.DataAnnotations;
-
-//TODO REFACTOR
+﻿//TODO REFACTOR
 namespace RouteDataManager.ViewModels.Destination
 {
-    public class UploadImageViewModel    {
-      
+    public class UploadImageViewModel
+    {
         public IFormFile Picture { get; set; }
     }
 }
