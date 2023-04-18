@@ -18,7 +18,7 @@
 
                     <th>
                         <label class="control-label">Airport Type</label>
-                        <select asp-for="@Model.FilterAirportType.AirportTypeID" class ="form-control" asp-items="@Model.SelectListAirportTypes"></select>
+                        <select asp-for="@Model.FilterAirportType.Id" class ="form-control" asp-items="@Model.SelectListAirportTypes"></select>
                     </th>
                     
 
@@ -81,9 +81,9 @@
             </td>
 
           
-             <td>   <a asp-action="Edit"  class="btn btn-primary btn-block" asp-route-id="@item.AirportID">Edit</a></td>
-             <td>   <a asp-action="Details" class="btn btn-primary btn-block" asp-route-id="@item.AirportID">Details</a> </td>
-             <td>   <a asp-action="Delete" class="btn btn-primary btn-block" asp-route-id="@item.AirportID">Delete</a> </td>
+             <td>   <a asp-action="Edit"  class="btn btn-primary btn-block" asp-route-id="@item.Id">Edit</a></td>
+             <td>   <a asp-action="Details" class="btn btn-primary btn-block" asp-route-id="@item.Id">Details</a> </td>
+             <td>   <a asp-action="Delete" class="btn btn-primary btn-block" asp-route-id="@item.Id">Delete</a> </td>
            
         </tr>
 }

@@ -1,6 +1,6 @@
 ﻿using Application.Dto.Generic;
 
-namespace Traveller.Application.Dto
+namespace Application.Dto
 {
     public class CountryDto : GenericDto
     {

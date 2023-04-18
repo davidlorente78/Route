@@ -93,6 +93,10 @@
       "PackagePath": "staticwebassets\\DestinationUploads\\Ipoh.jpg"
     },
     {
+      "Id": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\KhlongYai.jpg",
+      "PackagePath": "staticwebassets\\DestinationUploads\\KhlongYai.jpg"
+    },
+    {
       "Id": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\Krabi.jpg",
       "PackagePath": "staticwebassets\\DestinationUploads\\Krabi.jpg"
     },

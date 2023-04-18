@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Domain.Generic;
 
 namespace Domain.Transport.Aviation
 {
-    public class AirportType
+    public class AirportType : EntityType
     {
-        public int AirportTypeID { get; set; }
-        public char? Code { get; set; }
-        public string? Description { get; set; }
     }
 }

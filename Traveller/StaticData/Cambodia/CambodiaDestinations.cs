@@ -68,6 +68,7 @@ namespace Traveller.StaticData
         {
             var fields = typeof(CambodiaDestinations).GetFields(BindingFlags.Static | BindingFlags.Public);
 
+            
             var destinations = new List<Destination>();
 
             foreach (var field in fields)

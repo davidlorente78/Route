@@ -1,4 +1,5 @@
-﻿using DomainServices.DestinationService;
+﻿using Application.Dto;
+using DomainServices.DestinationService;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -17,7 +18,6 @@ namespace RouteDataManager.Controllers
     /// </summary>
     public class DestinationsController : GenericController<DestinationDto, Destination>
     {
-        //private readonly ApplicationContext _context;
         private readonly IWebHostEnvironment environment;
 
         private readonly ICountryService countryService;
@@ -105,17 +105,8 @@ namespace RouteDataManager.Controllers
                 return NotFound();
             }
 
-            //ViewData["CountryID"] = new SelectList(countries, "Id", "Name", destination.DestinationCountryID);
-
             return PartialView(destination);
         }
-
-        //public override IActionResult Create()
-        //{
-        //    ViewData["CountryID"] = new SelectList(countries, "Id", "Name");
-        //    return PartialView();
-        //}
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -135,8 +126,6 @@ namespace RouteDataManager.Controllers
                 destinationService.Add(destination);
                 return RedirectToAction(nameof(Index));
             }
-
-            //ViewData["CountryID"] = new SelectList(countries, "Id", "Name", model.CountryID);
 
             return PartialView(model);
         }
@@ -163,8 +152,6 @@ namespace RouteDataManager.Controllers
                 Name = destination.Name,
                 ExistingImage = destination.Picture,
             };
-
-            //ViewData["CountryID"] = new SelectList(countries, "Id", "Name", destination.DestinationCountryID);
 
             return PartialView(destinationViewModel);
         }
@@ -197,8 +184,6 @@ namespace RouteDataManager.Controllers
                 }
 
                 destinationService.Update(destination);
-
-                //ViewData["CountryID"] = new SelectList(countries, "Id", "Name", model.CountryID);
 
                 return RedirectToAction(nameof(Index));
             }

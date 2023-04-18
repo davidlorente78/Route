@@ -1,7 +1,7 @@
-﻿using DomainServices.Generic;
+﻿using Application.Dto;
+using DomainServices.Generic;
 using NUnit.Framework;
 using System.Linq;
-using Traveller.Application.Dto;
 using Traveller.DomainServices;
 
 namespace Traveller.Tests.DomainServices

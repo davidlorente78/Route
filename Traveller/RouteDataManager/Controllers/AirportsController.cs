@@ -1,75 +1,100 @@
-﻿using Domain.Transport.Aviation;
+﻿using Application.Dto;
+using Domain.Transport.Aviation;
+using DomainServices.DestinationService;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using RouteDataManager.Controllers.Generic;
 using RouteDataManager.Repositories;
 using RouteDataManager.ViewModels;
+using Traveller.Application.Dto;
+using Traveller.DomainServices;
 
 namespace RouteDataManager.Controllers
 {
-    public class AirportsController : Controller
+    public class AirportsController : GenericController<AirportDto, Airport>
     {
         private readonly ApplicationContext _context;
 
-        public AirportsController(ApplicationContext context)
+        private readonly ICountryService countryService;
+        private readonly IAirportService airportService;
+        private readonly IAirportTypeService airportTypeService;
+
+        private IEnumerable<CountryDto> countries;
+        private IEnumerable<AirportDto> airports;
+        private IEnumerable<AirportTypeDto> airportTypes;
+
+        public AirportsController(ApplicationContext context,
+            ICountryService countryService,
+            IAirportService airportService,
+            IAirportTypeService airportTypeService
+            )
+            : base(airportService)
         {
+            this.airportService = airportService;
+            this.countryService = countryService;
+            this.airportTypeService = airportTypeService;
+
+            countries = countryService.GetAll();
+            airports = airportService.GetAll();
+            airportTypes = airportTypeService.GetAll();
+
             _context = context;
         }
 
-        // GET: Airports
-        public async Task<IActionResult> Index(AirportIndexViewModel airportIndexViewModel)
+        [HttpGet]
+        public IActionResult Index(AirportIndexViewModel airportIndexViewModel)
         {
-            IOrderedQueryable<Airport>? applicationContext;
+            if (airportIndexViewModel is null)
+            {
+                throw new ArgumentNullException(nameof(airportIndexViewModel));
+            }
+
+            var airports = new List<AirportDto>();
 
             if (airportIndexViewModel.FilterCountry.Id != 0)
             {
-                //applicationContext = _context.Airports.Where(d => d.CountryID == airportIndexViewModel.FilterCountry.CountryID).Include(d => d.Country).Include(d => d.AirportType).OrderBy(c => c.Country.Name);
-
-                applicationContext = _context.Airports
-                    .Where(d => d.AirportCountryID == airportIndexViewModel.FilterCountry.Id && d.AirportType.AirportTypeID == airportIndexViewModel.FilterAirportType.AirportTypeID)
-                    .Include(d => d.AirportCountry).Include(d => d.AirportType)
-                    .OrderBy(c => c.AirportCountry.Name);
+                airports = airportService.GetIncluding(
+                   d => d.AirportCountryID == airportIndexViewModel.FilterCountry.Id && d.AirportType.Id == airportIndexViewModel.FilterAirportType.Id,
+                   d => d.AirportCountry, d => d.AirportType).ToList();
             }
             else
             {
-                applicationContext = _context.Airports
-                    .Include(d => d.AirportCountry).Include(d => d.AirportType)
-                    .OrderBy(c => c.AirportCountry.Name);
+                airports = airportService.GetIncluding(
+                    d => d.Id == d.Id, //tODO
+                    d => d.AirportCountry, d => d.AirportType).ToList();
             }
 
-            SelectList selectListCountries = new SelectList(_context.Countries, "Id", "Name", airportIndexViewModel.FilterCountry.Id);
-            SelectList selectListAirportTypes = new SelectList(_context.AirportTypes, "AirportTypeID", "Description", airportIndexViewModel.FilterAirportType.AirportTypeID);
+            SelectList selectListCountries = new SelectList(countries, "Id", "Name", airportIndexViewModel.FilterCountry.Id);
+            SelectList selectListAirportTypes = new SelectList(airportTypes, "Id", "Description", airportIndexViewModel.FilterAirportType.Id);
 
             airportIndexViewModel.SelectListCountries = selectListCountries;
             airportIndexViewModel.SelectListAirportTypes = selectListAirportTypes;
-            airportIndexViewModel.Airports = await applicationContext.ToListAsync();
+            airportIndexViewModel.Airports = airports;
 
             return PartialView(airportIndexViewModel);
         }
 
-        // GET: Airports/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public override IActionResult Details(int? id)
         {
-            if (id == null || _context.Airports == null)
+            var destination = airportService.GetIncluding(
+               d => d.Id == id,
+               d => d.AirportType)
+            .FirstOrDefault();
+
+            if (destination == null)
             {
                 return NotFound();
             }
 
-            var airport = await _context.Airports
-                .FirstOrDefaultAsync(m => m.AirportID == id);
-            if (airport == null)
-            {
-                return NotFound();
-            }
-
-            return View(airport);
+            return PartialView(destination);
         }
 
-        // GET: Airports/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
+        //// GET: Airports/Create
+        //public IActionResult Create()
+        //{
+        //    return View();
+        //}
 
         // POST: Airports/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -87,21 +112,21 @@ namespace RouteDataManager.Controllers
             return View(airport);
         }
 
-        // GET: Airports/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Airports == null)
-            {
-                return NotFound();
-            }
+        //// GET: Airports/Edit/5
+        //public async Task<IActionResult> Edit(int? id)
+        //{
+        //    if (id == null || _context.Airports == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            var airport = await _context.Airports.FindAsync(id);
-            if (airport == null)
-            {
-                return NotFound();
-            }
-            return View(airport);
-        }
+        //    var airport = await _context.Airports.FindAsync(id);
+        //    if (airport == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return View(airport);
+        //}
 
         // POST: Airports/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -110,7 +135,7 @@ namespace RouteDataManager.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("AirportID,IATACode,ICAOCode,Name,LocalName")] Airport airport)
         {
-            if (id != airport.AirportID)
+            if (id != airport.Id)
             {
                 return NotFound();
             }
@@ -124,7 +149,7 @@ namespace RouteDataManager.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!AirportExists(airport.AirportID))
+                    if (!airportService.Exists(airport.Id))
                     {
                         return NotFound();
                     }
@@ -138,46 +163,46 @@ namespace RouteDataManager.Controllers
             return View(airport);
         }
 
-        // GET: Airports/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Airports == null)
-            {
-                return NotFound();
-            }
+        //// GET: Airports/Delete/5
+        //public async Task<IActionResult> Delete(int? id)
+        //{
+        //    if (id == null || _context.Airports == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            var airport = await _context.Airports
-                .FirstOrDefaultAsync(m => m.AirportID == id);
-            if (airport == null)
-            {
-                return NotFound();
-            }
+        //    var airport = await _context.Airports
+        //        .FirstOrDefaultAsync(m => m.Id == id);
+        //    if (airport == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return View(airport);
-        }
+        //    return View(airport);
+        //}
 
-        // POST: Airports/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Airports == null)
-            {
-                return Problem("Entity set 'ApplicationContext.Airport'  is null.");
-            }
-            var airport = await _context.Airports.FindAsync(id);
-            if (airport != null)
-            {
-                _context.Airports.Remove(airport);
-            }
+        //// POST: Airports/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> DeleteConfirmed(int id)
+        //{
+        //    if (_context.Airports == null)
+        //    {
+        //        return Problem("Entity set 'ApplicationContext.Airport'  is null.");
+        //    }
+        //    var airport = await _context.Airports.FindAsync(id);
+        //    if (airport != null)
+        //    {
+        //        _context.Airports.Remove(airport);
+        //    }
 
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
+        //    await _context.SaveChangesAsync();
+        //    return RedirectToAction(nameof(Index));
+        //}
 
-        private bool AirportExists(int id)
-        {
-            return (_context.Airports?.Any(e => e.AirportID == id)).GetValueOrDefault();
-        }
+        //private bool AirportExists(int id)
+        //{
+        //    return (_context.Airports?.Any(e => e.Id == id)).GetValueOrDefault();
+        //}
     }
 }

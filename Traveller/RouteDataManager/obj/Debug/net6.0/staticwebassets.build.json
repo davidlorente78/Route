@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "DXvjw3ZhUAGpDT2EiEo2sqq/sHTOrRj2EI41ICkR+f0=",
+  "Hash": "QK3pUkkbSA8trTdui9tEZMZbHiMT8xB2SmOp51VJ5KY=",
   "Source": "RouteDataManager",
   "BasePath": "_content/RouteDataManager",
   "Mode": "Default",
@@ -3211,6 +3211,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\DestinationUploads\\Ipoh.jpg"
+    },
+    {
+      "Identity": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\KhlongYai.jpg",
+      "SourceId": "RouteDataManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\",
+      "BasePath": "_content/RouteDataManager",
+      "RelativePath": "DestinationUploads/KhlongYai.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\DestinationUploads\\KhlongYai.jpg"
     },
     {
       "Identity": "C:\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\Krabi.jpg",

@@ -6,6 +6,5 @@ namespace Domain.Transport.Aviation
     {
         public int AirlineTypeID { get; set; }
         public ICollection<Airline> Airlines { get; set; } = new List<Airline>();
-
     }
 }

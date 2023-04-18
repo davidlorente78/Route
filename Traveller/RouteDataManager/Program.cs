@@ -36,18 +36,26 @@ builder.Services.AddScoped(typeof(ICountryMapper), typeof(CountryMapper));
 builder.Services.AddScoped(typeof(IDestinationMapper), typeof(DestinationMapper));
 builder.Services.AddScoped(typeof(IDestinationTypeMapper), typeof(DestinationTypeMapper));
 
+builder.Services.AddScoped(typeof(IAirportMapper), typeof(AirportMapper));
+builder.Services.AddScoped(typeof(IAirportTypeMapper), typeof(AirportTypeMapper)); 
 
 
 builder.Services.AddScoped<IBorderCrossingRepository, BorderCrossingRepository>();
 builder.Services.AddScoped<ICountryRepository, CountryRepository>();
 builder.Services.AddScoped<IDestinationRepository, DestinationRepository>();
 builder.Services.AddScoped<IRailwayStationRepository, RailwayStationRepository>();
+builder.Services.AddScoped<IAirportRepository, AirportRepository>();
+builder.Services.AddScoped<IAirportTypeRepository, AirportTypeRepository>();
+
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 builder.Services.AddScoped<ICountryService, CountryService>();
 builder.Services.AddScoped<IDestinationService, DestinationService>();
 builder.Services.AddScoped<IDestinationTypeService, DestinationTypeService>();
+builder.Services.AddScoped<IAirportService, AirportService>();
+builder.Services.AddScoped<IAirportTypeService, AirportTypeService>();
+
 
 builder.Services.AddScoped<IVisaService, VisaService>();
 builder.Services.AddScoped<IRouteService, RouteService>();

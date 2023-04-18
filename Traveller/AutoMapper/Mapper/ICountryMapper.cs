@@ -1,5 +1,5 @@
-﻿using Application.Mapper.Generic;
-using Traveller.Application.Dto;
+﻿using Application.Dto;
+using Application.Mapper.Generic;
 using Traveller.Domain;
 
 namespace Application.Mapper

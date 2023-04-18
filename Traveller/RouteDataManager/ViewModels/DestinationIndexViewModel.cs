@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Application.Dto;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Traveller.Application.Dto;
 
 namespace RouteDataManager.ViewModels

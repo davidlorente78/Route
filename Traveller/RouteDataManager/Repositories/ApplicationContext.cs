@@ -130,7 +130,7 @@ namespace RouteDataManager.Repositories
 
             modelBuilder.Entity<Airport>()
                 .ToTable("Airports")
-                .HasKey(x => x.AirportID);
+                .HasKey(x => x.Id);
 
             modelBuilder.Entity<Airport>()
                 .HasMany(x => x.Destinations);

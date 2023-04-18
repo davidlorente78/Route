@@ -1,11 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Domain.Generic;
+using System.ComponentModel.DataAnnotations;
 using Traveller.Domain;
 
 namespace Domain.Transport.Aviation
 {
-    public class Airport
+    public class Airport :  Entity
     {
-        public int AirportID { get; set; }
 
         [Required]
         [Display(Name = "Airport Type")]
@@ -23,6 +23,8 @@ namespace Domain.Transport.Aviation
         public virtual ICollection<Destination>? Destinations { get; set; }
         public int AirportCountryID { get; set; }
         public virtual Country AirportCountry { get; set; }
+
+        public string? Description { get; set; }
 
         public Airport()
         {

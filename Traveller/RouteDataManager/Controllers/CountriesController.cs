@@ -1,5 +1,5 @@
-﻿using RouteDataManager.Controllers.Generic;
-using Traveller.Application.Dto;
+﻿using Application.Dto;
+using RouteDataManager.Controllers.Generic;
 using Traveller.Domain;
 using Traveller.DomainServices;
 

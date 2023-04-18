@@ -1,4 +1,5 @@
-﻿using Application.Dto.Generic;
+﻿using Application.Dto;
+using Application.Dto.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Traveller.Application.Dto

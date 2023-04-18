@@ -1,8 +1,8 @@
-﻿using Application.Mapper.Generic;
+﻿using Application.Dto;
+using Application.Mapper.Generic;
 using AutoMapper;
 using Domain.Utils;
 using System;
-using Traveller.Application.Dto;
 using Traveller.Domain;
 
 namespace Application.Mapper

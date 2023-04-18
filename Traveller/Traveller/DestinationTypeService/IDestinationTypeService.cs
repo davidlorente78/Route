@@ -1,6 +1,5 @@
-﻿using Traveller.Application.Dto;
-using System.Collections.Generic;
-using DomainServices.Generic;
+﻿using DomainServices.Generic;
+using Traveller.Application.Dto;
 using Traveller.Domain;
 
 namespace DomainServices.DestinationService

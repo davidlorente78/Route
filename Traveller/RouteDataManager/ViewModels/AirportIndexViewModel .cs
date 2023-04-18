@@ -1,16 +1,18 @@
-﻿using Domain.Transport.Aviation;
+﻿using Application.Dto;
+using Domain.Transport.Aviation;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Traveller.Application.Dto;
 
 namespace RouteDataManager.ViewModels
 {
     public class AirportIndexViewModel
     {
-        public IEnumerable<Airport> Airports { get; set; }
+        public IEnumerable<AirportDto> Airports { get; set; }
         public SelectList SelectListCountries { get; set; }
         public SelectList SelectListAirportTypes { get; set; }
 
-        public AirportType FilterAirportType { get; set; } = new AirportType() { AirportTypeID = 1 };
-        public Traveller.Domain.Country FilterCountry { get; set; } = new Traveller.Domain.Country() { Id = 1 };
+        public AirportTypeDto FilterAirportType { get; set; } = new AirportTypeDto() { Id = 1 };
+        public CountryDto FilterCountry { get; set; } = new CountryDto() { Id = 1 };
 
     }
 }
