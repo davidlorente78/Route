@@ -1,37 +1,39 @@
-﻿@model Domain.Transport.Aviation.Airport
+﻿@using Traveller.Application.Dto;
+@model AirportDto
 
 @{
-    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Details</h1>
+<h4>Airport Details</h4>
+<hr />
 
 <div>
     <h4>Airport</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.IATACode)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.IATACode)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.ICAOCode)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.ICAOCode)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Name)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Name)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.LocalName)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.LocalName)
         </dd>
     </dl>
@@ -40,11 +42,11 @@
     <table>
         <tr>
             <td>
-                    <a asp-action="Edit" class="btn btn-primary btn-block" asp-route-id="@Model?.Id">Edit</a> 
+                <a asp-action="Edit" class="btn btn-primary btn-block" asp-route-id="@Model?.Id">Edit</a>
 
             </td>
             <td>
-                    <a asp-action="Index" class="btn btn-primary btn-block">Back to List</a>
+                <a asp-action="Index" class="btn btn-primary btn-block">Back to List</a>
 
             </td>
         </tr>

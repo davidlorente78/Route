@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using RouteDataManager.Controllers.Generic;
 using RouteDataManager.Repositories;
 using RouteDataManager.ViewModels;
+using RouteDataManager.ViewModels.Destination;
 using Traveller.Application.Dto;
 using Traveller.DomainServices;
 
@@ -55,13 +56,13 @@ namespace RouteDataManager.Controllers
             if (airportIndexViewModel.FilterCountry.Id != 0)
             {
                 airports = airportService.GetIncluding(
-                   d => d.AirportCountryID == airportIndexViewModel.FilterCountry.Id && d.AirportType.Id == airportIndexViewModel.FilterAirportType.Id,
+                   d => d.AirportCountryId == airportIndexViewModel.FilterCountry.Id && d.AirportType.Id == airportIndexViewModel.FilterAirportType.Id,
                    d => d.AirportCountry, d => d.AirportType).ToList();
             }
             else
             {
                 airports = airportService.GetIncluding(
-                    d => d.Id == d.Id, //tODO
+                    d => d.Id == d.Id, //TODO
                     d => d.AirportCountry, d => d.AirportType).ToList();
             }
 
@@ -77,132 +78,17 @@ namespace RouteDataManager.Controllers
 
         public override IActionResult Details(int? id)
         {
-            var destination = airportService.GetIncluding(
+            var airportDto = airportService.GetIncluding(
                d => d.Id == id,
                d => d.AirportType)
             .FirstOrDefault();
 
-            if (destination == null)
+            if (airportDto == null)
             {
                 return NotFound();
             }
 
-            return PartialView(destination);
-        }
-
-        //// GET: Airports/Create
-        //public IActionResult Create()
-        //{
-        //    return View();
-        //}
-
-        // POST: Airports/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AirportID,IATACode,ICAOCode,Name,LocalName")] Airport airport)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(airport);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(airport);
-        }
-
-        //// GET: Airports/Edit/5
-        //public async Task<IActionResult> Edit(int? id)
-        //{
-        //    if (id == null || _context.Airports == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var airport = await _context.Airports.FindAsync(id);
-        //    if (airport == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return View(airport);
-        //}
-
-        // POST: Airports/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("AirportID,IATACode,ICAOCode,Name,LocalName")] Airport airport)
-        {
-            if (id != airport.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(airport);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!airportService.Exists(airport.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(airport);
-        }
-
-        //// GET: Airports/Delete/5
-        //public async Task<IActionResult> Delete(int? id)
-        //{
-        //    if (id == null || _context.Airports == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var airport = await _context.Airports
-        //        .FirstOrDefaultAsync(m => m.Id == id);
-        //    if (airport == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return View(airport);
-        //}
-
-        //// POST: Airports/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> DeleteConfirmed(int id)
-        //{
-        //    if (_context.Airports == null)
-        //    {
-        //        return Problem("Entity set 'ApplicationContext.Airport'  is null.");
-        //    }
-        //    var airport = await _context.Airports.FindAsync(id);
-        //    if (airport != null)
-        //    {
-        //        _context.Airports.Remove(airport);
-        //    }
-
-        //    await _context.SaveChangesAsync();
-        //    return RedirectToAction(nameof(Index));
-        //}
-
-        //private bool AirportExists(int id)
-        //{
-        //    return (_context.Airports?.Any(e => e.Id == id)).GetValueOrDefault();
-        //}
+            return PartialView(airportDto);
+        } 
     }
 }

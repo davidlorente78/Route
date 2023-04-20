@@ -293,7 +293,7 @@ namespace Data.Thailand
         };
 
         public static Airport THS = new Airport
-        {   AirportCountryID =3,
+        {   AirportCountryId =3,
             Name = "Sukhothai Airport",
             Destinations = new List<Destination> { ThailandDestinations.Sukhothai },
             ICAOCode = "VTPO",

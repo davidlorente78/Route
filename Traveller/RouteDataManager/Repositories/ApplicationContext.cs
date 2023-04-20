@@ -1,12 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Traveller.Domain;
+﻿using CURDOperationWithImageUploadCore5_Demo.Models;
 using Domain;
-using Microsoft.EntityFrameworkCore.Metadata;
-using CURDOperationWithImageUploadCore5_Demo.Models;
-using System.Collections;
 using Domain.Ranges;
-using Domain.Transport.Railway;
 using Domain.Transport.Aviation;
+using Domain.Transport.Railway;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
+using Traveller.Domain;
 
 namespace RouteDataManager.Repositories
 {
@@ -72,7 +71,7 @@ namespace RouteDataManager.Repositories
             //Country
             modelBuilder.Entity<Country>()
                 .ToTable("Countries")
-                .HasKey(x => x.Id);             
+                .HasKey(x => x.Id);
 
             modelBuilder.Entity<Country>()
                 .HasMany<Destination>(c => c.Destinations)
@@ -80,16 +79,16 @@ namespace RouteDataManager.Repositories
                 .HasForeignKey(d => d.DestinationCountryID)
                 .OnDelete(DeleteBehavior.Cascade);
 
-             modelBuilder.Entity<Country>()
-                .HasMany<BorderCrossing>(c => c.BorderCrossings)
-                .WithOne(b => b.BorderCrossingCountry)
-                .HasForeignKey(b => b.BorderCrossingCountryID)
-                .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<Country>()
+               .HasMany<BorderCrossing>(c => c.BorderCrossings)
+               .WithOne(b => b.BorderCrossingCountry)
+               .HasForeignKey(b => b.BorderCrossingCountryID)
+               .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Country>()
                 .HasMany<Airport>(c => c.Airports)
                 .WithOne(a => a.AirportCountry)
-                .HasForeignKey(a => a.AirportCountryID)
+                .HasForeignKey(a => a.AirportCountryId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Country>()
@@ -123,10 +122,10 @@ namespace RouteDataManager.Repositories
                 .HasForeignKey(d => d.DestinationFinalID)
                 .OnDelete(DeleteBehavior.NoAction);
 
-            modelBuilder.Entity<BorderCrossing>()                
+            modelBuilder.Entity<BorderCrossing>()
                 .HasMany(b => b.Visas)
                 .WithMany(x => x.BorderCrossings)
-                .UsingEntity("VisaBorderCrossing");                
+                .UsingEntity("VisaBorderCrossing");
 
             modelBuilder.Entity<Airport>()
                 .ToTable("Airports")
@@ -186,7 +185,7 @@ namespace RouteDataManager.Repositories
             });
             #endregion
 
-          
+
         }
     }
 }

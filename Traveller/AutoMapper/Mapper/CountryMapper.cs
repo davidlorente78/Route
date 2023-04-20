@@ -16,8 +16,8 @@ namespace Application.Mapper
             ValidateDto(dto);
 
             Country entity = mapper.Map<Country>(dto);
-            entity.Name = dto.Name;
-
+            entity.SetName(dto.Name);
+            //TO CHECK Aqui no hay SetCode ¿?
             return entity;
         }
 
@@ -26,8 +26,8 @@ namespace Application.Mapper
             ValidateDto(dto);
 
             entity.Id = dto.Id;
-            entity.Name = dto.Name;
-            entity.Code = dto.Code.Value;
+            entity.SetName(dto.Name);
+            entity.SetCode(dto.Code.Value);
 
             return entity;
         }

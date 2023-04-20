@@ -1,42 +1,37 @@
-﻿using Application.Mapper.Generic;
+﻿using Application.Dto;
+using Application.Mapper.Generic;
 using AutoMapper;
 using Domain.Transport.Aviation;
-using Domain.Utils;
-using System;
-using Traveller.Application.Dto;
 
 namespace Application.Mapper
 {
-    public class AirportMapper : GenericMapper<AirportDto, Airport>, IAirportMapper
+    public class AirportTypeMapper : GenericMapper<AirportTypeDto, AirportType>, IAirportTypeMapper
     {
-        public AirportMapper(IMapper mapper) : base(mapper) { }
+        public AirportTypeMapper(IMapper mapper) : base(mapper) { }
 
-        public override Airport CreateEntityFromDto(AirportDto dto)
+        public override AirportType CreateEntityFromDto(AirportTypeDto dto)
         {
             ValidateDto(dto);
 
-            Airport entity = mapper.Map<Airport>(dto);
-            entity.Name = dto.Name;
-
+            AirportType entity = mapper.Map<AirportType>(dto);
+            entity.Description = dto.Description;
+            
             return entity;
         }
 
-        public override Airport UpdateEntityFromDto(AirportDto dto, Airport entity)
+        public override AirportType UpdateEntityFromDto(AirportTypeDto dto, AirportType entity)
         {
             ValidateDto(dto);
 
             entity.Id = dto.Id;
-            entity.Name = dto.Name;
             entity.Description = dto.Description;
-            entity.AirportCountryID = dto.AirportCountryID;
-            //entity.AirportType = dto.AirportType; //TO CHECK
+            entity.Code = dto.Code;
 
             return entity;
         }
 
-        private void ValidateDto(AirportDto dto)
+        private void ValidateDto(AirportTypeDto dto)
         {
-            Ensure.ArgumentNotNull(dto.AirportCountryID, new ArgumentNullException(nameof(dto.AirportCountryID)));
         }
     }
 }

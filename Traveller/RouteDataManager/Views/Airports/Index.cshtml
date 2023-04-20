@@ -6,86 +6,85 @@
 
 <form asp-action="Index">
 
-            <div class="form-group">
-                <table class="table">
-                 <thead>
+    <div class="form-group">
+        <table class="table">
+            <thead>
 
                 <tr>
                     <th>
-                         <label class="control-label">Country</label>
-                        <select asp-for="@Model.FilterCountry.Id" class ="form-control" asp-items="@Model.SelectListCountries"></select>
+                        <label class="control-label">Country</label>
+                        <select asp-for="@Model.FilterCountry.Id" class="form-control" asp-items="@Model.SelectListCountries"></select>
                     </th>
 
                     <th>
                         <label class="control-label">Airport Type</label>
-                        <select asp-for="@Model.FilterAirportType.Id" class ="form-control" asp-items="@Model.SelectListAirportTypes"></select>
-                    </th>
-                    
-
-                    <th>
-                      
+                        <select asp-for="@Model.FilterAirportType.Id" class="form-control" asp-items="@Model.SelectListAirportTypes"></select>
                     </th>
 
-                     <th>
-                      
-                    </th>
-                    
+
                     <th>
-                            <input type="submit" value="Search" class="btn btn-primary btn-block" />
+
+                    </th>
+
+                    <th>
+
+                    </th>
+
+                    <th>
+                        <input type="submit" value="Search" class="btn btn-primary btn-block" />
                     </th>
                 </tr>
 
-                </thead>
-                </table>
+            </thead>
+        </table>
 
-            </div>
+    </div>
 </form>
 
 <p>
-     <a asp-action="Create" class="btn btn-primary rounded-0"><i class="fa fa-plus-circle"></i>Add New</a>
+    <a asp-action="Create" class="btn btn-primary rounded-0"><i class="fa fa-plus-circle"></i>Add New</a>
 </p>
 
 <table class="table">
     <thead>
         <tr>
             <th>
-                 IATA Code
+                IATA Code
             </th>
-           @* <th>
-                @Html.DisplayNameFor(model => model.ICAOCode)
-            </th>*@
+
             <th>
-                 Name
+                Name
             </th>
+
             <th>
-                 Local Name
+                Local Name
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
 
-@foreach (var item in Model.Airports) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.IATACode)
-            </td>
-           @* <td>
-                @Html.DisplayFor(modelItem => item.ICAOCode)
-            </td>*@
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LocalName)
-            </td>
+        @foreach (var item in Model.Airports)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IATACode)
+                </td>
 
-          
-             <td>   <a asp-action="Edit"  class="btn btn-primary btn-block" asp-route-id="@item.Id">Edit</a></td>
-             <td>   <a asp-action="Details" class="btn btn-primary btn-block" asp-route-id="@item.Id">Details</a> </td>
-             <td>   <a asp-action="Delete" class="btn btn-primary btn-block" asp-route-id="@item.Id">Delete</a> </td>
-           
-        </tr>
-}
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.LocalName)
+                </td>
+
+                <td>   <a asp-action="Edit" class="btn btn-primary btn-block" asp-route-id="@item.Id">Edit</a></td>
+                <td>   <a asp-action="Details" class="btn btn-primary btn-block" asp-route-id="@item.Id">Details</a> </td>
+                <td>   <a asp-action="Delete" class="btn btn-primary btn-block" asp-route-id="@item.Id">Delete</a> </td>
+
+            </tr>
+
+        }
     </tbody>
 </table>
