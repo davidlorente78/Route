@@ -15,8 +15,6 @@ namespace RouteDataManager.Controllers
         private readonly ICountryService countryService;
         private readonly ApplicationContext _context;
 
-
-
         public HomeController(ApplicationContext context, ICountryService countryService, ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -47,7 +45,6 @@ namespace RouteDataManager.Controllers
             }
             return View(dynamicIndexData);
         }
-
 
         public IActionResult Privacy()
         {

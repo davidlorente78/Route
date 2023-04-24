@@ -1,15 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Data.EntityTypes;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RouteDataManager.Repositories;
 using RouteDataManager.ViewModels;
-using Domain.Ranges;
 using Traveller.Domain;
 using Traveller.DomainServices;
 using Traveller.RouteService;
 using Traveller.RouteService.Rules;
-using Data.EntityTypes;
-using DomainServices.Generic;
 
 namespace RouteDataManager.Controllers
 {
@@ -24,7 +22,6 @@ namespace RouteDataManager.Controllers
         private IVisaService visaService;
 
         private IRouteService routeService;
-
 
         public ItineraryByMonthController(ApplicationContext context, IVisaService visaService, IRouteService routeService, ICountryService countryService)
         {
@@ -45,8 +42,8 @@ namespace RouteDataManager.Controllers
                 .ThenInclude(r => r.RangeType).Where(x => x.Ranges.Count != 0).ToList();
 
 
-            var StartMonth = itineraryByMonthIndexViewModel.FilterStartMonth.MonthID; 
-            var EndMonth = itineraryByMonthIndexViewModel.FilterEndMonth.MonthID;   
+            var StartMonth = itineraryByMonthIndexViewModel.FilterStartMonth.MonthID;
+            var EndMonth = itineraryByMonthIndexViewModel.FilterEndMonth.MonthID;
 
             List<Domain.Ranges.Month>? completeMonthsList = _context.Months.ToList();
 
@@ -57,7 +54,7 @@ namespace RouteDataManager.Controllers
 
             if (itineraryMonthsCount > 6)
             {
-               return PartialView(CreateEmptyView(StartMonth, EndMonth, "Too long to calculate."));
+                return PartialView(CreateEmptyView(StartMonth, EndMonth, "Too long to calculate."));
             }
 
             //Inicializacion Vector
@@ -117,35 +114,35 @@ namespace RouteDataManager.Controllers
             int indexMonth = StartMonth;
             itineraryByMonthIndexViewModel.Months = itineraryMonthsList;
 
-            foreach (var country in filterCountries.Where(c=>c != null))
+            foreach (var country in filterCountries.Where(c => c != null))
             {
-                   var seasonRange = _context.Ranges
-                   .Where(d => d.CountryID == country.Id && d.RangeType.Code == RangeTypes.MonsoonSeasonRangeType.Code)
-                       .Include(f => f.EntityDescription_ByMonth)
-                            .ThenInclude(x => x.Items).FirstOrDefault();
+                var seasonRange = _context.Ranges
+                .Where(d => d.CountryID == country.Id && d.RangeType.Code == RangeTypes.MonsoonSeasonRangeType.Code)
+                    .Include(f => f.EntityDescription_ByMonth)
+                         .ThenInclude(x => x.Items).FirstOrDefault();
 
-                    if (seasonRange != null)
-                    {
-                        var Month = completeMonthsList[indexMonth - 1].Name; //Esto es la Key del diccionario que se va a consultar
-                        
-                    ICollection<Domain.EntityFrameworkDictionary.DictionaryItem<string, string>>? MonsoonDictionary = 
+                if (seasonRange != null)
+                {
+                    var Month = completeMonthsList[indexMonth - 1].Name; //Esto es la Key del diccionario que se va a consultar
+
+                    ICollection<Domain.EntityFrameworkDictionary.DictionaryItem<string, string>>? MonsoonDictionary =
                             seasonRange.EntityDescription_ByMonth.Items;
-                        
-                        var Description = MonsoonDictionary
-                            .Where(x => x.Key == completeMonthsList[indexMonth - 1].Name).FirstOrDefault()
-                            .Value;
 
-                        itineraryByMonthIndexViewModel.CountryReport.Add(Description);
-                    }
-                    else
-                    {
-                        itineraryByMonthIndexViewModel.CountryReport = new List<string>();
-                    }
+                    var Description = MonsoonDictionary
+                        .Where(x => x.Key == completeMonthsList[indexMonth - 1].Name).FirstOrDefault()
+                        .Value;
 
-                    indexMonth++;
+                    itineraryByMonthIndexViewModel.CountryReport.Add(Description);
+                }
+                else
+                {
+                    itineraryByMonthIndexViewModel.CountryReport = new List<string>();
+                }
 
-                    if (indexMonth > 12) indexMonth = 1; 
-                
+                indexMonth++;
+
+                if (indexMonth > 12) indexMonth = 1;
+
             }
 
             return View("Index", itineraryByMonthIndexViewModel);
@@ -171,7 +168,7 @@ namespace RouteDataManager.Controllers
             return ProcessItinerary(ref itineraryByMonthIndexViewModel);
         }
 
-        private List<Domain.Ranges.Month>  CreateMonthList (int startMonth, int endMonth, List<Domain.Ranges.Month> completeMonthsList)
+        private List<Domain.Ranges.Month> CreateMonthList(int startMonth, int endMonth, List<Domain.Ranges.Month> completeMonthsList)
         {
             var monthsList = new List<Domain.Ranges.Month>();
             var YearChange = (endMonth < startMonth) ? true : false;
@@ -181,19 +178,19 @@ namespace RouteDataManager.Controllers
                 for (int x = startMonth; x < endMonth + 1; x++)
                 {
                     //La lista de meses esta indexada desde 0
-                    monthsList.Add(completeMonthsList.ElementAt(x - 1)); 
+                    monthsList.Add(completeMonthsList.ElementAt(x - 1));
                 }
             }
             else
             {
                 for (int x = startMonth; x < 12 + 1; x++)
                 {
-                    monthsList.Add(completeMonthsList.ElementAt(x - 1)); 
+                    monthsList.Add(completeMonthsList.ElementAt(x - 1));
                 }
 
                 for (int x = 1; x < endMonth + 1; x++)
                 {
-                    monthsList.Add(completeMonthsList.ElementAt(x - 1)); 
+                    monthsList.Add(completeMonthsList.ElementAt(x - 1));
                 }
             }
 
@@ -261,9 +258,9 @@ namespace RouteDataManager.Controllers
             filterCountries.Add(itineraryByMonthIndexViewModel.FilterCountry11);
             filterCountries.Add(itineraryByMonthIndexViewModel.FilterCountry12);
             return filterCountries;
-        }    
+        }
 
-        private ItineraryByMonthIndexViewModel CreateEmptyView(int StartMonth, int EndMonth ,string message)
+        private ItineraryByMonthIndexViewModel CreateEmptyView(int StartMonth, int EndMonth, string message)
         {
             List<Domain.Ranges.Month>? completeMonthsList = _context.Months.ToList();
             var itineraryByMonthIndexViewModel = new ItineraryByMonthIndexViewModel();

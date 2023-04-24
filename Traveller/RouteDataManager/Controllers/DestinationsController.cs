@@ -163,7 +163,6 @@ namespace RouteDataManager.Controllers
         //En este mismo metodo se realiza la transformacion TODO
         public IActionResult EditWithPicture(DestinationViewModel model)
         {
-
             try
             {
                 var destination = destinationService.GetByID(model.DestinationID);
@@ -199,7 +198,6 @@ namespace RouteDataManager.Controllers
                 }
             }
         }
-
 
         private string ProcessUploadedFile(IFormFile formFile)
         {

@@ -1,7 +1,5 @@
-﻿using Data;
-using Domain.Transport.Railway;
+﻿using Domain.Transport.Railway;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Traveller.Domain;
 
 namespace RouteDataManager.ViewModels
 {

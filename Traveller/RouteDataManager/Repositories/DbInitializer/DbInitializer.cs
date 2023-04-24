@@ -20,7 +20,6 @@ namespace RouteDataManager.Repositories.DbInitializer
 
         public DbInitializer() { }
 
-
         public static void Initialize(ApplicationContext context)
         {
             context.Database.EnsureDeleted();
@@ -238,11 +237,9 @@ namespace RouteDataManager.Repositories.DbInitializer
                 });
 
                 context.SaveChanges();
-
             }
 
             DbInitializerUtils.AddAirportsAndRailwayStationWithSameNameToDestination(context);
-
         }
     }
 }

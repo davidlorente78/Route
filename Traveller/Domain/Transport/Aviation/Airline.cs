@@ -1,5 +1,4 @@
-﻿using Domain.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Domain.Transport.Aviation
 {
@@ -13,7 +12,7 @@ namespace Domain.Transport.Aviation
         public virtual Airport? MainAirport { get; set; }
         public List<Airport>? Airports { get; set; }
         public virtual AirlineType? AirlineType { get; set; }
-        public int AirlineTypeID{ get; set; }
+        public int AirlineTypeID { get; set; }
 
         [Required]
         [StringLength(5000)]
@@ -28,9 +27,6 @@ namespace Domain.Transport.Aviation
         public Airline()
         {
 
-
         }
     }
-
-
 }

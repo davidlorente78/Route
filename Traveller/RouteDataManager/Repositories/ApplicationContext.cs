@@ -1,10 +1,8 @@
-﻿using CURDOperationWithImageUploadCore5_Demo.Models;
-using Domain;
+﻿using Domain;
 using Domain.Ranges;
 using Domain.Transport.Aviation;
 using Domain.Transport.Railway;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Traveller.Domain;
 
 namespace RouteDataManager.Repositories
@@ -38,8 +36,6 @@ namespace RouteDataManager.Repositories
         public DbSet<RailwayBranch>? RailwayBranches { get; set; }
 
         public DbSet<Visa>? Visas { get; set; }
-
-        public DbSet<Speaker>? Speakers { get; set; }
 
         public DbSet<Airport>? Airports { get; set; }
 
@@ -141,51 +137,6 @@ namespace RouteDataManager.Repositories
                 .HasOne(x => x.AirportType);
 
             modelBuilder.Entity<RailwayBranch>().ToTable("Branches");
-
-            #region Speakers
-            modelBuilder.Entity("CURDOperationWithImageUploadCore5_Demo.Models.Speaker", b =>
-            {
-                b.Property<int>("Id")
-                    .ValueGeneratedOnAdd()
-                    .HasColumnType("int")
-                    .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                b.Property<int>("Experience")
-                    .HasMaxLength(100)
-                    .HasColumnType("int");
-
-                b.Property<string>("ProfilePicture")
-                    .IsRequired()
-                    .HasColumnType("nvarchar(max)");
-
-                b.Property<string>("Qualification")
-                    .IsRequired()
-                    .HasMaxLength(100)
-                    .HasColumnType("nvarchar(100)");
-
-                b.Property<string>("SpeakerName")
-                    .IsRequired()
-                    .HasMaxLength(100)
-                    .HasColumnType("nvarchar(100)");
-
-                b.Property<DateTime>("SpeakingDate")
-                    .HasColumnType("datetime2");
-
-                b.Property<DateTime>("SpeakingTime")
-                    .HasColumnType("datetime2");
-
-                b.Property<string>("Venue")
-                    .IsRequired()
-                    .HasMaxLength(255)
-                    .HasColumnType("nvarchar(255)");
-
-                b.HasKey("Id");
-
-                b.ToTable("Speakers");
-            });
-            #endregion
-
-
         }
     }
 }
