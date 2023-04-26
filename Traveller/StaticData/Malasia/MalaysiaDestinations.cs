@@ -9,11 +9,11 @@ namespace Traveller.StaticData
         public static Destination PadangPesar = new Destination { Name = "Padang Pesar", DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing } };
         public static Destination RantanPanjang = new Destination { Name = "Rantan Panjang", DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing } };
         public static Destination KotaBahru = new Destination { Name = "Kota Bahru", DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing } };
-        public static Destination Penang = new Destination {  DestinationCountryID=4, Name = "Penang", DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing, DestinationTypes.Airport } };
+        public static Destination Penang = new Destination {  CountryId=4, Name = "Penang", DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing, DestinationTypes.Airport } };
         public static Destination KUL = new Destination { Name = "Kuala Lumpur Airport", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
-        public static Destination JohorBahru = new Destination { DestinationCountryID = 4, Name = "Johor Bahru", DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing , DestinationTypes.Airport } };
+        public static Destination JohorBahru = new Destination { CountryId = 4, Name = "Johor Bahru", DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing , DestinationTypes.Airport } };
         public static Destination Butterworth = new Destination { Name = "Butterworth", DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism } };
-        public static Destination KualaLumpur = new Destination { DestinationCountryID = 4, Picture = "/KualaLumpur.jpg", Name = "Kuala Lumpur", DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism, DestinationTypes.Airport } };
+        public static Destination KualaLumpur = new Destination { CountryId = 4, Picture = "/KualaLumpur.jpg", Name = "Kuala Lumpur", DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism, DestinationTypes.Airport } };
         public static Destination KualaKangsar = new Destination { Name = "Kuala Kangsar", Picture = "/KualaKangsar.jpg", DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism } };
         public static Destination Ipoh = new Destination { Name = "Ipoh",  Picture = "/Ipoh.jpg", DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism , DestinationTypes.Airport} };
         public static Destination KotaKinabalu = new Destination { Name = "Kota Kinabalu", DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism, DestinationTypes.Airport } };

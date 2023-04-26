@@ -24,8 +24,8 @@ namespace RouteDataManager.Controllers
             if ((borderCrossingsIndexViewModel.FilterCountryOrigin.Id != 0) && (borderCrossingsIndexViewModel.FilterCountryFinal.Id != 0))
             {
                 applicationContext = _context.BorderCrossings.Where(
-                    f => f.DestinationOrigin.DestinationCountryID == borderCrossingsIndexViewModel.FilterCountryOrigin.Id
-                && f.DestinationFinal.DestinationCountryID == borderCrossingsIndexViewModel.FilterCountryFinal.Id
+                    f => f.DestinationOrigin.CountryId == borderCrossingsIndexViewModel.FilterCountryOrigin.Id
+                && f.DestinationFinal.CountryId == borderCrossingsIndexViewModel.FilterCountryFinal.Id
                 && f.BorderCrossingType.Id == borderCrossingsIndexViewModel.FilterBorderCrossingType.Id)
                     .Include(f => f.DestinationOrigin)
                     .Include(f => f.DestinationFinal)

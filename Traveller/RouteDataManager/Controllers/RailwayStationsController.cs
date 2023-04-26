@@ -26,7 +26,7 @@ namespace RouteDataManager.Controllers
                 stationIndexViewModel.FilterLine = itemsSelectLines.FirstOrDefault();
                 applicationContext = _context.RailwayStations
                     .Where(
-                        s => s.Destinations.Select(d => d.DestinationCountryID).Contains(stationIndexViewModel.FilterCountry.Id)
+                        s => s.Destinations.Select(d => d.CountryId).Contains(stationIndexViewModel.FilterCountry.Id)
                      )
                     .Include(s => s.Destinations)
                     .OrderBy(s => s.RailwayStationID);

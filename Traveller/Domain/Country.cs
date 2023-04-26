@@ -24,6 +24,9 @@ namespace Traveller.Domain
         public virtual ICollection<RangeChar> Ranges { get; set; }
         public virtual ICollection<Airport> Airports { get; set; }
 
+        //public int? RailwaySystemId { get; set; }
+        //public RailwaySystem? RailwaySystem { get; set; }
+
         public Country() { }
 
         public Country(char code, string name, bool showInDynamicHome, int showInDynamicHomeOrder)
@@ -62,7 +65,7 @@ namespace Traveller.Domain
             if (!Destinations.Contains(destination))
             {
                 Destinations.Add(destination);
-                destination.DestinationCountry = this;
+                destination.Country = this;
             }
         }
 

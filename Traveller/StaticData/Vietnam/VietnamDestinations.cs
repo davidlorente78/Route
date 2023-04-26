@@ -17,35 +17,35 @@ namespace Traveller.StaticData
         public static Destination CauTreo = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing }, Description = "Leaving from Lak Sao and following route 8 you arrive at this border locality. It gives access to Vietnam at the height of Vinh.", Name = "Cau Treo / Cao Tree" };
         public static Destination NinhBinh = new Destination { DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism }, Description = "Ninh Binh", Name = "Ninh Binh" };
         //Si esta relacionada con una estacion tambien debe tener CountryID para evitar conflicto con FK en inicializacion de Base de datos
-        public static Destination HoiAn = new Destination { DestinationCountryID = 2, DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism }, Description = "Hoi An", Name = "Hoi An" };
-        public static Destination PhanThiet = new Destination { DestinationCountryID = 2, DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism }, Description = "Phan Thiet", Name = "Phan Thiet" };
-        public static Destination QuiNhon = new Destination { DestinationCountryID = 2, DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism }, Description = "Qui Nhon", Name = "Qui Nhon" };
+        public static Destination HoiAn = new Destination { CountryId = 2, DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism }, Description = "Hoi An", Name = "Hoi An" };
+        public static Destination PhanThiet = new Destination { CountryId = 2, DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism }, Description = "Phan Thiet", Name = "Phan Thiet" };
+        public static Destination QuiNhon = new Destination { CountryId = 2, DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism }, Description = "Qui Nhon", Name = "Qui Nhon" };
         /// Las localidades ligadas a un aeropuerto deben tener tambien informado el CountryID para evitar conflicto con FK
-        public static Destination Hanoi = new Destination { DestinationCountryID = 2, DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism, DestinationTypes.Airport }, Name = "Hanoi" };
-        public static Destination HoChiMinh = new Destination { DestinationCountryID = 2, DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism }, Name = "Ho Chi Minh" };
-        public static Destination Hue = new Destination { DestinationCountryID = 2, DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }, Name = "Hue", };
-        public static Destination Danang = new Destination { DestinationCountryID = 2, DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }, Name = "Danang", };
-        public static Destination Haiphong = new Destination { DestinationCountryID = 2, DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }, Name = "Hai Phong", };
-        public static Destination DungQuatBay = new Destination { DestinationCountryID = 2, DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }, Name = "Dung Quat Bay", };
-        public static Destination PhuQuoc = new Destination { DestinationCountryID = 2, DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }, Name = "Phu Quoc Island", };
-        public static Destination CanTho = new Destination { DestinationCountryID = 2, DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }, Name = "Can Tho", };
-        public static Destination BuonMaThuot = new Destination { DestinationCountryID = 2, DestinationTypes = new List<DestinationType> { DestinationTypes.Airport }, Name = "Buon Ma Thuot", LocalName = "Buôn Ma Thuột" };
-        public static Destination DongHoi = new Destination { DestinationCountryID = 2, Name = "Dong Hoi", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
-        public static Destination TuyHoa = new Destination { DestinationCountryID = 2, Name = "Tuy Hoa", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
-        public static Destination RachGia = new Destination { DestinationCountryID = 2, Name = "Rach Gia", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
-        public static Destination Pleiku = new Destination { DestinationCountryID = 2, Name = "Pleiku", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
-        public static Destination DienBienPhu = new Destination { DestinationCountryID = 2, Name = "Dien Bien Phu", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
-        public static Destination ConDao = new Destination { DestinationCountryID = 2, Name = "Con Dao", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
-        public static Destination CàMau = new Destination { DestinationCountryID = 2, Name = "Cà Mau", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
-        public static Destination QuyNohn = new Destination { DestinationCountryID = 2, Name = "Quy Nohn", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
-        public static Destination DaLat = new Destination { DestinationCountryID = 2, Name = "Da Lat", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
-        public static Destination Vinh = new Destination { DestinationCountryID = 2, Name = "Vinh", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
-        public static Destination NhaTrang = new Destination { DestinationCountryID = 2, Name = "Nha Trang", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
-        public static Destination ThuongPhuoc = new Destination { DestinationCountryID = 2, Name = "Thuong Phuoc", DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing } };
-        public static Destination ChanMay = new Destination { DestinationCountryID = 2, Name = "Chan May", DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing } };
-        public static Destination HonGai = new Destination { DestinationCountryID = 2, Name = "Hon Gai", DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing } };
-        public static Destination QuyNhon = new Destination { DestinationCountryID = 2, Name = "Quy Nhon", DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing } };
-        public static Destination VungTau = new Destination { DestinationCountryID = 2, Name = "Vung Tau", DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing } };
+        public static Destination Hanoi = new Destination { CountryId = 2, DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism, DestinationTypes.Airport }, Name = "Hanoi" };
+        public static Destination HoChiMinh = new Destination { CountryId = 2, DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism }, Name = "Ho Chi Minh" };
+        public static Destination Hue = new Destination { CountryId = 2, DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }, Name = "Hue", };
+        public static Destination Danang = new Destination { CountryId = 2, DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }, Name = "Danang", };
+        public static Destination Haiphong = new Destination { CountryId = 2, DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }, Name = "Hai Phong", };
+        public static Destination DungQuatBay = new Destination { CountryId = 2, DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }, Name = "Dung Quat Bay", };
+        public static Destination PhuQuoc = new Destination { CountryId = 2, DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }, Name = "Phu Quoc Island", };
+        public static Destination CanTho = new Destination { CountryId = 2, DestinationTypes = new List<DestinationType> { DestinationTypes.Airport, DestinationTypes.Tourism }, Name = "Can Tho", };
+        public static Destination BuonMaThuot = new Destination { CountryId = 2, DestinationTypes = new List<DestinationType> { DestinationTypes.Airport }, Name = "Buon Ma Thuot", LocalName = "Buôn Ma Thuột" };
+        public static Destination DongHoi = new Destination { CountryId = 2, Name = "Dong Hoi", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
+        public static Destination TuyHoa = new Destination { CountryId = 2, Name = "Tuy Hoa", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
+        public static Destination RachGia = new Destination { CountryId = 2, Name = "Rach Gia", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
+        public static Destination Pleiku = new Destination { CountryId = 2, Name = "Pleiku", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
+        public static Destination DienBienPhu = new Destination { CountryId = 2, Name = "Dien Bien Phu", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
+        public static Destination ConDao = new Destination { CountryId = 2, Name = "Con Dao", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
+        public static Destination CàMau = new Destination { CountryId = 2, Name = "Cà Mau", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
+        public static Destination QuyNohn = new Destination { CountryId = 2, Name = "Quy Nohn", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
+        public static Destination DaLat = new Destination { CountryId = 2, Name = "Da Lat", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
+        public static Destination Vinh = new Destination { CountryId = 2, Name = "Vinh", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
+        public static Destination NhaTrang = new Destination { CountryId = 2, Name = "Nha Trang", DestinationTypes = new List<DestinationType> { DestinationTypes.Airport } };
+        public static Destination ThuongPhuoc = new Destination { CountryId = 2, Name = "Thuong Phuoc", DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing } };
+        public static Destination ChanMay = new Destination { CountryId = 2, Name = "Chan May", DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing } };
+        public static Destination HonGai = new Destination { CountryId = 2, Name = "Hon Gai", DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing } };
+        public static Destination QuyNhon = new Destination { CountryId = 2, Name = "Quy Nhon", DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing } };
+        public static Destination VungTau = new Destination { CountryId = 2, Name = "Vung Tau", DestinationTypes = new List<DestinationType> { DestinationTypes.BorderCrossing } };
 
         public static List<Destination> GetStaticAll()
         {

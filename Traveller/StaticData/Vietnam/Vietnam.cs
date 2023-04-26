@@ -1,4 +1,5 @@
 ﻿using Domain.Ranges;
+using Domain.Transport.Railway;
 using Traveller.Domain;
 using Traveller.StaticData;
 
@@ -12,7 +13,7 @@ namespace Data.Vietnam
             BorderCrossings = VietnamBorderCrossings.GetAll(),
             Airports = VietnamAirports.GetAll(),
             TrainLines = VietnamTrainLines.GetAll(),
-            Ranges = VietnamRanges.GetAll()
+            Ranges = VietnamRanges.GetAll(),         
         };
     }
 }

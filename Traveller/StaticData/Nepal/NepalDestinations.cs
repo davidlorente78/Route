@@ -7,7 +7,7 @@ namespace Traveller.StaticData
     {
         public static Destination Kathmandu = new Destination
         {
-            DestinationCountryID = 7,
+            CountryId = 7,
             Name = "Kathmandu",
             DestinationTypes = new List<DestinationType> { DestinationTypes.Tourism }
         };

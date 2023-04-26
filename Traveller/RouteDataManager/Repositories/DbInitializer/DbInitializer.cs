@@ -68,14 +68,14 @@ namespace RouteDataManager.Repositories.DbInitializer
             //#region Other Countries
             ////Indonesia Nepal Sri Lanka Philippines China Singapore
 
-            Country Indonesia = new Country('I', "Indonesia", false, 0)
-            {
-                Ranges = new List<RangeChar> { IndonesiaRanges.MonsoonRange, IndonesiaRanges.MonsoonRangeEvaluator },
+            //Country Indonesia = new Country('I', "Indonesia", false, 0)
+            //{
+            //    Ranges = new List<RangeChar> { IndonesiaRanges.MonsoonRange, IndonesiaRanges.MonsoonRangeEvaluator },
 
-                //Bali Lombok TODO
-            };
+            //    //Bali Lombok TODO
+            //};
 
-            context.Countries.Add(Indonesia);
+            //context.Countries.Add(Indonesia);
 
             Country Nepal = new Country('N', "Nepal", true, 4)
             {
@@ -97,9 +97,9 @@ namespace RouteDataManager.Repositories.DbInitializer
 
             context.Countries.Add(Nepal);
 
-            Country Philippines = new Country('P', "Philippines", false, 0) { };
+            //Country Philippines = new Country('P', "Philippines", false, 0) { };
 
-            context.Countries.Add(Philippines);
+            //context.Countries.Add(Philippines);
 
             Country Singapore = new Country('S', "Singapore", false, 0)
             {
@@ -126,9 +126,9 @@ namespace RouteDataManager.Repositories.DbInitializer
                             DestinationFinal = SingaporeDestinations.WoodlandsCheckpoint,
                             BorderCrossingType = BorderCrossingTypes.Terrestrial,
                             Visas = new List<Visa>
-                            {
-                                SingaporeVisas.SGArrivalCard_Singapore
-                            }
+                                {
+                                    SingaporeVisas.SGArrivalCard_Singapore
+                                }
                             },
 
                             //Frontier https://en.wikipedia.org/wiki/Malaysia%E2%80%93Singapore_Second_Link
@@ -138,46 +138,53 @@ namespace RouteDataManager.Repositories.DbInitializer
 
             context.Countries.Add(Singapore);
 
-            Country SriLanka = new Country('R', "Sri Lanka", false, 0);
+            //Country SriLanka = new Country('R', "Sri Lanka", false, 0);
 
-            context.Countries.Add(SriLanka);
+            //context.Countries.Add(SriLanka);
 
-            Country China = new Country('H', "China", false, 0);
+            //Country China = new Country('H', "China", false, 0);
 
-            context.Countries.Add(China);
+            //context.Countries.Add(China);
+
+            context.SaveChanges();
+
+            var MalaysiaId = context.Countries.FirstOrDefault(item => item.Code == 'M').Id;
+            var VietnamId = context.Countries.FirstOrDefault(item => item.Code == 'V').Id;
+            var ThailandId = context.Countries.FirstOrDefault(item => item.Code == 'T').Id;
 
             if (!context.RailwaySystems.Any())
             {
-                context.RailwaySystems.AddRange(new List<RailwaySystem>()
+                context.RailwaySystems.AddRange(new List<RailwaySystem>() {
+
+                    new RailwaySystem ()
                     {
-                        new RailwaySystem()
-                        {
-                          Name="Railway System Malaysia",
-                          MapPicture="/Railway System Malaysia.png",
-                          Description=""
-                        },
-                        new RailwaySystem()
-                        {
-                          Name="Railway System Thailand",
-                          MapPicture="/Railway System Thailand.jpg",
-                          Description=""
-                        },
-                        new RailwaySystem()
-                        {
-                          Name="Railway System Vietnam",
-                          MapPicture="/Railway System Vietnam.jpg",
-                          Description=""
-                        },
-                        new RailwaySystem()
-                        {
-                          Name="Railway System Sri Lanka",
-                          MapPicture="/Railway System Sri Lanka.jpg",
-                          Description=""
-                        },
+                        CountryId = MalaysiaId,
+                        Name = "Railway System Malaysia",
+                        MapPicture = "/Railway System Malaysia.png",
+                        Description = ""
+                    },
+                     new RailwaySystem ()
+                        { CountryId = ThailandId,
+                            Name = "Railway System Thailand",
+                            MapPicture = "/Railway System Thailand.jpg",
+                            Description = ""
+                        }
+                     ,
+                     new RailwaySystem ()
+                        { CountryId = VietnamId,
+                            Name = "Railway System Vietnam",
+                            MapPicture = "/Railway System Vietnam.jpg",
+                            Description = ""
+                        }
                     });
 
                 context.SaveChanges();
             }
+
+            var KULId = context.Airports.FirstOrDefault(item => item.IATACode == "KUL").Id;
+            var SINId = context.Airports.FirstOrDefault(item => item.IATACode == "SIN").Id;
+            var DMKId = context.Airports.FirstOrDefault(item => item.IATACode == "DMK").Id;
+            var BKKId = context.Airports.FirstOrDefault(item => item.IATACode == "BKK").Id;
 
             if (!context.Airlines.Any())
             {
@@ -187,7 +194,7 @@ namespace RouteDataManager.Repositories.DbInitializer
                         {
                           IATACode ="AK",
                           Url = "ww.airasia.com",
-                          MainAirport = MalaysiaAirports.KUL,
+                          MainAirportID = KULId,
                           Name="Air Asia",
                           AirlineType = AirlineTypes.Budget,
                           Picture="/air-asia-routes.jpg",
@@ -198,7 +205,7 @@ namespace RouteDataManager.Repositories.DbInitializer
                         {
                           IATACode ="TR",
                           Url = "www.flyscoot.com",
-                          MainAirport = SingaporeAirports.SIN,
+                          MainAirportID = SINId,
                           AirlineType = AirlineTypes.Budget,
                           Name="Scoot",
                           Picture="/fly-scoot.jpg",
@@ -207,7 +214,7 @@ namespace RouteDataManager.Repositories.DbInitializer
                         new Airline()
                         {
                           IATACode ="DD",
-                          MainAirport = ThailandAirports.DMK,
+                          MainAirportID = DMKId,
                           Url ="www.nokair.com",
                           Name="Nok Air",
                           AirlineType = AirlineTypes.Budget,
@@ -217,7 +224,7 @@ namespace RouteDataManager.Repositories.DbInitializer
                         new Airline()
                         {
                           IATACode ="DD",
-                          MainAirport = ThailandAirports.BKK,
+                          MainAirportID = BKKId,
                           Url ="bangkokair.com",
                           Name="Bangkok Airways",
                           AirlineType = AirlineTypes.Budget,

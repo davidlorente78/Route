@@ -39,7 +39,7 @@ namespace Application.Mapper
             entity.Name = dto.Name;
             entity.Picture = dto.Picture;
             entity.Description = dto.Description;
-            entity.DestinationCountryID = dto.DestinationCountryID;
+            entity.CountryId = dto.DestinationCountryID;
 
             return entity;
         }

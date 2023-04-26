@@ -1,4 +1,5 @@
-﻿using Traveller.Domain;
+﻿using Domain.Transport.Railway;
+using Traveller.Domain;
 using Traveller.StaticData;
 
 namespace Data.Thailand
@@ -11,7 +12,7 @@ namespace Data.Thailand
             BorderCrossings = ThailandBorderCrossings.GetAll(),
             TrainLines = ThailandTrainLines.GetAll(),
             Airports = ThailandAirports.GetAll(),
-            Ranges = ThailandRanges.GetAll()
+            Ranges = ThailandRanges.GetAll(),           
         };
     }
 }

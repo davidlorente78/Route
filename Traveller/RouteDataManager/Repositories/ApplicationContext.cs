@@ -71,8 +71,8 @@ namespace RouteDataManager.Repositories
 
             modelBuilder.Entity<Country>()
                 .HasMany<Destination>(c => c.Destinations)
-                .WithOne(d => d.DestinationCountry)
-                .HasForeignKey(d => d.DestinationCountryID)
+                .WithOne(d => d.Country)
+                .HasForeignKey(d => d.CountryId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Country>()

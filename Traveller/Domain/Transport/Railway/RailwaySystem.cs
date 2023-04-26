@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using Traveller.Domain;
 
 namespace Domain.Transport.Railway
 {
@@ -20,5 +21,8 @@ namespace Domain.Transport.Railway
         [Required]
         [Display(Name = "Image")]
         public string MapPicture { get; set; }
+
+        public int CountryId { get; set; }
+        public virtual Country Country { get; set; }
     }
 }

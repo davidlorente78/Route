@@ -9,7 +9,6 @@ namespace Domain.Transport.Aviation
         public string Name { get; set; }
         public string? LocalName { get; set; }
         public int? MainAirportID { get; set; }
-        public virtual Airport? MainAirport { get; set; }
         public List<Airport>? Airports { get; set; }
         public virtual AirlineType? AirlineType { get; set; }
         public int AirlineTypeID { get; set; }

@@ -7,8 +7,8 @@ namespace Traveller.Domain
 {
     public class Destination : Entity
     {
-        public int DestinationCountryID { get; set; }
-        public virtual Country DestinationCountry { get; set; }
+        public int CountryId { get; set; }
+        public virtual Country Country { get; set; }
         public string? Name { get; set; }
 
         [Display(Name = "Local Name")]

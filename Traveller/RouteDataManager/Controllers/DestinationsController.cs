@@ -51,8 +51,8 @@ namespace RouteDataManager.Controllers
             }
 
             var destinations = destinationService.GetIncluding(
-                d => d.DestinationCountryID == destinationIndexViewModel.FilterCountry.Id && d.DestinationTypes.Select(d => d.Id).Contains(destinationIndexViewModel.FilterDestinationType.Id),
-                d => d.DestinationCountry, d => d.DestinationTypes);
+                d => d.CountryId == destinationIndexViewModel.FilterCountry.Id && d.DestinationTypes.Select(d => d.Id).Contains(destinationIndexViewModel.FilterDestinationType.Id),
+                d => d.Country, d => d.DestinationTypes);
 
 
             SelectList selectListCountries = new SelectList(countries, "Id", "Name", destinationIndexViewModel.FilterCountry.Id);
@@ -75,8 +75,8 @@ namespace RouteDataManager.Controllers
             }
 
             var destinations = destinationService.GetIncluding(
-                d => d.DestinationCountryID == destinationIndexViewModel.FilterCountry.Id && d.DestinationTypes.Select(d => d.Id).Contains(destinationIndexViewModel.FilterDestinationType.Id),
-                d => d.DestinationCountry, d => d.DestinationTypes);
+                d => d.CountryId == destinationIndexViewModel.FilterCountry.Id && d.DestinationTypes.Select(d => d.Id).Contains(destinationIndexViewModel.FilterDestinationType.Id),
+                d => d.Country, d => d.DestinationTypes);
 
             destinationIndexViewModel.Destinations = destinations;
             destinationIndexViewModel.SelectListCountries = new SelectList(countries, "Id", "Name", destinationIndexViewModel.FilterCountry.Id); ;
@@ -90,7 +90,7 @@ namespace RouteDataManager.Controllers
         {
             var destination = destinationService.GetIncluding(
                d => d.Id == id,
-               d => d.DestinationCountry, d => d.DestinationTypes)
+               d => d.Country, d => d.DestinationTypes)
             .FirstOrDefault();
 
             if (destination == null)
@@ -139,7 +139,7 @@ namespace RouteDataManager.Controllers
         {
             var destination = destinationService.GetIncluding(
               d => d.Id == id,
-              d => d.DestinationCountry, d => d.DestinationTypes, d => d.Stations)
+              d => d.Country, d => d.DestinationTypes, d => d.Stations)
             .FirstOrDefault();
 
 

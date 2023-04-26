@@ -1,4 +1,5 @@
 ﻿using Domain.Ranges;
+using Domain.Transport.Railway;
 using Traveller.Domain;
 using Traveller.StaticData;
 
@@ -10,7 +11,7 @@ namespace Data.Malaysia
         {          
             Destinations = MalaysiaDestinations.GetAll(),
             Airports = MalaysiaAirports.GetAll(),
-            BorderCrossings = MalaysiaBorderCrossings.GetAll(),
+            BorderCrossings = MalaysiaBorderCrossings.GetAll(),        
             TrainLines = MalaysiaTrainLines.GetAll(),
             Ranges = MalaysiaRanges.GetAll()     
         };
