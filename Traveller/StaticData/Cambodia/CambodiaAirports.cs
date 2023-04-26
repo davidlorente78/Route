@@ -8,28 +8,19 @@ namespace Data.Cambodia
     public static class CambodiaAirports
     {
         
-        public static Airport REP = new Airport
-        {
-            Name = "Siem Reap International Airport",
-            Destinations = new List<Destination> { CambodiaDestinations.SiemReap },
-            IATACode = "REP",
-            AirportType = AirportTypes.International
+        public static Airport REP = new Airport("Siem Reap International Airport", "REP", AirportTypes.International)
+        {          
+            Destinations = new List<Destination> { CambodiaDestinations.SiemReap },           
         };
 
-        public static Airport PNH = new Airport
-        {
-            Name = "Phnom Penh International Airport",
-            Destinations = new List<Destination> { CambodiaDestinations.PhnomPenh },
-            IATACode = "PNH",
-            AirportType = AirportTypes.International
+        public static Airport PNH = new Airport("Phnom Penh International Airport", "PNH", AirportTypes.International)
+        {         
+            Destinations = new List<Destination> { CambodiaDestinations.PhnomPenh },           
         };
 
-        public static Airport KOS = new Airport
-        {
-            Name = "Sihanoukville International Airport",
-            Destinations = new List<Destination> { CambodiaDestinations.Sihanoukville },
-            IATACode = "KOS",
-            AirportType = AirportTypes.International
+        public static Airport KOS = new Airport("Sihanoukville International Airport", "KOS", AirportTypes.International)
+        {           
+            Destinations = new List<Destination> { CambodiaDestinations.Sihanoukville },          
         };
  
         public static ICollection<Airport> GetAll()

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel.DataAnnotations;
 
 namespace RouteDataManager.ViewModels.Destination
 {
@@ -9,9 +10,10 @@ namespace RouteDataManager.ViewModels.Destination
         [Required]
         [Display(Name = "Name")]
         public string Name { get; set; }
-
         public string Description { get; set; }
-
         public int CountryID { get; set; }
+        public int DestinationTypeID { get; set; }
+        public SelectList SelectListCountries { get; set; }
+        public SelectList SelectListDestinationTypes { get; set; }
     }
 }

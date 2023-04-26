@@ -5,6 +5,7 @@ using Domain.Repositories;
 using Domain.Transport.Aviation;
 using DomainServices.Generic;
 using RouteDataManager.Repositories;
+using Traveller.Application.Dto;
 using Traveller.Domain;
 
 namespace DomainServices.DestinationService

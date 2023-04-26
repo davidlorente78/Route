@@ -1,16 +1,14 @@
 ﻿@using RouteDataManager.ViewModels.Airline
 @model AirlineViewModel
 
-@{
-    ViewData["Title"] = "Create";
-}
-
 <div class="card">
     <div class="card-header">
-        <h4 >Create New Airline</h4>
+        <h4>Creating New Airline</h4>
     </div>
     <div class="card-body">
-        <form asp-action="Create" enctype="multipart/form-data">
+        <form asp-action="CreateWithPicture" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
@@ -19,6 +17,7 @@
                         <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
                 </div>
+
                 <div class="col-md-6">
                     <div class="form-group">
                         <label asp-for="MapPicture" class="control-label"></label>
@@ -29,7 +28,8 @@
                         <span asp-validation-for="MapPicture" class="text-danger"></span>
                     </div>
                 </div>
-            </div>         
+            </div>
+
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
@@ -39,6 +39,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-sm btn-primary rounded-0" />
                 <a asp-action="Index" class="btn btn-sm btn-primary rounded-0">Back to List</a>
@@ -50,10 +51,12 @@
 @section Scripts {
     <script>
         // Add the following code if you want the name of the file appear on select
-        $(".custom-file-input").on("change", function () {
+        $(".custom-file-input").on("change", function() {
             var fileName = $(this).val().split("\\").pop();
             $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
         });
     </script>
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

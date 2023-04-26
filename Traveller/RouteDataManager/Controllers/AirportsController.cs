@@ -3,11 +3,9 @@ using Domain.Transport.Aviation;
 using DomainServices.DestinationService;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using RouteDataManager.Controllers.Generic;
 using RouteDataManager.Repositories;
 using RouteDataManager.ViewModels;
-using RouteDataManager.ViewModels.Destination;
 using Traveller.Application.Dto;
 using Traveller.DomainServices;
 
@@ -15,7 +13,6 @@ namespace RouteDataManager.Controllers
 {
     public class AirportsController : GenericController<AirportDto, Airport>
     {
-        private readonly ApplicationContext _context;
 
         private readonly ICountryService countryService;
         private readonly IAirportService airportService;
@@ -39,8 +36,6 @@ namespace RouteDataManager.Controllers
             countries = countryService.GetAll();
             airports = airportService.GetAll();
             airportTypes = airportTypeService.GetAll();
-
-            _context = context;
         }
 
         [HttpGet]
@@ -89,6 +84,6 @@ namespace RouteDataManager.Controllers
             }
 
             return PartialView(airportDto);
-        } 
+        }
     }
 }

@@ -3,20 +3,15 @@ using DomainServices.DestinationService;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using RouteDataManager.Controllers.Generic;
 using RouteDataManager.Models;
 using RouteDataManager.ViewModels;
 using RouteDataManager.ViewModels.Destination;
 using Traveller.Application.Dto;
-using Traveller.Domain;
 using Traveller.DomainServices;
 
 namespace RouteDataManager.Controllers
-{
-    /// <summary>
-    /// https://stackoverflow.com/questions/5849398/mvc-3-form-post-and-persisting-model-data
-    /// </summary>
-    public class DestinationsController : GenericController<DestinationDto, Destination>
+{   
+    public class DestinationsController : Controller
     {
         private readonly IWebHostEnvironment environment;
 
@@ -34,9 +29,7 @@ namespace RouteDataManager.Controllers
             IDestinationTypeService destinationTypeService,
             IWebHostEnvironment environment
             )
-            : base(destinationService)
         {
-
             this.countryService = countryService;
             this.destinationService = destinationService;
             this.destinationTypeService = destinationTypeService;
@@ -93,7 +86,7 @@ namespace RouteDataManager.Controllers
             return (View("Index", destinationIndexViewModel));
         }
 
-        public override IActionResult Details(int? id)
+        public IActionResult Details(int? id)
         {
             var destination = destinationService.GetIncluding(
                d => d.Id == id,
@@ -108,29 +101,41 @@ namespace RouteDataManager.Controllers
             return PartialView(destination);
         }
 
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(DestinationViewModel model)
+        public IActionResult CreateNewWithFilter()
         {
-            if (ModelState.IsValid)
-            {
-                string uniqueFileName = ProcessUploadedFile(model.Picture);
-                DestinationDto destination = new()
-                {
-                    DestinationCountryID = model.CountryID,
-                    Name = model.Name,
-                    Description = model.Description,
-                    Picture = uniqueFileName
-                };
+            DestinationViewModel model = new DestinationViewModel() { };
+            SelectList selectListCountries = new SelectList(countries, "Id", "Name"); ;
+            SelectList selectListDestinationTypes = new SelectList(destinationTypes, "Id", "Description"); ;
 
-                destinationService.Add(destination);
-                return RedirectToAction(nameof(Index));
-            }
+            model.SelectListCountries = selectListCountries;
+            model.SelectListDestinationTypes = selectListDestinationTypes;
 
-            return PartialView(model);
+            return View("Create", model);
         }
 
-        public override IActionResult Edit(int? id)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult CreateWithFilter(DestinationViewModel model)
+        {
+
+            string uniqueFileName = ProcessUploadedFile(model.Picture);
+            DestinationDto destination = new()
+            {
+                DestinationCountryID = model.CountryID,
+                DestinationTypeID = model.DestinationTypeID, //En realidad DestinationType es una lista
+                Name = model.Name,
+                Description = model.Description,
+                Picture = uniqueFileName
+            };
+
+            destinationService.Add(destination);
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Edit(int? id)
         {
             var destination = destinationService.GetIncluding(
               d => d.Id == id,
@@ -143,9 +148,12 @@ namespace RouteDataManager.Controllers
                 return NotFound();
             }
 
+            SelectList selectListCountries = new SelectList(countries, "Id", "Name"); ;
+
             var destinationViewModel = new DestinationViewModel()
             {
                 CountryID = destination.DestinationCountryID,
+                SelectListCountries = selectListCountries,
                 DestinationID = destination.Id,
                 Description = destination.Description,
                 Id = destination.Id,
@@ -156,47 +164,65 @@ namespace RouteDataManager.Controllers
             return PartialView(destinationViewModel);
         }
 
-
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        //Edit y Create reciben como parametro el ViewModel y en Cambio el Repositorio Generico trabaja con Dto
-        //En este mismo metodo se realiza la transformacion TODO
+        [ValidateAntiForgeryToken]     
         public IActionResult EditWithPicture(DestinationViewModel model)
         {
-            try
+            var destination = destinationService.GetByID(model.DestinationID);
+
+            destination.Name = model.Name;
+            destination.Description = model.Description;
+            destination.DestinationCountryID = model.CountryID;
+
+            if (model.Picture != null)
             {
-                var destination = destinationService.GetByID(model.DestinationID);
-
-                destination.Name = model.Name;
-                destination.Description = model.Description;
-                destination.DestinationCountryID = model.CountryID;
-
-                if (model.Picture != null)
+                if (model.ExistingImage != null)
                 {
-                    if (model.ExistingImage != null)
-                    {
-                        string filePath = Path.Combine(environment.WebRootPath, "Uploads", model.ExistingImage);
-                        System.IO.File.Delete(filePath);
-                    }
-
-                    destination.Picture = ProcessUploadedFile(model.Picture);
+                    string filePath = Path.Combine(environment.WebRootPath, "Uploads", model.ExistingImage);
+                    System.IO.File.Delete(filePath);
                 }
 
-                destinationService.Update(destination);
-
-                return RedirectToAction(nameof(Index));
+                destination.Picture = ProcessUploadedFile(model.Picture);
             }
-            catch (DbUpdateConcurrencyException)
+
+            destinationService.Update(destination);
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Delete(int? id)
+        {
+            if (id == null || !destinationService.Exists(id.Value))
             {
-                if (destinationService.GetByID(model.Id) == null)
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                return NotFound();
             }
+
+            var dto = destinationService.GetByID(id.Value);
+
+            if (dto == null)
+            {
+                return NotFound();
+            }
+
+            return View(dto);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var dto = destinationService.GetByID(id);
+
+            if (dto != null)
+            {
+                destinationService.Remove(dto.Id);
+            }
+            else
+            {
+                return Problem("Entity does not exist.");
+            }
+
+            return RedirectToAction(nameof(Index));
         }
 
         private string ProcessUploadedFile(IFormFile formFile)

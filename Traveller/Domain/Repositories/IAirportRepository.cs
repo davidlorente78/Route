@@ -2,7 +2,6 @@
 
 namespace Domain.Repositories
 {
-
     public interface IAirportRepository : IGenericRepository<Airport>
     {
     }

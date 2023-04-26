@@ -1,12 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "o4cHnpRgbvYZz4sDCGbRRLHHZICtUAo034N2j1XsYTc5+xwAwdiLu54c+0nzBd2ivixnlIpg8JoDiwRjXdCcNg==",
+  "dgSpecHash": "ssPB7Cyk1jdSycun1eNpRuJUBEaaempS/MxS74ZQu3ujcXMRIY+5vrCM4lvpFrN3X8El3QDtmsTKBwxTtZ2uOw==",
   "success": true,
   "projectFilePath": "D:\\Code Project\\Route\\Traveller\\AutoMapper\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\David\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
+    "C:\\Users\\David\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
     "C:\\Users\\David\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
-    "C:\\Users\\David\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.6\\microsoft.entityframeworkcore.abstractions.6.0.6.nupkg.sha512"
+    "C:\\Users\\David\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.6\\microsoft.entityframeworkcore.abstractions.6.0.6.nupkg.sha512",
+    "C:\\Users\\David\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
+    "C:\\Users\\David\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512"
   ],
   "logs": []
 }

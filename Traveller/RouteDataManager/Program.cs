@@ -11,6 +11,7 @@ using DomainServices.DestinationService;
 using DomainServices.CountryService;
 using Application.Mapper.Generic;
 using RouteDataManager.Repositories.DbInitializer;
+using DomainServices.AirlineService;
 
 
 // Add services to the container.
@@ -37,24 +38,27 @@ builder.Services.AddScoped(typeof(IDestinationMapper), typeof(DestinationMapper)
 builder.Services.AddScoped(typeof(IDestinationTypeMapper), typeof(DestinationTypeMapper));
 
 builder.Services.AddScoped(typeof(IAirportMapper), typeof(AirportMapper));
-builder.Services.AddScoped(typeof(IAirportTypeMapper), typeof(AirportTypeMapper)); 
+builder.Services.AddScoped(typeof(IAirportTypeMapper), typeof(AirportTypeMapper));
+builder.Services.AddScoped(typeof(IAirlineMapper), typeof(AirlineMapper));
 
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 builder.Services.AddScoped<IBorderCrossingRepository, BorderCrossingRepository>();
 builder.Services.AddScoped<ICountryRepository, CountryRepository>();
 builder.Services.AddScoped<IDestinationRepository, DestinationRepository>();
+builder.Services.AddScoped<IDestinationTypeRepository, DestinationTypeRepository>();
 builder.Services.AddScoped<IRailwayStationRepository, RailwayStationRepository>();
 builder.Services.AddScoped<IAirportRepository, AirportRepository>();
 builder.Services.AddScoped<IAirportTypeRepository, AirportTypeRepository>();
+builder.Services.AddScoped<IAirlineRepository, AirlineRepository>();
 
-
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 builder.Services.AddScoped<ICountryService, CountryService>();
 builder.Services.AddScoped<IDestinationService, DestinationService>();
 builder.Services.AddScoped<IDestinationTypeService, DestinationTypeService>();
 builder.Services.AddScoped<IAirportService, AirportService>();
 builder.Services.AddScoped<IAirportTypeService, AirportTypeService>();
+builder.Services.AddScoped<IAirlineService, AirlineService>();
 
 
 builder.Services.AddScoped<IVisaService, VisaService>();

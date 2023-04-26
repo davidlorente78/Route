@@ -4,7 +4,7 @@ using Traveller.Domain;
 
 namespace Domain.Transport.Aviation
 {
-    public class Airport :  Entity
+    public class Airport : Entity
     {
         [Required]
         [Display(Name = "Airport Type")]
@@ -19,13 +19,51 @@ namespace Domain.Transport.Aviation
         public string? ICAOCode { get; set; }
         public string Name { get; set; }
         [Display(Name = "Local Name")]
-        public string? LocalName { get; set; }  
-        public string? Description { get; set; }
+        public string? LocalName { get; set; }
+        public string? Description { get;  set; } //TODO Pero las variables de inicializacion estan definidas como static
         public virtual ICollection<Destination>? Destinations { get; set; }
 
-        public Airport()
+        //TODO
+        public Airport() { }
+
+        public Airport(string name, string IATACode , AirportType airportType)
         {
+            SetName(name);
+            SetIATACode(IATACode);
+            SetAirportType(airportType);
             Destinations = new HashSet<Destination>();
         }
-    }   
+
+        public Airport SetName(string name)
+        {
+            Name = name;
+
+            return this;
+        }
+
+        public Airport SetIATACode(string iATACode)
+        {
+            IATACode = iATACode;
+
+            return this;
+        }
+
+        public Airport SetAirportType(AirportType airportType)
+        {
+            AirportType = airportType;
+            AirportTypeId = airportType.Id;
+
+            return this;
+        }
+
+        public void UpdateLocalName(string localName)
+        {
+            LocalName = localName;
+        }
+
+        public void UpdateDescription(string description)
+        {
+            Description = description;
+        }
+    }
 }

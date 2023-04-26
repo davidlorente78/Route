@@ -1,7 +1,5 @@
 ﻿using Domain.Repositories;
 using Domain.Transport.Aviation;
-using Microsoft.EntityFrameworkCore;
-using Traveller.Domain;
 
 namespace RouteDataManager.Repositories
 {
@@ -9,6 +7,6 @@ namespace RouteDataManager.Repositories
     {
         public AirportRepository(ApplicationContext context) : base(context)
         {
-        }     
+        }
     }
 }

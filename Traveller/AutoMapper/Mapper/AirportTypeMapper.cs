@@ -2,6 +2,7 @@
 using Application.Mapper.Generic;
 using AutoMapper;
 using Domain.Transport.Aviation;
+using Traveller.Application.Dto;
 
 namespace Application.Mapper
 {

@@ -48,6 +48,7 @@ namespace Data.Laos
             IATACode = "LXG",
             AirportType = AirportTypes.Domestic
         };
+
         public static Airport ODY = new Airport
         {
             Name = "Oudomsay Airport",

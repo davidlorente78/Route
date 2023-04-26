@@ -43,12 +43,10 @@ namespace RouteDataManager.Controllers.Generic
             return View(dto);
         }
 
-
-        public IActionResult Create()
+        public virtual IActionResult Create()
         {
             return View();
         }
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -80,7 +78,6 @@ namespace RouteDataManager.Controllers.Generic
 
             return PartialView(dto);
         }
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]

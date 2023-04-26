@@ -1,7 +1,6 @@
-﻿using Application.Dto;
-using Application.Mapper.Generic;
+﻿using Application.Mapper.Generic;
 using Domain.Transport.Aviation;
-using Traveller.Domain;
+using Traveller.Application.Dto;
 
 namespace Application.Mapper
 {

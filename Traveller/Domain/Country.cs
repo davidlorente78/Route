@@ -73,10 +73,5 @@ namespace Traveller.Domain
                 Destinations.Remove(destination);
             }
         }
-
-        public void UpdateName(string name)
-        {
-            Name = name;
-        }
     }
 }

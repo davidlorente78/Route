@@ -1,6 +1,6 @@
 ﻿using Application.Dto.Generic;
 
-namespace Application.Dto
+namespace Traveller.Application.Dto
 {
     public class AirportTypeDto : GenericDto
     {

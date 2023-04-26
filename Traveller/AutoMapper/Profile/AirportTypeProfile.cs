@@ -1,6 +1,6 @@
-﻿using Application.Dto;
-using AutoMapper;
+﻿using AutoMapper;
 using Domain.Transport.Aviation;
+using Traveller.Application.Dto;
 
 namespace Application.Profiles
 {

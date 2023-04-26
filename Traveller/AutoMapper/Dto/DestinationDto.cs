@@ -16,5 +16,6 @@ namespace Traveller.Application.Dto
 
         [Display(Name = "Photo")]
         public string Picture { get; set; }
+        public int DestinationTypeID { get; set; }
     }
 }

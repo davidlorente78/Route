@@ -1,4 +1,5 @@
 ﻿@using RouteDataManager.ViewModels;
+@using RouteDataManager.ViewModels.Destination
 @model RouteDataManager.ViewModels.DestinationIndexViewModel
 
 @{
@@ -6,15 +7,15 @@
 }
 
 @using (Html.BeginForm(
-    "Results", 
-    "Destinations", 
-    new DestinationIndexViewModel 
-    { 
+   "Results",
+   "Destinations",
+   new DestinationIndexViewModel
+    {
         FilterCountry = @Model.FilterCountry,
         FilterDestinationType = @Model.FilterDestinationType
     },
-    FormMethod.Post)
-    )
+   FormMethod.Post)
+   )
 {
     <div class="form-group">
         <table class="table">
@@ -40,7 +41,7 @@
                     </th>
 
                     <th>
-                        <input type="submit" class="btn btn-primary btn-block" value="Search"/>
+                        <input type="submit" class="btn btn-primary btn-block" value="Search" />
                     </th>
                 </tr>
             </thead>
@@ -48,9 +49,21 @@
     </div>
 }
 
-<p>
-    <a asp-action="Create" class="btn btn-primary rounded-0"><i class="fa fa-plus-circle"></i>Add New</a>
-</p>
+@using (Html.BeginForm(
+   "CreateNewWithFilter",
+   "Destinations",
+   new DestinationViewModel
+   {
+
+   },
+   FormMethod.Get)
+   )
+{
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary rounded-0" value="Add New" />
+    </div>
+
+}
 
 <table class="table">
 

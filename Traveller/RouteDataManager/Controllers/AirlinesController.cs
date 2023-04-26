@@ -1,163 +1,63 @@
 ﻿using Domain.Transport.Aviation;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using RouteDataManager.Controllers.Generic;
 using RouteDataManager.Models;
-using RouteDataManager.Repositories;
 using RouteDataManager.ViewModels.Airline;
+using Traveller.Application.Dto;
+using Traveller.DomainServices;
 
-namespace CURDOperationWithImageUploadCore5_Demo.Controllers
+namespace RouteDataManager.Controllers
 {
-    public class AirlinesController : Controller
+    public class AirlinesController : GenericController<AirlineDto, Airline>
     {
-        private readonly ApplicationContext _context;
         private readonly IWebHostEnvironment _environment;
-        public AirlinesController(ApplicationContext context, IWebHostEnvironment environment)
+
+        private readonly IAirlineService airlinesService;
+
+        public AirlinesController(
+            IWebHostEnvironment environment,
+            IAirlineService airlinesService
+            )
+            : base(airlinesService)
         {
-            _context = context;
             _environment = environment;
+            this.airlinesService = airlinesService;
         }
 
-        public async Task<IActionResult> Index()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult CreateWithPicture(AirlineViewModel model)
         {
-            return View(await _context.Airlines.ToListAsync());
-        }
-
-        public async Task<IActionResult> Details(int? id)
-        {
-            try
-            {
-                if (id == null)
+            //if (ModelState.IsValid)
+            //{
+                string uniqueFileName = ProcessUploadedFile(model.MapPicture);
+                AirlineDto airline = new()
                 {
-                    return NotFound();
-                }
-
-                var airline = await _context.Airlines
-                    .FirstOrDefaultAsync(m => m.Id == id);
-
-                var airlineViewModel = new AirlineViewModel()
-                {
-                    Id = airline.Id,
-                    Name = airline.Name,
-                    //TODO
-                    Description = airline.Description,
-                    ExistingImage = airline.Picture
+                    Name = model.Name,
+                    Description = model.Description,
+                    Picture = uniqueFileName,
                 };
 
-                if (airline == null)
-                {
-                    return NotFound();
-                }
-                //TO CHECK AQUI NO DEVUELVE EL VIEW MODEL
-                return View(airline);
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(AirlineViewModel model)
-        {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    string uniqueFileName = ProcessUploadedFile(model);
-                    Airline airline = new()
-                    {
-                        Name = model.Name,
-                        Description = model.Description,
-                        Picture = uniqueFileName
-                    };
-
-                    _context.Add(airline);
-                    await _context.SaveChangesAsync();
-                    return RedirectToAction(nameof(Index));
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            return View(model);
-        }
-
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var airline = await _context.Airlines.FindAsync(id);
-            var airlineViewModel = new AirlineViewModel()
-            {
-                Id = airline.Id,
-                Name = airline.Name,
-                Description = airline.Description,
-                ExistingImage = airline.Picture
-                //TODO OTHER FIELDS
-            };
-
-
-            //Esto antes del <view model acces
-            if (airline == null)
-            {
-                return NotFound();
-            }
-            return View(airlineViewModel);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, AirlineViewModel model)
-        {
-            try
-            {
-                var airline = await _context.Airlines.FindAsync(model.Id);
-
-                airline.Name = model.Name;
-                airline.Description = model.Description;
-
-                if (model.MapPicture != null)
-                {
-                    if (model.ExistingImage != null)
-                    {
-                        string filePath = Path.Combine(_environment.WebRootPath, AirlineFileLocation.FileUploadFolder, model.ExistingImage);
-                        System.IO.File.Delete(filePath);
-                    }
-
-                    //Here is the name of the file with the Guid Unique File Name
-                    airline.Picture = ProcessUploadedFile(model);
-                }
-                _context.Update(airline);
-                await _context.SaveChangesAsync();
+                airlinesService.Add(airline);
                 return RedirectToAction(nameof(Index));
+            //}
 
-            }
-            catch { throw; }
-
-            return PartialView(model);
+            //return PartialView(model);
         }
 
-        public async Task<IActionResult> Delete(int? id)
+        public override IActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var airline = await _context.Airlines
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var airline = airlinesService.GetByID(id.Value);
+
+            if (airline == null)
+            {
+                return NotFound();
+            }
 
             var airlineViewModel = new AirlineViewModel()
             {
@@ -166,53 +66,53 @@ namespace CURDOperationWithImageUploadCore5_Demo.Controllers
                 Description = airline.Description,
                 ExistingImage = airline.Picture
             };
-            if (airline == null)
-            {
-                return NotFound();
-            }
 
             return View(airlineViewModel);
         }
 
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public IActionResult EditWithPicture(AirlineViewModel model)
         {
-            var airline = await _context.Airlines.FindAsync(id);
-            _context.Airlines.Remove(airline);
+            var airline = airlinesService.GetByID(model.Id);
 
-            string deleteCurrentImageFilePath = _environment.WebRootPath + @"\" + AirlineFileLocation.FileUploadFolder + airline.Picture;
+            airline.Name = model.Name;
+            airline.Description = model.Description;
 
-            if (System.IO.File.Exists(deleteCurrentImageFilePath))
+            if (model.MapPicture != null)
             {
-                System.IO.File.Delete(deleteCurrentImageFilePath);
+                if (model.ExistingImage != null)
+                {
+                    string filePath = Path.Combine(_environment.WebRootPath, AirlineFileLocation.FileUploadFolder, model.ExistingImage);
+                    System.IO.File.Delete(filePath);
+                }
+
+                airline.Picture = ProcessUploadedFile(model.MapPicture);
             }
-            await _context.SaveChangesAsync();
+
+            airlinesService.Update(airline);
+
             return RedirectToAction(nameof(Index));
         }
 
-        private bool AirlineExists(int id)
+        private string ProcessUploadedFile(IFormFile formFile)
         {
-            return _context.Airlines.Any(e => e.Id == id);
-        }
-
-        private string ProcessUploadedFile(AirlineViewModel model)
-        {
-            string uniqueFileName = null;
+            string uniqueFileName = string.Empty;
             string path = Path.Combine(_environment.WebRootPath, AirlineFileLocation.FileUploadFolder);
+
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
 
-            if (model.MapPicture != null)
+            if (formFile != null)
             {
                 string uploadsFolder = Path.Combine(_environment.WebRootPath, AirlineFileLocation.FileUploadFolder);
-                uniqueFileName = Guid.NewGuid().ToString() + "_" + model.MapPicture.FileName;
+                uniqueFileName = Guid.NewGuid().ToString() + "_" + formFile.FileName;
                 string filePath = Path.Combine(uploadsFolder, uniqueFileName);
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
-                    model.MapPicture.CopyTo(fileStream);
+                    formFile.CopyTo(fileStream);
                 }
             }
 
