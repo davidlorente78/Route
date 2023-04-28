@@ -1,6 +1,8 @@
 ﻿using Application.Dto;
+using Domain.Messages;
 using Domain.Transport.Aviation;
 using DomainServices.DestinationService;
+using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using RouteDataManager.Controllers.Generic;
@@ -11,7 +13,7 @@ using Traveller.DomainServices;
 
 namespace RouteDataManager.Controllers
 {
-    public class AirportsController : GenericController<AirportDto, Airport>
+    public class AirportsController : GenericController<AirportDto, Airport> , IConsumer<EntityCreated>
     {
 
         private readonly ICountryService countryService;
@@ -25,9 +27,9 @@ namespace RouteDataManager.Controllers
         public AirportsController(ApplicationContext context,
             ICountryService countryService,
             IAirportService airportService,
-            IAirportTypeService airportTypeService
-            )
-            : base(airportService)
+            IAirportTypeService airportTypeService, 
+            IPublishEndpoint publishEndpoint) : base(airportService, publishEndpoint)
+
         {
             this.airportService = airportService;
             this.countryService = countryService;
@@ -85,5 +87,12 @@ namespace RouteDataManager.Controllers
 
             return PartialView(airportDto);
         }
+
+
+        public async Task Consume(ConsumeContext<EntityCreated> context)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

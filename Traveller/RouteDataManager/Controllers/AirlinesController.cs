@@ -1,4 +1,5 @@
 ﻿using Domain.Transport.Aviation;
+using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using RouteDataManager.Controllers.Generic;
 using RouteDataManager.Models;
@@ -16,9 +17,9 @@ namespace RouteDataManager.Controllers
 
         public AirlinesController(
             IWebHostEnvironment environment,
-            IAirlineService airlinesService
-            )
-            : base(airlinesService)
+            IAirlineService airlinesService, 
+            IPublishEndpoint publishEndpoint) : base(airlinesService, publishEndpoint)
+
         {
             _environment = environment;
             this.airlinesService = airlinesService;

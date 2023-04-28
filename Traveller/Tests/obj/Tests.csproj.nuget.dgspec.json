@@ -189,6 +189,10 @@
               "target": "Package",
               "version": "[12.0.0, )"
             },
+            "MassTransit.RabbitMQ": {
+              "target": "Package",
+              "version": "[8.0.15, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -208,6 +212,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[6.0.7, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.5.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -337,6 +345,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "MassTransit.RabbitMQ": {
+              "target": "Package",
+              "version": "[8.0.15, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[16.4.0, )"
@@ -352,6 +364,10 @@
             "NUnit3TestAdapter": {
               "target": "Package",
               "version": "[3.15.1, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.5.0, )"
             },
             "nunit": {
               "target": "Package",
@@ -426,6 +442,10 @@
             "AutoMapper": {
               "target": "Package",
               "version": "[12.0.0, )"
+            },
+            "MassTransit.RabbitMQ": {
+              "target": "Package",
+              "version": "[8.0.15, )"
             },
             "System.Collections": {
               "target": "Package",

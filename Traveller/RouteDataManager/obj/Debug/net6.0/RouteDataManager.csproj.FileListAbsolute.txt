@@ -555,3 +555,12 @@ D:\Code Project\Route\Traveller\RouteDataManager\obj\Debug\net6.0\refint\RouteDa
 D:\Code Project\Route\Traveller\RouteDataManager\obj\Debug\net6.0\RouteDataManager.pdb
 D:\Code Project\Route\Traveller\RouteDataManager\obj\Debug\net6.0\RouteDataManager.genruntimeconfig.cache
 D:\Code Project\Route\Traveller\RouteDataManager\obj\Debug\net6.0\ref\RouteDataManager.dll
+D:\Code Project\Route\Traveller\RouteDataManager\bin\Debug\net6.0\MassTransit.dll
+D:\Code Project\Route\Traveller\RouteDataManager\bin\Debug\net6.0\MassTransit.Abstractions.dll
+D:\Code Project\Route\Traveller\RouteDataManager\bin\Debug\net6.0\MassTransit.RabbitMqTransport.dll
+D:\Code Project\Route\Traveller\RouteDataManager\bin\Debug\net6.0\Microsoft.Extensions.Diagnostics.HealthChecks.dll
+D:\Code Project\Route\Traveller\RouteDataManager\bin\Debug\net6.0\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
+D:\Code Project\Route\Traveller\RouteDataManager\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Code Project\Route\Traveller\RouteDataManager\bin\Debug\net6.0\RabbitMQ.Client.dll
+D:\Code Project\Route\Traveller\RouteDataManager\bin\Debug\net6.0\System.Text.Json.dll
+D:\Code Project\Route\Traveller\RouteDataManager\bin\Debug\net6.0\System.Threading.Channels.dll

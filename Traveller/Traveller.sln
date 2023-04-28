@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RouteDataManager", "RouteDa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{BF561FB5-CAE8-4300-AE1C-275D8E7109CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "AutoMapper\Application.csproj", "{A5DACF98-3F86-45F0-B720-CC40BC2D8831}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "AutoMapper\Application.csproj", "{A5DACF98-3F86-45F0-B720-CC40BC2D8831}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

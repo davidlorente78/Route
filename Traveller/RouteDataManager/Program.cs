@@ -1,18 +1,19 @@
+using Application.Mapper;
+using Application.Mapper.Generic;
+using Application.Profiles;
 using Domain.Repositories;
+using DomainServices.AirlineService;
+using DomainServices.CountryService;
+using DomainServices.DestinationService;
+using DomainServices.Generic;
+using MassTransit;
 using Microsoft.EntityFrameworkCore;
+using RouteDataManager.Controllers;
 using RouteDataManager.Repositories;
+using RouteDataManager.Repositories.DbInitializer;
 using Traveller.DomainServices;
 using Traveller.RouteService;
 using Traveller.RuleService;
-using Application.Profiles;
-using DomainServices.Generic;
-using Application.Mapper;
-using DomainServices.DestinationService;
-using DomainServices.CountryService;
-using Application.Mapper.Generic;
-using RouteDataManager.Repositories.DbInitializer;
-using DomainServices.AirlineService;
-
 
 // Add services to the container.
 
@@ -26,7 +27,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationContext>(
     options =>
     options
-    .UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))  
+    .UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
   );
 
 builder.Services.AddScoped(typeof(IGenericMapper<,>), typeof(GenericMapper<,>));
@@ -63,7 +64,7 @@ builder.Services.AddScoped<IAirlineService, AirlineService>();
 
 builder.Services.AddScoped<IVisaService, VisaService>();
 builder.Services.AddScoped<IRouteService, RouteService>();
-builder.Services.AddScoped<IRuleContainer , RuleContainer>();
+builder.Services.AddScoped<IRuleContainer, RuleContainer>();
 
 
 
@@ -76,6 +77,49 @@ builder.Services.AddAutoMapper(typeof(CountryProfile));
 
 #endregion
 
+
+#region RabbitMQ
+//https://www.erlang.org/downloads
+//https://www.rabbitmq.com/download.html
+//rabbitmqctl status para verificar que este ejecutandose el servicio
+//http://localhost:15672 acceso a consola administracion web
+
+builder.Services.AddMassTransit(x =>
+{
+    // Configurar MassTransit aquí
+    x.AddConsumer<AirportsController>();
+
+    x.UsingRabbitMq((context, cfg) =>
+    {
+        cfg.Host("localhost", "/", h =>
+        {
+            h.Username("guest");
+            h.Password("guest");
+        });
+
+        //Configurar la cola en la que se recibirán los mensajes.
+        cfg.ReceiveEndpoint("CreatedEntitiesQueue", e =>
+        {
+            //Usamos el método ConfigureConsumer para registrar el consumidor AirportsController con MassTransit.
+            e.ConfigureConsumer<AirportsController>(context);
+        });
+    });
+});
+
+builder.Services.AddScoped<AirportsController>();
+builder.Services.AddScoped<CountriesController>();
+
+
+
+builder.Services.AddMassTransitHostedService();
+
+builder.Services.AddSingleton<IPublishEndpoint>(provider => provider.GetRequiredService<IBusControl>());
+builder.Services.AddSingleton<ISendEndpointProvider>(provider => provider.GetRequiredService<IBusControl>());
+builder.Services.AddSingleton<IBus>(provider => provider.GetRequiredService<IBusControl>());
+
+
+
+#endregion
 var app = builder.Build();
 
 //Create Scope and Initialize Data Base

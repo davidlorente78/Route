@@ -1,6 +1,8 @@
 ﻿using Application.Dto.Generic;
 using Domain.Generic;
+using Domain.Messages;
 using DomainServices.Generic;
+using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,10 +15,14 @@ namespace RouteDataManager.Controllers.Generic
     {
         public readonly IGenericService<TDto, TEntity> genericService;
 
-        public GenericController(IGenericService<TDto, TEntity> genericService)
-        {         
+        private readonly IPublishEndpoint publishEndpoint;
+        public GenericController(
+            IGenericService<TDto, TEntity> genericService,
+            IPublishEndpoint publishEndpoint)
+        {
             this.genericService = genericService;
-
+            //Allows us to submit a message to the RabbitMQ Exchange 
+            this.publishEndpoint = publishEndpoint;
         }
 
         public virtual IActionResult Index(int? id)
@@ -55,6 +61,20 @@ namespace RouteDataManager.Controllers.Generic
             if (ModelState.IsValid)
             {
                 genericService.Add(dto);
+
+                var entityCreated =
+
+                    publishEndpoint.Publish<EntityCreated>
+                        (new()
+                        {
+                            Type = typeof(TEntity).Name,
+                            Message = "Created new " + typeof(TEntity).Name,
+                            CreatedDate = DateTime.UtcNow,
+                        });
+
+                //Para verificar los mensajes publicados en la cola, puedes utilizar la consola de administración de RabbitMQ.
+                //Si accedes a http://localhost:15672/ (o el puerto que hayas configurado), podrás ver las colas y los mensajes en ellas.
+                //En este caso, deberías buscar la cola "CreatedEntitiesQueue" y verificar si los mensajes se encuentran allí.
 
                 return RedirectToAction(nameof(Index));
             }
