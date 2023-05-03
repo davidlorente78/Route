@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "zsN4AY9yX31Z2CU+NcENsSMzT+NEckZw6dHma9+cUqlkZg5U+4ucjvKrH30zwPKB1DwCdtP12hy4djmvChRE1w==",
+  "dgSpecHash": "lHsdRc7FB33XSgWR7AtE1Vp6SU/6t0ENNHeJdy2vasRBe7YTh/3+5yqoDIJCFsw/0mSNmx48RPuT0lx9EBe84g==",
   "success": true,
   "projectFilePath": "D:\\Code Project\\Route\\Traveller\\Tests\\Tests.csproj",
   "expectedPackageFiles": [
@@ -50,8 +50,8 @@
     "C:\\Users\\David\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\6.0.0\\microsoft.extensions.caching.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\David\\.nuget\\packages\\microsoft.extensions.caching.memory\\6.0.1\\microsoft.extensions.caching.memory.6.0.1.nupkg.sha512",
     "C:\\Users\\David\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
-    "C:\\Users\\David\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.0\\microsoft.extensions.dependencyinjection.6.0.0.nupkg.sha512",
-    "C:\\Users\\David\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\David\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
+    "C:\\Users\\David\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\David\\.nuget\\packages\\microsoft.extensions.diagnostics.healthchecks\\6.0.1\\microsoft.extensions.diagnostics.healthchecks.6.0.1.nupkg.sha512",
     "C:\\Users\\David\\.nuget\\packages\\microsoft.extensions.diagnostics.healthchecks.abstractions\\6.0.1\\microsoft.extensions.diagnostics.healthchecks.abstractions.6.0.1.nupkg.sha512",
     "C:\\Users\\David\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\6.0.0\\microsoft.extensions.fileproviders.abstractions.6.0.0.nupkg.sha512",

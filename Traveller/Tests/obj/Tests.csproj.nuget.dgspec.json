@@ -349,6 +349,10 @@
               "target": "Package",
               "version": "[8.0.15, )"
             },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[16.4.0, )"

@@ -69,6 +69,38 @@ namespace RouteDataManager.Repositories
                 .ToTable("Countries")
                 .HasKey(x => x.Id);
 
+
+            modelBuilder.Entity<Country>()
+    .HasMany(c => c.Destinations)
+    .WithOne(d => d.Country)
+    .OnDelete(DeleteBehavior.Cascade);
+
+            //modelBuilder.Entity<Country>()
+            //    .HasMany(c => c.BorderCrossings)
+            //    .WithOne(b => b.Country)
+            //    .OnDelete(DeleteBehavior.Cascade);
+
+            //modelBuilder.Entity<Country>()
+            //    .HasMany(c => c.Visas)
+            //    .WithOne(v => v.Country)
+            //    .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Country>()
+                .HasMany(c => c.TrainLines)
+                .WithOne(t => t.Country)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Country>()
+                .HasMany(c => c.Ranges)
+                .WithOne(r => r.Country)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            //modelBuilder.Entity<Country>()
+            //    .HasMany(c => c.Airports)
+            //    .WithOne(a => a.Country)
+            //    .OnDelete(DeleteBehavior.Cascade);
+
+
             modelBuilder.Entity<Country>()
                 .HasMany<Destination>(c => c.Destinations)
                 .WithOne(d => d.Country)
