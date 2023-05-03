@@ -70,8 +70,8 @@ namespace DomainServices.Generic
         {
             var entity = genericMapper.CreateEntityFromDto(dto);
             repository.Add(entity);
-
-            return unitOfWork.SaveChanges();
+            unitOfWork.SaveChanges();
+            return entity.Id;
         }
 
         public int Remove(int id)

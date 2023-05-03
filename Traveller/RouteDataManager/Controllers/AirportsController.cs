@@ -13,7 +13,7 @@ using Traveller.DomainServices;
 
 namespace RouteDataManager.Controllers
 {
-    public class AirportsController : GenericController<AirportDto, Airport> , IConsumer<EntityCreated>
+    public class AirportsController : GenericController<AirportDto, Airport> , IConsumer<EntityCreated>, IConsumer<EntityDeleted>
     {
 
         private readonly ICountryService countryService;
@@ -94,5 +94,9 @@ namespace RouteDataManager.Controllers
             throw new NotImplementedException();
         }
 
+        public async Task Consume(ConsumeContext<EntityDeleted> context)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

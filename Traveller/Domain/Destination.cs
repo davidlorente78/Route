@@ -27,6 +27,6 @@ namespace Traveller.Domain
 
         public ICollection<Hotel> Hotels { get; set; } = new List<Hotel>();
 
-
+        public bool HasRailwayStation { get; set; }
     }
 }

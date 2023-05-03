@@ -39,14 +39,14 @@ namespace Application.Mapper
             entity.Name = dto.Name;
             entity.Picture = dto.Picture;
             entity.Description = dto.Description;
-            entity.CountryId = dto.DestinationCountryID;
+            entity.CountryId = dto.CountryID;
 
             return entity;
         }
 
         private void ValidateDto(DestinationDto dto)
         {
-            Ensure.ArgumentNotNull(dto.DestinationCountryID, new ArgumentNullException(nameof(dto.DestinationCountryID)));
+            Ensure.ArgumentNotNull(dto.CountryID, new ArgumentNullException(nameof(dto.CountryID)));
         }
     }
 }

@@ -16,11 +16,13 @@ namespace RouteDataManager.Controllers.Generic
         public readonly IGenericService<TDto, TEntity> genericService;
 
         private readonly IPublishEndpoint publishEndpoint;
+
         public GenericController(
             IGenericService<TDto, TEntity> genericService,
             IPublishEndpoint publishEndpoint)
         {
             this.genericService = genericService;
+
             //Allows us to submit a message to the RabbitMQ Exchange 
             this.publishEndpoint = publishEndpoint;
         }
@@ -114,6 +116,17 @@ namespace RouteDataManager.Controllers.Generic
                 {
                     genericService.Update(dto);
 
+                    var entityUpdated =
+
+                  publishEndpoint.Publish<EntityUpdated>
+                      (new()
+                      {
+                          Id = dto.Id,
+                          Type = typeof(TEntity).Name,
+                          Message = "Updated Entity " + typeof(TEntity).Name,
+                          CreatedDate = DateTime.UtcNow,
+                      });
+
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -159,6 +172,17 @@ namespace RouteDataManager.Controllers.Generic
             if (dto != null)
             {
                 genericService.Remove(dto.Id);
+
+                var entityCreated =
+
+                    publishEndpoint.Publish<EntityDeleted>
+                        (new()
+                        {
+                            Id = dto.Id,
+                            Type = typeof(TEntity).Name,
+                            Message = "Deleted Entity " + typeof(TEntity).Name,
+                            CreatedDate = DateTime.UtcNow,
+                        });
             }
             else
             {

@@ -6,8 +6,8 @@ namespace Traveller.Application.Dto
 {
     public class DestinationDto : GenericDto
     {
-        public int DestinationCountryID { get; set; }
-        public CountryDto DestinationCountry { get; set; }
+        public int CountryID { get; set; }
+        public CountryDto Country { get; set; }
         public string Name { get; set; }
 
         [Display(Name = "Local Name")]
@@ -17,5 +17,8 @@ namespace Traveller.Application.Dto
         [Display(Name = "Photo")]
         public string Picture { get; set; }
         public int DestinationTypeID { get; set; }
+        
+        [Display(Name = "Has Railway Station")]
+        public bool HasRailwayStation { get; set; }
     }
 }

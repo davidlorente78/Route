@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "qKFxUSWpSye66nKG9byTOSHJJbGWNbIgJL/KaVGma+o=",
+  "Hash": "6nyCsvhp9LRrNc51AZQP8gl/x41Vf6DNQjTo5OztmFo=",
   "Source": "RouteDataManager",
   "BasePath": "_content/RouteDataManager",
   "Mode": "Default",
@@ -3128,6 +3128,40 @@
       "OriginalItemSpec": "wwwroot\\css\\style.min.css"
     },
     {
+      "Identity": "D:\\Code Project\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\3434263e-12d3-4d77-a3bf-aef45a6ab0d6_1682515090593.jpg",
+      "SourceId": "RouteDataManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Code Project\\Route\\Traveller\\RouteDataManager\\wwwroot\\",
+      "BasePath": "_content/RouteDataManager",
+      "RelativePath": "DestinationUploads/3434263e-12d3-4d77-a3bf-aef45a6ab0d6_1682515090593.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\DestinationUploads\\3434263e-12d3-4d77-a3bf-aef45a6ab0d6_1682515090593.jpg"
+    },
+    {
+      "Identity": "D:\\Code Project\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\48a59996-53ff-4e7f-9939-a8f7f4fa6001_1682515090593.jpg",
+      "SourceId": "RouteDataManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Code Project\\Route\\Traveller\\RouteDataManager\\wwwroot\\",
+      "BasePath": "_content/RouteDataManager",
+      "RelativePath": "DestinationUploads/48a59996-53ff-4e7f-9939-a8f7f4fa6001_1682515090593.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\DestinationUploads\\48a59996-53ff-4e7f-9939-a8f7f4fa6001_1682515090593.jpg"
+    },
+    {
       "Identity": "D:\\Code Project\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\65b205f2-d191-49fd-81d2-4c2e081b0636_goair-route-map.jpg",
       "SourceId": "RouteDataManager",
       "SourceType": "Discovered",
@@ -3143,6 +3177,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\DestinationUploads\\65b205f2-d191-49fd-81d2-4c2e081b0636_goair-route-map.jpg"
+    },
+    {
+      "Identity": "D:\\Code Project\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\ae04d0ce-8afa-4271-98a8-7de9f152a346_1682515090593.jpg",
+      "SourceId": "RouteDataManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Code Project\\Route\\Traveller\\RouteDataManager\\wwwroot\\",
+      "BasePath": "_content/RouteDataManager",
+      "RelativePath": "DestinationUploads/ae04d0ce-8afa-4271-98a8-7de9f152a346_1682515090593.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\DestinationUploads\\ae04d0ce-8afa-4271-98a8-7de9f152a346_1682515090593.jpg"
     },
     {
       "Identity": "D:\\Code Project\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\afbebeac-76e4-4975-9f91-696a5a289d04_route-map-india-express.png",
@@ -3194,6 +3245,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\DestinationUploads\\AranyaPrathet.jpg"
+    },
+    {
+      "Identity": "D:\\Code Project\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\b0a4f617-8c90-4047-9cd4-e3715b83ca64_1682515090593.jpg",
+      "SourceId": "RouteDataManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Code Project\\Route\\Traveller\\RouteDataManager\\wwwroot\\",
+      "BasePath": "_content/RouteDataManager",
+      "RelativePath": "DestinationUploads/b0a4f617-8c90-4047-9cd4-e3715b83ca64_1682515090593.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\DestinationUploads\\b0a4f617-8c90-4047-9cd4-e3715b83ca64_1682515090593.jpg"
     },
     {
       "Identity": "D:\\Code Project\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\Bangkok.jpg",
@@ -3279,6 +3347,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\DestinationUploads\\ChiangRai.jpg"
+    },
+    {
+      "Identity": "D:\\Code Project\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\ddc1c2f2-906a-4317-b608-08b42ad2fece_1682515090593.jpg",
+      "SourceId": "RouteDataManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Code Project\\Route\\Traveller\\RouteDataManager\\wwwroot\\",
+      "BasePath": "_content/RouteDataManager",
+      "RelativePath": "DestinationUploads/ddc1c2f2-906a-4317-b608-08b42ad2fece_1682515090593.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\DestinationUploads\\ddc1c2f2-906a-4317-b608-08b42ad2fece_1682515090593.jpg"
     },
     {
       "Identity": "D:\\Code Project\\Route\\Traveller\\RouteDataManager\\wwwroot\\DestinationUploads\\e00729aa-4787-466f-bcfa-df209c4d8e3e_goair-route-map.jpg",

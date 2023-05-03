@@ -1,5 +1,7 @@
 ﻿using Application.Dto;
+using Domain.Messages;
 using DomainServices.DestinationService;
+using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,10 +12,12 @@ using Traveller.Application.Dto;
 using Traveller.DomainServices;
 
 namespace RouteDataManager.Controllers
-{   
+{
     public class DestinationsController : Controller
+
     {
         private readonly IWebHostEnvironment environment;
+        private readonly IPublishEndpoint publishEndpoint;
 
         private readonly ICountryService countryService;
         private readonly IDestinationService destinationService;
@@ -27,12 +31,15 @@ namespace RouteDataManager.Controllers
             ICountryService countryService,
             IDestinationService destinationService,
             IDestinationTypeService destinationTypeService,
-            IWebHostEnvironment environment
+            IWebHostEnvironment environment,
+            IPublishEndpoint publishEndpoint
             )
         {
             this.countryService = countryService;
             this.destinationService = destinationService;
             this.destinationTypeService = destinationTypeService;
+            //Allows us to submit a message to the RabbitMQ Exchange 
+            this.publishEndpoint = publishEndpoint;
 
             countries = countryService.GetAll();
             destinations = destinationService.GetAll();
@@ -124,14 +131,27 @@ namespace RouteDataManager.Controllers
             string uniqueFileName = ProcessUploadedFile(model.Picture);
             DestinationDto destination = new()
             {
-                DestinationCountryID = model.CountryID,
+                CountryID = model.CountryID,
                 DestinationTypeID = model.DestinationTypeID, //En realidad DestinationType es una lista
                 Name = model.Name,
                 Description = model.Description,
-                Picture = uniqueFileName
+                Picture = uniqueFileName,                
             };
 
-            destinationService.Add(destination);
+            var destinationId = destinationService.Add(destination);
+
+            var entityUpdated =
+
+             publishEndpoint.Publish<DestinationCreated>
+                 (new()
+                 {
+                     Id = destinationId,
+                     DestinationTypeId = destination.DestinationTypeID,
+                     Message = destination.Name + " Created",
+                     CreatedDate = DateTime.UtcNow,
+                 }); ;
+
+
             return RedirectToAction(nameof(Index));
         }
 
@@ -152,7 +172,7 @@ namespace RouteDataManager.Controllers
 
             var destinationViewModel = new DestinationViewModel()
             {
-                CountryID = destination.DestinationCountryID,
+                CountryID = destination.CountryID,
                 SelectListCountries = selectListCountries,
                 DestinationID = destination.Id,
                 Description = destination.Description,
@@ -165,14 +185,14 @@ namespace RouteDataManager.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]     
+        [ValidateAntiForgeryToken]
         public IActionResult EditWithPicture(DestinationViewModel model)
         {
             var destination = destinationService.GetByID(model.DestinationID);
 
             destination.Name = model.Name;
             destination.Description = model.Description;
-            destination.DestinationCountryID = model.CountryID;
+            destination.CountryID = model.CountryID;
 
             if (model.Picture != null)
             {

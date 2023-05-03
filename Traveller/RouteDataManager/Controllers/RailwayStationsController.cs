@@ -1,4 +1,6 @@
-﻿using Domain.Transport.Railway;
+﻿using Domain.Messages;
+using Domain.Transport.Railway;
+using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -7,7 +9,7 @@ using RouteDataManager.ViewModels;
 
 namespace RouteDataManager.Controllers
 {
-    public class RailwayStationsController : Controller
+    public class RailwayStationsController : Controller, IConsumer<DestinationCreated>
     {
         private readonly ApplicationContext _context;
 
@@ -36,7 +38,7 @@ namespace RouteDataManager.Controllers
                 applicationContext = _context.RailwayStations.Include(s => s.Destinations).OrderBy(s => s.Name);
             }
 
-            SelectList selectListCountries = new SelectList(_context.Countries, "CountryID", "Name", stationIndexViewModel.FilterCountry.Id);
+            SelectList selectListCountries = new SelectList(_context.Countries, "Id", "Name", stationIndexViewModel.FilterCountry.Id);
             SelectList selectListLines = new SelectList(itemsSelectLines.ToList(), "RailwayLineID", "Name", stationIndexViewModel.FilterLine.RailwayLineID);
 
             stationIndexViewModel.SelectListCountries = selectListCountries;
@@ -179,6 +181,30 @@ namespace RouteDataManager.Controllers
         private bool StationExists(int id)
         {
             return (_context.RailwayStations?.Any(e => e.RailwayStationID == id)).GetValueOrDefault();
+        }
+
+        public Task Consume(ConsumeContext<DestinationCreated> context)
+        {
+            //TODO
+            //Create Station from Destination Created Message
+            //Check DestinationTypeId
+
+            var destinationId = context.Message.Id; //ID station is needed here
+
+            var station = new RailwayStation()
+            {
+                Name = context.Message.Name,
+                Remarks = context.Message.Message,
+
+            };
+
+            //Repo Destination
+            var destination =  _context.Destinations.Find(destinationId);
+
+            station.Destinations.Add(destination);
+            _context.Add(station);
+            return  _context.SaveChangesAsync();
+
         }
     }
 }

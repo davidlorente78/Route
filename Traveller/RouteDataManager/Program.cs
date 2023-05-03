@@ -19,7 +19,6 @@ using Traveller.RuleService;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
 builder.Services.AddRazorPages();
 
 builder.Services.AddControllersWithViews();
@@ -37,7 +36,6 @@ builder.Services.AddScoped(typeof(IGenericService<,>), typeof(GenericService<,>)
 builder.Services.AddScoped(typeof(ICountryMapper), typeof(CountryMapper));
 builder.Services.AddScoped(typeof(IDestinationMapper), typeof(DestinationMapper));
 builder.Services.AddScoped(typeof(IDestinationTypeMapper), typeof(DestinationTypeMapper));
-
 builder.Services.AddScoped(typeof(IAirportMapper), typeof(AirportMapper));
 builder.Services.AddScoped(typeof(IAirportTypeMapper), typeof(AirportTypeMapper));
 builder.Services.AddScoped(typeof(IAirlineMapper), typeof(AirlineMapper));
@@ -53,7 +51,6 @@ builder.Services.AddScoped<IAirportRepository, AirportRepository>();
 builder.Services.AddScoped<IAirportTypeRepository, AirportTypeRepository>();
 builder.Services.AddScoped<IAirlineRepository, AirlineRepository>();
 
-
 builder.Services.AddScoped<ICountryService, CountryService>();
 builder.Services.AddScoped<IDestinationService, DestinationService>();
 builder.Services.AddScoped<IDestinationTypeService, DestinationTypeService>();
@@ -61,33 +58,34 @@ builder.Services.AddScoped<IAirportService, AirportService>();
 builder.Services.AddScoped<IAirportTypeService, AirportTypeService>();
 builder.Services.AddScoped<IAirlineService, AirlineService>();
 
-
 builder.Services.AddScoped<IVisaService, VisaService>();
 builder.Services.AddScoped<IRouteService, RouteService>();
 builder.Services.AddScoped<IRuleContainer, RuleContainer>();
-
-
 
 #region AutoMapper
 
 //You define the configuration using profiles. And then you let AutoMapper know in what assemblies are those profiles defined by calling the IServiceCollection extension method AddAutoMapper at startup:
 builder.Services.AddAutoMapper(typeof(CountryProfile));
-//Now you can inject AutoMapper at runtime into your services/controllers:
-
+//Now you can inject AutoMapper at runtime into your services/controllers
 
 #endregion
 
 
 #region RabbitMQ
+
 //https://www.erlang.org/downloads
 //https://www.rabbitmq.com/download.html
 //rabbitmqctl status para verificar que este ejecutandose el servicio
 //http://localhost:15672 acceso a consola administracion web
+//Eliminar colas desde la consola de administracion
 
 builder.Services.AddMassTransit(x =>
 {
-    // Configurar MassTransit aquí
+    // Configurar MassTransit 
+    // Añadir Consumers
     x.AddConsumer<AirportsController>();
+    x.AddConsumer<RailwayStationsController>();
+
 
     x.UsingRabbitMq((context, cfg) =>
     {
@@ -98,26 +96,25 @@ builder.Services.AddMassTransit(x =>
         });
 
         //Configurar la cola en la que se recibirán los mensajes.
-        cfg.ReceiveEndpoint("CreatedEntitiesQueue", e =>
+        cfg.ReceiveEndpoint("EntitiesEventsQueue", e =>
         {
             //Usamos el método ConfigureConsumer para registrar el consumidor AirportsController con MassTransit.
             e.ConfigureConsumer<AirportsController>(context);
+            e.ConfigureConsumer<RailwayStationsController>(context);
         });
     });
 });
 
 builder.Services.AddScoped<AirportsController>();
 builder.Services.AddScoped<CountriesController>();
-
-
+builder.Services.AddScoped<DestinationsController>();
+builder.Services.AddScoped<RailwayStationsController>();
 
 builder.Services.AddMassTransitHostedService();
 
 builder.Services.AddSingleton<IPublishEndpoint>(provider => provider.GetRequiredService<IBusControl>());
 builder.Services.AddSingleton<ISendEndpointProvider>(provider => provider.GetRequiredService<IBusControl>());
 builder.Services.AddSingleton<IBus>(provider => provider.GetRequiredService<IBusControl>());
-
-
 
 #endregion
 var app = builder.Build();
@@ -133,7 +130,6 @@ using (var scope = app.Services.CreateScope())
     DbInitializer.Initialize(context);
 }
 
-
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
@@ -143,8 +139,6 @@ else
 {
     app.UseDeveloperExceptionPage();
 }
-
-
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
