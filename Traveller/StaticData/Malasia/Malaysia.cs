@@ -1,6 +1,4 @@
-﻿using Domain.Ranges;
-using Domain.Transport.Railway;
-using Traveller.Domain;
+﻿using Traveller.Domain;
 using Traveller.StaticData;
 
 namespace Data.Malaysia
@@ -8,12 +6,14 @@ namespace Data.Malaysia
     public static class DataMalaysia
     {
         public static Country Malaysia = new Country('M', "Malaysia", true, 3)
-        {          
+        {
             Destinations = MalaysiaDestinations.GetAll(),
             Airports = MalaysiaAirports.GetAll(),
-            BorderCrossings = MalaysiaBorderCrossings.GetAll(),        
+            BorderCrossings = MalaysiaBorderCrossings.GetAll(),
             TrainLines = MalaysiaTrainLines.GetAll(),
-            Ranges = MalaysiaRanges.GetAll()     
+            Ranges = MalaysiaRanges.GetAll(),
+            Visas = new List<Visa> { MalaysiaVisas.eVisa_Malaysia, MalaysiaVisas.freeVisa_Malaysia }
+
         };
     }
 }

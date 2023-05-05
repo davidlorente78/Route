@@ -36,6 +36,8 @@
             services.AddScoped(typeof(IAirportMapper), typeof(AirportMapper));
             services.AddScoped(typeof(IAirportTypeMapper), typeof(AirportTypeMapper));
             services.AddScoped(typeof(IAirlineMapper), typeof(AirlineMapper));
+            services.AddScoped(typeof(IVisaMapper), typeof(VisaMapper));
+
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
@@ -47,6 +49,8 @@
             services.AddScoped<IAirportRepository, AirportRepository>();
             services.AddScoped<IAirportTypeRepository, AirportTypeRepository>();
             services.AddScoped<IAirlineRepository, AirlineRepository>();
+            services.AddScoped<IVisaRepository, VisaRepository>();
+
 
             services.AddScoped<ICountryService, CountryService>();
             services.AddScoped<IDestinationService, DestinationService>();
@@ -70,7 +74,7 @@
             services.AddAutoMapper(typeof(CountryProfile));
             services.AddAutoMapper(typeof(DestinationProfile));
             services.AddAutoMapper(typeof(DestinationTypeProfile));
-
+            services.AddAutoMapper(typeof(VisaProfile));
         }
     }
 

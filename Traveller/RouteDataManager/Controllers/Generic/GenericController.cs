@@ -41,7 +41,7 @@ namespace RouteDataManager.Controllers.Generic
                 return NotFound();
             }
 
-            TDto dto = genericService.GetByID(id.Value);
+            TDto dto = genericService.GetById(id.Value);
 
             if (dto == null)
             {
@@ -91,7 +91,7 @@ namespace RouteDataManager.Controllers.Generic
                 return NotFound();
             }
 
-            TDto dto = genericService.GetByID(id.Value);
+            TDto dto = genericService.GetById(id.Value);
 
             if (dto == null)
             {
@@ -153,7 +153,7 @@ namespace RouteDataManager.Controllers.Generic
                 return NotFound();
             }
 
-            TDto dto = genericService.GetByID(id.Value);
+            TDto dto = genericService.GetById(id.Value);
 
             if (dto == null)
             {
@@ -167,12 +167,21 @@ namespace RouteDataManager.Controllers.Generic
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
-            TDto dto = genericService.GetByID(id);
+            TDto dto = genericService.GetById(id);
 
             if (dto != null)
             {
-                genericService.Remove(dto.Id);
+                try
+                {
+                    genericService.Remove(dto.Id);
 
+                }
+
+                catch (Exception ex)
+                {
+                    return Problem("Delete Child Entities manually before proceed");
+
+                }
                 var entityCreated =
 
                     publishEndpoint.Publish<EntityDeleted>

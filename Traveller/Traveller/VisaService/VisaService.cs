@@ -1,39 +1,42 @@
-﻿using RouteDataManager.Repositories;
+﻿using Application.Mapper;
+using AutoMapper;
+using Domain.Repositories;
+using DomainServices.Generic;
+using RouteDataManager.Repositories;
 using System.Linq;
+using Traveller.Application.Dto;
 using Traveller.Domain;
 
 namespace Traveller.DomainServices
 {
-    public class VisaService : IVisaService
+    public class VisaService : GenericService<VisaDto, Visa>, IVisaService
     {
+        private ICountryService countryService;
+        private IVisaRepository specificVisaRepository;
 
-        private IUnitOfWork unitOfWork;
-        public VisaService(IUnitOfWork unitOfWork)
+        public VisaService(
+            IUnitOfWork unitOfWork,
+            IMapper mapper,
+            IVisaMapper visaMapper,
+            IGenericRepository<Visa> visaRepository,
+            IVisaRepository specificVisaRepository,
+            ICountryService countryService)
+            : base(unitOfWork, mapper, visaMapper, visaRepository)
         {
-
-            this.unitOfWork = unitOfWork;
-
+            this.specificVisaRepository = specificVisaRepository;
+            this.countryService = countryService;
         }
+
         public int GetMaxStay(char countryCode, string nationalityCode)
         {
-            var country = unitOfWork.CountryRepository.GetCountryByCode(countryCode);
+            //TODO
+            var country = countryService
+                .GetIncluding(c => c.Code == countryCode, c => c.Visas)
+                .FirstOrDefault();
 
-            if (country.BorderCrossings.SelectMany(b=>b.Visas).Count() != 0)
-            {
-                var maxDuration = country.BorderCrossings.SelectMany(b => b.Visas)
-                        .Where(
-                            s => s.QualifyNationalities.Select(n => n.Code).Contains(nationalityCode)
-                         )
-                        .Max(v => v.Duration);
+            var maxStay = specificVisaRepository.GetMaxStay(country.Id, nationalityCode);
 
-                return (int)maxDuration;
-            }
-
-            return 0;
+            return maxStay;
         }
-
-
-
-
     }
 }

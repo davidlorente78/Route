@@ -48,7 +48,7 @@ namespace DomainServices.Generic
             return dtos;
         }
 
-        public TDto GetByID(int id)
+        public TDto GetById(int id)
         {
             var entity = repository.GetById(id);
             TDto dto = mapper.Map<TDto>(entity);
@@ -76,22 +76,25 @@ namespace DomainServices.Generic
 
         public int Remove(int id)
         {
-            var entity = GetEntityByID(id);
+            var entity = GetEntityById(id);
+
             repository.Remove(entity);
+
             return unitOfWork.SaveChanges();
         }
 
         public int Update(TDto dto)
         {
-            var entity = GetEntityByID(dto.Id);
+            var entity = GetEntityById(dto.Id);
 
             entity = genericMapper.UpdateEntityFromDto(dto, entity);
+
             repository.Update(entity);
 
             return unitOfWork.SaveChanges();
         }
 
-        private TEntity GetEntityByID(int id)
+        private TEntity GetEntityById(int id)
         {
             var entity = repository.GetById(id);
 

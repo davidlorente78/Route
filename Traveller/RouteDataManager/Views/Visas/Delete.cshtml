@@ -1,4 +1,4 @@
-﻿@model Traveller.Domain.Visa
+﻿@model Traveller.Application.Dto.VisaDto
 
 @{
     ViewData["Title"] = "Delete";
@@ -117,7 +117,7 @@
     </dl>
     
     <form asp-action="Delete">
-        <input type="hidden" asp-for="VisaID" />
+        <input type="hidden" asp-for="Id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Back to List</a>
     </form>

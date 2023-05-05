@@ -6,7 +6,7 @@ namespace Data.Utils
 {
     public static class BorderCrossingUtils
     {
-        public static List<BorderCrossing> CreateFrontiersFromInternationalAirports(ICollection<Airport> airports, ICollection<Visa> visas)
+        public static List<BorderCrossing> CreateBorderCrossingFromInternationalAirports(ICollection<Airport> airports, ICollection<Visa> visas)
         {
             List<BorderCrossing> frontiers = new List<BorderCrossing>();
 
@@ -19,7 +19,7 @@ namespace Data.Utils
                     DestinationOrigin = airport.Destinations.FirstOrDefault(),
                     DestinationFinal = airport.Destinations.FirstOrDefault(),
                     BorderCrossingType = BorderCrossingTypes.Airport,
-                    Visas = visas,
+                    //Visas = visas,
                 };
 
                 frontiers.Add(frontierFromAirport);

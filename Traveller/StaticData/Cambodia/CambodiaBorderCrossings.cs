@@ -11,7 +11,7 @@ namespace Traveller.StaticData
         {
             List<BorderCrossing> terrestrial = GetAllTerrestrialFrontiers();
 
-            List<BorderCrossing> frontiersFromAirports = BorderCrossingUtils.CreateFrontiersFromInternationalAirports(CambodiaAirports.GetAll(), new List<Visa> { CambodiaVisas.eVisa_Cambodia });
+            List<BorderCrossing> frontiersFromAirports = BorderCrossingUtils.CreateBorderCrossingFromInternationalAirports(CambodiaAirports.GetAll(), new List<Visa> { CambodiaVisas.eVisa_Cambodia });
 
             terrestrial.AddRange(frontiersFromAirports);
 

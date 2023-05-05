@@ -27,7 +27,7 @@ namespace Application.Mapper
 
             entity.Id = dto.Id;
             entity.SetName(dto.Name);
-            entity.SetCode(dto.Code.Value);
+            entity.SetCode(dto.Code);
 
             return entity;
         }

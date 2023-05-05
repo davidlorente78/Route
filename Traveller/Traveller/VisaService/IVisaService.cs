@@ -1,12 +1,11 @@
-﻿using RouteDataManager.Repositories;
-using System.Linq;
+﻿using DomainServices.Generic;
+using Traveller.Application.Dto;
 using Traveller.Domain;
 
 namespace Traveller.DomainServices
 {
-    public interface IVisaService
+    public interface IVisaService : IGenericService<VisaDto, Visa>
     {
-        public int GetMaxStay(char countryCode, string nationalityCode);   
-
+        public int GetMaxStay(char countryCode, string nationalityCode);
     }
 }

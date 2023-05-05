@@ -6,16 +6,14 @@ using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using RouteDataManager.Controllers.Generic;
-using RouteDataManager.Repositories;
 using RouteDataManager.ViewModels;
 using Traveller.Application.Dto;
 using Traveller.DomainServices;
 
 namespace RouteDataManager.Controllers
 {
-    public class AirportsController : GenericController<AirportDto, Airport> , IConsumer<EntityCreated>, IConsumer<EntityDeleted>
+    public class AirportsController : GenericController<AirportDto, Airport>, IConsumer<EntityCreated>, IConsumer<EntityDeleted>
     {
-
         private readonly ICountryService countryService;
         private readonly IAirportService airportService;
         private readonly IAirportTypeService airportTypeService;
@@ -24,11 +22,12 @@ namespace RouteDataManager.Controllers
         private IEnumerable<AirportDto> airports;
         private IEnumerable<AirportTypeDto> airportTypes;
 
-        public AirportsController(ApplicationContext context,
+        public AirportsController(
             ICountryService countryService,
             IAirportService airportService,
-            IAirportTypeService airportTypeService, 
-            IPublishEndpoint publishEndpoint) : base(airportService, publishEndpoint)
+            IAirportTypeService airportTypeService,
+            IPublishEndpoint publishEndpoint)
+            : base(airportService, publishEndpoint)
 
         {
             this.airportService = airportService;
@@ -40,6 +39,7 @@ namespace RouteDataManager.Controllers
             airportTypes = airportTypeService.GetAll();
         }
 
+        [HttpPost]
         [HttpGet]
         public IActionResult Index(AirportIndexViewModel airportIndexViewModel)
         {

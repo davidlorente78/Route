@@ -39,6 +39,9 @@ builder.Services.AddScoped(typeof(IDestinationTypeMapper), typeof(DestinationTyp
 builder.Services.AddScoped(typeof(IAirportMapper), typeof(AirportMapper));
 builder.Services.AddScoped(typeof(IAirportTypeMapper), typeof(AirportTypeMapper));
 builder.Services.AddScoped(typeof(IAirlineMapper), typeof(AirlineMapper));
+builder.Services.AddScoped(typeof(IVisaMapper), typeof(VisaMapper));
+builder.Services.AddScoped(typeof(INationalityMapper), typeof(NationalityMapper));
+
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
@@ -50,6 +53,10 @@ builder.Services.AddScoped<IRailwayStationRepository, RailwayStationRepository>(
 builder.Services.AddScoped<IAirportRepository, AirportRepository>();
 builder.Services.AddScoped<IAirportTypeRepository, AirportTypeRepository>();
 builder.Services.AddScoped<IAirlineRepository, AirlineRepository>();
+builder.Services.AddScoped<IVisaRepository, VisaRepository>();
+builder.Services.AddScoped<INationalityRepository, NationalityRepository>();
+
+
 
 builder.Services.AddScoped<ICountryService, CountryService>();
 builder.Services.AddScoped<IDestinationService, DestinationService>();
@@ -57,6 +64,8 @@ builder.Services.AddScoped<IDestinationTypeService, DestinationTypeService>();
 builder.Services.AddScoped<IAirportService, AirportService>();
 builder.Services.AddScoped<IAirportTypeService, AirportTypeService>();
 builder.Services.AddScoped<IAirlineService, AirlineService>();
+builder.Services.AddScoped<INationalityService, NationalityService>();
+
 
 builder.Services.AddScoped<IVisaService, VisaService>();
 builder.Services.AddScoped<IRouteService, RouteService>();
@@ -64,7 +73,8 @@ builder.Services.AddScoped<IRuleContainer, RuleContainer>();
 
 #region AutoMapper
 
-//You define the configuration using profiles. And then you let AutoMapper know in what assemblies are those profiles defined by calling the IServiceCollection extension method AddAutoMapper at startup:
+//You define the configuration using profiles.
+//And then you let AutoMapper know in what assemblies are those profiles defined by calling the IServiceCollection extension method AddAutoMapper at startup:
 builder.Services.AddAutoMapper(typeof(CountryProfile));
 //Now you can inject AutoMapper at runtime into your services/controllers
 

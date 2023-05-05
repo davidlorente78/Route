@@ -14,19 +14,26 @@ namespace DomainServices.CountryService
         ICountryRepository specificCountryRepository;
 
         public CountryService(
-            IUnitOfWork unitOfWork, 
+            IUnitOfWork unitOfWork,
             IMapper mapper,
-            ICountryMapper coutryMapper, 
-            IGenericRepository<Country> countryRepository, 
-            ICountryRepository specificCountryRepository) 
-            : base(unitOfWork, mapper, coutryMapper,  countryRepository)
+            ICountryMapper coutryMapper,
+            IGenericRepository<Country> countryRepository,
+            ICountryRepository specificCountryRepository)
+            : base(unitOfWork, mapper, coutryMapper, countryRepository)
         {
             this.specificCountryRepository = specificCountryRepository;
         }
 
-        public Country GetCountryIncludingRangesByCountryCode(char CountryCode)
+        public Country GetByCodeIncludingRanges(char CountryCode)
         {
-            var country = specificCountryRepository.GetCountryIncludingRangesByCode(CountryCode);
+            var country = specificCountryRepository.GetByCodeIncludingRanges(CountryCode);
+
+            return country;
+        }
+
+        public Country GetByCode(char CountryCode)
+        {
+            var country = specificCountryRepository.GetByCode(CountryCode);
 
             return country;
         }

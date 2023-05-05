@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Traveller.Application.Dto
+﻿namespace Traveller.Application.Dto
 {
     public class SelectCountryDto
     {
@@ -8,7 +6,5 @@ namespace Traveller.Application.Dto
         public char Code { get; set; }
         public string Name { get; set; }
         public bool Selected { get; set; }
-
-      
     }
 }

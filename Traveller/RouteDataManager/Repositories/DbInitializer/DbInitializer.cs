@@ -116,8 +116,7 @@ namespace RouteDataManager.Repositories.DbInitializer
                             DestinationFinal = SingaporeDestinations.Singapore,
                             BorderCrossingType = BorderCrossingTypes.Airport,
                            //https://www.ica.gov.sg/
-                            Visas = new List<Visa> { SingaporeVisas.SGArrivalCard_Singapore
-                            }
+                            //Visas = new List<Visa> { SingaporeVisas.SGArrivalCard_Singapore}
                             },
                             new BorderCrossing
                             {
@@ -125,10 +124,10 @@ namespace RouteDataManager.Repositories.DbInitializer
                             DestinationOrigin = MalaysiaDestinations.JohorBahru,
                             DestinationFinal = SingaporeDestinations.WoodlandsCheckpoint,
                             BorderCrossingType = BorderCrossingTypes.Terrestrial,
-                            Visas = new List<Visa>
-                                {
-                                    SingaporeVisas.SGArrivalCard_Singapore
-                                }
+                            //Visas = new List<Visa>
+                            //    {
+                            //        SingaporeVisas.SGArrivalCard_Singapore
+                            //    }
                             },
 
                             //Frontier https://en.wikipedia.org/wiki/Malaysia%E2%80%93Singapore_Second_Link

@@ -10,12 +10,9 @@ namespace Domain.Repositories
     public interface ICountryRepository: IGenericRepository<Country>
     {
         IEnumerable<Country> GetCountriesOrderedByName();
-
-        //TODO Este es Country sin ENUMERABLE
         IEnumerable<Country> GetCountryByID(int id);
-
-        public Country GetCountryByCode(char ch);
-
-        public Country? GetCountryIncludingRangesByCode(char ch);
+        public Country? GetByCodeIncludingAllAggregates(char ch);
+        public Country? GetByCodeIncludingRanges(char ch);
+        public Country? GetByCode(char ch);
     }
 }

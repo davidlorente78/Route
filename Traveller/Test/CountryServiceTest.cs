@@ -27,7 +27,7 @@ namespace Test
         [TestMethod]
         public void GetByID()
         {
-            var result = countryService.GetByID(1);
+            var result = countryService.GetById(1);
 
             Assert.AreEqual(result.Name, "Laos");
         }
@@ -35,7 +35,7 @@ namespace Test
         [TestMethod]
         public void Exists()
         {
-            var country = countryService.GetByID(1);
+            var country = countryService.GetById(1);
             countryService.Remove(country.Id);
 
             bool result = countryService.Exists(1);

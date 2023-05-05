@@ -11,7 +11,7 @@ namespace Data.Malaysia
         {
             List<BorderCrossing> terrestrial = GetAllTerrestrialFrontiers();
 
-            List<BorderCrossing> frontiersFromAirports = BorderCrossingUtils.CreateFrontiersFromInternationalAirports(MalaysiaAirports.GetAll(), new List<Visa> { MalaysiaVisas.freeVisa_Malaysia, MalaysiaVisas.eVisa_Malaysia });
+            List<BorderCrossing> frontiersFromAirports = BorderCrossingUtils.CreateBorderCrossingFromInternationalAirports(MalaysiaAirports.GetAll(), new List<Visa> { MalaysiaVisas.freeVisa_Malaysia, MalaysiaVisas.eVisa_Malaysia });
 
             terrestrial.AddRange(frontiersFromAirports);
 
@@ -27,14 +27,14 @@ namespace Data.Malaysia
                     DestinationOrigin = ThailandDestinations.PadangPesar,
                     DestinationFinal = MalaysiaDestinations.PadangPesar,
                     BorderCrossingType = BorderCrossingTypes.Terrestrial,
-                    Visas = new List<Visa> { MalaysiaVisas.freeVisa_Malaysia, MalaysiaVisas.eVisa_Malaysia }
+                    //Visas = new List<Visa> { MalaysiaVisas.freeVisa_Malaysia, MalaysiaVisas.eVisa_Malaysia }
                 },
                 new BorderCrossing {
                     Name = "Sungai Kolok - Rantan Panjang",
                     DestinationOrigin = ThailandDestinations.SungaiKolok,
                     DestinationFinal = MalaysiaDestinations.RantanPanjang,
                     BorderCrossingType = BorderCrossingTypes.Terrestrial,
-                    Visas = new List<Visa> { MalaysiaVisas.freeVisa_Malaysia, MalaysiaVisas.eVisa_Malaysia }
+                    //Visas = new List<Visa> { MalaysiaVisas.freeVisa_Malaysia, MalaysiaVisas.eVisa_Malaysia }
                 },
                 new BorderCrossing {
                     Name = MalaysiaDestinations.JohorBahru.Name,
@@ -42,7 +42,7 @@ namespace Data.Malaysia
                     //https://onemotoring.lta.gov.sg/content/onemotoring/home/driving/traffic_information/traffic-cameras/woodlands.html#trafficCameras
                     DestinationFinal = MalaysiaDestinations.JohorBahru,
                     BorderCrossingType = BorderCrossingTypes.Terrestrial,
-                    Visas = new List<Visa> { MalaysiaVisas.freeVisa_Malaysia, MalaysiaVisas.eVisa_Malaysia}
+                    //Visas = new List<Visa> { MalaysiaVisas.freeVisa_Malaysia, MalaysiaVisas.eVisa_Malaysia}
                 }
             };
         }

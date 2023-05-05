@@ -21,7 +21,7 @@ namespace Traveller.StaticData
                     DestinationOrigin = CambodiaDestinations.Bavet,
                     DestinationFinal = VietnamDestinations.MocBai,
                     BorderCrossingType = BorderCrossingTypes.Terrestrial,
-                    Visas = new List<Visa> { VietnamVisas.eVisa_Vietnam, VietnamVisas.VisaExemption_Vietnam },
+                    //Visas = new List<Visa> { VietnamVisas.eVisa_Vietnam, VietnamVisas.VisaExemption_Vietnam },
                 },
                 new BorderCrossing
                 {
@@ -160,7 +160,7 @@ namespace Traveller.StaticData
         {
             List<BorderCrossing> all = new List<BorderCrossing>();
             List<BorderCrossing> terrestrial = GetAllTerrestrialFrontiers();
-            List<BorderCrossing> frontiersFromAirports = BorderCrossingUtils.CreateFrontiersFromInternationalAirports(VietnamAirports.GetAll(), new List<Visa> { VietnamVisas.eVisa_Vietnam, VietnamVisas.VisaExemption_Vietnam });
+            List<BorderCrossing> frontiersFromAirports = BorderCrossingUtils.CreateBorderCrossingFromInternationalAirports(VietnamAirports.GetAll(), new List<Visa> { VietnamVisas.eVisa_Vietnam, VietnamVisas.VisaExemption_Vietnam });
 
             all.AddRange(terrestrial);
             all.AddRange(frontiersFromAirports);

@@ -1,10 +1,13 @@
 ﻿using Domain;
+using Domain.Generic;
 using System.ComponentModel;
 
 namespace Traveller.Domain
 {
-    public class Visa    {      
-        public int VisaID { get; set; }
+    public class Visa : Entity
+    {
+        public int CountryId { get; set; }
+        public virtual Country Country { get; set; }
         public string Name { get; set; }
         public string? Description { get; set; }
 
@@ -30,7 +33,7 @@ namespace Traveller.Domain
         public int? ExtensionFee { get; set; }
 
         [DisplayName("Additional Days Fee")]
-        public int? AdditionalDaysFee { get; set; }         
+        public int? AdditionalDaysFee { get; set; }
         public char? Currency { get; set; }
         public int? Fee { get; set; }
 

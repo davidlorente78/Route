@@ -14,12 +14,12 @@
                 <tr>
                     <th>
                         <label class="control-label">Country</label>
-                        <select  id ="ddlCountries" asp-for="@Model.FilterCountry.Id"  class="form-control" asp-items="@Model.SelectListCountries"></select>
+                        <select id="ddlCountries" asp-for="@Model.FilterCountry.Id" class="form-control" asp-items="@Model.SelectListCountries"></select>
                     </th>
 
                     <th>
                         <label class="control-label">Qualify Nationality</label>
-                        <select id ="ddlNationalities" asp-for="@Model.FilterNationality.NationalityID" class="form-control" asp-items="@Model.SelectListNationalities"></select>
+                        <select id="ddlNationalities" asp-for="@Model.FilterNationality.Id" class="form-control" asp-items="@Model.SelectListNationalities"></select>
                     </th>
 
                     <th>
@@ -48,64 +48,66 @@
     <thead>
         <tr>
             <th>
-               Name
+                Name
             </th>
-        
+
             <th>
-               Description
-            </th>
-            <th>
-               On Line
+                Description
             </th>
             <th>
-               On Arrival
-            </th>         
-            <th>
-              Duration
+                On Line
             </th>
             <th>
-              Entries
+                On Arrival
             </th>
             <th>
-               Category
+                Duration
             </th>
-          
+            <th>
+                Entries
+            </th>
+            <th>
+                Category
+            </th>
+
             <th></th>
         </tr>
     </thead>
-    <tbody>
-@foreach (var item in Model.Visas) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>         
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OnLine)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OnArrival)
-            </td>
-         
-            <td>
-                @Html.DisplayFor(modelItem => item.Duration)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Entries)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category)
-            </td>
-       
 
-               <td>   <a asp-action="Edit" class="btn btn-primary btn-block" asp-route-id="@item.VisaID">Edit</a></td>
-                <td>  <a asp-action="Details" class="btn btn-primary btn-block" asp-route-id="@item.VisaID">Details</a> </td>
-                <td>  <a asp-action="Delete" class="btn btn-primary btn-block" asp-route-id="@item.VisaID">Delete</a> </td>
+    <tbody>
+        @foreach (var item in Model.Visas)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OnLine)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OnArrival)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Duration)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Entries)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category)
+                </td>
+
+
+                <td>   <a asp-action="Edit" class="btn btn-primary btn-block" asp-route-id="@item.Id">Edit</a></td>
+                <td>  <a asp-action="Details" class="btn btn-primary btn-block" asp-route-id="@item.Id">Details</a> </td>
+                <td>  <a asp-action="Delete" class="btn btn-primary btn-block" asp-route-id="@item.Id">Delete</a> </td>
 
             </tr>
-}
+        }
     </tbody>
 </table>
 
@@ -116,7 +118,7 @@
         $(document).ready(function () {
             $("#ddlCountries").change(function () {
                 $.get("/Visas/GetNationalitiesListByCountryID", { CountryID: $("#ddlCountries").val() }, function (data) {
-                    $("#ddlNationalities").empty();                
+                    $("#ddlNationalities").empty();
                     $.each(data, function (index, row) {
                         $("#ddlNationalities").append("<option value='" + row.value + "'>" + row.text + "</option>")
                     });

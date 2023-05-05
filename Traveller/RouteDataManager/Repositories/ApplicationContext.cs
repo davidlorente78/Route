@@ -150,11 +150,6 @@ namespace RouteDataManager.Repositories
                 .HasForeignKey(d => d.DestinationFinalID)
                 .OnDelete(DeleteBehavior.NoAction);
 
-            modelBuilder.Entity<BorderCrossing>()
-                .HasMany(b => b.Visas)
-                .WithMany(x => x.BorderCrossings)
-                .UsingEntity("VisaBorderCrossing");
-
             modelBuilder.Entity<Airport>()
                 .ToTable("Airports")
                 .HasKey(x => x.Id);

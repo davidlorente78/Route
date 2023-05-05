@@ -10,7 +10,8 @@ namespace Data.Laos
             Destinations = LaosDestinations.GetAll(),
             BorderCrossings = LaosBorderCrossings.GetAll(),
             Airports = LaosAirports.GetAll(),
-            Ranges = LaosRanges.GetAll()
+            Ranges = LaosRanges.GetAll(),
+            Visas = new List<Visa> { LaosVisas.LaoVisa, LaosVisas.eLaoVisa }
         };
     }
 }

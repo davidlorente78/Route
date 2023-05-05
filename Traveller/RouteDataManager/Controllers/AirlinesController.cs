@@ -53,7 +53,7 @@ namespace RouteDataManager.Controllers
                 return NotFound();
             }
 
-            var airline = airlinesService.GetByID(id.Value);
+            var airline = airlinesService.GetById(id.Value);
 
             if (airline == null)
             {
@@ -75,7 +75,7 @@ namespace RouteDataManager.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult EditWithPicture(AirlineViewModel model)
         {
-            var airline = airlinesService.GetByID(model.Id);
+            var airline = airlinesService.GetById(model.Id);
 
             airline.Name = model.Name;
             airline.Description = model.Description;

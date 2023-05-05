@@ -188,7 +188,7 @@ namespace RouteDataManager.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult EditWithPicture(DestinationViewModel model)
         {
-            var destination = destinationService.GetByID(model.DestinationID);
+            var destination = destinationService.GetById(model.DestinationID);
 
             destination.Name = model.Name;
             destination.Description = model.Description;
@@ -217,7 +217,7 @@ namespace RouteDataManager.Controllers
                 return NotFound();
             }
 
-            var dto = destinationService.GetByID(id.Value);
+            var dto = destinationService.GetById(id.Value);
 
             if (dto == null)
             {
@@ -231,7 +231,7 @@ namespace RouteDataManager.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
-            var dto = destinationService.GetByID(id);
+            var dto = destinationService.GetById(id);
 
             if (dto != null)
             {

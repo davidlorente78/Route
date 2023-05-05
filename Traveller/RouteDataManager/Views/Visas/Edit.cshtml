@@ -1,7 +1,7 @@
-﻿@model Traveller.Domain.Visa
+﻿@model Traveller.Application.Dto.VisaDto
 
 @{
-    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h1>Edit</h1>
@@ -12,7 +12,7 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="VisaID" />
+            <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
@@ -95,9 +95,9 @@
                 <span asp-validation-for="Fee" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="QualifyNationalities" class="control-label"></label>
-                <input asp-for="QualifyNationalities" class="form-control" />
-                <span asp-validation-for="QualifyNationalities" class="text-danger"></span>
+                <label asp-for="QualifyNationalitiesSummary" class="control-label"></label>
+                <input asp-for="QualifyNationalitiesSummary" class="form-control" />
+                <span asp-validation-for="QualifyNationalitiesSummary" class="text-danger"></span>
             </div>
            
             <div class="form-group">

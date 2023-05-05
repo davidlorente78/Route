@@ -31,8 +31,8 @@ namespace Test
         [TestMethod]
         public void TestFrontierService()
         {
-            var Laos = countryService.GetByID(1);
-            var Thailand = countryService.GetByID(3);
+            var Laos = countryService.GetById(1);
+            var Thailand = countryService.GetById(3);
 
             //Access Laos from Thailand
             var frontiersAB = borderCrossingService.GetBorderCrossingsByOriginAndFinalCountryCode(Laos.Id, Thailand.Id);

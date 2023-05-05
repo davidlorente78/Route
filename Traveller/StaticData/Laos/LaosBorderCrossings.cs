@@ -16,7 +16,7 @@ namespace Traveller.StaticData
             Description = "With a “Friendship Bridge” separating the two countries, this border can be crossed easily using international buses, private taxis, or a tuk-tuk." +
             " You should be wary of any taxi or tuk-tuk drivers trying to take you anywhere other than the crossing itself as they are likely trying to get you to use and pay " +
             "for the service of a travel agent who won’t do much more than fill out the forms for you.",
-            Visas = new List<Visa> { { LaosVisas.eLaoVisa } }
+            //Visas = new List<Visa> { { LaosVisas.eLaoVisa } }
         };
 
         public static BorderCrossing Frienship_Bridge_II = new BorderCrossing
@@ -32,7 +32,7 @@ namespace Traveller.StaticData
             DestinationOrigin = ThailandDestinations.Mukdahan,
             DestinationFinal = LaosDestinations.Savannakhet,
             BorderCrossingType = BorderCrossingTypes.Terrestrial,
-            Visas = new List<Visa> { { LaosVisas.eLaoVisa } }
+            //Visas = new List<Visa> { { LaosVisas.eLaoVisa } }
         };
 
         public static BorderCrossing ChiangKhongHuayXai = new BorderCrossing
@@ -42,7 +42,7 @@ namespace Traveller.StaticData
             DestinationFinal = LaosDestinations.HuayXai,
             Description = "It does not accept electronic visa but it allows to make the crossing of the Mekong to Luang Prabang in one way and downstream.",
             BorderCrossingType = BorderCrossingTypes.Terrestrial,
-            Visas = new List<Visa> { { LaosVisas.LaoVisa } }
+            //Visas = new List<Visa> { { LaosVisas.LaoVisa } }
         };
 
         public static BorderCrossing ChongMekVangTao = new BorderCrossing
@@ -104,7 +104,7 @@ namespace Traveller.StaticData
         {
             List<BorderCrossing> terrestrial = GetAllTerrestrialFrontiers();
 
-            List<BorderCrossing> frontiersFromAirports = BorderCrossingUtils.CreateFrontiersFromInternationalAirports(
+            List<BorderCrossing> frontiersFromAirports = BorderCrossingUtils.CreateBorderCrossingFromInternationalAirports(
                 LaosAirports.GetAll(),
                 new List<Visa> { LaosVisas.eLaoVisa, LaosVisas.LaoVisa });
 

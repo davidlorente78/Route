@@ -1,199 +1,89 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Data;
-using Domain;
+﻿using Application.Dto;
+using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using RouteDataManager.Repositories;
+using RouteDataManager.Controllers.Generic;
 using RouteDataManager.ViewModels;
+using Traveller.Application.Dto;
 using Traveller.Domain;
+using Traveller.DomainServices;
 
 namespace RouteDataManager.Controllers
 {
-    public class VisasController : Controller
+    public class VisasController : GenericController<VisaDto, Visa>
     {
-        private readonly ApplicationContext _context;
+        private readonly ICountryService countryService;
+        private readonly IVisaService visaService;
+        private readonly INationalityService nationalityService;
 
-        public VisasController(ApplicationContext context)
+        private IEnumerable<CountryDto> countries;
+        private IEnumerable<NationalityDto> nationalities;
+
+        public VisasController(
+              ICountryService countryService,
+              IVisaService visaService,
+              INationalityService nationalityService,
+              IPublishEndpoint publishEndPoint) : base(visaService, publishEndPoint)
+
         {
-            _context = context;
+            this.countryService = countryService;
+            this.visaService = visaService;
+            this.nationalityService = nationalityService;
+
+            countries = countryService.GetAll();
+            nationalities = nationalityService.GetAll();
         }
 
-     
-        public async Task<IActionResult> Index(VisaIndexViewModel visaIndexViewModel)
+        [HttpPost]
+        [HttpGet]
+        public IActionResult Index(VisaIndexViewModel visaIndexViewModel)
         {
-            IOrderedQueryable<Visa>? applicationContext;
-            IQueryable<Nationality>? itemsSelectNationalities = _context.Nationalities;
-
             if (visaIndexViewModel.FilterCountry.Id != 0)
             {
+                var nationalityDto = nationalityService.GetById(visaIndexViewModel.FilterNationality.Id);
+                var countryDto = countryService.GetById(visaIndexViewModel.FilterCountry.Id);
 
+                var visas = visaService.GetIncluding(d => d.CountryId == countryDto.Id, v => v.QualifyNationalities);
 
-                var checkNationalities = _context.Visas
-                    .Where(
-                        v => v.QualifyNationalities.Select(d => d.NationalityID).Contains(visaIndexViewModel.FilterNationality.NationalityID)).ToList();
+                var visasWhereNationalityApply = visas.Where(v => v.QualifyNationalities.Any(qn => qn.Id == nationalityDto.Id));
 
-                var checkCountry = _context.Visas
-                    .Where(
-                        v => v.BorderCrossings.Select(d => d.BorderCrossingCountryID).Contains(visaIndexViewModel.FilterCountry.Id)).ToList();
+                visaIndexViewModel.FilterCountry = countryDto;
+                visaIndexViewModel.FilterNationality = nationalityDto;
 
-                var checkJoin = checkNationalities.Intersect(checkCountry);
-
-                itemsSelectNationalities = _context.Nationalities;
-                visaIndexViewModel.FilterNationality = itemsSelectNationalities.FirstOrDefault();
-
-                visaIndexViewModel.Visas = checkJoin
-                  .OrderBy(v => v.Name).ToList();             
+                visaIndexViewModel.Visas = visasWhereNationalityApply
+                  .OrderBy(v => v.Name)
+                  .ToList();
             }
             else
             {
-                applicationContext = _context.Visas.Include(v => v.QualifyNationalities).OrderBy(s => s.Name);
+                var visas = visaService.GetIncluding(d => d.Id == d.Id, v => v.QualifyNationalities);
             }
 
-            SelectList selectListCountries = new SelectList(_context.Countries, "Id", "Name", visaIndexViewModel.FilterCountry.Id);
-            SelectList selectListNationalities = new SelectList(itemsSelectNationalities.ToList(), "NationalityID", "Description", visaIndexViewModel.FilterNationality.NationalityID);
+            SelectList selectListCountries = new SelectList(countries, "Id", "Name", visaIndexViewModel.FilterCountry.Id);
+            SelectList selectListNationalities = new SelectList(nationalities, "Id", "Description", visaIndexViewModel.FilterNationality.Id);
 
             visaIndexViewModel.SelectListCountries = selectListCountries;
             visaIndexViewModel.SelectListNationalities = selectListNationalities;
-          
 
             return PartialView(visaIndexViewModel);
         }
 
-
-        public async Task<IActionResult> Details(int? id)
+        //Si se tiene que incluir un agregado o algun campo con Include no es posible utilizar el servicio Generico TODO
+        public override IActionResult Edit(int? id)
         {
-            if (id == null || _context.Visas == null)
+            if (id == null || visaService.Exists(id.Value) == false)
             {
                 return NotFound();
             }
 
-            var visa = await _context.Visas
-                .FirstOrDefaultAsync(m => m.VisaID == id);
-            if (visa == null)
+            VisaDto visaDto = visaService.GetIncluding(v => v.Id == id, v => v.QualifyNationalities).FirstOrDefault();
+
+            if (visaDto == null)
             {
                 return NotFound();
             }
 
-            return View(visa);
-        }
-
-        // GET: Visas/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Visas/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("VisaID,Name,CountryCode,Description,OnLine,OnArrival,URL,Duration,Entries,Category,Validity,Extensible,ExtensionDays,CurrencyFee,ExtensionFee,AdditionalDaysFee,Currency,Fee,QualifyNationalities")] Visa visa)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(visa);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(visa);
-        }
-
-        // GET: Visas/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Visas == null)
-            {
-                return NotFound();
-            }
-
-            var visa = await _context.Visas.FindAsync(id);
-            if (visa == null)
-            {
-                return NotFound();
-            }
-            return View(visa);
-        }
-
-        // POST: Visas/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("VisaID,Name,CountryCode,Description,OnLine,OnArrival,URL,Duration,Entries,Category,Validity,Extensible,ExtensionDays,CurrencyFee,ExtensionFee,AdditionalDaysFee,Currency,Fee,QualifyNationalities")] Visa visa)
-        {
-            if (id != visa.VisaID)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(visa);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!VisaExists(visa.VisaID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(visa);
-        }
-
-        // GET: Visas/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Visas == null)
-            {
-                return NotFound();
-            }
-
-            var visa = await _context.Visas
-                .FirstOrDefaultAsync(m => m.VisaID == id);
-            if (visa == null)
-            {
-                return NotFound();
-            }
-
-            return View(visa);
-        }
-
-        // POST: Visas/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Visas == null)
-            {
-                return Problem("Entity set 'ApplicationContext.Visa'  is null.");
-            }
-            var visa = await _context.Visas.FindAsync(id);
-            if (visa != null)
-            {
-                _context.Visas.Remove(visa);
-            }
-            
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool VisaExists(int id)
-        {
-          return (_context.Visas?.Any(e => e.VisaID == id)).GetValueOrDefault();
+            return PartialView(visaDto);
         }
     }
 }
