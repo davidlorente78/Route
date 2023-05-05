@@ -47,7 +47,7 @@ namespace Data.Thailand
             Type = 'T',
             Destinations = new List<Destination> { },
             Name = "Phetchaburi",
-            Remarks = ""
+            Remarks = "Phetchaburi main station."
         };
         //Hua Hin Station - Provincial Station for Hua Hin in Prachuap Khiri Khan with crew changing station.
         public static RailwayStation HuaHin = new RailwayStation
@@ -84,7 +84,7 @@ namespace Data.Thailand
             Type = 'T',
             Destinations = new List<Destination> { },
             Name = "Lang Suan ",
-            Remarks = "."
+            Remarks = "Provincial Station in Chumphon. Furthest extent of southern services from Thonburi."
         };
         //Ban Thung Pho Junction - Southern container yard, for Khiri Rat Nikhom Branch.
 
@@ -107,8 +107,6 @@ namespace Data.Thailand
             Remarks = "Surat Thani is a busy train station with connecting bus and ferry services to and from Koh Samui and Koh Phangan. A large number of passengers also pass through Surat Thani train station on the way to destinations on the Andaman coast, such as Krabi and Phuket, which are not connected to Thailand’s railway network. There are connecting bus and minivan services from Surat Thani to Phuket Town and Krabi Town."
         };
 
-
-        //Thung Song Junction - Locomotive depot, refuelling facility and junction for Kantang Branch.
         public static RailwayStation ThungSongJunction = new RailwayStation
         {
             Type = 'T',
@@ -116,8 +114,6 @@ namespace Data.Thailand
             Name = "Thung Song",
             Remarks = "Locomotive depot, refuelling facility and junction for Kantang Branch."
         };
-
-        //Trang Station - Trang main station.
 
         public static RailwayStation Trang = new RailwayStation
         {
@@ -127,7 +123,6 @@ namespace Data.Thailand
             Remarks = "Main Trang station."
         };
 
-        //Kantang Station - Terminus of Kantang Branch.
 
         public static RailwayStation Kantang = new RailwayStation
         {
@@ -137,17 +132,13 @@ namespace Data.Thailand
             Remarks = "Terminus of Kantang Branch."
         };
 
-
-        //Khao Chum Thong Junction - Junction for Nakhon Si Thammarat Branch.
-
         public static RailwayStation KhaoChumThongJunction = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
             Name = "Khao Chum Thong Junction",
-            Remarks = ""
+            Remarks = "Junction for Nakhon Si Thammarat Branch."
         };
-        //Nakhon Si Thammarat Station - Terminus of Nakhon Si Thammarat Branch. Nakhon Si Thammarat main station.
 
         public static RailwayStation NakhonSiThammarat = new RailwayStation
         {
@@ -156,17 +147,15 @@ namespace Data.Thailand
             Name = "Nakhon Si Thammarat",
             Remarks = ""
         };
-        //Phatthalung Station - Phatthalung main station, crew changing station
 
         public static RailwayStation Phatthalung = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
             Name = "Phatthalung",
-            Remarks = ""
+            Remarks = "Phatthalung main station, crew changing station"
         };
 
-        //Hat Yai Junction - Main junction for Malaysia[23] and Singapore and Main Line of Southern Line, Locomotive Depot and refueling facility.Main Songkhla Station.
         public static RailwayStation HatYaiJunction = new RailwayStation
         {
             Type = 'T',
@@ -175,7 +164,6 @@ namespace Data.Thailand
             Remarks = "Main junction for Malaysia and Singapore and Main Line of Southern Line, Locomotive Depot and refueling facility. Main Songkhla Station."
         };
 
-        //Padang Besar Station - International KTM station in Malaysia.Trains continue to Butterworth (Penang) and further.
         public static RailwayStation PadangBesar = new RailwayStation
         {
             Type = 'T',
@@ -185,17 +173,14 @@ namespace Data.Thailand
         };
 
         //Branch
-        //Pattani Station - formerly Khok Pho station, Pattani main station.
 
         public static RailwayStation Pattani = new RailwayStation
         {
             Type = 'T',
             Destinations = new List<Destination> { },
             Name = "Pattani",
-            Remarks = "formerly Khok Pho station, Pattani main station."
+            Remarks = "Formerly Khok Pho station, Pattani main station."
         };
-
-        //Yala Station - Main Yala station, crew changing station
 
         public static RailwayStation Yala = new RailwayStation
         {
@@ -204,8 +189,6 @@ namespace Data.Thailand
             Name = "Yala",
             Remarks = "Main Yala station, crew changing station."
         };
-
-        //Tanyong Mat Station - for Ra Ngae district and Narathiwat.
 
         public static RailwayStation TanyongMat = new RailwayStation
         {
@@ -252,7 +235,7 @@ namespace Data.Thailand
             Destinations = new List<Destination> { },
             Name = "Sawan Khalok",
             LocalName = "สวรรคโลก",
-            Remarks = ""
+            Remarks = "Terminus of Sawankhalok Branch. Station for Sukhothai Province and travel to Sukhothai and Si Satchanalai Historical Parks."
         };
 
         #endregion
@@ -294,7 +277,7 @@ namespace Data.Thailand
             Destinations = new List<Destination> { },
             Name = "Lop Buri",
             LocalName = "ลพบุรี",
-            Remarks = ""
+            Remarks = "The end of northern Bangkok suburban service; a military town with much history."
         };
 
         public static RailwayStation BanTakhli = new RailwayStation
@@ -329,7 +312,7 @@ namespace Data.Thailand
             Destinations = new List<Destination> { },
             Name = "Phichit",
             LocalName = "",
-            Remarks = ""
+            Remarks = "Phichit Main Station"
         };
 
         public static RailwayStation Phitsanulok = new RailwayStation
@@ -338,7 +321,7 @@ namespace Data.Thailand
             Destinations = new List<Destination> { ThailandDestinations.Sukhothai, ThailandDestinations.Phitsanulok },
             Name = "Phitsanulok",
             LocalName = "พิษณุโลก",
-            Remarks = ""
+            Remarks = "Phitsanulok Main station, town with the famous Phra Phuttha Chinnarat"
         };
 
         public static RailwayStation Uttaradit = new RailwayStation
@@ -347,7 +330,7 @@ namespace Data.Thailand
             Destinations = new List<Destination> { },
             Name = "Uttaradit",
             LocalName = "",
-            Remarks = ""
+            Remarks = "Main station, Uttaradit Province."
         };
 
         public static RailwayStation SilaAt = new RailwayStation
@@ -356,7 +339,7 @@ namespace Data.Thailand
             Destinations = new List<Destination> { },
             Name = "Sila At",
             LocalName = "",
-            Remarks = ""
+            Remarks = "Depot on the Northern Line. Refueling station and up trains will be cut at this station"
         };
 
         public static RailwayStation DenChai = new RailwayStation
@@ -365,7 +348,7 @@ namespace Data.Thailand
             Destinations = new List<Destination> { },
             Name = "Den Chai",
             LocalName = "",
-            Remarks = ""
+            Remarks = "The dropping point for Phrae with a proposal for a junction for Den Chai – Chiang Rai route"
         };
 
         public static RailwayStation BanPin = new RailwayStation
@@ -383,7 +366,7 @@ namespace Data.Thailand
             Destinations = new List<Destination> { },
             Name = "Nakhon Lampang",
             LocalName = "",
-            Remarks = ""
+            Remarks = " Depot on the Northern Line. Train will be cut further if going north to Chiang Mai."
         };
 
         public static RailwayStation HangChat = new RailwayStation
@@ -401,7 +384,7 @@ namespace Data.Thailand
             Destinations = new List<Destination> { },
             Name = "Lamphun",
             LocalName = "",
-            Remarks = ""
+            Remarks = "Main station for Lamphun Province"
         };
 
         public static RailwayStation ChiangMai = new RailwayStation
@@ -409,8 +392,8 @@ namespace Data.Thailand
             Type = 'T',
             Destinations = new List<Destination> { ThailandDestinations.ChiangMai },
             Name = "Chiang Mai",
-            LocalName = "",
-            Remarks = ""
+            LocalName = "สถานีเชียงใหม่ (ชม.)",
+            Remarks = "Northern terminus. Chiang Mai station (SRT Code: CGM) (Thai: สถานีเชียงใหม่ (ชม.)) is a 1st class station and the main railway station in Chiang Mai Province. This station is on the east side of the Ping River in the city of Chiang Mai. There are 10 daily trains, not including Eastern and Oriental Express trains servicing this station. There are also four to six special trains for New Year, Songkran and other special festivals. In the 2004 census, Chiang Mai station served nearly 800,000 passengers."
         };
 
         #endregion
