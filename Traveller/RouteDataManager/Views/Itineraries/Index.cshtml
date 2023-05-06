@@ -1,0 +1,114 @@
+﻿@using RouteDataManager.ViewModels
+@model ItineraryIndexViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid py-5">
+    <div class="container pt-5 pb-3">
+        <div class="text-center mb-3 pb-3">
+            <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Search Monthly Itineraries</h6>
+        </div>
+           
+    </div>
+</div>
+
+<form id="Index_Dates" asp-action="Index">
+
+    <form asp-action="Index">
+
+        <div class="form-group">
+            <table class="table">
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            <label class="control-label">From</label>
+                            <select asp-for="@Model.FilterStartMonth.MonthID" class="form-control" asp-items="@Model.SelectListStartMonth"></select>
+                        </th>
+
+                        <th>
+                            <label class="control-label">To</label>
+                            <select asp-for="@Model.FilterEndMonth.MonthID" class="form-control" asp-items="@Model.SelectListEndMonth"></select>
+                        </th>
+
+
+                        <th>
+
+                        </th>
+
+                        <th>
+
+                        </th>
+
+                        <th>
+                            <input type="submit" value="Search" class="btn btn-primary btn-block" />
+                        </th>
+                    </tr>
+
+                </thead>
+            </table>
+
+        </div>
+    </form>
+
+    <div class="form-group">
+        <p></p>
+
+        <table class="table">
+            <thead>
+
+                <tr>
+                    <td>
+                        @Html.ActionLink("Previous", "Previous", "Itineraries", new {  ShowingIndex = @Model.ShowingIndex,  StartMonth = @Model.FilterStartMonth.MonthID, EndMonth = @Model.FilterEndMonth.MonthID })
+                    </td>
+                    <td>
+                        Showing  @Model.ShowingIndex.ToString()  of @Model.RoutesFoundCount.ToString()  Itineraries found
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("Next", "Next", "Itineraries", new {  ShowingIndex = @Model.ShowingIndex,  StartMonth = @Model.FilterStartMonth.MonthID, EndMonth = @Model.FilterEndMonth.MonthID} )
+                    </td>
+                </tr>
+            </thead>
+        </table>
+
+
+        @foreach (var rule in @Model.RulesReport)
+        {
+            <p>@rule.ToString()</p>
+        }
+
+        <div class="row">
+
+            @for (int i = 0; i < Model.FilterCountry.Count(); i++)
+            {
+                @if (Model.ItineraryMonths >= i)
+                {
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="package-item bg-white mb-2">
+                            <img class="img-fluid" src="@Model.FilterCountry[i].Image" alt="">
+                            <div class="p-4">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>@Model.FilterCountry[i].Name</small>
+                                    <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>@Model.Months[i].Name</small>
+                                </div>
+                                <small class="m-0" href="">@Model.CountryReport.ElementAt(i)</small>
+                                <div class="border-top mt-4 pt-4">
+                                    <div class="d-flex justify-content-between">
+                                        <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i> Convenient </h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+
+        </div>
+
+    </div>
+</form>
+

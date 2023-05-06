@@ -8,6 +8,7 @@ namespace Data.Cambodia
     {
         public static Country Cambodia = new Country('C', "Cambodia", true, 2)
         {
+            Image = "img/destinations/destinationCambodia.jpg",
             Destinations = CambodiaDestinations.GetAll(),
             BorderCrossings = CambodiaBorderCrossings.GetAll(),
             Airports = CambodiaAirports.GetAll(),

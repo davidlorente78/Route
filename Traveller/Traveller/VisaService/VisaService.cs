@@ -29,12 +29,16 @@ namespace Traveller.DomainServices
 
         public int GetMaxStay(char countryCode, string nationalityCode)
         {
-            //TODO
             var country = countryService
                 .GetIncluding(c => c.Code == countryCode, c => c.Visas)
                 .FirstOrDefault();
 
-            var maxStay = specificVisaRepository.GetMaxStay(country.Id, nationalityCode);
+            var maxStay = 0;
+
+            if (country.Visas.Count() != 0)
+            {
+                maxStay = specificVisaRepository.GetMaxStay(country.Id, nationalityCode);
+            }
 
             return maxStay;
         }

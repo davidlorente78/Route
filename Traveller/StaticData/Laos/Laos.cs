@@ -7,6 +7,7 @@ namespace Data.Laos
     {
         public static Country Laos = new Country('L', "Laos", true, 1)
         {
+            Image = "img/destinations/destinationLaos.jpg",
             Destinations = LaosDestinations.GetAll(),
             BorderCrossings = LaosBorderCrossings.GetAll(),
             Airports = LaosAirports.GetAll(),

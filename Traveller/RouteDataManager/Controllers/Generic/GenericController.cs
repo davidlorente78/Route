@@ -62,13 +62,14 @@ namespace RouteDataManager.Controllers.Generic
         {
             if (ModelState.IsValid)
             {
-                genericService.Add(dto);
+                var entityId = genericService.Add(dto);
 
                 var entityCreated =
 
                     publishEndpoint.Publish<EntityCreated>
                         (new()
-                        {
+                        { 
+                            Id = entityId,
                             Type = typeof(TEntity).Name,
                             Message = "Created new " + typeof(TEntity).Name,
                             CreatedDate = DateTime.UtcNow,

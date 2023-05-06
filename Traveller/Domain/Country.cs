@@ -15,6 +15,7 @@ namespace Traveller.Domain
         //Por ejemplo, la clave principal puede tener el nombre CountryID en lugar de ID.
         public char Code { get; private set; }
         public string Name { get; private set; }
+        public string? Image { get; set; }
         public bool ShowInDynamicHome { get; private set; }
         public int ShowInDynamicHomeOrder { get; private set; }
         public virtual ICollection<Destination> Destinations { get; set; }

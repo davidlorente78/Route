@@ -25,6 +25,9 @@ namespace RouteDataManager.ViewModels
 
         public int  RoutesFoundCount { get; set; }
 
+        public List<Traveller.Domain.Country> FilterCountry { get; set; } = new List<Traveller.Domain.Country>();
+
+
         public List<string> CountryReport { get; set; } = new List<string>();
 
         public Traveller.Domain.Country FilterCountry1 { get; set; } 

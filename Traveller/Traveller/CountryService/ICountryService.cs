@@ -6,6 +6,8 @@ namespace Traveller.DomainServices
 {
     public interface ICountryService : IGenericService<CountryDto, Country>
     {
-        public Country GetByCodeIncludingRanges(char CountryCode);
+        public Country GetByCode(char countryCode);
+
+        public Country GetByCodeIncludingRanges(char countryCode);
     }
 }

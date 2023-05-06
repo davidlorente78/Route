@@ -8,9 +8,12 @@
     using DomainServices.CountryService;
     using DomainServices.DestinationService;
     using DomainServices.Generic;
+    using MassTransit;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.DependencyInjection;
+    using RouteDataManager.Controllers;
     using RouteDataManager.Repositories;
+    using Test.Services;
     using Traveller.DomainServices;
     using Traveller.RouteService;
     using Traveller.RuleService;
@@ -69,13 +72,47 @@
             services.AddTransient<BorderCrossingServiceTest>();
             services.AddTransient<CountryServiceTest>();
 
-            //Automapper
+            // Automapper
             services.AddAutoMapper(typeof(Startup));
             services.AddAutoMapper(typeof(CountryProfile));
             services.AddAutoMapper(typeof(DestinationProfile));
             services.AddAutoMapper(typeof(DestinationTypeProfile));
             services.AddAutoMapper(typeof(VisaProfile));
+
+            // RabbitMQ
+
+           
+            services.AddMassTransit(x =>
+            {              
+                x.AddConsumer<AirportsController>();
+                x.AddConsumer<RailwayStationsController>();
+
+                x.UsingRabbitMq((context, cfg) =>
+                {
+                    cfg.Host("localhost", "/", h =>
+                    {
+                        h.Username("guest");
+                        h.Password("guest");
+                    });
+
+                    cfg.ReceiveEndpoint("EntitiesEventsQueue", e =>
+                    {
+                        e.ConfigureConsumer<AirportsController>(context);
+                        e.ConfigureConsumer<RailwayStationsController>(context);
+                    });
+                });
+            });
+
+            services.AddScoped<AirportsController>();
+            services.AddScoped<CountriesController>();
+            services.AddScoped<DestinationsController>();
+            services.AddScoped<RailwayStationsController>();
+
+            services.AddMassTransitHostedService();
+
+            services.AddSingleton<IPublishEndpoint>(provider => provider.GetRequiredService<IBusControl>());
+            services.AddSingleton<ISendEndpointProvider>(provider => provider.GetRequiredService<IBusControl>());
+            services.AddSingleton<IBus>(provider => provider.GetRequiredService<IBusControl>());
         }
     }
-
 }

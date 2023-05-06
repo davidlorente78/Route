@@ -7,6 +7,7 @@ namespace Data.Thailand
     {
         public static Country Thailand = new Country('T', "Thailand", true, 5)
         {
+            Image = "img/destinations/destinationThailand.jpg",
             Destinations = ThailandDestinations.GetAll(),
             BorderCrossings = ThailandBorderCrossings.GetAll(),
             TrainLines = ThailandTrainLines.GetAll(),
