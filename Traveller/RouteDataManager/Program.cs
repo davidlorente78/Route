@@ -1,16 +1,22 @@
 using Application.Mapper;
 using Application.Mapper.Generic;
 using Application.Profiles;
+using Domain.Authorization;
 using Domain.Repositories;
 using DomainServices.AirlineService;
+using DomainServices.Authorization;
 using DomainServices.CountryService;
 using DomainServices.DestinationService;
 using DomainServices.Generic;
 using MassTransit;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using RouteDataManager.Controllers;
 using RouteDataManager.Repositories;
 using RouteDataManager.Repositories.DbInitializer;
+using System.Text;
 using Traveller.DomainServices;
 using Traveller.RouteService;
 using Traveller.RuleService;
@@ -127,6 +133,48 @@ builder.Services.AddSingleton<ISendEndpointProvider>(provider => provider.GetReq
 builder.Services.AddSingleton<IBus>(provider => provider.GetRequiredService<IBusControl>());
 
 #endregion
+
+
+#region Global Authentication Settings
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+
+})
+    .AddJwtBearer(o =>
+    {
+        o.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+            ValidAudience = builder.Configuration["Jwt:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+        };
+    });
+
+//This way our API will know that we intend to support authorization
+builder.Services.AddAuthorization();
+
+//Register our identity-related services. We are user default user Type called IdentityUser and default role. The Data Store associated will be ApplicationContext
+builder.Services
+    .AddIdentityCore<ApiUser>() //Aqui antes estaba Identity User y es quiza por eso que no coinciden y explotan
+    .AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationContext>()
+    .AddDefaultTokenProviders();
+;
+
+//Linea omitida en el libro y en todas partes ... Me la ha chivado ChatGPT
+builder.Services.AddScoped<UserManager<ApiUser>>();
+
+builder.Services.AddScoped<IAuthManager, AuthManager>();
+#endregion
+
+
 var app = builder.Build();
 
 //Create Scope and Initialize Data Base
@@ -158,5 +206,10 @@ app.MapRazorPages();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
+//Include middleware for Bearer Token
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.Run();

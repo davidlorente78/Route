@@ -1,7 +1,10 @@
 ﻿using Domain;
+using Domain.Authorization;
 using Domain.Ranges;
 using Domain.Transport.Aviation;
 using Domain.Transport.Railway;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Traveller.Domain;
 
@@ -11,7 +14,7 @@ namespace RouteDataManager.Repositories
     /// It derives from DBContext class and exposes DbSet properties for the types that you want to be part of the model,
     /// https://codewithmukesh.com/blog/repository-pattern-in-aspnet-core/
     /// </summary>
-    public class ApplicationContext : DbContext
+    public class ApplicationContext : IdentityDbContext
     {
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
@@ -58,6 +61,22 @@ namespace RouteDataManager.Repositories
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            base.OnModelCreating(modelBuilder);
+            var hasher = new PasswordHasher<ApiUser>();
+            modelBuilder.Entity<ApiUser>()
+                .HasData(
+                new ApiUser
+                {
+                    Id = "408aa945-3d84-4421-8342-7269ec64d949",
+                    Email = "admin@localhost.com",
+                    NormalizedEmail = "ADMIN@LOCALHOST.COM",
+                    NormalizedUserName = "ADMIN@LOCALHOST.COM",
+                    UserName = "admin@localhost.com",
+                    PasswordHash = hasher.HashPassword(null, "P@ssword1"),
+                    EmailConfirmed = true
+                });
+
             // Global turn off delete behaviour on foreign keys
             foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
             {
@@ -69,11 +88,10 @@ namespace RouteDataManager.Repositories
                 .ToTable("Countries")
                 .HasKey(x => x.Id);
 
-
             modelBuilder.Entity<Country>()
-    .HasMany(c => c.Destinations)
-    .WithOne(d => d.Country)
-    .OnDelete(DeleteBehavior.Cascade);
+                .HasMany(c => c.Destinations)
+                .WithOne(d => d.Country)
+                .OnDelete(DeleteBehavior.Cascade);
 
             //modelBuilder.Entity<Country>()
             //    .HasMany(c => c.BorderCrossings)
