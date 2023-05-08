@@ -26,7 +26,7 @@ namespace RouteDataManager.Controllers
                  .ThenInclude(f => f.Items);
 
 
-            var month = _context.Months.Where(x => x.MonthID == seasonIndexByMonthViewModel.FilterMonth.MonthID).FirstOrDefault();
+            var month = _context.Months.Where(x => x.Id == seasonIndexByMonthViewModel.FilterMonth.Id).FirstOrDefault();
             seasonIndexByMonthViewModel.FilterMonth = month;
 
             
@@ -54,7 +54,7 @@ namespace RouteDataManager.Controllers
               
             }
 
-            SelectList selectListMonth = new SelectList(_context.Months, "MonthID", "Name", seasonIndexByMonthViewModel.FilterMonth.MonthID);
+            SelectList selectListMonth = new SelectList(_context.Months, "Id", "Name", seasonIndexByMonthViewModel.FilterMonth.Id);
 
 
             seasonIndexByMonthViewModel.SelectListMonth= selectListMonth;

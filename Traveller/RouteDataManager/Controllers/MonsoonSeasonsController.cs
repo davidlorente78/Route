@@ -38,7 +38,7 @@ namespace RouteDataManager.Controllers
                 month_EntityByCountryIndexViewModel.Month_EntityDescription = new Dictionary<string, string>();
             }
 
-            SelectList selectListCountries = new SelectList(_context.Countries, "CountryID", "Name", month_EntityByCountryIndexViewModel.FilterCountry.Id);
+            SelectList selectListCountries = new SelectList(_context.Countries, "Id", "Name", month_EntityByCountryIndexViewModel.FilterCountry.Id);
 
             month_EntityByCountryIndexViewModel.SelectListCountries = selectListCountries;
             return PartialView("Index",month_EntityByCountryIndexViewModel);

@@ -17,12 +17,12 @@
 
                         <th>
                             <label class="control-label">Month</label>
-                            <select asp-for="@Model.FilterStartMonth.MonthID" class="form-control" asp-items="@Model.SelectListStartMonth"></select>
+                            <select asp-for="@Model.FilterStartMonth.Id" class="form-control" asp-items="@Model.SelectListStartMonth"></select>
                         </th>
 
                         <th>
                             <label class="control-label">Month</label>
-                            <select asp-for="@Model.FilterEndMonth.MonthID" class="form-control" asp-items="@Model.SelectListEndMonth"></select>
+                            <select asp-for="@Model.FilterEndMonth.Id" class="form-control" asp-items="@Model.SelectListEndMonth"></select>
                         </th>
 
 
@@ -53,14 +53,14 @@
 
                 <tr>
                     <td>
-                        @Html.ActionLink("Previous", "Previous", "ItineraryByMonth", new {  ShowingIndex = @Model.ShowingIndex,  StartMonth = @Model.FilterStartMonth.MonthID, EndMonth = @Model.FilterEndMonth.MonthID })
+                        @Html.ActionLink("Previous", "Previous", "ItineraryByMonth", new {  ShowingIndex = @Model.ShowingIndex,  StartMonth = @Model.FilterStartMonth.Id, EndMonth = @Model.FilterEndMonth.Id })
                     </td>
                     <td>
                         Showing  @Model.ShowingIndex.ToString()  of @Model.RoutesFoundCount.ToString()  Itineraries found
                     </td>
 
                     <td>
-                        @Html.ActionLink("Next", "Next", "ItineraryByMonth", new {  ShowingIndex = @Model.ShowingIndex,  StartMonth = @Model.FilterStartMonth.MonthID, EndMonth = @Model.FilterEndMonth.MonthID} )
+                        @Html.ActionLink("Next", "Next", "ItineraryByMonth", new {  ShowingIndex = @Model.ShowingIndex,  StartMonth = @Model.FilterStartMonth.Id, EndMonth = @Model.FilterEndMonth.Id} )
                     </td>
                 </tr>
             </thead>
@@ -282,14 +282,3 @@
 
 </form>
 
-
-
-@*<form id="Save" asp-action="Save">
-
-    <div class="form-group">
-        <p></p>
-        <th>
-            <input type="submit" value="Save" class="btn btn-primary btn-block" />
-        </th>
-        <p></p>
-</form>*@

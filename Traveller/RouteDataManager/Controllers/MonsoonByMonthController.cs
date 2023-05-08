@@ -1,10 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Data.EntityTypes;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RouteDataManager.Repositories;
 using RouteDataManager.ViewModels;
-using Domain.Ranges;
-using Data.EntityTypes;
 
 namespace RouteDataManager.Controllers
 {
@@ -22,12 +21,12 @@ namespace RouteDataManager.Controllers
             var countries = _context.Countries.Include(x => x.Ranges).Where(x => x.Ranges.Count != 0).ToList();
 
             var seasonRange = _context.Ranges
-                 .Where(d => d.RangeType.Code == RangeTypes.MonsoonSeasonRangeType.Code)                
+                 .Where(d => d.RangeType.Code == RangeTypes.MonsoonSeasonRangeType.Code)
                  .Include(f => f.EntityKey_Description)
                  .ThenInclude(f => f.Items);
 
 
-            var month = _context.Months.Where(x => x.MonthID == monsoonIndexByMonthViewModel.FilterMonth.MonthID).FirstOrDefault();
+            var month = _context.Months.Where(x => x.Id == monsoonIndexByMonthViewModel.FilterMonth.Id).FirstOrDefault();
             monsoonIndexByMonthViewModel.FilterMonth = month;
 
             foreach (var country in countries)
@@ -40,7 +39,7 @@ namespace RouteDataManager.Controllers
 
             }
 
-            SelectList selectListMonth = new SelectList(_context.Months, "MonthID", "Name", monsoonIndexByMonthViewModel.FilterMonth.MonthID);
+            SelectList selectListMonth = new SelectList(_context.Months, "Id", "Name", monsoonIndexByMonthViewModel.FilterMonth.Id);
 
             monsoonIndexByMonthViewModel.SelectListMonth = selectListMonth;
             return PartialView(monsoonIndexByMonthViewModel);

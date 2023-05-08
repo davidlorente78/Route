@@ -13,11 +13,11 @@ namespace RouteDataManager.ViewModels
 
         public int ItineraryMonths { get; set; }
 
-        public Month FilterStartMonth { get; set; } = new Month() { Name = "December", MonthID = 12 }; //Enero es 1 en Base de Datos
+        public Month FilterStartMonth { get; set; } = new Month() { Name = "December", Id = 12 }; //Enero es 1 en Base de Datos
 
         public SelectList SelectListStartMonth { get; set; }
 
-        public Month FilterEndMonth { get; set; } = new Month() { Name = "February", MonthID = 2 };
+        public Month FilterEndMonth { get; set; } = new Month() { Name = "February", Id = 2 };
 
         public SelectList SelectListEndMonth { get; set; }
 

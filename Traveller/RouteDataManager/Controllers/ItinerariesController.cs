@@ -39,8 +39,8 @@ namespace RouteDataManager.Controllers
             var countries = _context.Countries.Include(x => x.Ranges)
                 .ThenInclude(r => r.RangeType).Where(x => x.Ranges.Count != 0).ToList();
 
-            var StartMonth = itineraryIndexViewModel.FilterStartMonth.MonthID;
-            var EndMonth = itineraryIndexViewModel.FilterEndMonth.MonthID;
+            var StartMonth = itineraryIndexViewModel.FilterStartMonth.Id;
+            var EndMonth = itineraryIndexViewModel.FilterEndMonth.Id;
 
             List<Domain.Ranges.Month>? completeMonthsList = _context.Months.ToList();
 
@@ -89,10 +89,10 @@ namespace RouteDataManager.Controllers
             itineraryIndexViewModel.ItineraryMonths = itineraryMonthsCount;
             itineraryIndexViewModel.ShowingIndex = itineraryIndexViewModel.ShowingIndex;
 
-            SelectList selectListStartMonth = new SelectList(completeMonthsList, "MonthID", "Name", itineraryIndexViewModel.FilterStartMonth.MonthID);
+            SelectList selectListStartMonth = new SelectList(completeMonthsList, "Id", "Name", itineraryIndexViewModel.FilterStartMonth.Id);
             itineraryIndexViewModel.SelectListStartMonth = selectListStartMonth;
 
-            SelectList selectListEndMonth = new SelectList(completeMonthsList, "MonthID", "Name", itineraryIndexViewModel.FilterEndMonth.MonthID);
+            SelectList selectListEndMonth = new SelectList(completeMonthsList, "Id", "Name", itineraryIndexViewModel.FilterEndMonth.Id);
             itineraryIndexViewModel.SelectListEndMonth = selectListEndMonth;
 
             var countriesWithRanges = _context.Countries.Include(x => x.Ranges).Where(x => x.Ranges.Count != 0).ToList();
@@ -137,8 +137,8 @@ namespace RouteDataManager.Controllers
         public async Task<IActionResult> Previous(int ShowingIndex, int StartMonth, int EndMonth)
         {
             ItineraryIndexViewModel itineraryIndexViewModel = new ItineraryIndexViewModel();
-            itineraryIndexViewModel.FilterStartMonth.MonthID = StartMonth;
-            itineraryIndexViewModel.FilterEndMonth.MonthID = EndMonth;
+            itineraryIndexViewModel.FilterStartMonth.Id = StartMonth;
+            itineraryIndexViewModel.FilterEndMonth.Id = EndMonth;
             itineraryIndexViewModel.ShowingIndex = ShowingIndex - 1;
 
             return ProcessItinerary(ref itineraryIndexViewModel);
@@ -147,8 +147,8 @@ namespace RouteDataManager.Controllers
         public async Task<IActionResult> Next(int ShowingIndex, int StartMonth, int EndMonth)
         {
             ItineraryIndexViewModel itineraryIndexViewModel = new ItineraryIndexViewModel();
-            itineraryIndexViewModel.FilterStartMonth.MonthID = StartMonth;
-            itineraryIndexViewModel.FilterEndMonth.MonthID = EndMonth;
+            itineraryIndexViewModel.FilterStartMonth.Id = StartMonth;
+            itineraryIndexViewModel.FilterEndMonth.Id = EndMonth;
             itineraryIndexViewModel.ShowingIndex = ShowingIndex + 1;
 
             return ProcessItinerary(ref itineraryIndexViewModel);
@@ -247,10 +247,10 @@ namespace RouteDataManager.Controllers
             var itineraryIndexViewModel = new ItineraryIndexViewModel();
             itineraryIndexViewModel.RulesReport = new List<string> { message };
             itineraryIndexViewModel.ItineraryMonths = -1;
-            SelectList selectListStartMonthReload = new SelectList(completeMonthsList, "MonthID", "Name", StartMonth);
+            SelectList selectListStartMonthReload = new SelectList(completeMonthsList, "Id", "Name", StartMonth);
             itineraryIndexViewModel.SelectListStartMonth = selectListStartMonthReload;
 
-            SelectList selectListEndMonthReload = new SelectList(completeMonthsList, "MonthID", "Name", EndMonth);
+            SelectList selectListEndMonthReload = new SelectList(completeMonthsList, "Id", "Name", EndMonth);
             itineraryIndexViewModel.SelectListEndMonth = selectListEndMonthReload;
 
             return itineraryIndexViewModel;
