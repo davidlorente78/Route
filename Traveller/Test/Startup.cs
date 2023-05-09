@@ -3,16 +3,23 @@
     using Application.Mapper;
     using Application.Mapper.Generic;
     using Application.Profiles;
+    using Domain.Authorization;
     using Domain.Repositories;
     using DomainServices.AirlineService;
+    using DomainServices.Authorization;
     using DomainServices.CountryService;
     using DomainServices.DestinationService;
     using DomainServices.Generic;
     using MassTransit;
+    using Microsoft.AspNetCore.Authentication.JwtBearer;
+    using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Logging;
+    using Microsoft.IdentityModel.Tokens;
     using RouteDataManager.Controllers;
     using RouteDataManager.Repositories;
+    using System.Text;
     using Test.Services;
     using Traveller.DomainServices;
     using Traveller.RouteService;
@@ -80,8 +87,7 @@
             services.AddAutoMapper(typeof(VisaProfile));
 
             // RabbitMQ
-
-           
+            
             services.AddMassTransit(x =>
             {              
                 x.AddConsumer<AirportsController>();
@@ -113,6 +119,28 @@
             services.AddSingleton<IPublishEndpoint>(provider => provider.GetRequiredService<IBusControl>());
             services.AddSingleton<ISendEndpointProvider>(provider => provider.GetRequiredService<IBusControl>());
             services.AddSingleton<IBus>(provider => provider.GetRequiredService<IBusControl>());
+
+            services.AddAuthorization();
+
+   
+
+            services
+                .AddIdentityCore<ApiUser>() 
+                .AddRoles<IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationContext>()
+                .AddDefaultTokenProviders();
+
+            services.AddScoped<UserManager<ApiUser>>();
+
+            services.AddScoped<IAuthManager, AuthManager>();
+
+            services.AddScoped(typeof(ILogger<>), typeof(Logger<>));
+
+            services.AddLogging(builder =>
+            {
+                builder.AddConsole();
+                builder.AddDebug();
+            });
         }
     }
 }

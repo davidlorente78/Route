@@ -21,6 +21,7 @@ using Traveller.DomainServices;
 using Traveller.RouteService;
 using Traveller.RuleService;
 
+
 // Add services to the container.
 
 var builder = WebApplication.CreateBuilder(args);
@@ -166,7 +167,7 @@ builder.Services
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationContext>()
     .AddDefaultTokenProviders();
-;
+
 
 //Linea omitida en el libro y en todas partes ... Me la ha chivado ChatGPT
 builder.Services.AddScoped<UserManager<ApiUser>>();
@@ -201,7 +202,6 @@ else
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
-app.UseAuthorization();
 app.MapRazorPages();
 app.MapControllerRoute(
     name: "default",

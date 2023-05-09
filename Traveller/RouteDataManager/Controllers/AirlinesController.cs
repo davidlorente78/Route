@@ -28,9 +28,7 @@ namespace RouteDataManager.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult CreateWithPicture(AirlineViewModel model)
-        {
-            //if (ModelState.IsValid)
-            //{
+        {           
                 string uniqueFileName = ProcessUploadedFile(model.MapPicture);
                 AirlineDto airline = new()
                 {
@@ -40,10 +38,7 @@ namespace RouteDataManager.Controllers
                 };
 
                 airlinesService.Add(airline);
-                return RedirectToAction(nameof(Index));
-            //}
-
-            //return PartialView(model);
+                return RedirectToAction(nameof(Index));           
         }
 
         public override IActionResult Edit(int? id)

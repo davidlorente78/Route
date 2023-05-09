@@ -70,10 +70,10 @@ namespace RouteDataManager.Repositories
                 {
                     Id = "408aa945-3d84-4421-8342-7269ec64d949",
                     Email = "admin@localhost.com",
-                    NormalizedEmail = "ADMIN@LOCALHOST.COM",
-                    NormalizedUserName = "ADMIN@LOCALHOST.COM",
-                    UserName = "admin@localhost.com",
-                    PasswordHash = hasher.HashPassword(null, "P@ssword1"),
+                    NormalizedEmail = "DAVIDLORENTE@OUTLOOK.COM",
+                    NormalizedUserName = "DAVIDLORENTE@OUTLOOK.COM",
+                    UserName = "davidlorente@outlook.com",
+                    PasswordHash = hasher.HashPassword(null, "Pwd007"),
                     EmailConfirmed = true
                 });
 
