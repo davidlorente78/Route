@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Domain.Generic;
 
 namespace Domain.Transport.Railway
 {
-    public class RailwayBranch
+    public class RailwayBranch : Entity
     {
-        public int RailwayBranchID { get; set; }
         public string Name { get; set; }
         public string? Description { get; set; }
 

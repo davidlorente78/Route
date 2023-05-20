@@ -1,6 +1,6 @@
-﻿using Application.Dto;
-using MassTransit;
+﻿using MassTransit;
 using RouteDataManager.Controllers.Generic;
+using Traveller.Application.Dto;
 using Traveller.Domain;
 using Traveller.DomainServices;
 

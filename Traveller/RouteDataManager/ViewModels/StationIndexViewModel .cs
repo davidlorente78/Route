@@ -1,17 +1,14 @@
-﻿using Data;
-using Domain.Transport.Railway;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Traveller.Domain;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using Traveller.Application.Dto;
 
 namespace RouteDataManager.ViewModels
 {
     public class StationIndexViewModel
     {
-        public IEnumerable<RailwayStation> Stations { get; set; }
+        public IEnumerable<RailwayStationDto> Stations { get; set; }
         public SelectList SelectListCountries { get; set; }
-        public SelectList SelectListLines{ get; set; }
-        public RailwayLine FilterLine { get; set; } = new RailwayLine();
-        public Traveller.Domain.Country FilterCountry { get; set; } = new Traveller.Domain.Country() { Id = 3 };
-
+        public SelectList SelectListLines { get; set; }
+        public RailwayLineDto FilterLine { get; set; } = new RailwayLineDto();
+        public CountryDto FilterCountry { get; set; } = new CountryDto() { Id = 3 };
     }
 }

@@ -181,6 +181,13 @@ namespace RouteDataManager.Repositories
             modelBuilder.Entity<Airport>()
                 .HasOne(x => x.AirportType);
 
+            modelBuilder.Entity<RailwayLine>()
+               .HasMany<RailwayBranch>(l => l.Branches)
+               .WithOne(b => b.RailwayLine)
+               .HasForeignKey(r => r.RailwayLineID)
+               .OnDelete(DeleteBehavior.Cascade);
+
+          
             modelBuilder.Entity<RailwayBranch>().ToTable("Branches");
         }
     }

@@ -47,7 +47,9 @@
             services.AddScoped(typeof(IAirportTypeMapper), typeof(AirportTypeMapper));
             services.AddScoped(typeof(IAirlineMapper), typeof(AirlineMapper));
             services.AddScoped(typeof(IVisaMapper), typeof(VisaMapper));
-
+            services.AddScoped(typeof(IRailwayLineMapper), typeof(RailwayLineMapper));
+            services.AddScoped(typeof(IRailwayBranchMapper), typeof(RailwayBranchMapper));
+            services.AddScoped(typeof(IRailwayStationMapper), typeof(RailwayStationMapper));
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
@@ -60,6 +62,9 @@
             services.AddScoped<IAirportTypeRepository, AirportTypeRepository>();
             services.AddScoped<IAirlineRepository, AirlineRepository>();
             services.AddScoped<IVisaRepository, VisaRepository>();
+            services.AddScoped<IRailwayLineRepository, RailwayLineRepository>();
+            services.AddScoped<IRailwayBranchRepository, RailwayBranchRepository>();
+            services.AddScoped<IRailwayStationRepository, RailwayStationRepository>();
 
 
             services.AddScoped<ICountryService, CountryService>();
@@ -68,6 +73,9 @@
             services.AddScoped<IAirportService, AirportService>();
             services.AddScoped<IAirportTypeService, AirportTypeService>();
             services.AddScoped<IAirlineService, AirlineService>();
+            services.AddScoped<IRailwayLineService, RailwayLineService>();
+            services.AddScoped<IRailwayBranchService, RailwayBranchService>();
+            services.AddScoped<IRailwayStationService, RailwayStationService>();
 
             services.AddScoped<IVisaService, VisaService>();
             services.AddScoped<IRouteService, RouteService>();

@@ -1,9 +1,8 @@
-using Application.Dto;
 using MassTransit;
-using MassTransit.Transports;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using RouteDataManager.Controllers;
+using Traveller.Application.Dto;
 using Traveller.DomainServices;
 
 namespace Test.Controllers

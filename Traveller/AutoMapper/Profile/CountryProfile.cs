@@ -1,5 +1,5 @@
-﻿using Application.Dto;
-using AutoMapper;
+﻿using AutoMapper;
+using Traveller.Application.Dto;
 using Traveller.Domain;
 
 namespace Application.Profiles

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Traveller.Domain;
 using Traveller.RuleService;
 
 namespace Traveller.RouteService
@@ -19,8 +18,6 @@ namespace Traveller.RouteService
 
             RouteCombinationsGenerator routeCombinationsGenerator = new RouteCombinationsGenerator(ruleContainer);
             return routeCombinationsGenerator.Generate(months);
-
-
         }
 
         public List<string> BrokenRules(List<char> route)
@@ -32,8 +29,7 @@ namespace Traveller.RouteService
             var brokenRules = routeValidator.GetBrokenRules(route);
 
             return brokenRules;
-
-        }                 
+        }
     }
 }
 

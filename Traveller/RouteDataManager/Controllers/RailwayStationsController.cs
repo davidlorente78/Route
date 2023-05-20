@@ -1,91 +1,96 @@
 ﻿using Domain.Messages;
 using Domain.Transport.Railway;
+using DomainServices.DestinationService;
 using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using RouteDataManager.Controllers.Generic;
 using RouteDataManager.Repositories;
 using RouteDataManager.ViewModels;
+using RouteDataManager.ViewModels.RailwaySystem;
+using Traveller.Application.Dto;
+using Traveller.DomainServices;
 
 namespace RouteDataManager.Controllers
 {
-    public class RailwayStationsController : Controller, IConsumer<DestinationCreated>
+    public class RailwayStationsController : GenericController<RailwayStationDto, RailwayStation>, IConsumer<DestinationCreated>
     {
         private readonly ApplicationContext _context;
+        private ICountryService countryService;
+        private IDestinationService destinationService;
 
-        public RailwayStationsController(ApplicationContext context)
+        private IRailwayLineService railwayLineService;
+        private IRailwayStationService railwayStationService;
+        private IEnumerable<CountryDto> countries;
+
+        public RailwayStationsController(
+          ICountryService countryService,
+          IRailwayLineService railwayLineService,
+          IDestinationService destinationService,
+          IPublishEndpoint publishEndpoint,
+          IRailwayStationService railwayStationService) : base(railwayStationService, publishEndpoint)
         {
-            _context = context;
+            this.countryService = countryService;
+            this.destinationService = destinationService;
+            this.railwayLineService = railwayLineService;
+            this.railwayStationService = railwayStationService;
+
+            countries = countryService.GetAll();
         }
+
+        [HttpPost]
+        [HttpGet]
         public async Task<IActionResult> Index(StationIndexViewModel stationIndexViewModel)
         {
-            IOrderedQueryable<RailwayStation>? applicationContext;
-            IQueryable<RailwayLine>? itemsSelectLines = _context.RailwayLines;
+            var stations = railwayStationService.GetIncluding(
+                 s => s.Destinations.Select(d => d.CountryId).Contains(stationIndexViewModel.FilterCountry.Id),
+               d => d.Destinations);
 
-            if (stationIndexViewModel.FilterCountry.Id != 0)
-            {
-                itemsSelectLines = _context.RailwayLines.Where(l => l.CountryID == stationIndexViewModel.FilterCountry.Id);
-                stationIndexViewModel.FilterLine = itemsSelectLines.FirstOrDefault();
-                applicationContext = _context.RailwayStations
-                    .Where(
-                        s => s.Destinations.Select(d => d.CountryId).Contains(stationIndexViewModel.FilterCountry.Id)
-                     )
-                    .Include(s => s.Destinations)
-                    .OrderBy(s => s.RailwayStationID);
-            }
-            else
-            {
-                applicationContext = _context.RailwayStations.Include(s => s.Destinations).OrderBy(s => s.Name);
-            }
+            var lines = railwayLineService.GetIncluding(
+                l => l.CountryID == stationIndexViewModel.FilterCountry.Id,
+                l => l.Branches);
 
-            SelectList selectListCountries = new SelectList(_context.Countries, "Id", "Name", stationIndexViewModel.FilterCountry.Id);
-            SelectList selectListLines = new SelectList(itemsSelectLines.ToList(), "RailwayLineID", "Name", stationIndexViewModel.FilterLine.RailwayLineID);
+            stationIndexViewModel.FilterLine = lines.FirstOrDefault();
+
+
+            SelectList selectListCountries = new SelectList(countries, "Id", "Name", stationIndexViewModel.FilterCountry.Id);
+            SelectList selectListLines = new SelectList(lines, "Id", "Name", stationIndexViewModel.FilterLine.Id);
 
             stationIndexViewModel.SelectListCountries = selectListCountries;
             stationIndexViewModel.SelectListLines = selectListLines;
-            stationIndexViewModel.Stations = await applicationContext.ToListAsync();
+            stationIndexViewModel.Stations = stations;
 
             return PartialView(stationIndexViewModel);
         }
-
-
 
         public JsonResult GetLinesListByCountryID(int CountryID)
         {
             //https://www.findandsolve.com/articles/cascading-dropdownlist-in-net-core-5
             //https://www.rafaelacosta.net/Blog/2019/11/24/c%C3%B3mo-crear-un-cascading-dropdownlist-en-aspnet-mvc
 
-            List<RailwayLine>? data = _context.RailwayLines.Where(l => l.CountryID == CountryID).ToList();
+            var lines = railwayLineService.GetIncluding(l => l.CountryID == CountryID, l => l.Country);
 
-            var selectList = new SelectList(data, "RailwayLineID", "Name");
-            return Json(selectList);
+            var selectListLines = new SelectList(lines, "Id", "Name");
+
+            return Json(selectListLines);
         }
 
-        public async Task<IActionResult> Details(int? id)
+        public override IActionResult Create()
         {
-            if (id == null || _context.RailwayStations == null)
-            {
-                return NotFound();
-            }
+            var model = new RailwayStationViewModel() { };
 
-            var station = await _context.RailwayStations
-                .FirstOrDefaultAsync(m => m.RailwayStationID == id);
-            if (station == null)
-            {
-                return NotFound();
-            }
+            var lines = railwayLineService.GetIncluding(l => l.CountryID == countries.First().Id, l => l.Country);
 
-            return View(station);
-        }
+            model.SelectListLines = new SelectList(lines, "Id", "Name");
+            model.SelectListCountries = new SelectList(countries, "Id", "Name"); ;
 
-        public IActionResult Create()
-        {
-            return View();
+            return View("Create", model);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("RailwayStationID,Name,LocalName,Type,Remarks")] RailwayStation station)
+        public async Task<IActionResult> Create([Bind("Id,Name,LocalName,Type,Remarks")] RailwayStation station)
         {
             if (ModelState.IsValid)
             {
@@ -96,91 +101,32 @@ namespace RouteDataManager.Controllers
             return View(station);
         }
 
-        public async Task<IActionResult> Edit(int? id)
+        public override IActionResult Edit(int? id)
         {
-            if (id == null || _context.RailwayStations == null)
-            {
-                return NotFound();
-            }
+            var station = railwayStationService.GetIncluding(
+                  d => d.Id == id,
+                  d => d.Destinations)
+                .FirstOrDefault();
 
-            var station = await _context.RailwayStations.FindAsync(id);
-            if (station == null)
-            {
-                return NotFound();
-            }
-            return View(station);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("RailwayStationID,Name,LocalName,Type,Remarks")] RailwayStation station)
-        {
-            if (id != station.RailwayStationID)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(station);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!StationExists(station.RailwayStationID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(station);
-        }
-
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.RailwayStations == null)
-            {
-                return NotFound();
-            }
-
-            var station = await _context.RailwayStations
-                .FirstOrDefaultAsync(m => m.RailwayStationID == id);
             if (station == null)
             {
                 return NotFound();
             }
 
-            return View(station);
-        }
+            SelectList selectListCountries = new SelectList(countries, "Id", "Name"); ;
 
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.RailwayStations == null)
+            var railwayStationViewModel = new RailwayStationViewModel()
             {
-                return Problem("Entity set 'ApplicationContext.Station'  is null.");
-            }
-            var station = await _context.RailwayStations.FindAsync(id);
-            if (station != null)
-            {
-                _context.RailwayStations.Remove(station);
-            }
+                SelectListCountries = selectListCountries,
 
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
+                Remarks = station.Remarks,
+                Id = station.Id,
+                Name = station.Name,
+                LocalName = station.LocalName,
+                Type = station.Type
+            };
 
-        private bool StationExists(int id)
-        {
-            return (_context.RailwayStations?.Any(e => e.RailwayStationID == id)).GetValueOrDefault();
+            return PartialView(railwayStationViewModel);
         }
 
         public Task Consume(ConsumeContext<DestinationCreated> context)
@@ -191,19 +137,19 @@ namespace RouteDataManager.Controllers
 
             var destinationId = context.Message.Id; //ID station is needed here
 
-            var station = new RailwayStation()
+            var station = new RailwayStationDto()
             {
                 Name = context.Message.Name,
                 Remarks = context.Message.Message,
-
             };
 
             //Repo Destination
-            var destination =  _context.Destinations.Find(destinationId);
+            var destination = destinationService.GetById(destinationId);
 
             station.Destinations.Add(destination);
-            _context.Add(station);
-            return  _context.SaveChangesAsync();
+
+            railwayStationService.Add(station);
+            return _context.SaveChangesAsync();
 
         }
     }

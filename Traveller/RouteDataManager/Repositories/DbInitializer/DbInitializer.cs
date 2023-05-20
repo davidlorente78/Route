@@ -1,6 +1,5 @@
 ﻿using Data.Cambodia;
 using Data.EntityTypes;
-using Data.Indonesia;
 using Data.Laos;
 using Data.Malaysia;
 using Data.Nepal;

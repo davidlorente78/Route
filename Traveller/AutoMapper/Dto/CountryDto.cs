@@ -1,8 +1,7 @@
 ﻿using Application.Dto.Generic;
 using System.Collections.Generic;
-using Traveller.Application.Dto;
 
-namespace Application.Dto
+namespace Traveller.Application.Dto
 {
     public class CountryDto : GenericDto
     {

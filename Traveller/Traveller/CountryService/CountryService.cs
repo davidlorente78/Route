@@ -1,9 +1,9 @@
-﻿using Application.Dto;
-using Application.Mapper;
+﻿using Application.Mapper;
 using AutoMapper;
 using Domain.Repositories;
 using DomainServices.Generic;
 using RouteDataManager.Repositories;
+using Traveller.Application.Dto;
 using Traveller.Domain;
 using Traveller.DomainServices;
 

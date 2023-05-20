@@ -1,5 +1,4 @@
-﻿using Application.Dto;
-using Traveller.Domain;
+﻿using Traveller.Application.Dto;
 
 namespace RouteDataManager.ViewModels.Country
 {

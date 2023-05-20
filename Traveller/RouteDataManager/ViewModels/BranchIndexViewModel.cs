@@ -1,14 +1,12 @@
-﻿using Domain.Transport.Railway;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Traveller.Domain;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using Traveller.Application.Dto;
 
 namespace RouteDataManager.ViewModels
 {
     public class BranchIndexViewModel
     {
-        public IEnumerable<RailwayBranch> Branches { get; set; }
+        public IEnumerable<RailwayBranchDto> Branches { get; set; }
         public SelectList SelectListCountries { get; set; }
-        public Traveller.Domain.Country FilterCountry { get; set; } = new Traveller.Domain.Country() { Id = 3 };
-
+        public CountryDto FilterCountry { get; set; } = new CountryDto() { Id = 3 };
     }
 }

@@ -1,12 +1,13 @@
 ﻿using System.ComponentModel;
 using Traveller.Domain;
+using Domain.Generic;
 
 namespace Domain.Transport.Railway
 {
 
-    public class RailwayLine
+    public class RailwayLine : Entity
     {
-        public int RailwayLineID { get; set; }
+        public int Id { get; set; }
 
         public string Name { get; set; }
         public string? Description { get; set; }

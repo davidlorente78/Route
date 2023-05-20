@@ -49,6 +49,9 @@ builder.Services.AddScoped(typeof(IAirlineMapper), typeof(AirlineMapper));
 builder.Services.AddScoped(typeof(IVisaMapper), typeof(VisaMapper));
 builder.Services.AddScoped(typeof(INationalityMapper), typeof(NationalityMapper));
 
+builder.Services.AddScoped(typeof(IRailwayLineMapper), typeof(RailwayLineMapper));
+builder.Services.AddScoped(typeof(IRailwayBranchMapper), typeof(RailwayBranchMapper));
+builder.Services.AddScoped(typeof(IRailwayStationMapper), typeof(RailwayStationMapper));
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
@@ -63,7 +66,9 @@ builder.Services.AddScoped<IAirlineRepository, AirlineRepository>();
 builder.Services.AddScoped<IVisaRepository, VisaRepository>();
 builder.Services.AddScoped<INationalityRepository, NationalityRepository>();
 
-
+builder.Services.AddScoped(typeof(IRailwayLineRepository), typeof(RailwayLineRepository));
+builder.Services.AddScoped(typeof(IRailwayBranchRepository), typeof(RailwayBranchRepository));
+builder.Services.AddScoped(typeof(IRailwayStationRepository), typeof(RailwayStationRepository));
 
 builder.Services.AddScoped<ICountryService, CountryService>();
 builder.Services.AddScoped<IDestinationService, DestinationService>();
@@ -72,7 +77,9 @@ builder.Services.AddScoped<IAirportService, AirportService>();
 builder.Services.AddScoped<IAirportTypeService, AirportTypeService>();
 builder.Services.AddScoped<IAirlineService, AirlineService>();
 builder.Services.AddScoped<INationalityService, NationalityService>();
-
+builder.Services.AddScoped<IRailwayLineService, RailwayLineService>();
+builder.Services.AddScoped<IRailwayBranchService, RailwayBranchService>();
+builder.Services.AddScoped<IRailwayStationService, RailwayStationService>();
 
 builder.Services.AddScoped<IVisaService, VisaService>();
 builder.Services.AddScoped<IRouteService, RouteService>();

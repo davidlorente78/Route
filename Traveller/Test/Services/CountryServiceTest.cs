@@ -1,5 +1,5 @@
-using Application.Dto;
 using Microsoft.Extensions.DependencyInjection;
+using Traveller.Application.Dto;
 using Traveller.DomainServices;
 
 namespace Test.Services
@@ -33,7 +33,7 @@ namespace Test.Services
         }
 
         [TestMethod]
-        public void Exists()
+        public void Remove()
         {
             var country = countryService.GetById(1);
             countryService.Remove(country.Id);

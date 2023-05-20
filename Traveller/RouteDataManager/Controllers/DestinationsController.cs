@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using RouteDataManager.Models;
 using RouteDataManager.ViewModels;
 using RouteDataManager.ViewModels.Destination;
+using RouteDataManager.ViewModels.RailwaySystem;
 using Traveller.Application.Dto;
 using Traveller.DomainServices;
 
@@ -172,8 +173,9 @@ namespace RouteDataManager.Controllers
 
             var destinationViewModel = new DestinationViewModel()
             {
-                CountryID = destination.CountryID,
                 SelectListCountries = selectListCountries,
+
+                CountryID = destination.CountryID,
                 DestinationID = destination.Id,
                 Description = destination.Description,
                 Id = destination.Id,

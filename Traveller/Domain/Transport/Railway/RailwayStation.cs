@@ -1,12 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Traveller.Domain;
+using Domain.Generic;
 
 namespace Domain.Transport.Railway
 {
-    //Test Here Composition
-    public class RailwayStation
+    public class RailwayStation : Entity
     {
-        public int RailwayStationID { get; set; }
         public string Name { get; set; }
 
         [Display(Name = "Local Name")]
@@ -14,11 +13,5 @@ namespace Domain.Transport.Railway
         public char Type { get; set; }  // T B
         public string? Remarks { get; set; }
         public virtual ICollection<Destination>? Destinations { get; set; } = new List<Destination>();
-        public virtual ICollection<Facility>? Facilities { get; set; } = new List<Facility>();
-
-        //public ICollection<Destination>? MajorLandmarks { get; set; }
-        //public ICollection<Destination>? InterchangeStations { get; set; }
-
     }
-
 }

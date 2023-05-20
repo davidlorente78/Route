@@ -68,7 +68,7 @@ namespace RouteDataManager.Controllers.Generic
 
                     publishEndpoint.Publish<EntityCreated>
                         (new()
-                        { 
+                        {
                             Id = entityId,
                             Type = typeof(TEntity).Name,
                             Message = "Created new " + typeof(TEntity).Name,

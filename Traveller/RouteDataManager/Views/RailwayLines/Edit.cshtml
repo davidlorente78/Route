@@ -1,16 +1,8 @@
-﻿@using Domain.Transport.Railway;
-@model RailwayLine;
+﻿@model RouteDataManager.ViewModels.RailwaySystem.RailwayLineViewModel;
 
-
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Edit</title>
-</head>
-<body>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
 <h4>Line</h4>
 <hr />
@@ -18,7 +10,7 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="RailwayLineID" />
+            <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
@@ -35,21 +27,21 @@
                 <span asp-validation-for="LineType" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CountryID" class="control-label"></label>
-                <select asp-for="CountryID" class="form-control" asp-items="ViewBag.CountryID"></select>
+                <label asp-for="Country" class="control-label"></label>
+                <select asp-for="CountryID" class="form-control" asp-items="@Model.SelectListCountries"></select>
                 <span asp-validation-for="CountryID" class="text-danger"></span>
             </div>
-           
+
+
             <div class="form-group">
                 <table>
                     <tr>
                         <td>
-                              <input class="btn btn-primary btn-block" type="submit" value="Save" />
+                            <input class="btn btn-primary btn-block" type="submit" value="Save" />
 
                         </td>
                         <td>
-                                <a class="btn btn-primary btn-block" asp-action="Index">Back to List</a>
-
+                            <a class="btn btn-primary btn-block" asp-action="Index">Back to List</a>
                         </td>
                     </tr>
                 </table>
@@ -61,7 +53,8 @@
 
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
-</body>
-</html>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
+

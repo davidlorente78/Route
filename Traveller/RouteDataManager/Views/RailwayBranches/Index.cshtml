@@ -7,50 +7,50 @@
 
 <form asp-action="Index">
 
-            <div class="form-group">
-                <table class="table">
-                 <thead>
+    <div class="form-group">
+        <table class="table">
+            <thead>
 
                 <tr>
                     <th>
-                         <label class="control-label">Country</label>
-                        <select asp-for="@Model.FilterCountry.Id" class ="form-control" asp-items="@Model.SelectListCountries"></select>
+                        <label class="control-label">Country</label>
+                        <select asp-for="@Model.FilterCountry.Id" class="form-control" asp-items="@Model.SelectListCountries"></select>
                     </th>
 
                     <th>
-                        
-                    </th>                   
 
-                    <th>
-                      
                     </th>
 
-                     <th>
-                      
-                    </th>
-                    
                     <th>
-                            <input type="submit" value="Search" class="btn btn-primary btn-block" />
+
+                    </th>
+
+                    <th>
+
+                    </th>
+
+                    <th>
+                        <input type="submit" value="Search" class="btn btn-primary btn-block" />
                     </th>
                 </tr>
 
-                </thead>
-                </table>
+            </thead>
+        </table>
 
-            </div>
+    </div>
 </form>
 
 <p>
-     <a asp-action="Create" class="btn btn-primary rounded-0"><i class="fa fa-plus-circle"></i> Add New</a>
+    <a asp-action="Create" class="btn btn-primary rounded-0"><i class="fa fa-plus-circle"></i> Add New</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-               Name
+                Name
             </th>
             <th>
-               Description
+                Description
             </th>
             <th>
                 MainBranch
@@ -59,22 +59,23 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Branches) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MainBranch)
-            </td>
+        @foreach (var item in Model.Branches)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MainBranch)
+                </td>
 
-              <td>  <a asp-action="Edit"  class="btn btn-primary btn-block" asp-route-id="@item.RailwayBranchID">Edit</a></td>
-             <td>   <a asp-action="Details" class="btn btn-primary btn-block" asp-route-id="@item.RailwayBranchID">Details</a> </td>
-             <td>   <a asp-action="Delete" class="btn btn-primary btn-block" asp-route-id="@item.RailwayBranchID">Delete</a> </td>
-        </tr>
-}
+                <td>  <a asp-action="Edit" class="btn btn-primary btn-block" asp-route-id="@item.Id">Edit</a></td>
+                <td>  <a asp-action="Details" class="btn btn-primary btn-block" asp-route-id="@item.Id">Details</a> </td>
+                <td>  <a asp-action="Delete" class="btn btn-primary btn-block" asp-route-id="@item.Id">Delete</a> </td>
+            </tr>
+        }
     </tbody>
 </table>

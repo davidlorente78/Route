@@ -10,10 +10,4 @@ namespace Traveller.RouteService
         public List<List<char>> proposedRoutes(int months);
 
     }
-
 }
-
-
-
-
-

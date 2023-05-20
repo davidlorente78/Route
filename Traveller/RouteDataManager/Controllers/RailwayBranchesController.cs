@@ -1,57 +1,56 @@
 ﻿using Domain.Transport.Railway;
+using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using RouteDataManager.Repositories;
+using RouteDataManager.Controllers.Generic;
 using RouteDataManager.ViewModels;
+using RouteDataManager.ViewModels.RailwaySystem;
+using Traveller.Application.Dto;
+using Traveller.DomainServices;
 
 namespace RouteDataManager.Controllers
 {
-    public class RailwayBranchesController : Controller
+    public class RailwayBranchesController : GenericController<RailwayBranchDto, RailwayBranch>
     {
-        private readonly ApplicationContext _context;
+        private ICountryService countryService;
+        private IRailwayBranchService railwayBranchService;
+        private IEnumerable<CountryDto> countries;
 
-        public RailwayBranchesController(ApplicationContext context)
+        public RailwayBranchesController(
+            ICountryService countryService,
+            IRailwayBranchService railwayBranchService,
+            IPublishEndpoint publishEndpoint) : base(railwayBranchService, publishEndpoint)
         {
-            _context = context;
+            this.countryService = countryService;
+            this.railwayBranchService = railwayBranchService;
+
+            countries = countryService.GetAll();
         }
 
+        [HttpPost]
+        [HttpGet]
         public async Task<IActionResult> Index(BranchIndexViewModel branchIndexViewModel)
         {
-            IOrderedQueryable<RailwayBranch>? applicationContext;
 
-            if (branchIndexViewModel.FilterCountry.Id != 0)
-            {
-                applicationContext = _context.RailwayBranches
-                      .Where(
-                        b => b.RailwayLine.CountryID == branchIndexViewModel.FilterCountry.Id)
+            var branches = railwayBranchService.GetIncluding(
+                b => b.RailwayLine.CountryID == branchIndexViewModel.FilterCountry.Id,
+                d => d.Stations);
 
-
-                    .Include(d => d.Stations)
-                    .OrderBy(d => d.Name);
-            }
-            else
-            {
-                applicationContext = _context.RailwayBranches.Include(b => b.Stations).OrderBy(b => b.Name);
-            }
-
-            SelectList selectListCountries = new SelectList(_context.Countries, "Id", "Name", branchIndexViewModel.FilterCountry.Id);
+            SelectList selectListCountries = new SelectList(countries, "Id", "Name", branchIndexViewModel.FilterCountry.Id);
 
             branchIndexViewModel.SelectListCountries = selectListCountries;
-            branchIndexViewModel.Branches = await applicationContext.ToListAsync();
+            branchIndexViewModel.Branches = branches;
 
             return PartialView(branchIndexViewModel);
         }
 
-        public async Task<IActionResult> Details(int? id)
+        public override IActionResult Details(int? id)
         {
-            if (id == null || _context.RailwayBranches == null)
-            {
-                return NotFound();
-            }
+            var branch = railwayBranchService.GetIncluding(
+                 b => b.Id == id,
+                 b => b.Stations)
+               .FirstOrDefault();
 
-            var branch = await _context.RailwayBranches
-                .FirstOrDefaultAsync(m => m.RailwayBranchID == id);
             if (branch == null)
             {
                 return NotFound();
@@ -60,110 +59,43 @@ namespace RouteDataManager.Controllers
             return View(branch);
         }
 
-        public IActionResult Create()
+        public override IActionResult Create()
         {
-            return View();
+            BranchIndexViewModel model = new BranchIndexViewModel() { };
+            SelectList selectListCountries = new SelectList(countries, "Id", "Name"); ;
+
+            model.SelectListCountries = selectListCountries;
+
+            return View("Create", model);
         }
 
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BranchID,Name,Description,MainBranch")] RailwayBranch branch)
+        public override IActionResult Edit(int? id)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(branch);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(branch);
-        }
+            var branch = railwayBranchService.GetIncluding(
+                  b => b.Id == id,
+                  b => b.Stations)
+                .FirstOrDefault();
 
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.RailwayBranches == null)
-            {
-                return NotFound();
-            }
-
-            var branch = await _context.RailwayBranches.FindAsync(id);
-            if (branch == null)
-            {
-                return NotFound();
-            }
-            return View(branch);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BranchID,Name,Description,MainBranch")] RailwayBranch branch)
-        {
-            if (id != branch.RailwayBranchID)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(branch);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!BranchExists(branch.RailwayBranchID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(branch);
-        }
-
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.RailwayBranches == null)
-            {
-                return NotFound();
-            }
-
-            var branch = await _context.RailwayBranches
-                .FirstOrDefaultAsync(m => m.RailwayBranchID == id);
             if (branch == null)
             {
                 return NotFound();
             }
 
-            return View(branch);
-        }
+            SelectList selectListCountries = new SelectList(countries, "Id", "Name"); ;
 
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.RailwayBranches == null)
+            var railwayBranchViewModel = new RailwayBranchViewModel()
             {
-                return Problem("Entity set 'ApplicationContext.Branch'  is null.");
-            }
-            var branch = await _context.RailwayBranches.FindAsync(id);
-            if (branch != null)
-            {
-                _context.RailwayBranches.Remove(branch);
-            }
+                SelectListCountries = selectListCountries,
 
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
+                RailwayLineID = branch.RailwayLineID,
+                Description = branch.Description,
+                Id = branch.Id,
+                Name = branch.Name,
+                MainBranch = branch.MainBranch,
+                Stations = branch.Stations
+            };
 
-        private bool BranchExists(int id)
-        {
-            return (_context.RailwayBranches?.Any(e => e.RailwayBranchID == id)).GetValueOrDefault();
+            return PartialView(railwayBranchViewModel);
         }
     }
 }

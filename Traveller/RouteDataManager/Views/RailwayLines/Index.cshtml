@@ -7,38 +7,38 @@
 
 <form asp-action="Index">
 
-            <div class="form-group">
-                <table class="table">
-                 <thead>
+    <div class="form-group">
+        <table class="table">
+            <thead>
 
                 <tr>
                     <th>
-                         <label class="control-label">Country</label>
-                        <select asp-for="@Model.FilterCountry.Id" class ="form-control" asp-items="@Model.SelectListCountries"></select>
+                        <label class="control-label">Country</label>
+                        <select asp-for="@Model.FilterCountry.Id" class="form-control" asp-items="@Model.SelectListCountries"></select>
                     </th>
 
                     <th>
-                        
-                    </th>
-                    
 
-                    <th>
-                      
                     </th>
 
-                     <th>
-                      
-                    </th>
-                    
+
                     <th>
-                            <input type="submit" value="Search" class="btn btn-primary btn-block" />
+
+                    </th>
+
+                    <th>
+
+                    </th>
+
+                    <th>
+                        <input type="submit" value="Search" class="btn btn-primary btn-block" />
                     </th>
                 </tr>
 
-                </thead>
-                </table>
+            </thead>
+        </table>
 
-            </div>
+    </div>
 </form>
 
 
@@ -51,31 +51,32 @@
     <thead>
         <tr>
             <th>
-               Name
+                Name
             </th>
             <th>
-               Description
-            </th>            
-           
+                Description
+            </th>
+
             <th></th>
         </tr>
     </thead>
     <tbody>
 
-@foreach (var item in Model.Lines) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>          
-           
-             <td>   <a asp-action="Edit"  class="btn btn-primary btn-block" asp-route-id="@item.RailwayLineID">Edit</a></td>
-             <td>   <a asp-action="Details" class="btn btn-primary btn-block" asp-route-id="@item.RailwayLineID">Details</a> </td>
-             <td>   <a asp-action="Delete" class="btn btn-primary btn-block" asp-route-id="@item.RailwayLineID">Delete</a> </td>
-        </tr>
-}
+        @foreach (var item in Model.Lines)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+
+                <td>   <a asp-action="Edit" class="btn btn-primary btn-block" asp-route-id="@item.Id">Edit</a></td>
+                <td>   <a asp-action="Details" class="btn btn-primary btn-block" asp-route-id="@item.Id">Details</a> </td>
+                <td>   <a asp-action="Delete" class="btn btn-primary btn-block" asp-route-id="@item.Id">Delete</a> </td>
+            </tr>
+        }
     </tbody>
 </table>
 

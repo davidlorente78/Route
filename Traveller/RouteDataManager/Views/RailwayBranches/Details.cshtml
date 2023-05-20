@@ -1,15 +1,9 @@
-﻿@model Domain.Transport.Railway.RailwayBranch;
+﻿@using Traveller.Application.Dto
+@model RailwayBranchDto;
 
-
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-</head>
-<body>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
     <div>
         <h4>Branch</h4>
@@ -39,7 +33,7 @@
         <table>
             <tr>
                 <td>
-                    <a asp-action="Edit" class="btn btn-primary btn-block" asp-route-id="@Model?.RailwayBranchID">Edit</a>
+                    <a asp-action="Edit" class="btn btn-primary btn-block" asp-route-id="@Model?.Id">Edit</a>
 
                 </td>
                 <td>
@@ -49,5 +43,4 @@
             </tr>
         </table>
     </div>
-</body>
-</html>
+

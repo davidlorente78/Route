@@ -5,12 +5,11 @@ namespace Traveller.RouteService
 {
     public class RouteValidator
     {
-        List<IRule> rules = new List<IRule>();
+        private List<IRule> rules = new List<IRule>();
+
         public RouteValidator(List<IRule> rules)
         {
-
             this.rules = rules;
-
         }
 
 
@@ -26,7 +25,6 @@ namespace Traveller.RouteService
 
         public override string ToString()
         {
-
             string summary = "";
 
             foreach (IRule rule in this.rules)
@@ -48,8 +46,5 @@ namespace Traveller.RouteService
 
             return rules_broken;
         }
-
-
-
     }
 }
