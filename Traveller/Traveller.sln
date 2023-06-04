@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DomainServices", "Traveller\DomainServices.csproj", "{53F0B9E1-3E0D-420F-9672-1D4946C7E589}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Traveller\Services.csproj", "{53F0B9E1-3E0D-420F-9672-1D4946C7E589}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "StaticData\Data.csproj", "{E5B59322-4EDF-4C84-93FE-427F277996A1}"
 EndProject

@@ -20,7 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RouteDataManager\RouteDataManager.csproj" />
-    <ProjectReference Include="..\Traveller\DomainServices.csproj" />
+    <ProjectReference Include="..\Traveller\Services.csproj" />
   </ItemGroup>
 
 </Project>

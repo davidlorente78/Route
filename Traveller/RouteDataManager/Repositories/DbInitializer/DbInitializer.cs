@@ -1,5 +1,6 @@
 ﻿using Data.Cambodia;
 using Data.EntityTypes;
+using Data.Indonesia;
 using Data.Laos;
 using Data.Malaysia;
 using Data.Nepal;
@@ -65,76 +66,14 @@ namespace RouteDataManager.Repositories.DbInitializer
             context.Countries.Add(DataCambodia.Cambodia);
 
             //#region Other Countries
-            ////Indonesia Nepal Sri Lanka Philippines China Singapore
 
-            //Country Indonesia = new Country('I', "Indonesia", false, 0)
-            //{
-            //    Ranges = new List<RangeChar> { IndonesiaRanges.MonsoonRange, IndonesiaRanges.MonsoonRangeEvaluator },
+            context.Countries.Add(DataIndonesia.Indonesia);
 
-            //    //Bali Lombok TODO
-            //};
+            context.Countries.Add(DataNepal.Nepal);
 
-            //context.Countries.Add(Indonesia);
+            context.Countries.Add(DataPhilippines.Philippines);          
 
-            Country Nepal = new Country('N', "Nepal", true, 4)
-            {
-                Destinations = new List<Destination> { NepalDestinations.Kathmandu },
-                Airports = NepalAirports.GetAll(),
-                Ranges = new List<RangeChar> { NepalRanges.MonsoonRange, NepalRanges.MonsoonRangeEvaluator },
-
-                BorderCrossings = new List<BorderCrossing>
-                {
-                    new BorderCrossing
-                    {
-                    Name = NepalAirports.KTM.Name,
-                    DestinationOrigin = NepalDestinations.Kathmandu,
-                    DestinationFinal = NepalDestinations.Kathmandu,
-                    BorderCrossingType = BorderCrossingTypes.Airport,
-                    }
-                }
-            };
-
-            context.Countries.Add(Nepal);
-
-            //Country Philippines = new Country('P', "Philippines", false, 0) { };
-
-            //context.Countries.Add(Philippines);
-
-            Country Singapore = new Country('S', "Singapore", false, 0)
-            {
-                Destinations = new List<Destination> { SingaporeDestinations.Singapore, SingaporeDestinations.WoodlandsCheckpoint },
-                //La lista de fronteras que se especifican son los puntos de entrada a Singapore
-                //El origen de la frontera es el del pais de entrada 
-                //El destino es la frontera del pais al que se entra. En este caso WoodLands
-                BorderCrossings = new List<BorderCrossing>
-                {
-                    new BorderCrossing
-                            {
-                            Name = "Singapore Changi Airport",
-                            DestinationOrigin = SingaporeDestinations.Singapore,
-                            DestinationFinal = SingaporeDestinations.Singapore,
-                            BorderCrossingType = BorderCrossingTypes.Airport,
-                           //https://www.ica.gov.sg/
-                            //Visas = new List<Visa> { SingaporeVisas.SGArrivalCard_Singapore}
-                            },
-                            new BorderCrossing
-                            {
-                            Name = SingaporeDestinations.WoodlandsCheckpoint.Name,
-                            DestinationOrigin = MalaysiaDestinations.JohorBahru,
-                            DestinationFinal = SingaporeDestinations.WoodlandsCheckpoint,
-                            BorderCrossingType = BorderCrossingTypes.Terrestrial,
-                            //Visas = new List<Visa>
-                            //    {
-                            //        SingaporeVisas.SGArrivalCard_Singapore
-                            //    }
-                            },
-
-                            //Frontier https://en.wikipedia.org/wiki/Malaysia%E2%80%93Singapore_Second_Link
-                },
-                Airports = new List<Airport> { SingaporeAirports.SIN },
-            };
-
-            context.Countries.Add(Singapore);
+            context.Countries.Add(DataSingapore.Singapore);
 
             //Country SriLanka = new Country('R', "Sri Lanka", false, 0);
 
@@ -149,22 +88,32 @@ namespace RouteDataManager.Repositories.DbInitializer
             var MalaysiaId = context.Countries.FirstOrDefault(item => item.Code == 'M').Id;
             var VietnamId = context.Countries.FirstOrDefault(item => item.Code == 'V').Id;
             var ThailandId = context.Countries.FirstOrDefault(item => item.Code == 'T').Id;
+            var IndonesiaId = context.Countries.FirstOrDefault(item => item.Code == 'I').Id;
+
 
             if (!context.RailwaySystems.Any())
             {
                 context.RailwaySystems.AddRange(new List<RailwaySystem>() {
 
                     new RailwaySystem ()
-                    {
-                        CountryId = MalaysiaId,
-                        Name = "Railway System Malaysia",
-                        MapPicture = "/Railway System Malaysia.png",
-                        Description = ""
-                    },
+                        {
+                            CountryId = MalaysiaId,
+                            Name = "Railway System Malaysia",
+                            MapPicture = "/Railway System Malaysia.png",
+                            Description = ""
+                        }
+                    ,
                      new RailwaySystem ()
                         { CountryId = ThailandId,
                             Name = "Railway System Thailand",
                             MapPicture = "/Railway System Thailand.jpg",
+                            Description = ""
+                        }
+                     ,
+                     new RailwaySystem ()
+                        { CountryId = IndonesiaId,
+                            Name = "Railway System Indonesia",
+                            MapPicture = "/Railway System Indonesia.png",
                             Description = ""
                         }
                      ,

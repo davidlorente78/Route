@@ -1,0 +1,70 @@
+﻿@using RouteDataManager.ViewModels
+@model RoundItineraryIndexViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid py-5">
+    <div class="container pt-5 pb-3">
+        <div class="text-center mb-3 pb-3">
+            <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Search Monthly Itineraries</h6>
+        </div>
+
+    </div>
+</div>
+
+<form id="Index_Dates" asp-action="Index">
+
+
+    <div class="form-group">
+        <p></p>
+
+        <table class="table">
+            <thead>
+
+                <tr>
+                    <td>
+                        @Html.ActionLink("Previous", "Previous", "RoundItineraries", new {  ShowingIndex = @Model.ShowingIndex })
+                    </td>
+                    <td>
+                        Showing  @Model.ShowingIndex.ToString()  of @Model.RoutesFoundCount.ToString()  Itineraries found
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("Next", "Next", "RoundItineraries", new {  ShowingIndex = @Model.ShowingIndex} )
+                    </td>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</form>
+
+
+<div class="row" >
+
+    @for (int i = 0; i < Model.FilterCountry.Count(); i++)
+    {
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+                <img class="img-fluid" src="@Model.FilterCountry[i].Image" alt="@Model.FilterCountry[i].Name">
+                <div class="p-4">
+                    <div class="d-flex justify-content-between mb-2">
+                        <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>@Model.FilterCountry[i].Name</small>
+                        <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>@Model.Months[i].Name</small>
+                    </div>
+                    <small class="m-0" href="">@Model.CountryReport.ElementAt(i)</small>
+                    <div class="border-top mt-4 pt-4">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i> Convenient </h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+
+
+

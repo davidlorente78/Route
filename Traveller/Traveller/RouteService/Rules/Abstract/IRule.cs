@@ -5,6 +5,5 @@ namespace Traveller.RouteService
     public interface IRule
     {
         bool Validate(List<char> route);
-
     }
 }

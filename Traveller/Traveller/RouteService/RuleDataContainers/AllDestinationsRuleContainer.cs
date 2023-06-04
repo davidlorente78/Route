@@ -41,7 +41,6 @@ namespace Traveller.RuleService
         /// </summary>
         public XXXAllDestinationsRuleContainer()
         {
-
             //rules.Add(new MustStartCountries(new List<char> { 'T', 'M', 'H' }));
 
             //Empieza la ruta en Tailandia en Abril
@@ -75,7 +74,6 @@ namespace Traveller.RuleService
             rules.Add(new BlockConnection('C', 'K', false));
             rules.Add(new BlockConnection('B', 'S', false));
             rules.Add(new BlockConnection('B', 'K', false));
-
 
             //Conexiones con Indonesia
             rules.Add(new OrCondition(new List<IRule> {
@@ -112,7 +110,6 @@ namespace Traveller.RuleService
                 new CountryBMustFollowCountryA('W', 'K', false)
             }));
 
-
             rules.Add(new BlockConnection('I', 'V', false));
             rules.Add(new BlockConnection('I', 'L', false));
             rules.Add(new BlockConnection('I', 'C', false));
@@ -123,9 +120,6 @@ namespace Traveller.RuleService
 
             rules.Add(new BlockConnection('C', 'W', false));
             rules.Add(new BlockConnection('C', 'M', false));
-
-
-
 
             //rules.Add(new MustConsiderWeather(new List<RangeIntWithDictionary> {
             //    new RangeIntWithDictionary { Id = 'V',  Values = new List<int> { 1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1 } } ,
@@ -140,10 +134,7 @@ namespace Traveller.RuleService
             //    new RangeIntWithDictionary { Id = 'K', Values = new List<int> { 1, 1, 1,1,-1,-1,-1,-1,-1, 1, 1, 1 } } ,
 
             //}));
-
-
-
-        }
+            }
         public void AddRule(IRule rule)
         {
 
@@ -172,6 +163,10 @@ namespace Traveller.RuleService
             }
 
             return chs;
+        }
+        public void ResetRules()
+        {
+            this.rules.Clear();
         }
     }
 

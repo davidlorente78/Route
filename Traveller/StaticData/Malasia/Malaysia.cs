@@ -7,7 +7,7 @@ namespace Data.Malaysia
     {
         public static Country Malaysia = new Country('M', "Malaysia", true, 3)
         {
-            Image = "img/destinations/destinationMalaysia.jpg",
+            Image = @"../img/destinations/destinationMalaysia.jpg",
             Destinations = MalaysiaDestinations.GetAll(),
             Airports = MalaysiaAirports.GetAll(),
             BorderCrossings = MalaysiaBorderCrossings.GetAll(),

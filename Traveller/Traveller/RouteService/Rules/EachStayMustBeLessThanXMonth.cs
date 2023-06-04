@@ -10,7 +10,6 @@ namespace Traveller.RouteService.Rules
         Char countryCode;
         int maxMonths;
 
-
         public EachStayMustBeLessThanXMonth(char countryCode, int maxMonths)
         {
 
@@ -27,20 +26,15 @@ namespace Traveller.RouteService.Rules
 
             foreach (var t in groupby.FindAll(x => x.Item1 == countryCode))
             {
-
                 if (t.Item2 > maxMonths) return false;
-
-
             }
-
 
             return true;
         }
 
         public override string ToString()
         {
-            string summmary = "";
-           
+            string summmary = "";           
 
             summmary = "The same stay in " + CodeDictionary.GetCountryByCode(countryCode) + " cannot be extended for more than " + maxMonths.ToString() + " month(s). ";
 

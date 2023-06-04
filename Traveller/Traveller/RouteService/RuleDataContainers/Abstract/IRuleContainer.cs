@@ -10,5 +10,7 @@ namespace Traveller.RuleService
         public List<IRule> GetRules();
     
         public void AddRule(IRule rule);
+
+        public void ResetRules();
     }
 }

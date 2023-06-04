@@ -14,8 +14,6 @@ namespace Traveller.Application.Dto
         public string Description { get; set; }
         public string Picture { get; set; }
         public string Url { get; set; }
-
-        //Campos añadidos desde UploadImageViewModel
         public string ExistingImage { get; set; }
         public IFormFile MapPicture { get; set; }
     }

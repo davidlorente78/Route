@@ -24,7 +24,7 @@ namespace Traveller.StaticData
         /// </summary>
         public static Visa eLaoVisa = new Visa
         {            
-            Currency = '$',
+            Currency = "USD",
             Fee = 50,
             Entries = 'S',
             Name = "Lao eVisa",
@@ -42,7 +42,7 @@ namespace Traveller.StaticData
         {
             
             Description = "Lao Visa on arrival",
-            Currency = '$',
+            Currency = "USD",
             Fee = 50,
             Entries = 'S',
             Name = "Lao Visa",

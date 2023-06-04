@@ -34,7 +34,7 @@ namespace Traveller.Application.Dto
 
         [DisplayName("Additional Days Fee")]
         public int? AdditionalDaysFee { get; set; }
-        public char? Currency { get; set; }
+        public string? Currency { get; set; }
         public int? Fee { get; set; }
 
         public ICollection<NationalityDto>? QualifyNationalities { get; set; }

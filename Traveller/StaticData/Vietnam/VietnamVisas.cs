@@ -8,7 +8,7 @@ namespace Traveller.StaticData
     {
         public static Visa eVisa_Vietnam = new Visa
         {
-            Currency = '$',
+            Currency = "USD",
             Fee = 0,
             Entries = 'S',
             Description = "The eVisa is an electronic visa that allows you a Single Entry to Vietnam for a period of time not exceeding 30 consecutive days.",   
@@ -46,7 +46,7 @@ namespace Traveller.StaticData
 
         public static Visa VisaExemption_Vietnam = new Visa
         {
-            Currency = '$',
+            Currency = "USD",
             Fee = 25,
             Entries = 'S',
             Description = "If you want to re-enter Vietnam after using a visa waiver, you must wait 30 days outside Vietnam or apply for an eVisa." ,

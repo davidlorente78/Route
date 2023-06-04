@@ -9,7 +9,7 @@ namespace Traveller.StaticData
         public static Visa eVisa_Cambodia = new Visa
         {
             Description = "Cambodia eVisa",
-            Currency = '$',
+            Currency = "USD",
             Fee = 36,
             Entries = 'S',
             Name = "Cambodia eVisa",

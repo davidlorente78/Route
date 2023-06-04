@@ -8,7 +8,7 @@ namespace Traveller.StaticData
     {
         public static Visa OnArrivalVisa15_Nepal = new Visa
         {           
-            Currency = '$',
+            Currency = "USD",
             Fee = 30,
             Entries = 'S',
             Description = "Tourist visa is extended not exceeding total  150 days of stay in a single visa year (Jan-Dec)",
@@ -25,7 +25,7 @@ namespace Traveller.StaticData
 
         public static Visa OnArrivalVisa30_Nepal= new Visa
         {          
-            Currency = '$',
+            Currency = "USD",
             Fee = 50,
             Entries = 'S',
             Description = "Tourist visa is extended not exceeding total  150 days of stay in a single visa year (Jan-Dec)",
@@ -42,7 +42,7 @@ namespace Traveller.StaticData
 
         public static Visa OnArrivalVisa90_Nepal = new Visa
         {           
-            Currency = '$',
+            Currency = "USD",
             Fee = 125,
             Entries = 'S',
             Description = "Tourist visa is extended not exceeding total  150 days of stay in a single visa year (Jan-Dec)",
@@ -59,7 +59,7 @@ namespace Traveller.StaticData
 
         public static Visa FreeVisa_Nepal = new Visa
         {           
-            Currency = '$',
+            Currency = "USD",
             Fee = 0,
             Entries = 'S',
             Description = "Chinese Nationals are eligible for 150 days tourist Gratis Visa in a given visa year",

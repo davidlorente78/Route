@@ -140,7 +140,10 @@ namespace Traveller.RuleService
             return this.rules;
         }
 
-       
+        public void ResetRules()
+        {
+            this.rules.Clear();
+        }
     }
 
 }

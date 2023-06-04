@@ -8,7 +8,7 @@ namespace Traveller.StaticData
     {
         public static Visa VisaExemption_Thailand = new Visa
         {
-            Currency = '$',
+            Currency = "USD",
             Fee = 0,
             Entries = 'S',
             Description = "Holders of normal passports of the following countries are granted visa-free travel to Thailand for a period of up to 30 days. The exemption is granted at most twice in a calendar year when entering over land or via a sea border but there is no limitation when entering by air. For Malaysians entering by land border, there is no limitation in issuing the 30-day visa exemption stamp.",

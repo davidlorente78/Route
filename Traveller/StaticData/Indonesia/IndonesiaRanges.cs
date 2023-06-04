@@ -93,7 +93,7 @@ namespace Data.Indonesia
                     
                     new DictionaryItem<string,string> { Key = "November", Value ="Rainy season. In the rainy season the sun shines for a few hours a day, between one rain shower and another. There's muggy heat due to high humidity. Temperatures are high and uniform throughout the year. They are slightly higher from October to April, when the daily average is around 28 °C (82 °F)" },
 
-                    new DictionaryItem<string,string> { Key = "December", Value ="Rainy season.  In the rainy season the sun shines for a few hours a day, between one rain shower and another.There's muggy heat due to high humidity. Temperatures are high and uniform throughout the year. They are slightly higher from October to April, when the daily average is around 28 °C (82 °F)" }
+                    new DictionaryItem<string,string> { Key = "December", Value ="Rainy season. In the rainy season the sun shines for a few hours a day, between one rain shower and another.There's muggy heat due to high humidity. Temperatures are high and uniform throughout the year. They are slightly higher from October to April, when the daily average is around 28 °C (82 °F)" }
                 }
             }
         };
@@ -121,5 +121,10 @@ namespace Data.Indonesia
                 }
             }
         };
+
+        internal static ICollection<RangeChar> GetAll()
+        {
+            return new List<RangeChar> { SeasonRange, MonsoonRange, MonsoonRangeEvaluator };
+        }
     }
 }

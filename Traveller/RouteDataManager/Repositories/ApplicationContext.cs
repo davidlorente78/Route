@@ -56,9 +56,6 @@ namespace RouteDataManager.Repositories
 
         public DbSet<Month>? Months { get; set; }
 
-        public DbSet<Traveller.Domain.Route>? Routes { get; set; }
-
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 

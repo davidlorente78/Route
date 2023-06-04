@@ -57,16 +57,6 @@ namespace Test.Services
             var maxStayDays = visaService.GetMaxStay(Malaysia.Code, "XX");
 
             Assert.IsTrue(maxStayDays == 0);
-        }
-
-        [TestMethod]
-        public void MaxStay_WhenCountryHasNoVisas_Returns_0()
-        {
-            var Vietnam = countryService.GetByCode('V');
-
-            var maxStayDays = visaService.GetMaxStay(Vietnam.Code, "ES");
-
-            Assert.IsTrue(maxStayDays == 0);
-        }
+        }             
     }
 }

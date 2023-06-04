@@ -2231,9 +2231,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Code Project\\Route\\Traveller\\Traveller\\DomainServices.csproj",
-      "projectName": "DomainServices",
-      "projectPath": "D:\\Code Project\\Route\\Traveller\\Traveller\\DomainServices.csproj",
+      "projectUniqueName": "D:\\Code Project\\Route\\Traveller\\Traveller\\Services.csproj",
+      "projectName": "Services",
+      "projectPath": "D:\\Code Project\\Route\\Traveller\\Traveller\\Services.csproj",
       "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
       "outputPath": "D:\\Code Project\\Route\\Traveller\\Traveller\\obj\\",
       "projectStyle": "PackageReference",

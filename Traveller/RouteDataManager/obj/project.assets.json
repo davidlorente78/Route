@@ -3624,7 +3624,7 @@
           "bin/placeholder/Domain.dll": {}
         }
       },
-      "DomainServices/1.0.0": {
+      "Services/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -3638,10 +3638,10 @@
           "System.IdentityModel.Tokens.Jwt": "6.10.0"
         },
         "compile": {
-          "bin/placeholder/DomainServices.dll": {}
+          "bin/placeholder/Services.dll": {}
         },
         "runtime": {
-          "bin/placeholder/DomainServices.dll": {}
+          "bin/placeholder/Services.dll": {}
         }
       }
     }
@@ -11084,10 +11084,10 @@
       "path": "../Domain/Domain.csproj",
       "msbuildProject": "../Domain/Domain.csproj"
     },
-    "DomainServices/1.0.0": {
+    "Services/1.0.0": {
       "type": "project",
-      "path": "../Traveller/DomainServices.csproj",
-      "msbuildProject": "../Traveller/DomainServices.csproj"
+      "path": "../Traveller/Services.csproj",
+      "msbuildProject": "../Traveller/Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -11097,7 +11097,6 @@
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.0",
       "Data >= 1.0.0",
       "Domain >= 1.0.0",
-      "DomainServices >= 1.0.0",
       "MassTransit.RabbitMQ >= 8.0.15",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 6.0.16",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.16",
@@ -11107,6 +11106,7 @@
       "Microsoft.Extensions.Logging >= 7.0.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.7",
       "RabbitMQ.Client >= 6.5.0",
+      "Services >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.3.2"
     ]
   },
@@ -11146,8 +11146,8 @@
             "D:\\Code Project\\Route\\Traveller\\StaticData\\Data.csproj": {
               "projectPath": "D:\\Code Project\\Route\\Traveller\\StaticData\\Data.csproj"
             },
-            "D:\\Code Project\\Route\\Traveller\\Traveller\\DomainServices.csproj": {
-              "projectPath": "D:\\Code Project\\Route\\Traveller\\Traveller\\DomainServices.csproj"
+            "D:\\Code Project\\Route\\Traveller\\Traveller\\Services.csproj": {
+              "projectPath": "D:\\Code Project\\Route\\Traveller\\Traveller\\Services.csproj"
             }
           }
         }

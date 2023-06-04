@@ -8,7 +8,7 @@ namespace Traveller.StaticData
     {
         public static Visa SGArrivalCard_Singapore = new Visa
         {
-            Currency = '$',
+            Currency = "USD",
             Fee = 0,
             Entries = 'S',
             Description = "Todas las personas con pasaporte español que deseen acceder a Singapur, deberán solicitar previamente a su entrada una tarjeta electrónica de desembarque conocida como SG Arrival Card. Es de una entrada y su validez comenzará desde la fecha que hayamos indicado a la hora de realizar la solicitud.  ",

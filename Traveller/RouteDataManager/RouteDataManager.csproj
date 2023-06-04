@@ -280,7 +280,7 @@
     <ProjectReference Include="..\AutoMapper\Application.csproj" />
     <ProjectReference Include="..\Domain\Domain.csproj" />
     <ProjectReference Include="..\StaticData\Data.csproj" />
-    <ProjectReference Include="..\Traveller\DomainServices.csproj" />
+    <ProjectReference Include="..\Traveller\Services.csproj" />
   </ItemGroup>
 
   <ItemGroup>

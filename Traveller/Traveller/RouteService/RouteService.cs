@@ -10,12 +10,10 @@ namespace Traveller.RouteService
         public RouteService(IRuleContainer ruleContainer)
         {
             this.ruleContainer = ruleContainer;
-
         }
 
         public List<List<char>> proposedRoutes(int months)
         {
-
             RouteCombinationsGenerator routeCombinationsGenerator = new RouteCombinationsGenerator(ruleContainer);
             return routeCombinationsGenerator.Generate(months);
         }

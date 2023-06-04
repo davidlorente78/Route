@@ -15,16 +15,13 @@ namespace Traveller.RuleService
         {
 
             //TODO USAR OR PARA ESTANCIAS T=3 (Visado Turista mas extension en inmigracion)
-
             //TODO Probar si que X = 3 se consigue mejor valoracion estacional 
-
 
             rules.Add(new TotalStayinYearMustBeLessThanXMonth('M', 6));
             rules.Add(new TotalStayinYearMustBeLessThanXMonth('T', 6));
 
             //rules.Add(new EachStayMustBeLessThanXMonth('T', 2));        
             //rules.Add(new EachStayMustBeLessThanXMonth('M', 3));
-
 
             //var T2M3 = new AndCondition(new List<IRule> { new EachStayMustBeLessThanXMonth('T', 2), new EachStayMustBeLessThanXMonth('M', 3), new TotalStayinYearMustBeLessThanXMonth('X', 2) });
             //var T3M3 = new AndCondition(new List<IRule> { new EachStayMustBeLessThanXMonth('T', 3), new EachStayMustBeLessThanXMonth('M', 3), new TotalStayinYearMustBeLessThanXMonth('X', 1) });
@@ -47,8 +44,6 @@ namespace Traveller.RuleService
             ////Con esta condicion se puede realizar cv
             //rules.Add(new BlockConnection('M', 'X', false));
 
-
-
             //rules.Add(new MustConsiderWeather(new List<RangeIntWithDictionary> {
                
             //    //Se aplican aqui los meses menos restrictivos
@@ -70,9 +65,7 @@ namespace Traveller.RuleService
 
         public void AddRule(IRule rule)
         {
-
             rules.Add(rule);
-
         }
 
         public List<char> GetDestinationByMonth(int month)
@@ -101,6 +94,11 @@ namespace Traveller.RuleService
         public List<char> GetVector()
         {
             return new List<char> { };
+        }
+
+        public void ResetRules()
+        {
+            this.rules.Clear();
         }
     }
 

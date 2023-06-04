@@ -1,5 +1,4 @@
-﻿using Domain.Ranges;
-using Traveller.Domain;
+﻿using Traveller.Domain;
 using Traveller.StaticData;
 
 namespace Data.Cambodia
@@ -8,15 +7,12 @@ namespace Data.Cambodia
     {
         public static Country Cambodia = new Country('C', "Cambodia", true, 2)
         {
-            Image = "img/destinations/destinationCambodia.jpg",
+            Image = @"../img/destinations/destinationCambodia.jpg",
             Destinations = CambodiaDestinations.GetAll(),
             BorderCrossings = CambodiaBorderCrossings.GetAll(),
             Airports = CambodiaAirports.GetAll(),
-            Ranges = new List<RangeChar> {
-                CambodiaRanges.SeasonRange,
-                CambodiaRanges.MonsoonRange,
-                CambodiaRanges.MonsoonRangeEvaluator
-            },
+            Ranges = CambodiaRanges.GetAll(),
+            Visas = new List<Visa> { CambodiaVisas.eVisa_Cambodia }
         };
     }
 }

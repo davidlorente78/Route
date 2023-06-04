@@ -130,7 +130,7 @@ namespace Data.Cambodia
                     new DictionaryItem<int,int> { Key = 7, Value =0 },
                     new DictionaryItem<int,int> { Key = 8, Value  = 0 },
                     new DictionaryItem<int,int> { Key = 9, Value = 0 },
-                    new DictionaryItem<int,int> { Key = 10, Value = 0 },
+                    new DictionaryItem<int,int> { Key = 10, Value = 1 },
                     new DictionaryItem<int,int> { Key = 11, Value = 1 },
                     new DictionaryItem<int,int> { Key = 12, Value =1 },
                 }
@@ -138,6 +138,11 @@ namespace Data.Cambodia
             }
 
         };
+
+        internal static ICollection<RangeChar> GetAll()
+        {
+            return new List<RangeChar> { SeasonRange, MonsoonRange, MonsoonRangeEvaluator };
+        }
 
     }
 }
