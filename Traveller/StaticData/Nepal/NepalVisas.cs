@@ -1,6 +1,7 @@
 ﻿using Domain;
 using Data.Nationalities;
 using Traveller.Domain;
+using System.Reflection;
 
 namespace Traveller.StaticData
 {
@@ -72,6 +73,23 @@ namespace Traveller.StaticData
             QualifyNationalities = new List<Nationality> { Nationalities.CN },
             URL = "https://www.immigration.gov.np/page/visa-on-arrival"
         };
+
+        public static List<Visa> GetAll()
+        {
+            var fields = typeof(NepalVisas).GetFields(BindingFlags.Static | BindingFlags.Public);
+
+            var destinations = new List<Visa>();
+
+            foreach (var field in fields)
+            {
+                if (field.FieldType == typeof(Destination))
+                {
+                    destinations.Add((Visa)field.GetValue(null));
+                }
+            }
+
+            return destinations;
+        }
 
         //On Arrival Visa Fee at Entry Points
 

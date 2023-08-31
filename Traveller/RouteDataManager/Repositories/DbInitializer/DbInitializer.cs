@@ -71,7 +71,7 @@ namespace RouteDataManager.Repositories.DbInitializer
 
             context.Countries.Add(DataNepal.Nepal);
 
-            context.Countries.Add(DataPhilippines.Philippines);          
+            context.Countries.Add(DataPhilippines.Philippines);
 
             context.Countries.Add(DataSingapore.Singapore);
 
@@ -89,6 +89,7 @@ namespace RouteDataManager.Repositories.DbInitializer
             var VietnamId = context.Countries.FirstOrDefault(item => item.Code == 'V').Id;
             var ThailandId = context.Countries.FirstOrDefault(item => item.Code == 'T').Id;
             var IndonesiaId = context.Countries.FirstOrDefault(item => item.Code == 'I').Id;
+            var LaosId = context.Countries.FirstOrDefault(item => item.Code == 'L').Id;
 
 
             if (!context.RailwaySystems.Any())
@@ -115,6 +116,14 @@ namespace RouteDataManager.Repositories.DbInitializer
                             Name = "Railway System Indonesia",
                             MapPicture = "/Railway System Indonesia.png",
                             Description = ""
+                        }
+                        ,
+                     //When fully operational there will be 10 stations where passengers can board and disembark - in Vientiane, Phonhong, Vang Vieng, Kasi, Luang Prabang, Muang Nga, Muang Xay (Oudom Xay), Namor, Natuey and Boten.
+                     new RailwaySystem ()
+                        { CountryId = LaosId,
+                            Name = "Railway System Laos",
+                            MapPicture = "/Railway System Laos.png",
+                            Description = "The Lao-China Railway (the Project) is a new 422 kilometer-long railway line in Lao PDR extending from the border with China near Boten to Vientiane capital city near the border with Thailand. This Project is actually only one section of a larger plan to link Kunming in China to Singapore by modern high-speed rail lines. The Project is a major achievement for the government of Lao PDR.The Project was promoted, designed and largely financed by the People's Republic of China as part of its Belt and Road Initiative. The project is managed by The Laos-China Railway Company Ltd. (the Company). Total cost was projected at just under US $6 billion. The Project is planned to have 33 railway stations in total of which 20 or 21 will be operational in the first phase with 12 to be placed into service later.In normal operation passenger trains will operate in daytime while freight trains will run at night.The Project has designated 5 stations as major stations - at Boten, Muang Xai(Oudom Xay), Luang Prabang, Vang Vieng and Vientiane.When fully operational there will be 10 stations where passengers can board and disembark - in Vientiane, Phonhong, Vang Vieng, Kasi, Luang Prabang, Muang Nga, Muang Xay(Oudom Xay), Namor, Natuey and Boten."
                         }
                      ,
                      new RailwaySystem ()

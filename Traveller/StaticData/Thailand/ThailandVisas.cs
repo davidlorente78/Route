@@ -21,6 +21,26 @@ namespace Traveller.StaticData
             QualifyNationalities = new List<Nationality> { Nationalities.ES },
             URL = "https://madrid.thaiembassy.org/en/index"
         };
+
+        public static Visa VisaOnArrival = new Visa
+        {
+            Description = "Passport holders of some countries / territories may apply for Visa on Arrival.",
+            Name = "Visa on Arrival",
+            OnArrival = true,
+            Duration = 15,
+            QualifyNationalities = new List<Nationality> { Nationalities.CN },
+        };
+
+        public static Visa eVisa = new Visa
+        {
+            Description = "Non-Thai nationals who wish to apply for a Thai visa must apply and submit the application through the new online e-Visa platform at https://www.thaievisa.go.th. Please note that it is no longer required for the applicant to submit his/her passport and original supporting documents in person at the Embassy.",
+            Name = "eVisa",
+            Duration = 30,
+            OnArrival = false,
+            QualifyNationalities = new List<Nationality> { Nationalities.CN },
+
+            URL = "https://www.thaievisa.go.th/"
+        };
         ///Visado (expedido por la Embajada de Tailandia o por los Consulados de representación) es necesario sólo si la estancia en el país es superior a 30 días.
     }
 }

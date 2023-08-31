@@ -111,7 +111,7 @@
                 case 12: { return "December"; }
 
             }
-            return String.Empty;
+            return string.Empty;
         }
     }
 }

@@ -13,7 +13,12 @@ namespace Data.Thailand
             TrainLines = ThailandTrainLines.GetAll(),
             Airports = ThailandAirports.GetAll(),
             Ranges = ThailandRanges.GetAll(),
-            Visas = new List<Visa> { ThailandVisas.VisaExemption_Thailand }
+            Visas = new List<Visa>
+            {
+                ThailandVisas.VisaExemption_Thailand ,
+                ThailandVisas.VisaOnArrival,
+                ThailandVisas.eVisa
+            }
         };
     }
 }

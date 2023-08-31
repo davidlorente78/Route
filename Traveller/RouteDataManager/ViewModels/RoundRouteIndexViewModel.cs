@@ -2,9 +2,9 @@
 
 namespace RouteDataManager.ViewModels
 {
-    public class RoundItineraryIndexViewModel
+    public class RoundRouteIndexViewModel
     {
-        public RoundItineraryIndexViewModel()
+        public RoundRouteIndexViewModel()
         {
 
         }

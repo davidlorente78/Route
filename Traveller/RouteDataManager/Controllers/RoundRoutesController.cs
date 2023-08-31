@@ -11,7 +11,7 @@ using Traveller.RouteService.Rules;
 
 namespace RouteDataManager.Controllers
 {
-    public class RoundItinerariesController : Controller
+    public class RoundRoutesController : Controller
     {
         private readonly ApplicationContext _context;
 
@@ -21,7 +21,7 @@ namespace RouteDataManager.Controllers
 
         private IRouteService routeService;
 
-        public RoundItinerariesController(ApplicationContext context, IVisaService visaService, IRouteService routeService, ICountryService countryService)
+        public RoundRoutesController(ApplicationContext context, IVisaService visaService, IRouteService routeService, ICountryService countryService)
         {
             _context = context;
             this.visaService = visaService;
@@ -29,12 +29,12 @@ namespace RouteDataManager.Controllers
             //this.countryService = countryService;
         }
 
-        public async Task<IActionResult> Index(RoundItineraryIndexViewModel roundItineraryIndexViewModel)
+        public async Task<IActionResult> Index(RoundRouteIndexViewModel roundItineraryIndexViewModel)
         {
             return ProcessItinerary(ref roundItineraryIndexViewModel);
         }
 
-        private IActionResult ProcessItinerary(ref RoundItineraryIndexViewModel roundItineraryIndexViewModel)
+        private IActionResult ProcessItinerary(ref RoundRouteIndexViewModel roundItineraryIndexViewModel)
         {
            
 
@@ -143,7 +143,7 @@ namespace RouteDataManager.Controllers
 
         public async Task<IActionResult> Previous(int ShowingIndex)
         {
-            RoundItineraryIndexViewModel roundItineraryIndexViewModel = new RoundItineraryIndexViewModel();
+            RoundRouteIndexViewModel roundItineraryIndexViewModel = new RoundRouteIndexViewModel();
 
             roundItineraryIndexViewModel.ShowingIndex = ShowingIndex - 1;
 
@@ -152,7 +152,7 @@ namespace RouteDataManager.Controllers
 
         public async Task<IActionResult> Next(int ShowingIndex)
         {
-            RoundItineraryIndexViewModel roundItineraryIndexViewModel = new RoundItineraryIndexViewModel();
+            RoundRouteIndexViewModel roundItineraryIndexViewModel = new RoundRouteIndexViewModel();
 
             roundItineraryIndexViewModel.ShowingIndex = ShowingIndex + 1;
 
@@ -165,7 +165,7 @@ namespace RouteDataManager.Controllers
             var MaxStay = new Dictionary<char, int>();
 
             routeService.ruleContainer.AddRule(
-                       new EachStayMustBeLessThanXMonth('M', 1)); 
+                       new EachStayMustBeLessThanXMonth('M', 3)); 
 
             //routeService.ruleContainer.AddRule(
             //            new TotalStayinYearMustBeLessThanXMonth('M', 3));
@@ -218,7 +218,7 @@ namespace RouteDataManager.Controllers
             }
         }
 
-        private static List<Country> ViewModelContriesToList(RoundItineraryIndexViewModel roundItineraryIndexViewModel)
+        private static List<Country> ViewModelContriesToList(RoundRouteIndexViewModel roundItineraryIndexViewModel)
         {
 
             List<Country> filterCountries = new List<Country>();

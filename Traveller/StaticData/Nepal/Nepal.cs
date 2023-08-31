@@ -13,6 +13,7 @@ namespace Data.Nepal
             Destinations = new List<Destination> { NepalDestinations.Kathmandu },
             Airports = NepalAirports.GetAll(),
             Ranges = new List<RangeChar> { NepalRanges.MonsoonRange, NepalRanges.MonsoonRangeEvaluator },
+            Visas = NepalVisas.GetAll(),
             BorderCrossings = new List<BorderCrossing>
                 {
                     new BorderCrossing
