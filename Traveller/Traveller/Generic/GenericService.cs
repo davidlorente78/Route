@@ -13,7 +13,7 @@ namespace DomainServices.Generic
 {
     public class GenericService<TDto, TEntity> : IGenericService<TDto, TEntity>
         where TDto : GenericDto
-        where TEntity : Entity
+        where TEntity : Entity<int>
 
     {
         ////Da acceso a todos los repositorios y es posible implementar metodos con Order o Include
@@ -36,7 +36,7 @@ namespace DomainServices.Generic
 
         public bool Exists(int id)
         {
-            return (repository?.Find(e => e.Id == id)).Count() != 0;
+            return (repository?.Select(e => e.Id == id)).Count() != 0;
         }
 
         public ICollection<TDto> GetAll()

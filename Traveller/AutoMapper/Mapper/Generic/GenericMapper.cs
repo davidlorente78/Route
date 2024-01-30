@@ -1,12 +1,14 @@
 ﻿using Application.Dto.Generic;
 using AutoMapper;
 using Domain.Generic;
+using System;
 
 namespace Application.Mapper.Generic
 {
     public class GenericMapper<TDto, TEntity> : IGenericMapper<TDto, TEntity>
         where TDto : GenericDto
-        where TEntity : Entity
+        where TEntity : Entity<Int32>
+
     {
         public readonly IMapper mapper;
 

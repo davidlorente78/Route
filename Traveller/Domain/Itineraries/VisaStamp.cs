@@ -3,7 +3,7 @@ using Traveller.Domain;
 
 namespace Domain.Itineraries
 {
-    public class VisaStamp : Entity
+    public class VisaStamp : Entity<int>
     {
         public Visa Visa;
         public Country Country { get; set; }

@@ -9,8 +9,6 @@ using Data.Vietnam;
 using Domain.Ranges;
 using Domain.Transport.Aviation;
 using Domain.Transport.Railway;
-using Traveller.Domain;
-using Traveller.StaticData;
 
 namespace RouteDataManager.Repositories.DbInitializer
 {

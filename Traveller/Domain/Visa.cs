@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 namespace Traveller.Domain
 {
-    public class Visa : Entity
+    public class Visa : Entity<int>
     {
         public int CountryId { get; set; }
         public virtual Country Country { get; set; }

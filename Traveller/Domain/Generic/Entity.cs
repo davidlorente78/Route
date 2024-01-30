@@ -1,8 +1,8 @@
 ﻿namespace Domain.Generic
 {
-    public abstract class Entity
+    public abstract class Entity<T>
     {
         protected Entity() { }
-        public int Id { get; set; }
+        public T Id { get; set; }
     }
 }

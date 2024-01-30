@@ -22,7 +22,7 @@ namespace Application.Mapper
         {
             ValidateDto(dto);
 
-            var destinationType = _destinationTypeRepository.Find(item => item.Id == dto.DestinationTypeID).FirstOrDefault(); ;
+            var destinationType = _destinationTypeRepository.Select(item => item.Id == dto.DestinationTypeID).FirstOrDefault(); ;
 
             Destination entity = mapper.Map<Destination>(dto);
             entity.Name = dto.Name;

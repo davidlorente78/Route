@@ -4,7 +4,7 @@ using Traveller.Domain;
 
 namespace Domain.Transport.Aviation
 {
-    public class Airport : Entity
+    public class Airport : Entity<int>
     {
         [Required]
         [Display(Name = "Airport Type")]

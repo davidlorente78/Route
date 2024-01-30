@@ -5,7 +5,7 @@ using Domain.Generic;
 namespace Domain.Transport.Railway
 {
 
-    public class RailwayLine : Entity
+    public class RailwayLine : Entity<int>
     {
         public int Id { get; set; }
 

@@ -2,7 +2,7 @@
 
 namespace Domain.Itineraries
 {
-    public class Nomad : Entity
+    public class Nomad : Entity<int>
     {
         public Passport Passport { get; set; }
 

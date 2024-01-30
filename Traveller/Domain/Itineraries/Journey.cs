@@ -3,7 +3,7 @@ using Traveller.Domain;
 
 namespace Domain.Itineraries
 {
-    public class Journey : Entity
+    public class Journey : Entity<int>
     {
         public Itinerary PlannedItinerary { get; set; } // Se indica aqui el itinerary que se esta siguiendo
         public Destination CurrentCountry { get; set; }

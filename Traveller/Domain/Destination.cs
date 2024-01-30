@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Traveller.Domain
 {
-    public class Destination : Entity
+    public class Destination : Entity<int>
     {
         public int CountryId { get; set; }
         public virtual Country Country { get; set; }

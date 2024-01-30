@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Domain.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Traveller.Domain
 {
-    public class BorderCrossing
+    public class BorderCrossing : Entity<int>
     {
         public int BorderCrossingID { get; set; }
         public int BorderCrossingCountryID { get; set; }

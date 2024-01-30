@@ -8,7 +8,7 @@ using Domain.Transport.Railway;
 /// </summary>
 namespace Traveller.Domain
 {
-    public class Country : Entity
+    public class Country : Entity<int>
     {
         //Se debe añadir get set para que ser interpretado correctamente como columna en la tabla
         //De forma predeterminada, EF interpreta como la clave principal una propiedad que se denomine ID o classnameID.

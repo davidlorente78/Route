@@ -3,7 +3,7 @@ using Domain.Generic;
 
 namespace Domain.Transport.Railway
 {
-    public class RailwayBranch : Entity
+    public class RailwayBranch : Entity<int>
     {
         public string Name { get; set; }
         public string? Description { get; set; }

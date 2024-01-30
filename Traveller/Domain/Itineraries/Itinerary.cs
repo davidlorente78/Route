@@ -9,9 +9,7 @@ namespace Domain.Itineraries
         public DateTime StartDate { get; set; }
         public int EndMonth { get; set; }
         public DateTime EndDate { get; set; }
-
         public List<Country> ItineraryCountries { get; set; }
-
         public List<Destination> ItineraryDestinations { get; set; }
 
     }

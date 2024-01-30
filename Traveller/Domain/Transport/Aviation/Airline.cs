@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Domain.Transport.Aviation
 {
-    public class Airline : Entity
+    public class Airline : Entity<int>
     {
         public string? IATACode { get; set; }
         public string Name { get; set; }

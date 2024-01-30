@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Generic
 {
-    public abstract class EntityWithNameAndDescription : Entity
+    public abstract class EntityWithNameAndDescription : Entity<int>
     {
         protected EntityWithNameAndDescription() { }
         public string Name { get; set; } = string.Empty;

@@ -5,7 +5,7 @@ namespace Application.Mapper.Generic
 {
     public interface IGenericMapper<TDto, TEntity>
         where TDto : GenericDto
-        where TEntity : Entity
+        where TEntity : Entity<int>
     {
         TEntity CreateEntityFromDto(TDto dto);
         TEntity UpdateEntityFromDto(TDto dto, TEntity entity);

@@ -10,7 +10,7 @@ namespace RouteDataManager.Controllers.Generic
 {
     public class GenericController<TDto, TEntity> : Controller
         where TDto : GenericDto
-        where TEntity : Entity
+        where TEntity : Entity<int>
 
     {
         public readonly IGenericService<TDto, TEntity> genericService;
