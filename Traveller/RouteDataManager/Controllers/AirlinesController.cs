@@ -1,6 +1,8 @@
 ﻿using Domain.Transport.Aviation;
+using DomainServices.Generic;
 using MassTransit;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using RouteDataManager.Controllers.Generic;
 using RouteDataManager.Models;
 using RouteDataManager.ViewModels.Airline;
@@ -14,31 +16,48 @@ namespace RouteDataManager.Controllers
         private readonly IWebHostEnvironment _environment;
 
         private readonly IAirlineService airlinesService;
+        private readonly IGenericService<AirlineTypeDto, AirlineType> airlineTypeService;
+
 
         public AirlinesController(
             IWebHostEnvironment environment,
-            IAirlineService airlinesService, 
+            IAirlineService airlinesService,
+            IGenericService<AirlineTypeDto, AirlineType> airlineTypeService,
             IPublishEndpoint publishEndpoint) : base(airlinesService, publishEndpoint)
 
         {
             _environment = environment;
             this.airlinesService = airlinesService;
+            this.airlineTypeService = airlineTypeService;
+        }
+
+        public override IActionResult Create()
+        {
+            var airlineTypes = airlineTypeService.GetAll();
+
+            var airlineViewModel = new AirlineViewModel()
+            {
+                SelectListAirlineTypes = new SelectList(airlineTypes, "Id", "Description", airlineTypes.First().Id),
+                AirlineTypeID = airlineTypes.First().Id
+            };
+
+            return View(airlineViewModel);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult CreateWithPicture(AirlineViewModel model)
-        {           
-                string uniqueFileName = ProcessUploadedFile(model.MapPicture);
-                AirlineDto airline = new()
-                {
-                    Name = model.Name,
-                    Description = model.Description,
-                    Picture = uniqueFileName,
-                };
+        {
+            string uniqueFileName = ProcessUploadedFile(model.MapPicture);
+            AirlineDto airline = new()
+            {
+                Name = model.Name,
+                Description = model.Description,
+                Picture = uniqueFileName,
+            };
 
-                airlinesService.Add(airline);
-                return RedirectToAction(nameof(Index));           
+            airlinesService.Add(airline);
+            return RedirectToAction(nameof(Index));
         }
 
         public override IActionResult Edit(int? id)
@@ -55,12 +74,16 @@ namespace RouteDataManager.Controllers
                 return NotFound();
             }
 
+            var airlineTypes = airlineTypeService.GetAll();
+
             var airlineViewModel = new AirlineViewModel()
             {
                 Id = airline.Id,
                 Name = airline.Name,
                 Description = airline.Description,
-                ExistingImage = airline.Picture
+                ExistingImage = airline.Picture,
+                SelectListAirlineTypes = new SelectList(airlineTypes, "Id", "Description", airline.AirlineTypeID),
+                AirlineTypeID = airline.AirlineTypeID 
             };
 
             return View(airlineViewModel);

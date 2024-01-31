@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel.DataAnnotations;
 
 namespace RouteDataManager.ViewModels.Airline
 {
@@ -11,5 +12,9 @@ namespace RouteDataManager.ViewModels.Airline
         public string? LocalName { get; set; }
         [Required]
         public string Description { get; set; }
+        [Required]
+        [Display(Name = "Airline Type")]
+        public int AirlineTypeID { get; set; }
+        public SelectList SelectListAirlineTypes { get; set; }
     }
 }

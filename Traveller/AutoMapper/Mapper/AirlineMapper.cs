@@ -1,6 +1,8 @@
 ﻿using Application.Mapper.Generic;
 using AutoMapper;
 using Domain.Transport.Aviation;
+using Domain.Utils;
+using System;
 using Traveller.Application.Dto;
 
 namespace Application.Mapper
@@ -9,34 +11,35 @@ namespace Application.Mapper
     {
         public AirlineMapper(IMapper mapper) : base(mapper) { }
 
-        public override Airline CreateEntityFromDto(AirlineDto dto)
-        {
-            ValidateDto(dto);
+        //public override Airline CreateEntityFromDto(AirlineDto dto)
+        //{
+        //    ValidateDto(dto);
 
-            Airline entity = mapper.Map<Airline>(dto);
-            entity.Name = dto.Name;
-            entity.Description = dto.Description;
-            entity.AirlineTypeID = dto.AirlineTypeID;
-            entity.Picture = dto.Picture;
+        //    Airline entity = mapper.Map<Airline>(dto);
+        //    entity.Name = dto.Name;
+        //    entity.Description = dto.Description;
+        //    entity.AirlineTypeID = dto.AirlineTypeID;
+        //    entity.Picture = dto.Picture;
 
-            return entity;
-        }
+        //    return entity;
+        //}
 
-        public override Airline UpdateEntityFromDto(AirlineDto dto, Airline entity)
-        {
-            ValidateDto(dto);
+        //public override Airline UpdateEntityFromDto(AirlineDto dto, Airline entity)
+        //{
+        //    ValidateDto(dto);
 
-            entity.Id = dto.Id;
-            entity.Name = dto.Name;
-            entity.Description = dto.Description;
-            entity.AirlineTypeID = dto.AirlineTypeID;
-            entity.Picture = dto.Picture;
+        //    entity.Id = dto.Id;
+        //    entity.Name = dto.Name;
+        //    entity.Description = dto.Description;
+        //    entity.AirlineTypeID = dto.AirlineTypeID;
+        //    entity.Picture = dto.Picture;
 
-            return entity;
-        }
+        //    return entity;
+        //}
 
         private void ValidateDto(AirlineDto dto)
         {
+            Ensure.ArgumentNotNull(dto.Name, new ArgumentNullException(nameof(dto.Name)));
         }
     }
 }

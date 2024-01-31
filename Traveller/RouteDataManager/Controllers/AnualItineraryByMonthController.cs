@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Data.EntityTypes;
+using Domain.EntityFrameworkDictionary;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RouteDataManager.Repositories;
@@ -7,9 +9,6 @@ using Traveller.Domain;
 using Traveller.DomainServices;
 using Traveller.RouteService;
 using Traveller.RouteService.Rules;
-using Data.EntityTypes;
-using Domain.EntityFrameworkDictionary;
-using DomainServices.Generic;
 
 namespace RouteDataManager.Controllers
 {
@@ -33,7 +32,7 @@ namespace RouteDataManager.Controllers
             _context = context;
             this.visaService = visaService;
             this.routeService = routeService;
-            this.countryService = countryService;   
+            this.countryService = countryService;
         }
 
         public async Task<IActionResult> Index(AnualItineraryByMonthIndexViewModel anualItineraryByMonthIndexViewModel)

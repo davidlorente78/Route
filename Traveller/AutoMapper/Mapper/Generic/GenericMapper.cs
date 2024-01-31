@@ -19,14 +19,58 @@ namespace Application.Mapper.Generic
 
         public virtual TEntity CreateEntityFromDto(TDto dto)
         {
-            TEntity entity = mapper.Map<TEntity>(dto);
-            return entity;
+            if (dto == null)
+            {
+                throw new ArgumentNullException(nameof(dto));
+            }
+
+            return MapToEntity(dto);
         }
 
         public virtual TEntity UpdateEntityFromDto(TDto dto, TEntity entity)
         {
-            entity.Id = dto.Id;
+            if (dto == null)
+            {
+                throw new ArgumentNullException(nameof(dto));
+            }
+
+            foreach (var dtoProperty in typeof(TDto).GetProperties())
+            {
+                var entityProperty = typeof(TEntity).GetProperty(dtoProperty.Name);
+
+                if (entityProperty != null && entityProperty.CanWrite)
+                {
+                    var value = dtoProperty.GetValue(dto);
+                    entityProperty.SetValue(entity, value);
+                }
+            }
+
             return entity;
         }
+
+        private static TEntity MapToEntity(TDto dto)
+        {
+            if (dto == null)
+            {
+                throw new ArgumentNullException(nameof(dto));
+            }
+
+            TEntity entity = Activator.CreateInstance<TEntity>();
+
+            foreach (var dtoProperty in typeof(TDto).GetProperties())
+            {
+                var entityProperty = typeof(TEntity).GetProperty(dtoProperty.Name);
+
+                if (entityProperty != null && entityProperty.CanWrite)
+                {
+                    var value = dtoProperty.GetValue(dto);
+                    entityProperty.SetValue(entity, value);
+                }
+            }
+
+            return entity;
+        }
+
+
     }
 }

@@ -1,5 +1,4 @@
-﻿using Application.Dto;
-using Domain.Messages;
+﻿using Domain.Messages;
 using DomainServices.DestinationService;
 using MassTransit;
 using Microsoft.AspNetCore.Mvc;
@@ -8,7 +7,6 @@ using Microsoft.EntityFrameworkCore;
 using RouteDataManager.Models;
 using RouteDataManager.ViewModels;
 using RouteDataManager.ViewModels.Destination;
-using RouteDataManager.ViewModels.RailwaySystem;
 using Traveller.Application.Dto;
 using Traveller.DomainServices;
 
@@ -133,10 +131,10 @@ namespace RouteDataManager.Controllers
             DestinationDto destination = new()
             {
                 CountryID = model.CountryID,
-                DestinationTypeID = model.DestinationTypeID, //En realidad DestinationType es una lista
+                DestinationTypeID = model.DestinationTypeID, //En realidad DestinationType es una lista TODO
                 Name = model.Name,
                 Description = model.Description,
-                Picture = uniqueFileName,                
+                Picture = uniqueFileName,
             };
 
             var destinationId = destinationService.Add(destination);
