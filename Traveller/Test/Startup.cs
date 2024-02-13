@@ -19,6 +19,8 @@
     using Microsoft.IdentityModel.Tokens;
     using RouteDataManager.Controllers;
     using RouteDataManager.Repositories;
+    using RouteDataManager.Repositories.Transport.Aviation;
+    using RouteDataManager.Repositories.Transport.Railway;
     using System.Text;
     using Test.Services;
     using Traveller.DomainServices;

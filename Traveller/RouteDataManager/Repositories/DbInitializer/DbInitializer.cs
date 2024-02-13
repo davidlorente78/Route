@@ -89,7 +89,6 @@ namespace RouteDataManager.Repositories.DbInitializer
             var IndonesiaId = context.Countries.FirstOrDefault(item => item.Code == 'I').Id;
             var LaosId = context.Countries.FirstOrDefault(item => item.Code == 'L').Id;
 
-
             if (!context.RailwaySystems.Any())
             {
                 context.RailwaySystems.AddRange(new List<RailwaySystem>() {
@@ -204,5 +203,3 @@ namespace RouteDataManager.Repositories.DbInitializer
         }
     }
 }
-
-

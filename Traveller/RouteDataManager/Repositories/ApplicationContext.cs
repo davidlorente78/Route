@@ -20,7 +20,7 @@ namespace RouteDataManager.Repositories
         {
         }
 
-        public DbSet<Country> Countries { get; set; }
+        public DbSet<Country>? Countries { get; set; }
 
         public DbSet<Destination>? Destinations { get; set; }
 

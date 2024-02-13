@@ -13,7 +13,6 @@ namespace Test.Services
         //Este constructor es necesario para la inyeccion de dependencias
         public BorderCrossingServiceTest() { }
 
-
         [TestInitialize]
         public void TestInitialize()
         {

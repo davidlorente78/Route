@@ -88,7 +88,6 @@ namespace RouteDataManager.Controllers
             return PartialView(airportDto);
         }
 
-
         public async Task Consume(ConsumeContext<EntityCreated> context)
         {
             throw new NotImplementedException();
