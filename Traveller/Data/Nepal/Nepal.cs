@@ -7,7 +7,12 @@ namespace Data.Nepal
 {
     public static class DataNepal
     {
-        public static Country Nepal = new Country('N', "Nepal", true, 4)
+        public static Country Nepal = new Country('N', "Nepal", new DynamicHomeConfiguration()
+        {
+            Show = true,
+            Order = 4
+        }
+            )
         {
             Image = @"../img/destinations/destinationNepal.jpg",
             Destinations = NepalDestinations.GetStaticAll(),

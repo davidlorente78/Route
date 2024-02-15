@@ -5,7 +5,12 @@ namespace Data.Laos
 {
     public static class DataLaos
     {
-        public static Country Laos = new Country('L', "Laos", true, 1)
+        public static Country Laos = new Country('L', "Laos", new DynamicHomeConfiguration()
+        {
+            Show = true,
+            Order = 1
+        }
+            )
         {
             Image = @"../img/destinations/destinationLaos.jpg",
             Destinations = LaosDestinations.GetAll(),

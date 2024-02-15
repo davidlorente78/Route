@@ -6,7 +6,12 @@ namespace Data.SriLanka
 {
     public static class DataSriLanka
     {
-        public static Country SriLanka = new Country('S', "SriLanka", true, 4)
+        public static Country SriLanka = new Country('S', "SriLanka", new DynamicHomeConfiguration()
+        {
+            Show = true,
+            Order = 4
+        }
+            )
         {
             Image = @"../img/destinations/destinationSriLanka.jpg",
             Destinations = new List<Destination> { SriLankaDestinations.Colombo },

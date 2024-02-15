@@ -8,6 +8,7 @@ using Domain.Transport.Railway;
 /// </summary>
 namespace Traveller.Domain
 {
+
     public class Country : Entity<int>
     {
         //Se debe añadir get set para que ser interpretado correctamente como columna en la tabla
@@ -30,12 +31,12 @@ namespace Traveller.Domain
 
         public Country() { }
 
-        public Country(char code, string name, bool showInDynamicHome, int showInDynamicHomeOrder)
+        public Country(char code, string name, DynamicHomeConfiguration showInHome)
         {
             SetCode(code);
             SetName(name);
-            ShowInDynamicHome = showInDynamicHome;
-            ShowInDynamicHomeOrder = showInDynamicHomeOrder;
+            ShowInDynamicHome = showInHome.Show;
+            ShowInDynamicHomeOrder = showInHome.Order;
 
             Destinations = new List<Destination>();
             BorderCrossings = new List<BorderCrossing>();

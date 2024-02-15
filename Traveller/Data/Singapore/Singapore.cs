@@ -7,7 +7,12 @@ namespace Data.Nepal
 {
     public static class DataSingapore
     {
-        public static Country Singapore = new Country('S', "Singapore", false, 0)
+        public static Country Singapore = new Country('S', "Singapore", new DynamicHomeConfiguration()
+        {
+            Show = false,
+            Order = 0
+        }
+            )
         {
             Destinations = new List<Destination> { SingaporeDestinations.Singapore, SingaporeDestinations.WoodlandsCheckpoint },
             //La lista de fronteras que se especifican son los puntos de entrada a Singapore

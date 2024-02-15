@@ -5,7 +5,12 @@ namespace Data.Thailand
 {
     public static class DataThailand
     {
-        public static Country Thailand = new Country('T', "Thailand", true, 5)
+        public static Country Thailand = new Country('T', "Thailand", new DynamicHomeConfiguration()
+        {
+            Show = true,
+            Order = 5
+        }
+            )
         {
             Image = @"../img/destinations/destinationThailand.jpg",
             Destinations = ThailandDestinations.GetAll(),

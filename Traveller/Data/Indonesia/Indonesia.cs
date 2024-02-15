@@ -5,7 +5,15 @@ namespace Data.Indonesia
 {
     public static class DataIndonesia
     {
-        public static Country Indonesia = new Country('I', "Indonesia", false, 0)
+        public static Country Indonesia = new Country(
+            'I',
+            "Indonesia",
+            new DynamicHomeConfiguration()
+            {
+                Show = false,
+                Order = 0
+            }
+            )
         {
             Image = @"../img/destinations/destinationIndonesia.jpg",
             //Destinations = IndonesiaDestinations.GetAll(),

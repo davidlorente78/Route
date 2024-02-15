@@ -5,7 +5,15 @@ namespace Data.Cambodia
 {
     public static class DataCambodia
     {
-        public static Country Cambodia = new Country('C', "Cambodia", true, 2)
+        public static Country Cambodia = new Country(
+            'C',
+            "Cambodia",
+            new DynamicHomeConfiguration()
+            {
+                Show = true,
+                Order = 2
+            }
+            )
         {
             Image = @"../img/destinations/destinationCambodia.jpg",
             Destinations = CambodiaDestinations.GetAll(),
