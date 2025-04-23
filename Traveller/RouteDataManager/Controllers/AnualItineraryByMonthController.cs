@@ -85,7 +85,7 @@ namespace RouteDataManager.Controllers
                 MaxStay.Add(country.Code, visaService.GetMaxStay(country.Code, "ES"));
 
                 routeService.ruleContainer.AddRule(new EachStayMustBeLessThanXMonth(country.Code, MaxStayMonth));
-                routeService.ruleContainer.AddRule(new AnualEntriesMustBeLessThanX(country.Code, 2));
+                routeService.ruleContainer.AddRule(new AnualEntriesMustBeLessThanX(country.Code, 1)); //Numero de entradas anuales limitadas a 
 
                 //var countryWithRanges = countryService.GetCountryRangesByCode(country.Code);
 
@@ -107,19 +107,21 @@ namespace RouteDataManager.Controllers
 
         private static List<Country> ViewModelContriesToList(AnualItineraryByMonthIndexViewModel anualItineraryByMonthIndexViewModel)
         {
-            List<Country> filterCountries = new List<Country>();
-            filterCountries.Add(anualItineraryByMonthIndexViewModel.FilterCountry1);
-            filterCountries.Add(anualItineraryByMonthIndexViewModel.FilterCountry2);
-            filterCountries.Add(anualItineraryByMonthIndexViewModel.FilterCountry3);
-            filterCountries.Add(anualItineraryByMonthIndexViewModel.FilterCountry4);
-            filterCountries.Add(anualItineraryByMonthIndexViewModel.FilterCountry5);
-            filterCountries.Add(anualItineraryByMonthIndexViewModel.FilterCountry6);
-            filterCountries.Add(anualItineraryByMonthIndexViewModel.FilterCountry7);
-            filterCountries.Add(anualItineraryByMonthIndexViewModel.FilterCountry8);
-            filterCountries.Add(anualItineraryByMonthIndexViewModel.FilterCountry9);
-            filterCountries.Add(anualItineraryByMonthIndexViewModel.FilterCountry10);
-            filterCountries.Add(anualItineraryByMonthIndexViewModel.FilterCountry11);
-            filterCountries.Add(anualItineraryByMonthIndexViewModel.FilterCountry12);
+            List<Country> filterCountries =
+            [
+                anualItineraryByMonthIndexViewModel.FilterCountry1,
+                anualItineraryByMonthIndexViewModel.FilterCountry2,
+                anualItineraryByMonthIndexViewModel.FilterCountry3,
+                anualItineraryByMonthIndexViewModel.FilterCountry4,
+                anualItineraryByMonthIndexViewModel.FilterCountry5,
+                anualItineraryByMonthIndexViewModel.FilterCountry6,
+                anualItineraryByMonthIndexViewModel.FilterCountry7,
+                anualItineraryByMonthIndexViewModel.FilterCountry8,
+                anualItineraryByMonthIndexViewModel.FilterCountry9,
+                anualItineraryByMonthIndexViewModel.FilterCountry10,
+                anualItineraryByMonthIndexViewModel.FilterCountry11,
+                anualItineraryByMonthIndexViewModel.FilterCountry12,
+            ];
             return filterCountries;
         }
 

@@ -27,8 +27,8 @@
                             <input asp-for="MapPicture" class="custom-file-input" />
                             <label class="custom-file-label" for="customFile">Choose file</label>
                         </div>
-                        <span asp-validation-for="MapPicture" class="text-danger"></span>
-                        <img src="@AirlineFileLocation.RetriveFileFromFolder@Model.ExistingImage" class="img-thumbnail" height="80" width="80" asp-append-version="true" />
+                        <span asp-validation-for="ExistingImage" class="text-danger"></span>
+                        <img  asp-for="ExistingImage" src="@AirlineFileLocation.RetriveFileFromFolder@Model.ExistingImage" class="img-thumbnail" height="80" width="80" asp-append-version="true" />
                     </div>
                 </div>
             </div>

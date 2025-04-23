@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Code Project\\Route\\Traveller\\RouteDataManager\\RouteDataManager.csproj": {}
+    "C:\\Projects\\Route\\Traveller\\RouteDataManager\\RouteDataManager.csproj": {}
   },
   "projects": {
-    "D:\\Code Project\\Route\\Traveller\\AutoMapper\\Application.csproj": {
+    "C:\\Projects\\Route\\Traveller\\AutoMapper\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Code Project\\Route\\Traveller\\AutoMapper\\Application.csproj",
+        "projectUniqueName": "C:\\Projects\\Route\\Traveller\\AutoMapper\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "D:\\Code Project\\Route\\Traveller\\AutoMapper\\Application.csproj",
-        "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
-        "outputPath": "D:\\Code Project\\Route\\Traveller\\AutoMapper\\obj\\",
+        "projectPath": "C:\\Projects\\Route\\Traveller\\AutoMapper\\Application.csproj",
+        "packagesPath": "C:\\Users\\David Lorente\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\Route\\Traveller\\AutoMapper\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\David Lorente\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,15 +22,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "D:\\MVC Service Template\\MVC Service Template\\Arki-tech\\bin\\Release": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Code Project\\Route\\Traveller\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\Code Project\\Route\\Traveller\\Domain\\Domain.csproj"
+              "C:\\Projects\\Route\\Traveller\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Projects\\Route\\Traveller\\Domain\\Domain.csproj"
               }
             }
           }
@@ -39,6 +38,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -74,21 +78,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Code Project\\Route\\Traveller\\Data\\Data.csproj": {
+    "C:\\Projects\\Route\\Traveller\\Data\\Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Code Project\\Route\\Traveller\\Data\\Data.csproj",
+        "projectUniqueName": "C:\\Projects\\Route\\Traveller\\Data\\Data.csproj",
         "projectName": "Data",
-        "projectPath": "D:\\Code Project\\Route\\Traveller\\Data\\Data.csproj",
-        "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
-        "outputPath": "D:\\Code Project\\Route\\Traveller\\Data\\obj\\",
+        "projectPath": "C:\\Projects\\Route\\Traveller\\Data\\Data.csproj",
+        "packagesPath": "C:\\Users\\David Lorente\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\Route\\Traveller\\Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\David Lorente\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -96,15 +100,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "D:\\MVC Service Template\\MVC Service Template\\Arki-tech\\bin\\Release": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Code Project\\Route\\Traveller\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\Code Project\\Route\\Traveller\\Domain\\Domain.csproj"
+              "C:\\Projects\\Route\\Traveller\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Projects\\Route\\Traveller\\Domain\\Domain.csproj"
               }
             }
           }
@@ -113,6 +116,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -140,21 +148,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Code Project\\Route\\Traveller\\Domain\\Domain.csproj": {
+    "C:\\Projects\\Route\\Traveller\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Code Project\\Route\\Traveller\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Projects\\Route\\Traveller\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "D:\\Code Project\\Route\\Traveller\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
-        "outputPath": "D:\\Code Project\\Route\\Traveller\\Domain\\obj\\",
+        "projectPath": "C:\\Projects\\Route\\Traveller\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\David Lorente\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\Route\\Traveller\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\David Lorente\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -162,7 +170,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "D:\\MVC Service Template\\MVC Service Template\\Arki-tech\\bin\\Release": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -175,6 +182,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -210,21 +222,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Code Project\\Route\\Traveller\\RouteDataManager\\RouteDataManager.csproj": {
+    "C:\\Projects\\Route\\Traveller\\RouteDataManager\\RouteDataManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Code Project\\Route\\Traveller\\RouteDataManager\\RouteDataManager.csproj",
+        "projectUniqueName": "C:\\Projects\\Route\\Traveller\\RouteDataManager\\RouteDataManager.csproj",
         "projectName": "RouteDataManager",
-        "projectPath": "D:\\Code Project\\Route\\Traveller\\RouteDataManager\\RouteDataManager.csproj",
-        "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
-        "outputPath": "D:\\Code Project\\Route\\Traveller\\RouteDataManager\\obj\\",
+        "projectPath": "C:\\Projects\\Route\\Traveller\\RouteDataManager\\RouteDataManager.csproj",
+        "packagesPath": "C:\\Users\\David Lorente\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\Route\\Traveller\\RouteDataManager\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\David Lorente\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -232,24 +244,23 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "D:\\MVC Service Template\\MVC Service Template\\Arki-tech\\bin\\Release": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Code Project\\Route\\Traveller\\AutoMapper\\Application.csproj": {
-                "projectPath": "D:\\Code Project\\Route\\Traveller\\AutoMapper\\Application.csproj"
+              "C:\\Projects\\Route\\Traveller\\AutoMapper\\Application.csproj": {
+                "projectPath": "C:\\Projects\\Route\\Traveller\\AutoMapper\\Application.csproj"
               },
-              "D:\\Code Project\\Route\\Traveller\\Data\\Data.csproj": {
-                "projectPath": "D:\\Code Project\\Route\\Traveller\\Data\\Data.csproj"
+              "C:\\Projects\\Route\\Traveller\\Data\\Data.csproj": {
+                "projectPath": "C:\\Projects\\Route\\Traveller\\Data\\Data.csproj"
               },
-              "D:\\Code Project\\Route\\Traveller\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\Code Project\\Route\\Traveller\\Domain\\Domain.csproj"
+              "C:\\Projects\\Route\\Traveller\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Projects\\Route\\Traveller\\Domain\\Domain.csproj"
               },
-              "D:\\Code Project\\Route\\Traveller\\Traveller\\Services.csproj": {
-                "projectPath": "D:\\Code Project\\Route\\Traveller\\Traveller\\Services.csproj"
+              "C:\\Projects\\Route\\Traveller\\Traveller\\Services.csproj": {
+                "projectPath": "C:\\Projects\\Route\\Traveller\\Traveller\\Services.csproj"
               }
             }
           }
@@ -258,6 +269,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -336,21 +352,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Code Project\\Route\\Traveller\\Traveller\\Services.csproj": {
+    "C:\\Projects\\Route\\Traveller\\Traveller\\Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Code Project\\Route\\Traveller\\Traveller\\Services.csproj",
+        "projectUniqueName": "C:\\Projects\\Route\\Traveller\\Traveller\\Services.csproj",
         "projectName": "Services",
-        "projectPath": "D:\\Code Project\\Route\\Traveller\\Traveller\\Services.csproj",
-        "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
-        "outputPath": "D:\\Code Project\\Route\\Traveller\\Traveller\\obj\\",
+        "projectPath": "C:\\Projects\\Route\\Traveller\\Traveller\\Services.csproj",
+        "packagesPath": "C:\\Users\\David Lorente\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\Route\\Traveller\\Traveller\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\David Lorente\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -358,21 +374,20 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "D:\\MVC Service Template\\MVC Service Template\\Arki-tech\\bin\\Release": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Code Project\\Route\\Traveller\\AutoMapper\\Application.csproj": {
-                "projectPath": "D:\\Code Project\\Route\\Traveller\\AutoMapper\\Application.csproj"
+              "C:\\Projects\\Route\\Traveller\\AutoMapper\\Application.csproj": {
+                "projectPath": "C:\\Projects\\Route\\Traveller\\AutoMapper\\Application.csproj"
               },
-              "D:\\Code Project\\Route\\Traveller\\Data\\Data.csproj": {
-                "projectPath": "D:\\Code Project\\Route\\Traveller\\Data\\Data.csproj"
+              "C:\\Projects\\Route\\Traveller\\Data\\Data.csproj": {
+                "projectPath": "C:\\Projects\\Route\\Traveller\\Data\\Data.csproj"
               },
-              "D:\\Code Project\\Route\\Traveller\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\Code Project\\Route\\Traveller\\Domain\\Domain.csproj"
+              "C:\\Projects\\Route\\Traveller\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Projects\\Route\\Traveller\\Domain\\Domain.csproj"
               }
             }
           }
@@ -381,6 +396,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -424,7 +444,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
